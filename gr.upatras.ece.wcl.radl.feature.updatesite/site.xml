@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description name="RADL update site">
+      RADL update site description
+   </description>
+   <feature url="features/gr.upatras.ece.wcl.radl.feature_1.3.2.201103152054.jar" id="gr.upatras.ece.wcl.radl.feature" version="1.3.2.201103152054">
+      <category name="RADL 1.3.2"/>
+   </feature>
+   <category-def name="RADL 1.3.2" label="Resource Adapter Description Language (RADL)"/>
+</site>
