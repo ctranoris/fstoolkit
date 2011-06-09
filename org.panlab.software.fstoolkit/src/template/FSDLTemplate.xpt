@@ -1,0 +1,46 @@
+«IMPORT FederationOffice»
+
+
+«DEFINE main(String filename) FOR FederationOffice::federationscenarios::RequestedFederationScenario»
+«FILE filename»
+//Auto generated imported file 
+RequestedFederationScenario «name»
+
+«IF this.imports.size>0»
+«FOREACH this.imports AS imp»import office "« imp.importURI »";«ENDFOREACH»
+«ELSE»import office "« ((Office )this.eContainer).resourceURI  »";«ENDIF» 
+//ScheduledPlan { 
+//	ValidFrom "[enter value: now or dd/mm/yyyy hh:mm:ss]"
+//	ValidUntil "[enter value: now or dd/mm/yyyy hh:mm:ss]"
+//}
+
+RequestInfrastructure {
+	«FOREACH infrastructureRequest.reqOfferedResources AS f»
+	«LET ( (FederationOffice::providersite::Site)f.refOfferedResource.eContainer).name AS siteName-»
+	«LET ( ( FederationOffice::users::ResourcesProvider)f.refOfferedResource.eContainer.eContainer).name AS providerName-»
+	«LET ((Office )f.refOfferedResource.eContainer.eContainer.eContainer).name AS officeName-» 
+	//resource by : «officeName».«providerName».«siteName»
+	//description : «f.refOfferedResource.description»
+	Resource "«officeName».«providerName».«siteName».«f.refOfferedResource.name»" as «f.name» settings{
+		«FOREACH f.reqResourceSettings  AS regSet-»
+		«IF !regSet.refResourceSetting.Writable»Setting "«regSet.refResourceSetting.name»" : «regSet.name» //«regSet.description»
+		«ELSEIF regSet.assignSetting.size>0 -»
+ 		Setting "«regSet.refResourceSetting.name»" : «regSet.name» assign «FOREACH regSet.assignSetting AS aset SEPARATOR ","»"«((FederationOffice::federationscenarios::RequestedFederationScenario )aset.eContainer.eContainer.eContainer).name».«((FederationOffice::federationscenarios::ResourceRequest )aset.eContainer).name».«aset.name»"«ENDFOREACH»  //«regSet.description»
+		«ELSE-»
+ 		Setting "«regSet.refResourceSetting.name»" : «regSet.name» = "«regSet.staticValue»"  //«regSet.description»
+		«ENDIF-»
+		«ENDFOREACH-»
+ 	}	
+	«ENDLET»«REM»officeName LET«ENDREM»«ENDLET»«ENDLET»«ENDFOREACH-»
+	
+	«FOREACH infrastructureRequest.resourceGroups AS f-»
+	ResourceGroup «f.name» refersResources{
+		«FOREACH f.groupedResources AS r SEPARATOR ","-»
+			"«this.name».«r.name»"
+		«ENDFOREACH-»
+	}
+	«ENDFOREACH-»
+ }
+
+«ENDFILE»
+«ENDDEFINE»
