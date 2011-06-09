@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Amazon
+Bundle-SymbolicName: org.panlab.software.FCI.amazon
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.panlab.software.fci.amazon.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.panlab.software.office.model;bundle-version="1.0.1",
+ org.apache.commons.httpclient;bundle-version="3.1.0",
+ org.panlab.officedl;bundle-version="1.1.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.panlab.software.fci.amazon
