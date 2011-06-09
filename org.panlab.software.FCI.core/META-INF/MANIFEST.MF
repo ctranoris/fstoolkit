@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: FCI Core
+Bundle-SymbolicName: org.panlab.software.FCI.core
+Bundle-Version: 1.0.0.qualifier
+Export-Package: org.panlab.software.fci.core
+Require-Bundle: org.apache.commons.logging,
+ org.apache.commons.httpclient,
+ org.apache.commons.codec,
+ org.panlab.software.office.model;bundle-version="1.0.0",
+ org.panlab.software.FCI.panlab;bundle-version="1.0.0",
+ org.panlab.software.FCI.uop;bundle-version="1.0.0",
+ org.panlab.software.FCI.amazon;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
