@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/gr.upatras.ece.wcl.FCIgenerator.feature_0.1.7.qualifier.jar" id="gr.upatras.ece.wcl.FCIgenerator.feature" version="0.1.7.qualifier">
+      <category name="fci.wcl.ece.upatras.gr"/>
+   </feature>
+   <feature url="features/org.panlab.software.FCIgenerator.feature_1.0.0.qualifier.jar" id="org.panlab.software.FCIgenerator.feature" version="1.0.0.qualifier">
+      <category name="fci.software.panlab.org"/>
+   </feature>
+   <category-def name="fci.software.panlab.org" label="Panlab Federation Computing Interface generator"/>
+</site>
