@@ -1,0 +1,30 @@
+«IMPORT FederationOffice»
+
+«EXTENSION templateC::GeneratorExtensions»
+
+«DEFINE main_vctCMainExample FOR FederationOffice::federationscenarios::RequestedFederationScenario »
+«FILE name+".c"»
+
+#include <socket.h>
+#include <stralloc.h>
+#include <stdlib.h>
+#include <ip4.h>
+#include <unistd.h>
+#include <stdio.h>
+#include "yev.h"
+#include "fci.h"
+
+int main(int argc, char **argv)
+{
+	/*A "Hello World" application for your «name» VCT*/
+	/*Check fci.h for more FCI C available functions*/
+	
+	«FOREACH infrastructureRequest.reqOfferedResources AS f»«FOREACH f.refOfferedResource.implOfferedService.serviceSettings AS implServSetting»
+	fci_one_arg("«f.name»", "«implServSetting.name»", "myvalue");
+	«ENDFOREACH»«ENDFOREACH»
+  	return 0;
+}
+
+
+«ENDFILE»
+«ENDDEFINE»

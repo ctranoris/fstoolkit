@@ -1,0 +1,33 @@
+«IMPORT FederationOffice»
+
+
+«DEFINE main_fsdl FOR FederationOffice::federationscenarios::RequestedFederationScenario»
+«FILE this.name+".fsdl"»
+//Auto generated imported file 
+RequestedFederationScenario «name»
+import office "« ((Office )this.eContainer).resourceURI  »"; 
+«LET ((Office )this.eContainer).name AS officeName» 
+
+//ScheduledPlan { 
+//	ValidFrom "now"
+//	ValidUntil "[modify]"
+//}
+
+RequestInfrastructure {
+	«FOREACH infrastructureRequest.reqOfferedResources AS f-»
+	«LET ( (FederationOffice::providersite::Site)f.refOfferedResource.eContainer).name AS siteName»
+	«LET ( ( FederationOffice::users::ResourcesProvider)f.refOfferedResource.eContainer.eContainer).name AS providerName»
+	//resource by : «officeName».«providerName».«siteName»
+	//description : «f.refOfferedResource.description»
+	Resource "«f.refOfferedResource.name»" as «f.name» settings{
+		«FOREACH f.reqResourceSettings  AS regSet-»
+ 		Setting "«regSet.name»" : «regSet.name» = "«regSet.staticValue»"  //«regSet.description»
+		«ENDFOREACH-»
+ 	}	
+	«ENDLET»«ENDLET»«ENDFOREACH-»
+	
+ }
+
+«ENDLET»«REM»officeName LET«ENDREM»
+«ENDFILE»
+«ENDDEFINE»

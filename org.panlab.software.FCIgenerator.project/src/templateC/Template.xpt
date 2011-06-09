@@ -1,0 +1,7 @@
+«IMPORT FederationOffice»
+
+«EXTENSION templateC::GeneratorExtensions»
+
+«DEFINE main FOR FederationOffice::Office»
+«EXPAND vctCMainExample::main_vctCMainExample FOREACH availableFederationScenarios»
+«ENDDEFINE»
