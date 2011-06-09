@@ -1,0 +1,4 @@
+import org::panlab::software::fsdl::fSDL;
+
+sortedGreetings(Model this) :
+	this.greetings.sortBy(g|g.name.toLowerCase());
