@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.panlab.officedl
+Bundle-Vendor: My Company
+Bundle-Version: 1.1.0
+Bundle-SymbolicName: org.panlab.officedl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.generator;resolution:=optional,
+ org.apache.commons.logging;resolution:=optional,
+ org.eclipse.emf.codegen.ecore;resolution:=optional,
+ org.eclipse.emf.mwe.utils;resolution:=optional,
+ org.eclipse.emf.mwe2.launch;resolution:=optional,
+ com.ibm.icu;resolution:=optional,
+ org.eclipse.xtext.xtend;resolution:=optional,
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.antlr.runtime,
+ org.panlab.software.office.model;bundle-version="1.0.0"
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.panlab.officedl,
+ org.panlab.officedl.services,
+ org.panlab.officedl.parseTreeConstruction,
+ org.panlab.officedl.parser.antlr,
+ org.panlab.officedl.parser.antlr.internal,
+ org.panlab.officedl.validation,
+ org.panlab.officedl.dslOfficeModel,
+ org.panlab.officedl.dslOfficeModel.impl,
+ org.panlab.officedl.dslOfficeModel.util

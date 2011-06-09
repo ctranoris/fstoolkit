@@ -1,0 +1,2677 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xtext="http://www.eclipse.org/2008/Xtext">
+  <xtext:Grammar name="org.panlab.officedl.OfficeDL" usedGrammars="/1">
+    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="ecore">
+      <ePackage href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+    </metamodelDeclarations>
+    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="office">
+      <ePackage href="http://www.panlab.org/FederationOffice/model/federationscenarios#/"/>
+    </metamodelDeclarations>
+    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="users">
+      <ePackage href="http://www.panlab.org/FederationOffice/model/federationscenarios#//users"/>
+    </metamodelDeclarations>
+    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="services">
+      <ePackage href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services"/>
+    </metamodelDeclarations>
+    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="resources">
+      <ePackage href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources"/>
+    </metamodelDeclarations>
+    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="providersite">
+      <ePackage href="http://www.panlab.org/FederationOffice/model/federationscenarios#//providersite"/>
+    </metamodelDeclarations>
+    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="slareservations">
+      <ePackage href="http://www.panlab.org/FederationOffice/model/federationscenarios#//slareservations"/>
+    </metamodelDeclarations>
+    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="availabilityContract">
+      <ePackage href="http://www.panlab.org/FederationOffice/model/federationscenarios#//availabilityContract"/>
+    </metamodelDeclarations>
+    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="networkelements">
+      <ePackage href="http://www.panlab.org/FederationOffice/model/federationscenarios#//networkelements"/>
+    </metamodelDeclarations>
+    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="federationscenarios">
+      <ePackage href="http://www.panlab.org/FederationOffice/model/federationscenarios#//federationscenarios"/>
+    </metamodelDeclarations>
+    <metamodelDeclarations xsi:type="xtext:GeneratedMetamodel" name="dslOfficeModel">
+      <ePackage href="http://www.panlab.org/dslOfficeModel#/"/>
+    </metamodelDeclarations>
+    <rules xsi:type="xtext:ParserRule" name="OfficeRule">
+      <type metamodel="/0/@metamodelDeclarations.10">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/dslOfficeModel#//OfficeRule"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.10">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/dslOfficeModel#//OfficeRule"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="*" feature="imports" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.1"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="testbedOfficev" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ImportOffice">
+      <type metamodel="/0/@metamodelDeclarations.10">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/dslOfficeModel#//ImportOffice"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="import service description"/>
+        <elements xsi:type="xtext:Assignment" feature="importURI" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=";"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Office">
+      <type metamodel="/0/@metamodelDeclarations.1">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//Office"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.1">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//Office"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="Office"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="resourceURI"/>
+          <elements xsi:type="xtext:Assignment" feature="resourceURI" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="APIGateway"/>
+          <elements xsi:type="xtext:Assignment" feature="APIGateway" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="registeredUsers"/>
+          <elements xsi:type="xtext:Keyword" value="{"/>
+          <elements xsi:type="xtext:Assignment" feature="registeredUsers" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="registeredUsers" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="}"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="contributedTaxonomies"/>
+          <elements xsi:type="xtext:Keyword" value="{"/>
+          <elements xsi:type="xtext:Assignment" feature="contributedTaxonomies" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="contributedTaxonomies" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="}"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="offeredServices"/>
+          <elements xsi:type="xtext:Keyword" value="{"/>
+          <elements xsi:type="xtext:Assignment" feature="offeredServices" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="offeredServices" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="}"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="offeredServiceCompositions"/>
+          <elements xsi:type="xtext:Keyword" value="{"/>
+          <elements xsi:type="xtext:Assignment" feature="offeredServiceCompositions" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="offeredServiceCompositions" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="}"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="ResourceServiceContracts"/>
+          <elements xsi:type="xtext:Keyword" value="{"/>
+          <elements xsi:type="xtext:Assignment" feature="ResourceServiceContracts" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="ResourceServiceContracts" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="}"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="SLAs"/>
+          <elements xsi:type="xtext:Keyword" value="{"/>
+          <elements xsi:type="xtext:Assignment" feature="SLAs" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="SLAs" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="}"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="OfficeUser">
+      <type metamodel="/0/@metamodelDeclarations.2">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//users/OfficeUser"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.17"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.19"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.20"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Service">
+      <type metamodel="/0/@metamodelDeclarations.3">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/Service"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.30"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Resource">
+      <type metamodel="/0/@metamodelDeclarations.4">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/Resource"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.28"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.25"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="SettingType">
+      <type metamodel="/0/@metamodelDeclarations.3">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/SettingType"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.35"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.36"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.37"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.38"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="AbstractSetting">
+      <type metamodel="/0/@metamodelDeclarations.3">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/AbstractSetting"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.33"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.34"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="NamedElement">
+      <type metamodel="/0/@metamodelDeclarations.1">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//NamedElement"/>
+      </type>
+      <alternatives xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="EInt">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" cardinality="?" value="-"/>
+        <elements xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Taxonomy">
+      <type metamodel="/0/@metamodelDeclarations.3">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/Taxonomy"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.3">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/Taxonomy"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="Taxonomy"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="hasScenarios"/>
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:Assignment" feature="hasScenarios" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.9">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//federationscenarios/RequestedFederationScenario"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="hasScenarios" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.9">
+                  <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//federationscenarios/RequestedFederationScenario"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value=")"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="hasServices"/>
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:Assignment" feature="hasServices" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.3">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/Service"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="hasServices" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.3">
+                  <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/Service"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value=")"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="taxonomies"/>
+          <elements xsi:type="xtext:Keyword" value="{"/>
+          <elements xsi:type="xtext:Assignment" feature="taxonomies" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="taxonomies" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="}"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="categories"/>
+          <elements xsi:type="xtext:Keyword" value="{"/>
+          <elements xsi:type="xtext:Assignment" feature="categories" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.27"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="categories" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.27"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="}"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="OfferedService">
+      <type metamodel="/0/@metamodelDeclarations.3">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/OfferedService"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.3">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/OfferedService"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="OfferedService"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="requiresServices"/>
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:Assignment" feature="requiresServices" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.3">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/Service"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="requiresServices" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.3">
+                  <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/Service"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value=")"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="serviceSettings"/>
+          <elements xsi:type="xtext:Keyword" value="{"/>
+          <elements xsi:type="xtext:Assignment" feature="serviceSettings" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.34"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="serviceSettings" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.34"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="}"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ServiceComposition">
+      <type metamodel="/0/@metamodelDeclarations.3">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/ServiceComposition"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.3">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/ServiceComposition"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="ServiceComposition"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="hasServices"/>
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:Assignment" feature="hasServices" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.3">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/Service"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="hasServices" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.3">
+                  <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/Service"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value=")"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ResourceServiceContract">
+      <type metamodel="/0/@metamodelDeclarations.7">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//availabilityContract/ResourceServiceContract"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="ResourceServiceContract"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="StartDate"/>
+        <elements xsi:type="xtext:Assignment" feature="StartDate" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.41"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="EndDate"/>
+        <elements xsi:type="xtext:Assignment" feature="EndDate" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.41"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="forOfferedService"/>
+        <elements xsi:type="xtext:Assignment" feature="forOfferedService" operator="=">
+          <terminal xsi:type="xtext:CrossReference">
+            <type metamodel="/0/@metamodelDeclarations.3">
+              <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/Service"/>
+            </type>
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </terminal>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="forOfferedResource"/>
+        <elements xsi:type="xtext:Assignment" feature="forOfferedResource" operator="=">
+          <terminal xsi:type="xtext:CrossReference">
+            <type metamodel="/0/@metamodelDeclarations.4">
+              <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/OfferedResource"/>
+            </type>
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </terminal>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="availability"/>
+          <elements xsi:type="xtext:Assignment" feature="availability" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.42"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="SLA">
+      <type metamodel="/0/@metamodelDeclarations.6">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//slareservations/SLA"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.6">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//slareservations/SLA"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="SLA"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="ValidFrom"/>
+          <elements xsi:type="xtext:Assignment" feature="ValidFrom" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.41"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="ValidUntil"/>
+          <elements xsi:type="xtext:Assignment" feature="ValidUntil" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.41"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="forVT"/>
+          <elements xsi:type="xtext:Assignment" feature="forVT" operator="=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.9">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//federationscenarios/RequestedFederationScenario"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="ReservedRsources"/>
+          <elements xsi:type="xtext:Keyword" value="{"/>
+          <elements xsi:type="xtext:Assignment" feature="ReservedRsources" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.47"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="ReservedRsources" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.47"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="}"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Account">
+      <type metamodel="/0/@metamodelDeclarations.2">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//users/Account"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.2">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//users/Account"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="Account"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="password"/>
+          <elements xsi:type="xtext:Assignment" feature="password" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="username"/>
+          <elements xsi:type="xtext:Assignment" feature="username" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ResourcesProvider_Impl">
+      <type metamodel="/0/@metamodelDeclarations.2">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//users/ResourcesProvider"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.2">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//users/ResourcesProvider"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="ResourcesProvider"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="organization"/>
+          <elements xsi:type="xtext:Assignment" feature="organization" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="address"/>
+          <elements xsi:type="xtext:Assignment" feature="address" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="telephone"/>
+          <elements xsi:type="xtext:Assignment" feature="telephone" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="hasAccount"/>
+          <elements xsi:type="xtext:Assignment" feature="hasAccount" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="offeredSiteList"/>
+          <elements xsi:type="xtext:Keyword" value="{"/>
+          <elements xsi:type="xtext:Assignment" feature="offeredSiteList" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.21"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="offeredSiteList" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.21"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="}"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="TestbedDesigner">
+      <type metamodel="/0/@metamodelDeclarations.2">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//users/TestbedDesigner"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.2">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//users/TestbedDesigner"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="TestbedDesigner"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="organization"/>
+          <elements xsi:type="xtext:Assignment" feature="organization" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="address"/>
+          <elements xsi:type="xtext:Assignment" feature="address" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="telephone"/>
+          <elements xsi:type="xtext:Assignment" feature="telephone" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="designsVirtualTestbeds"/>
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:Assignment" feature="designsVirtualTestbeds" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.9">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//federationscenarios/RequestedFederationScenario"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="designsVirtualTestbeds" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.9">
+                  <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//federationscenarios/RequestedFederationScenario"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value=")"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="hasAccount"/>
+          <elements xsi:type="xtext:Assignment" feature="hasAccount" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Admin">
+      <type metamodel="/0/@metamodelDeclarations.2">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//users/Admin"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.2">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//users/Admin"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="Admin"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="organization"/>
+          <elements xsi:type="xtext:Assignment" feature="organization" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="address"/>
+          <elements xsi:type="xtext:Assignment" feature="address" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="telephone"/>
+          <elements xsi:type="xtext:Assignment" feature="telephone" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="hasAccount"/>
+          <elements xsi:type="xtext:Assignment" feature="hasAccount" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="OfficeCustomer">
+      <type metamodel="/0/@metamodelDeclarations.2">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//users/OfficeCustomer"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.2">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//users/OfficeCustomer"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="OfficeCustomer"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="organization"/>
+          <elements xsi:type="xtext:Assignment" feature="organization" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="address"/>
+          <elements xsi:type="xtext:Assignment" feature="address" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="telephone"/>
+          <elements xsi:type="xtext:Assignment" feature="telephone" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="utilizesVirtualTestbed"/>
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:Assignment" feature="utilizesVirtualTestbed" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.9">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//federationscenarios/RequestedFederationScenario"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="utilizesVirtualTestbed" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.9">
+                  <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//federationscenarios/RequestedFederationScenario"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value=")"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="hasTestbedDesigner"/>
+          <elements xsi:type="xtext:Assignment" feature="hasTestbedDesigner" operator="=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.2">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//users/TestbedDesigner"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="hasAccount"/>
+          <elements xsi:type="xtext:Assignment" feature="hasAccount" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="OfficePersonel_Impl">
+      <type metamodel="/0/@metamodelDeclarations.2">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//users/OfficePersonel"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.2">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//users/OfficePersonel"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="OfficePersonel"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="organization"/>
+          <elements xsi:type="xtext:Assignment" feature="organization" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="address"/>
+          <elements xsi:type="xtext:Assignment" feature="address" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="telephone"/>
+          <elements xsi:type="xtext:Assignment" feature="telephone" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="hasAccount"/>
+          <elements xsi:type="xtext:Assignment" feature="hasAccount" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Site">
+      <type metamodel="/0/@metamodelDeclarations.5">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//providersite/Site"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="Site"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="ptm"/>
+        <elements xsi:type="xtext:Assignment" feature="ptm" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.22"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="igwlist"/>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Assignment" feature="igwlist" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.23"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="*">
+          <elements xsi:type="xtext:Keyword" value=","/>
+          <elements xsi:type="xtext:Assignment" feature="igwlist" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.23"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+        <elements xsi:type="xtext:Keyword" value="locatedAt"/>
+        <elements xsi:type="xtext:Assignment" feature="locatedAt" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.24"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="offeredResourcesList"/>
+          <elements xsi:type="xtext:Keyword" value="{"/>
+          <elements xsi:type="xtext:Assignment" feature="offeredResourcesList" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.25"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="offeredResourcesList" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.25"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="}"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="PTM">
+      <type metamodel="/0/@metamodelDeclarations.5">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//providersite/PTM"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.5">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//providersite/PTM"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="PTM"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="IP"/>
+          <elements xsi:type="xtext:Assignment" feature="IP" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="IGW">
+      <type metamodel="/0/@metamodelDeclarations.5">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//providersite/IGW"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.5">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//providersite/IGW"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="IGW"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="IP"/>
+          <elements xsi:type="xtext:Assignment" feature="IP" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="SiteLocation">
+      <type metamodel="/0/@metamodelDeclarations.5">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//providersite/SiteLocation"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.5">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//providersite/SiteLocation"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="SiteLocation"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="address"/>
+          <elements xsi:type="xtext:Assignment" feature="address" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="geocoords"/>
+          <elements xsi:type="xtext:Assignment" feature="geocoords" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="OfferedResource">
+      <type metamodel="/0/@metamodelDeclarations.4">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/OfferedResource"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.4">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/OfferedResource"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="OfferedResource"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="resourceType"/>
+          <elements xsi:type="xtext:Assignment" feature="resourceType" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.29"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="multitonMaxOccur"/>
+          <elements xsi:type="xtext:Assignment" feature="multitonMaxOccur" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="contributesToCategories"/>
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:Assignment" feature="contributesToCategories" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.4">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/ResourceCategory"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="contributesToCategories" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.4">
+                  <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/ResourceCategory"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value=")"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="requiresResources"/>
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:Assignment" feature="requiresResources" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.4">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/Resource"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="requiresResources" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.4">
+                  <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/Resource"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value=")"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="implOfferedService"/>
+          <elements xsi:type="xtext:Assignment" feature="implOfferedService" operator="=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.3">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/Service"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="resourceSettings"/>
+          <elements xsi:type="xtext:Keyword" value="{"/>
+          <elements xsi:type="xtext:Assignment" feature="resourceSettings" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="resourceSettings" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="}"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ResourceSetting">
+      <type metamodel="/0/@metamodelDeclarations.4">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/ResourceSetting"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.4">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/ResourceSetting"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="userExposed" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="userExposed"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="userEditable" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="userEditable"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="canBePublished" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="canBePublished"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="ResourceSetting"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="Readable" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="Readable"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="Writable" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="Writable"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="requiresParams"/>
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:Assignment" feature="requiresParams" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.3">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/AbstractSetting"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="requiresParams" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.3">
+                  <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/AbstractSetting"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value=")"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="OnlyConfiguredByResources"/>
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:Assignment" feature="OnlyConfiguredByResources" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.4">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/Resource"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="OnlyConfiguredByResources" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.4">
+                  <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/Resource"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value=")"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="implServiceSetting"/>
+          <elements xsi:type="xtext:Assignment" feature="implServiceSetting" operator="=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.3">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/ServiceSetting"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="settingType"/>
+          <elements xsi:type="xtext:Assignment" feature="settingType" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="settingConstraints"/>
+          <elements xsi:type="xtext:Keyword" value="{"/>
+          <elements xsi:type="xtext:Assignment" feature="settingConstraints" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="settingConstraints" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="}"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ResourceCategory">
+      <type metamodel="/0/@metamodelDeclarations.4">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/ResourceCategory"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.4">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/ResourceCategory"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="ResourceCategory"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="resourcelist"/>
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:Assignment" feature="resourcelist" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.4">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/Resource"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="resourcelist" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.4">
+                  <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/Resource"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value=")"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Resource_Impl">
+      <type metamodel="/0/@metamodelDeclarations.4">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/Resource"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.4">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/Resource"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="Resource"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="contributesToCategories"/>
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:Assignment" feature="contributesToCategories" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.4">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/ResourceCategory"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="contributesToCategories" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.4">
+                  <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/ResourceCategory"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value=")"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="requiresResources"/>
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:Assignment" feature="requiresResources" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.4">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/Resource"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="requiresResources" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.4">
+                  <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/Resource"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value=")"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="resourceSettings"/>
+          <elements xsi:type="xtext:Keyword" value="{"/>
+          <elements xsi:type="xtext:Assignment" feature="resourceSettings" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="resourceSettings" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="}"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:EnumRule" name="ResourceType">
+      <type metamodel="/0/@metamodelDeclarations.4">
+        <classifier xsi:type="ecore:EEnum" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/ResourceType"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/ResourceType/SINGLETON"/>
+          <literal value="SINGLETON"/>
+        </elements>
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/ResourceType/MULTITON"/>
+          <literal value="MULTITON"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Service_Impl">
+      <type metamodel="/0/@metamodelDeclarations.3">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/Service"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.3">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/Service"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="Service"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="requiresServices"/>
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:Assignment" feature="requiresServices" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.3">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/Service"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="requiresServices" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.3">
+                  <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/Service"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value=")"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="serviceSettings"/>
+          <elements xsi:type="xtext:Keyword" value="{"/>
+          <elements xsi:type="xtext:Assignment" feature="serviceSettings" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.34"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="serviceSettings" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.34"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="}"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="EBoolean">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:Keyword" value="true"/>
+        <elements xsi:type="xtext:Keyword" value="false"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="SettingConstraint">
+      <type metamodel="/0/@metamodelDeclarations.3">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/SettingConstraint"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.3">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/SettingConstraint"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="SettingConstraint"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="AvailableAfterOperation" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="AvailableAfterOperation"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="RequiredBeforeOperation" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="RequiredBeforeOperation"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="ForOperation"/>
+          <elements xsi:type="xtext:Assignment" feature="ForOperation" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.40"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="AbstractSetting_Impl">
+      <type metamodel="/0/@metamodelDeclarations.3">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/AbstractSetting"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.3">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/AbstractSetting"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="userExposed" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="userExposed"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="userEditable" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="userEditable"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="canBePublished" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="canBePublished"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="AbstractSetting"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="Readable" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="Readable"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="Writable" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="Writable"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="requiresParams"/>
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:Assignment" feature="requiresParams" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.3">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/AbstractSetting"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="requiresParams" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.3">
+                  <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/AbstractSetting"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value=")"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="settingType"/>
+          <elements xsi:type="xtext:Assignment" feature="settingType" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="settingConstraints"/>
+          <elements xsi:type="xtext:Keyword" value="{"/>
+          <elements xsi:type="xtext:Assignment" feature="settingConstraints" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="settingConstraints" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="}"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ServiceSetting">
+      <type metamodel="/0/@metamodelDeclarations.3">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/ServiceSetting"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.3">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/ServiceSetting"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="userExposed" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="userExposed"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="userEditable" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="userEditable"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="canBePublished" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="canBePublished"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="ServiceSetting"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="Readable" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="Readable"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="Writable" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="Writable"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="requiresParams"/>
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:Assignment" feature="requiresParams" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.3">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/AbstractSetting"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="requiresParams" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.3">
+                  <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/AbstractSetting"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value=")"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="mappedToResourceSettings"/>
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:Assignment" feature="mappedToResourceSettings" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.4">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/ResourceSetting"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="mappedToResourceSettings" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.4">
+                  <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/ResourceSetting"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value=")"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="providedByResources"/>
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:Assignment" feature="providedByResources" operator="+=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.4">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/Resource"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="providedByResources" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.4">
+                  <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/Resource"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value=")"/>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="settingType"/>
+          <elements xsi:type="xtext:Assignment" feature="settingType" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="settingConstraints"/>
+          <elements xsi:type="xtext:Keyword" value="{"/>
+          <elements xsi:type="xtext:Assignment" feature="settingConstraints" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="settingConstraints" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="}"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="tideTypeString">
+      <type metamodel="/0/@metamodelDeclarations.3">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/tideTypeString"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.3">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/tideTypeString"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="tideTypeString"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="defaultValue"/>
+          <elements xsi:type="xtext:Assignment" feature="defaultValue" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="tideTypeEnum">
+      <type metamodel="/0/@metamodelDeclarations.3">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/tideTypeEnum"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.3">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/tideTypeEnum"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="tideTypeEnum"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="defaultValue"/>
+          <elements xsi:type="xtext:Assignment" feature="defaultValue" operator="=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.3">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/tideTypeEnumItem"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="tideEnumlist"/>
+          <elements xsi:type="xtext:Keyword" value="{"/>
+          <elements xsi:type="xtext:Assignment" feature="tideEnumlist" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.39"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="tideEnumlist" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.39"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="}"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="tideTypeList">
+      <type metamodel="/0/@metamodelDeclarations.3">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/tideTypeList"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.3">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/tideTypeList"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="tideTypeList"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="ContainsElementsOf"/>
+          <elements xsi:type="xtext:Assignment" feature="ContainsElementsOf" operator="=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.1">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//NamedElement"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="tideTypeTideElement">
+      <type metamodel="/0/@metamodelDeclarations.3">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/tideTypeTideElement"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.3">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/tideTypeTideElement"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="tideTypeTideElement"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="ofTideElement"/>
+          <elements xsi:type="xtext:Assignment" feature="ofTideElement" operator="=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.1">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//NamedElement"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="tideTypeEnumItem">
+      <type metamodel="/0/@metamodelDeclarations.3">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/tideTypeEnumItem"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.3">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/tideTypeEnumItem"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="tideTypeEnumItem"/>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="value"/>
+          <elements xsi:type="xtext:Assignment" feature="value" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:EnumRule" name="ServiceResourceOperation">
+      <type metamodel="/0/@metamodelDeclarations.3">
+        <classifier xsi:type="ecore:EEnum" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/ServiceResourceOperation"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/ServiceResourceOperation/OP_CREATE"/>
+          <literal value="OP_CREATE"/>
+        </elements>
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/ServiceResourceOperation/OP_READ"/>
+          <literal value="OP_READ"/>
+        </elements>
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/ServiceResourceOperation/OP_UPDATE"/>
+          <literal value="OP_UPDATE"/>
+        </elements>
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.panlab.org/FederationOffice/model/federationscenarios#//services/ServiceResourceOperation/OP_DELETE"/>
+          <literal value="OP_DELETE"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="EDate">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </type>
+      <alternatives xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Availability">
+      <type metamodel="/0/@metamodelDeclarations.7">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//availabilityContract/Availability"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.7">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//availabilityContract/Availability"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="Repeat" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="Repeat"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="Availability"/>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="FromTime"/>
+          <elements xsi:type="xtext:Assignment" feature="FromTime" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.41"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="ToTime"/>
+          <elements xsi:type="xtext:Assignment" feature="ToTime" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.41"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="FromDate"/>
+          <elements xsi:type="xtext:Assignment" feature="FromDate" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.41"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="ToDate"/>
+          <elements xsi:type="xtext:Assignment" feature="ToDate" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.41"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="Repeatability"/>
+          <elements xsi:type="xtext:Assignment" feature="Repeatability" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.44"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="RepeatUntil"/>
+          <elements xsi:type="xtext:Assignment" feature="RepeatUntil" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.41"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="cost"/>
+          <elements xsi:type="xtext:Assignment" feature="cost" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.43"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Cost">
+      <type metamodel="/0/@metamodelDeclarations.7">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//availabilityContract/Cost"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.7">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//availabilityContract/Cost"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="Cost"/>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="perUnit"/>
+          <elements xsi:type="xtext:Assignment" feature="perUnit" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.45"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="Amount"/>
+          <elements xsi:type="xtext:Assignment" feature="Amount" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.46"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:EnumRule" name="RepatabilityScheme">
+      <type metamodel="/0/@metamodelDeclarations.7">
+        <classifier xsi:type="ecore:EEnum" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//availabilityContract/RepatabilityScheme"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.panlab.org/FederationOffice/model/federationscenarios#//availabilityContract/RepatabilityScheme/DAILY"/>
+          <literal value="DAILY"/>
+        </elements>
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.panlab.org/FederationOffice/model/federationscenarios#//availabilityContract/RepatabilityScheme/WEEKLY"/>
+          <literal value="WEEKLY"/>
+        </elements>
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.panlab.org/FederationOffice/model/federationscenarios#//availabilityContract/RepatabilityScheme/MONTHLY"/>
+          <literal value="MONTHLY"/>
+        </elements>
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.panlab.org/FederationOffice/model/federationscenarios#//availabilityContract/RepatabilityScheme/YEARLY"/>
+          <literal value="YEARLY"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:EnumRule" name="costUnit">
+      <type metamodel="/0/@metamodelDeclarations.7">
+        <classifier xsi:type="ecore:EEnum" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//availabilityContract/costUnit"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.panlab.org/FederationOffice/model/federationscenarios#//availabilityContract/costUnit/MIN"/>
+          <literal value="MIN"/>
+        </elements>
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.panlab.org/FederationOffice/model/federationscenarios#//availabilityContract/costUnit/HOUR"/>
+          <literal value="HOUR"/>
+        </elements>
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.panlab.org/FederationOffice/model/federationscenarios#//availabilityContract/costUnit/DAY"/>
+          <literal value="DAY"/>
+        </elements>
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.panlab.org/FederationOffice/model/federationscenarios#//availabilityContract/costUnit/USAGE"/>
+          <literal value="USAGE"/>
+        </elements>
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.panlab.org/FederationOffice/model/federationscenarios#//availabilityContract/costUnit/OTHER"/>
+          <literal value="OTHER"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="EDoubleObject">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" cardinality="?" value="-"/>
+        <elements xsi:type="xtext:RuleCall" cardinality="?" rule="/1/@rules.1"/>
+        <elements xsi:type="xtext:Keyword" value="."/>
+        <elements xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Alternatives">
+            <elements xsi:type="xtext:Keyword" value="E"/>
+            <elements xsi:type="xtext:Keyword" value="e"/>
+          </elements>
+          <elements xsi:type="xtext:Keyword" cardinality="?" value="-"/>
+          <elements xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ReservedResourceContract">
+      <type metamodel="/0/@metamodelDeclarations.6">
+        <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//slareservations/ReservedResourceContract"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.6">
+            <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//slareservations/ReservedResourceContract"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="ReservedResourceContract"/>
+        <elements xsi:type="xtext:Assignment" feature="uniqueID" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="name"/>
+          <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="id"/>
+          <elements xsi:type="xtext:Assignment" feature="id" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="description"/>
+          <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="ValidFrom"/>
+          <elements xsi:type="xtext:Assignment" feature="ValidFrom" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.41"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="ValidUntil"/>
+          <elements xsi:type="xtext:Assignment" feature="ValidUntil" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.41"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="forResource"/>
+          <elements xsi:type="xtext:Assignment" feature="forResource" operator="=">
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.4">
+                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice/model/federationscenarios#//resources/OfferedResource"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </terminal>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
+      </alternatives>
+    </rules>
+  </xtext:Grammar>
+  <xtext:Grammar name="org.eclipse.xtext.common.Terminals" definesHiddenTokens="true" hiddenTokens="/1/@rules.5 /1/@rules.3 /1/@rules.4">
+    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="ecore">
+      <ePackage href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+    </metamodelDeclarations>
+    <rules xsi:type="xtext:TerminalRule" name="ID">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" cardinality="?" value="^"/>
+        <elements xsi:type="xtext:Alternatives">
+          <elements xsi:type="xtext:CharacterRange">
+            <left value="a"/>
+            <right value="z"/>
+          </elements>
+          <elements xsi:type="xtext:CharacterRange">
+            <left value="A"/>
+            <right value="Z"/>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="_"/>
+        </elements>
+        <elements xsi:type="xtext:Alternatives" cardinality="*">
+          <elements xsi:type="xtext:CharacterRange">
+            <left value="a"/>
+            <right value="z"/>
+          </elements>
+          <elements xsi:type="xtext:CharacterRange">
+            <left value="A"/>
+            <right value="Z"/>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="_"/>
+          <elements xsi:type="xtext:CharacterRange">
+            <left value="0"/>
+            <right value="9"/>
+          </elements>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="INT">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </type>
+      <alternatives xsi:type="xtext:CharacterRange" cardinality="+">
+        <left value="0"/>
+        <right value="9"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="STRING">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Keyword" value="&quot;"/>
+          <elements xsi:type="xtext:Alternatives" cardinality="*">
+            <elements xsi:type="xtext:Group">
+              <elements xsi:type="xtext:Keyword" value="\"/>
+              <elements xsi:type="xtext:Alternatives">
+                <elements xsi:type="xtext:Keyword" value="b"/>
+                <elements xsi:type="xtext:Keyword" value="t"/>
+                <elements xsi:type="xtext:Keyword" value="n"/>
+                <elements xsi:type="xtext:Keyword" value="f"/>
+                <elements xsi:type="xtext:Keyword" value="r"/>
+                <elements xsi:type="xtext:Keyword" value="&quot;"/>
+                <elements xsi:type="xtext:Keyword" value="'"/>
+                <elements xsi:type="xtext:Keyword" value="\"/>
+              </elements>
+            </elements>
+            <elements xsi:type="xtext:NegatedToken">
+              <terminal xsi:type="xtext:Alternatives">
+                <elements xsi:type="xtext:Keyword" value="\"/>
+                <elements xsi:type="xtext:Keyword" value="&quot;"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="&quot;"/>
+        </elements>
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Keyword" value="'"/>
+          <elements xsi:type="xtext:Alternatives" cardinality="*">
+            <elements xsi:type="xtext:Group">
+              <elements xsi:type="xtext:Keyword" value="\"/>
+              <elements xsi:type="xtext:Alternatives">
+                <elements xsi:type="xtext:Keyword" value="b"/>
+                <elements xsi:type="xtext:Keyword" value="t"/>
+                <elements xsi:type="xtext:Keyword" value="n"/>
+                <elements xsi:type="xtext:Keyword" value="f"/>
+                <elements xsi:type="xtext:Keyword" value="r"/>
+                <elements xsi:type="xtext:Keyword" value="&quot;"/>
+                <elements xsi:type="xtext:Keyword" value="'"/>
+                <elements xsi:type="xtext:Keyword" value="\"/>
+              </elements>
+            </elements>
+            <elements xsi:type="xtext:NegatedToken">
+              <terminal xsi:type="xtext:Alternatives">
+                <elements xsi:type="xtext:Keyword" value="\"/>
+                <elements xsi:type="xtext:Keyword" value="'"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="'"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="ML_COMMENT">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="/*"/>
+        <elements xsi:type="xtext:UntilToken">
+          <terminal xsi:type="xtext:Keyword" value="*/"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="SL_COMMENT">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="//"/>
+        <elements xsi:type="xtext:NegatedToken" cardinality="*">
+          <terminal xsi:type="xtext:Alternatives">
+            <elements xsi:type="xtext:Keyword" value="&#xA;"/>
+            <elements xsi:type="xtext:Keyword" value="&#xD;"/>
+          </terminal>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" cardinality="?" value="&#xD;"/>
+          <elements xsi:type="xtext:Keyword" value="&#xA;"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="WS">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives" cardinality="+">
+        <elements xsi:type="xtext:Keyword" value=" "/>
+        <elements xsi:type="xtext:Keyword" value="&#x9;"/>
+        <elements xsi:type="xtext:Keyword" value="&#xD;"/>
+        <elements xsi:type="xtext:Keyword" value="&#xA;"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="ANY_OTHER">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Wildcard"/>
+    </rules>
+  </xtext:Grammar>
+</xmi:XMI>

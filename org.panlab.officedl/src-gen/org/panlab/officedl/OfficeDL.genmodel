@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.panlab.officedl/src-gen"
+    editDirectory="/org.panlab.officedl.edit/src" editorDirectory="/org.panlab.officedl.editor/src"
+    modelPluginID="org.panlab.officedl" forceOverwrite="true" modelName="OfficeDL"
+    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="org.panlab.officedl.edit"
+    editorPluginID="org.panlab.officedl.editor" usedGenPackages="../../../../../org.panlab.software.office.model/model/FederationOffice.genmodel#//FederationOffice">
+  <genPackages prefix="DslOfficeModel" basePackage="org.panlab.officedl" resource="XML"
+      disposableProviderFactory="true" ecorePackage="OfficeDL.ecore#/">
+    <genClasses ecoreClass="OfficeDL.ecore#//OfficeRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OfficeDL.ecore#//OfficeRule/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OfficeDL.ecore#//OfficeRule/testbedOfficev"/>
+    </genClasses>
+    <genClasses ecoreClass="OfficeDL.ecore#//ImportOffice">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OfficeDL.ecore#//ImportOffice/importURI"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
