@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.panlab.FederationOffice:Office xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.panlab.FederationOffice="http://www.panlab.org/FederationOffice" xmlns:org.panlab.FederationOffice.model.users="http://www.panlab.org/FederationOffice/model/users" xsi:schemaLocation="http://www.panlab.org/FederationOffice ../../../../../../../org.panlab.software.office.model/model/FederationOffice.ecore http://www.panlab.org/FederationOffice/model/users ../../../../../../../org.panlab.software.office.model/model/FederationOffice.ecore#//users" name="UoP" description="" APIGateway="http://teaglegw.dyndns.org:9000/teaglegw">
+  <registeredUsers xsi:type="org.panlab.FederationOffice.model.users:ResourcesProvider" name="uop">
+    <offeredSiteList name="uopSite">
+      <ptm name="uopPTM" IP="uop"/>
+      <offeredResourcesList name="echo" implOfferedService="//@offeredServices.0">
+        <resourceSettings name="input" implServiceSetting="//@offeredServices.0/@serviceSettings.0"/>
+        <resourceSettings name="output" implServiceSetting="//@offeredServices.0/@serviceSettings.1"/>
+      </offeredResourcesList>
+    </offeredSiteList>
+  </registeredUsers>
+  <offeredServices name="echo">
+    <serviceSettings name="input"/>
+    <serviceSettings name="output"/>
+  </offeredServices>
+  <ResourceServiceContracts name="c001" forOfferedService="//@offeredServices.0" forOfferedResource="//@registeredUsers.0/@offeredSiteList.0/@offeredResourcesList.0"/>
+</org.panlab.FederationOffice:Office>
