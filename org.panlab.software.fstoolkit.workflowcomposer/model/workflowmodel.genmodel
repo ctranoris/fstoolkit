@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.panlab.software.fstoolkit.workflowcomposer/src"
+    modelPluginID="org.panlab.software.fstoolkit.workflowcomposer" modelName="Workflowmodel"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="../../org.panlab.software.office.model/model/FederationOffice.genmodel#//FederationOffice">
+  <foreignModel>workflowmodel.ecore</foreignModel>
+  <genPackages prefix="Workflow" resource="XML" disposableProviderFactory="true" ecorePackage="workflowmodel.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="workflowmodel.ecore#//TASK_STATUS">
+      <genEnumLiterals ecoreEnumLiteral="workflowmodel.ecore#//TASK_STATUS/STARTING"/>
+      <genEnumLiterals ecoreEnumLiteral="workflowmodel.ecore#//TASK_STATUS/RUNNING"/>
+      <genEnumLiterals ecoreEnumLiteral="workflowmodel.ecore#//TASK_STATUS/STOPPING"/>
+      <genEnumLiterals ecoreEnumLiteral="workflowmodel.ecore#//TASK_STATUS/STOPPED"/>
+      <genEnumLiterals ecoreEnumLiteral="workflowmodel.ecore#//TASK_STATUS/FAILED"/>
+      <genEnumLiterals ecoreEnumLiteral="workflowmodel.ecore#//TASK_STATUS/UNKNOWN"/>
+    </genEnums>
+    <genClasses ecoreClass="workflowmodel.ecore#//Workflow">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflowmodel.ecore#//Workflow/hasActivities"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflowmodel.ecore#//Workflow/hasForks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflowmodel.ecore#//Workflow/hasJoins"/>
+    </genClasses>
+    <genClasses ecoreClass="workflowmodel.ecore#//Activity">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflowmodel.ecore#//Activity/dependsFrom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflowmodel.ecore#//Activity/status"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflowmodel.ecore#//Activity/resourceRequest"/>
+    </genClasses>
+    <genClasses ecoreClass="workflowmodel.ecore#//Fork"/>
+    <genClasses ecoreClass="workflowmodel.ecore#//Join"/>
+    <genClasses ecoreClass="workflowmodel.ecore#//workflowElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflowmodel.ecore#//workflowElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="workflowmodel.ecore#//Flow">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflowmodel.ecore#//Flow/source"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflowmodel.ecore#//Flow/target"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
