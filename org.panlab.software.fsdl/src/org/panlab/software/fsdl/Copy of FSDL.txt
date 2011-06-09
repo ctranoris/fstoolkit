@@ -1,0 +1,164 @@
+grammar org.panlab.software.fsdl.FSDL with org.eclipse.xtext.common.Terminals
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+import 'platform:/resource/org.panlab.software.office.model/model/FederationOffice.ecore'   as FederationOffice
+import 'platform:/resource/org.panlab.software.office.model/model/FederationOffice.ecore#//users'   as FederationOfficeUsers
+import 'platform:/resource/org.panlab.software.office.model/model/FederationOffice.ecore#//services'   as FederationOfficeServices
+import 'platform:/resource/org.panlab.software.office.model/model/FederationOffice.ecore#//resources'   as FederationOfficeResources
+import 'platform:/resource/org.panlab.software.office.model/model/FederationOffice.ecore#//federationscenarios' as federationscenarios
+import 'platform:/resource/org.panlab.software.office.model/model/FederationOffice.ecore#//providersite'   as FederationOfficeProvidersite
+
+generate fsdlGrammar "http://www.panlab.org/software/fsdl/FSDL"
+
+FederationOfficeRule:
+	{FederationOfficeRule}'Scenario' name=ID
+	(imports+=Import)*
+	(scheduledPlan+=ScheduledPlan)*
+	//(providerImports+=ImportProvider)*
+	//(defUser+=DefUserRule)*
+	
+	(vtServicesRule=RequestServices)?
+	(vtrule=RequestInfrastructure)?
+;
+
+Import :
+  'import office' importURI=STRING 
+  (identify=RuleIdentify)?
+  ';'
+; 
+
+RuleIdentify returns RuleIdentify:
+	'identified by' '{' 'username' '=' name=STRING
+	'password' '=' idpass=STRING
+	'}'
+;
+
+FQN:
+	(ID) ('.' (ID) )*;
+	
+ImportProvider :
+	'use provider' importedNamespace=ImportedFQN;
+
+ImportedFQN:
+	FQN ('.' '*')?;
+	
+DefUserRule returns FederationOfficeUsers::ResourcesProvider:
+'User' name=ID
+;
+
+RequestServices returns RequestServices:
+{RequestServices}'RequestServices' '{'
+	(group+=GroupRule)*
+	(reqServices+=myServiceInstanceRule)*
+	'}'
+;
+
+//group play
+GroupRule returns GroupRule:
+	'ServiceGroup' name=(ID|STRING) 'of' num=INT refService = [ FederationOfficeServices::OfferedService | STRING ]
+;
+
+myServiceInstanceRule returns myServiceInstanceRule:
+	'Service' ( localServiceInstanceRule | GroupDefineServiceInstanceRule)
+	('offered by' OfferedByProviders = [ FederationOfficeUsers::ResourcesProvider  | STRING]  ('optional')?   )?	
+	('with' 'ServiceSettings' '{' (reqServiceSettings+=myServiceSettingInstance)* '}')?
+	
+;
+	 
+GroupDefineServiceInstanceRule returns GroupDefineServiceInstanceRuleEntity :
+	 refService = [ GroupRule | STRING  ] '[' lowerBound=INT ('..' upperBound=INT)?  ']' 
+	
+; 
+
+
+localServiceInstanceRule returns localServiceInstanceRule :
+	 refService  = [ FederationOfficeServices::OfferedService  | STRING] 'as' name=ID
+	
+;
+ 
+
+
+myServiceSettingInstance returns myServiceSettingInstance :
+	'ServiceSetting' refServiceSetting = [FederationOfficeServices::ServiceSetting | STRING] 
+	('=' staticValue=STRING)?	
+	('set' assign=[localServiceInstanceRule|STRING] '.' resSetInstance=[FederationOfficeServices::ServiceSetting|STRING]  )? 
+	
+	
+;
+
+ScheduledPlan returns ScheduledPlan :
+{ScheduledPlan}'ScheduledPlan' '{'
+		('From' ValidFrom=EDate)?
+		('Until' ValidUntil=EDate)?
+    '}'
+;
+
+EDate returns ecore::EDate:
+	STRING /* TODO: implement this rule and an appropriate IValueConverter */
+;
+	
+//TideOffice returns tide::testbedOffice :
+//	'Office' name=ID '{'
+//	registeredUsers+=DefUserRule
+//	'}'
+//;
+
+RequestInfrastructure returns FederationOfficeVirtualtestbed::RequestedVirtualTestbed :
+	{VirtualTestbedRule}'RequestInfrastructure' '{'
+	(VTCredentials = VTCreds )?
+	//(reqServices+=ServiceInstanceRule)*
+	(reqOfferedResources+=OfferedResourceInst)*
+	(reqSettingDependencies+=RequestedSettingDependency)?
+	'}'	
+;
+
+VTCreds returns FederationOfficeVirtualtestbed::Credentials  :
+	'Credentials' 'username' '=' username=STRING 'password' '=' password=STRING 
+; 
+
+
+ServiceInstanceRule returns FederationOfficeVirtualtestbed::ServiceInstance :
+	 refService  = [ FederationOfficeServices::OfferedService  | STRING] 'as' name=ID
+	('offered by' OfferedByProviders = [ FederationOfficeUsers::ResourcesProvider  | STRING]  ('optional')?   )?	
+	('with' 'ServiceSettings' '{' (reqServiceSettings+=ServiceSettingInstance)* '}')?
+	
+;
+
+ServiceSettingInstance returns FederationOfficeVirtualtestbed::ServiceSettingInstance :
+	'ServiceSetting' refServiceSetting = [FederationOfficeServices::ServiceSetting | STRING]
+	( '=' staticValue=STRING)?
+	( 'Assign' assign=[ FederationOfficeVirtualtestbed::SettingInstance|STRING])? 
+	
+;
+
+
+
+OfferedServiceRule returns FederationOfficeServices::OfferedService :
+ 'OfferedService' name=ID 
+;
+
+
+
+OfferedResourceInst returns FederationOfficeVirtualtestbed::OfferedResourceInstance:
+	'OfferedResource' refOfferedResource = [FederationOfficeResources::OfferedResource | STRING] 'as'  name=(ID|STRING) '{'
+	(reqResourceSettings+=ResourceSettingInstanceRule )*
+	'}'
+;
+
+ResourceSettingInstanceRule returns FederationOfficeVirtualtestbed::ResourceSettingInstance:
+	
+	'ResourceSetting' refResourceSetting=[FederationOfficeResources::ResourceSetting | STRING] 'as' name=(ID|STRING) 
+	(( '=' staticValue= STRING) |
+	( 'Assign' assign=[ FederationOfficeVirtualtestbed::SettingInstance| STRING ] ))
+; 
+
+RequestedSettingDependency returns FederationOfficeVirtualtestbed::RequestedSettingDependency  :
+	'RequestedSettingDependency' ';'
+;
+
+
+
+OfferedResource returns FederationOfficeResources::OfferedResource :
+	'OfferedResource' name=STRING 'MaxOccurances' multitonMaxOccur=INT ';'
+;
