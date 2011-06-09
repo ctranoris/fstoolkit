@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/gr.upatras.ece.wcl.radl.feature_1.3.1.qualifier.jar" id="gr.upatras.ece.wcl.radl.feature" version="1.3.1.qualifier">
+      <category name="radl.wcl.ece.upatras.gr"/>
+   </feature>
+   <category-def name="radl.wcl.ece.upatras.gr" label="RA Definition Language"/>
+</site>
