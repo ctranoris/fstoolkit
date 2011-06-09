@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: gr.upatras.ece.wcl.radl
+Bundle-Vendor: My Company
+Bundle-Version: 1.1.0.qualifier
+Bundle-SymbolicName: gr.upatras.ece.wcl.radl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.generator;resolution:=optional,
+ de.itemis.xtext.antlr;resolution:=optional,
+ org.apache.commons.logging;resolution:=optional,
+ org.eclipse.emf.codegen.ecore;resolution:=optional,
+ org.eclipse.emf.mwe.utils;resolution:=optional,
+ org.eclipse.emf.mwe2.launch;resolution:=optional,
+ com.ibm.icu;resolution:=optional,
+ org.eclipse.xtext.xtend;resolution:=optional,
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.antlr.runtime,
+ org.panlab.software.office.model;bundle-version="1.0.0";visibility:=reexport,
+ org.panlab.officedl;bundle-version="1.1.0";visibility:=reexport
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: gr.upatras.ece.wcl,
+ gr.upatras.ece.wcl.services,
+ gr.upatras.ece.wcl.radl,
+ gr.upatras.ece.wcl.radl.impl,
+ gr.upatras.ece.wcl.radl.util,
+ gr.upatras.ece.wcl.parseTreeConstruction,
+ gr.upatras.ece.wcl.parser.antlr,
+ gr.upatras.ece.wcl.parser.antlr.internal,
+ gr.upatras.ece.wcl.validation

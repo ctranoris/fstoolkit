@@ -1,0 +1,186 @@
+grammar gr.upatras.ece.wcl.Radl with org.eclipse.xtext.common.Terminals
+
+
+import "platform:/resource/org.panlab.software.office.model/model/FederationOffice.ecore" as FederationOffice
+import "platform:/resource/org.panlab.software.office.model/model/FederationOffice.ecore#//services" as services
+
+//import "platform:/resource/org.panlab.officedl/src-gen/org/panlab/officedl/OfficeDL.ecore" as OfficeDL
+
+generate radl "http://www.upatras.gr/ece/wcl/Radl"
+
+RADL:
+	(imports=Import)?
+	resourceAdapter = ResourceAdapter 
+;
+ 
+Import :
+  'import service' importURI=STRING
+; 
+
+ResourceAdapter returns ResourceAdapter:
+	'Resource Adapter' name=STRING ('implements'  implname=[services::OfferedService|STRING] )?	
+	('Configuration Parameters' '{'
+		(confParams+= ConfigurationParam)*		
+	'}'
+	)?
+		
+	('Binding Parameters' '{'
+		(bindParams+= BindingParam)*
+	'}'
+	)?
+	
+	('Supported Child Types' '{'
+		(childParams+= SupportedChildType)*
+	'}'
+	)?
+		
+	('Allowed Types' '{'		
+		(allowParams+= AllowedType)*
+	'}'
+	)?
+	
+	('On Update' '{'
+		'ProcessOnAllConfigurationParametersComplete' '=' ConfComplete=("YES"|"NO") ';'
+		'RAProtocol' protocol= Protocol
+	'}'
+	)?
+
+;
+ 
+ConfigurationParam returns ConfigurationParam:
+	{ConfigurationParam}(paramType=ParameterType)? name=(ID|STRING) 
+	('=' defValue=STRING)? 
+	('implements' servsetting=[services::ServiceSetting|STRING] )?  
+	('description' '=' descriptionValue=STRING)?
+	';'
+;
+
+BindingParam returns BindingParam:
+	{BindingParam} (paramType=ParameterType)? name=(ID|STRING) 
+	('=' defValue=STRING)? 
+	('description' '=' descriptionValue=STRING)?
+	';'
+;
+
+SupportedChildType returns SupportedChildType:
+	{SupportedChildType} (paramType=ParameterType)? name=(ID|STRING) ('=' defValue=STRING)? ';'
+;
+
+AllowedType returns AllowedType:
+	{AllowedType} (paramType=ParameterType)? name=(ID|STRING) ('=' defValue=STRING)? ';'
+;
+
+Protocol returns Protocol:
+	(ruleSSH | ruleHTTP | ruleXMLRPC | ruleJavaWrapper)
+;
+
+ParameterType returns ParameterType:
+	{ParameterType} pName= ('String' | 'Integer' | 'Boolean' | 'Enum' | 'REFERENCE')
+;
+
+ruleSSH returns ruleSSH:
+	{ruleSSH}'SSH' '{'
+		'Remote Machine' '=' remoteMachine=[scriptParam|STRING] ';'
+		'RPort' '=' RPort=[scriptParam|STRING] ';'
+		'RUsername' '=' username=[scriptParam|STRING] ';'
+		'RPassword' '=' password=[scriptParam|STRING] ';'
+		'RExecute' '{' 
+			( commands+=rulSSH_commands )*
+		'}'
+		'RExecuteDelete' '{' 
+			( commandsDelete+=rulSSH_commands )*
+		'}'		
+	'}'
+;
+
+
+
+ruleJavaWrapper returns ruleJavaWrapper:
+	{ruleJavaWrapper}'Java' classname=ID '(' (constructorParams+=rulJava_param (',' constructorParams+=rulJava_param )*)?	 ')'  '{'
+	(commands+=Command)*		
+	'}'
+;
+
+Command returns Command:
+	entryCommand | assignCommand
+;
+
+entryCommand returns entryCommand:
+	'JExecute' javaFunctionName=ID '('  
+			(commands+=rulJava_param (',' commands+=rulJava_param )*)?			
+		')'
+;
+
+rulJava_param returns rulJava_param:
+
+	(rulJava_paramString | rulJava_paramInt | rulJava_paraScript) 
+;
+
+
+rulJava_paramString returns rulJava_paramString : 
+	stringValue= STRING
+;
+
+rulJava_paramInt returns rulJava_paramInt:
+	intValue= INT
+;
+rulJava_paraScript returns rulJava_paraScript:
+	scriptparamValue=[ scriptParam ]
+;
+
+assignCommand returns assignCommand:
+	{assignCommand}'JAssign' scriptParam=[ scriptParam ] '=' javaFunctionName=ID '('  (commands+=rulJava_param (',' commands+=rulJava_param )*)?	')'
+
+;
+//ruleSSH_File returns ruleSSH_File:
+//{ruleSSH_File}
+//	'Remote Script' '=' remoteScript=STRING
+//	('parameters' '=' (scriptparams+=[ConfigurationParam | STRING])*  )? 
+//;
+
+scriptParam returns scriptParam :
+	ConfigurationParam | BindingParam
+;
+
+rulSSH_commands returns rulSSH_commands:
+{rulSSH_commands}
+	remoteCommand=STRING
+	('<<' (scriptparams+=[ scriptParam | STRING])*  '>>')? 
+;
+
+ruleHTTP returns ruleHTTP:
+	{ruleHTTP}'HTTP' '{'
+		'RemoteMachine' '=' remoteMachine=[scriptParam | STRING] ';'
+		'HttpURL' '=' ( httpURL+=ruleHTTP_URL )* ';'
+		'HttpMethod' '=' HMethod =("GET"|"POST") ';'
+		('HttpAuth' '{'
+			'Method' '=' AuthMethod =[scriptParam | STRING] ';'
+			'AuthUsername' '=' username=[scriptParam | STRING] ';'
+			'AuthPassword' '=' password=[scriptParam | STRING] ';'
+		'}'
+		)?
+		('PostBody'  '=' postBody=[scriptParam | STRING] ';')
+	'}'
+;
+
+ruleHTTP_URL returns ruleHTTP_URL:
+{ruleHTTP_URL}
+	remoteURL=STRING
+	('<<' (scriptparams+=[scriptParam | STRING])*  '>>')? 
+;
+
+ruleXMLRPC returns ruleXMLRPC:
+	{ruleXMLRPC}'XML-RPC' '{'
+		'ServerURL' '=' remoteMachine=[BindingParam] ';'
+
+		('HttpBasicAuth' '{'
+			'BasicAuthUsername' '=' username=[BindingParam] ';'
+			'BasicAuthPassword' '=' password=[BindingParam] ';'
+		'}'
+		)?		
+		
+		'RPCMethod' '=' RPCMethod=[BindingParam] ';'
+		('parameters' '=' (URLparams+=[ConfigurationParam | STRING])*  )? 
+		
+	'}'
+;
