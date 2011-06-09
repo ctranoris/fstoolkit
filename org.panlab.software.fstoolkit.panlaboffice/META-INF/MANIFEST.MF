@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Panlaboffice
+Bundle-SymbolicName: org.panlab.software.fstoolkit.panlaboffice;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.panlab.software.fstoolkit.panlaboffice.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.panlab.software.office.model;bundle-version="1.0.0",
+ org.apache.commons.httpclient;bundle-version="3.1.0",
+ org.panlab.software.FCI.core;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.panlab.software.fstoolkit.panlaboffice
