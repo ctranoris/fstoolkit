@@ -1,0 +1,25 @@
+Resource Adapter "ami_ec2"
+
+Configuration Parameters { // Visible Parameters to VCT user
+	String AMI_Id = "ami-2cb05345" description = "An AMI from Amazon list";
+	String accessKey; //by amazon account	
+	String secretKey;//by amazon account	
+	Enum InstanceType = "m1.small"  ;
+	Enum AvailabilityZone = "us-east-1a"; 
+	String loginUsername;
+	String loginPassword;	
+	String PublicDnsName description = "read-only value";
+	Integer maxNumberOfInstances= "1";//default is 1 AM instance
+		
+}
+
+On Update {
+	
+	ProcessOnAllConfigurationParametersComplete = YES;
+	RAProtocol Java EC2Wrapper ( accessKey , secretKey ){ //Here call the EC2Wrapper class
+		JExecute createAMInstances(  AMI_Id , 1, maxNumberOfInstances,	loginUsername, InstanceType , AvailabilityZone  ) 
+		JAssign  AvailabilityZone = getPublicDnsName()	
+		
+	}
+}
+

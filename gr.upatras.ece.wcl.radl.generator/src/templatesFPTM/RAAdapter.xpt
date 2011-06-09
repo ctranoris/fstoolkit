@@ -1,0 +1,209 @@
+«IMPORT radl»
+
+«DEFINE RAAdapter_main FOR radl::ResourceAdapter-»
+
+«LET name.replaceAll("[.]", "/") AS packagename»
+«LET name.split("[.]").last().toLowerCase() AS RAName»
+«LET name.split("[.]").last().toFirstUpper() AS RAClassName»
+
+
+«FILE packagename +"/"+RAClassName +"Adapter.java"-»
+
+package «this.name»;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import de.fhg.fokus.ptm.Manager;
+import de.fhg.fokus.ptm.NoSuchResourceException;
+import de.fhg.fokus.ptm.PTMException;
+import de.fhg.fokus.ptm.Resource;
+import de.fhg.fokus.ptm.Identifier;
+import de.fhg.fokus.ptm.server.AbstractResourceAdapter;
+import de.fhg.fokus.ptm.server.GenericResource;
+
+public class «RAClassName»Adapter extends AbstractResourceAdapter 
+{
+
+	public «RAClassName»Adapter(Identifier parentId, Manager manager)
+			throws PTMException 
+	{
+		super(parentId, manager, null);
+		
+		//generate an id for a resource adapter that manages coconuts for our parent
+		Identifier myid = parentId.adapterFor("«RAName»");
+		
+		//and propagate the fact that we feel responsible for it		
+		manager.addAdapter(myid, this);
+	}
+
+	@Override
+	public Resource addResource(Identifier parentId, String name, String type,
+			Map<String, Object> config) throws PTMException 	
+	{
+		
+		//We are only registered for the «RAName» resource, so nothing else can reach us
+		assert("«RAName»".equals(type));
+		//This case is covered by the implementation. name is always null or not empty.
+		assert(! "".equals(name));
+		
+		//if no name for the new instance was specified, we must generate one
+		if (name == null)
+			name = generateName();
+		else if («RAName»Exists(name))
+			//however, when a name is specified it must not already exist
+			throw new PTMException("A «RAName» by the name of " + name + " already exists");
+		
+		//get specified configuration, use default value if missing
+		//note, that this might create a ClassCastException, which will be reported as a configuration error to the client
+		
+		//all params here from RADL (ConfigurationParam and BindingParam) are stored in config
+		«FOREACH this.confParams AS e»
+		«e.paramType.pName» «e.name.replaceAll(" ", "_")» = («e.paramType.pName»)config.get("«e.name»");
+		«IF e.paramType.pName.toLowerCase().contains("string") »
+		if ("".equals(«e.name.replaceAll(" ", "_")»)) «e.name.replaceAll(" ", "_")» = "«e.defValue»";«ENDIF»
+		«IF !e.paramType.pName.toLowerCase().contains("string") »
+		if ( «e.name.replaceAll(" ", "_")» == null ) «e.name.replaceAll(" ", "_")» = «e.defValue»;«ENDIF»
+		«ENDFOREACH»	
+		«FOREACH this.bindParams AS e»
+		«e.paramType.pName» «e.name.replaceAll(" ", "_")» = («e.paramType.pName»)config.get("«e.name»");
+		«IF e.paramType.pName.toLowerCase().contains("string") »
+		if ("".equals(«e.name.replaceAll(" ", "_")»)) «e.name.replaceAll(" ", "_")» = "«e.defValue»";«ENDIF»
+		«IF !e.paramType.pName.toLowerCase().contains("string") »
+		if ( «e.name.replaceAll(" ", "_")» == null ) «e.name.replaceAll(" ", "_")» = «e.defValue»;«ENDIF»
+		«ENDFOREACH»			
+		
+		create«RAClassName»(name «IF this.confParams.size>0 », «ENDIF»
+		«FOREACH this.confParams AS e SEPARATOR ', '»«e.name.replaceAll(" ", "_")»«ENDFOREACH» 
+		«IF this.bindParams.size>0 », «ENDIF»
+		«FOREACH this.bindParams AS e SEPARATOR ', '»«e.name.replaceAll(" ", "_")»«ENDFOREACH»
+		);
+		
+		//At this point the actual resource instance has been created 
+		//and we must now return an object representing it
+		//First, to create an identifier for the object:
+		Identifier newId = getParentId().makeChildIdentifier("«RAName»", name);
+		
+		//Since we have been to lazy to implement an actual class for our resource,
+		//we will simply use the GenericResource class
+		Resource newResource = new GenericResource(newId, this);
+		
+		//Another (shorter) way would be to let GenericResource puzzle together the Id info itself
+		//Note: this line is completely equivalent to the one above
+		//newResource = new GenericResource("coconut", name, this);
+		
+		return newResource;
+	}
+
+	@Override
+	public Resource getResource(Identifier identifier) throws PTMException 
+	{
+		//these are again ensured by the system
+		assert(identifier.getParentId().equals(this.getParentId()));
+		assert(identifier.getTypename().equals("«RAName»"));
+		
+		//check if the requested instance actually exists
+		if (!«RAName»Exists(identifier.getName()))
+			throw new NoSuchResourceException(identifier);
+		
+		return new GenericResource(identifier, this);
+	}
+
+	@Override
+	public Resource[] listResources(Identifier parentId, String type)
+			throws PTMException 
+	{
+		//TODO: create a list of all «RAName»s and return it
+		return new Resource[0]; //dummy
+	}
+	
+	//get the configuration of an existing instance
+	@Override
+	public Map<String, Object> getConfiguration(Identifier identifier) throws PTMException
+	{
+		//these are again ensured by the system
+		assert(identifier.getParentId().equals(this.getParentId()));
+		assert(identifier.getTypename().equals("«RAName»"));
+		
+		Map<String, Object> config = new HashMap<String, Object>();
+		«FOREACH this.confParams AS e»
+		config.put("«e.name»", get«RAClassName»«e.name.toFirstUpper().replaceAll(" ", "_")»(identifier.getName()));
+		«ENDFOREACH»	
+		«FOREACH this.bindParams AS e»
+		config.put("«e.name»", get«RAClassName»«e.name.toFirstUpper().replaceAll(" ", "_")»(identifier.getName()));
+		«ENDFOREACH»	
+		return config;
+	}
+	
+	//reconfigure an existing instance
+	@Override
+	public void setConfiguration(Identifier identifier, Map<String, Object> config) throws PTMException
+	{
+		throw new PTMException("Sorry, «RAName» is readonly");
+	}
+	
+	«FOREACH this.confParams AS e»
+	private Object get«RAClassName»«e.name.toFirstUpper().replaceAll(" ", "_")»(String name){
+		//TODO: ask the «RAClassName»
+		return config.get("«e.name»"); //dummy
+	}
+	«ENDFOREACH»	
+	
+	«FOREACH this.bindParams AS e»
+	private Object get«RAClassName»«e.name.toFirstUpper().replaceAll(" ", "_")»(String name){
+		//TODO: ask the «RAClassName»
+		return config.get("«e.name»"); //dummy
+	}
+	«ENDFOREACH»		
+	
+	
+	private boolean «RAName»Exists(String name)
+	{
+		//TODO: check if a «RAName» by this name exists.
+		return true; //dummy
+	}
+	
+	private String generateName()
+	{
+		//TODO: generate a new and unique name for a «RAName» to be instantiated
+		return "«RAName»_abc"; //dummy
+	}
+	
+	private void create«RAClassName»(String name «IF this.confParams.size>0 »,
+	«ENDIF» «FOREACH this.confParams AS e SEPARATOR ', '» «e.paramType.pName» «e.name.replaceAll(" ", "_")»«ENDFOREACH»
+	«IF this.bindParams.size>0 »,«ENDIF»«FOREACH this.bindParams AS e SEPARATOR ', '» «e.paramType.pName» «e.name.replaceAll(" ", "_")»«ENDFOREACH»
+	)
+	{
+		//TODO: Do whatever is neccessary to create the actual «RAClassName»
+	«IF (this.protocol!=null) && ( this.protocol.metaType.isAssignableFrom(radl::ruleSSH) ) »
+		 applyConf_SSH();
+	«ENDIF»    
+	}
+		
+	
+	«IF (this.protocol!=null) && ( this.protocol.metaType.isAssignableFrom(radl::ruleSSH) ) »
+    private void applyConf_SSH()
+    {    
+		System.out.println("Issue ssh to remoteMachine=" + config.get("«((radl::ruleSSH)this.protocol).remoteMachine.name »") );
+        System.out.println("Credentials user=" + config.get("«((radl::ruleSSH)this.protocol).username.name »")+", pass="+ config.get("«((radl::ruleSSH)this.protocol).password.name »") );
+        String cmd = "";
+        «FOREACH ((radl::ruleSSH)this.protocol).commands AS e»
+        	cmd += "«e.remoteCommand.replaceAll('\n',' ').replaceAll('\t','') »";
+        	«FOREACH e.scriptparams  AS parm » cmd +=" " + config.get("«parm.name»");
+        	«ENDFOREACH»;        	
+        «ENDFOREACH»
+        System.out.println("Executing: " + cmd);
+        try{
+        	int port=  Integer.parseInt(config.get("«((radl::ruleSSH)this.protocol).RPort.name »") );
+            com.uop.ssh.Exec exc = new com.uop.ssh.Exec( config.get("«((radl::ruleSSH)this.protocol).username.name »"),  config.get("«((radl::ruleSSH)this.protocol).password.name »"), config.get("«((radl::ruleSSH)this.protocol).remoteMachine.name »"),  port, cmd );
+        	System.out.println("Remote execution finished"+ exc.toString() );
+        }finally{
+        }
+	}	
+    «ENDIF»
+}
+«ENDFILE-»
+«ENDLET»
+«ENDLET»
+«ENDLET»
+«ENDDEFINE»

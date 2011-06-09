@@ -1,0 +1,8 @@
+«IMPORT radl»
+
+«DEFINE main FOR radl::ResourceAdapter-»
+
+«EXPAND RAAdapter::RAAdapter_main FOR this» 
+
+«ENDDEFINE»
+
