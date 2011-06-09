@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.panlab.software.fstoolkit.extensionpoint.officerepository">
+      <OfficeRepository
+            class="org.panlab.software.fstoolkit.amazon.AmazonOfficeRepositoryProvider">
+      </OfficeRepository>
+   </extension>
+   <extension
+         point="org.panlab.software.fstoolkit.provisionresource">
+      <provisionresource
+            class="org.panlab.software.fstoolkit.amazon.ProvisionResource">
+      </provisionresource>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.panlab.software.fstoolkit.preferences.FSToolkitPreferencePage"
+            class="org.panlab.software.fstoolkit.amazon.preferences.AmazonPreferencePage"
+            id="org.panlab.software.fstoolkit.amazon.AmazonPreferencePage"
+            name="Amazon">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.panlab.software.fstoolkit.amazon.preferences.AmazonPreferenceInitializer">
+      </initializer>
+   </extension>
+
+</plugin>

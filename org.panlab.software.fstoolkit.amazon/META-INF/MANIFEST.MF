@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Amazon
+Bundle-SymbolicName: org.panlab.software.fstoolkit.amazon;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.panlab.software.fstoolkit.amazon.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.panlab.software.office.model;bundle-version="1.0.1",
+ org.panlab.software.FCI.core;bundle-version="1.0.0",
+ org.panlab.software.fstoolkit;bundle-version="1.0.0",
+ org.panlab.software.fstoolkit.localprovisioningengine
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.panlab.software.fstoolkit.amazon
