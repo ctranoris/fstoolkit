@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:ral.core.ptm.bct.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:ral.core.ptm.bct.com" xmlns:intf="urn:ral.core.ptm.bct.com" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Jun 05, 2009 (01:51:45 EEST)-->
+
+   <wsdl:message name="notifyRequest">
+
+      <wsdl:part name="raID" type="soapenc:string"/>
+
+      <wsdl:part name="eventType" type="xsd:int"/>
+
+      <wsdl:part name="eventData" type="soapenc:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="notifyResponse">
+
+      <wsdl:part name="notifyReturn" type="soapenc:string"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="RANotify">
+
+      <wsdl:operation name="notify" parameterOrder="raID eventType eventData">
+
+         <wsdl:input message="impl:notifyRequest" name="notifyRequest"/>
+
+         <wsdl:output message="impl:notifyResponse" name="notifyResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="RANotifySoapBinding" type="impl:RANotify">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="notify">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="notifyRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ral.core.ptm.bct.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="notifyResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:ral.core.ptm.bct.com" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="RANotifyService">
+
+      <wsdl:port binding="impl:RANotifySoapBinding" name="RANotify">
+
+         <wsdlsoap:address location="http://localhost:9100/axis/services/RANotify"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
