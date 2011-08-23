@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.panlab.software.fsdl2.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0
+Bundle-SymbolicName: org.panlab.software.fsdl2.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.panlab.software.fsdl2;visibility:=reexport,
+ org.eclipse.xtext.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.ui,
+ org.eclipse.xtext.builder,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types.ui,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.compare,
+ org.eclipse.xpand;bundle-version="1.1.0",
+ org.eclipse.xtext.xtend2;bundle-version="2.0.1",
+ org.eclipse.xtend;bundle-version="1.1.0",
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.panlab.software.fsdl2.ui.contentassist.antlr,
+ org.panlab.software.fsdl2.ui.internal
+Bundle-Activator: org.panlab.software.fsdl2.ui.internal.FSDLActivator
