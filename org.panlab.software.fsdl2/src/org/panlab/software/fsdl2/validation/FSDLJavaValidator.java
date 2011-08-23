@@ -52,8 +52,10 @@ public class FSDLJavaValidator extends AbstractFSDLJavaValidator {
 	public void checkTODOvalue( ServiceSettingInstance e ){
 		//System.out.println("Check checkTODOvalue");
 		if ( ( e.getStaticValue()!=null ) && (e.getStaticValue().contains("TODO:")) ){
-			EStructuralFeature feature = (EStructuralFeature) FederationOffice.federationscenarios.FederationscenariosPackage.Literals.SERVICE_SETTING_INSTANCE;			
-			warning("Set here either a static value or \n or use the keyword 'assign' instead of = in order to assign a value from another setting",
+			EStructuralFeature feature =   
+					FederationOffice.federationscenarios.FederationscenariosPackage.Literals.SETTING_INSTANCE.getEIDAttribute()  ;			
+			warning("Set here either a static value or \n or use the keyword 'assign' instead of = " +
+					"in order to assign a value from another setting",
 					feature  );
 				
 			
@@ -74,13 +76,13 @@ public class FSDLJavaValidator extends AbstractFSDLJavaValidator {
 					}
 				}				
 				if (!serviceExistInRequest){
-					msg += "A \""+ e.getName()+ "\" service, requests also service "+requiredService.getName() +" to be present in the scenario. Please add it.\n";
+					msg += "A \""+ e.getRefService().getName()+ "\" service, requests also service "+requiredService.getName() +" to be present in the scenario. Please add it.\n";
 				}
 			}
 		}
 		
 		if (! "".equals(msg)){
-			EStructuralFeature feature = (EStructuralFeature) FederationOffice.federationscenarios.FederationscenariosPackage.Literals.SERVICE_REQUEST;	
+			EStructuralFeature feature =  FederationOffice.federationscenarios.FederationscenariosPackage.Literals.SERVICE_REQUEST.getEStructuralFeature("name");
 			error(msg, feature );
 		}
 		
@@ -106,7 +108,7 @@ public class FSDLJavaValidator extends AbstractFSDLJavaValidator {
 				}
 			
 			if (! "".equals(msg)){
-				EStructuralFeature feature = (EStructuralFeature) FederationOffice.federationscenarios.FederationscenariosPackage.Literals.SERVICE_SETTING_INSTANCE;	
+				EStructuralFeature feature =  FederationOffice.federationscenarios.FederationscenariosPackage.Literals.SERVICE_SETTING_INSTANCE.getEStructuralFeature("name") ;	
 				error(msg, feature );
 			}
 		}
@@ -117,7 +119,7 @@ public class FSDLJavaValidator extends AbstractFSDLJavaValidator {
 	public void checkServiceSettingReadable( ServiceSettingInstance e ){
 		if ( (e.getRefServiceSetting()!=null)&&(!e.getRefServiceSetting().isWritable() )){
 			if ( (e.getStaticValue()!=null) || (e.getAssignSetting().size()>0) ){
-				EStructuralFeature feature = (EStructuralFeature) FederationOffice.federationscenarios.FederationscenariosPackage.Literals.SERVICE_SETTING_INSTANCE;	
+				EStructuralFeature feature =  FederationOffice.federationscenarios.FederationscenariosPackage.Literals.SERVICE_SETTING_INSTANCE.getEStructuralFeature("name");	
 				error("Setting is Read only. It cannot be set by user and its value is available after provisioning. " +
 						"It can be assigned to other services. " +
 						"Please remove all static or assigned values", feature  );
@@ -140,13 +142,13 @@ public class FSDLJavaValidator extends AbstractFSDLJavaValidator {
 					}
 				}				
 				if (!resourceExistInRequest){
-					msg += "A \""+ e.getName()+ "\" resource, requests also resource "+requiredResource.getName() +" to be present in the scenario. Please add it.\n";
+					msg += "A \""+ e.getRefOfferedResource().getName()+ "\" resource, requests also resource "+requiredResource.getName() +" to be present in the scenario. Please add it.\n";
 				}
 			}
 		}
 		
 		if (! "".equals(msg)){
-			EStructuralFeature feature = (EStructuralFeature) FederationOffice.federationscenarios.FederationscenariosPackage.Literals.RESOURCE_REQUEST;	
+			EStructuralFeature feature =  FederationOffice.federationscenarios.FederationscenariosPackage.Literals.RESOURCE_REQUEST.getEStructuralFeature("name");	
 			error(msg, feature);
 		}
 		
@@ -172,7 +174,7 @@ public class FSDLJavaValidator extends AbstractFSDLJavaValidator {
 				}
 			
 			if (! "".equals(msg)){
-				EStructuralFeature feature = (EStructuralFeature) FederationOffice.federationscenarios.FederationscenariosPackage.Literals.RESOURCE_SETTING_INSTANCE;	
+				EStructuralFeature feature =  FederationOffice.federationscenarios.FederationscenariosPackage.Literals.RESOURCE_SETTING_INSTANCE.getEStructuralFeature("name");	
 				error(msg, feature  );
 			}
 		}
@@ -183,7 +185,7 @@ public class FSDLJavaValidator extends AbstractFSDLJavaValidator {
 	public void checkResourceSettingReadable( ResourceSettingInstance e ){
 		if ( (e.getRefResourceSetting()!=null)&&(!e.getRefResourceSetting().isWritable() )){
 			if ( (e.getStaticValue()!=null) || (e.getAssignSetting().size()>0) ){
-				EStructuralFeature feature = (EStructuralFeature) FederationOffice.federationscenarios.FederationscenariosPackage.Literals.RESOURCE_SETTING_INSTANCE;	
+				EStructuralFeature feature =  FederationOffice.federationscenarios.FederationscenariosPackage.Literals.RESOURCE_SETTING_INSTANCE.getEStructuralFeature("name");	
 				error("Setting is Read only. It cannot be set by user and its value is available after provisioning. " +
 						"It can be assigned to other resources. " +
 						"Please remove all static or assigned values", feature  );

@@ -370,7 +370,7 @@
             commandId="org.panlab.software.fstoolkit.commands.ResourceAdvisorCommand">
          <enabledWhen>
             <reference
-                  definitionId="org.panlab.software.fsdl.FSDL.Editor.opened">
+                  definitionId="org.panlab.software.fsdl2.FSDL.Editor.opened">
             </reference>
          </enabledWhen>
       </handler>
@@ -379,7 +379,7 @@
             commandId="org.panlab.software.fstoolkit.commands.SubmitFSRequest">
          <enabledWhen>
             <reference
-                  definitionId="org.panlab.software.fsdl.FSDL.Editor.opened">
+                  definitionId="org.panlab.software.fsdl2.FSDL.Editor.opened">
             </reference>
          </enabledWhen>
       </handler>
@@ -388,7 +388,7 @@
             commandId="org.panlab.software.fstoolkit.commands.Connect2ExperimentCommand">
          <enabledWhen>
             <reference
-                  definitionId="org.panlab.software.fsdl.FSDL.Editor.opened">
+                  definitionId="org.panlab.software.fsdl2.FSDL.Editor.opened">
             </reference>
          </enabledWhen>
       </handler>
@@ -398,7 +398,7 @@
          <enabledWhen>
             <or>
                <reference
-                     definitionId="org.panlab.software.fsdl.FSDL.Editor.opened">
+                     definitionId="org.panlab.software.fsdl2.FSDL.Editor.opened">
                </reference>
             </or>
          </enabledWhen>

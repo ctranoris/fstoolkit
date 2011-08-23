@@ -1,6 +1,7 @@
 package org.panlab.software.fsdl2.scoping;
 
 import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider;
+import org.eclipse.xtext.naming.QualifiedName;
 
 import FederationOffice.federationscenarios.ServiceRequest;
 import FederationOffice.federationscenarios.ServiceSettingInstance;
@@ -23,8 +24,11 @@ public class myFSDLQualifiedNameProvider extends
 	}
 	
 	
-	public String qualifiedName( ServiceSettingInstance obj) {
-		System.out.println(">>>qualifiedName ServiceSettingInstance>>>="+ obj.toString() );
-		return  ( (ServiceRequest)obj.eContainer()).getName()  + "." + obj.getName();
+	public QualifiedName qualifiedName( ServiceSettingInstance obj) {
+		//System.out.println(">>>qualifiedName ServiceSettingInstance>>>="+ obj.toString() );
+		String n =  ( (ServiceRequest)obj.eContainer()).getName()  + "." + obj.getName();
+		QualifiedName qualifiedNameFromConverter = getConverter().toQualifiedName(n);
+		return qualifiedNameFromConverter;
+		
 	}
 }

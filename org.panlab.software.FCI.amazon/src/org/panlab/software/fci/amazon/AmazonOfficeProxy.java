@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.panlab.officedl.dslOfficeModel.OfficeRule;
+import org.panlab.software.officedl2.officeDL.OfficeRule;
 
 import FederationOffice.FederationOfficePackage;
 import FederationOffice.Office;

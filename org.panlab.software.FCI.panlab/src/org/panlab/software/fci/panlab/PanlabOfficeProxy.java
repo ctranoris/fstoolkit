@@ -32,8 +32,8 @@ import FederationOffice.users.OfficeUser;
 
 public class PanlabOfficeProxy implements Office {
 
-	public static boolean UsePreloadOfficeTest = false; //mark false in production. True means: will not load the model 
-	public static boolean DONTPropagateToTeagleGW = false; //mark false in production. True means:  will not propagate the jobs to TeagleGW
+	public static boolean UsePreloadOfficeTest = true; //mark false in production. True means: will not load the model 
+	public static boolean DONTPropagateToTeagleGW = true; //mark false in production. True means:  will not propagate the jobs to TeagleGW
 	private Office office;
 	private String OfficeUsername ;
 	private String OfficePassword ;
@@ -158,6 +158,8 @@ public class PanlabOfficeProxy implements Office {
 		}
 
 		// Get the first model element and cast it to the right type
+		((Office)resourcePanlabOffice.getContents().get(0)).setResourceURI( resourcePanlabOffice.getURI().toString() );
+		
 		return (Office)resourcePanlabOffice.getContents().get(0);
 		
 	}
