@@ -187,6 +187,10 @@
             id="org.panlab.software.fstoolkit.commands.ShowResourcesMap"
             name="Resources Map">
       </command>
+      <command
+            id="org.panlab.software.fstoolkit.commands.Scenario2FCICommand"
+            name="Scenario to FCI">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -227,8 +231,14 @@
                   tooltip="Submit the defined Scenario requesting resources by Requested Infrastructure section">
             </command>
             <separator
-                  name="org.panlab.software.fstoolkit.separator2">
+                  name="org.panlab.software.fstoolkit.separator2"
+                  visible="true">
             </separator>
+            <command
+                  commandId="org.panlab.software.fstoolkit.commands.Scenario2FCICommand"
+                  style="push"
+                  tooltip="Create FCI for selected requested scenario">
+            </command>
             <command
                   commandId="org.panlab.software.fstoolkit.commands.ShutDownScenario"
                   style="push"
@@ -293,6 +303,10 @@
                style="push"
                tooltip="Show resources in a map">
          </command>
+         <command
+               commandId="org.panlab.software.fstoolkit.commands.Scenario2FCICommand"
+               style="push">
+         </command>
       </menuContribution>
       <menuContribution
             allPopups="false"
@@ -327,6 +341,10 @@
                commandId="org.panlab.software.fstoolkit.commands.ShowResourcesMap"
                style="push">
          </command>
+         <command
+               commandId="org.panlab.software.fstoolkit.commands.Scenario2FCICommand"
+               style="push">
+         </command>
       </menuContribution>
       <menuContribution
             allPopups="false"
@@ -359,6 +377,10 @@
          </command>
          <command
                commandId="org.panlab.software.fstoolkit.commands.ShowResourcesMap"
+               style="push">
+         </command>
+         <command
+               commandId="org.panlab.software.fstoolkit.commands.Scenario2FCICommand"
                style="push">
          </command>
       </menuContribution>
@@ -461,6 +483,15 @@
             </reference>
          </enabledWhen>
       </handler>
+      <handler
+            class="org.panlab.software.fstoolkit.commands.Scenario2FCICommand"
+            commandId="org.panlab.software.fstoolkit.commands.Scenario2FCICommand">
+         <enabledWhen>
+            <reference
+                  definitionId="runningScenariosSelected">
+            </reference>
+         </enabledWhen>
+      </handler>
    </extension>
    <extension
          point="org.eclipse.ui.commandImages">
@@ -503,6 +534,10 @@
       <image
             commandId="org.panlab.software.fstoolkit.commands.ShowResourcesMap"
             icon="icons/resourcesMap.gif">
+      </image>
+      <image
+            commandId="org.panlab.software.fstoolkit.commands.Scenario2FCICommand"
+            icon="icons/Scenario2FCI.gif">
       </image>
    </extension>
    <extension

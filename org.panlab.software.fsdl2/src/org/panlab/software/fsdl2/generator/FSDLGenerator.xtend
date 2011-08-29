@@ -6,10 +6,33 @@ package org.panlab.software.fsdl2.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
+import com.google.inject.Inject
+
+import static extension org.eclipse.xtext.xtend2.lib.ResourceExtensions.*
+import FederationOffice.federationscenarios.RequestedFederationScenario
+import org.eclipse.xtext.naming.IQualifiedNameProvider
+
 
 class FSDLGenerator implements IGenerator {
 	
+	@Inject extension IQualifiedNameProvider nameProvider 
+	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		//TODO implment me
+		for(e: resource.allContentsIterable.filter(typeof( RequestedFederationScenario ))) {
+			fsa.generateFile(
+            	e.fullyQualifiedName.toString.replace(".", "/") + ".java",
+            	e.compile )	
+			
+    	}
 	}
+	
+	def compile(RequestedFederationScenario e) '''
+    «IF e.eContainer != null»
+        package «e.eContainer.fullyQualifiedName»;
+    «ENDIF»
+    
+    public class «e.name» {
+    }
+'''
+	
 }
