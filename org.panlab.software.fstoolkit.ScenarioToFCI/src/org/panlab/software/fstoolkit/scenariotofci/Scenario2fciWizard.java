@@ -44,25 +44,26 @@ public class Scenario2fciWizard extends Wizard implements INewWizard {
 	
 
 	private Scenario2fciWizardPageOne pageOne;
-	private IStructuredSelection selection;
+	private RequestedFederationScenario scenario;
 
-	public Scenario2fciWizard() {
+	public Scenario2fciWizard(RequestedFederationScenario scenario) {
 		super();
 		setNeedsProgressMonitor(true);
 		this.setWindowTitle("Federation Computing Interface Generator");
+		this.scenario = scenario;
 	}
 	
 	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		System.out.println("Scenario2fciWizard init selection= "+selection);
 		//ui_TaxonomyTreeItem
-		this.selection = selection;
+		//this.selection = selection;
 		
 		
 	}
 
 	public void addPages() {
-		pageOne = new Scenario2fciWizardPageOne(selection);
+		pageOne = new Scenario2fciWizardPageOne(scenario);
 		addPage(pageOne);
 	}
 
@@ -137,7 +138,7 @@ public class Scenario2fciWizard extends Wizard implements INewWizard {
 
 		String vfileToOpen = null;
 		if (targetLanguage.equalsIgnoreCase("Java")){
-			vfileToOpen = "example/Main.java";
+			vfileToOpen = "scenario/"+scenario.getName()+".java";
 		}
 		else if (targetLanguage.equalsIgnoreCase("C")){
 			vfileToOpen = scenario.getName()+".c";

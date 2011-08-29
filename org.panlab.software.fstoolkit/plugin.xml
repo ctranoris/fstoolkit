@@ -230,15 +230,15 @@
                   style="push"
                   tooltip="Submit the defined Scenario requesting resources by Requested Infrastructure section">
             </command>
-            <separator
-                  name="org.panlab.software.fstoolkit.separator2"
-                  visible="true">
-            </separator>
             <command
                   commandId="org.panlab.software.fstoolkit.commands.Scenario2FCICommand"
                   style="push"
                   tooltip="Create FCI for selected requested scenario">
             </command>
+            <separator
+                  name="org.panlab.software.fstoolkit.separator2"
+                  visible="true">
+            </separator>
             <command
                   commandId="org.panlab.software.fstoolkit.commands.ShutDownScenario"
                   style="push"
@@ -261,6 +261,12 @@
                mode="FORCE_TEXT"
                style="push"
                tooltip="Submit the defined Scenario requesting resources by Requested Infrastructure section">
+         </command>
+         <command
+               commandId="org.panlab.software.fstoolkit.commands.Scenario2FCICommand"
+               mode="FORCE_TEXT"
+               style="push"
+               tooltip="Create FCI for selected requested scenario">
          </command>
          <separator
                name="additions"
@@ -303,10 +309,6 @@
                style="push"
                tooltip="Show resources in a map">
          </command>
-         <command
-               commandId="org.panlab.software.fstoolkit.commands.Scenario2FCICommand"
-               style="push">
-         </command>
       </menuContribution>
       <menuContribution
             allPopups="false"
@@ -341,10 +343,6 @@
                commandId="org.panlab.software.fstoolkit.commands.ShowResourcesMap"
                style="push">
          </command>
-         <command
-               commandId="org.panlab.software.fstoolkit.commands.Scenario2FCICommand"
-               style="push">
-         </command>
       </menuContribution>
       <menuContribution
             allPopups="false"
@@ -377,10 +375,6 @@
          </command>
          <command
                commandId="org.panlab.software.fstoolkit.commands.ShowResourcesMap"
-               style="push">
-         </command>
-         <command
-               commandId="org.panlab.software.fstoolkit.commands.Scenario2FCICommand"
                style="push">
          </command>
       </menuContribution>
@@ -488,7 +482,7 @@
             commandId="org.panlab.software.fstoolkit.commands.Scenario2FCICommand">
          <enabledWhen>
             <reference
-                  definitionId="runningScenariosSelected">
+                  definitionId="org.panlab.software.fsdl2.FSDL.Editor.opened">
             </reference>
          </enabledWhen>
       </handler>

@@ -29,7 +29,6 @@ import FederationOffice.uiObjects.ui_TaxonomyTreeItem;
 
 public class Scenario2fciWizardPageOne extends WizardPage {
 
-	private ISelection selection;
 	private RequestedFederationScenario scenario;
 
 	public RequestedFederationScenario getScenario() {
@@ -40,7 +39,7 @@ public class Scenario2fciWizardPageOne extends WizardPage {
 	private Combo targetLanguage;
 	
 	
-	protected Scenario2fciWizardPageOne(IStructuredSelection selection) {
+	protected Scenario2fciWizardPageOne(RequestedFederationScenario scenario) {
 		super("Generate Federation Computing Interface");
 		setTitle("Generate Federation Computing Interface (FCI) for a target language");
 
@@ -48,19 +47,19 @@ public class Scenario2fciWizardPageOne extends WizardPage {
 				"and an example application for a selected target language " +
 				"given a running Federation Scenario.");
 		
-		this.selection = selection;
-		System.out.println("Scenario2fciWizardPageOne selection= "+selection);
+		this.scenario = scenario;
+		System.out.println("Scenario2fciWizardPageOne selection= "+scenario);
 		
-		for (Object obj : selection.toArray()) {
-			System.out.println("Scenario2fciWizardPageOne =" + obj.toString()  );
-			if (obj instanceof ui_TaxonomyTreeItem){
-				if ( ((ui_TaxonomyTreeItem)obj).getOfficeElement() instanceof RequestedFederationScenario ){
-					scenario = 
-							(RequestedFederationScenario)((ui_TaxonomyTreeItem)obj).getOfficeElement();
-				}
-			}
-		}
-		
+//		for (Object obj : selection.toArray()) {
+//			System.out.println("Scenario2fciWizardPageOne =" + obj.toString()  );
+//			if (obj instanceof ui_TaxonomyTreeItem){
+//				if ( ((ui_TaxonomyTreeItem)obj).getOfficeElement() instanceof RequestedFederationScenario ){
+//					scenario = 
+//							(RequestedFederationScenario)((ui_TaxonomyTreeItem)obj).getOfficeElement();
+//				}
+//			}
+//		}
+//		
 
 	}
 	
@@ -121,7 +120,7 @@ public class Scenario2fciWizardPageOne extends WizardPage {
 			}
 		});
 		
-		initialize();
+		//initialize();
 		dialogChanged();
 
 		setControl(container);
@@ -153,45 +152,45 @@ public class Scenario2fciWizardPageOne extends WizardPage {
 	 * Tests if the current workbench selection is a suitable container to use.
 	 */
 
-	private void initialize() {
-		
-		if (selection != null && selection.isEmpty() == false
-				&& selection instanceof IStructuredSelection) {
-			IStructuredSelection ssel = (IStructuredSelection) selection;
-			if (ssel.size() > 1)
-				return;
-			Object obj = ssel.getFirstElement();
-			
-			if (obj instanceof IPackageFragmentRoot){
-				try {
-					obj = ((IPackageFragmentRoot)obj).getCorrespondingResource();
-				} catch (JavaModelException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			
-			if (obj instanceof IPackageFragment){
-				try {
-					obj = ((IPackageFragment)obj).getCorrespondingResource();
-				} catch (JavaModelException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			
-			if ( (obj instanceof IResource) || (obj instanceof IContainer) ) {
-				IContainer container;
-				if (obj instanceof IContainer)
-					container = (IContainer) obj;
-				else
-					container = ((IResource) obj).getParent();
-				
-				containerText.setText(container.getFullPath().toString());
-			}
-		}
-//		passwordText.setText("");
-	}
+//	private void initialize() {
+//		
+//		if (selection != null && selection.isEmpty() == false
+//				&& selection instanceof IStructuredSelection) {
+//			IStructuredSelection ssel = (IStructuredSelection) selection;
+//			if (ssel.size() > 1)
+//				return;
+//			Object obj = ssel.getFirstElement();
+//			
+//			if (obj instanceof IPackageFragmentRoot){
+//				try {
+//					obj = ((IPackageFragmentRoot)obj).getCorrespondingResource();
+//				} catch (JavaModelException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//			}
+//			
+//			if (obj instanceof IPackageFragment){
+//				try {
+//					obj = ((IPackageFragment)obj).getCorrespondingResource();
+//				} catch (JavaModelException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//			}
+//			
+//			if ( (obj instanceof IResource) || (obj instanceof IContainer) ) {
+//				IContainer container;
+//				if (obj instanceof IContainer)
+//					container = (IContainer) obj;
+//				else
+//					container = ((IResource) obj).getParent();
+//				
+//				containerText.setText(container.getFullPath().toString());
+//			}
+//		}
+////		passwordText.setText("");
+//	}
 	
 	private void dialogChanged() {
 		IResource container = ResourcesPlugin.getWorkspace().getRoot()
