@@ -26,6 +26,7 @@ import org.panlab.software.fci.core.ResourceProvider;
 import org.panlab.software.fci.core.ResourceProxy;
 import org.panlab.software.fci.core.ServiceType;
 
+
 public class echo {
 	//TODO: Please enter here identity for amazon
 	String _username_amazon ="ENTER USERNAME";
@@ -78,61 +79,87 @@ public class echo {
 		_context_panlab = _return_context_panlab();
 	}
 
-	private void CreateScenario() {
-        
-
-//        //browse all available services
-//        for (ServiceType elem : _context_panlab.getAvailableServices()) {
-//            System.out.println("Service: " + elem.getName() + "("
-//                    + elem.getDescription() + ")");
-//        }
-
-        //Create a service type by its name
+	
+	private ResourceProxy createResource_myecho(){
+		//Create a service type by its name
         ServiceType service = _context_panlab.getServiceType("echo");
-
-//        //check all who offer that service
-//        for (ResourceProvider elem : _context_panlab.getResourceProvidersForServiceType(service)) {
-//            System.out.println("Service Provider: " + elem.getName() + "("+ elem.getDescription() + ")");
-//        }
        
-//        ResourceProvider provider = panlab.getFirstResourceProviderOfService(service);
-//        System.out.println("A first available Provider: " + provider.getName());
-       
-//        //get a resource provider by its PTM alias
+//        //get a resource provider 
         ResourceProvider provider = _context_panlab.getResourceProviderByURI("uop");
 //       
-//        //Group (for grouping resources)
-        ResourceGroup myGroup = FCI.getInstance().createResourceGroup("myGroup");
 //
         //create Parameters of a resource
         List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
         ParameterValuePair p;
-        p = new ParameterValuePair("input", "hello");
-        params.add(p);
-        p = new ParameterValuePair("sleeptime_ms", "hello");
+        //p = new ParameterValuePair("input", "hello");
+        //params.add(p);
+        p = new ParameterValuePair("sleeptime_ms", "1000");
         params.add(p);
         p = new ParameterValuePair("output", "");
         params.add(p);
-//        p = new ParameterValuePair("VM_name", "MyVM");
+        ResourceProxy resource_myecho = _context_panlab.createResourceProxy("myEchoScenario", "echo_rp12_s12_or10782", provider, service, params);
+        return  resource_myecho;
+	}
+	
+	private ResourceProxy createResource_myCompute(){
+		//Create a service type by its name
+        ServiceType service = _context_amazon.getServiceType("Compute");
+      //check all who offer that service
+        for (ResourceProvider elem : _context_amazon.getResourceProvidersForServiceType(service)) {
+            System.out.println("ResourceProvider: " + elem.getName() + "(description: "+ elem.getDescription() + ")");
+            for (String s : elem.getURIs() ) {
+                System.out.println("uri: " + s );
+			}
+        }
+
+        //get a resource provider 
+        ResourceProvider provider = _context_amazon.getResourceProviderByURI("eu-west-1");
+        
+      //create Parameters of a resource
+        List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
+        ParameterValuePair p;
+        p = new ParameterValuePair("Region", "eu-west-1");
+        params.add(p);
+        p = new ParameterValuePair("InstanceType", "m1.small");
+        params.add(p);
+        p = new ParameterValuePair("AMIid", "ami-47cefa33");
+        params.add(p);
+//        p = new ParameterValuePair("PublicDnsName", ""); //output
 //        params.add(p);
-//        p = new ParameterValuePair("VM_memory", "1024");
+//        p = new ParameterValuePair("InstanceID", ""); //output
 //        params.add(p);
-//        p = new ParameterValuePair("VM_number_of_CPU", "1");
-//        params.add(p);
-//        p = new ParameterValuePair("VM_template", "server964");
-//        params.add(p);
-////        p = new ParameterValuePair("sleeptime_ms", "2000");
-////        params.add(p);
-        ResourceProxy resourceEcho = _context_panlab.createResourceProxy("myEchoScenario", "echo_rp12_s12_or10782", provider, service, params);
-//        
-        System.out.println("Echo resource GUID: " + resourceEcho.getGUID());
-        myGroup.addResourceProxy(resourceEcho);
-//       
-        // Update all resources of group
-        System.out.println("Echo output = "+ resourceEcho.getParameterValueOfResource("output", true));
+        
+        
+        ResourceProxy resource_myCompute = _context_amazon.createResourceProxy("myEchoScenario", "echo_rp12_s12_or10782", provider, service, params);
+        return  resource_myCompute;
+	}
+	
+	private void CreateScenario() {
+        
+
+//    Group (for grouping resources)
+      ResourceGroup myGroup = FCI.getInstance().createResourceGroup("myGroup");
+      //all creates
+      ResourceProxy resource_myecho = createResource_myecho();
+      ResourceProxy resource_myCompute = createResource_myCompute();
+
+      System.out.println("myecho resource GUID: " + resource_myecho.getGUID());
+      System.out.println("myCompute resource GUID: " + resource_myCompute.getGUID());
+      myGroup.addResourceProxy(resource_myecho);
+      myGroup.addResourceProxy(resource_myCompute);
+ 
+
+      System.out.println("Echo input = "+ resource_myecho.getParameterValueOfResource("input", true));
+      //assignments
+      // Update assignments for resources of group
+      String publicdnsname = resource_myCompute.getParameterValueOfResource("publicdnsname", true);
+      resource_myecho.updateParameterValueOfResource("input", publicdnsname);
+      
+      System.out.println("Echo input = "+ resource_myecho.getParameterValueOfResource("input", true));
+      System.out.println("Echo output = "+ resource_myecho.getParameterValueOfResource("output", true));
        
-        // Terminate the group..terminate any contained resources
-        myGroup.TearDownResources();
+      // Terminate the group..terminate any contained resources
+      myGroup.TearDownResources();
     }
 
 	

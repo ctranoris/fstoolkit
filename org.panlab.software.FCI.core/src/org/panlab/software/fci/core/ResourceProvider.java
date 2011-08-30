@@ -35,7 +35,10 @@ public class ResourceProvider {
 	public Set<String> getURIs(){
 		Set<String> uris = new HashSet<String>();
 		for (Site site : this.officeprovider.getOfferedSiteList()) {
-			uris.add(site.getPtm().getName());
+			if ((site.getPtm()!=null) && (site.getPtm().getName()!=null))
+				uris.add(site.getPtm().getName());
+			else
+				uris.add(site.getName());
 		}
 
 		return uris;

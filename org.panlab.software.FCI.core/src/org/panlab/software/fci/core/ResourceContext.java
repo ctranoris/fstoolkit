@@ -126,7 +126,7 @@ public class ResourceContext {
 			if ( user instanceof ResourcesProvider ){
 				ResourcesProvider partner = (ResourcesProvider)user;
 				for (Site site : partner.getOfferedSiteList()) {
-					if (val.toLowerCase().equals(site.getPtm().getName()  ))
+					if ( val.toLowerCase().equals(site.getPtm().getName()) || val.toLowerCase().equals(site.getName())  )
 						return new ResourceProvider(partner) ;
 				}
 			}			
