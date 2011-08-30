@@ -1,9 +1,6 @@
 package org.panlab.software.fci.amazon;
 
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collections;
-import java.util.Map;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
@@ -13,12 +10,15 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.resource.XtextResourceSet;
+import org.panlab.software.officedl2.OfficeDLStandaloneSetup;
 import org.panlab.software.officedl2.officeDL.OfficeRule;
 
 import FederationOffice.FederationOfficePackage;
@@ -31,6 +31,8 @@ import FederationOffice.services.Taxonomy;
 import FederationOffice.slareservations.SLA;
 import FederationOffice.users.OfficeUser;
 
+import com.google.inject.Injector;
+
 public class AmazonOfficeProxy implements Office {
 
 	public static boolean DONTPropagateToGW = false; //mark false in production. True means:  will not propagate the jobs to gateway
@@ -39,6 +41,9 @@ public class AmazonOfficeProxy implements Office {
 	private String OfficePassword ;
 	//TODO: Set a variable to store the temporary folder of saving the Panlab office
 	//TODO: On the FSDL project wizard add options from which offices the user wants resources. They will be included in the "import office" statement
+	
+	
+//	AmazonOfficeLoader amloader;
 	
 	public boolean officeLoaded(){
 		return office != null;
@@ -49,54 +54,31 @@ public class AmazonOfficeProxy implements Office {
 		OfficeUsername = username;
 		OfficePassword = password;
 		office = PreloadedOffice();
-	}
-	
+		
+		
+	}	
 	
 	
 	private Office PreloadedOffice() {
-		
-		// Initialize the model
-		FederationOfficePackage.eINSTANCE.eClass();
 
-		
-		// As of here we preparing to save the model content
-		// Register the XMI resource factory for the .office extension
-
-		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-		Map<String, Object> m = reg.getExtensionToFactoryMap();
-		m.put("office", new XMIResourceFactoryImpl());
-
-		// Obtain a new resource set
-		ResourceSet resSet = new ResourceSetImpl();
-
-
-		// Create a resource 
-		//String uri = Activator.getDefault().getStateLocation().toOSString() + "\\panlab.office";
-		//String uri = "C:\\Users\\tranoris\\runtime-New_configuration\\.metadata\\.plugins\\org.panlab.software.FCI.panlab\\panlab.office";
-		//String uri = "C:\\Users\\ctranoris.WCL\\runtime-New_configuration\\.metadata\\.plugins\\org.panlab.software.FCI.panlab\\panlab.office";
-		//C:\Users\ctranoris\runtime-FSToolkit\.metadata\.plugins\org.panlab.software.FCI.panlab
-		
-		
-		String uri = "C:\\Users\\ctranoris\\runtime-FSToolkit\\myProject\\src\\Amazon.officedl";
-//		if (Activator.getDefault()!=null)
-//			uri = Activator.getDefault().getStateLocation().toOSString() + "\\panlab.office";
-		
-		
-		Resource resourceAmazonOffice = resSet.createResource( URI.createFileURI( uri ));
-		
-		try {
-				System.out.println("Loading amazon.office from: "+uri);				
-				resourceAmazonOffice.load(Collections.EMPTY_MAP);
-		} catch (IOException e) {
-			e.printStackTrace();
+		if (!EPackage.Registry.INSTANCE.containsKey("http://www.panlab.org/software/officedl2/OfficeDL")) {
+			new OfficeDLStandaloneSetup().createInjectorAndDoEMFRegistration();
 		}
+		
+		String uri = "file:/C:/Users/ctranoris/runtime-FSToolkit/myProject/src/Amazon.officedl";
+		System.out.println("Loading amazon definitionfrom: "+uri);		
+		
+		//ResourceSet set = resourceSetProvider.get();
+		ResourceSet resourceSet = new ResourceSetImpl();
+
+		Resource resourceAmazonOffice = resourceSet.getResource(URI.createURI(uri), true);
+		
 
 		// Get the first model element and cast it to the right type
 		OfficeRule officeRule = (OfficeRule) resourceAmazonOffice.getContents().get(0);
 		officeRule.getTestbedOfficev().setResourceURI( resourceAmazonOffice.getURI().toString() );
 		
 		return officeRule.getTestbedOfficev();
-		
 	}
 
 	@Override

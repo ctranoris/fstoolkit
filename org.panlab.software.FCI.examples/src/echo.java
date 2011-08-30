@@ -27,26 +27,32 @@ import org.panlab.software.fci.core.ResourceProxy;
 import org.panlab.software.fci.core.ServiceType;
 
 public class echo {
-
-	//for each imported office, we need credentials and authorizationkey(?)
-	
+	//TODO: Please enter here identity for amazon
 	String _username_amazon ="ENTER USERNAME";
 	String _password_amazon ="ENTER PASSWORD";
+
+	//TODO: Please enter here identity for panlab
+	String _username_panlab ="ENTER USERNAME";
+	String _password_panlab ="ENTER PASSWORD";
+	
+	FCI fci = FCI.getInstance();
+	
+	//for each imported office, we need credentials and authorizationkey(?)	
+	
+	
+	ResourceContext _context_amazon;
 	public ResourceContext _return_context_amazon(){ 
 		//credentials for amazon Office
 		FCICredentials cred = new FCICredentials(_username_amazon, _password_amazon);
-		FCI fci = FCI.getInstance();
 		AuthorizationKey authKey = fci.createAuthorizationKey(cred);
 		ResourceContext _context_amazon = fci.createResourceContext("amazon", authKey);
 		return _context_amazon;
 	}
 
-	String _username_panlab ="ENTER USERNAME";
-	String _password_panlab ="ENTER PASSWORD";
+	ResourceContext _context_panlab;
 	public ResourceContext _return_context_panlab(){ 
 		//credentials for panlab Office
 		FCICredentials cred = new FCICredentials(_username_panlab, _password_panlab);
-		FCI fci = FCI.getInstance();
 		AuthorizationKey authKey = fci.createAuthorizationKey(cred);
 		ResourceContext _context_panlab = fci.createResourceContext("panlab", authKey);
 		return _context_panlab;
@@ -68,59 +74,60 @@ public class echo {
 	}
 	
 	public void CreateContexts(){
-		
+		_context_amazon = _return_context_amazon();
+		_context_panlab = _return_context_panlab();
 	}
 
 	private void CreateScenario() {
-        //credentials for Panlab Office
-        FCICredentials cred = new FCICredentials("synchromedia", "pii-2010");
+        
 
-        FCI fci = FCI.getInstance();
-        AuthorizationKey authKey = fci.createAuthorizationKey(cred);
-        ResourceContext panlab = fci.createResourceContext("panlab", authKey);
-
-        //browse all available services
-        for (ServiceType elem : panlab.getAvailableServices()) {
-            System.out.println("Service: " + elem.getName() + "("
-                    + elem.getDescription() + ")");
-        }
+//        //browse all available services
+//        for (ServiceType elem : _context_panlab.getAvailableServices()) {
+//            System.out.println("Service: " + elem.getName() + "("
+//                    + elem.getDescription() + ")");
+//        }
 
         //Create a service type by its name
-        ServiceType service = panlab.getServiceType("gsnvirtualmachine");
+        ServiceType service = _context_panlab.getServiceType("echo");
 
-        //check all who offer that service
-        for (ResourceProvider elem : panlab.getResourceProvidersForServiceType(service)) {
-            System.out.println("Service Provider: " + elem.getName() + "("+ elem.getDescription() + ")");
-        }
+//        //check all who offer that service
+//        for (ResourceProvider elem : _context_panlab.getResourceProvidersForServiceType(service)) {
+//            System.out.println("Service Provider: " + elem.getName() + "("+ elem.getDescription() + ")");
+//        }
        
 //        ResourceProvider provider = panlab.getFirstResourceProviderOfService(service);
 //        System.out.println("A first available Provider: " + provider.getName());
        
-        //get a resource provider by its PTM alias
-        ResourceProvider provider = panlab.getResourceProviderByURI("synchromedia");
-       
-        //Group (for grouping resources)
-        ResourceGroup myGroup = fci.createResourceGroup("GSNScenarioExample");
-
+//        //get a resource provider by its PTM alias
+        ResourceProvider provider = _context_panlab.getResourceProviderByURI("uop");
+//       
+//        //Group (for grouping resources)
+        ResourceGroup myGroup = FCI.getInstance().createResourceGroup("myGroup");
+//
         //create Parameters of a resource
         List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
-        ParameterValuePair p = new ParameterValuePair("Host_name", "ETS-Host1");
+        ParameterValuePair p;
+        p = new ParameterValuePair("input", "hello");
         params.add(p);
-        p = new ParameterValuePair("VM_name", "MyVM");
+        p = new ParameterValuePair("sleeptime_ms", "hello");
         params.add(p);
-        p = new ParameterValuePair("VM_memory", "1024");
+        p = new ParameterValuePair("output", "");
         params.add(p);
-        p = new ParameterValuePair("VM_number_of_CPU", "1");
-        params.add(p);
-        p = new ParameterValuePair("VM_template", "server964");
-        params.add(p);
-//        p = new ParameterValuePair("sleeptime_ms", "2000");
+//        p = new ParameterValuePair("VM_name", "MyVM");
 //        params.add(p);
-        ResourceProxy resourceEcho = panlab.createResourceProxy("myTempVCT", "mygsnvirtulamachineResource", provider, service, params);
-        
+//        p = new ParameterValuePair("VM_memory", "1024");
+//        params.add(p);
+//        p = new ParameterValuePair("VM_number_of_CPU", "1");
+//        params.add(p);
+//        p = new ParameterValuePair("VM_template", "server964");
+//        params.add(p);
+////        p = new ParameterValuePair("sleeptime_ms", "2000");
+////        params.add(p);
+        ResourceProxy resourceEcho = _context_panlab.createResourceProxy("myEchoScenario", "echo_rp12_s12_or10782", provider, service, params);
+//        
         System.out.println("Echo resource GUID: " + resourceEcho.getGUID());
         myGroup.addResourceProxy(resourceEcho);
-       
+//       
         // Update all resources of group
         System.out.println("Echo output = "+ resourceEcho.getParameterValueOfResource("output", true));
        
