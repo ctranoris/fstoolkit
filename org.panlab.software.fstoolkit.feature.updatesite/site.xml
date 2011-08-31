@@ -6,7 +6,7 @@
    <feature url="features/org.panlab.software.fstoolkit.fci.feature_1.0.0.201108311510.jar" id="org.panlab.software.fstoolkit.fci.feature" version="1.0.0.201108311510">
       <category name="FSToolkit"/>
    </feature>
-   <feature url="features/org.panlab.software.fstoolkit.feature_1.0.0.201108311519.jar" id="org.panlab.software.fstoolkit.feature" version="1.0.0.201108311519">
+   <feature url="features/org.panlab.software.fstoolkit.feature_1.0.0.201108311539.jar" id="org.panlab.software.fstoolkit.feature" version="1.0.0.201108311539">
       <category name="FSToolkit"/>
    </feature>
    <feature url="features/org.panlab.software.fstoolkit.panlab.feature_1.0.0.201108311525.jar" id="org.panlab.software.fstoolkit.panlab.feature" version="1.0.0.201108311525">
