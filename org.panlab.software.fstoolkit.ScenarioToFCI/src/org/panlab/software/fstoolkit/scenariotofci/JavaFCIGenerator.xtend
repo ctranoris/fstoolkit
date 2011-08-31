@@ -8,6 +8,7 @@ import com.google.inject.Inject
 
 import static extension org.eclipse.xtext.xtend2.lib.ResourceExtensions.*
 import FederationOffice.Office
+import FederationOffice.federationscenarios.ResourceRequest
 import FederationOffice.federationscenarios.RequestedFederationScenario
 import FederationOffice.resources.OfferedResource
 import org.eclipse.xtext.naming.IQualifiedNameProvider
@@ -29,15 +30,40 @@ class JavaFCIGenerator  implements IGenerator {
 
 	def addResourceContext(Office e) {
 		 '''
-		public ResourceContext _resource_context_«e.name»(){ 
+		ResourceContext _context_«e.name»;
+		
+		public ResourceContext _return_context_«e.name»(){ 
+			//credentials for amazon Office
 			FCICredentials cred = new FCICredentials(_username_«e.name», _password_«e.name»);
-			FCI fci = FCI.getInstance();
 			AuthorizationKey authKey = fci.createAuthorizationKey(cred);
 			ResourceContext _context_«e.name» = fci.createResourceContext("«e.name»", authKey);
-			return _context_«e.name» ;
+			return _context_«e.name»;
 		}
 		
 		'''
+	}
+
+	def addcreateResource(Office o, ResourceRequest e) {
+		'''
+		private ResourceProxy createResource_«e.name»(){
+			//Create a service type by its name
+			ServiceType service = _context_«o.name».getServiceType("«e.refOfferedResource.implOfferedService.name»");
+			
+			//get a resource provider 
+			ResourceProvider provider = _context_«o.name».getResourceProviderByURI("«e.refOfferedResource.belongsToSite.name»");
+			
+			//create Parameters of a resource
+			List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
+			ParameterValuePair p;
+			«FOR p : e.reqResourceSettings »
+			p = new ParameterValuePair("«p.refResourceSetting.name»", "«p.staticValue»");
+			params.add(p);
+			«ENDFOR»
+			ResourceProxy resource_«e.name» = _context_«o.name».createResourceProxy("myScenario", "echo_rp12_s12_or10782", provider, service, params);
+			return  resource_«e.name»;
+		}
+		'''	
+		
 	}
 
 	
@@ -80,15 +106,26 @@ class JavaFCIGenerator  implements IGenerator {
 		import org.panlab.software.fci.core.ServiceType;
 		
 		public class «e.name» {
-		
-			//for each imported office, we need credentials and authorizationkey(?)
 			
 			«FOR  s : e.infrastructureRequest.reqOfferedResources»
 				«var office =  s.refOfferedResource.belongsToSite.belongsToProvider.eContainer as Office»
-				//credentials for «office.name» Office
+				//TODO: Please enter here identity for «office.name»
 				String _username_«office.name» ="ENTER USERNAME";
 				String _password_«office.name» ="ENTER PASSWORD";
+			«ENDFOR»
+			
+			FCI fci = FCI.getInstance();
+			
+			//for each imported office, we need a Resource Context	
+			«FOR  s : e.infrastructureRequest.reqOfferedResources»
+				«var office =  s.refOfferedResource.belongsToSite.belongsToProvider.eContainer as Office»
 				«addResourceContext(office)»
+			«ENDFOR»
+					
+			//
+			«FOR  s : e.infrastructureRequest.reqOfferedResources»
+				«var office =  s.refOfferedResource.belongsToSite.belongsToProvider.eContainer as Office»
+				«addcreateResource(office, s)»
 			«ENDFOR»
 			/**
 			 * @param args
@@ -106,65 +143,36 @@ class JavaFCIGenerator  implements IGenerator {
 			}
 			
 			public void CreateContexts(){
+				«FOR  s : e.infrastructureRequest.reqOfferedResources»
+				«var office =  s.refOfferedResource.belongsToSite.belongsToProvider.eContainer as Office»
+				_context_«office.name» = _return_context_«office.name»();
+				«ENDFOR»
 				
 			}
 		
 			private void CreateScenario() {
-		        //credentials for Panlab Office
-		        FCICredentials cred = new FCICredentials("synchromedia", "pii-2010");
-		
-		        FCI fci = FCI.getInstance();
-		        AuthorizationKey authKey = fci.createAuthorizationKey(cred);
-		        ResourceContext panlab = fci.createResourceContext("panlab", authKey);
-		
-		        //browse all available services
-		        for (ServiceType elem : panlab.getAvailableServices()) {
-		            System.out.println("Service: " + elem.getName() + "("
-		                    + elem.getDescription() + ")");
-		        }
-		
-		        //Create a service type by its name
-		        ServiceType service = panlab.getServiceType("gsnvirtualmachine");
-		
-		        //check all who offer that service
-		        for (ResourceProvider elem : panlab.getResourceProvidersForServiceType(service)) {
-		            System.out.println("Service Provider: " + elem.getName() + "("+ elem.getDescription() + ")");
-		        }
-		       
-		//        ResourceProvider provider = panlab.getFirstResourceProviderOfService(service);
-		//        System.out.println("A first available Provider: " + provider.getName());
-		       
-		        //get a resource provider by its PTM alias
-		        ResourceProvider provider = panlab.getResourceProviderByURI("synchromedia");
-		       
-		        //Group (for grouping resources)
-		        ResourceGroup myGroup = fci.createResourceGroup("GSNScenarioExample");
-		
-		        //create Parameters of a resource
-		        List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
-		        ParameterValuePair p = new ParameterValuePair("Host_name", "ETS-Host1");
-		        params.add(p);
-		        p = new ParameterValuePair("VM_name", "MyVM");
-		        params.add(p);
-		        p = new ParameterValuePair("VM_memory", "1024");
-		        params.add(p);
-		        p = new ParameterValuePair("VM_number_of_CPU", "1");
-		        params.add(p);
-		        p = new ParameterValuePair("VM_template", "server964");
-		        params.add(p);
-		//        p = new ParameterValuePair("sleeptime_ms", "2000");
-		//        params.add(p);
-		        ResourceProxy resourceEcho = panlab.createResourceProxy("myTempVCT", "mygsnvirtulamachineResource", provider, service, params);
-		        
-		        System.out.println("Echo resource GUID: " + resourceEcho.getGUID());
-		        myGroup.addResourceProxy(resourceEcho);
-		       
-		        // Update all resources of group
-		        System.out.println("Echo output = "+ resourceEcho.getParameterValueOfResource("output", true));
-		       
-		        // Terminate the group..terminate any contained resources
-		        myGroup.TearDownResources();
-		    }
+		    //    Group (for grouping resources)
+				ResourceGroup myGroup = FCI.getInstance().createResourceGroup("myGroup");
+				//all creates				
+				«FOR  s : e.infrastructureRequest.reqOfferedResources»
+				ResourceProxy resource_«s.name» = createResource_«s.name»();
+				System.out.println("«s.name» resource GUID: " + resource_«s.name».getGUID());
+				myGroup.addResourceProxy(resource_«s.name»);
+				«ENDFOR»
+								 
+				
+//				System.out.println("Echo input = "+ resource_myecho.getParameterValueOfResource("input", true));
+//				//assignments
+//				// Update assignments for resources of group
+//				String publicdnsname = resource_myCompute.getParameterValueOfResource("publicdnsname", true);
+//				resource_myecho.updateParameterValueOfResource("input", publicdnsname);
+//				
+//				System.out.println("Echo input = "+ resource_myecho.getParameterValueOfResource("input", true));
+//				System.out.println("Echo output = "+ resource_myecho.getParameterValueOfResource("output", true));
+				
+				// Terminate the group..terminate any contained resources
+				myGroup.TearDownResources();
+				}
 		
 			
 		
@@ -176,46 +184,7 @@ class JavaFCIGenerator  implements IGenerator {
 	
 	
 
-	def dispatch void toClass(OfferedResource e, IFileSystemAccess fsa) {
-		fsa.generateFile("services/"+e.name + ".java", '''
-		/*************************************************************************
-		Copyright 2010 Panlab 
-		
-		Licensed under the Apache License, Version 2.0 (the "License"); 
-		you may not use this file except in compliance with the License. 
-		You may obtain a copy of the License at 
-		
-		http://www.apache.org/licenses/LICENSE-2.0 
-		Unless required by applicable law or agreed to in writing, software 
-		distributed under the License is distributed on an "AS IS" BASIS, 
-		WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-		See the License for the specific language governing permissions and 
-		limitations under the License. 
-		*************************************************************************/
-		
-		package services;
-		
-		public class «e.name» {
-
-		private String instanceName;
-		private String scenarioID;
-		private String ptmAlias;
-		private XMLutils xmlutil;
-		
-		public «e.name»(String instName, String scenarioid) {
-			//Auto-generated constructor stub
-			instanceName = instName;
-			scenarioID = scenarioid;
-			
-		}
-		
-		public String getInstanceName(){
-			return instanceName;
-		}
-		
-		''')	
-
-	}
+	
 
 	def dispatch void toClass(EObject m, IFileSystemAccess fsa) { }
 
