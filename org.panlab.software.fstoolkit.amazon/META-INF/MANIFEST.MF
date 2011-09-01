@@ -7,9 +7,7 @@ Bundle-Activator: org.panlab.software.fstoolkit.amazon.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.panlab.software.office.model;bundle-version="1.0.1",
- org.panlab.software.FCI.core;bundle-version="1.0.0",
- org.panlab.software.fstoolkit;bundle-version="1.0.0",
- org.panlab.software.fstoolkit.localprovisioningengine
+ org.panlab.software.FCI.core;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.panlab.software.fstoolkit.amazon

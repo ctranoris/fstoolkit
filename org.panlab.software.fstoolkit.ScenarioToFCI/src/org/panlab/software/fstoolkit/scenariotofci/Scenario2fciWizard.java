@@ -40,6 +40,7 @@ import FederationOffice.FederationOfficePackage;
 import FederationOffice.federationscenarios.RequestedFederationScenario;
 
 
+
 public class Scenario2fciWizard extends Wizard implements INewWizard {
 	
 

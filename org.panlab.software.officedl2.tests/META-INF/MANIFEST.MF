@@ -8,11 +8,11 @@ Bundle-ActivationPolicy: lazy
 Require-Bundle: org.panlab.software.officedl2,
  org.panlab.software.officedl2.ui,
  org.eclipse.core.runtime,
- org.eclipse.xtext,
  org.eclipse.xtext.junit4,
  org.eclipse.xtext.ui.junit,
  org.junit4,
- org.eclipse.ui.workbench;resolution:=optional
+ org.eclipse.ui.workbench;resolution:=optional,
+ org.eclipse.xtext;bundle-version="2.0.1"
 Import-Package: org.apache.log4j,
  org.apache.commons.logging
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

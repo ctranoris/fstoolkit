@@ -13,10 +13,11 @@ import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.util.Strings;
 
 public class MyVTDLValueConverter extends DefaultTerminalConverters {
-
+ 
 	@ValueConverter(rule = "EDate")
-    public IValueConverter<Date> EDate() {
+    public IValueConverter<?> EDate() {
         return new IValueConverter<Date>() {
+
         	@Override
             public Date toValue(String string, INode node) throws ValueConverterException{
             	DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss"); 
@@ -35,7 +36,8 @@ public class MyVTDLValueConverter extends DefaultTerminalConverters {
                 }
             }
 
-            public String toString(Date value) {
+	        @Override
+			public String toString(Date value) throws ValueConverterException {
             	//System.out.println("MyVTDLValueConverter.toString()= "+value);
             	DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss"); 
                 return   sdf.format (value) ;
@@ -44,7 +46,7 @@ public class MyVTDLValueConverter extends DefaultTerminalConverters {
 			
         };
 	}
-	
+//	
 //	@ValueConverter(rule = "EBoolean")
 //    public IValueConverter<Boolean> EBoolean() {
 //        return new IValueConverter<Boolean>() {

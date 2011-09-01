@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.panlab.software.office.model.edit;singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.2
 Bundle-ClassPath: .
 Bundle-Activator: FederationOffice.provider.FederationOfficeEditPlugin$Implementation
 Bundle-Vendor: %providerName

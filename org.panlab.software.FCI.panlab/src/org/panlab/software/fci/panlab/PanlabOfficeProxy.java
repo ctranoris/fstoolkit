@@ -144,10 +144,16 @@ public class PanlabOfficeProxy implements Office {
 		//String uri = "C:\\Users\\ctranoris.WCL\\runtime-New_configuration\\.metadata\\.plugins\\org.panlab.software.FCI.panlab\\panlab.office";
 		//C:\Users\ctranoris\runtime-FSToolkit\.metadata\.plugins\org.panlab.software.FCI.panlab
 		String uri = "panlab.office";
-		if (Activator.getDefault()!=null)
-			uri = Activator.getDefault().getStateLocation().toOSString() + "\\panlab.office";
 		
-		
+		try {
+			if (Activator.getDefault()!=null)
+				uri = Activator.getDefault().getStateLocation().toOSString() + "\\panlab.office";
+		} catch (NoClassDefFoundError  e) {
+			// TODO Auto-generated catch block
+			System.out.println("NoClassDefFoundError but don't worry. Activated only as plugin");
+			e.printStackTrace();
+			System.out.println("Continue with saving the uri ");
+		}
 		Resource resourcePanlabOffice = resSet.createResource( URI.createFileURI( uri ));
 		
 		try {

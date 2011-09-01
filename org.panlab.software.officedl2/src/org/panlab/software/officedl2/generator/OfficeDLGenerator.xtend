@@ -6,10 +6,32 @@ package org.panlab.software.officedl2.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
+import com.google.inject.Inject
+
+import static extension org.eclipse.xtext.xtend2.lib.ResourceExtensions.*
+import org.eclipse.xtext.naming.IQualifiedNameProvider
+import FederationOffice.services.Service
+
 
 class OfficeDLGenerator implements IGenerator {
 	
+	@Inject extension IQualifiedNameProvider nameProvider 
+	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		//TODO implment me
+		for(e: resource.allContentsIterable.filter(typeof( Service ))) {
+			fsa.generateFile(
+            	e.fullyQualifiedName.toString.replace(".", "/") + ".java",
+            	e.compile )	
+			
+    	}
 	}
+	
+	def compile(Service e) '''
+    «IF e.eContainer != null»
+        package «e.eContainer.fullyQualifiedName»;
+    «ENDIF»
+    
+    public class «e.name» {
+    }
+'''
 }

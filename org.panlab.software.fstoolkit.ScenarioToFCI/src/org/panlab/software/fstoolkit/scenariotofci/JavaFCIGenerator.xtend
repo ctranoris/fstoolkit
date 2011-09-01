@@ -164,13 +164,27 @@ class JavaFCIGenerator  implements IGenerator {
 //				System.out.println("Echo input = "+ resource_myecho.getParameterValueOfResource("input", true));
 //				//assignments
 //				// Update assignments for resources of group
-//				String publicdnsname = resource_myCompute.getParameterValueOfResource("publicdnsname", true);
-//				resource_myecho.updateParameterValueOfResource("input", publicdnsname);
-//				
-//				System.out.println("Echo input = "+ resource_myecho.getParameterValueOfResource("input", true));
-//				System.out.println("Echo output = "+ resource_myecho.getParameterValueOfResource("output", true));
+
+				«FOR  reqResource : e.infrastructureRequest.reqOfferedResources»
+				«FOR reqSetting : reqResource.reqResourceSettings »
+				«IF reqSetting.assignSetting.size >0  »
+					«FOR s : reqSetting.assignSetting »
+					«var assignedResReq = s.eContainer as ResourceRequest»
+					String «s.name» = resource_«assignedResReq.name».getParameterValueOfResource("«s.name»", true);
+					resource_«reqResource.name».updateParameterValueOfResource("«reqSetting.refResourceSetting.name»", «s.name»);
+					«ENDFOR»
+				«ENDIF»
+				«ENDFOR»
+				«ENDFOR»				
 				
-				// Terminate the group..terminate any contained resources
+				//example reads
+				«FOR  reqResource : e.infrastructureRequest.reqOfferedResources»
+				«FOR reqSetting : reqResource.reqResourceSettings »
+					System.out.println("«reqResource.name» «reqSetting.name» = "+ resource_«reqResource.name».getParameterValueOfResource("«reqSetting.refResourceSetting.name»", true));
+				«ENDFOR»
+				«ENDFOR»
+				
+				// Terminate the group..terminate any contained resources and release scenario
 				myGroup.TearDownResources();
 				}
 		
