@@ -20,7 +20,7 @@ public class FSDLProjectCreator extends AbstractPluginProjectCreator {
 
 	protected static final String DSL_GENERATOR_PROJECT_NAME = "org.panlab.software.fsdl2";
 
-	protected static final String SRC_ROOT = "src";
+	protected static final String SRC_ROOT = "scenarios";
 	protected static final String SRC_GEN_ROOT = "src-gen";
 	protected final List<String> SRC_FOLDER_LIST = ImmutableList.of(SRC_ROOT, SRC_GEN_ROOT);
 
