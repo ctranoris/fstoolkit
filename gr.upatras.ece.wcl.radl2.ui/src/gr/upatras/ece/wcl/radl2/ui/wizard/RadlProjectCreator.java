@@ -61,6 +61,9 @@ public class RadlProjectCreator extends AbstractPluginProjectCreator {
             	"org.eclipse.equinox.common;resolution:=optional",
             	"org.eclipse.jface.text;resolution:=optional",
             	"org.eclipse.jdt.core;resolution:=optional",
+            	"gr.upatras.ece.wcl.radl2;resolution:=optional",
+    			"org.eclipse.xtext.common.types", 
+    			"org.panlab.software.office.model", 
     			DSL_GENERATOR_PROJECT_NAME,
 //    			DSL_TIDE_MODEL,
     			DSL_RALIB_PROJECT_NAME

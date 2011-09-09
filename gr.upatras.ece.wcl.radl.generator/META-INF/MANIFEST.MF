@@ -7,7 +7,6 @@ Bundle-SymbolicName: gr.upatras.ece.wcl.radl.generator; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xpand;visibility:=reexport,
  org.eclipse.xtend;visibility:=reexport,
- org.eclipse.xtext;visibility:=reexport,
  org.eclipse.emf.mwe2.launch;resolution:=optional,
  org.eclipse.emf.mwe.utils;visibility:=reexport,
  org.eclipse.xtend.typesystem.emf;visibility:=reexport,
