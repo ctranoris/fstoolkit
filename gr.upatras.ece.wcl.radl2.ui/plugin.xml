@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+    <extension
+            point="org.eclipse.ui.editors">
+        <editor
+            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+            default="true"
+            extensions="radl"
+            id="gr.upatras.ece.wcl.radl2.Radl"
+            name="Radl Editor">
+        </editor>
+    </extension>
+    <extension
+        point="org.eclipse.ui.handlers">
+        <handler
+            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+            commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
+            <activeWhen>
+                <reference
+                    definitionId="gr.upatras.ece.wcl.radl2.Radl.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+        <handler
+            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+            commandId="gr.upatras.ece.wcl.radl2.Radl.validate">
+         <activeWhen>
+            <reference
+                    definitionId="gr.upatras.ece.wcl.radl2.Radl.Editor.opened">
+            </reference>
+         </activeWhen>
+      </handler>
+    </extension>
+    <extension point="org.eclipse.core.expressions.definitions">
+        <definition id="gr.upatras.ece.wcl.radl2.Radl.Editor.opened">
+            <and>
+                <reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
+                <with variable="activeEditor">
+                    <test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
+                        value="gr.upatras.ece.wcl.radl2.Radl" 
+                        forcePluginActivation="true"/>
+                </with>        
+            </and>
+        </definition>
+    </extension>
+    <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="gr.upatras.ece.wcl.radl2.Radl"
+            name="Radl">
+            <keywordReference id="gr.upatras.ece.wcl.radl2.ui.keyword_Radl"/>
+        </page>
+        <page
+            category="gr.upatras.ece.wcl.radl2.Radl"
+            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+            id="gr.upatras.ece.wcl.radl2.Radl.coloring"
+            name="Syntax Coloring">
+            <keywordReference id="gr.upatras.ece.wcl.radl2.ui.keyword_Radl"/>
+        </page>
+        <page
+            category="gr.upatras.ece.wcl.radl2.Radl"
+            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+            id="gr.upatras.ece.wcl.radl2.Radl.templates"
+            name="Templates">
+            <keywordReference id="gr.upatras.ece.wcl.radl2.ui.keyword_Radl"/>
+        </page>
+    </extension>
+    <extension
+        point="org.eclipse.ui.keywords">
+        <keyword
+            id="gr.upatras.ece.wcl.radl2.ui.keyword_Radl"
+            label="Radl"/>
+    </extension>
+    <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Trigger expensive validation"
+            id="gr.upatras.ece.wcl.radl2.Radl.validate"
+            name="Validate">
+      </command>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+        <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.edit">
+             <command
+                 commandId="gr.upatras.ece.wcl.radl2.Radl.validate"
+                 style="push"
+                 tooltip="Trigger expensive validation">
+            <visibleWhen checkEnabled="false">
+                <reference
+                    definitionId="gr.upatras.ece.wcl.radl2.Radl.Editor.opened">
+                </reference>
+            </visibleWhen>
+         </command>  
+         </menuContribution>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
+			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
+				<visibleWhen checkEnabled="false">
+                	<reference definitionId="gr.upatras.ece.wcl.radl2.Radl.Editor.opened">
+                	</reference>
+            	</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+	    <handler
+            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+            commandId="org.eclipse.xtext.ui.editor.FindReferences">
+            <activeWhen>
+                <reference
+                    definitionId="gr.upatras.ece.wcl.radl2.Radl.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+    </extension>   
+
+<!-- adding resource factories -->
+
+	<extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="radl">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+        <resourceServiceProvider
+            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            uriExtension="radl">
+        </resourceServiceProvider>
+    </extension>
+
+
+
+   <extension
+         point="org.eclipse.xtext.builder.participant">
+      <participant
+            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
+      </participant>
+   </extension>
+
+	<!-- Quick Outline -->
+	<extension
+		point="org.eclipse.ui.handlers">
+		<handler 
+			class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
+			<activeWhen>
+				<reference
+					definitionId="gr.upatras.ece.wcl.radl2.Radl.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension
+		point="org.eclipse.ui.commands">
+		<command
+			description="Open the quick outline."
+			id="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+			name="Quick Outline">
+		</command>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.open">
+			<command commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+				style="push"
+				tooltip="Open Quick Outline">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="gr.upatras.ece.wcl.radl2.Radl.Editor.opened"/>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+   <!-- quickfix marker resolution generator -->
+   <extension
+         point="org.eclipse.ui.ide.markerResolution">
+      <markerResolutionGenerator
+            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator">
+      </markerResolutionGenerator>
+   </extension>
+
+   	<!-- Rename Refactoring -->
+	<extension point="org.eclipse.ui.handlers">
+		<handler 
+			class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RenameElementHandler"
+			commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
+			<activeWhen>
+				<reference
+					definitionId="gr.upatras.ece.wcl.radl2.Radl.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+    <extension point="org.eclipse.ui.menus">
+         <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.edit">
+         <command commandId="org.eclipse.xtext.ui.refactoring.RenameElement"
+               style="push">
+            <visibleWhen checkEnabled="false">
+               <reference
+                     definitionId="gr.upatras.ece.wcl.radl2.Radl.Editor.opened">
+               </reference>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+  <extension point="org.eclipse.compare.contentViewers">
+    <viewer id="gr.upatras.ece.wcl.radl2.Radl.compare.contentViewers"
+            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+            extensions="radl">
+    </viewer>
+  </extension>
+  <extension point="org.eclipse.compare.contentMergeViewers">
+    <viewer id="gr.upatras.ece.wcl.radl2.Radl.compare.contentMergeViewers"
+            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+            extensions="radl" label="Radl Compare">
+     </viewer>
+  </extension>
+  <extension point="org.eclipse.ui.editors.documentProviders">
+    <provider id="gr.upatras.ece.wcl.radl2.Radl.editors.documentProviders"
+            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
+            extensions="radl">
+    </provider>
+  </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.panlab.software.fstoolkit.wizard.category"
+            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:gr.upatras.ece.wcl.radl2.ui.wizard.RadlNewProjectWizard"
+            icon="icons/alt_window_16.gif"
+            id="gr.upatras.ece.wcl.radl2.ui.wizard.RadlNewProjectWizard"
+            name="Radl Project"
+            project="true">
+      </wizard>
+   </extension>
+
+</plugin>

@@ -1,0 +1,69 @@
+«IMPORT gr::upatras::ece::wcl::radl2::ui::wizard»
+
+«DEFINE main(String AName) FOR RadlProjectInfo»
+«EXPAND model(AName) FOR this»
+«EXPAND workflow FOR this»
+«ENDDEFINE»
+
+«DEFINE model(String AName) FOR RadlProjectInfo»
+«FILE "src/"+AName+".radl"-»
+Resource Adapter "«AName»"
+
+Configuration Parameters { // Visible Parameters to VCT user
+	param1;
+	param2;
+}
+
+Binding Parameters { // Local Parameters used for resource configuration
+//	remote_ip;
+//	admin_port;
+//	username;
+//	password;	
+}
+
+Supported Child Types{	// Child RAs that this RA supports
+	
+}
+
+Allowed Types{ //Allowed types that might refer to this RA
+	
+}
+
+//On Update {
+//	Execute when all Configuration Parameters are complete = YES;
+//	RAProtocol SSH {
+//		Remote Machine = remote_ip;
+//		RPort = admin_port;
+//		RUsername = username;
+//		RPassword = password;
+//		RExecute{
+//			"/home/myscript.sh" << "param1" "param2">>
+//			"/home/myscript.sh -a" << "param1">> " -b" << "param2">>
+//		}
+//	}
+//}
+
+
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE workflow FOR RadlProjectInfo»
+«FILE "src/Generator.mwe"-»
+<workflow>
+  <component file="workflow/RadlGenerator.mwe">
+  <modelPath value="src"/>
+  <targetDir value="src-gen"/>
+  <clean.gen.dir value='false' />
+ </component>
+</workflow>
+«ENDFILE»
+«FILE "src/GeneratorFokusPTM.mwe"-»
+<workflow>
+  <component file="workflow/RadlGeneratorFPTM.mwe">
+  <modelPath value="src"/>
+  <targetDir value="src-gen"/>
+  <clean.gen.dir value='false' />
+ </component>
+</workflow>
+«ENDFILE»
+«ENDDEFINE»
