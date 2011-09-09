@@ -45,7 +45,8 @@ public class RAInstance implements RA
        String resourceAddress, 
        String configuration)
     {
-        Properties m_properties = new Properties();
+    	//changed from Properties to Dictionary...an error happens
+        Dictionary m_properties = new Properties();
         m_properties.put("SOAP.service.name", resourceID);
         try
         {
