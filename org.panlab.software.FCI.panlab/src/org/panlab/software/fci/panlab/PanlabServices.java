@@ -33,10 +33,8 @@ import FederationOffice.federationscenarios.ResourceSettingInstance;
 public class PanlabServices {
 	
 	private Office panlabOffice;
-//	private static String panlabGWAddress = "http://62.103.214.70:9000/teaglegw";
-	//public static String PanlabGWCAlias = "http://150.140.184.156:9000/teaglegw";
-	public static String PanlabGWCAlias = "http://teaglegw.dyndns.org:9000/teaglegw";
-//	public static String PanlabRepoGWCAlias = "http://repos.pii.tssg.org:8080/repository-staging/rest";
+	//public static String PanlabGWCAlias = "http://teaglegw.dyndns.org:9000/teaglegw";
+	public static String PanlabGWCAlias = "http://creativese.no-ip.org:9000/teaglegw";
 	public static String PanlabRepoGWCAlias = "http://repos.pii.tssg.org:8080/repository/rest";
 	
 	private static PanlabServices instance;
