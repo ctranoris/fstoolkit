@@ -14,6 +14,8 @@ limitations under the License.
 *************************************************************************/
 package org.panlab.software.fci.panlab;
 
+import java.util.Date;
+
 import FederationOffice.Office;
 import FederationOffice.federationscenarios.RequestedFederationScenario;
 import FederationOffice.federationscenarios.ResourceRequest;
@@ -36,6 +38,9 @@ public class PanlabServices {
 	//public static String PanlabGWCAlias = "http://teaglegw.dyndns.org:9000/teaglegw";
 	public static String PanlabGWCAlias = "http://creativese.no-ip.org:9000/teaglegw";
 	public static String PanlabRepoGWCAlias = "http://repos.pii.tssg.org:8080/repository/rest";
+	//http://nam.ece.upatras.gr/fedway/submit_event.php?subject=aResource&descr=myDescription&resourceid=123456&start_ts=2011-09-15%2017:00:00&end_ts=2011-09-17%2011:01:31&guid=guid5&scenarioid=scen1234&scenarioName=myScenario
+	public static String fedway= "http://nam.ece.upatras.gr/fedway";
+	public String username;
 	
 	private static PanlabServices instance;
 
@@ -55,6 +60,7 @@ public class PanlabServices {
 			return panlabOffice;				  
 
 		panlabOffice = new PanlabOfficeProxy(username, password,  forceRefresh);
+		this.username = username;
 		
 		if (( (PanlabOfficeProxy)panlabOffice).officeLoaded() )
 			return panlabOffice;
@@ -113,6 +119,29 @@ public class PanlabServices {
 			//<?xml version="1.0" encoding="utf-8"?><rubis_db status="SUCCESS"><uuid type="string">uop.rubis_db-58</uuid></rubis_db>
 		}else
 			s=ptmAlias+"."+resourceTypeName+".node-0";
+		
+		try {
+			////http://nam.ece.upatras.gr/fedway/submit_event.php?subject=aResource&descr=myDescription&resourceid=123456&start_ts=2011-09-15%2017:00:00&end_ts=2011-09-17%2011:01:31&guid=guid5&scenarioid=scen1234&scenarioName=myScenario
+			
+			
+			String subject = resourceReq.getRefOfferedResource().getName();
+			String myDescription = resourceReq.getRefOfferedResource().getName() 
+					+"created by FCI with Alias: "+resourceReq.getName() +", for Scenario: "+scenario + ", by user: "+this.username;
+			String resourceid = resourceReq.getRefOfferedResource().getUniqueID(); 		
+			Date start_ts = new Date ();
+			Date end_ts = new Date ();
+			String guid = s;
+			String scenarioid = scenario;
+			String scenarioName = scenario;
+			
+			
+			pgw.informFedWay(fedway, subject , myDescription, resourceid, 
+					start_ts, end_ts, guid, scenarioid, scenarioName, this.username);
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 		return s;
 		
@@ -222,6 +251,31 @@ public class PanlabServices {
 		XMLutils x = new XMLutils(true);
 		String s = x.getNodeValueFromXML( pgw.getResponse_stream(), "//uuid/text()");
 		//System.out.println("Value = " + s);
+		
+		
+		try {
+			////http://nam.ece.upatras.gr/fedway/submit_event.php?subject=aResource&descr=myDescription&resourceid=123456&start_ts=2011-09-15%2017:00:00&end_ts=2011-09-17%2011:01:31&guid=guid5&scenarioid=scen1234&scenarioName=myScenario
+			
+			
+			String subject = "";
+			String myDescription = "";
+			String resourceid = ""; 		
+			Date start_ts = new Date ();
+			Date end_ts = new Date ();
+			String guid = runtimeID;
+			String scenarioid = "";
+			String scenarioName = "";
+			
+			
+			pgw.informFedWay(fedway, subject , myDescription, resourceid, 
+					start_ts, end_ts, guid, scenarioid, scenarioName, this.username  );
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
 		return s;
 	}
 	

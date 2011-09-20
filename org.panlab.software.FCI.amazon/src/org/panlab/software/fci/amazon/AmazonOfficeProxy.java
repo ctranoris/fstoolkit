@@ -63,8 +63,9 @@ public class AmazonOfficeProxy implements Office {
 			new OfficeDLStandaloneSetup().createInjectorAndDoEMFRegistration();
 		}
 		
-		String uri = "file:/C:/Users/ctranoris/runtime-FSToolkit/myProject/src/Amazon.officedl";
-		System.out.println("Loading amazon definitionfrom: "+uri);		
+		//String uri = "file:/C:/Users/ctranoris/runtime-FSToolkit/myProject/src/Amazon.officedl";
+		String uri ="http://nam.ece.upatras.gr/fstoolkit/utils/Amazon.officedl";
+		System.out.println("Loading amazon definition from: "+uri);		
 		
 		//ResourceSet set = resourceSetProvider.get();
 		ResourceSet resourceSet = new ResourceSetImpl();

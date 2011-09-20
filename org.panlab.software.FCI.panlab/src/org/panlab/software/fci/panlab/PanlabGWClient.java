@@ -23,6 +23,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.commons.httpclient.DefaultHttpMethodRetryHandler;
 import org.apache.commons.httpclient.HttpClient;
@@ -35,6 +39,7 @@ import org.apache.commons.httpclient.methods.RequestEntity;
 import org.apache.commons.httpclient.methods.StringRequestEntity;
 import org.apache.commons.httpclient.params.HttpMethodParams;
 
+import java.net.URLEncoder;
 
 
 /**
@@ -415,5 +420,78 @@ public class PanlabGWClient {
 			return new ByteArrayInputStream(_copy.toByteArray());
 		}
 
+	}
+
+	/**
+	 * It makes a GET towards the FedWay gateway. The response is retrieved with the {@link  PanlabGWClient#getResponse_stream()} ;
+	 * @author ctranoris
+	 * @param subject sets the name of the resource Instance, e.g.: uop.rubis_db-27
+	 * @param ptmAlias sets the name of the resource Instance, e.g.: uop
+	 * @see PanlabGWClient#getResponse_stream()
+	 */
+	public void informFedWay(String fedway, String subject, String myDescription, String  resourceid,
+			Date start_ts, Date end_ts, String guid, String scenarioid, String scenarioName, String username) {
+	////http://nam.ece.upatras.gr/fedway/submit_event.php?subject=aResource&descr=myDescription&resourceid=123456&start_ts=2011-09-15%2017:00:00&end_ts=2011-09-17%2011:01:31&guid=guid5&scenarioid=scen1234&scenarioName=myScenario
+		
+		
+		DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+		
+		
+		HttpClient client = new HttpClient();
+		String url = "";
+		
+		try {
+		 url = "subject=" + URLEncoder.encode(subject, "UTF-8")  + 
+				"&descr=" + URLEncoder.encode(myDescription, "UTF-8") +
+				"&resourceid=" + URLEncoder.encode(resourceid, "UTF-8") +
+				"&start_ts=" + URLEncoder.encode(sdf.format (start_ts) , "UTF-8") +//2011-09-15%2017:00:00
+				"&end_ts="+ URLEncoder.encode(sdf.format (end_ts) , "UTF-8")+ //2011-09-17%2011:01:31
+				"&guid=" + URLEncoder.encode(guid, "UTF-8") +
+				"&scenarioid=" + URLEncoder.encode(scenarioid, "UTF-8") +
+				"&scenarioName="+ URLEncoder.encode(scenarioName, "UTF-8")+
+				"&username="+ URLEncoder.encode(username, "UTF-8");
+		
+		
+		
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		url = fedway + "/submit_event.php?" + url;
+				
+		System.out.println("Request: " + url);
+
+		// Create a method instance.
+		GetMethod get = new GetMethod(url);
+		get.setRequestHeader("User-Agent", userAgent);
+		get.setRequestHeader("Content-Type",
+				"application/x-www-form-urlencoded");
+
+		try {
+			// execute the GET
+			client.executeMethod(get);
+
+			// print the status and response
+			InputStream responseBody = get.getResponseBodyAsStream();
+
+			CopyInputStream cis = new CopyInputStream(responseBody);
+			response_stream = cis.getCopy();
+			System.out.println("Response body=" + "\n"
+					+ convertStreamToString(response_stream));
+			response_stream.reset();
+
+		} catch (HttpException e) {
+			System.err.println("Fatal protocol violation: " + e.getMessage());
+			e.printStackTrace();
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.err.println("Fatal transport error: " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			// release any connection resources used by the method
+			get.releaseConnection();
+		}	
+		
 	}
 }

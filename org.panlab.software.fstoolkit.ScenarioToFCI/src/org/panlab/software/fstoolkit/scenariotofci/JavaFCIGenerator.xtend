@@ -170,8 +170,8 @@ class JavaFCIGenerator  implements IGenerator {
 				«IF reqSetting.assignSetting.size >0  »
 					«FOR s : reqSetting.assignSetting »
 					«var assignedResReq = s.eContainer as ResourceRequest»
-					String «s.name» = resource_«assignedResReq.name».getParameterValueOfResource("«s.name»", true);
-					resource_«reqResource.name».updateParameterValueOfResource("«reqSetting.refResourceSetting.name»", «s.name»);
+					String resource_«assignedResReq.name»_«s.name» = resource_«assignedResReq.name».getParameterValueOfResource("«s.name»", true);
+					resource_«reqResource.name».updateParameterValueOfResource("«reqSetting.refResourceSetting.name»", resource_«assignedResReq.name»_«s.name»);
 					«ENDFOR»
 				«ENDIF»
 				«ENDFOR»
