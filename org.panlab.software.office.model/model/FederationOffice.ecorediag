@@ -3712,10 +3712,6 @@
           <element xmi:type="ecore:EOperation" href="FederationOffice.ecore#//extensionInterfaces/IProvisionResource/provisionResource"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_mvingTKjEeCZIcjFgRYR1w"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_n9Gm0DKjEeCZIcjFgRYR1w" type="2002">
-          <element xmi:type="ecore:EOperation" href="FederationOffice.ecore#//extensionInterfaces/IProvisionResource/suuportsOffice"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_n9Gm0TKjEeCZIcjFgRYR1w"/>
-        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_mvI-4TKjEeCZIcjFgRYR1w"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_mvI-4jKjEeCZIcjFgRYR1w"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_mvI-4zKjEeCZIcjFgRYR1w"/>

@@ -359,11 +359,11 @@ public class RepoXML2OfficeModel {
 			if (prefix == 12)//uop
 				offeredResource.setMultitonMaxOccur(4);
 			else if (prefix == 11)//isi
-				offeredResource.setMultitonMaxOccur(0);
+				offeredResource.setMultitonMaxOccur(1);
 			else  if (prefix == 13)//cosmote
-				offeredResource.setMultitonMaxOccur(0);
+				offeredResource.setMultitonMaxOccur(1);
 			else  if (prefix == 15)//tssg
-				offeredResource.setMultitonMaxOccur(0);
+				offeredResource.setMultitonMaxOccur(1);
 			else  if (prefix == 21)//synchromedia
 				offeredResource.setMultitonMaxOccur(4);
 			else
