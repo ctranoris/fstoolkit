@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.panlab.software.fstoolkit.preferences.FSToolkitPreferencePage"
+            class="org.panlab.software.fstoolkit.plc.preferences.PlanetLabPreferencePage"
+            id="org.panlab.software.fstoolkit.plc.preferencepage"
+            name="PlanetLab">
+      </page>
+   </extension>
+
+</plugin>
