@@ -166,14 +166,15 @@ public class PlanetLabPreferencePage extends PreferencePage  implements
 	}
 
 	protected void delete() {
-		// TODO Auto-generated method stub
-		
+		TreeItem item = tree.getSelection()[0];  
+		item.dispose();
+		item=null;
 	}
 
 
 	protected void edit() {
 		TreeItem item = tree.getSelection()[0];  
-		PLCAccount account = (PLCAccount) tree.getData();
+		PLCAccount account = (PLCAccount) item.getData();
 		PLCAccount newaccount = editPLCAccount(account, true);
 		if (newaccount != null){
 		      
@@ -204,7 +205,7 @@ public class PlanetLabPreferencePage extends PreferencePage  implements
 	    preferenceStore.setValue("AccountNums", tree.getItemCount() );
 	    
 	    for (int i = 0; i < tree.getItemCount(); i++) {
-	      TreeItem item = tree.getItem(0);
+	      TreeItem item = tree.getItem(i);
 	      PLCAccount account = (PLCAccount) item.getData();
 	      preferenceStore.setValue("PLCNAME_" + i , account.getPlcName()); 
 		  preferenceStore.setValue("URL_" + i , account.getUrlapi());
