@@ -5,6 +5,7 @@ import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.PreferencePage;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -15,7 +16,9 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
@@ -29,8 +32,9 @@ public class PlanetLabPreferencePage extends PreferencePage  implements
 		IWorkbenchPreferencePage {
 	
 	
-	 private Text fieldOne;
-
+	private Text fieldOne;
+	private Tree tree;
+	 
 	public PlanetLabPreferencePage(){
 		setPreferenceStore(Activator.getDefault().getPreferenceStore());
 		
@@ -47,35 +51,13 @@ public class PlanetLabPreferencePage extends PreferencePage  implements
 		
 	}
 
-	
-	
-
-	public class PasswordFieldEditor extends StringFieldEditor {
-	    public PasswordFieldEditor(String name,
-	            String label, Composite parent) {
-	        super(name, label, parent);
-	    }
-
-
-	    protected void doFillIntoGrid(Composite parent, int numColumns)
-	    {
-	        // Creates the text control
-	        super.doFillIntoGrid(parent, numColumns);
-
-
-	        // Now we can set the echo character
-	        getTextControl().setEchoChar('*');
-	    }
-	}
-
-
-
 
 	@Override
 	protected Control createContents(Composite parent) {
 
 	    // Get the preference store
 	    IPreferenceStore preferenceStore = getPreferenceStore();
+	    
 	    
 	    Composite container = new Composite(parent, SWT.NULL);
 		GridLayout layout = new GridLayout();
@@ -93,7 +75,7 @@ public class PlanetLabPreferencePage extends PreferencePage  implements
         data.heightHint= convertHeightInCharsToPixels(10);
         tableComposite.setLayoutData(data);
         
-	    Tree tree = new Tree(tableComposite, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL | SWT.FULL_SELECTION);
+	    tree = new Tree(tableComposite, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL | SWT.FULL_SELECTION);
 	    tree.setLayoutData(data);
 	    tree.setLinesVisible(true);
 	    tree.setHeaderVisible(true);
@@ -106,20 +88,23 @@ public class PlanetLabPreferencePage extends PreferencePage  implements
 	    TreeColumn column3 = new TreeColumn(tree, SWT.LEFT);
 	    column3.setText("Username");
 	    column3.setWidth(160);
-	    for (int i = 0; i < 4; i++) {
+	    
+	    int accountsnum = preferenceStore.getInt("AccountNums");
+	    
+	    for (int i = 0; i < accountsnum; i++) {
 	      TreeItem item = new TreeItem(tree, SWT.NONE);
-	      item.setText(new String[] { "UoP PlanetLab TestDefault_" + i, "https://150.140.186.118/PLCAPI/", "tranoris@gmail.com" });
-//	      for (int j = 0; j < 4; j++) {
-//	        TreeItem subItem = new TreeItem(item, SWT.NONE);
-//	        subItem
-//	            .setText(new String[] { "subitem " + j, "jklmnop",
-//	                "qrs" });
-//	        for (int k = 0; k < 4; k++) {
-//	          TreeItem subsubItem = new TreeItem(subItem, SWT.NONE);
-//	          subsubItem.setText(new String[] { "subsubitem " + k, "tuv",
-//	              "wxyz" });
-//	        }
-//	      }
+	      PLCAccount account = new PLCAccount( 
+	    		  preferenceStore.getString("PLCNAME_" + i ), 
+	    		  preferenceStore.getString("URL_" + i ), 
+	    		  preferenceStore.getString("USERNAME_" + i ), 
+	    		  preferenceStore.getString("PASSWORD_" + i ));
+		
+	      item.setData( account );
+	      
+	      item.setText(new String[] { 
+	    		  account.getPlcName() , 
+	    		  account.getUrlapi() , 
+	    		  account.getUsername() });
 	    }
 	    
 	    
@@ -132,31 +117,112 @@ public class PlanetLabPreferencePage extends PreferencePage  implements
 		
 		Button button = new Button(buttons, SWT.PUSH);
 	    button.setText("Add");
+	    button.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event e) {
+				add();
+			}
+
+		});
 	    button.setLayoutData(getButtonGridData(button));
 	    
 	    button = new Button(buttons, SWT.PUSH);
 	    button.setText("Edit");
+	    button.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event e) {
+				edit();
+			}
+
+		});
+	    
 	    button.setLayoutData(getButtonGridData(button));
 	    button = new Button(buttons, SWT.PUSH);
 	    button.setText("Delete");
+	    button.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event e) {
+				delete();
+			}
+
+		});
+	    
 	    button.setLayoutData(getButtonGridData(button));
 	    
 	    return container;
 	}
 
-	
+	protected void add() {
+		PLCAccount account = new PLCAccount("", "", "", "");
+		PLCAccount newaccount = editPLCAccount(account, false);
+		if (newaccount != null){
+			TreeItem item = new TreeItem(tree, SWT.NONE);
+		      
+		      item.setData( newaccount  );
+		      
+		      item.setText(new String[] { 
+		    		  newaccount .getPlcName() , 
+		    		  newaccount .getUrlapi() , 
+		    		  newaccount .getUsername() });
+		}
+		
+	}
+
+	protected void delete() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	protected void edit() {
+		TreeItem item = tree.getSelection()[0];  
+		PLCAccount account = (PLCAccount) tree.getData();
+		PLCAccount newaccount = editPLCAccount(account, true);
+		if (newaccount != null){
+		      
+		      item.setData( newaccount  );
+		      
+		      item.setText(new String[] { 
+		    		  newaccount .getPlcName() , 
+		    		  newaccount .getUrlapi() , 
+		    		  newaccount .getUsername() });
+		}
+		
+	}
+
+
+	protected PLCAccount editPLCAccount(PLCAccount account, boolean edit) {
+		EditPLCAccountDialog dialog= new EditPLCAccountDialog(getShell(), account, edit);
+		if (dialog.open() == Window.OK) {
+			return dialog.getAccount();
+		}
+		return null;
+	}
+
 	@Override
 	public boolean performOk() {
 		// Get the preference store
 	    IPreferenceStore preferenceStore = getPreferenceStore();
+	    
+	    preferenceStore.setValue("AccountNums", tree.getItemCount() );
+	    
+	    for (int i = 0; i < tree.getItemCount(); i++) {
+	      TreeItem item = tree.getItem(0);
+	      PLCAccount account = (PLCAccount) item.getData();
+	      preferenceStore.setValue("PLCNAME_" + i , account.getPlcName()); 
+		  preferenceStore.setValue("URL_" + i , account.getUrlapi());
+		  preferenceStore.setValue("USERNAME_" + i , account.getUsername()); 
+		  preferenceStore.setValue("PASSWORD_" + i , account.getPassword() );
 
+	    }   
 	    // Set the values from the fields
-	    if (fieldOne != null) preferenceStore.setValue(PLCPreferenceConstants.P_PLCUSERNAME, fieldOne.getText());
+	    
+	    
+//	    if (fieldOne != null) preferenceStore.setValue(PLCPreferenceConstants.P_PLCUSERNAME, fieldOne.getText());
 //	    if (fieldTwo != null) preferenceStore.setValue(TWO, fieldTwo.getText());
 //	    if (fieldThree != null)
 //	        preferenceStore.setValue(THREE, fieldThree.getText());
 
 	    // Return true to allow dialog to close
+	    
+	    
 	    return true;
 	}
 	
