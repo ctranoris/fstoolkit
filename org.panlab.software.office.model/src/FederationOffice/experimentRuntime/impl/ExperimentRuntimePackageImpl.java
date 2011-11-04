@@ -23,6 +23,8 @@ import FederationOffice.experimentRuntime.RuntimeElement;
 import FederationOffice.experimentRuntime.RuntimeElementStatus;
 import FederationOffice.extensionInterfaces.ExtensionInterfacesPackage;
 import FederationOffice.extensionInterfaces.impl.ExtensionInterfacesPackageImpl;
+import FederationOffice.fcielements.FcielementsPackage;
+import FederationOffice.fcielements.impl.FcielementsPackageImpl;
 import FederationOffice.federationscenarios.FederationscenariosPackage;
 import FederationOffice.federationscenarios.impl.FederationscenariosPackageImpl;
 import FederationOffice.impl.FederationOfficePackageImpl;
@@ -127,6 +129,7 @@ public class ExperimentRuntimePackageImpl extends EPackageImpl implements Experi
 		AvailabilityContractPackageImpl theAvailabilityContractPackage = (AvailabilityContractPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AvailabilityContractPackage.eNS_URI) instanceof AvailabilityContractPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AvailabilityContractPackage.eNS_URI) : AvailabilityContractPackage.eINSTANCE);
 		UiObjectsPackageImpl theUiObjectsPackage = (UiObjectsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UiObjectsPackage.eNS_URI) instanceof UiObjectsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UiObjectsPackage.eNS_URI) : UiObjectsPackage.eINSTANCE);
 		ExtensionInterfacesPackageImpl theExtensionInterfacesPackage = (ExtensionInterfacesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExtensionInterfacesPackage.eNS_URI) instanceof ExtensionInterfacesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExtensionInterfacesPackage.eNS_URI) : ExtensionInterfacesPackage.eINSTANCE);
+		FcielementsPackageImpl theFcielementsPackage = (FcielementsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FcielementsPackage.eNS_URI) instanceof FcielementsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FcielementsPackage.eNS_URI) : FcielementsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theExperimentRuntimePackage.createPackageContents();
@@ -141,6 +144,7 @@ public class ExperimentRuntimePackageImpl extends EPackageImpl implements Experi
 		theAvailabilityContractPackage.createPackageContents();
 		theUiObjectsPackage.createPackageContents();
 		theExtensionInterfacesPackage.createPackageContents();
+		theFcielementsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theExperimentRuntimePackage.initializePackageContents();
@@ -155,6 +159,7 @@ public class ExperimentRuntimePackageImpl extends EPackageImpl implements Experi
 		theAvailabilityContractPackage.initializePackageContents();
 		theUiObjectsPackage.initializePackageContents();
 		theExtensionInterfacesPackage.initializePackageContents();
+		theFcielementsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theExperimentRuntimePackage.freeze();

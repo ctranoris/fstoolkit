@@ -21,6 +21,8 @@ import org.panlab.software.fci.panlab.PanlabServices;
 import org.panlab.software.fci.uop.UoPServices;
 
 import FederationOffice.Office;
+import FederationOffice.fcielements.AuthorizationKey;
+import FederationOffice.fcielements.FCICredentials;
 import FederationOffice.federationscenarios.RequestedFederationScenario;
 import FederationOffice.federationscenarios.ResourceRequest;
 import FederationOffice.federationscenarios.ResourceSettingInstance;
@@ -53,8 +55,10 @@ public class FCI {
 	
 
 	public AuthorizationKey createAuthorizationKey(FCICredentials cred) {
-		AuthorizationKey akey = new AuthorizationKey(cred);
 		
+		AuthorizationKey akey =    FederationOffice.fcielements.FcielementsFactory.eINSTANCE.createAuthorizationKey();
+		akey.setUsername(cred.getUsername());
+		akey.setPassword(cred.getPassword());		
 		return akey ;
 	}
 
@@ -113,9 +117,14 @@ public class FCI {
 		return null;
 	}
 
+	
 	private ResourceContext CreateUoPResourceContext(AuthorizationKey authKey) {
 		Office office = UoPServices.getInstance().getOffice(
-				authKey.getUsername(), authKey.getPasskey(), true);
+				
+//				PREPEI TO authKey na erxetai edw...
+//				To AuthorizationKey na ginei class sto model??
+						
+				authKey.getUsername(), authKey.getPassword(), true);
 		
 		if (office != null) {
 			return new ResourceContext( office );
@@ -126,7 +135,7 @@ public class FCI {
 
 	private ResourceContext CreatePanlabResourceContext(AuthorizationKey authKey) {
 		Office office = PanlabServices.getInstance().getOffice(
-				authKey.getUsername(), authKey.getPasskey(), true);
+				authKey.getUsername(), authKey.getPassword(), true);
 		
 		if (office != null) {
 			return new ResourceContext( office );
@@ -137,7 +146,7 @@ public class FCI {
 	
 	private ResourceContext CreateAmazonResourceContext(AuthorizationKey authKey) {
 		Office office = AmazonServices.getInstance().getOffice(
-				authKey.getUsername(), authKey.getPasskey(), true);
+				authKey.getUsername(), authKey.getPassword(), true);
 		
 		if (office != null) {
 			return new ResourceContext( office );

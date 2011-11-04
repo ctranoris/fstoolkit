@@ -24,6 +24,8 @@ import FederationOffice.experimentRuntime.ExperimentRuntimePackage;
 import FederationOffice.experimentRuntime.impl.ExperimentRuntimePackageImpl;
 import FederationOffice.extensionInterfaces.ExtensionInterfacesPackage;
 import FederationOffice.extensionInterfaces.impl.ExtensionInterfacesPackageImpl;
+import FederationOffice.fcielements.FcielementsPackage;
+import FederationOffice.fcielements.impl.FcielementsPackageImpl;
 import FederationOffice.federationscenarios.FederationscenariosPackage;
 import FederationOffice.federationscenarios.impl.FederationscenariosPackageImpl;
 import FederationOffice.networkelements.NetworkelementsPackage;
@@ -127,6 +129,7 @@ public class FederationOfficePackageImpl extends EPackageImpl implements Federat
 		UiObjectsPackageImpl theUiObjectsPackage = (UiObjectsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UiObjectsPackage.eNS_URI) instanceof UiObjectsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UiObjectsPackage.eNS_URI) : UiObjectsPackage.eINSTANCE);
 		ExperimentRuntimePackageImpl theExperimentRuntimePackage = (ExperimentRuntimePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExperimentRuntimePackage.eNS_URI) instanceof ExperimentRuntimePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExperimentRuntimePackage.eNS_URI) : ExperimentRuntimePackage.eINSTANCE);
 		ExtensionInterfacesPackageImpl theExtensionInterfacesPackage = (ExtensionInterfacesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExtensionInterfacesPackage.eNS_URI) instanceof ExtensionInterfacesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExtensionInterfacesPackage.eNS_URI) : ExtensionInterfacesPackage.eINSTANCE);
+		FcielementsPackageImpl theFcielementsPackage = (FcielementsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FcielementsPackage.eNS_URI) instanceof FcielementsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FcielementsPackage.eNS_URI) : FcielementsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theFederationOfficePackage.createPackageContents();
@@ -141,6 +144,7 @@ public class FederationOfficePackageImpl extends EPackageImpl implements Federat
 		theUiObjectsPackage.createPackageContents();
 		theExperimentRuntimePackage.createPackageContents();
 		theExtensionInterfacesPackage.createPackageContents();
+		theFcielementsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theFederationOfficePackage.initializePackageContents();
@@ -155,6 +159,7 @@ public class FederationOfficePackageImpl extends EPackageImpl implements Federat
 		theUiObjectsPackage.initializePackageContents();
 		theExperimentRuntimePackage.initializePackageContents();
 		theExtensionInterfacesPackage.initializePackageContents();
+		theFcielementsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theFederationOfficePackage.freeze();
@@ -393,6 +398,7 @@ public class FederationOfficePackageImpl extends EPackageImpl implements Federat
 		UiObjectsPackage theUiObjectsPackage = (UiObjectsPackage)EPackage.Registry.INSTANCE.getEPackage(UiObjectsPackage.eNS_URI);
 		ExperimentRuntimePackage theExperimentRuntimePackage = (ExperimentRuntimePackage)EPackage.Registry.INSTANCE.getEPackage(ExperimentRuntimePackage.eNS_URI);
 		ExtensionInterfacesPackage theExtensionInterfacesPackage = (ExtensionInterfacesPackage)EPackage.Registry.INSTANCE.getEPackage(ExtensionInterfacesPackage.eNS_URI);
+		FcielementsPackage theFcielementsPackage = (FcielementsPackage)EPackage.Registry.INSTANCE.getEPackage(FcielementsPackage.eNS_URI);
 
 		// Add subpackages
 		getESubpackages().add(theUsersPackage);
@@ -406,6 +412,7 @@ public class FederationOfficePackageImpl extends EPackageImpl implements Federat
 		getESubpackages().add(theUiObjectsPackage);
 		getESubpackages().add(theExperimentRuntimePackage);
 		getESubpackages().add(theExtensionInterfacesPackage);
+		getESubpackages().add(theFcielementsPackage);
 
 		// Create type parameters
 

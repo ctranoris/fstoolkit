@@ -20,6 +20,8 @@ import FederationOffice.experimentRuntime.ExperimentRuntimePackage;
 import FederationOffice.experimentRuntime.impl.ExperimentRuntimePackageImpl;
 import FederationOffice.extensionInterfaces.ExtensionInterfacesPackage;
 import FederationOffice.extensionInterfaces.impl.ExtensionInterfacesPackageImpl;
+import FederationOffice.fcielements.FcielementsPackage;
+import FederationOffice.fcielements.impl.FcielementsPackageImpl;
 import FederationOffice.federationscenarios.FederationscenariosPackage;
 import FederationOffice.federationscenarios.impl.FederationscenariosPackageImpl;
 import FederationOffice.impl.FederationOfficePackageImpl;
@@ -215,6 +217,7 @@ public class ServicesPackageImpl extends EPackageImpl implements ServicesPackage
 		UiObjectsPackageImpl theUiObjectsPackage = (UiObjectsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UiObjectsPackage.eNS_URI) instanceof UiObjectsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UiObjectsPackage.eNS_URI) : UiObjectsPackage.eINSTANCE);
 		ExperimentRuntimePackageImpl theExperimentRuntimePackage = (ExperimentRuntimePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExperimentRuntimePackage.eNS_URI) instanceof ExperimentRuntimePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExperimentRuntimePackage.eNS_URI) : ExperimentRuntimePackage.eINSTANCE);
 		ExtensionInterfacesPackageImpl theExtensionInterfacesPackage = (ExtensionInterfacesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExtensionInterfacesPackage.eNS_URI) instanceof ExtensionInterfacesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExtensionInterfacesPackage.eNS_URI) : ExtensionInterfacesPackage.eINSTANCE);
+		FcielementsPackageImpl theFcielementsPackage = (FcielementsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FcielementsPackage.eNS_URI) instanceof FcielementsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FcielementsPackage.eNS_URI) : FcielementsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theServicesPackage.createPackageContents();
@@ -229,6 +232,7 @@ public class ServicesPackageImpl extends EPackageImpl implements ServicesPackage
 		theUiObjectsPackage.createPackageContents();
 		theExperimentRuntimePackage.createPackageContents();
 		theExtensionInterfacesPackage.createPackageContents();
+		theFcielementsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theServicesPackage.initializePackageContents();
@@ -243,6 +247,7 @@ public class ServicesPackageImpl extends EPackageImpl implements ServicesPackage
 		theUiObjectsPackage.initializePackageContents();
 		theExperimentRuntimePackage.initializePackageContents();
 		theExtensionInterfacesPackage.initializePackageContents();
+		theFcielementsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theServicesPackage.freeze();

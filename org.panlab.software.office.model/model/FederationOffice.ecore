@@ -553,4 +553,18 @@
       <eOperations name="statusChangedOnResource" eType="#//federationscenarios/ResourceRequest"/>
     </eClassifiers>
   </eSubpackages>
+  <eSubpackages name="fcielements" nsURI="http://www.panlab.org/FederationOffice/model/FCIElements"
+      nsPrefix="org.panlab.FederationOffice.model.FCIElements">
+    <eClassifiers xsi:type="ecore:EClass" name="IFCIService">
+      <eOperations name="getOffice" eType="#//Office"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FCICredentials">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="username" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AuthorizationKey">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="username" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+  </eSubpackages>
 </ecore:EPackage>
