@@ -9,6 +9,7 @@ package FederationOffice.fcielements;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,13 +70,31 @@ public interface FcielementsPackage extends EPackage {
 	int IFCI_SERVICE = 0;
 
 	/**
+	 * The feature id for the '<em><b>Office</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IFCI_SERVICE__OFFICE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Instance</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IFCI_SERVICE__INSTANCE = 1;
+
+	/**
 	 * The number of structural features of the '<em>IFCI Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IFCI_SERVICE_FEATURE_COUNT = 0;
+	int IFCI_SERVICE_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link FederationOffice.fcielements.impl.FCICredentialsImpl <em>FCI Credentials</em>}' class.
@@ -161,6 +180,28 @@ public interface FcielementsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIFCIService();
+
+	/**
+	 * Returns the meta object for the reference '{@link FederationOffice.fcielements.IFCIService#getOffice <em>Office</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Office</em>'.
+	 * @see FederationOffice.fcielements.IFCIService#getOffice()
+	 * @see #getIFCIService()
+	 * @generated
+	 */
+	EReference getIFCIService_Office();
+
+	/**
+	 * Returns the meta object for the reference '{@link FederationOffice.fcielements.IFCIService#getInstance <em>Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Instance</em>'.
+	 * @see FederationOffice.fcielements.IFCIService#getInstance()
+	 * @see #getIFCIService()
+	 * @generated
+	 */
+	EReference getIFCIService_Instance();
 
 	/**
 	 * Returns the meta object for class '{@link FederationOffice.fcielements.FCICredentials <em>FCI Credentials</em>}'.
@@ -257,6 +298,22 @@ public interface FcielementsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass IFCI_SERVICE = eINSTANCE.getIFCIService();
+
+		/**
+		 * The meta object literal for the '<em><b>Office</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IFCI_SERVICE__OFFICE = eINSTANCE.getIFCIService_Office();
+
+		/**
+		 * The meta object literal for the '<em><b>Instance</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IFCI_SERVICE__INSTANCE = eINSTANCE.getIFCIService_Instance();
 
 		/**
 		 * The meta object literal for the '{@link FederationOffice.fcielements.impl.FCICredentialsImpl <em>FCI Credentials</em>}' class.

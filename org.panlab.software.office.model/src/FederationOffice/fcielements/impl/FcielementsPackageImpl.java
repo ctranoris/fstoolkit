@@ -62,8 +62,10 @@ import FederationOffice.users.impl.UsersPackageImpl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -207,6 +209,24 @@ public class FcielementsPackageImpl extends EPackageImpl implements FcielementsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getIFCIService_Office() {
+		return (EReference)ifciServiceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIFCIService_Instance() {
+		return (EReference)ifciServiceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getFCICredentials() {
 		return fciCredentialsEClass;
 	}
@@ -285,6 +305,8 @@ public class FcielementsPackageImpl extends EPackageImpl implements FcielementsP
 
 		// Create classes and their features
 		ifciServiceEClass = createEClass(IFCI_SERVICE);
+		createEReference(ifciServiceEClass, IFCI_SERVICE__OFFICE);
+		createEReference(ifciServiceEClass, IFCI_SERVICE__INSTANCE);
 
 		fciCredentialsEClass = createEClass(FCI_CREDENTIALS);
 		createEAttribute(fciCredentialsEClass, FCI_CREDENTIALS__USERNAME);
@@ -320,6 +342,7 @@ public class FcielementsPackageImpl extends EPackageImpl implements FcielementsP
 
 		// Obtain other dependent packages
 		FederationOfficePackage theFederationOfficePackage = (FederationOfficePackage)EPackage.Registry.INSTANCE.getEPackage(FederationOfficePackage.eNS_URI);
+		FederationscenariosPackage theFederationscenariosPackage = (FederationscenariosPackage)EPackage.Registry.INSTANCE.getEPackage(FederationscenariosPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -329,8 +352,39 @@ public class FcielementsPackageImpl extends EPackageImpl implements FcielementsP
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(ifciServiceEClass, IFCIService.class, "IFCIService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIFCIService_Office(), theFederationOfficePackage.getOffice(), null, "office", null, 0, 1, IFCIService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIFCIService_Instance(), this.getIFCIService(), null, "instance", null, 0, 1, IFCIService.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		addEOperation(ifciServiceEClass, theFederationOfficePackage.getOffice(), "getOffice", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = addEOperation(ifciServiceEClass, theFederationOfficePackage.getOffice(), "getOffice", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "username", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "password", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "forceRefresh", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ifciServiceEClass, ecorePackage.getEString(), "CreateResource", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "scenario", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "providerAlias", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "resourceTypeName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFederationscenariosPackage.getResourceRequest(), "resourceReq", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ifciServiceEClass, ecorePackage.getEString(), "UpdateResource", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "scenario", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "providerAlias", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "resourceTypeName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "runtimeID", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFederationscenariosPackage.getResourceRequest(), "resourceReq", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ifciServiceEClass, ecorePackage.getEString(), "DeleteResource", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "scenario", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "providerAlias", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "resourceTypeName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "runtimeID", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFederationscenariosPackage.getResourceRequest(), "resourceReq", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ifciServiceEClass, ecorePackage.getEString(), "getParameterValueOfResource", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "scenario", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "providerAlias", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "runtimeID", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "paramName", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(fciCredentialsEClass, FCICredentials.class, "FCICredentials", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFCICredentials_Username(), ecorePackage.getEString(), "username", null, 0, 1, FCICredentials.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
