@@ -60,22 +60,11 @@ public class FcielementsFactoryImpl extends EFactoryImpl implements FcielementsF
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case FcielementsPackage.IFCI_SERVICE: return createIFCIService();
 			case FcielementsPackage.FCI_CREDENTIALS: return createFCICredentials();
 			case FcielementsPackage.AUTHORIZATION_KEY: return createAuthorizationKey();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IFCIService createIFCIService() {
-		IFCIServiceImpl ifciService = new IFCIServiceImpl();
-		return ifciService;
 	}
 
 	/**

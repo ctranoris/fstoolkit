@@ -218,15 +218,6 @@ public class FcielementsPackageImpl extends EPackageImpl implements FcielementsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIFCIService_Instance() {
-		return (EReference)ifciServiceEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getFCICredentials() {
 		return fciCredentialsEClass;
 	}
@@ -306,7 +297,6 @@ public class FcielementsPackageImpl extends EPackageImpl implements FcielementsP
 		// Create classes and their features
 		ifciServiceEClass = createEClass(IFCI_SERVICE);
 		createEReference(ifciServiceEClass, IFCI_SERVICE__OFFICE);
-		createEReference(ifciServiceEClass, IFCI_SERVICE__INSTANCE);
 
 		fciCredentialsEClass = createEClass(FCI_CREDENTIALS);
 		createEAttribute(fciCredentialsEClass, FCI_CREDENTIALS__USERNAME);
@@ -351,9 +341,8 @@ public class FcielementsPackageImpl extends EPackageImpl implements FcielementsP
 		// Add supertypes to classes
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(ifciServiceEClass, IFCIService.class, "IFCIService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(ifciServiceEClass, IFCIService.class, "IFCIService", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIFCIService_Office(), theFederationOfficePackage.getOffice(), null, "office", null, 0, 1, IFCIService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIFCIService_Instance(), this.getIFCIService(), null, "instance", null, 0, 1, IFCIService.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(ifciServiceEClass, theFederationOfficePackage.getOffice(), "getOffice", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "username", 0, 1, IS_UNIQUE, IS_ORDERED);

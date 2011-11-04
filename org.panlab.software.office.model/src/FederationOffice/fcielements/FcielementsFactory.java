@@ -26,15 +26,6 @@ public interface FcielementsFactory extends EFactory {
 	FcielementsFactory eINSTANCE = FederationOffice.fcielements.impl.FcielementsFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>IFCI Service</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>IFCI Service</em>'.
-	 * @generated
-	 */
-	IFCIService createIFCIService();
-
-	/**
 	 * Returns a new object of class '<em>FCI Credentials</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
