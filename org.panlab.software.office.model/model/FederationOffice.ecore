@@ -556,7 +556,27 @@
   <eSubpackages name="fcielements" nsURI="http://www.panlab.org/FederationOffice/model/FCIElements"
       nsPrefix="org.panlab.FederationOffice.model.FCIElements">
     <eClassifiers xsi:type="ecore:EClass" name="IFCIService">
-      <eOperations name="getOffice" eType="#//Office"/>
+      <eOperations name="getOffice" eType="#//Office">
+        <eParameters name="username" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="forceRefresh" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eOperations>
+      <eOperations name="CreateResource" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eParameters name="scenario" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="providerAlias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="resourceTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="resourceReq" eType="#//federationscenarios/ResourceRequest"/>
+      </eOperations>
+      <eOperations name="UpdateResource" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eParameters name="scenario" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="providerAlias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="resourceTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="runtimeID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="resourceReq" eType="#//federationscenarios/ResourceRequest"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="office" eType="#//Office"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="instance" eType="#//fcielements/IFCIService"
+          changeable="false" unsettable="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FCICredentials">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="username" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
