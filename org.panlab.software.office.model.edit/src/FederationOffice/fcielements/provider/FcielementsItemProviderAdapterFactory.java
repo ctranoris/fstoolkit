@@ -76,29 +76,6 @@ public class FcielementsItemProviderAdapterFactory extends FcielementsAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link FederationOffice.fcielements.IFCIService} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IFCIServiceItemProvider ifciServiceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link FederationOffice.fcielements.IFCIService}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createIFCIServiceAdapter() {
-		if (ifciServiceItemProvider == null) {
-			ifciServiceItemProvider = new IFCIServiceItemProvider(this);
-		}
-
-		return ifciServiceItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link FederationOffice.fcielements.FCICredentials} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -243,7 +220,6 @@ public class FcielementsItemProviderAdapterFactory extends FcielementsAdapterFac
 	 * @generated
 	 */
 	public void dispose() {
-		if (ifciServiceItemProvider != null) ifciServiceItemProvider.dispose();
 		if (fciCredentialsItemProvider != null) fciCredentialsItemProvider.dispose();
 		if (authorizationKeyItemProvider != null) authorizationKeyItemProvider.dispose();
 	}

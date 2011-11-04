@@ -7,14 +7,14 @@ import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
-import org.panlab.software.fci.core.AuthorizationKey;
 import org.panlab.software.fci.core.FCI;
-import org.panlab.software.fci.core.FCICredentials;
 import org.panlab.software.fci.core.ResourceContext;
 import org.panlab.software.fstoolkit.panlaboffice.preferences.PanlabOfficePreferenceConstants;
 
 import FederationOffice.Office;
 import FederationOffice.extensionInterfaces.IOfficeRepositoryListener;
+import FederationOffice.fcielements.AuthorizationKey;
+import FederationOffice.fcielements.FCICredentials;
 import FederationOffice.federationscenarios.RequestedFederationScenario;
 
 /**
@@ -133,8 +133,9 @@ public class Activator extends AbstractUIPlugin {
 		String myUsername= username;
 		String myPassw= passkey;
 		//office = PanlabServices.getInstance().getOffice( myUsername , myPassw, true);
-		
-		FCICredentials cred = new FCICredentials(myUsername , myPassw);
+		FCICredentials cred =FederationOffice.fcielements.FcielementsFactory.eINSTANCE.createFCICredentials();
+		cred.setUsername(myUsername);
+		cred.setPassword(myPassw);
 		FCI fci = FCI.getInstance();
 		AuthorizationKey authKey = fci.createAuthorizationKey(cred);
 		panlab = fci.createResourceContext(officeName, authKey);		

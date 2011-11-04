@@ -134,6 +134,8 @@ public class FCI {
 	}
 
 	private ResourceContext CreatePanlabResourceContext(AuthorizationKey authKey) {
+		
+		
 		Office office = PanlabServices.getInstance().getOffice(
 				authKey.getUsername(), authKey.getPassword(), true);
 		
