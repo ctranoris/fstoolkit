@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Planetlab FCI plugin
+Bundle-SymbolicName: org.panlab.software.FCI.planetlab
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.panlab.software.fci.planetlab.Activator
+Bundle-Vendor: University of Patras
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.panlab.software.office.model;bundle-version="1.0.2"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
