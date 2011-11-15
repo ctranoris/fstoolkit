@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SFA FCI plugin
+Bundle-SymbolicName: org.panlab.software.FCI.sfa
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.panlab.software.fci.sfa.Activator
+Bundle-Vendor: University of Patras
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.panlab.software.office.model;bundle-version="1.0.2"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
