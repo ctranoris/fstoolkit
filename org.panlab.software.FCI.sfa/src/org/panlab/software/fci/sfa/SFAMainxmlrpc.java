@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
@@ -94,12 +95,62 @@ public class SFAMainxmlrpc {
 				if (a.hasMoreElements() )
 					sc.getClientSessionContext().getSession( a.nextElement() ).invalidate();
 			     
+				//List displays all the Records in the Registry for a given authority or subauthority. 
+			    //ListRecords();		
+//			    ShowRecord();
 			    ListResources();
-		
 		
 	}
 	
 	
+
+	private static void ShowRecord() {
+		System.out.println("ListResources()");
+		Object result;
+		Vector<Serializable> params = new Vector<Serializable>();
+	    params.addElement( new String("plc.uopplcbase"));
+	    String cred = SFAcredential;
+//	    try {
+//			cred = URLEncoder.encode( cred, "UTF-8" );
+//		} catch (UnsupportedEncodingException e) {
+//			e.printStackTrace();
+//		}
+	    
+	    params.addElement(  cred );
+	    
+		result = execXMLRPC_registry("Show", params);
+		if (result!=null)
+			System.out.println("The toString of List is: "+ result.toString());
+		else
+			System.out.println("The toString of List is: null");
+	
+}
+
+
+
+	private static void ListResources() {
+	    
+	    System.out.println("ListResources()");
+			Object result;
+			Vector<Serializable> params = new Vector<Serializable>();
+		    //params.addElement( new String("plc.uopplcbase"));
+		    String cred = SFAcredential;		    
+		    params.addElement(  cred );		    
+		    
+		    HashMap<String, String> auth = new HashMap<String, String>();
+		    auth.put("type", "ProtoGENI");
+		    auth.put("version", "2");		    
+			HashMap<String, HashMap<String, String> > geni_rspec_version = new HashMap<String, HashMap<String, String>>();
+			geni_rspec_version.put("geni_rspec_version", auth);
+		    	 	    
+			params.addElement( geni_rspec_version );
+
+			result = execXMLRPC_aggregate("ListResources", params);
+			
+		}	
+
+
+
 
 	private static String GetSelfCredential() {
 
@@ -141,8 +192,8 @@ public class SFAMainxmlrpc {
 
 	
 
-	private static void ListResources() {
-	    System.out.println("ListResources()");
+	private static void ListRecords() {
+	    System.out.println("ListRecords()");
 		Object result;
 		Vector<Serializable> params = new Vector<Serializable>();
 	    params.addElement( new String("plc.uopplcbase"));
@@ -156,20 +207,31 @@ public class SFAMainxmlrpc {
 	    params.addElement(  cred );
 	    
 		result = execXMLRPC_registry("List", params);
-		if (result!=null)
-			System.out.println("The toString of List is: "+ result.toString());
-		else
-			System.out.println("The toString of List is: null");
+	}
+
+	
+	
+	
+	
+
+	private static Object execXMLRPC_registry(String commandName, Vector<Serializable> params) {
+	
+		return execXMLRPC(commandName, params, "https://plc:12345");
 	}
 
 
-	private static Object execXMLRPC_registry(String commandName, Vector<Serializable> params) {
-		 
+	private static Object execXMLRPC_aggregate(String commandName, Vector<Serializable> params) {
+	
+		return execXMLRPC(commandName, params, "https://plc:12346");
+	}
+	
+	private static Object execXMLRPC(String commandName, Vector<Serializable> params, String url) {
+		
 	    try {
 	    	
 	    	invalidateSessions();
 	        
-			config.setServerURL(new URL("https://plc:12345")) ; //http://192.168.56.101:12345 //registry
+			config.setServerURL(new URL( url )) ; //http://192.168.56.101:12345 //registry
 //			config.setServerURL(new URL("https://plc:12346")); //http://192.168.56.101:12345 //aggregate
 //			config.setServerURL(new URL("https://plc:12347")); //http://192.168.56.101:12345 //slicemgr
 			config.setReplyTimeout(10000);
