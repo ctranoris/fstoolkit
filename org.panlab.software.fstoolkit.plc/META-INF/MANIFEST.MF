@@ -6,6 +6,10 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.panlab.software.fstoolkit.plc.Activator
 Bundle-Vendor: University of PAtras
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ org.panlab.software.office.model;bundle-version="1.0.2",
+ org.panlab.software.FCI.core;bundle-version="1.0.0",
+ org.panlab.software.fstoolkit,
+ org.panlab.software.fstoolkit.localprovisioningengine
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy

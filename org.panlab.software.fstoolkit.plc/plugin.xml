@@ -10,5 +10,16 @@
             name="PlanetLab">
       </page>
    </extension>
+   <extension
+         point="org.panlab.software.fstoolkit.extensionpoint.officerepository">
+      <OfficeRepository
+            class="org.panlab.software.fstoolkit.plc.PLCRepository"></OfficeRepository>
+   </extension>
+   <extension
+         point="org.panlab.software.fstoolkit.provisionresource">
+      <provisionresource
+            class="org.panlab.software.fstoolkit.plc.ProvisionResource">
+      </provisionresource>
+   </extension>
 
 </plugin>
