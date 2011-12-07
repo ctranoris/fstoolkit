@@ -7,14 +7,14 @@ import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
-import org.panlab.software.fci.core.AuthorizationKey;
 import org.panlab.software.fci.core.FCI;
-import org.panlab.software.fci.core.FCICredentials;
 import org.panlab.software.fci.core.ResourceContext;
 import org.panlab.software.fstoolkit.amazon.preferences.AmazonPreferenceConstants;
 
 import FederationOffice.Office;
 import FederationOffice.extensionInterfaces.IOfficeRepositoryListener;
+import FederationOffice.fcielements.AuthorizationKey;
+import FederationOffice.fcielements.FCICredentials;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -111,7 +111,9 @@ public class Activator extends AbstractUIPlugin {
 	public Office loadAmazonOfficeDescription(String myAccessKeyID, String mySecretAccessKey) {
 		
 		
-		FCICredentials cred = new FCICredentials(myAccessKeyID, mySecretAccessKey);
+		FCICredentials cred =FederationOffice.fcielements.FcielementsFactory.eINSTANCE.createFCICredentials();
+		cred.setUsername(myAccessKeyID);
+		cred.setPassword(mySecretAccessKey);
 		FCI fci = FCI.getInstance();
 		AuthorizationKey authKey = fci.createAuthorizationKey(cred);
 		amazon = fci.createResourceContext(officeName, authKey);		
