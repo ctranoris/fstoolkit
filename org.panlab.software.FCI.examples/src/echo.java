@@ -15,15 +15,16 @@
 		
 		import java.util.ArrayList;
 		import java.util.List;		
-		import org.panlab.software.fci.core.AuthorizationKey;
 		import org.panlab.software.fci.core.FCI;
-		import org.panlab.software.fci.core.FCICredentials;
 		import org.panlab.software.fci.core.ParameterValuePair;
 		import org.panlab.software.fci.core.ResourceContext;
 		import org.panlab.software.fci.core.ResourceGroup;
 		import org.panlab.software.fci.core.ResourceProvider;
 		import org.panlab.software.fci.core.ResourceProxy;
-		import org.panlab.software.fci.core.ServiceType;
+import org.panlab.software.fci.core.ServiceType;
+
+import FederationOffice.fcielements.AuthorizationKey;
+import FederationOffice.fcielements.FCICredentials;
 		
 		public class echo {
 			
@@ -41,7 +42,7 @@
 			
 			public ResourceContext _return_context_amazon(){ 
 				//credentials for amazon Office
-				FCICredentials cred = new FCICredentials(_username_amazon, _password_amazon);
+				FCICredentials cred = fci.createFCICredentials(_username_amazon, _password_amazon);
 				AuthorizationKey authKey = fci.createAuthorizationKey(cred);
 				ResourceContext _context_amazon = fci.createResourceContext("amazon", authKey);
 				return _context_amazon;
@@ -51,7 +52,7 @@
 			
 			public ResourceContext _return_context_panlab(){ 
 				//credentials for amazon Office
-				FCICredentials cred = new FCICredentials(_username_panlab, _password_panlab);
+				FCICredentials cred = fci.createFCICredentials(_username_panlab, _password_panlab);
 				AuthorizationKey authKey = fci.createAuthorizationKey(cred);
 				ResourceContext _context_panlab = fci.createResourceContext("panlab", authKey);
 				return _context_panlab;

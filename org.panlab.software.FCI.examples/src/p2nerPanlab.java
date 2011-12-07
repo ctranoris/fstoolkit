@@ -1,15 +1,16 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import org.panlab.software.fci.core.AuthorizationKey;
 import org.panlab.software.fci.core.FCI;
-import org.panlab.software.fci.core.FCICredentials;
 import org.panlab.software.fci.core.ParameterValuePair;
 import org.panlab.software.fci.core.ResourceContext;
 import org.panlab.software.fci.core.ResourceGroup;
 import org.panlab.software.fci.core.ResourceProvider;
 import org.panlab.software.fci.core.ResourceProxy;
 import org.panlab.software.fci.core.ServiceType;
+
+import FederationOffice.fcielements.AuthorizationKey;
+import FederationOffice.fcielements.FCICredentials;
 
 public class p2nerPanlab {
 
@@ -29,9 +30,10 @@ public class p2nerPanlab {
 	}
 
 	private void CreateScenario() {
-		FCICredentials cred = new FCICredentials("ctranoris", "ctranoris");
-
 		FCI fci = FCI.getInstance();
+		
+		FCICredentials cred = fci.createFCICredentials("ctranoris", "ctranoris");
+
 		AuthorizationKey authKey = fci.createAuthorizationKey(cred);
 		ResourceContext panlab = fci.createResourceContext("panlab", authKey);
 

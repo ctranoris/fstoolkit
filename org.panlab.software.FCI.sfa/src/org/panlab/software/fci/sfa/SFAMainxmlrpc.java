@@ -47,11 +47,11 @@ public class SFAMainxmlrpc {
 	final static XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
 	private static String SFAcredential;
 //	private static String registry_url = "https://plc:12345";
-//	private static String aggregate_url = "https://plc:12347";
+//	private static String sm_url = "https://plc:12347";
 //	private static String keystore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\client1plc.p12";
 //	private static String authority = "plc.uoppldef.tranoris";
 	private static String registry_url = "https://pla:12345";
-	private static String aggregate_url = "https://pla:12347";
+	private static String sm_url = "https://pla:12347";
 	private static String keystore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\sfa1inria.p12";
 	private static String authority = "plc.openlab.tranoris";
 
@@ -281,7 +281,7 @@ public class SFAMainxmlrpc {
 
 	private static Object execXMLRPC_aggregate(String commandName, Vector<Serializable> params) {
 	
-		return execXMLRPC(commandName, params, aggregate_url);
+		return execXMLRPC(commandName, params, sm_url);
 	}
 	
 	private static Object execXMLRPC(String commandName, Vector<Serializable> params, String url) {

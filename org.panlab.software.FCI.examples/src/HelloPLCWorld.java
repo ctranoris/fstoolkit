@@ -12,7 +12,7 @@ import org.panlab.software.fci.core.ServiceType;
 import FederationOffice.fcielements.AuthorizationKey;
 import FederationOffice.fcielements.FCICredentials;
 
-public class HelloPanlabWorld {
+public class HelloPLCWorld {
 
 	FCICredentials creds;
 	AuthorizationKey key;
@@ -21,11 +21,11 @@ public class HelloPanlabWorld {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		new HelloPanlabWorld();
+		new HelloPLCWorld();
 
 	}
 
-	public HelloPanlabWorld() {
+	public HelloPLCWorld() {
 		CreateScenario();
 	}
 
@@ -34,20 +34,20 @@ public class HelloPanlabWorld {
 		FCICredentials cred = fci.createFCICredentials("ctranoris", "ctranoris");
 
 		AuthorizationKey authKey = fci.createAuthorizationKey(cred);
-		ResourceContext panlab = fci.createResourceContext("panlab", authKey);
+		ResourceContext uop = fci.createResourceContext("uop", authKey);
 
-		for (ServiceType elem : panlab.getAvailableServices()) {
+		for (ServiceType elem : uop.getAvailableServices()) {
 			System.out.println("Service: " + elem.getName() + "("
 					+ elem.getDescription() + ")");
 		}
 
-		ServiceType service = panlab.getServiceType("echo");
+		ServiceType service = uop.getServiceType("echo");
 
-		for (ResourceProvider elem : panlab.getResourceProvidersForServiceType(service)) {
+		for (ResourceProvider elem : uop.getResourceProvidersForServiceType(service)) {
 			System.out.println("Service Provider: " + elem.getName() + "("+ elem.getDescription() + ")");
 		}
 		
-		ResourceProvider provider = panlab.getFirstResourceProviderOfService(service);
+		ResourceProvider provider = uop.getFirstResourceProviderOfService(service);
 		System.out.println("A first available Provider: " + provider.getName());
 
 		ResourceGroup myGroup = fci.createResourceGroup("ScenarioExample");
@@ -55,7 +55,7 @@ public class HelloPanlabWorld {
 		List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
 		ParameterValuePair p = new ParameterValuePair("input", "Christos");
 		params.add(p);
-		ResourceProxy resourceEcho = panlab.createResourceProxy("myTempVCT", "myEchoResource", provider, service, params);
+		ResourceProxy resourceEcho = uop.createResourceProxy("myTempVCT", "myEchoResource", provider, service, params);
 		
 		System.out.println("Echo resource GUID: " + resourceEcho.getGUID());
 		myGroup.addResourceProxy(resourceEcho);
@@ -69,6 +69,5 @@ public class HelloPanlabWorld {
 	}
 
 	
-
 
 }
