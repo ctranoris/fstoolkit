@@ -95,14 +95,33 @@ public class SFAMainxmlrpc {
 				if (a.hasMoreElements() )
 					sc.getClientSessionContext().getSession( a.nextElement() ).invalidate();
 			     
+				
 				//List displays all the Records in the Registry for a given authority or subauthority. 
-			    //ListRecords();		
-//			    ShowRecord();
+			    //ListRecords();
 			    ListResources();
+//				GetVersion();
+//			    ShowRecord();
 		
 	}
 	
 	
+
+	private static void GetVersion() {
+		    System.out.println("GetVersion()");
+			Object result;
+			Vector<Serializable> params = new Vector<Serializable>();
+//		    try {
+//				cred = URLEncoder.encode( cred, "UTF-8" );
+//			} catch (UnsupportedEncodingException e) {
+//				e.printStackTrace();
+//			}
+		    
+		    
+			result = execXMLRPC_registry("GetVersion", params);
+		}
+
+
+
 
 	private static void ShowRecord() {
 		System.out.println("ListResources()");
@@ -209,20 +228,18 @@ public class SFAMainxmlrpc {
 		result = execXMLRPC_registry("List", params);
 	}
 
-	
-	
-	
-	
+		
 
 	private static Object execXMLRPC_registry(String commandName, Vector<Serializable> params) {
-	
+
 		return execXMLRPC(commandName, params, "https://plc:12345");
+//		return execXMLRPC(commandName, params, "https://vplc08.pl.sophia.inria.fr:12345");
 	}
 
 
 	private static Object execXMLRPC_aggregate(String commandName, Vector<Serializable> params) {
 	
-		return execXMLRPC(commandName, params, "https://plc:12346");
+		return execXMLRPC(commandName, params, "https://plc:12347");
 	}
 	
 	private static Object execXMLRPC(String commandName, Vector<Serializable> params, String url) {
@@ -232,8 +249,8 @@ public class SFAMainxmlrpc {
 	    	invalidateSessions();
 	        
 			config.setServerURL(new URL( url )) ; //http://192.168.56.101:12345 //registry
-//			config.setServerURL(new URL("https://plc:12346")); //http://192.168.56.101:12345 //aggregate
-//			config.setServerURL(new URL("https://plc:12347")); //http://192.168.56.101:12345 //slicemgr
+//			config.setServerURL(new URL("https://plc:12346")); //http://192.168.56.101:12345 //aggregate??
+//			config.setServerURL(new URL("https://plc:12347")); //http://192.168.56.101:12345 //slicemgr??
 			config.setReplyTimeout(10000);
 			config.setContentLengthOptional(true);
 		    //XmlRpcClient client = new XmlRpcClient();
@@ -261,10 +278,20 @@ public class SFAMainxmlrpc {
 				result = client.execute(commandName, params);
 
 			    if (result instanceof String){
-				     System.out.println("Tstep 3.1");
-					 System.out.println("The toString of result is: "+ result.toString());
+				     System.out.println("The toString of result is: "+ result.toString());
 			    	
-			    	
+			    }else if (result instanceof Map){
+			    	Map map = (Map) result;
+					Set<String> ks = map.keySet();
+					for (String k : ks) {
+						if (map.get(k) instanceof Object[]) {
+							System.out.println("-> The " + k + " are: ");
+							printObjectArray((Object[]) map.get(k));
+						} else {
+							System.out.println("-> The " + k + " is: " + map.get(k));
+						}
+					}
+				    	
 			    }else {			    
 			    	printObjectArray ( (Object[]) result );
 			    }
