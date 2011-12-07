@@ -1,3 +1,18 @@
+/*************************************************************************
+Copyright 2011 Christos Tranoris, University of Patras 
+
+Licensed under the Apache License, Version 2.0 (the "License"); 
+you may not use this file except in compliance with the License. 
+You may obtain a copy of the License at 
+
+http://www.apache.org/licenses/LICENSE-2.0 
+Unless required by applicable law or agreed to in writing, software 
+distributed under the License is distributed on an "AS IS" BASIS, 
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+See the License for the specific language governing permissions and 
+limitations under the License. 
+ *************************************************************************/
+
 package org.panlab.software.fci.sfa;
 
 import java.io.Serializable;
@@ -31,8 +46,14 @@ public class SFAMainxmlrpc {
 	final static XmlRpcClient client = new XmlRpcClient();
 	final static XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
 	private static String SFAcredential;
-//    final static HttpClient httpClient = new HttpClient();
-//    final static XmlRpcCommonsTransportFactory factory = new XmlRpcCommonsTransportFactory(client);
+//	private static String registry_url = "https://plc:12345";
+//	private static String aggregate_url = "https://plc:12347";
+//	private static String keystore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\client1plc.p12";
+//	private static String authority = "plc.uoppldef.tranoris";
+	private static String registry_url = "https://pla:12345";
+	private static String aggregate_url = "https://pla:12347";
+	private static String keystore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\sfa1inria.p12";
+	private static String authority = "plc.openlab.tranoris";
 
 	public static void main(String[] args) {
 		//the key will contain self signed certificate for the client
@@ -43,10 +64,10 @@ public class SFAMainxmlrpc {
 				//Generate a certificate request (the client1plc.req)
 				//C:\Users\ctranoris\Desktop\_downloads\tmp\plckeys>
 				//c:\OpenSSL-Win32\bin\openssl req -new -key tranoris.pkey -subj "/C=GR/ST=Achaia/CN=plc.uoppldef.tranoris/EMAILADDRESS=tranoris@ece.upatras.gr" -config "c:\OpenSSL-Win32\bin\openssl.cfg" -out client1plc.req
-				
+				//C:\Users\ctranoris\Desktop\_downloads\tmp\plckeys>c:\OpenSSL-Win32\bin\openssl req -new -key tranoris.pkey -subj "/C=GR/ST=Achaia/CN=plc.openlab.tranoris/EMAILADDRESS=tranoris@ece.upatras.gr" -config "c:\OpenSSL-Win32\bin\openssl.cfg" -out sfa1inria.req
+		
 				//SKIP this example because will generate ALSO a private .key and certificate req .req file
 				//c:\OpenSSL-Win32\bin\openssl req -new -newkey rsa:1024 -nodes -out client1plc.req -keyout client1plc.key -subj "/C=GR/ST=Achaia/CN=plc.uoppldef.tranoris/EMAILADDRESS=tranoris@ece.upatras.gr" -config "c:\OpenSSL-Win32\bin\openssl.cfg"
-			    
 				
 				
 				//now the self-signed certificate client1plc.pem)
@@ -57,8 +78,8 @@ public class SFAMainxmlrpc {
 				
 				//I guess the public key (for tranoris.pkey, the id_rsa.pub) should be also uploaded  to myplc
 				
-			    System.setProperty("javax.net.ssl.keyStoreType", "pkcs12");
-			    System.setProperty("javax.net.ssl.keyStore", "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\client1plc.p12");
+			    System.setProperty("javax.net.ssl.keyStoreType", "pkcs12");;
+			    System.setProperty("javax.net.ssl.keyStore", keystore);			    
 			    System.setProperty("javax.net.ssl.keyStorePassword", "123456");
 			    
 			    //in the keystore we put to trust the myplc server
@@ -183,26 +204,47 @@ public class SFAMainxmlrpc {
 	    //Upload to myplc the client1plc.pub
 	    //don't forget to run the sfa-import-plc.py so the new pub key is available to sfa
 		
+		//the following for myPLC
+//		params.addElement( new String("-----BEGIN CERTIFICATE-----\n"+
+//				"MIIC+DCCAeACCQC8vGomhquv7TANBgkqhkiG9w0BAQUFADA+MQswCQYDVQQGEwJH\n"+
+//				"UjEPMA0GA1UECAwGQWNoYWlhMR4wHAYDVQQDDBVwbGMudW9wcGxkZWYudHJhbm9y\n"+
+//				"aXMwHhcNMTExMTI5MTE0NDAyWhcNMTYxMTI3MTE0NDAyWjA+MQswCQYDVQQGEwJH\n"+
+//				"UjEPMA0GA1UECAwGQWNoYWlhMR4wHAYDVQQDDBVwbGMudW9wcGxkZWYudHJhbm9y\n"+
+//				"aXMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCxK/FuaB+XjuzbGE/A\n"+
+//				"s5s0yEn+pkr2UFsDWS/5HXIZ0qgNHBFMgYxU4V75qFojZSXdP5Kk07JEoa2Kwy6k\n"+
+//				"7XZGIW6sub6D+T3v2FOny98ygN6nUfEWRI8QV4OMrpBNtM1tgUomajYMhp0lHvQ2\n"+
+//				"pOBv1u3rsHgPygLcGtyYeNsNAkRpfz65XqaimUj/boqu7HXBl6yL1IIP9swdFivG\n"+
+//				"hoZWYGlpPpjvMmgaOTkFRlXCUFLE/WI9FMDXZramJB37EMY4kG6qYudKEasQfa8S\n"+
+//				"qi1nhlEp4L9cCpmI4b0C6oxf9pWcVNNZDzDFB6/AM7ahwKqzPmH4MvxB0EEJrJpv\n"+
+//				"XYV/AgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAEY7QWQJvPPVpaJ5gequ/3Z8PkQM\n"+
+//				"qSgw9wC/os95CyjlHxlQm7JlREb04/B73AjTNQV6VJQIoan0oC3EHD73vvUDaJyz\n"+
+//				"V+g7pmFUK/+f2tvXwXKxef9ROPh71Ai6QkQpw1RRp+qtHKcs8IKplkfsvKqYThg7\n"+
+//				"FeiXIp1SIIclX6Z6IfKCWru/BYuSRVw+HrbbpTz4wgDufIYZivaVuODBQwwXUN9U\n"+
+//				"WC1yxbK0YugFupY9v+MPplrMBU3kpCNeTdoV7xYF28abaWlSHC+16704o4I10xae\n"+
+//				"AqPE2T+hDmlBrDbBLRFyc4XGumZuvCqs28uJiOylC+M2cELDE+D0wq1HNl0=\n"+
+//				"-----END CERTIFICATE-----") );
+		
+		//the following for SFA_INRIA
 		params.addElement( new String("-----BEGIN CERTIFICATE-----\n"+
-				"MIIC+DCCAeACCQC8vGomhquv7TANBgkqhkiG9w0BAQUFADA+MQswCQYDVQQGEwJH\n"+
-				"UjEPMA0GA1UECAwGQWNoYWlhMR4wHAYDVQQDDBVwbGMudW9wcGxkZWYudHJhbm9y\n"+
-				"aXMwHhcNMTExMTI5MTE0NDAyWhcNMTYxMTI3MTE0NDAyWjA+MQswCQYDVQQGEwJH\n"+
-				"UjEPMA0GA1UECAwGQWNoYWlhMR4wHAYDVQQDDBVwbGMudW9wcGxkZWYudHJhbm9y\n"+
-				"aXMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCxK/FuaB+XjuzbGE/A\n"+
-				"s5s0yEn+pkr2UFsDWS/5HXIZ0qgNHBFMgYxU4V75qFojZSXdP5Kk07JEoa2Kwy6k\n"+
-				"7XZGIW6sub6D+T3v2FOny98ygN6nUfEWRI8QV4OMrpBNtM1tgUomajYMhp0lHvQ2\n"+
-				"pOBv1u3rsHgPygLcGtyYeNsNAkRpfz65XqaimUj/boqu7HXBl6yL1IIP9swdFivG\n"+
-				"hoZWYGlpPpjvMmgaOTkFRlXCUFLE/WI9FMDXZramJB37EMY4kG6qYudKEasQfa8S\n"+
-				"qi1nhlEp4L9cCpmI4b0C6oxf9pWcVNNZDzDFB6/AM7ahwKqzPmH4MvxB0EEJrJpv\n"+
-				"XYV/AgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAEY7QWQJvPPVpaJ5gequ/3Z8PkQM\n"+
-				"qSgw9wC/os95CyjlHxlQm7JlREb04/B73AjTNQV6VJQIoan0oC3EHD73vvUDaJyz\n"+
-				"V+g7pmFUK/+f2tvXwXKxef9ROPh71Ai6QkQpw1RRp+qtHKcs8IKplkfsvKqYThg7\n"+
-				"FeiXIp1SIIclX6Z6IfKCWru/BYuSRVw+HrbbpTz4wgDufIYZivaVuODBQwwXUN9U\n"+
-				"WC1yxbK0YugFupY9v+MPplrMBU3kpCNeTdoV7xYF28abaWlSHC+16704o4I10xae\n"+
-				"AqPE2T+hDmlBrDbBLRFyc4XGumZuvCqs28uJiOylC+M2cELDE+D0wq1HNl0=\n"+
+				"MIIC9jCCAd4CCQD1uCiRpZf6fTANBgkqhkiG9w0BAQUFADA9MQswCQYDVQQGEwJH\n"+
+				"UjEPMA0GA1UECAwGQWNoYWlhMR0wGwYDVQQDDBRwbGMub3BlbmxhYi50cmFub3Jp\n"+
+				"czAeFw0xMTEyMDcwOTEyNDVaFw0xNjEyMDUwOTEyNDVaMD0xCzAJBgNVBAYTAkdS\n"+
+				"MQ8wDQYDVQQIDAZBY2hhaWExHTAbBgNVBAMMFHBsYy5vcGVubGFiLnRyYW5vcmlz\n"+
+				"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsSvxbmgfl47s2xhPwLOb\n"+
+				"NMhJ/qZK9lBbA1kv+R1yGdKoDRwRTIGMVOFe+ahaI2Ul3T+SpNOyRKGtisMupO12\n"+
+				"RiFurLm+g/k979hTp8vfMoDep1HxFkSPEFeDjK6QTbTNbYFKJmo2DIadJR70NqTg\n"+
+				"b9bt67B4D8oC3BrcmHjbDQJEaX8+uV6moplI/26Krux1wZesi9SCD/bMHRYrxoaG\n"+
+				"VmBpaT6Y7zJoGjk5BUZVwlBSxP1iPRTA12a2piQd+xDGOJBuqmLnShGrEH2vEqot\n"+
+				"Z4ZRKeC/XAqZiOG9AuqMX/aVnFTTWQ8wxQevwDO2ocCqsz5h+DL8QdBBCayab12F\n"+
+				"fwIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQCt57xAYqrB+2V5ZP+l4C9Lqdv1V/Dz\n"+
+				"Uy30YkH6irbc+LWyqrexIjAtHXmkhodVmR6TYDtrEfZMYVOqn/DnmWOnmsAkIUPU\n"+
+				"UVKvfN5seieMh0qq0NIBXYhzPYsZAKdbV5lJVOKI6Sdx7Ok2QwrG7UdlYiOQrdEg\n"+
+				"AsOJF45zdyzkJ265a2xQZFPldJU0YiPHikqyLs1MinabSBacEOHpfNim7kpLi7tr\n"+
+				"LD6FyNLTytO83DXEAKugOQ3ssLZ9Tb49AntEGA2hO6J4oRwEE/L/yhvwczl0QIMs\n"+
+				"3hhgJ3iN8e22kA5ZqpsGB0jl+z/XYnUQAZS9SecqMrbrcOO967q6BfFk\n"+
 				"-----END CERTIFICATE-----") );
 						                                   
-						    params.addElement( new String("plc.uoppldef.tranoris"));
+						    params.addElement( new String(authority));
 						    params.addElement( new String("user"));
 		result = execXMLRPC_registry("GetSelfCredential", params);
 		
@@ -232,14 +274,14 @@ public class SFAMainxmlrpc {
 
 	private static Object execXMLRPC_registry(String commandName, Vector<Serializable> params) {
 
-		return execXMLRPC(commandName, params, "https://plc:12345");
+		return execXMLRPC(commandName, params, registry_url);
 //		return execXMLRPC(commandName, params, "https://vplc08.pl.sophia.inria.fr:12345");
 	}
 
 
 	private static Object execXMLRPC_aggregate(String commandName, Vector<Serializable> params) {
 	
-		return execXMLRPC(commandName, params, "https://plc:12347");
+		return execXMLRPC(commandName, params, aggregate_url);
 	}
 	
 	private static Object execXMLRPC(String commandName, Vector<Serializable> params, String url) {
