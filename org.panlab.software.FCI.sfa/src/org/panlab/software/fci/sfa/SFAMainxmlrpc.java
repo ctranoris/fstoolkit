@@ -53,7 +53,7 @@ public class SFAMainxmlrpc {
 	private static String registry_url = "https://pla:12345";
 	private static String sm_url = "https://pla:12347";
 	private static String keystore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\sfa1inria.p12";
-	private static String authority = "plc.openlab.tranoris";
+	private static String authority = "pla.openlab.tranoris";
 
 	public static void main(String[] args) {
 		//the key will contain self signed certificate for the client
@@ -64,7 +64,7 @@ public class SFAMainxmlrpc {
 				//Generate a certificate request (the client1plc.req)
 				//C:\Users\ctranoris\Desktop\_downloads\tmp\plckeys>
 				//c:\OpenSSL-Win32\bin\openssl req -new -key tranoris.pkey -subj "/C=GR/ST=Achaia/CN=plc.uoppldef.tranoris/EMAILADDRESS=tranoris@ece.upatras.gr" -config "c:\OpenSSL-Win32\bin\openssl.cfg" -out client1plc.req
-				//C:\Users\ctranoris\Desktop\_downloads\tmp\plckeys>c:\OpenSSL-Win32\bin\openssl req -new -key tranoris.pkey -subj "/C=GR/ST=Achaia/CN=plc.openlab.tranoris/EMAILADDRESS=tranoris@ece.upatras.gr" -config "c:\OpenSSL-Win32\bin\openssl.cfg" -out sfa1inria.req
+				//C:\Users\ctranoris\Desktop\_downloads\tmp\plckeys>c:\OpenSSL-Win32\bin\openssl req -new -key tranoris.pkey -subj "/C=GR/ST=Achaia/CN=pla.openlab.tranoris/EMAILADDRESS=tranoris@ece.upatras.gr" -config "c:\OpenSSL-Win32\bin\openssl.cfg" -out sfa1inria.req
 		
 				//SKIP this example because will generate ALSO a private .key and certificate req .req file
 				//c:\OpenSSL-Win32\bin\openssl req -new -newkey rsa:1024 -nodes -out client1plc.req -keyout client1plc.key -subj "/C=GR/ST=Achaia/CN=plc.uoppldef.tranoris/EMAILADDRESS=tranoris@ece.upatras.gr" -config "c:\OpenSSL-Win32\bin\openssl.cfg"
@@ -226,22 +226,22 @@ public class SFAMainxmlrpc {
 		
 		//the following for SFA_INRIA
 		params.addElement( new String("-----BEGIN CERTIFICATE-----\n"+
-				"MIIC9jCCAd4CCQD1uCiRpZf6fTANBgkqhkiG9w0BAQUFADA9MQswCQYDVQQGEwJH\n"+
-				"UjEPMA0GA1UECAwGQWNoYWlhMR0wGwYDVQQDDBRwbGMub3BlbmxhYi50cmFub3Jp\n"+
-				"czAeFw0xMTEyMDcwOTEyNDVaFw0xNjEyMDUwOTEyNDVaMD0xCzAJBgNVBAYTAkdS\n"+
-				"MQ8wDQYDVQQIDAZBY2hhaWExHTAbBgNVBAMMFHBsYy5vcGVubGFiLnRyYW5vcmlz\n"+
+				"MIIC9jCCAd4CCQDcMCK6VBKdVjANBgkqhkiG9w0BAQUFADA9MQswCQYDVQQGEwJH\n"+
+				"UjEPMA0GA1UECAwGQWNoYWlhMR0wGwYDVQQDDBRwbGEub3BlbmxhYi50cmFub3Jp\n"+
+				"czAeFw0xMTEyMDcxODM2MjBaFw0xNjEyMDUxODM2MjBaMD0xCzAJBgNVBAYTAkdS\n"+
+				"MQ8wDQYDVQQIDAZBY2hhaWExHTAbBgNVBAMMFHBsYS5vcGVubGFiLnRyYW5vcmlz\n"+
 				"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsSvxbmgfl47s2xhPwLOb\n"+
 				"NMhJ/qZK9lBbA1kv+R1yGdKoDRwRTIGMVOFe+ahaI2Ul3T+SpNOyRKGtisMupO12\n"+
 				"RiFurLm+g/k979hTp8vfMoDep1HxFkSPEFeDjK6QTbTNbYFKJmo2DIadJR70NqTg\n"+
 				"b9bt67B4D8oC3BrcmHjbDQJEaX8+uV6moplI/26Krux1wZesi9SCD/bMHRYrxoaG\n"+
 				"VmBpaT6Y7zJoGjk5BUZVwlBSxP1iPRTA12a2piQd+xDGOJBuqmLnShGrEH2vEqot\n"+
 				"Z4ZRKeC/XAqZiOG9AuqMX/aVnFTTWQ8wxQevwDO2ocCqsz5h+DL8QdBBCayab12F\n"+
-				"fwIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQCt57xAYqrB+2V5ZP+l4C9Lqdv1V/Dz\n"+
-				"Uy30YkH6irbc+LWyqrexIjAtHXmkhodVmR6TYDtrEfZMYVOqn/DnmWOnmsAkIUPU\n"+
-				"UVKvfN5seieMh0qq0NIBXYhzPYsZAKdbV5lJVOKI6Sdx7Ok2QwrG7UdlYiOQrdEg\n"+
-				"AsOJF45zdyzkJ265a2xQZFPldJU0YiPHikqyLs1MinabSBacEOHpfNim7kpLi7tr\n"+
-				"LD6FyNLTytO83DXEAKugOQ3ssLZ9Tb49AntEGA2hO6J4oRwEE/L/yhvwczl0QIMs\n"+
-				"3hhgJ3iN8e22kA5ZqpsGB0jl+z/XYnUQAZS9SecqMrbrcOO967q6BfFk\n"+
+				"fwIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQBfdRjFrE7s/x7GtTvcQYU/Pj83Zjzc\n"+
+				"h1gMuO5eNb+2GsMMYa8LTk3QZaLAsszCzxULWkAo1jKl5cQADqIMLZNX41dny8ma\n"+
+				"l20JptFLc5AXsRaqMC88HOFrFE2J7FTEf5lBXbsYwfzo4VN6VW3n43GWditfIzNO\n"+
+				"oPjPCETIH7WaHBg2oHJ+MHaFRroWdY/KuDbX7JATZIQpK2ws9noAlwaQafMagRih\n"+
+				"Ft+m1UsPQ8fFNGw6T6ASUIplERqyEw74KvCnxPRvKVjUIzameVD9FdAHqqJ9GHUu\n"+
+				"bHPtUz2dDR8Y4ICYreryWazHB+sqV5RyKQHeaZaVFdvyPYqhiWFQuo65\n"+
 				"-----END CERTIFICATE-----") );
 						                                   
 						    params.addElement( new String(authority));
