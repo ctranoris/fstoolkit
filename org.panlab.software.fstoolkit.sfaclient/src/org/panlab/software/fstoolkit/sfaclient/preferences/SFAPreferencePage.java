@@ -72,10 +72,10 @@ public class SFAPreferencePage extends PreferencePage implements
 	    column1.setText("SFA URL");
 	    column1.setWidth(160);
 	    TreeColumn column2 = new TreeColumn(tree, SWT.LEFT);
-	    column2.setText("Username");
+	    column2.setText("Username (HRN)");
 	    column2.setWidth(160);
 	    TreeColumn column3 = new TreeColumn(tree, SWT.LEFT);
-	    column3.setText("Authority");
+	    column3.setText("Authority (HRN)");
 	    column3.setWidth(160);
 	    
 	    int accountsnum = preferenceStore.getInt("AccountNums");
@@ -90,7 +90,9 @@ public class SFAPreferencePage extends PreferencePage implements
 	    		  preferenceStore.getString("KEYSTOREPASSWORD_" + i ), 
 	    		  preferenceStore.getString("USERNAME_" + i ), 
 	    		  preferenceStore.getString("AUTHORITY_" + i ), 
-	    		  preferenceStore.getString("CERTIFICATEFILENAME_" + i ));
+	    		  preferenceStore.getString("CERTIFICATEFILENAME_" + i ),
+	    		  preferenceStore.getString("TRUSTSTORE_" + i ), 
+	    		  preferenceStore.getString("TRUSTSTOREPASSWORD_" + i ) );
 		
 	      item.setData( account );
 	      
@@ -100,7 +102,10 @@ public class SFAPreferencePage extends PreferencePage implements
 	    		  account.getAuthority() });
 	    }
 	    
-	    
+
+		GridData gdButton= new GridData(GridData.FILL_HORIZONTAL );
+		gdButton.widthHint = 120;
+		
 	    Composite buttons= new Composite(container, SWT.NULL);
 		buttons.setLayoutData(new GridData(GridData.VERTICAL_ALIGN_BEGINNING));
 		layout= new GridLayout();
@@ -110,6 +115,7 @@ public class SFAPreferencePage extends PreferencePage implements
 		
 		Button button = new Button(buttons, SWT.PUSH);
 	    button.setText("Add");
+        button.setLayoutData(gdButton);
 	    button.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event e) {
 				add();
@@ -120,6 +126,7 @@ public class SFAPreferencePage extends PreferencePage implements
 	    
 	    button = new Button(buttons, SWT.PUSH);
 	    button.setText("Edit");
+        button.setLayoutData(gdButton);
 	    button.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event e) {
 				edit();
@@ -130,6 +137,7 @@ public class SFAPreferencePage extends PreferencePage implements
 	    button.setLayoutData(getButtonGridData(button));
 	    button = new Button(buttons, SWT.PUSH);
 	    button.setText("Delete");
+        button.setLayoutData(gdButton);
 	    button.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event e) {
 				delete();
@@ -148,7 +156,7 @@ public class SFAPreferencePage extends PreferencePage implements
 	protected void add() {
 		SFAAccount account = new SFAAccount("https://url:12345", "https://url:12346", "https://url:12347",  
 				"", "", "", 
-				"plc.<baseurl>", "");
+				"plc.<baseurl>", "", "", "");
 		SFAAccount newaccount = editSFAAccount(account, false);
 		if (newaccount != null){
 			TreeItem item = new TreeItem(tree, SWT.NONE);
@@ -214,6 +222,9 @@ public class SFAPreferencePage extends PreferencePage implements
 		  preferenceStore.setValue("USERNAME_" + i , account.getUsername() );
 		  preferenceStore.setValue("AUTHORITY_" + i , account.getAuthority() );
 		  preferenceStore.setValue("CERTIFICATEFILENAME_" + i , account.getCertificateFileName() );
+		  preferenceStore.setValue("TRUSTSTORE_" + i , account.getTrustStoreFileName ()); 
+		  preferenceStore.setValue("TRUSTSTOREPASSWORD_" + i , account.getTrustStorePassword() );
+		  
 
 	    }   
 	    // Set the values from the fields

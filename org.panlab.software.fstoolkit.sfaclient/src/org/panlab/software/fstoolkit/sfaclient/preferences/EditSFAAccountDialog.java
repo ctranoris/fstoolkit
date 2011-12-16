@@ -1,5 +1,9 @@
 package org.panlab.software.fstoolkit.sfaclient.preferences;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Scanner;
+
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.dialogs.StatusDialog;
@@ -30,6 +34,8 @@ public class EditSFAAccountDialog extends StatusDialog {
 	private Text authorityText;
 	private Text certificateText;
 	private Text testConnection;
+	private Text trustStoreFileNameText;
+	private Text trustStorePasswordText;
 	
 
 	
@@ -51,14 +57,20 @@ public class EditSFAAccountDialog extends StatusDialog {
 	
 	@Override
 	protected Control createDialogArea(Composite parent) {
+		
 		Composite container = new Composite(parent, SWT.NULL);
 		GridLayout layout = new GridLayout();
 		container.setLayout(layout);
 		layout.numColumns = 3;
 		layout.verticalSpacing = 2;
+		GridData gdButton= new GridData(GridData.FILL_HORIZONTAL );
+		gdButton.widthHint = 120;
+		
 		GridData gd= new GridData(GridData.FILL_BOTH);
         gd.horizontalSpan= 2;
-        gd.widthHint = 400;
+        gd.widthHint = 640;
+        gd.heightHint  = 400;
+		gd.horizontalAlignment = SWT.FILL;
         container.setLayoutData(gd); 
 
         createLabel(container, "Registry URL:");
@@ -88,7 +100,7 @@ public class EditSFAAccountDialog extends StatusDialog {
         sliceManagerUrlText.setText(account.getSlicemanager_url());
         createLabel(container, "");
 		
-        createLabel(container, "Authority");
+        createLabel(container, "Authority (HRN):");
 		//int descFlags= fIsNameModifiable ? SWT.BORDER : SWT.BORDER | SWT.READ_ONLY;
         authorityText = new Text(container, SWT.BORDER );
         authorityText.setLayoutData(gdtext);
@@ -96,7 +108,7 @@ public class EditSFAAccountDialog extends StatusDialog {
         createLabel(container, "");
         
 
-		createLabel(container, "Username:");
+		createLabel(container, "Username (HRN):");
 		//int descFlags= fIsNameModifiable ? SWT.BORDER : SWT.BORDER | SWT.READ_ONLY;
 		usernameText = new Text(container, SWT.BORDER );
 		usernameText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
@@ -104,7 +116,7 @@ public class EditSFAAccountDialog extends StatusDialog {
         createLabel(container, "");
 
 		
-        createLabel(container, "Keystore Filename:");
+        createLabel(container, "p12 Keystore Filename (.p12):");
 		//int descFlags= fIsNameModifiable ? SWT.BORDER : SWT.BORDER | SWT.READ_ONLY;
         keystoreFileNameText = new Text(container, SWT.BORDER );
         keystoreFileNameText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
@@ -116,6 +128,7 @@ public class EditSFAAccountDialog extends StatusDialog {
 		});
         Button button = new Button(container, SWT.PUSH);
 		button.setText("Browse...");
+        button.setLayoutData(gdButton);
 		button.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				handleBrowse(keystoreFileNameText);
@@ -124,7 +137,7 @@ public class EditSFAAccountDialog extends StatusDialog {
 
 		
 		
-		createLabel(container, "Password:");
+		createLabel(container, "p12 Keystore Password:");
 		//int descFlags= fIsNameModifiable ? SWT.BORDER : SWT.BORDER | SWT.READ_ONLY;
 		keystorePasswordText = new Text(container, SWT.BORDER );
 		keystorePasswordText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
@@ -133,7 +146,38 @@ public class EditSFAAccountDialog extends StatusDialog {
         createLabel(container, "");
         
         
-        createLabel(container, "Certificate Filename:");
+        createLabel(container, "Trust Filename (.keystore):");
+		//int descFlags= fIsNameModifiable ? SWT.BORDER : SWT.BORDER | SWT.READ_ONLY;
+        trustStoreFileNameText = new Text(container, SWT.BORDER );
+        trustStoreFileNameText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+        trustStoreFileNameText.setText(account.getTrustStoreFileName() );
+        trustStoreFileNameText.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent e) {
+				dialogChanged();
+			}
+		});
+        button = new Button(container, SWT.PUSH);
+		button.setText("Browse...");
+        button.setLayoutData(gdButton);
+		button.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				handleBrowse(trustStoreFileNameText);
+			}
+		});
+
+		
+		
+		createLabel(container, "Trust Password:");
+		//int descFlags= fIsNameModifiable ? SWT.BORDER : SWT.BORDER | SWT.READ_ONLY;
+		trustStorePasswordText = new Text(container, SWT.BORDER );
+		trustStorePasswordText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		trustStorePasswordText.setEchoChar('*');
+		trustStorePasswordText.setText(account.getTrustStorePassword() );
+        createLabel(container, "");
+        
+        
+        
+        createLabel(container, "self-signed Certificate Filename (.sscrt):");
 		//int descFlags= fIsNameModifiable ? SWT.BORDER : SWT.BORDER | SWT.READ_ONLY;
         certificateText = new Text(container, SWT.BORDER );
         certificateText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
@@ -145,6 +189,7 @@ public class EditSFAAccountDialog extends StatusDialog {
 		});
         button = new Button(container, SWT.PUSH);
 		button.setText("Browse...");
+        button.setLayoutData(gdButton);
 		button.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				handleBrowse(certificateText);
@@ -153,16 +198,23 @@ public class EditSFAAccountDialog extends StatusDialog {
 
 		createLabel(container, "Test connection:");
         
-		testConnection = new Text(container, SWT.BORDER | SWT.WRAP | SWT.MULTI);
+		testConnection = new Text(container, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
 		GridData gridData = new GridData();
 		gridData.horizontalAlignment = SWT.FILL;
 		gridData.grabExcessHorizontalSpace = true;
 		gridData.verticalAlignment = SWT.FILL;
 		gridData.grabExcessVerticalSpace = true;
+		gridData.heightHint = 200;
 		testConnection.setLayoutData(gridData);
 		testConnection.setText("Press the Test button after filling your settings to test connectivity.");
+		
 		button = new Button(container, SWT.PUSH);
 		button.setText("Test");
+		button.setLayoutData(new GridData(GridData.VERTICAL_ALIGN_BEGINNING) );
+		
+        button.setLayoutData(gdButton);
+        
+        
 		button.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				testConnectivity();
@@ -178,6 +230,27 @@ public class EditSFAAccountDialog extends StatusDialog {
 	protected void testConnectivity() {
 		testConnection.setText("test result...");
 		
+		String certtext = "";
+		try {
+			certtext = read(this.certificateText.getText());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		
+		
+		
+		String res = SFAMainxmlrpc.testMe(this.registryUrlText.getText(), 
+				this.sliceManagerUrlText.getText(),
+				this.keystoreFileNameText.getText(),
+				this.keystorePasswordText.getText(),
+				this.trustStoreFileNameText.getText(),
+				this.trustStorePasswordText.getText(),
+				this.authorityText.getText(),
+				this.usernameText.getText(),
+				certtext).toString() ;
+		
+		testConnection.setText(res);
 	}
 
 	/**
@@ -209,9 +282,9 @@ public class EditSFAAccountDialog extends StatusDialog {
 	}
 
 	private static Label createLabel(Composite parent, String name) {
-		Label label= new Label(parent, SWT.NULL);
+		Label label= new Label(parent, SWT.NULL );
 		label.setText(name);
-		//label.setLayoutData(new GridData());
+		label.setLayoutData(new GridData(GridData.VERTICAL_ALIGN_BEGINNING) );
 
 		return label;
 	}
@@ -232,7 +305,29 @@ public class EditSFAAccountDialog extends StatusDialog {
 		account.setKeystoreFileName(this.keystoreFileNameText.getText());
 		account.setKeystorePassword(this.keystorePasswordText.getText());
 		account.setCertificateFileName(this.certificateText.getText());
+		account.setTrustStoreFileName(this.trustStoreFileNameText.getText());
+		account.setTrustStorePassword(this.trustStorePasswordText.getText());
 		super.okPressed();
 	}
+
 	
+	/** Read the contents of the given file. */
+	 protected String read(String fFileName) throws IOException {
+	    StringBuilder text = new StringBuilder();
+	    String NL = System.getProperty("line.separator");
+	    Scanner scanner = new Scanner(new FileInputStream(fFileName), "UTF-8");
+	    try {
+	      while (scanner.hasNextLine()){
+	        text.append(scanner.nextLine() + NL);
+	      }
+	    }
+	    finally{
+	      scanner.close();
+	    }
+	    return text.toString() ;
+	  }
+
 }
+
+
+

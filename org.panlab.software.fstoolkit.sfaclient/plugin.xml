@@ -10,5 +10,14 @@
             name="SFA">
       </page>
    </extension>
+   <extension
+         point="org.panlab.software.fstoolkit.provisionresource">
+   </extension>
+   <extension
+         point="org.panlab.software.fstoolkit.extensionpoint.officerepository">
+      <OfficeRepository
+            class="org.panlab.software.fstoolkit.sfaclient.SFARepository">
+      </OfficeRepository>
+   </extension>
 
 </plugin>

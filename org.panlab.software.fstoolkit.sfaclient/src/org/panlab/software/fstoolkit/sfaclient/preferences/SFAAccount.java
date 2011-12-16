@@ -10,6 +10,8 @@ public class SFAAccount {
 	private String slicemanager_url;
 	private String keystoreFileName;
 	private String keystorePassword;
+	private String trustStoreFileName;
+	private String trustStorePassword;
 	private String username;
 	private String authority;
 	private String certificateFileName;//The .pem self signed certificate , from command C:\Users\ctranoris\Desktop\_downloads\tmp\plckeys>c:\OpenSSL-Win32\bin\openssl x509 -text -in sfa1inria.pem
@@ -24,11 +26,15 @@ public class SFAAccount {
 	 * @param username
 	 * @param authority sould be plc.[baseurl] where replace baseurl with the provided one by sfa authority
 	 * @param certificateFileName
+	 * @param trustStoreFileName
+	 * @param trustStorePassword
 	 */
 	public SFAAccount(String registry_url, String aggregate_url,
 			String slicemanager_url, String keystoreFileName,
 			String keystorePassword, String username, String authority,
-			String certificateFileName) {
+			String certificateFileName,
+			String trustStoreFileName,
+			String trustStorePassword ) {
 		super();
 		this.registry_url = registry_url;
 		this.aggregate_url = aggregate_url;
@@ -38,6 +44,41 @@ public class SFAAccount {
 		this.username = username;
 		this.authority = authority;
 		this.certificateFileName = certificateFileName;
+		this.trustStoreFileName=trustStoreFileName;
+		this.trustStorePassword = trustStorePassword;
+		
+	}
+
+
+	/**
+	 * @return the trustStoreFileName
+	 */
+	public String getTrustStoreFileName() {
+		return trustStoreFileName;
+	}
+
+
+	/**
+	 * @param trustStoreFileName the trustStoreFileName to set
+	 */
+	public void setTrustStoreFileName(String trustStoreFileName) {
+		this.trustStoreFileName = trustStoreFileName;
+	}
+
+
+	/**
+	 * @return the trustStorePassword
+	 */
+	public String getTrustStorePassword() {
+		return trustStorePassword;
+	}
+
+
+	/**
+	 * @param trustStorePassword the trustStorePassword to set
+	 */
+	public void setTrustStorePassword(String trustStorePassword) {
+		this.trustStorePassword = trustStorePassword;
 	}
 
 
