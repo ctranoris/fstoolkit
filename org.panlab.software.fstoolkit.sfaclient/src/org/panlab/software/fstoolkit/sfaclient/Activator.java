@@ -1,5 +1,8 @@
 package org.panlab.software.fstoolkit.sfaclient;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 import org.panlab.software.fci.core.FCI;
@@ -17,8 +20,7 @@ public class Activator extends AbstractUIPlugin {
 	// The plug-in ID
 	public static final String PLUGIN_ID = "org.panlab.software.fstoolkit.sfaclient"; //$NON-NLS-1$
 
-	private Office office;
-	private String officeName = "SFAList";
+	private ArrayList<Office> sfaOffices;
 	private ResourceContext SFA;
 	
 	// The shared instance
@@ -28,6 +30,7 @@ public class Activator extends AbstractUIPlugin {
 	 * The constructor
 	 */
 	public Activator() {
+		this.sfaOffices = new ArrayList<Office>();
 	}
 
 	/*
@@ -59,23 +62,31 @@ public class Activator extends AbstractUIPlugin {
 	
 
 	
-	public Office getOffice() {
-		return office;
+	public List<Office> getOffices() {
+		return sfaOffices;
 	}
 
-	public Office loadSFAOfficesDescription(String string, String string2) {
+	public List<Office> loadSFAOfficesDescription(String string, String string2) {
 		FCICredentials cred =FederationOffice.fcielements.FcielementsFactory.eINSTANCE.createFCICredentials();
 		cred.setUsername( string );
 		cred.setPassword( string2 );
 		FCI fci = FCI.getInstance();
 		AuthorizationKey authKey = fci.createAuthorizationKey(cred);
-		office = FederationOffice.FederationOfficeFactory.eINSTANCE.createOffice();
-		office.setName("SFA authorities");
+	
+		Office sfaOffice = FederationOffice.FederationOfficeFactory.eINSTANCE.createOffice();
+		sfaOffice.setName("SFA authorityA");
+		
+		this.sfaOffices.add(sfaOffice);
+		
+		sfaOffice = FederationOffice.FederationOfficeFactory.eINSTANCE.createOffice();
+		sfaOffice.setName("SFA authority 2");
+		
+		this.sfaOffices.add(sfaOffice);
 		
 		// Get the first model element and cast it to the right type, in my
 		// example everything is hierarchical included in this first node
-		if (office!=null){
-			return office;
+		if (sfaOffices!=null){
+			return this.sfaOffices;
 		}
 		return null;
 	}

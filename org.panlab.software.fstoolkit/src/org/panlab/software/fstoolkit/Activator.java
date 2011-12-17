@@ -1,10 +1,14 @@
 package org.panlab.software.fstoolkit;
 
+import java.util.Iterator;
+import java.util.List;
+
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.ISafeRunnable;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.SafeRunner;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -163,10 +167,18 @@ public class Activator extends AbstractUIPlugin {
 			
 							@Override
 							public void run() throws Exception {		
-								Office office = ((IOfficeRepository) o).loadOffice( );
+								
+								
+								List<Office> offices = ((IOfficeRepository) o).loadOffices( );								
+								
 								registerRepositoryListener((IOfficeRepository) o);
-								if (office!=null)
-									officeManager.getOfficesRef().add( office  );
+								
+								for (Iterator iterator = offices.iterator(); iterator.hasNext();) {
+									Office office = (Office) iterator.next();
+
+									if (office!=null)
+										officeManager.getOfficesRef().add( office  );
+								}
 								
 							}
 						};
@@ -221,11 +233,17 @@ public class Activator extends AbstractUIPlugin {
 			
 							@Override
 							public void run() throws Exception {		
-								Office office = ((IOfficeRepository) o).getOffice( );
-
-								if (office!=null)
-									if (office.getName().equalsIgnoreCase( tempof.getName() ) ) //don;t compare objects..they may not be the same. for example the office can be an officeProxy and the other one an OfficeImpl
-										((IOfficeRepository) o).LoadScenario(fedScenario);
+								
+								
+								List<Office> offices = ((IOfficeRepository) o).getOffices( );
+								for (Iterator iterator = offices.iterator(); iterator
+										.hasNext();) {
+									Office office = (Office) iterator.next();
+									if (office!=null)
+										if (office.getName().equalsIgnoreCase( tempof.getName() ) ) //don;t compare objects..they may not be the same. for example the office can be an officeProxy and the other one an OfficeImpl
+											((IOfficeRepository) o).LoadScenario(fedScenario);
+								}
+								
 								
 							}
 						};

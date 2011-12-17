@@ -43,6 +43,7 @@ import FederationOffice.uiObjects.UiObjectsPackage;
 import FederationOffice.uiObjects.impl.UiObjectsPackageImpl;
 import FederationOffice.users.UsersPackage;
 import FederationOffice.users.impl.UsersPackageImpl;
+import java.util.ArrayList;
 
 /**
  * <!-- begin-user-doc -->
@@ -311,8 +312,8 @@ public class ExtensionInterfacesPackageImpl extends EPackageImpl implements Exte
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		FederationOfficePackage theFederationOfficePackage = (FederationOfficePackage)EPackage.Registry.INSTANCE.getEPackage(FederationOfficePackage.eNS_URI);
 		FederationscenariosPackage theFederationscenariosPackage = (FederationscenariosPackage)EPackage.Registry.INSTANCE.getEPackage(FederationscenariosPackage.eNS_URI);
+		FederationOfficePackage theFederationOfficePackage = (FederationOfficePackage)EPackage.Registry.INSTANCE.getEPackage(FederationOfficePackage.eNS_URI);
 		ExperimentRuntimePackage theExperimentRuntimePackage = (ExperimentRuntimePackage)EPackage.Registry.INSTANCE.getEPackage(ExperimentRuntimePackage.eNS_URI);
 
 		// Create type parameters
@@ -326,15 +327,15 @@ public class ExtensionInterfacesPackageImpl extends EPackageImpl implements Exte
 
 		addEOperation(iOfficeRepositoryEClass, ecorePackage.getEString(), "getName", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(iOfficeRepositoryEClass, theFederationOfficePackage.getOffice(), "loadOffice", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(iOfficeRepositoryEClass, theFederationOfficePackage.getOffice(), "getOffice", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		EOperation op = addEOperation(iOfficeRepositoryEClass, null, "LoadScenario", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFederationscenariosPackage.getRequestedFederationScenario(), "fedScenario", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(iOfficeRepositoryEClass, null, "registerOfficeRepositoryListener", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIOfficeRepositoryListener(), "listener", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(iOfficeRepositoryEClass, theFederationOfficePackage.getOffice(), "loadOffices", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(iOfficeRepositoryEClass, theFederationOfficePackage.getOffice(), "getOffices", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(iOfficeRepositoryListenerEClass, IOfficeRepositoryListener.class, "IOfficeRepositoryListener", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

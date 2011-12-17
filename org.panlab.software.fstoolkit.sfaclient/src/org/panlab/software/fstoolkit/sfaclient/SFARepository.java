@@ -1,9 +1,12 @@
 package org.panlab.software.fstoolkit.sfaclient;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
@@ -146,16 +149,7 @@ public class SFARepository implements IOfficeRepository {
 		return null;
 	}
 
-	@Override
-	public Office loadOffice() {
-		return Activator.getDefault().loadSFAOfficesDescription("-", "-");
-	}
-
-	@Override
-	public Office getOffice() {
-		// TODO Auto-generated method stub
-		return Activator.getDefault().getOffice();
-	}
+	
 
 	@Override
 	public void LoadScenario(RequestedFederationScenario fedScenario) {
@@ -168,6 +162,24 @@ public class SFARepository implements IOfficeRepository {
 			IOfficeRepositoryListener listener) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public EList<Office> loadOffices() {
+		List<Office> prototypeList = Activator.getDefault().loadSFAOfficesDescription("-", "-");
+		EList<Office> eList = new BasicEList<Office>(prototypeList.size());
+		ECollections.setEList(eList, prototypeList);
+		
+		return eList ; 
+	}
+
+	@Override
+	public EList<Office> getOffices() {
+		List<Office> prototypeList = Activator.getDefault().getOffices();
+		EList<Office> eList = new BasicEList<Office>(prototypeList.size());
+		ECollections.setEList(eList, prototypeList);
+		
+		return eList ;
 	}
 
 }

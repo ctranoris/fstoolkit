@@ -6,6 +6,7 @@
  */
 package FederationOffice.extensionInterfaces;
 
+import java.util.ArrayList;
 import org.eclipse.emf.ecore.EFactory;
 
 /**

@@ -4,7 +4,7 @@ Bundle-Name: Planetlab Control
 Bundle-SymbolicName: org.panlab.software.fstoolkit.plc;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.panlab.software.fstoolkit.plc.Activator
-Bundle-Vendor: University of PAtras
+Bundle-Vendor: University of Patras
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.panlab.software.office.model;bundle-version="1.0.2",

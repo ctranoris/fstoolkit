@@ -466,14 +466,14 @@
     <eClassifiers xsi:type="ecore:EClass" name="IOfficeRepository" abstract="true"
         interface="true">
       <eOperations name="getName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eOperations name="loadOffice" eType="#//Office"/>
-      <eOperations name="getOffice" eType="#//Office"/>
       <eOperations name="LoadScenario">
         <eParameters name="fedScenario" eType="#//federationscenarios/RequestedFederationScenario"/>
       </eOperations>
       <eOperations name="registerOfficeRepositoryListener">
         <eParameters name="listener" eType="#//extensionInterfaces/IOfficeRepositoryListener"/>
       </eOperations>
+      <eOperations name="loadOffices" upperBound="-1" eType="#//Office"/>
+      <eOperations name="getOffices" upperBound="-1" eType="#//Office"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IOfficeRepositoryListener" abstract="true"
         interface="true">

@@ -1,9 +1,13 @@
 package org.panlab.software.fstoolkit.amazon;
 
+
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
@@ -13,7 +17,6 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.panlab.software.fstoolkit.amazon.preferences.AmazonPreferenceConstants;
-
 import FederationOffice.Office;
 import FederationOffice.extensionInterfaces.IOfficeRepository;
 import FederationOffice.extensionInterfaces.IOfficeRepositoryListener;
@@ -26,9 +29,14 @@ public class AmazonOfficeRepositoryProvider implements IOfficeRepository {
 	}
 
 	
-	public Office getOffice() {
-		return 
-		Activator.getDefault().getOffice();
+	public EList<Office> getOffices() {
+		List<Office> prototypeList = Activator.getDefault().getOffices();
+		EList<Office> eList = new BasicEList<Office>(prototypeList.size());
+		ECollections.setEList(eList, prototypeList);
+		
+		return eList ;
+		
+		
 	}
 	
 	@Override
@@ -37,14 +45,18 @@ public class AmazonOfficeRepositoryProvider implements IOfficeRepository {
 		return Activator.getDefault().getOfficeName();
 	}
 	@Override
-	public Office loadOffice() {
+	public EList<Office> loadOffices() {
 		
 		// Get the resource
 		String myAccessKeyID= Activator.getDefault().getPreferenceStore().getString( AmazonPreferenceConstants.P_ACCESSKEYID );
 		String mySecretAccessKey= Activator.getDefault().getPreferenceStore().getString( AmazonPreferenceConstants.P_SECRETACCESSKEY );
 		
+		List<Office> prototypeList = Activator.getDefault().loadAmazonOfficeDescription(myAccessKeyID, mySecretAccessKey);
+		EList<Office> eList = new BasicEList<Office>(prototypeList.size());
+		ECollections.setEList(eList, prototypeList);
 		
-		return Activator.getDefault().loadAmazonOfficeDescription(myAccessKeyID, mySecretAccessKey);
+		return eList ; 
+		
 	}
 	
 	

@@ -29,7 +29,7 @@ public class Activator extends AbstractUIPlugin {
 	
 	private List<IOfficeRepositoryListener> officeRepositoryListener;
 
-	private Office office;
+	private ArrayList<Office> amazonOffices;
 	private String officeName = "amazon";
 	private ResourceContext amazon;
 	
@@ -38,6 +38,7 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public Activator() {
 		officeRepositoryListener = new ArrayList<IOfficeRepositoryListener>();
+		this.amazonOffices   = new ArrayList<Office>();
 	}
 
 	/*
@@ -100,15 +101,15 @@ public class Activator extends AbstractUIPlugin {
 	public String getOfficeName() {
 		return officeName;
 	}
-	public void setOffice(Office office) {
-		this.office = office;
+//	public void setOffice(Office office) {
+//		this.amazonOffices = office;
+//	}
+
+	public List<Office> getOffices() {
+		return amazonOffices;
 	}
 
-	public Office getOffice() {
-		return office;
-	}
-
-	public Office loadAmazonOfficeDescription(String myAccessKeyID, String mySecretAccessKey) {
+	public List<Office> loadAmazonOfficeDescription(String myAccessKeyID, String mySecretAccessKey) {
 		
 		
 		FCICredentials cred =FederationOffice.fcielements.FcielementsFactory.eINSTANCE.createFCICredentials();
@@ -117,12 +118,13 @@ public class Activator extends AbstractUIPlugin {
 		FCI fci = FCI.getInstance();
 		AuthorizationKey authKey = fci.createAuthorizationKey(cred);
 		amazon = fci.createResourceContext(officeName, authKey);		
-		office = amazon.getOfficeModel();
+		Office amazonOffice = amazon.getOfficeModel();
 		
+		this.amazonOffices.add(amazonOffice);
 		// Get the first model element and cast it to the right type, in my
 		// example everything is hierarchical included in this first node
-		if (office!=null){
-			return office;
+		if (amazonOffices!=null){
+			return amazonOffices;
 		}
 		return null;
 	}

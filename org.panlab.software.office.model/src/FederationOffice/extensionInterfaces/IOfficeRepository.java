@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import FederationOffice.Office;
 import FederationOffice.federationscenarios.RequestedFederationScenario;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,22 +37,6 @@ public interface IOfficeRepository extends EObject {
 	 * @model
 	 * @generated
 	 */
-	Office loadOffice();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	Office getOffice();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	void LoadScenario(RequestedFederationScenario fedScenario);
 
 	/**
@@ -61,5 +46,21 @@ public interface IOfficeRepository extends EObject {
 	 * @generated
 	 */
 	void registerOfficeRepositoryListener(IOfficeRepositoryListener listener);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<Office> loadOffices();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Office> getOffices();
 
 } // IOfficeRepository

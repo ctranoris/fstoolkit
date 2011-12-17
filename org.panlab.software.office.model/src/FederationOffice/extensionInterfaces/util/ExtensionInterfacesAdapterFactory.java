@@ -7,6 +7,7 @@
 package FederationOffice.extensionInterfaces.util;
 
 import FederationOffice.extensionInterfaces.*;
+import java.util.ArrayList;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;

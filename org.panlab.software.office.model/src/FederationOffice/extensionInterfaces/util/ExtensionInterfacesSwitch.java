@@ -7,6 +7,7 @@
 package FederationOffice.extensionInterfaces.util;
 
 import FederationOffice.extensionInterfaces.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;

@@ -31,7 +31,7 @@ public class Activator extends AbstractUIPlugin {
 	private List<IOfficeRepositoryListener> officeRepositoryListener;
 	
 
-	private Office office;
+	private List<Office> panlabOffices;
 	private String officeName = "panlab";
 	private ResourceContext panlab;
 	
@@ -46,6 +46,7 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public Activator() {
 		officeRepositoryListener = new ArrayList<IOfficeRepositoryListener>();
+		this.panlabOffices = new ArrayList<Office>();
 	}
 
 	/*
@@ -107,12 +108,12 @@ public class Activator extends AbstractUIPlugin {
 		return officeName;
 	}
 
-	public void setOffice(Office office) {
-		this.office = office;
-	}
+//	public void setOffice(Office office) {
+//		this.panlabOffice = office;
+//	}
 
-	public Office getOffice() {
-		return office;
+	public List<Office> getOffices() {
+		return panlabOffices;
 	}
 
 	public void setResourceContext(ResourceContext panlab) {
@@ -127,7 +128,7 @@ public class Activator extends AbstractUIPlugin {
 		panlab.LoadFederationScenario(fedScenario);
 	}
 	
-	public Office loadOffice(String username, String passkey) {
+	public List<Office> loadOffices(String username, String passkey) {
 		
 		// Get the resource
 		String myUsername= username;
@@ -139,12 +140,13 @@ public class Activator extends AbstractUIPlugin {
 		FCI fci = FCI.getInstance();
 		AuthorizationKey authKey = fci.createAuthorizationKey(cred);
 		panlab = fci.createResourceContext(officeName, authKey);		
-		office = panlab.getOfficeModel();
+		Office panlabOffice = panlab.getOfficeModel();
+		this.panlabOffices.add(panlabOffice);
 		
 		// Get the first model element and cast it to the right type, in my
 		// example everything is hierarchical included in this first node
-		if (office!=null){
-			return office;
+		if (panlabOffices!=null){
+			return panlabOffices;
 		}
 		
 		return null ;

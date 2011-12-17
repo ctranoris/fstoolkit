@@ -1,9 +1,12 @@
 package org.panlab.software.fstoolkit.plc;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
@@ -28,15 +31,22 @@ public class PLCRepository implements IOfficeRepository {
 	}
 
 	@Override
-	public Office loadOffice() {
-		// TODO Auto-generated method stub
-		return null;
+	public EList<Office> loadOffices() {
+		List<Office> prototypeList = Activator.getDefault().loadPLCOfficeDescription("-", "-");
+		EList<Office> eList = new BasicEList<Office>(prototypeList.size());
+		ECollections.setEList(eList, prototypeList);
+		
+		return eList ;
 	}
 
 	@Override
-	public Office getOffice() {
-		// TODO Auto-generated method stub
-		return null;
+	public EList<Office> getOffices() {
+		List<Office> prototypeList = Activator.getDefault().getOffices();
+		EList<Office> eList = new BasicEList<Office>(prototypeList.size());
+		ECollections.setEList(eList, prototypeList);
+		
+		return eList ;
+
 	}
 
 	@Override

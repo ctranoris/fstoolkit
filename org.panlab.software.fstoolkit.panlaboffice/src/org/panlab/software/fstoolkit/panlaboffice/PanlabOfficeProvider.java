@@ -1,8 +1,12 @@
 package org.panlab.software.fstoolkit.panlaboffice;
+
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
@@ -50,19 +54,26 @@ public class PanlabOfficeProvider implements IOfficeRepository {
 
 
 	@Override
-	public Office loadOffice() {
+	public EList<Office> loadOffices() {
 		
 		// Get the resource
 		String myUsername= Activator.getDefault().getPreferenceStore().getString( PanlabOfficePreferenceConstants.P_PANLABUSERNAME );
 		String myPassw= Activator.getDefault().getPreferenceStore().getString( PanlabOfficePreferenceConstants.P_PANLABPASSWORD );
+
+		List<Office> prototypeList = Activator.getDefault().loadOffices(myUsername, myPassw);
+		EList<Office> eList = new BasicEList<Office>(prototypeList.size());
+		ECollections.setEList(eList, prototypeList);
 		
-		
-		return Activator.getDefault().loadOffice(myUsername, myPassw);
+		return eList ;
 	}
 	
-	public Office getOffice() {
-		return 
-		Activator.getDefault().getOffice();
+	public EList<Office> getOffices() {
+		List<Office> prototypeList = Activator.getDefault().getOffices();
+		EList<Office> eList = new BasicEList<Office>(prototypeList.size());
+		ECollections.setEList(eList, prototypeList);
+		
+		return eList ;
+		
 	}
 	
 	public void LoadScenario(RequestedFederationScenario fedScenario){
