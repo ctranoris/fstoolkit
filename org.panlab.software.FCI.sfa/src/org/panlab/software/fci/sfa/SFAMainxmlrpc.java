@@ -137,8 +137,8 @@ public class SFAMainxmlrpc {
 				
 				//List displays all the Records in the Registry for a given authority or subauthority. 
 			    //ListRecords();
-//			    ListResources();
-				GetVersion();
+			    ListResources();
+//				GetVersion();
 //			    ShowRecord();
 		
 	}
@@ -216,7 +216,9 @@ public class SFAMainxmlrpc {
 			
 			params.addElement( rspec_version );
 
-			result = execXMLRPC_aggregate("ListResources", params);
+//			result = execXMLRPC_aggregate("ListResources", params);
+			result = execXMLRPC_sliceManager("ListResources", params);
+			
 			
 		}	
 
