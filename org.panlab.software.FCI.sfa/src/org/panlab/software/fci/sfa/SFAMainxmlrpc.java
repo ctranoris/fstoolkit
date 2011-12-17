@@ -25,7 +25,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
 
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
 
 import org.apache.xmlrpc.XmlRpcException;
 import org.apache.xmlrpc.client.XmlRpcClient;
@@ -37,12 +40,7 @@ import org.apache.xmlrpc.client.XmlRpcSunHttpTransportFactory;
 
 public class SFAMainxmlrpc {
 
-	
-	
-    /**
-	 * @param args
-	 */
-
+   
 	final static XmlRpcClient client = new XmlRpcClient();
 	final static XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
 	private static String SFAcredential;
@@ -50,11 +48,17 @@ public class SFAMainxmlrpc {
 //	private static String sm_url = "https://plc:12347";
 //	private static String keystore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\client1plc.p12";
 //	private static String authority = "plc.uoppldef.tranoris";
-	private static String registry_url = "https://pla:12345";
-	private static String sm_url = "https://pla:12347";
-	private static String keystore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\sfa1inria.p12";
-	private static String authority = "pla.openlab.tranoris";
+	private static String registry_url = "https://sfa1.pl.sophia.inria.fr:12345";
+	private static String am_url = "https://sfa1.pl.sophia.inria.fr:12346";
+	private static String sm_url = "https://sfa1.pl.sophia.inria.fr:12347";
+//	private static String keystore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\sfa1inria.p12";
+//	private static String authority = "pla.openlab.tranoris";
+	private static String keystore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\sfa1inriactranoris.p12";
+	private static String authority = "pla.openlab.ctranoris";
 
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		//the key will contain self signed certificate for the client
 				//Need to self sign this client (see also advices from http://emo.sourceforge.net/cert-login-howto.html)
@@ -64,7 +68,8 @@ public class SFAMainxmlrpc {
 				//Generate a certificate request (the client1plc.req)
 				//C:\Users\ctranoris\Desktop\_downloads\tmp\plckeys>
 				//c:\OpenSSL-Win32\bin\openssl req -new -key tranoris.pkey -subj "/C=GR/ST=Achaia/CN=plc.uoppldef.tranoris/EMAILADDRESS=tranoris@ece.upatras.gr" -config "c:\OpenSSL-Win32\bin\openssl.cfg" -out client1plc.req
-				//C:\Users\ctranoris\Desktop\_downloads\tmp\plckeys>c:\OpenSSL-Win32\bin\openssl req -new -key tranoris.pkey -subj "/C=GR/ST=Achaia/CN=pla.openlab.tranoris/EMAILADDRESS=tranoris@ece.upatras.gr" -config "c:\OpenSSL-Win32\bin\openssl.cfg" -out sfa1inria.req
+				//c:\OpenSSL-Win32\bin\openssl req -new -key tranoris.pkey -subj "/C=GR/ST=Achaia/CN=pla.openlab.tranoris/EMAILADDRESS=tranoris@ece.upatras.gr" -config "c:\OpenSSL-Win32\bin\openssl.cfg" -out sfa1inria.req
+				//c:\OpenSSL-Win32\bin\openssl req -new -key tranoris.pkey -subj "/C=GR/ST=Achaia/CN=pla.openlab.ctranoris/EMAILADDRESS=ctranoris@upatras.gr" -config "c:\OpenSSL-Win32\bin\openssl.cfg" -out sfa1inriactranoris.req
 		
 				//SKIP this example because will generate ALSO a private .key and certificate req .req file
 				//c:\OpenSSL-Win32\bin\openssl req -new -newkey rsa:1024 -nodes -out client1plc.req -keyout client1plc.key -subj "/C=GR/ST=Achaia/CN=plc.uoppldef.tranoris/EMAILADDRESS=tranoris@ece.upatras.gr" -config "c:\OpenSSL-Win32\bin\openssl.cfg"
@@ -108,6 +113,19 @@ public class SFAMainxmlrpc {
 					
 					sc.getClientSessionContext().setSessionTimeout(0);
 					
+					
+					////////////
+					// Create empty HostnameVerifier This is to trust in SSL even it the CN value is different from the requested url
+				    HostnameVerifier hv = new HostnameVerifier() {
+								@Override
+				                public boolean verify(String arg0, SSLSession arg1) {
+				                        return true;
+				                }
+				    };
+
+				    HttpsURLConnection.setDefaultHostnameVerifier(hv);
+					
+					////////////
 			     
 			    SFAcredential = GetSelfCredential(); 
 			     
@@ -119,26 +137,30 @@ public class SFAMainxmlrpc {
 				
 				//List displays all the Records in the Registry for a given authority or subauthority. 
 			    //ListRecords();
-			    ListResources();
-//				GetVersion();
+//			    ListResources();
+				GetVersion();
 //			    ShowRecord();
 		
 	}
-	
-	
+		
 
 	private static void GetVersion() {
 		    System.out.println("GetVersion()");
 			Object result;
 			Vector<Serializable> params = new Vector<Serializable>();
+	
+			
 //		    try {
 //				cred = URLEncoder.encode( cred, "UTF-8" );
 //			} catch (UnsupportedEncodingException e) {
 //				e.printStackTrace();
 //			}
 		    
-		    
-			result = execXMLRPC_registry("GetVersion", params);
+
+//			result = execXMLRPC_aggregate("GetVersion", params);
+			result = execXMLRPC_sliceManager("GetVersion", params);
+			
+		     System.out.println("result.toString() = " + result.toString() );
 		}
 
 
@@ -177,13 +199,22 @@ public class SFAMainxmlrpc {
 		    String cred = SFAcredential;		    
 		    params.addElement(  cred );		    
 		    
-		    HashMap<String, String> auth = new HashMap<String, String>();
-		    auth.put("type", "ProtoGENI");
-		    auth.put("version", "2");		    
-			HashMap<String, HashMap<String, String> > geni_rspec_version = new HashMap<String, HashMap<String, String>>();
-			geni_rspec_version.put("geni_rspec_version", auth);
-		    	 	    
-			params.addElement( geni_rspec_version );
+		    HashMap<String, Object> auth = new HashMap<String, Object>();
+//		    auth.put("type", "ProtoGENI");
+//		    auth.put("version", "2");
+		    
+		    auth.put("version", "1");
+		    auth.put("type", "SFA");
+//		    java.util.List<String>  extensions = new java.util.ArrayList<String>();
+		    //auth.put ("extensions", extensions );
+		    //auth.put("namespace", null);
+//		    auth.put("schema", null);
+		    
+			HashMap<String, HashMap<String, Object> > rspec_version = new HashMap<String, HashMap<String, Object>>();
+			//geni_rspec_version.put("geni_rspec_version", auth);
+			rspec_version.put("rspec_version", auth);	 	    
+			
+			params.addElement( rspec_version );
 
 			result = execXMLRPC_aggregate("ListResources", params);
 			
@@ -279,9 +310,14 @@ public class SFAMainxmlrpc {
 	}
 
 
-	private static Object execXMLRPC_aggregate(String commandName, Vector<Serializable> params) {
+	private static Object execXMLRPC_sliceManager(String commandName, Vector<Serializable> params) {
 	
 		return execXMLRPC(commandName, params, sm_url);
+	}
+	
+	private static Object execXMLRPC_aggregate(String commandName, Vector<Serializable> params) {
+		
+		return execXMLRPC(commandName, params, am_url);
 	}
 	
 	private static Object execXMLRPC(String commandName, Vector<Serializable> params, String url) {
@@ -295,6 +331,7 @@ public class SFAMainxmlrpc {
 //			config.setServerURL(new URL("https://plc:12347")); //http://192.168.56.101:12345 //slicemgr??
 			config.setReplyTimeout(10000);
 			config.setContentLengthOptional(true);
+			config.setEnabledForExtensions(true);
 		    //XmlRpcClient client = new XmlRpcClient();
 		    
 		    client.setConfig(config);
@@ -315,7 +352,8 @@ public class SFAMainxmlrpc {
 		    
 		    
 		    Object result;
-		     System.out.println("Tstep 3");
+		    System.out.println("Tstep 3");
+		     
 			try {
 				result = client.execute(commandName, params);
 
@@ -324,18 +362,11 @@ public class SFAMainxmlrpc {
 			    	
 			    }else if (result instanceof Map){
 			    	Map map = (Map) result;
-					Set<String> ks = map.keySet();
-					for (String k : ks) {
-						if (map.get(k) instanceof Object[]) {
-							System.out.println("-> The " + k + " are: ");
-							printObjectArray((Object[]) map.get(k));
-						} else {
-							System.out.println("-> The " + k + " is: " + map.get(k));
-						}
-					}
+			    	printMap("", map);
+					
 				    	
 			    }else {			    
-			    	printObjectArray ( (Object[]) result );
+			    	printObjectArray ( "",  (Object[]) result );
 			    }
 			   
 			    
@@ -368,6 +399,10 @@ public class SFAMainxmlrpc {
 	}
 
 
+	
+
+
+
 	private static void invalidateSessions() {
 		SSLContext sc = null;
 		try {
@@ -387,9 +422,29 @@ public class SFAMainxmlrpc {
 	}
 
 
+	private static void printMap(String tab, Map map) {
+		System.out.println(tab+"-> printMap");
+		tab = tab+"\t";
+		Set<String> ks = map.keySet();
+		for (String k : ks) {
+			
+			if (map.get(k) instanceof Object[]) {
+				System.out.println(tab +"-> The " + k + " are (Objects): ");
+				printObjectArray(tab, (Object[]) map.get(k) );
 
-	private static void printObjectArray(Object[] objects) {
+			} else if (map.get(k) instanceof Map) {
+				System.out.println(tab +"-> The " + k + " are (Map): ");
+				printMap(tab , (Map) map.get(k));
+			}else {
+				System.out.println(tab +  k + " = " + map.get(k));
+			}
+		}
+		
+	}
+	private static void printObjectArray(String tab, Object[] objects) {
 		// Object[] objects = (Object[]) result;
+		System.out.println(tab+"-> printObjectArray");
+		tab = tab+"\t";
 		if (objects != null && objects.length > 0) {
 			for (Object object : objects) {
 				if (object instanceof Map) {
@@ -397,14 +452,16 @@ public class SFAMainxmlrpc {
 					Set<String> ks = map.keySet();
 					for (String k : ks) {
 						if (map.get(k) instanceof Object[]) {
-							System.out.println("-> The " + k + " are: ");
-							printObjectArray((Object[]) map.get(k));
-						} else {
-							System.out.println("-> The " + k + " is: " + map.get(k));
+							System.out.println(tab +"-> The " + k + " are (Objects): ");
+							printObjectArray(tab, (Object[]) map.get(k));
+						} else if (map.get(k) instanceof Map) {
+							System.out.println(tab +"-> The " + k + " are (Map): ");
+							printMap(tab , (Map) map.get(k));
+						}else {
+							System.out.println(tab +  k + " = " + map.get(k));
 						}
 
 					}
-					System.out.println("The toString  is: " + map.toString());
 				}else{
 					System.out.println(" " + object.toString());
 				}

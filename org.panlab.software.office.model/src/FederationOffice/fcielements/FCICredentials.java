@@ -6,6 +6,7 @@
  */
 package FederationOffice.fcielements;
 
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link FederationOffice.fcielements.FCICredentials#getUsername <em>Username</em>}</li>
  *   <li>{@link FederationOffice.fcielements.FCICredentials#getPassword <em>Password</em>}</li>
+ *   <li>{@link FederationOffice.fcielements.FCICredentials#getCredoptions <em>Credoptions</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,5 +79,22 @@ public interface FCICredentials extends EObject {
 	 * @generated
 	 */
 	void setPassword(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Credoptions</b></em>' map.
+	 * The key is of type {@link java.lang.String},
+	 * and the value is of type {@link java.lang.String},
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Credoptions</em>' map isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Credoptions</em>' map.
+	 * @see FederationOffice.fcielements.FcielementsPackage#getFCICredentials_Credoptions()
+	 * @model mapType="FederationOffice.fcielements.StringToStringMap<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
+	 * @generated
+	 */
+	EMap<String, String> getCredoptions();
 
 } // FCICredentials

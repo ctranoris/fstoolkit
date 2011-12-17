@@ -11,10 +11,16 @@ import FederationOffice.fcielements.FcielementsPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreEMap;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +31,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link FederationOffice.fcielements.impl.FCICredentialsImpl#getUsername <em>Username</em>}</li>
  *   <li>{@link FederationOffice.fcielements.impl.FCICredentialsImpl#getPassword <em>Password</em>}</li>
+ *   <li>{@link FederationOffice.fcielements.impl.FCICredentialsImpl#getCredoptions <em>Credoptions</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,6 +77,16 @@ public class FCICredentialsImpl extends EObjectImpl implements FCICredentials {
 	 * @ordered
 	 */
 	protected String password = PASSWORD_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCredoptions() <em>Credoptions</em>}' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCredoptions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EMap<String, String> credoptions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -137,6 +154,32 @@ public class FCICredentialsImpl extends EObjectImpl implements FCICredentials {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EMap<String, String> getCredoptions() {
+		if (credoptions == null) {
+			credoptions = new EcoreEMap<String,String>(FcielementsPackage.Literals.STRING_TO_STRING_MAP, StringToStringMapImpl.class, this, FcielementsPackage.FCI_CREDENTIALS__CREDOPTIONS);
+		}
+		return credoptions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case FcielementsPackage.FCI_CREDENTIALS__CREDOPTIONS:
+				return ((InternalEList<?>)getCredoptions()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -144,6 +187,9 @@ public class FCICredentialsImpl extends EObjectImpl implements FCICredentials {
 				return getUsername();
 			case FcielementsPackage.FCI_CREDENTIALS__PASSWORD:
 				return getPassword();
+			case FcielementsPackage.FCI_CREDENTIALS__CREDOPTIONS:
+				if (coreType) return getCredoptions();
+				else return getCredoptions().map();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -161,6 +207,9 @@ public class FCICredentialsImpl extends EObjectImpl implements FCICredentials {
 				return;
 			case FcielementsPackage.FCI_CREDENTIALS__PASSWORD:
 				setPassword((String)newValue);
+				return;
+			case FcielementsPackage.FCI_CREDENTIALS__CREDOPTIONS:
+				((EStructuralFeature.Setting)getCredoptions()).set(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,6 +229,9 @@ public class FCICredentialsImpl extends EObjectImpl implements FCICredentials {
 			case FcielementsPackage.FCI_CREDENTIALS__PASSWORD:
 				setPassword(PASSWORD_EDEFAULT);
 				return;
+			case FcielementsPackage.FCI_CREDENTIALS__CREDOPTIONS:
+				getCredoptions().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -196,6 +248,8 @@ public class FCICredentialsImpl extends EObjectImpl implements FCICredentials {
 				return USERNAME_EDEFAULT == null ? username != null : !USERNAME_EDEFAULT.equals(username);
 			case FcielementsPackage.FCI_CREDENTIALS__PASSWORD:
 				return PASSWORD_EDEFAULT == null ? password != null : !PASSWORD_EDEFAULT.equals(password);
+			case FcielementsPackage.FCI_CREDENTIALS__CREDOPTIONS:
+				return credoptions != null && !credoptions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

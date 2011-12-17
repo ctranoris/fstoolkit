@@ -60,6 +60,7 @@ import FederationOffice.users.UsersPackage;
 
 import FederationOffice.users.impl.UsersPackageImpl;
 
+import java.util.Map;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
@@ -95,6 +96,13 @@ public class FcielementsPackageImpl extends EPackageImpl implements FcielementsP
 	 * @generated
 	 */
 	private EClass authorizationKeyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringToStringMapEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -245,6 +253,15 @@ public class FcielementsPackageImpl extends EPackageImpl implements FcielementsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getFCICredentials_Credoptions() {
+		return (EReference)fciCredentialsEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAuthorizationKey() {
 		return authorizationKeyEClass;
 	}
@@ -265,6 +282,33 @@ public class FcielementsPackageImpl extends EPackageImpl implements FcielementsP
 	 */
 	public EAttribute getAuthorizationKey_Password() {
 		return (EAttribute)authorizationKeyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStringToStringMap() {
+		return stringToStringMapEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStringToStringMap_Key() {
+		return (EAttribute)stringToStringMapEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStringToStringMap_Value() {
+		return (EAttribute)stringToStringMapEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -301,10 +345,15 @@ public class FcielementsPackageImpl extends EPackageImpl implements FcielementsP
 		fciCredentialsEClass = createEClass(FCI_CREDENTIALS);
 		createEAttribute(fciCredentialsEClass, FCI_CREDENTIALS__USERNAME);
 		createEAttribute(fciCredentialsEClass, FCI_CREDENTIALS__PASSWORD);
+		createEReference(fciCredentialsEClass, FCI_CREDENTIALS__CREDOPTIONS);
 
 		authorizationKeyEClass = createEClass(AUTHORIZATION_KEY);
 		createEAttribute(authorizationKeyEClass, AUTHORIZATION_KEY__USERNAME);
 		createEAttribute(authorizationKeyEClass, AUTHORIZATION_KEY__PASSWORD);
+
+		stringToStringMapEClass = createEClass(STRING_TO_STRING_MAP);
+		createEAttribute(stringToStringMapEClass, STRING_TO_STRING_MAP__KEY);
+		createEAttribute(stringToStringMapEClass, STRING_TO_STRING_MAP__VALUE);
 	}
 
 	/**
@@ -378,10 +427,15 @@ public class FcielementsPackageImpl extends EPackageImpl implements FcielementsP
 		initEClass(fciCredentialsEClass, FCICredentials.class, "FCICredentials", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFCICredentials_Username(), ecorePackage.getEString(), "username", null, 0, 1, FCICredentials.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFCICredentials_Password(), ecorePackage.getEString(), "password", null, 0, 1, FCICredentials.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFCICredentials_Credoptions(), this.getStringToStringMap(), null, "credoptions", null, 0, -1, FCICredentials.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(authorizationKeyEClass, AuthorizationKey.class, "AuthorizationKey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAuthorizationKey_Username(), ecorePackage.getEString(), "username", null, 0, 1, AuthorizationKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAuthorizationKey_Password(), ecorePackage.getEString(), "password", null, 0, 1, AuthorizationKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stringToStringMapEClass, Map.Entry.class, "StringToStringMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStringToStringMap_Key(), ecorePackage.getEString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStringToStringMap_Value(), ecorePackage.getEString(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 
 } //FcielementsPackageImpl

@@ -8,6 +8,7 @@ package FederationOffice.fcielements.impl;
 
 import FederationOffice.fcielements.*;
 
+import java.util.Map;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -62,6 +63,7 @@ public class FcielementsFactoryImpl extends EFactoryImpl implements FcielementsF
 		switch (eClass.getClassifierID()) {
 			case FcielementsPackage.FCI_CREDENTIALS: return createFCICredentials();
 			case FcielementsPackage.AUTHORIZATION_KEY: return createAuthorizationKey();
+			case FcielementsPackage.STRING_TO_STRING_MAP: return (EObject)createStringToStringMap();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -85,6 +87,16 @@ public class FcielementsFactoryImpl extends EFactoryImpl implements FcielementsF
 	public AuthorizationKey createAuthorizationKey() {
 		AuthorizationKeyImpl authorizationKey = new AuthorizationKeyImpl();
 		return authorizationKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Map.Entry<String, String> createStringToStringMap() {
+		StringToStringMapImpl stringToStringMap = new StringToStringMapImpl();
+		return stringToStringMap;
 	}
 
 	/**

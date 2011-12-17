@@ -14,7 +14,12 @@ limitations under the License.
  *************************************************************************/
 package org.panlab.software.fci.core;
 
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.Map.Entry;
 
 import org.panlab.software.fci.amazon.AmazonServices;
 import org.panlab.software.fci.panlab.PanlabServices;
@@ -61,6 +66,28 @@ public class FCI {
 		akey.setPassword(cred.getPassword());		
 		return akey ;
 	}
+	
+
+
+	public FCICredentials createFCICredentials(String username,
+			String password) {
+		FCICredentials c = 	FederationOffice.fcielements.FcielementsFactory.eINSTANCE.createFCICredentials();
+		c.setUsername(username);
+		c.setPassword(password);
+		return c;
+		
+	}
+	
+	public FCICredentials createFCICredentials(Map<String, String> map) {
+		FCICredentials c = 	FederationOffice.fcielements.FcielementsFactory.eINSTANCE.createFCICredentials();
+		Set<String> ks = map.keySet();
+		for (String k : ks) {
+			c.getCredoptions().put(k, map.get(k));
+		}
+		return c;
+		
+	}
+
 
 	
 	public List<String> getAvailableResourceTypes(AuthorizationKey key){
@@ -388,7 +415,6 @@ public class FCI {
 		}			
 		
 	}
-
 	
 	
 

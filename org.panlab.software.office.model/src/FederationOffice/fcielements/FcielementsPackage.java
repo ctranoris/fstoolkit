@@ -116,13 +116,22 @@ public interface FcielementsPackage extends EPackage {
 	int FCI_CREDENTIALS__PASSWORD = 1;
 
 	/**
+	 * The feature id for the '<em><b>Credoptions</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FCI_CREDENTIALS__CREDOPTIONS = 2;
+
+	/**
 	 * The number of structural features of the '<em>FCI Credentials</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FCI_CREDENTIALS_FEATURE_COUNT = 2;
+	int FCI_CREDENTIALS_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link FederationOffice.fcielements.impl.AuthorizationKeyImpl <em>Authorization Key</em>}' class.
@@ -160,6 +169,44 @@ public interface FcielementsPackage extends EPackage {
 	 * @ordered
 	 */
 	int AUTHORIZATION_KEY_FEATURE_COUNT = 2;
+
+
+	/**
+	 * The meta object id for the '{@link FederationOffice.fcielements.impl.StringToStringMapImpl <em>String To String Map</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see FederationOffice.fcielements.impl.StringToStringMapImpl
+	 * @see FederationOffice.fcielements.impl.FcielementsPackageImpl#getStringToStringMap()
+	 * @generated
+	 */
+	int STRING_TO_STRING_MAP = 3;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_TO_STRING_MAP__KEY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_TO_STRING_MAP__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>String To String Map</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_TO_STRING_MAP_FEATURE_COUNT = 2;
 
 
 	/**
@@ -216,6 +263,17 @@ public interface FcielementsPackage extends EPackage {
 	EAttribute getFCICredentials_Password();
 
 	/**
+	 * Returns the meta object for the map '{@link FederationOffice.fcielements.FCICredentials#getCredoptions <em>Credoptions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the map '<em>Credoptions</em>'.
+	 * @see FederationOffice.fcielements.FCICredentials#getCredoptions()
+	 * @see #getFCICredentials()
+	 * @generated
+	 */
+	EReference getFCICredentials_Credoptions();
+
+	/**
 	 * Returns the meta object for class '{@link FederationOffice.fcielements.AuthorizationKey <em>Authorization Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -246,6 +304,40 @@ public interface FcielementsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAuthorizationKey_Password();
+
+	/**
+	 * Returns the meta object for class '{@link java.util.Map.Entry <em>String To String Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String To String Map</em>'.
+	 * @see java.util.Map.Entry
+	 * @model keyDataType="org.eclipse.emf.ecore.EString"
+	 *        valueDataType="org.eclipse.emf.ecore.EString"
+	 * @generated
+	 */
+	EClass getStringToStringMap();
+
+	/**
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getStringToStringMap()
+	 * @generated
+	 */
+	EAttribute getStringToStringMap_Key();
+
+	/**
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getStringToStringMap()
+	 * @generated
+	 */
+	EAttribute getStringToStringMap_Value();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -314,6 +406,14 @@ public interface FcielementsPackage extends EPackage {
 		EAttribute FCI_CREDENTIALS__PASSWORD = eINSTANCE.getFCICredentials_Password();
 
 		/**
+		 * The meta object literal for the '<em><b>Credoptions</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FCI_CREDENTIALS__CREDOPTIONS = eINSTANCE.getFCICredentials_Credoptions();
+
+		/**
 		 * The meta object literal for the '{@link FederationOffice.fcielements.impl.AuthorizationKeyImpl <em>Authorization Key</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -338,6 +438,32 @@ public interface FcielementsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute AUTHORIZATION_KEY__PASSWORD = eINSTANCE.getAuthorizationKey_Password();
+
+		/**
+		 * The meta object literal for the '{@link FederationOffice.fcielements.impl.StringToStringMapImpl <em>String To String Map</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see FederationOffice.fcielements.impl.StringToStringMapImpl
+		 * @see FederationOffice.fcielements.impl.FcielementsPackageImpl#getStringToStringMap()
+		 * @generated
+		 */
+		EClass STRING_TO_STRING_MAP = eINSTANCE.getStringToStringMap();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRING_TO_STRING_MAP__KEY = eINSTANCE.getStringToStringMap_Key();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRING_TO_STRING_MAP__VALUE = eINSTANCE.getStringToStringMap_Value();
 
 	}
 
