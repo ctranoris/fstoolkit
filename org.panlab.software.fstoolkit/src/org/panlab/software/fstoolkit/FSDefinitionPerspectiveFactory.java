@@ -20,9 +20,12 @@ public class FSDefinitionPerspectiveFactory implements IPerspectiveFactory {
 				"FSDefinition.left", IPageLayout.LEFT, 0.20f, layout.getEditorArea()); //$NON-NLS-1$
 		//left.addView("org.panlab.tide.app.VTProjectsView");
 		left.addView(IPageLayout.ID_PROJECT_EXPLORER );
+		
 		IFolderLayout middleLeft = layout.createFolder(
 				"FSDefinition.middleLeft", IPageLayout.BOTTOM , 0.30f, "FSDefinition.left"); //$NON-NLS-1$	//$NON-NLS-2$
 		middleLeft.addView("org.panlab.software.fstoolkit.views.OfferedServicesView");
+		middleLeft.addView("org.panlab.software.fstoolkit.views.OfferedResourcesView");
+		
 		IFolderLayout bottomLeft = layout.createFolder(
 				"FSDefinition.bottomLeft", IPageLayout.BOTTOM , 0.50f, "FSDefinition.middleLeft"); //$NON-NLS-1$	//$NON-NLS-2$
 		bottomLeft.addView(ScenariosView.ID );		

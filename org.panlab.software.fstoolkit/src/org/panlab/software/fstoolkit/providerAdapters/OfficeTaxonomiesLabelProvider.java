@@ -16,11 +16,13 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import FederationOffice.Office;
 import FederationOffice.federationscenarios.RequestedFederationScenario;
 import FederationOffice.federationscenarios.ResourceRequest;
+import FederationOffice.providersite.Site;
 import FederationOffice.resources.Resource;
 import FederationOffice.resources.ResourceCategory;
 import FederationOffice.services.Service;
 import FederationOffice.services.Taxonomy;
 import FederationOffice.uiObjects.ui_TaxonomyTreeItem;
+import FederationOffice.users.ResourcesProvider;
 
 public class OfficeTaxonomiesLabelProvider extends StyledCellLabelProvider implements ILabelProvider   {
 
@@ -190,6 +192,36 @@ public class OfficeTaxonomiesLabelProvider extends StyledCellLabelProvider imple
 			Styler style= StyledString.COUNTER_STYLER;
 			StyledString styledString= new StyledString(resRequest.getName(), style);
 			String decoration = MessageFormat.format(" (::"+ resRequest.getId()  +")", new Object[] { new Long( 1 ) }); //$NON-NLS-1$
+			styledString.append(decoration, StyledString.DECORATIONS_STYLER );
+			
+			cell.setText(styledString.toString());
+			cell.setStyleRanges(styledString.getStyleRanges());
+			cell.setImage(RESOURCEREQUEST_IMG);
+			
+			
+		}else if ( (element instanceof ui_TaxonomyTreeItem) && (   ((ui_TaxonomyTreeItem)element).getOfficeElement() instanceof ResourcesProvider) ) {
+			ResourcesProvider rp= (ResourcesProvider) ((ui_TaxonomyTreeItem)element).getOfficeElement() ;
+			
+			// Multi-font support only works in JFace 3.5 and above (specifically, 3.5 M4 and above).
+			// With JFace 3.4, the font information (bold in this example) will be ignored.
+			Styler style= StyledString.COUNTER_STYLER;
+			StyledString styledString= new StyledString(rp.getName(), style);
+			String decoration = MessageFormat.format(" (::"+ rp.getOfferedSiteList().size()  +")", new Object[] { new Long( 1 ) }); //$NON-NLS-1$
+			styledString.append(decoration, StyledString.DECORATIONS_STYLER );
+			
+			cell.setText(styledString.toString());
+			cell.setStyleRanges(styledString.getStyleRanges());
+			cell.setImage(RESOURCEREQUEST_IMG);
+			
+			
+		}else if ( (element instanceof ui_TaxonomyTreeItem) && (   ((ui_TaxonomyTreeItem)element).getOfficeElement() instanceof Site) ) {
+			Site s= (Site) ((ui_TaxonomyTreeItem)element).getOfficeElement() ;
+			
+			// Multi-font support only works in JFace 3.5 and above (specifically, 3.5 M4 and above).
+			// With JFace 3.4, the font information (bold in this example) will be ignored.
+			Styler style= StyledString.COUNTER_STYLER;
+			StyledString styledString= new StyledString(s.getName(), style);
+			String decoration = MessageFormat.format(" (::"+ s.getOfferedResourcesList().size()   +")", new Object[] { new Long( 1 ) }); //$NON-NLS-1$
 			styledString.append(decoration, StyledString.DECORATIONS_STYLER );
 			
 			cell.setText(styledString.toString());

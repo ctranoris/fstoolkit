@@ -49,6 +49,14 @@
       </view>
       <view
             category="org.panlab.software.fstoolkit.views"
+            class="org.panlab.software.fstoolkit.views.FSDLView.OfferedResourcesView"
+            icon="icons/16x16_fstoolkit.gif"
+            id="org.panlab.software.fstoolkit.views.OfferedResourcesView"
+            name="Offered Resources"
+            restorable="true">
+      </view>
+      <view
+            category="org.panlab.software.fstoolkit.views"
             class="org.panlab.software.fstoolkit.views.FSDLView.ScenariosView"
             icon="icons/16x16_fstoolkit.gif"
             id="org.panlab.software.fstoolkit.views.ScenariosView"
@@ -648,5 +656,58 @@
                </or></iterate>
          </with>
       </definition>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor
+            contributorId="org.panlab.software.fstoolkit.views.OfferedResourcesView"
+            labelProvider="org.panlab.software.fstoolkit.providerAdapters.OfferedResourcesTabbedPropertiesLabelProvider">
+         <propertyCategory
+               category="FSToolkitCategoryOfferedResourcesView"></propertyCategory>
+      </propertyContributor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="org.panlab.software.fstoolkit.views.OfferedResourcesView">
+         <propertyTab
+               category="FSToolkitCategoryOfferedResourcesView"
+               id="org.panlab.software.fstoolkit.OfferedResourcesView.propertyTab1"
+               image="icons/16x16_fstoolkit.gif"
+               label="Element">
+         </propertyTab>
+         <propertyTab
+               afterTab="org.panlab.software.fstoolkit.OfferedResourcesView.propertyTab1"
+               category="FSToolkitCategoryOfferedResourcesView"
+               id="org.panlab.software.fstoolkit.OfferedResourcesView.propertyTab2"
+               image="icons/16x16_fstoolkit.gif"
+               label="Advanced">
+         </propertyTab>
+      </propertyTabs>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="org.panlab.software.fstoolkit.views.OfferedResourcesView">
+         <propertySection
+               class="org.panlab.software.fstoolkit.views.FSDLView.OfferedResourcesTabbedElementSection"
+               id="org.panlab.software.fstoolkit.OfferedResources.propertySection1"
+               tab="org.panlab.software.fstoolkit.OfferedResourcesView.propertyTab1">
+            <input
+                  type="FederationOffice.uiObjects.ui_TaxonomyTreeItem">
+            </input>
+         </propertySection>
+         <propertySection
+               class="org.panlab.software.fstoolkit.views.FSDLView.OfferedResourcesTabbedAdvancedPropertySection"
+               id="org.panlab.software.fstoolkit.OfferedResources.propertySection2"
+               tab="org.panlab.software.fstoolkit.OfferedResourcesView.propertyTab2">
+            <input
+                  type="FederationOffice.uiObjects.ui_TaxonomyTreeItem">
+            </input>
+            <input
+                  type="FederationOffice.NamedElement">
+            </input>
+         </propertySection>
+      </propertySections>
    </extension>
 </plugin>
