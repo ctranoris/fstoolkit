@@ -162,13 +162,22 @@ public interface FcielementsPackage extends EPackage {
 	int AUTHORIZATION_KEY__PASSWORD = 1;
 
 	/**
+	 * The feature id for the '<em><b>Credentials</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUTHORIZATION_KEY__CREDENTIALS = 2;
+
+	/**
 	 * The number of structural features of the '<em>Authorization Key</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AUTHORIZATION_KEY_FEATURE_COUNT = 2;
+	int AUTHORIZATION_KEY_FEATURE_COUNT = 3;
 
 
 	/**
@@ -306,6 +315,17 @@ public interface FcielementsPackage extends EPackage {
 	EAttribute getAuthorizationKey_Password();
 
 	/**
+	 * Returns the meta object for the reference '{@link FederationOffice.fcielements.AuthorizationKey#getCredentials <em>Credentials</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Credentials</em>'.
+	 * @see FederationOffice.fcielements.AuthorizationKey#getCredentials()
+	 * @see #getAuthorizationKey()
+	 * @generated
+	 */
+	EReference getAuthorizationKey_Credentials();
+
+	/**
 	 * Returns the meta object for class '{@link java.util.Map.Entry <em>String To String Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -438,6 +458,14 @@ public interface FcielementsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute AUTHORIZATION_KEY__PASSWORD = eINSTANCE.getAuthorizationKey_Password();
+
+		/**
+		 * The meta object literal for the '<em><b>Credentials</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AUTHORIZATION_KEY__CREDENTIALS = eINSTANCE.getAuthorizationKey_Credentials();
 
 		/**
 		 * The meta object literal for the '{@link FederationOffice.fcielements.impl.StringToStringMapImpl <em>String To String Map</em>}' class.

@@ -68,6 +68,7 @@ public class AuthorizationKeyItemProvider
 
 			addUsernamePropertyDescriptor(object);
 			addPasswordPropertyDescriptor(object);
+			addCredentialsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -112,6 +113,28 @@ public class AuthorizationKeyItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Credentials feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCredentialsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AuthorizationKey_credentials_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AuthorizationKey_credentials_feature", "_UI_AuthorizationKey_type"),
+				 FcielementsPackage.Literals.AUTHORIZATION_KEY__CREDENTIALS,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link FederationOffice.fcielements.AuthorizationKey#getUsername <em>Username</em>}</li>
  *   <li>{@link FederationOffice.fcielements.AuthorizationKey#getPassword <em>Password</em>}</li>
+ *   <li>{@link FederationOffice.fcielements.AuthorizationKey#getCredentials <em>Credentials</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,5 +78,31 @@ public interface AuthorizationKey extends EObject {
 	 * @generated
 	 */
 	void setPassword(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Credentials</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Credentials</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Credentials</em>' reference.
+	 * @see #setCredentials(FCICredentials)
+	 * @see FederationOffice.fcielements.FcielementsPackage#getAuthorizationKey_Credentials()
+	 * @model
+	 * @generated
+	 */
+	FCICredentials getCredentials();
+
+	/**
+	 * Sets the value of the '{@link FederationOffice.fcielements.AuthorizationKey#getCredentials <em>Credentials</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Credentials</em>' reference.
+	 * @see #getCredentials()
+	 * @generated
+	 */
+	void setCredentials(FCICredentials value);
 
 } // AuthorizationKey

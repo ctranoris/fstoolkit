@@ -7,21 +7,19 @@
 package FederationOffice.fcielements.provider;
 
 
-import FederationOffice.fcielements.FCICredentials;
-import FederationOffice.fcielements.FcielementsFactory;
 import FederationOffice.fcielements.FcielementsPackage;
 
 import FederationOffice.provider.FederationOfficeEditPlugin;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -34,12 +32,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link FederationOffice.fcielements.FCICredentials} object.
+ * This is the item provider adapter for a {@link java.util.Map.Entry} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class FCICredentialsItemProvider
+public class StringToStringMapItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -53,7 +51,7 @@ public class FCICredentialsItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FCICredentialsItemProvider(AdapterFactory adapterFactory) {
+	public StringToStringMapItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -68,26 +66,26 @@ public class FCICredentialsItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addUsernamePropertyDescriptor(object);
-			addPasswordPropertyDescriptor(object);
+			addKeyPropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Username feature.
+	 * This adds a property descriptor for the Key feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addUsernamePropertyDescriptor(Object object) {
+	protected void addKeyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_FCICredentials_username_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FCICredentials_username_feature", "_UI_FCICredentials_type"),
-				 FcielementsPackage.Literals.FCI_CREDENTIALS__USERNAME,
+				 getString("_UI_StringToStringMap_key_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StringToStringMap_key_feature", "_UI_StringToStringMap_type"),
+				 FcielementsPackage.Literals.STRING_TO_STRING_MAP__KEY,
 				 true,
 				 false,
 				 false,
@@ -97,19 +95,19 @@ public class FCICredentialsItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Password feature.
+	 * This adds a property descriptor for the Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPasswordPropertyDescriptor(Object object) {
+	protected void addValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_FCICredentials_password_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FCICredentials_password_feature", "_UI_FCICredentials_type"),
-				 FcielementsPackage.Literals.FCI_CREDENTIALS__PASSWORD,
+				 getString("_UI_StringToStringMap_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StringToStringMap_value_feature", "_UI_StringToStringMap_type"),
+				 FcielementsPackage.Literals.STRING_TO_STRING_MAP__VALUE,
 				 true,
 				 false,
 				 false,
@@ -119,44 +117,14 @@ public class FCICredentialsItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(FcielementsPackage.Literals.FCI_CREDENTIALS__CREDOPTIONS);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns FCICredentials.gif.
+	 * This returns StringToStringMap.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/FCICredentials"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/StringToStringMap"));
 	}
 
 	/**
@@ -167,10 +135,8 @@ public class FCICredentialsItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((FCICredentials)object).getUsername();
-		return label == null || label.length() == 0 ?
-			getString("_UI_FCICredentials_type") :
-			getString("_UI_FCICredentials_type") + " " + label;
+		Map.Entry<?, ?> stringToStringMap = (Map.Entry<?, ?>)object;
+		return "" + stringToStringMap.getKey() + " -> " + stringToStringMap.getValue();
 	}
 
 	/**
@@ -184,13 +150,10 @@ public class FCICredentialsItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(FCICredentials.class)) {
-			case FcielementsPackage.FCI_CREDENTIALS__USERNAME:
-			case FcielementsPackage.FCI_CREDENTIALS__PASSWORD:
+		switch (notification.getFeatureID(Map.Entry.class)) {
+			case FcielementsPackage.STRING_TO_STRING_MAP__KEY:
+			case FcielementsPackage.STRING_TO_STRING_MAP__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case FcielementsPackage.FCI_CREDENTIALS__CREDOPTIONS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -206,11 +169,6 @@ public class FCICredentialsItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FcielementsPackage.Literals.FCI_CREDENTIALS__CREDOPTIONS,
-				 FcielementsFactory.eINSTANCE.create(FcielementsPackage.Literals.STRING_TO_STRING_MAP)));
 	}
 
 	/**

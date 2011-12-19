@@ -122,6 +122,29 @@ public class FcielementsItemProviderAdapterFactory extends FcielementsAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringToStringMapItemProvider stringToStringMapItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link java.util.Map.Entry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringToStringMapAdapter() {
+		if (stringToStringMapItemProvider == null) {
+			stringToStringMapItemProvider = new StringToStringMapItemProvider(this);
+		}
+
+		return stringToStringMapItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -222,6 +245,7 @@ public class FcielementsItemProviderAdapterFactory extends FcielementsAdapterFac
 	public void dispose() {
 		if (fciCredentialsItemProvider != null) fciCredentialsItemProvider.dispose();
 		if (authorizationKeyItemProvider != null) authorizationKeyItemProvider.dispose();
+		if (stringToStringMapItemProvider != null) stringToStringMapItemProvider.dispose();
 	}
 
 }
