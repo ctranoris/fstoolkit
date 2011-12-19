@@ -90,4 +90,12 @@ public interface IFCIService extends EObject {
 	 */
 	String getParameterValueOfResource(String scenario, String providerAlias, String runtimeID, String paramName);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void getOffice(AuthorizationKey authorizationKey, boolean forceRefresh);
+
 } // IFCIService

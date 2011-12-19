@@ -434,6 +434,10 @@ public class FcielementsPackageImpl extends EPackageImpl implements FcielementsP
 		addEParameter(op, ecorePackage.getEString(), "runtimeID", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "paramName", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(ifciServiceEClass, null, "getOffice", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getAuthorizationKey(), "authorizationKey", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "forceRefresh", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(fciCredentialsEClass, FCICredentials.class, "FCICredentials", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFCICredentials_Username(), ecorePackage.getEString(), "username", null, 0, 1, FCICredentials.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFCICredentials_Password(), ecorePackage.getEString(), "password", null, 0, 1, FCICredentials.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
