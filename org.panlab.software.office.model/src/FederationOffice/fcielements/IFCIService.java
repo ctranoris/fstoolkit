@@ -96,6 +96,6 @@ public interface IFCIService extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void getOffice(AuthorizationKey authorizationKey, boolean forceRefresh);
+	Office getOffice(AuthorizationKey authorizationKey, boolean forceRefresh);
 
 } // IFCIService

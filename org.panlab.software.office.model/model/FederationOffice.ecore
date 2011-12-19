@@ -587,7 +587,7 @@
         <eParameters name="runtimeID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="paramName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eOperations name="getOffice">
+      <eOperations name="getOffice" eType="#//Office">
         <eParameters name="authorizationKey" eType="#//fcielements/AuthorizationKey"/>
         <eParameters name="forceRefresh" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>

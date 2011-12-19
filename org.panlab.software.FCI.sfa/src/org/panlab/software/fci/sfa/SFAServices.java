@@ -14,11 +14,82 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import FederationOffice.Office;
+import FederationOffice.fcielements.AuthorizationKey;
 import FederationOffice.fcielements.IFCIService;
 import FederationOffice.federationscenarios.ResourceRequest;
 
 public class SFAServices implements IFCIService {
 
+
+	private Office SFAOffice;
+	private static SFAServices instance;
+	
+	public static SFAServices getInstance() {
+		if (instance == null)
+			instance = new SFAServices();
+		// TODO Auto-generated method stub
+		return instance;
+	}
+	
+	
+	@Override
+	public Office getOffice(AuthorizationKey authorizationKey,
+			boolean forceRefresh) {
+		
+				return SFAOffice;
+	}
+
+	
+	
+	
+	@Override
+	public Office getOffice(String username, String password,
+			boolean forceRefresh) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+	@Override
+	public Office getOffice() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String CreateResource(String scenario, String providerAlias,
+			String resourceTypeName, ResourceRequest resourceReq) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String UpdateResource(String scenario, String providerAlias,
+			String resourceTypeName, String runtimeID,
+			ResourceRequest resourceReq) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String DeleteResource(String scenario, String providerAlias,
+			String resourceTypeName, String runtimeID,
+			ResourceRequest resourceReq) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getParameterValueOfResource(String scenario,
+			String providerAlias, String runtimeID, String paramName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	
+	
+	
 	@Override
 	public EClass eClass() {
 		// TODO Auto-generated method stub
@@ -135,52 +206,15 @@ public class SFAServices implements IFCIService {
 	}
 
 	@Override
-	public Office getOffice() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public void setOffice(Office value) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
-	public Office getOffice(String username, String password,
-			boolean forceRefresh) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public String CreateResource(String scenario, String providerAlias,
-			String resourceTypeName, ResourceRequest resourceReq) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	
 
-	@Override
-	public String UpdateResource(String scenario, String providerAlias,
-			String resourceTypeName, String runtimeID,
-			ResourceRequest resourceReq) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String DeleteResource(String scenario, String providerAlias,
-			String resourceTypeName, String runtimeID,
-			ResourceRequest resourceReq) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getParameterValueOfResource(String scenario,
-			String providerAlias, String runtimeID, String paramName) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }

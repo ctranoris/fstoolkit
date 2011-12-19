@@ -23,6 +23,7 @@ import java.util.Map.Entry;
 
 import org.panlab.software.fci.amazon.AmazonServices;
 import org.panlab.software.fci.panlab.PanlabServices;
+import org.panlab.software.fci.sfa.SFAServices;
 import org.panlab.software.fci.uop.UoPServices;
 
 import FederationOffice.Office;
@@ -64,6 +65,7 @@ public class FCI {
 		AuthorizationKey akey =    FederationOffice.fcielements.FcielementsFactory.eINSTANCE.createAuthorizationKey();
 		akey.setUsername(cred.getUsername());
 		akey.setPassword(cred.getPassword());		
+		akey.setCredentials(cred);
 		return akey ;
 	}
 	
@@ -141,10 +143,24 @@ public class FCI {
 		else if (val.toLowerCase().equals("amazon")){
 			return CreateAmazonResourceContext(authKey);
 		}
+		else if (val.toLowerCase().equals("sfa")){
+			return CreateSFAResourceContext(authKey);
+		}
 		return null;
 	}
 
 	
+	private ResourceContext CreateSFAResourceContext(AuthorizationKey authKey) {
+
+		Office office = SFAServices.getInstance().getOffice(authKey , true);
+		
+		if (office != null) {
+			return new ResourceContext( office );
+		}
+		
+		return null;
+	}
+
 	private ResourceContext CreateUoPResourceContext(AuthorizationKey authKey) {
 		Office office = UoPServices.getInstance().getOffice(
 				

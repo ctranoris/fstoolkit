@@ -4,5 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.panlab.software.FCI.core"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.panlab.software.office.model"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.panlab.software.FCI.sfa"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

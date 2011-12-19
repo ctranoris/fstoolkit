@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import FederationOffice.Office;
+import FederationOffice.fcielements.AuthorizationKey;
 import FederationOffice.fcielements.IFCIService;
 import FederationOffice.federationscenarios.RequestedFederationScenario;
 import FederationOffice.federationscenarios.ResourceRequest;
@@ -343,6 +344,14 @@ public class UoPServices implements IFCIService{
 
 	@Override
 	public void setOffice(Office value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Office getOffice(AuthorizationKey authorizationKey,
+			boolean forceRefresh) {
+				return uopOffice;
 		// TODO Auto-generated method stub
 		
 	}

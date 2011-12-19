@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import FederationOffice.Office;
+import FederationOffice.fcielements.AuthorizationKey;
 import FederationOffice.fcielements.IFCIService;
 import FederationOffice.federationscenarios.RequestedFederationScenario;
 import FederationOffice.federationscenarios.ResourceRequest;
@@ -273,6 +274,14 @@ public class AmazonServices implements IFCIService{
 
 	@Override
 	public void eNotify(Notification notification) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Office getOffice(AuthorizationKey authorizationKey,
+			boolean forceRefresh) {
+				return amazonOffice;
 		// TODO Auto-generated method stub
 		
 	}

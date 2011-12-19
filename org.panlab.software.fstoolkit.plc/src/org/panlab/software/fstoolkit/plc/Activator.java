@@ -24,7 +24,6 @@ public class Activator extends AbstractUIPlugin {
 	// The shared instance
 	private static Activator plugin;
 	private ArrayList<Office> plcOffices;
-	private ResourceContext amazon;
 		
 	/**
 	 * The constructor
@@ -72,10 +71,15 @@ public class Activator extends AbstractUIPlugin {
 		cred.setPassword( string2 );
 		FCI fci = FCI.getInstance();
 		AuthorizationKey authKey = fci.createAuthorizationKey(cred);
-		amazon = fci.createResourceContext("amazon", authKey);		
-		Office plcOffice = amazon.getOfficeModel();
-		plcOffice.setName("PLCName-test");
+		//amazon = fci.createResourceContext("amazon", authKey);
+		//Office plcOffice = amazon.getOfficeModel();	
+		Office plcOffice = FederationOffice.FederationOfficeFactory.eINSTANCE.createOffice();
+		plcOffice.setName("PLC site A");
+		this.plcOffices.add(plcOffice);
 		
+
+		plcOffice = FederationOffice.FederationOfficeFactory.eINSTANCE.createOffice();
+		plcOffice.setName("PLC site B");		
 		this.plcOffices.add(plcOffice);
 		
 		// Get the first model element and cast it to the right type, in my
