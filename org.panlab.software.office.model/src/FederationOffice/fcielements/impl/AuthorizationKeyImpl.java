@@ -12,6 +12,7 @@ import FederationOffice.fcielements.FcielementsPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
@@ -75,7 +76,7 @@ public class AuthorizationKeyImpl extends EObjectImpl implements AuthorizationKe
 	protected String password = PASSWORD_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCredentials() <em>Credentials</em>}' reference.
+	 * The cached value of the '{@link #getCredentials() <em>Credentials</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCredentials()
@@ -155,6 +156,12 @@ public class AuthorizationKeyImpl extends EObjectImpl implements AuthorizationKe
 			InternalEObject oldCredentials = (InternalEObject)credentials;
 			credentials = (FCICredentials)eResolveProxy(oldCredentials);
 			if (credentials != oldCredentials) {
+				InternalEObject newCredentials = (InternalEObject)credentials;
+				NotificationChain msgs = oldCredentials.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FcielementsPackage.AUTHORIZATION_KEY__CREDENTIALS, null, null);
+				if (newCredentials.eInternalContainer() == null) {
+					msgs = newCredentials.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FcielementsPackage.AUTHORIZATION_KEY__CREDENTIALS, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FcielementsPackage.AUTHORIZATION_KEY__CREDENTIALS, oldCredentials, credentials));
 			}
@@ -176,11 +183,47 @@ public class AuthorizationKeyImpl extends EObjectImpl implements AuthorizationKe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCredentials(FCICredentials newCredentials) {
+	public NotificationChain basicSetCredentials(FCICredentials newCredentials, NotificationChain msgs) {
 		FCICredentials oldCredentials = credentials;
 		credentials = newCredentials;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FcielementsPackage.AUTHORIZATION_KEY__CREDENTIALS, oldCredentials, credentials));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FcielementsPackage.AUTHORIZATION_KEY__CREDENTIALS, oldCredentials, newCredentials);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCredentials(FCICredentials newCredentials) {
+		if (newCredentials != credentials) {
+			NotificationChain msgs = null;
+			if (credentials != null)
+				msgs = ((InternalEObject)credentials).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FcielementsPackage.AUTHORIZATION_KEY__CREDENTIALS, null, msgs);
+			if (newCredentials != null)
+				msgs = ((InternalEObject)newCredentials).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FcielementsPackage.AUTHORIZATION_KEY__CREDENTIALS, null, msgs);
+			msgs = basicSetCredentials(newCredentials, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FcielementsPackage.AUTHORIZATION_KEY__CREDENTIALS, newCredentials, newCredentials));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case FcielementsPackage.AUTHORIZATION_KEY__CREDENTIALS:
+				return basicSetCredentials(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

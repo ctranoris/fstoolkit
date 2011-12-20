@@ -233,6 +233,15 @@ public class UsersPackageImpl extends EPackageImpl implements UsersPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAccount_AuthorizationKey() {
+		return (EReference)accountEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getResourcesProvider() {
 		return resourcesProviderEClass;
 	}
@@ -385,6 +394,7 @@ public class UsersPackageImpl extends EPackageImpl implements UsersPackage {
 		accountEClass = createEClass(ACCOUNT);
 		createEAttribute(accountEClass, ACCOUNT__PASSWORD);
 		createEAttribute(accountEClass, ACCOUNT__USERNAME);
+		createEReference(accountEClass, ACCOUNT__AUTHORIZATION_KEY);
 
 		resourcesProviderEClass = createEClass(RESOURCES_PROVIDER);
 		createEReference(resourcesProviderEClass, RESOURCES_PROVIDER__OFFERED_SITE_LIST);
@@ -432,6 +442,7 @@ public class UsersPackageImpl extends EPackageImpl implements UsersPackage {
 
 		// Obtain other dependent packages
 		FederationOfficePackage theFederationOfficePackage = (FederationOfficePackage)EPackage.Registry.INSTANCE.getEPackage(FederationOfficePackage.eNS_URI);
+		FcielementsPackage theFcielementsPackage = (FcielementsPackage)EPackage.Registry.INSTANCE.getEPackage(FcielementsPackage.eNS_URI);
 		ProvidersitePackage theProvidersitePackage = (ProvidersitePackage)EPackage.Registry.INSTANCE.getEPackage(ProvidersitePackage.eNS_URI);
 		FederationscenariosPackage theFederationscenariosPackage = (FederationscenariosPackage)EPackage.Registry.INSTANCE.getEPackage(FederationscenariosPackage.eNS_URI);
 
@@ -452,6 +463,7 @@ public class UsersPackageImpl extends EPackageImpl implements UsersPackage {
 		initEClass(accountEClass, Account.class, "Account", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAccount_Password(), ecorePackage.getEString(), "password", null, 0, 1, Account.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAccount_Username(), ecorePackage.getEString(), "username", null, 0, 1, Account.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAccount_AuthorizationKey(), theFcielementsPackage.getAuthorizationKey(), null, "authorizationKey", null, 0, 1, Account.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resourcesProviderEClass, ResourcesProvider.class, "ResourcesProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResourcesProvider_OfferedSiteList(), theProvidersitePackage.getSite(), theProvidersitePackage.getSite_BelongsToProvider(), "offeredSiteList", null, 0, -1, ResourcesProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

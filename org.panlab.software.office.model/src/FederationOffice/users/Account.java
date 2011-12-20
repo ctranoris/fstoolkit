@@ -7,6 +7,7 @@
 package FederationOffice.users;
 
 import FederationOffice.NamedElement;
+import FederationOffice.fcielements.AuthorizationKey;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +19,7 @@ import FederationOffice.NamedElement;
  * <ul>
  *   <li>{@link FederationOffice.users.Account#getPassword <em>Password</em>}</li>
  *   <li>{@link FederationOffice.users.Account#getUsername <em>Username</em>}</li>
+ *   <li>{@link FederationOffice.users.Account#getAuthorizationKey <em>Authorization Key</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,5 +79,31 @@ public interface Account extends NamedElement {
 	 * @generated
 	 */
 	void setUsername(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Authorization Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Authorization Key</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Authorization Key</em>' containment reference.
+	 * @see #setAuthorizationKey(AuthorizationKey)
+	 * @see FederationOffice.users.UsersPackage#getAccount_AuthorizationKey()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	AuthorizationKey getAuthorizationKey();
+
+	/**
+	 * Sets the value of the '{@link FederationOffice.users.Account#getAuthorizationKey <em>Authorization Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Authorization Key</em>' containment reference.
+	 * @see #getAuthorizationKey()
+	 * @generated
+	 */
+	void setAuthorizationKey(AuthorizationKey value);
 
 } // Account

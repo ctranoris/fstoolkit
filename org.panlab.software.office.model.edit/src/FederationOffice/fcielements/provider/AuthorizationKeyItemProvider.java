@@ -8,6 +8,7 @@ package FederationOffice.fcielements.provider;
 
 
 import FederationOffice.fcielements.AuthorizationKey;
+import FederationOffice.fcielements.FcielementsFactory;
 import FederationOffice.fcielements.FcielementsPackage;
 
 import FederationOffice.provider.FederationOfficeEditPlugin;
@@ -20,6 +21,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -68,7 +70,6 @@ public class AuthorizationKeyItemProvider
 
 			addUsernamePropertyDescriptor(object);
 			addPasswordPropertyDescriptor(object);
-			addCredentialsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -118,25 +119,33 @@ public class AuthorizationKeyItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Credentials feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCredentialsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AuthorizationKey_credentials_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AuthorizationKey_credentials_feature", "_UI_AuthorizationKey_type"),
-				 FcielementsPackage.Literals.AUTHORIZATION_KEY__CREDENTIALS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(FcielementsPackage.Literals.AUTHORIZATION_KEY__CREDENTIALS);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -180,6 +189,9 @@ public class AuthorizationKeyItemProvider
 			case FcielementsPackage.AUTHORIZATION_KEY__PASSWORD:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case FcielementsPackage.AUTHORIZATION_KEY__CREDENTIALS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -194,6 +206,11 @@ public class AuthorizationKeyItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FcielementsPackage.Literals.AUTHORIZATION_KEY__CREDENTIALS,
+				 FcielementsFactory.eINSTANCE.createFCICredentials()));
 	}
 
 	/**

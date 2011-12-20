@@ -126,13 +126,22 @@ public interface UsersPackage extends EPackage {
 	int ACCOUNT__USERNAME = FederationOfficePackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Authorization Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACCOUNT__AUTHORIZATION_KEY = FederationOfficePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Account</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACCOUNT_FEATURE_COUNT = FederationOfficePackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int ACCOUNT_FEATURE_COUNT = FederationOfficePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link FederationOffice.users.impl.OfficeUserImpl <em>Office User</em>}' class.
@@ -749,6 +758,17 @@ public interface UsersPackage extends EPackage {
 	EAttribute getAccount_Username();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link FederationOffice.users.Account#getAuthorizationKey <em>Authorization Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Authorization Key</em>'.
+	 * @see FederationOffice.users.Account#getAuthorizationKey()
+	 * @see #getAccount()
+	 * @generated
+	 */
+	EReference getAccount_AuthorizationKey();
+
+	/**
 	 * Returns the meta object for class '{@link FederationOffice.users.ResourcesProvider <em>Resources Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -943,6 +963,14 @@ public interface UsersPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ACCOUNT__USERNAME = eINSTANCE.getAccount_Username();
+
+		/**
+		 * The meta object literal for the '<em><b>Authorization Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACCOUNT__AUTHORIZATION_KEY = eINSTANCE.getAccount_AuthorizationKey();
 
 		/**
 		 * The meta object literal for the '{@link FederationOffice.users.impl.ResourcesProviderImpl <em>Resources Provider</em>}' class.

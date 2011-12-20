@@ -50,6 +50,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="Account" eSuperTypes="#//NamedElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="username" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="authorizationKey" eType="#//fcielements/AuthorizationKey"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourcesProvider" eSuperTypes="#//users/OfficeUser">
       <eStructuralFeatures xsi:type="ecore:EReference" name="offeredSiteList" upperBound="-1"
@@ -602,7 +604,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="AuthorizationKey">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="username" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="credentials" eType="#//fcielements/FCICredentials"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="credentials" eType="#//fcielements/FCICredentials"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StringToStringMap" instanceClassName="java.util.Map$Entry">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

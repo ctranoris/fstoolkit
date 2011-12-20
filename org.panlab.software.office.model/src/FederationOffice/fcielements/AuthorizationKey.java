@@ -80,26 +80,26 @@ public interface AuthorizationKey extends EObject {
 	void setPassword(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Credentials</b></em>' reference.
+	 * Returns the value of the '<em><b>Credentials</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Credentials</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Credentials</em>' reference.
+	 * @return the value of the '<em>Credentials</em>' containment reference.
 	 * @see #setCredentials(FCICredentials)
 	 * @see FederationOffice.fcielements.FcielementsPackage#getAuthorizationKey_Credentials()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	FCICredentials getCredentials();
 
 	/**
-	 * Sets the value of the '{@link FederationOffice.fcielements.AuthorizationKey#getCredentials <em>Credentials</em>}' reference.
+	 * Sets the value of the '{@link FederationOffice.fcielements.AuthorizationKey#getCredentials <em>Credentials</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Credentials</em>' reference.
+	 * @param value the new value of the '<em>Credentials</em>' containment reference.
 	 * @see #getCredentials()
 	 * @generated
 	 */

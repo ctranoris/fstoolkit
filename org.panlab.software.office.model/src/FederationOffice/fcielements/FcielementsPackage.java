@@ -162,7 +162,7 @@ public interface FcielementsPackage extends EPackage {
 	int AUTHORIZATION_KEY__PASSWORD = 1;
 
 	/**
-	 * The feature id for the '<em><b>Credentials</b></em>' reference.
+	 * The feature id for the '<em><b>Credentials</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -315,10 +315,10 @@ public interface FcielementsPackage extends EPackage {
 	EAttribute getAuthorizationKey_Password();
 
 	/**
-	 * Returns the meta object for the reference '{@link FederationOffice.fcielements.AuthorizationKey#getCredentials <em>Credentials</em>}'.
+	 * Returns the meta object for the containment reference '{@link FederationOffice.fcielements.AuthorizationKey#getCredentials <em>Credentials</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Credentials</em>'.
+	 * @return the meta object for the containment reference '<em>Credentials</em>'.
 	 * @see FederationOffice.fcielements.AuthorizationKey#getCredentials()
 	 * @see #getAuthorizationKey()
 	 * @generated
@@ -460,7 +460,7 @@ public interface FcielementsPackage extends EPackage {
 		EAttribute AUTHORIZATION_KEY__PASSWORD = eINSTANCE.getAuthorizationKey_Password();
 
 		/**
-		 * The meta object literal for the '<em><b>Credentials</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Credentials</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
