@@ -23,6 +23,7 @@ public class SFAServices implements IFCIService {
 
 	private Office SFAOffice;
 	private static SFAServices instance;
+	private AuthorizationKey authorizationKey;
 	
 	public static SFAServices getInstance() {
 		if (instance == null)
@@ -35,8 +36,17 @@ public class SFAServices implements IFCIService {
 	@Override
 	public Office getOffice(AuthorizationKey authorizationKey,
 			boolean forceRefresh) {
+		this.authorizationKey = authorizationKey;
 		
-				return SFAOffice;
+		if ( (SFAOffice!=null) && (!forceRefresh) )
+			return SFAOffice;				
+		
+		
+		
+		SFAOffice = new SFAOfficeProxy(authorizationKey,  forceRefresh);
+		
+
+		return SFAOffice;
 	}
 
 	
@@ -45,14 +55,18 @@ public class SFAServices implements IFCIService {
 	@Override
 	public Office getOffice(String username, String password,
 			boolean forceRefresh) {
-		// TODO Auto-generated method stub
+		
+		if ( (SFAOffice!=null) && (!forceRefresh) )
+			return SFAOffice;	
+		//this normally should not happen.
 		return null;
 	}
 	
 
 	@Override
 	public Office getOffice() {
-		// TODO Auto-generated method stub
+		if ( (SFAOffice!=null)  )
+			return SFAOffice;	
 		return null;
 	}
 

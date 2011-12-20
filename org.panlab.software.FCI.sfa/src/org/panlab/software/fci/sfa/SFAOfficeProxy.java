@@ -19,8 +19,11 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+
+import FederationOffice.FederationOfficePackage;
 import FederationOffice.Office;
 import FederationOffice.availabilityContract.ResourceServiceContract;
+import FederationOffice.fcielements.AuthorizationKey;
 import FederationOffice.federationscenarios.RequestedFederationScenario;
 import FederationOffice.services.OfferedService;
 import FederationOffice.services.ServiceComposition;
@@ -29,20 +32,18 @@ import FederationOffice.slareservations.SLA;
 import FederationOffice.users.OfficeUser;
 
 public class SFAOfficeProxy implements Office {
-	public static boolean UsePreloadOfficeTest = true; //mark false in production. True means: will not load the model 
+	public static boolean UsePreloadOfficeTest = false; //mark false in production. True means: will not load the model 
 	public static boolean DONTPropagateToSFAGW = false; //mark false in production. True means:  will not propagate the jobs to SFAGW (SliceM, AM)
 	private Office office;
-	private String OfficeUsername ;
-	private String OfficePassword ;
+	private AuthorizationKey authorizationKey;
 	
 	public boolean officeLoaded(){
 		return office != null;
 	}
 	
-	public SFAOfficeProxy(String username, String password,  Boolean forceRefresh) {
+	public SFAOfficeProxy(AuthorizationKey authorizationKey,  Boolean forceRefresh) {
 		super();
-		OfficeUsername = username;
-		OfficePassword = password;
+		this.authorizationKey = authorizationKey;
 		if (UsePreloadOfficeTest )
 			office = PreloadedOffice();
 		else
@@ -50,24 +51,21 @@ public class SFAOfficeProxy implements Office {
 	}
 
 	private Office getOfficeModel(Boolean forceRefresh){
-		SFAModel2OfficeModel modelTransform = new SFAModel2OfficeModel();
+		SFAModel2OfficeModel sfaM2MTransform = new SFAModel2OfficeModel(authorizationKey);
 		
-		//monitor.beginTask("Downloading model information from repository", 3);
-		
-		//monitor.setTaskName("Authenticating...");
-		if  ( (OfficeUsername!=null) && (OfficePassword!=null) ){ //if credentials		
+		if  ( this.authorizationKey!=null ){ //if credentials		
 			
-			if  ( modelTransform.checkAuthentication() ){
+			if  ( sfaM2MTransform.checkAuthentication() ){
 				//monitor.worked(1);
 				System.out.println("checkAuthentication");
 				//monitor.setTaskName("Downloading model and transforming...");
-				modelTransform.TranformModel();
+				sfaM2MTransform.TranformModel();
 				//monitor.worked(1);
 			}else {//for some reason (i.e. auth problem) the office is not there
 				return null;	
 			}
 			
-		}else if( (modelTransform.getOffice()==null) ){ //for some reason (i.e. auth problem) the office is not there or not cached
+		}else if( (sfaM2MTransform.getOffice()==null) ){ //for some reason (i.e. auth problem) the office is not there or not cached
 			return null;			
 		}
 		
@@ -82,48 +80,86 @@ public class SFAOfficeProxy implements Office {
 		ResourceSet resSet = new ResourceSetImpl();
 
 		// Create a resource
-		String uri = "sfamodel.office"; //here the name depend to the sfaurl...since we can have multiple urls
+		String uri = "sfamodel_"+  
+				authorizationKey.getCredentials().getCredoptions().get(SFAUtils.USERNAME )
+					+".office"; //here the name depend to the sfaurl...since we can have multiple urls
 		try {
 			if (Activator.getDefault()!=null)
-				uri = Activator.getDefault().getStateLocation().toOSString() + "\\panlab.office";
+				uri = Activator.getDefault().getStateLocation().toOSString() + "\\"+uri;
 		} catch (NoClassDefFoundError  e) {
-			// TODO Auto-generated catch block
 			System.out.println("NoClassDefFoundError but don't worry. Activated only as plugin");
 			e.printStackTrace();
 			System.out.println("Continue with saving the uri ");
 		}
-		//String uri = "C:\\Users\\ctranoris\\runtime-FSToolkit\\.metadata\\.plugins\\org.panlab.software.FCI.panlab\\panlab.office";
 		
-		Resource resourcePanlabOffice = resSet.createResource( URI.createFileURI( uri ));
+		Resource resourceSFAOffice = resSet.createResource( URI.createFileURI( uri ));
 		//add the top model element office
-		resourcePanlabOffice.getContents().add( modelTransform.getOffice() );
+		resourceSFAOffice.getContents().add( sfaM2MTransform.getOffice() );
 		
 		
 		try {
-				System.out.println("Saving sfa.office to: "+uri);
+				System.out.println("Saving SFA office to: "+uri);
 				//monitor.setTaskName("Saving local temporary model...");				
-				resourcePanlabOffice.save(Collections.EMPTY_MAP);
+				resourceSFAOffice.save(Collections.EMPTY_MAP);
 				//the following to hold the Office Resource URI ti be used later on by Imports
-				modelTransform.getOffice().setResourceURI(  resourcePanlabOffice.getURI().toString() );
+				sfaM2MTransform.getOffice().setResourceURI(  resourceSFAOffice.getURI().toString() );
 				
 				//monitor.worked(1);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		// Get the first model element and cast it to the right type
-		return  (Office)resourcePanlabOffice.getContents().get(0);
+		return  (Office)resourceSFAOffice.getContents().get(0);
 	}
 	
 
 	private Office PreloadedOffice() {
-		// TODO Auto-generated method stub
-		return null;
+		// Initialize the model
+				FederationOfficePackage.eINSTANCE.eClass();
+
+				
+				// As of here we preparing to save the model content
+				// Register the XMI resource factory for the .office extension
+
+				Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+				Map<String, Object> m = reg.getExtensionToFactoryMap();
+				m.put("office", new XMIResourceFactoryImpl());
+
+				// Obtain a new resource set
+				ResourceSet resSet = new ResourceSetImpl();
+
+
+				// Create a resource
+				String uri = "sfamodel_"+  
+						authorizationKey.getCredentials().getCredoptions().get(SFAUtils.USERNAME )
+							+".office"; //here the name depend to the sfaurl...since we can have multiple urls
+				
+				try {
+					if (Activator.getDefault()!=null)
+						uri = Activator.getDefault().getStateLocation().toOSString() + "\\"+uri;
+				} catch (NoClassDefFoundError  e) {
+					System.out.println("NoClassDefFoundError but don't worry. Activated only as plugin");
+					e.printStackTrace();
+					System.out.println("Continue with saving the uri ");
+				}
+				Resource resourceSFAOffice = resSet.createResource( URI.createFileURI( uri ));
+				
+				try {
+						System.out.println("Loading SFA office from: "+uri);				
+						resourceSFAOffice.load(Collections.EMPTY_MAP);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
+				// Get the first model element and cast it to the right type
+				((Office)resourceSFAOffice.getContents().get(0)).setResourceURI( resourceSFAOffice.getURI().toString() );
+				
+				return (Office)resourceSFAOffice.getContents().get(0);
 	}
 
 	
-public void LoadFSbySliceName(RequestedFederationScenario fs) {
+	public void LoadFSbySliceName(RequestedFederationScenario fs) {
 		
 		
 	}
@@ -199,7 +235,10 @@ public void LoadFSbySliceName(RequestedFederationScenario fs) {
 	@Override
 	public boolean eIsProxy() {
 		//return true;//well this is for sure a proxy #:-)
-		return office.eIsProxy();
+		if (office!=null)
+			return office.eIsProxy();
+		else
+			return true;
 	}
 
 	@Override
