@@ -52,8 +52,8 @@ public class SFA_XMLRPCClient {
 	
 	public void Init_SFA_XMLRPCClient(AuthorizationKey authorizationKey){
 		
-		if ((this.getSFACredential()!=null) && ( !this.getSFACredential().equals("")) )
-			return;//no need to initialize again
+//		if ((this.getSFACredential()!=null) && ( !this.getSFACredential().equals("")) )
+//			return;//no need to initialize again
 		
 		this.authorizationKey = authorizationKey;
 		this.registry_url = authorizationKey.getCredentials().getCredoptions().get(SFAUtils.REGISTRY_URL);				
@@ -259,24 +259,46 @@ public class SFA_XMLRPCClient {
 
 	}
 
-	public void ListResources() {
+	public String ListResources() {
 
 		System.out.println("ListResources()");
+		
+		String xml="";
 		Object result;
 		Vector<Serializable> params = new Vector<Serializable>();
-		// params.addElement( new String("plc.uopplcbase"));
-		String cred = SFAcredential;
-		params.addElement(cred);
+	    //params.addElement( new String("plc.uopplcbase"));
+	    String cred = SFAcredential;		    
+	    params.addElement(  cred );		    
+	    
+	    HashMap<String, Object> auth = new HashMap<String, Object>();
+//	    auth.put("type", "ProtoGENI");
+//	    auth.put("version", "2");
+	    
+	    auth.put("version", "1");
+	    auth.put("type", "SFA");
+//	    java.util.List<String>  extensions = new java.util.ArrayList<String>();
+	    //auth.put ("extensions", extensions );
+	    //auth.put("namespace", null);
+//	    auth.put("schema", null);
+	    
+		HashMap<String, HashMap<String, Object> > rspec_version = new HashMap<String, HashMap<String, Object>>();
+		//geni_rspec_version.put("geni_rspec_version", auth);
+		rspec_version.put("rspec_version", auth);	 	    
+		
+		params.addElement( rspec_version );
 
-		HashMap<String, String> auth = new HashMap<String, String>();
-		auth.put("type", "ProtoGENI");
-		auth.put("version", "2");
-		HashMap<String, HashMap<String, String>> geni_rspec_version = new HashMap<String, HashMap<String, String>>();
-		geni_rspec_version.put("geni_rspec_version", auth);
-
-		params.addElement(geni_rspec_version);
-
-		result = execXMLRPC_aggregate("ListResources", params);
+//		result = execXMLRPC_aggregate("ListResources", params);
+		result = execXMLRPC_sliceManager("ListResources", params);
+		
+		if (result instanceof Map){
+	    	Map map = (Map) result;
+	    	Set<String> ks = map.keySet();
+	    	//System.out.println("xmltype: " + map.get("value").toString()  );
+	    	xml = (String) map.get("value");
+		}else 
+			xml = result.toString();
+		
+		return xml;
 
 	}
 

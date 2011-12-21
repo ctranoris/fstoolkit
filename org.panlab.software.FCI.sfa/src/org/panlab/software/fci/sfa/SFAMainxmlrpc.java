@@ -44,18 +44,20 @@ public class SFAMainxmlrpc {
 	final static XmlRpcClient client = new XmlRpcClient();
 	final static XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
 	private static String SFAcredential;
-//	private static String registry_url = "https://plc:12345";
-//	private static String sm_url = "https://plc:12347";
-//	private static String keystore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\client1plc.p12";
-//	private static String authority = "plc.uoppldef.tranoris";
-	private static String registry_url = "https://sfa1.pl.sophia.inria.fr:12345";
-	private static String am_url = "https://sfa1.pl.sophia.inria.fr:12346";
-	private static String sm_url = "https://sfa1.pl.sophia.inria.fr:12347";
+	private static String registry_url = "https://plc:12345";
+	private static String am_url = "https://plc:12346";
+	private static String sm_url = "https://plc:12347";
+	private static String keystore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\client1plc.p12";
+	private static String authority = "plc.uoppldef.tranoris";
+//	private static String registry_url = "https://sfa1.pl.sophia.inria.fr:12345";
+//	private static String am_url = "https://sfa1.pl.sophia.inria.fr:12346";
+//	private static String sm_url = "https://sfa1.pl.sophia.inria.fr:12347";
+//	private static String keystore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\sfa1inriactranoris.p12";
+//	private static String authority = "pla.openlab.ctranoris";
+
 //	private static String keystore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\sfa1inria.p12";
 //	private static String authority = "pla.openlab.tranoris";
-	private static String keystore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\sfa1inriactranoris.p12";
-	private static String authority = "pla.openlab.ctranoris";
-
+	
 	/**
 	 * @param args
 	 */

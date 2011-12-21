@@ -15,6 +15,7 @@ limitations under the License.
 
 package org.panlab.software.fci.sfa;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -124,6 +125,49 @@ public class XMLutils {
 			return "";
 
 	}
+	
+	
+	/**
+	 * Returns a doc
+	 * @param xmlstring
+	 * @return a Document
+	 * @author ctranoris
+	 */
+	public Document getXMLDocFromString(String xml) {
+		// TODO Auto-generated method stub
+		// Standard of reading a XML file
+				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+				factory.setNamespaceAware(true);
+				DocumentBuilder builder = null;
+				Document doc = null;
+				try {
+					builder = factory.newDocumentBuilder();
+				} catch (ParserConfigurationException e) {
+					e.printStackTrace();
+				}
+
+				
+				try {
+					InputStream is = new ByteArrayInputStream( xml.getBytes());
+
+					doc = builder.parse(is );  // parse("mpla.xml");			
+					//JUST For local tests. Comment the above 2 lines uncomment the following
+//					doc = builder.parse("C:/Users/ctranoris/runtime-FSToolkit/.metadata/.plugins/org.panlab.software.fstoolkit"+xmlurl+".xml");
+//					doc = builder.parse("C:/Users/tranoris/runtime-New_configuration/.metadata/.plugins/org.panlab.software.fstoolkit"+xmlurl+".xml");
+					
+
+				} catch (SAXException e) {
+					e.printStackTrace();
+					doc = null;
+				} catch (IOException e) {
+					e.printStackTrace();
+					doc = null;
+				}
+				
+				return  doc;
+
+	}
+	
 	
 	/**
 	 * Returns a doc
@@ -240,4 +284,6 @@ public class XMLutils {
 		if (displayLog)
 			System.out.println(  txt);
 	}
+
+	
 }
