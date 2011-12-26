@@ -309,8 +309,11 @@ public class FSDLProposalProvider extends AbstractFSDLProposalProvider {
 			obj = org.eclipse.emf.ecore.util.EcoreUtil.resolve( os, context.getRootModel().eResource().getResourceSet() );
 			os = (OfferedService) obj;			
 		}
-			 
-			String proposal = "\""+((Office)os.eContainer()).getName()+ "."+ os.getName()+"\"";
+
+			//String proposal = "\""+((Office)os.eContainer()).getName()+ "."+ os.getName()+"\"";
+			String proposal = "\"" + os.getName()+ "."+((Office)os.eContainer()).getName()+"\"";
+		
+		
 			// convert it to a valid STRING-terminal
 			proposal = getValueConverter(). toString(proposal, null);
 			Styler fBoldStyler= new Styler() {
@@ -505,7 +508,8 @@ public class FSDLProposalProvider extends AbstractFSDLProposalProvider {
 							os = (OfferedResource) obj;
 						}
 
-						String proposal = "\""+	 os.getFullQualifiedName()  + "\"";
+						//String proposal = "\""+	 os.getFullQualifiedName()  + "\"";
+						String proposal = "\""+	 os.getName()  + "\"";
 						System.out.println(">> "+ proposal ); // context.getRootModel().eResource().getResourceSet()
 						
 						// convert it to a valid STRING-terminal
