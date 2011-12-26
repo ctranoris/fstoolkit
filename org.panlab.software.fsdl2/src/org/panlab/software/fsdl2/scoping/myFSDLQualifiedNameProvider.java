@@ -16,11 +16,15 @@ public class myFSDLQualifiedNameProvider extends
 //	}
 	
 	
-// WARNING: For the FederationOffice.resources.OfferedResource qualified Names, please see the OfficeDL module, where it is possible to have also there qualified names
+// WARNING: For the FederationOffice qualified Names, please see the OfficeDL module, where it is possible to have also there qualified names
+	//see MyOfficeDLQualifiedNameProvider on OfficeDL2 module
+	
+	
 	public String qualifiedName(FederationOffice.resources.OfferedResource obj) {
 
 		System.out.println(">>>qualifiedName>>>="+ obj.toString() );
-		return obj.getFullQualifiedName();
+		//return obj.getFullQualifiedName();
+		return obj.getName() ;
 	}
 	
 	
