@@ -123,11 +123,6 @@ public abstract class AbstractOfficeDLUiModule extends DefaultUiModule {
 		binder.bind(org.eclipse.xtext.ui.editor.contentassist.antlr.internal.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.ui.LexerUIBindings.CONTENT_ASSIST)).to(org.panlab.software.officedl2.ui.contentassist.antlr.internal.InternalOfficeDLLexer.class);
 	}
 
-	// contributed by org.eclipse.xtext.ui.generator.projectWizard.SimpleProjectWizardFragment
-	public Class<? extends org.eclipse.xtext.ui.wizard.IProjectCreator> bindIProjectCreator() {
-		return org.panlab.software.officedl2.ui.wizard.OfficeDLProjectCreator.class;
-	}
-
 	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
 	public java.lang.ClassLoader bindClassLoaderToInstance() {
 		return getClass().getClassLoader();
