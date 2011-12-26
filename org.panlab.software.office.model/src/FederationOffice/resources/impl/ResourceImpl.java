@@ -140,10 +140,14 @@ public class ResourceImpl extends NamedElementImpl implements Resource {
 				ResourcesProvider provider = (ResourcesProvider)site.eContainer();
 				if (provider.eContainer()!=null ){
 					Office office = (Office)provider.eContainer();
-					return office.getName()+"."+
-							provider.getName()+"."+
-							site.getName()+"."+
-							this.getName();
+					return this.getName()+"."+
+					site.getName()+"."+
+					provider.getName()+"."+
+					office.getName();
+//							office.getName()+"."+
+//							provider.getName()+"."+
+//							site.getName()+"."+
+//							this.getName();
 				}
 			}
 		}
