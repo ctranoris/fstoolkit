@@ -31,6 +31,7 @@ import FederationOffice.services.Service;
  *   <li>{@link FederationOffice.resources.impl.OfferedResourceImpl#getBelongsToSite <em>Belongs To Site</em>}</li>
  *   <li>{@link FederationOffice.resources.impl.OfferedResourceImpl#getImplOfferedService <em>Impl Offered Service</em>}</li>
  *   <li>{@link FederationOffice.resources.impl.OfferedResourceImpl#getMultitonMaxOccur <em>Multiton Max Occur</em>}</li>
+ *   <li>{@link FederationOffice.resources.impl.OfferedResourceImpl#getGeocoords <em>Geocoords</em>}</li>
  * </ul>
  * </p>
  *
@@ -86,6 +87,26 @@ public class OfferedResourceImpl extends ResourceImpl implements OfferedResource
 	 * @ordered
 	 */
 	protected int multitonMaxOccur = MULTITON_MAX_OCCUR_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getGeocoords() <em>Geocoords</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGeocoords()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String GEOCOORDS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getGeocoords() <em>Geocoords</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGeocoords()
+	 * @generated
+	 * @ordered
+	 */
+	protected String geocoords = GEOCOORDS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,6 +167,27 @@ public class OfferedResourceImpl extends ResourceImpl implements OfferedResource
 		multitonMaxOccur = newMultitonMaxOccur;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ResourcesPackage.OFFERED_RESOURCE__MULTITON_MAX_OCCUR, oldMultitonMaxOccur, multitonMaxOccur));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getGeocoords() {
+		return geocoords;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGeocoords(String newGeocoords) {
+		String oldGeocoords = geocoords;
+		geocoords = newGeocoords;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourcesPackage.OFFERED_RESOURCE__GEOCOORDS, oldGeocoords, geocoords));
 	}
 
 	/**
@@ -299,6 +341,8 @@ public class OfferedResourceImpl extends ResourceImpl implements OfferedResource
 				return basicGetImplOfferedService();
 			case ResourcesPackage.OFFERED_RESOURCE__MULTITON_MAX_OCCUR:
 				return getMultitonMaxOccur();
+			case ResourcesPackage.OFFERED_RESOURCE__GEOCOORDS:
+				return getGeocoords();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -322,6 +366,9 @@ public class OfferedResourceImpl extends ResourceImpl implements OfferedResource
 				return;
 			case ResourcesPackage.OFFERED_RESOURCE__MULTITON_MAX_OCCUR:
 				setMultitonMaxOccur((Integer)newValue);
+				return;
+			case ResourcesPackage.OFFERED_RESOURCE__GEOCOORDS:
+				setGeocoords((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -347,6 +394,9 @@ public class OfferedResourceImpl extends ResourceImpl implements OfferedResource
 			case ResourcesPackage.OFFERED_RESOURCE__MULTITON_MAX_OCCUR:
 				setMultitonMaxOccur(MULTITON_MAX_OCCUR_EDEFAULT);
 				return;
+			case ResourcesPackage.OFFERED_RESOURCE__GEOCOORDS:
+				setGeocoords(GEOCOORDS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -367,6 +417,8 @@ public class OfferedResourceImpl extends ResourceImpl implements OfferedResource
 				return implOfferedService != null;
 			case ResourcesPackage.OFFERED_RESOURCE__MULTITON_MAX_OCCUR:
 				return multitonMaxOccur != MULTITON_MAX_OCCUR_EDEFAULT;
+			case ResourcesPackage.OFFERED_RESOURCE__GEOCOORDS:
+				return GEOCOORDS_EDEFAULT == null ? geocoords != null : !GEOCOORDS_EDEFAULT.equals(geocoords);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -385,6 +437,8 @@ public class OfferedResourceImpl extends ResourceImpl implements OfferedResource
 		result.append(resourceType);
 		result.append(", multitonMaxOccur: ");
 		result.append(multitonMaxOccur);
+		result.append(", geocoords: ");
+		result.append(geocoords);
 		result.append(')');
 		return result.toString();
 	}

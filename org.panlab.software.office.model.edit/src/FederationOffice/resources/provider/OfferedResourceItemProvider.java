@@ -64,6 +64,7 @@ public class OfferedResourceItemProvider
 			addResourceTypePropertyDescriptor(object);
 			addImplOfferedServicePropertyDescriptor(object);
 			addMultitonMaxOccurPropertyDescriptor(object);
+			addGeocoordsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -108,6 +109,28 @@ public class OfferedResourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Geocoords feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGeocoordsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_OfferedResource_geocoords_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OfferedResource_geocoords_feature", "_UI_OfferedResource_type"),
+				 ResourcesPackage.Literals.OFFERED_RESOURCE__GEOCOORDS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -173,6 +196,7 @@ public class OfferedResourceItemProvider
 		switch (notification.getFeatureID(OfferedResource.class)) {
 			case ResourcesPackage.OFFERED_RESOURCE__RESOURCE_TYPE:
 			case ResourcesPackage.OFFERED_RESOURCE__MULTITON_MAX_OCCUR:
+			case ResourcesPackage.OFFERED_RESOURCE__GEOCOORDS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

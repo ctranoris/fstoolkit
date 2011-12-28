@@ -21,6 +21,7 @@ import FederationOffice.services.Service;
  *   <li>{@link FederationOffice.resources.OfferedResource#getBelongsToSite <em>Belongs To Site</em>}</li>
  *   <li>{@link FederationOffice.resources.OfferedResource#getImplOfferedService <em>Impl Offered Service</em>}</li>
  *   <li>{@link FederationOffice.resources.OfferedResource#getMultitonMaxOccur <em>Multiton Max Occur</em>}</li>
+ *   <li>{@link FederationOffice.resources.OfferedResource#getGeocoords <em>Geocoords</em>}</li>
  * </ul>
  * </p>
  *
@@ -85,6 +86,32 @@ public interface OfferedResource extends Resource {
 	 * @generated
 	 */
 	void setMultitonMaxOccur(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Geocoords</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Geocoords</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Geocoords</em>' attribute.
+	 * @see #setGeocoords(String)
+	 * @see FederationOffice.resources.ResourcesPackage#getOfferedResource_Geocoords()
+	 * @model
+	 * @generated
+	 */
+	String getGeocoords();
+
+	/**
+	 * Sets the value of the '{@link FederationOffice.resources.OfferedResource#getGeocoords <em>Geocoords</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Geocoords</em>' attribute.
+	 * @see #getGeocoords()
+	 * @generated
+	 */
+	void setGeocoords(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Belongs To Site</b></em>' container reference.

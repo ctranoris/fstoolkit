@@ -255,13 +255,22 @@ public interface ResourcesPackage extends EPackage {
 	int OFFERED_RESOURCE__MULTITON_MAX_OCCUR = RESOURCE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Geocoords</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OFFERED_RESOURCE__GEOCOORDS = RESOURCE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Offered Resource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OFFERED_RESOURCE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 4;
+	int OFFERED_RESOURCE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link FederationOffice.resources.impl.ResourceSettingImpl <em>Resource Setting</em>}' class.
@@ -559,6 +568,17 @@ public interface ResourcesPackage extends EPackage {
 	EAttribute getOfferedResource_MultitonMaxOccur();
 
 	/**
+	 * Returns the meta object for the attribute '{@link FederationOffice.resources.OfferedResource#getGeocoords <em>Geocoords</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Geocoords</em>'.
+	 * @see FederationOffice.resources.OfferedResource#getGeocoords()
+	 * @see #getOfferedResource()
+	 * @generated
+	 */
+	EAttribute getOfferedResource_Geocoords();
+
+	/**
 	 * Returns the meta object for the container reference '{@link FederationOffice.resources.OfferedResource#getBelongsToSite <em>Belongs To Site</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -724,6 +744,14 @@ public interface ResourcesPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OFFERED_RESOURCE__MULTITON_MAX_OCCUR = eINSTANCE.getOfferedResource_MultitonMaxOccur();
+
+		/**
+		 * The meta object literal for the '<em><b>Geocoords</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OFFERED_RESOURCE__GEOCOORDS = eINSTANCE.getOfferedResource_Geocoords();
 
 		/**
 		 * The meta object literal for the '<em><b>Belongs To Site</b></em>' container reference feature.

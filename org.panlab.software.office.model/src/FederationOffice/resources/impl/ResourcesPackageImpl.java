@@ -256,6 +256,15 @@ public class ResourcesPackageImpl extends EPackageImpl implements ResourcesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getOfferedResource_Geocoords() {
+		return (EAttribute)offeredResourceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getOfferedResource_BelongsToSite() {
 		return (EReference)offeredResourceEClass.getEStructuralFeatures().get(1);
 	}
@@ -361,6 +370,7 @@ public class ResourcesPackageImpl extends EPackageImpl implements ResourcesPacka
 		createEReference(offeredResourceEClass, OFFERED_RESOURCE__BELONGS_TO_SITE);
 		createEReference(offeredResourceEClass, OFFERED_RESOURCE__IMPL_OFFERED_SERVICE);
 		createEAttribute(offeredResourceEClass, OFFERED_RESOURCE__MULTITON_MAX_OCCUR);
+		createEAttribute(offeredResourceEClass, OFFERED_RESOURCE__GEOCOORDS);
 
 		resourceSettingEClass = createEClass(RESOURCE_SETTING);
 		createEReference(resourceSettingEClass, RESOURCE_SETTING__ONLY_CONFIGURED_BY_RESOURCES);
@@ -424,6 +434,7 @@ public class ResourcesPackageImpl extends EPackageImpl implements ResourcesPacka
 		initEReference(getOfferedResource_BelongsToSite(), theProvidersitePackage.getSite(), theProvidersitePackage.getSite_OfferedResourcesList(), "belongsToSite", null, 0, 1, OfferedResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOfferedResource_ImplOfferedService(), theServicesPackage.getService(), null, "implOfferedService", null, 0, 1, OfferedResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOfferedResource_MultitonMaxOccur(), ecorePackage.getEInt(), "multitonMaxOccur", "-1", 0, 1, OfferedResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOfferedResource_Geocoords(), ecorePackage.getEString(), "geocoords", null, 0, 1, OfferedResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resourceSettingEClass, ResourceSetting.class, "ResourceSetting", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResourceSetting_OnlyConfiguredByResources(), this.getResource(), null, "OnlyConfiguredByResources", null, 0, -1, ResourceSetting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
