@@ -391,6 +391,15 @@ public interface ResourcesPackage extends EPackage {
 	int RESOURCE_SETTING__REQUIRES_PARAMS = ServicesPackage.ABSTRACT_SETTING__REQUIRES_PARAMS;
 
 	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_SETTING__OPTIONAL = ServicesPackage.ABSTRACT_SETTING__OPTIONAL;
+
+	/**
 	 * The feature id for the '<em><b>Only Configured By Resources</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

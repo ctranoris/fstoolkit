@@ -39,6 +39,7 @@ import FederationOffice.services.SettingType;
  *   <li>{@link FederationOffice.services.impl.AbstractSettingImpl#isWritable <em>Writable</em>}</li>
  *   <li>{@link FederationOffice.services.impl.AbstractSettingImpl#getSettingConstraints <em>Setting Constraints</em>}</li>
  *   <li>{@link FederationOffice.services.impl.AbstractSettingImpl#getRequiresParams <em>Requires Params</em>}</li>
+ *   <li>{@link FederationOffice.services.impl.AbstractSettingImpl#isOptional <em>Optional</em>}</li>
  * </ul>
  * </p>
  *
@@ -174,6 +175,26 @@ public class AbstractSettingImpl extends NamedElementImpl implements AbstractSet
 	 * @ordered
 	 */
 	protected EList<AbstractSetting> requiresParams;
+
+	/**
+	 * The default value of the '{@link #isOptional() <em>Optional</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isOptional()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean OPTIONAL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isOptional() <em>Optional</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isOptional()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean optional = OPTIONAL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -394,6 +415,27 @@ public class AbstractSettingImpl extends NamedElementImpl implements AbstractSet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isOptional() {
+		return optional;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOptional(boolean newOptional) {
+		boolean oldOptional = optional;
+		optional = newOptional;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ServicesPackage.ABSTRACT_SETTING__OPTIONAL, oldOptional, optional));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -430,6 +472,8 @@ public class AbstractSettingImpl extends NamedElementImpl implements AbstractSet
 				return getSettingConstraints();
 			case ServicesPackage.ABSTRACT_SETTING__REQUIRES_PARAMS:
 				return getRequiresParams();
+			case ServicesPackage.ABSTRACT_SETTING__OPTIONAL:
+				return isOptional();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -469,6 +513,9 @@ public class AbstractSettingImpl extends NamedElementImpl implements AbstractSet
 				getRequiresParams().clear();
 				getRequiresParams().addAll((Collection<? extends AbstractSetting>)newValue);
 				return;
+			case ServicesPackage.ABSTRACT_SETTING__OPTIONAL:
+				setOptional((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -505,6 +552,9 @@ public class AbstractSettingImpl extends NamedElementImpl implements AbstractSet
 			case ServicesPackage.ABSTRACT_SETTING__REQUIRES_PARAMS:
 				getRequiresParams().clear();
 				return;
+			case ServicesPackage.ABSTRACT_SETTING__OPTIONAL:
+				setOptional(OPTIONAL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -533,6 +583,8 @@ public class AbstractSettingImpl extends NamedElementImpl implements AbstractSet
 				return settingConstraints != null && !settingConstraints.isEmpty();
 			case ServicesPackage.ABSTRACT_SETTING__REQUIRES_PARAMS:
 				return requiresParams != null && !requiresParams.isEmpty();
+			case ServicesPackage.ABSTRACT_SETTING__OPTIONAL:
+				return optional != OPTIONAL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -557,6 +609,8 @@ public class AbstractSettingImpl extends NamedElementImpl implements AbstractSet
 		result.append(readable);
 		result.append(", Writable: ");
 		result.append(writable);
+		result.append(", Optional: ");
+		result.append(optional);
 		result.append(')');
 		return result.toString();
 	}

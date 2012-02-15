@@ -30,8 +30,7 @@ public class SFAPreferencePage extends PreferencePage implements
 		
 //		ImageDescriptor imageDesc = new ;
 		setImageDescriptor( AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.fstoolkit.sfaclient",  "icons/sfa_logo.gif") );
-		setDescription("Please fill your credentials for Slice Federation Architecture (SFA) authorities");
-		
+		setDescription("Please fill your credentials for Slice Federation Architecture (SFA) authorities");		
 	}
 
 	
@@ -92,7 +91,12 @@ public class SFAPreferencePage extends PreferencePage implements
 	    		  preferenceStore.getString("AUTHORITY_" + i ), 
 	    		  preferenceStore.getString("CERTIFICATEFILENAME_" + i ),
 	    		  preferenceStore.getString("TRUSTSTORE_" + i ), 
-	    		  preferenceStore.getString("TRUSTSTOREPASSWORD_" + i ) );
+	    		  preferenceStore.getString("TRUSTSTOREPASSWORD_" + i ), 
+	    		  preferenceStore.getString("SFAVERSION_" + i ), 
+	    		  preferenceStore.getString("SFATYPE_" + i ), 
+	    		  preferenceStore.getBoolean("ENABLEDACCOUNT_" + i ), 
+	    		  preferenceStore.getBoolean("CACHEMODEL_" + i ) 	    		  
+	    		  );
 		
 	      item.setData( account );
 	      
@@ -156,7 +160,7 @@ public class SFAPreferencePage extends PreferencePage implements
 	protected void add() {
 		SFAAccount account = new SFAAccount("https://url:12345", "https://url:12346", "https://url:12347",  
 				"", "", "", 
-				"plc.<baseurl>", "", "", "");
+				"plc.<baseurl>", "", "", "", "2", "SFA", true, false);
 		SFAAccount newaccount = editSFAAccount(account, false);
 		if (newaccount != null){
 			TreeItem item = new TreeItem(tree, SWT.NONE);
@@ -224,7 +228,10 @@ public class SFAPreferencePage extends PreferencePage implements
 		  preferenceStore.setValue("CERTIFICATEFILENAME_" + i , account.getCertificateFileName() );
 		  preferenceStore.setValue("TRUSTSTORE_" + i , account.getTrustStoreFileName ()); 
 		  preferenceStore.setValue("TRUSTSTOREPASSWORD_" + i , account.getTrustStorePassword() );
-		  
+		  preferenceStore.setValue("SFAVERSION_" + i , account.getSFAVersion() );
+		  preferenceStore.setValue("SFATYPE_" + i , account.getSFAType() );
+		  preferenceStore.setValue("ENABLEDACCOUNT_" +i, account.getEnabledAccount());
+		  preferenceStore.setValue("CACHEMODEL_" +i, account.getCacheModel());
 
 	    }   
 	    // Set the values from the fields

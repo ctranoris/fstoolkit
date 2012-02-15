@@ -197,8 +197,13 @@ public class SFARepository implements IOfficeRepository {
 			opts.put(SFAUtils.AUTHORITY, preferenceStore.getString("AUTHORITY_" + i ));
 			opts.put(SFAUtils.USERNAME, preferenceStore.getString("USERNAME_" + i ));
 			opts.put(SFAUtils.SELF_CERTIFICATE_FILEPATH, preferenceStore.getString("CERTIFICATEFILENAME_" + i ));
+			opts.put(SFAUtils.SFA_VERSION, preferenceStore.getString("SFAVERSION_" + i ));
+			opts.put(SFAUtils.SFA_TYPE, preferenceStore.getString("SFATYPE_" + i ));
+			opts.put(SFAUtils.ENABLED_ACCOUND, preferenceStore.getString("ENABLEDACCOUNT_" + i ));
+			opts.put(SFAUtils.CACHE_MODEL, preferenceStore.getString("CACHEMODEL_" + i ));
 
-			creds.add(cred);	
+			if (preferenceStore.getBoolean("ENABLEDACCOUNT_" + i ) ) //only if the account is enabled then load it
+				creds.add(cred);	
 	      
 	    }
 	    

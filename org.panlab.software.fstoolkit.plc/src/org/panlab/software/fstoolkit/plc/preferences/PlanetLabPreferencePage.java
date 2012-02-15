@@ -97,7 +97,10 @@ public class PlanetLabPreferencePage extends PreferencePage  implements
 	    		  preferenceStore.getString("PLCNAME_" + i ), 
 	    		  preferenceStore.getString("URL_" + i ), 
 	    		  preferenceStore.getString("USERNAME_" + i ), 
-	    		  preferenceStore.getString("PASSWORD_" + i ));
+	    		  preferenceStore.getString("PASSWORD_" + i ),
+	    		  preferenceStore.getBoolean("ENABLED_ACCOUNT_" + i)
+	    		  );
+	      		
 		
 	      item.setData( account );
 	      
@@ -150,7 +153,7 @@ public class PlanetLabPreferencePage extends PreferencePage  implements
 	}
 
 	protected void add() {
-		PLCAccount account = new PLCAccount("", "", "", "");
+		PLCAccount account = new PLCAccount("", "", "", "", true);
 		PLCAccount newaccount = editPLCAccount(account, false);
 		if (newaccount != null){
 			TreeItem item = new TreeItem(tree, SWT.NONE);
@@ -211,6 +214,8 @@ public class PlanetLabPreferencePage extends PreferencePage  implements
 		  preferenceStore.setValue("URL_" + i , account.getUrlapi());
 		  preferenceStore.setValue("USERNAME_" + i , account.getUsername()); 
 		  preferenceStore.setValue("PASSWORD_" + i , account.getPassword() );
+		  preferenceStore.setValue("ENABLED_ACCOUNT_" + i , account.getEnabledAccount() );
+		  
 
 	    }   
 	    // Set the values from the fields

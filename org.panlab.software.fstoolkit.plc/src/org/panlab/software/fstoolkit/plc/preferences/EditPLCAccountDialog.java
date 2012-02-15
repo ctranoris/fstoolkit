@@ -4,6 +4,7 @@ import org.eclipse.jface.dialogs.StatusDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
@@ -17,6 +18,7 @@ public class EditPLCAccountDialog extends StatusDialog {
 	private Text urlApiText;
 	private Text usernameText;
 	private Text passwordText;
+	private Button enableAccountCkb;
 	
 	public EditPLCAccountDialog(Shell parent, PLCAccount account, boolean edit) {
 		super(parent);
@@ -44,6 +46,11 @@ public class EditPLCAccountDialog extends StatusDialog {
         gd.horizontalSpan= 2;
         gd.widthHint = 400;
         container.setLayoutData(gd); 
+        
+        createLabel(container, "");
+        enableAccountCkb = new Button(container, SWT.CHECK );
+        enableAccountCkb.setText("Enable this account");
+        enableAccountCkb.setSelection( account.getEnabledAccount() );
 
         createLabel(container, "PLC name:");
 		//int descFlags= fIsNameModifiable ? SWT.BORDER : SWT.BORDER | SWT.READ_ONLY;
@@ -71,6 +78,8 @@ public class EditPLCAccountDialog extends StatusDialog {
 		passwordText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 		passwordText.setEchoChar('*');
 		passwordText.setText(account.getPassword() );
+		
+		
 
 		return super.createDialogArea(container);
 	}
@@ -95,6 +104,7 @@ public class EditPLCAccountDialog extends StatusDialog {
 		account.setUrlapi(this.urlApiText.getText());
 		account.setUsername(this.usernameText.getText());
 		account.setPassword(this.passwordText.getText());
+		account.setEnabledAccount(this.enableAccountCkb.getSelection());
 		super.okPressed();
 	}
 	

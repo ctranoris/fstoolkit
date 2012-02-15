@@ -1,6 +1,7 @@
 package org.panlab.software.fstoolkit.plc;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
@@ -65,27 +66,33 @@ public class Activator extends AbstractUIPlugin {
 		return plcOffices;
 	}
 
-	public List<Office> loadPLCOfficeDescription(String string, String string2) {
-		FCICredentials cred =FederationOffice.fcielements.FcielementsFactory.eINSTANCE.createFCICredentials();
-		cred.setUsername( string );
-		cred.setPassword( string2 );
+	public List<Office> loadPLCOfficeDescription(List<FCICredentials> creds) {
+		this.plcOffices.clear();
+		
 		FCI fci = FCI.getInstance();
-		AuthorizationKey authKey = fci.createAuthorizationKey(cred);
-		//amazon = fci.createResourceContext("amazon", authKey);
-		//Office plcOffice = amazon.getOfficeModel();	
-		Office plcOffice = FederationOffice.FederationOfficeFactory.eINSTANCE.createOffice();
-		plcOffice.setName("PLC site A");
-		this.plcOffices.add(plcOffice);
 		
+		for (Iterator<FCICredentials> iterator = creds.iterator(); iterator.hasNext();) {
+			FCICredentials cred = (FCICredentials) iterator.next();
+			AuthorizationKey authKey = fci.createAuthorizationKey(cred);
+//			ResourceContext sfa = fci.createResourceContext("plc", authKey);
+//			Office sfaOffice  = sfa.getOfficeModel();
+//			
+//			if (sfaOffice instanceof SFAOfficeProxy)
+//				if ( !((SFAOfficeProxy)sfaOffice).officeLoaded() ){
+//					sfaOffice = FederationOffice.FederationOfficeFactory.eINSTANCE.createOffice();
+//					sfaOffice.setName(
+//							authKey.getCredentials().getCredoptions().get(SFAUtils.AUTHORITY ) +
+//							" (error loading)");
+//				}
+			
+			Office plcOffice = FederationOffice.FederationOfficeFactory.eINSTANCE.createOffice();
+			plcOffice.setName( authKey.getCredentials().getCredoptions().get( "PLCNAME") + " (m2m not implemented)");
+			this.plcOffices.add(plcOffice);
+			
+		}
 
-		plcOffice = FederationOffice.FederationOfficeFactory.eINSTANCE.createOffice();
-		plcOffice.setName("PLC site B");		
-		this.plcOffices.add(plcOffice);
-		
-		// Get the first model element and cast it to the right type, in my
-		// example everything is hierarchical included in this first node
 		if (plcOffices!=null){
-			return plcOffices;
+			return this.plcOffices;
 		}
 		return null;
 	}

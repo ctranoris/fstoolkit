@@ -254,13 +254,22 @@ public interface ServicesPackage extends EPackage {
 	int ABSTRACT_SETTING__REQUIRES_PARAMS = FederationOfficePackage.NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_SETTING__OPTIONAL = FederationOfficePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Abstract Setting</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_SETTING_FEATURE_COUNT = FederationOfficePackage.NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int ABSTRACT_SETTING_FEATURE_COUNT = FederationOfficePackage.NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link FederationOffice.services.impl.ServiceSettingImpl <em>Service Setting</em>}' class.
@@ -379,6 +388,15 @@ public interface ServicesPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVICE_SETTING__REQUIRES_PARAMS = ABSTRACT_SETTING__REQUIRES_PARAMS;
+
+	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_SETTING__OPTIONAL = ABSTRACT_SETTING__OPTIONAL;
 
 	/**
 	 * The feature id for the '<em><b>Mapped To Resource Settings</b></em>' reference list.
@@ -1469,6 +1487,17 @@ public interface ServicesPackage extends EPackage {
 	EReference getAbstractSetting_RequiresParams();
 
 	/**
+	 * Returns the meta object for the attribute '{@link FederationOffice.services.AbstractSetting#isOptional <em>Optional</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Optional</em>'.
+	 * @see FederationOffice.services.AbstractSetting#isOptional()
+	 * @see #getAbstractSetting()
+	 * @generated
+	 */
+	EAttribute getAbstractSetting_Optional();
+
+	/**
 	 * Returns the meta object for class '{@link FederationOffice.services.SettingConstraint <em>Setting Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1854,6 +1883,14 @@ public interface ServicesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ABSTRACT_SETTING__REQUIRES_PARAMS = eINSTANCE.getAbstractSetting_RequiresParams();
+
+		/**
+		 * The meta object literal for the '<em><b>Optional</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_SETTING__OPTIONAL = eINSTANCE.getAbstractSetting_Optional();
 
 		/**
 		 * The meta object literal for the '{@link FederationOffice.services.impl.SettingConstraintImpl <em>Setting Constraint</em>}' class.

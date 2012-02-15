@@ -587,6 +587,15 @@ public class ServicesPackageImpl extends EPackageImpl implements ServicesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAbstractSetting_Optional() {
+		return (EAttribute)abstractSettingEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSettingConstraint() {
 		return settingConstraintEClass;
 	}
@@ -702,6 +711,7 @@ public class ServicesPackageImpl extends EPackageImpl implements ServicesPackage
 		createEAttribute(abstractSettingEClass, ABSTRACT_SETTING__WRITABLE);
 		createEReference(abstractSettingEClass, ABSTRACT_SETTING__SETTING_CONSTRAINTS);
 		createEReference(abstractSettingEClass, ABSTRACT_SETTING__REQUIRES_PARAMS);
+		createEAttribute(abstractSettingEClass, ABSTRACT_SETTING__OPTIONAL);
 
 		settingConstraintEClass = createEClass(SETTING_CONSTRAINT);
 		createEAttribute(settingConstraintEClass, SETTING_CONSTRAINT__FOR_OPERATION);
@@ -806,6 +816,7 @@ public class ServicesPackageImpl extends EPackageImpl implements ServicesPackage
 		initEAttribute(getAbstractSetting_Writable(), ecorePackage.getEBoolean(), "Writable", "false", 0, 1, AbstractSetting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAbstractSetting_SettingConstraints(), this.getSettingConstraint(), null, "settingConstraints", null, 0, -1, AbstractSetting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAbstractSetting_RequiresParams(), this.getAbstractSetting(), null, "requiresParams", null, 0, -1, AbstractSetting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractSetting_Optional(), ecorePackage.getEBoolean(), "Optional", null, 0, 1, AbstractSetting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(settingConstraintEClass, SettingConstraint.class, "SettingConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSettingConstraint_ForOperation(), this.getServiceResourceOperation(), "ForOperation", null, 0, 1, SettingConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -75,6 +75,7 @@ public class AbstractSettingItemProvider
 			addReadablePropertyDescriptor(object);
 			addWritablePropertyDescriptor(object);
 			addRequiresParamsPropertyDescriptor(object);
+			addOptionalPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -212,6 +213,28 @@ public class AbstractSettingItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Optional feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOptionalPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractSetting_Optional_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractSetting_Optional_feature", "_UI_AbstractSetting_type"),
+				 ServicesPackage.Literals.ABSTRACT_SETTING__OPTIONAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -284,6 +307,7 @@ public class AbstractSettingItemProvider
 			case ServicesPackage.ABSTRACT_SETTING__CAN_BE_PUBLISHED:
 			case ServicesPackage.ABSTRACT_SETTING__READABLE:
 			case ServicesPackage.ABSTRACT_SETTING__WRITABLE:
+			case ServicesPackage.ABSTRACT_SETTING__OPTIONAL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ServicesPackage.ABSTRACT_SETTING__SETTING_TYPE:

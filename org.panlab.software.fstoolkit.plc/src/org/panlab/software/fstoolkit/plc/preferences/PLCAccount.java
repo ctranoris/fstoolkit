@@ -5,12 +5,14 @@ public class PLCAccount {
 	private String urlapi;
 	private String username;
 	private String password;
+	private boolean enabledAccount;
 	
-	public PLCAccount (String plcname, String url, String username, String pwd){
+	public PLCAccount (String plcname, String url, String username, String pwd, boolean enabledAccount){
 		this.plcName = plcname;
 		this.urlapi=url;
 		this.username = username;
 		this.password = pwd;
+		this.enabledAccount = enabledAccount;
 	}
 	
 	public String getPlcName() {
@@ -36,5 +38,15 @@ public class PLCAccount {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public void setEnabledAccount(boolean selection) {
+		this.enabledAccount = selection;
+		
+	}
+	
+	public boolean getEnabledAccount( ) {
+		return this.enabledAccount;
+		
 	}
 }

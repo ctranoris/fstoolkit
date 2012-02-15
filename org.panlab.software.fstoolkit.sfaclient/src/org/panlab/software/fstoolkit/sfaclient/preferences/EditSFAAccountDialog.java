@@ -21,6 +21,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.FileDialog;
+import org.panlab.software.fci.sfa.SFA_XMLRPCClient;
 
 public class EditSFAAccountDialog extends StatusDialog {
 
@@ -36,6 +37,10 @@ public class EditSFAAccountDialog extends StatusDialog {
 	private Text testConnection;
 	private Text trustStoreFileNameText;
 	private Text trustStorePasswordText;
+	private Text SFAVersionText;
+	private Text SFATypeText;
+	private Button enableAccountChb;
+	private Button cacheRSpecCkb;
 	
 
 	
@@ -73,6 +78,14 @@ public class EditSFAAccountDialog extends StatusDialog {
 		gd.horizontalAlignment = SWT.FILL;
         container.setLayoutData(gd); 
 
+        createLabel(container, "");
+        enableAccountChb = new Button(container, SWT.CHECK );
+        enableAccountChb.setText("Enable this account");
+        enableAccountChb.setSelection( account.getEnabledAccount() );
+        enableAccountChb.setLayoutData(gdButton);        
+        createLabel(container, "");       
+        
+        
         createLabel(container, "Registry URL:");
 		//int descFlags= fIsNameModifiable ? SWT.BORDER : SWT.BORDER | SWT.READ_ONLY;
         GridData  gdtext= new GridData(GridData.FILL_HORIZONTAL );
@@ -114,7 +127,23 @@ public class EditSFAAccountDialog extends StatusDialog {
 		usernameText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 		usernameText.setText(account.getUsername() );
         createLabel(container, "");
-
+        
+        
+		createLabel(container, "SFAVersion:");
+		//int descFlags= fIsNameModifiable ? SWT.BORDER : SWT.BORDER | SWT.READ_ONLY;
+		SFAVersionText = new Text(container, SWT.BORDER );
+		SFAVersionText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		SFAVersionText.setText(account.getSFAVersion() );
+        createLabel(container, "");
+        
+		createLabel(container, "SFAType:");
+		//int descFlags= fIsNameModifiable ? SWT.BORDER : SWT.BORDER | SWT.READ_ONLY;
+		SFATypeText = new Text(container, SWT.BORDER );
+		SFATypeText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		SFATypeText.setText(account.getSFAType() );
+        createLabel(container, "");
+        
+    	
 		
         createLabel(container, "p12 Keystore Filename (.p12):");
 		//int descFlags= fIsNameModifiable ? SWT.BORDER : SWT.BORDER | SWT.READ_ONLY;
@@ -196,6 +225,15 @@ public class EditSFAAccountDialog extends StatusDialog {
 			}
 		});
 
+
+		createLabel(container, "");
+		cacheRSpecCkb = new Button(container, SWT.CHECK);
+		cacheRSpecCkb.setText("Cache R-Spec");
+		cacheRSpecCkb.setLayoutData(gdButton);  
+		cacheRSpecCkb.setSelection( account.getCacheModel() );
+		cacheRSpecCkb.setToolTipText("Check this if you want to cache the R-Spec and speedup the loading of Eclipse plugins. Press the Test button to reload model");
+        createLabel(container, "");        
+        
 		createLabel(container, "Test connection:");
         
 		testConnection = new Text(container, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
@@ -209,7 +247,7 @@ public class EditSFAAccountDialog extends StatusDialog {
 		testConnection.setText("Press the Test button after filling your settings to test connectivity.");
 		
 		button = new Button(container, SWT.PUSH);
-		button.setText("Test");
+		button.setText("Test / Update model");
 		button.setLayoutData(new GridData(GridData.VERTICAL_ALIGN_BEGINNING) );
 		
         button.setLayoutData(gdButton);
@@ -240,15 +278,20 @@ public class EditSFAAccountDialog extends StatusDialog {
 		
 		
 		
-		String res = SFAMainxmlrpc.testMe(this.registryUrlText.getText(), 
+		SFA_XMLRPCClient sfa = new SFA_XMLRPCClient();
+		String res = sfa.testMe(this.registryUrlText.getText(), 
 				this.sliceManagerUrlText.getText(),
+				this.aggregateUrlText.getText(),
 				this.keystoreFileNameText.getText(),
 				this.keystorePasswordText.getText(),
 				this.trustStoreFileNameText.getText(),
 				this.trustStorePasswordText.getText(),
 				this.authorityText.getText(),
 				this.usernameText.getText(),
-				certtext).toString() ;
+				certtext,
+				this.SFAVersionText.getText(),
+				this.SFATypeText.getText()
+				).toString() ;
 		
 		testConnection.setText(res);
 	}
@@ -307,6 +350,10 @@ public class EditSFAAccountDialog extends StatusDialog {
 		account.setCertificateFileName(this.certificateText.getText());
 		account.setTrustStoreFileName(this.trustStoreFileNameText.getText());
 		account.setTrustStorePassword(this.trustStorePasswordText.getText());
+		account.setSFAVersionText(this.SFAVersionText.getText());
+		account.setSFATypeText(this.SFATypeText.getText());
+		account.setEnabledAccount( this.enableAccountChb.getSelection() );
+		account.setCacheModel(this.cacheRSpecCkb.getSelection());
 		super.okPressed();
 	}
 

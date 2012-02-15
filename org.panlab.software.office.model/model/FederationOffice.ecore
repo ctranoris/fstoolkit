@@ -358,6 +358,9 @@
           <details key="documentation" value="-&#x9;A parameter Pa of a resource/service Ra requires a parameter(s) Pb of another Resource/Service Rb"/>
         </eAnnotations>
       </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Optional" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="displays if this is an optional value for the user to set"/>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SettingConstraint" eSuperTypes="#//NamedElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ForOperation" eType="#//services/ServiceResourceOperation"/>

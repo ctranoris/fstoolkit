@@ -15,7 +15,10 @@ public class SFAAccount {
 	private String username;
 	private String authority;
 	private String certificateFileName;//The .pem self signed certificate , from command C:\Users\ctranoris\Desktop\_downloads\tmp\plckeys>c:\OpenSSL-Win32\bin\openssl x509 -text -in sfa1inria.pem
-	
+	private String SFAversion;
+	private String SFAtype;
+	private boolean enabledAccount;
+	private boolean cacheModel;
 
 	/**
 	 * @param registry_url the URL of the registry SFA authority with port number
@@ -28,13 +31,21 @@ public class SFAAccount {
 	 * @param certificateFileName
 	 * @param trustStoreFileName
 	 * @param trustStorePassword
+	 * @param SFAversion
+	 * @param SFAtype
+	 * @param enabledAccount
+	 * @param cacheModel
 	 */
 	public SFAAccount(String registry_url, String aggregate_url,
 			String slicemanager_url, String keystoreFileName,
 			String keystorePassword, String username, String authority,
 			String certificateFileName,
 			String trustStoreFileName,
-			String trustStorePassword ) {
+			String trustStorePassword,
+			String SFAversion,
+			String SFAtype,
+			boolean enabledAccount,
+			boolean cacheModel) {
 		super();
 		this.registry_url = registry_url;
 		this.aggregate_url = aggregate_url;
@@ -46,7 +57,10 @@ public class SFAAccount {
 		this.certificateFileName = certificateFileName;
 		this.trustStoreFileName=trustStoreFileName;
 		this.trustStorePassword = trustStorePassword;
-		
+		this.SFAversion = SFAversion;
+		this.SFAtype = SFAtype;
+		this.enabledAccount = enabledAccount;
+		this.cacheModel = cacheModel;
 	}
 
 
@@ -179,6 +193,51 @@ public class SFAAccount {
 	}
 	public void setAuthority(String authority) {
 		this.authority = authority;
+	}
+
+
+	public String getSFAVersion() {
+		return this.SFAversion;
+	}
+
+
+	public String getSFAType() {
+		return this.SFAtype ;
+	}
+
+
+	public void setSFAVersionText(String sfaversion) {
+		this.SFAversion = sfaversion;
+		
+	}
+
+
+	public void setSFATypeText(String sfatype) {
+		this.SFAtype = sfatype;
+		
+	}
+
+
+	public void setEnabledAccount(boolean selection) {
+		this.enabledAccount = selection;
+		
+	}
+
+
+	public void setCacheModel(boolean selection) {
+		this.cacheModel = selection;
+		
+	}
+	
+	public boolean getEnabledAccount() {
+		return this.enabledAccount;
+		
+	}
+
+
+	public boolean getCacheModel() {
+		return this.cacheModel;
+		
 	}
 	
 }
