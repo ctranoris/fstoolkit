@@ -38,7 +38,7 @@ public class FSDLSourceCompletion {
 	public void AddOfferedService(Office office, Service obj) {
 		// Kalytera to Inject na ginetai apo allo antikeimeno sto workbench pou
 		// na upologizei tin swsti 8esi..kai mipws bazei kai olokliro template
-		String InjectString = "\"" + office.getName() + "." + obj.getName() + "\"";
+		String InjectString = "\"" + obj.getName()  + "." + office.getName()+ "\"";
 		InjectString =  "\n\tService "+InjectString+" as my"+obj.getName()+ " settings{" +
 			"//" + obj.getDescription()+
 			"\n";
