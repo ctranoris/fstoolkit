@@ -38,46 +38,17 @@ import org.apache.xmlrpc.client.XmlRpcSunHttpTransport;
 import org.apache.xmlrpc.client.XmlRpcSunHttpTransportFactory;
 
 
-public class SFAMainxmlrpc {
+public class CopyOfSFAMainxmlrpc_NOVI {
 
    
 	final static XmlRpcClient client = new XmlRpcClient();
 	final static XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
 	private static String SFAcredential;
-	
-	
-//	private static String registry_url = "https://plc:12345";
-//	private static String am_url = "https://plc:12346";
-//	private static String sm_url = "https://plc:12347";
-//	private static String keystore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\client1plc.p12";
-//	private static String authority = "plc.uoppldef.tranoris";
-	
-	
-//	private static String registry_url = "https://sfa1.pl.sophia.inria.fr:12345";
-//	private static String am_url = "https://sfa1.pl.sophia.inria.fr:12346";
-//	private static String sm_url = "https://sfa1.pl.sophia.inria.fr:12347";
-//	private static String keystore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\sfa1inriactranoris.p12";
-//	private static String authority = "pla.openlab.ctranoris";
-
-
-	
-//	private static String registry_url = "https://www.planet-lab.eu:12345";
-//	private static String am_url = "https://www.planet-lab.eu:12346";
-//	private static String sm_url = "https://www.planet-lab.eu:12347";
-//	private static String keystore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\client1ple.p12";
-//	private static String authority = "ple.upatrasple.tranoris";
-//	private static String trustStore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\myplc.keystore";
-	
 	private static String registry_url = "https://150.254.160.18:12345";
 	private static String am_url = "https://150.254.160.18:12346";
 	private static String sm_url = "https://150.254.160.18:12347";
 	private static String keystore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\novi\\client3.p12";
-	private static String authority = "novipl.novi.celia_velayos2";
-	private static String trustStore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\myplc.keystore";
-	
-//	private static String keystore = "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\sfa1inria.p12";
-//	private static String authority = "pla.openlab.tranoris";
-	
+	private static String authority = "novipl.novi.celia_velayos2";	
 	/**
 	 * @param args
 	 */
@@ -118,12 +89,11 @@ public class SFAMainxmlrpc {
 
 			    
 			    System.setProperty("javax.net.ssl.trustStoreType", "jks");
-			    System.setProperty("javax.net.ssl.trustStore", trustStore);
+			    System.setProperty("javax.net.ssl.trustStore", "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\novi\\client3.keystore");
 			    System.setProperty("javax.net.debug", "all");
 			    System.setProperty("javax.net.ssl.trustStorePassword", "123456");
 
 			   
-				
 			     System.out.println("Tstep 1");
 			     
 			     SSLContext sc = null;
@@ -212,37 +182,48 @@ public class SFAMainxmlrpc {
 
 
 
-	private static void ListResources() {
-	    
-	    System.out.println("ListResources()");
-			Object result;
-			Vector<Serializable> params = new Vector<Serializable>();
-		    //params.addElement( new String("plc.uopplcbase"));
-		    String cred = SFAcredential;		    
-		    params.addElement(  cred );		    
-		    
-		    HashMap<String, Object> auth = new HashMap<String, Object>();
-//		    auth.put("type", "ProtoGENI");
-//		    auth.put("version", "2");
-		    
-		    auth.put("version", "1");
-		    auth.put("type", "SFA");
-//		    java.util.List<String>  extensions = new java.util.ArrayList<String>();
-		    //auth.put ("extensions", extensions );
-		    //auth.put("namespace", null);
-//		    auth.put("schema", null);
-		    
-			HashMap<String, HashMap<String, Object> > rspec_version = new HashMap<String, HashMap<String, Object>>();
-			//geni_rspec_version.put("geni_rspec_version", auth);
-			rspec_version.put("rspec_version", auth);	 	    
-			
-			params.addElement( rspec_version );
+	public static String ListResources() {
 
-//			result = execXMLRPC_aggregate("ListResources", params);
-			result = execXMLRPC_sliceManager("ListResources", params);
-			
-			
-		}	
+		System.out.println("ListResources()");
+		
+		String xml="";
+		Object result;
+		Vector<Serializable> params = new Vector<Serializable>();
+	    //params.addElement( new String("plc.uopplcbase"));
+	    String cred = SFAcredential;		    
+	    params.addElement(  cred );		    
+	    
+	    HashMap<String, Object> auth = new HashMap<String, Object>();
+//	    auth.put("type", "ProtoGENI");
+//	    auth.put("version", "2");
+	    
+	    auth.put("version", "1");
+	    auth.put("type", "SFA");
+//	    java.util.List<String>  extensions = new java.util.ArrayList<String>();
+	    //auth.put ("extensions", extensions );
+	    //auth.put("namespace", null);
+//	    auth.put("schema", null);
+	    
+		HashMap<String, HashMap<String, Object> > rspec_version = new HashMap<String, HashMap<String, Object>>();
+		//geni_rspec_version.put("geni_rspec_version", auth);
+		rspec_version.put("rspec_version", auth);	 	    
+		
+		params.addElement( rspec_version );
+
+//		result = execXMLRPC_aggregate("ListResources", params);
+		result = execXMLRPC_sliceManager("ListResources", params);
+		
+		if (result instanceof Map){
+	    	Map map = (Map) result;
+	    	Set<String> ks = map.keySet();
+	    	//System.out.println("xmltype: " + map.get("value").toString()  );
+	    	xml = (String) map.get("value");
+		}else 
+			xml = result.toString();
+		
+		return xml;
+
+	}	
 
 
 
@@ -279,45 +260,26 @@ public class SFAMainxmlrpc {
 //				"AqPE2T+hDmlBrDbBLRFyc4XGumZuvCqs28uJiOylC+M2cELDE+D0wq1HNl0=\n"+
 //				"-----END CERTIFICATE-----") );
 		
-		//the following for SFA_INRIA, PLE
-//		params.addElement( new String("-----BEGIN CERTIFICATE-----\n"+
-//				"MIIC9jCCAd4CCQDcMCK6VBKdVjANBgkqhkiG9w0BAQUFADA9MQswCQYDVQQGEwJH\n"+
-//				"UjEPMA0GA1UECAwGQWNoYWlhMR0wGwYDVQQDDBRwbGEub3BlbmxhYi50cmFub3Jp\n"+
-//				"czAeFw0xMTEyMDcxODM2MjBaFw0xNjEyMDUxODM2MjBaMD0xCzAJBgNVBAYTAkdS\n"+
-//				"MQ8wDQYDVQQIDAZBY2hhaWExHTAbBgNVBAMMFHBsYS5vcGVubGFiLnRyYW5vcmlz\n"+
-//				"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsSvxbmgfl47s2xhPwLOb\n"+
-//				"NMhJ/qZK9lBbA1kv+R1yGdKoDRwRTIGMVOFe+ahaI2Ul3T+SpNOyRKGtisMupO12\n"+
-//				"RiFurLm+g/k979hTp8vfMoDep1HxFkSPEFeDjK6QTbTNbYFKJmo2DIadJR70NqTg\n"+
-//				"b9bt67B4D8oC3BrcmHjbDQJEaX8+uV6moplI/26Krux1wZesi9SCD/bMHRYrxoaG\n"+
-//				"VmBpaT6Y7zJoGjk5BUZVwlBSxP1iPRTA12a2piQd+xDGOJBuqmLnShGrEH2vEqot\n"+
-//				"Z4ZRKeC/XAqZiOG9AuqMX/aVnFTTWQ8wxQevwDO2ocCqsz5h+DL8QdBBCayab12F\n"+
-//				"fwIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQBfdRjFrE7s/x7GtTvcQYU/Pj83Zjzc\n"+
-//				"h1gMuO5eNb+2GsMMYa8LTk3QZaLAsszCzxULWkAo1jKl5cQADqIMLZNX41dny8ma\n"+
-//				"l20JptFLc5AXsRaqMC88HOFrFE2J7FTEf5lBXbsYwfzo4VN6VW3n43GWditfIzNO\n"+
-//				"oPjPCETIH7WaHBg2oHJ+MHaFRroWdY/KuDbX7JATZIQpK2ws9noAlwaQafMagRih\n"+
-//				"Ft+m1UsPQ8fFNGw6T6ASUIplERqyEw74KvCnxPRvKVjUIzameVD9FdAHqqJ9GHUu\n"+
-//				"bHPtUz2dDR8Y4ICYreryWazHB+sqV5RyKQHeaZaVFdvyPYqhiWFQuo65\n"+
-//				"-----END CERTIFICATE-----") );
-		
-		params.addElement( new String("-----BEGIN CERTIFICATE-----\n"+
-"MIIDADCCAegCCQCPuuD9KjEVMjANBgkqhkiG9w0BAQUFADBDMQswCQYDVQQGEwJH\n"+
-"UjEPMA0GA1UECAwGQWNoYWlhMSMwIQYDVQQDDBpub3ZpcGwubm92aS5jZWxpYV92\n"+
-"ZWxheW9zMjAeFw0xMjAyMDIxMzI4MTBaFw0xNzAxMzExMzI4MTBaMEMxCzAJBgNV\n"+
-"BAYTAkdSMQ8wDQYDVQQIDAZBY2hhaWExIzAhBgNVBAMMGm5vdmlwbC5ub3ZpLmNl\n"+
-"bGlhX3ZlbGF5b3MyMIIBIDANBgkqhkiG9w0BAQEFAAOCAQ0AMIIBCAKCAQEA0h8O\n"+
-"+/EaO86M0IXVBpR7ikfc2JCVZgZj3ivlGhvPpIosl4VMEsr42BHvLbz/thRTdaqM\n"+
-"JZh5gNdBC6lmHlN9Y77zB/3cYItQ054yUoiPjv8oDIkpeanBCU/wa+wV5IqcQyH9\n"+
-"a0m3kQkO5+E+D/WoB1/Ke6Fx+9oaFq0UjituSxpGJCArZXWsRWjnTf/C+gxYbEdH\n"+
-"k2biEQoCwxJwxnjqalsNhvDtX5lahe4xkknj3T1D4BQXIygJ5oVZf+eMyvrMZKNZ\n"+
-"+w+HL+08oy5AhQjEE/z6srYoCdH8L0sLBFRfVHUMXfgkQ6hwrzFHCBtdEdTxRu74\n"+
-"nWaaR+gmSSPxCcN95wIBIzANBgkqhkiG9w0BAQUFAAOCAQEASzJ44Vk9PKirp65X\n"+
-"LFnExslN5EO415dUNbEZnHB53i33pSjAVwf3GsYI4O7ANvSjLZeLz9IkmllprAN7\n"+
-"j8MGt8B2mnAOZ7NRJpfJ/kRGNHcWTr5Mp1KRU322HzpFzhSY3u5zJVYLIXOOiED7\n"+
-"gtvv+gSpQ3KkND7spLe2UADtlScLpWw4Oz8NAqzJ179ULKRmdSKFVDBx9nL9ZZuR\n"+
-"YhOx9y9RErR7IjAHW0OSOmsXFezU4/xZr/F8y5erHI937D4K4QIDtLA09+eCGfi1\n"+
-"PCspgeE0CI0CNUu6cv/LB+1crfygRIxUYYapywhzIRfsCrfJuyS85xPx/aj7RMjo\n"+
-"xdNQNg==\n"+
-"-----END CERTIFICATE-----" ));
+		//the following for SFA_INRIA
+		  params.addElement( new String("-----BEGIN CERTIFICATE-----\n"+
+				  "MIIDADCCAegCCQCPuuD9KjEVMjANBgkqhkiG9w0BAQUFADBDMQswCQYDVQQGEwJH\n"+
+				  "UjEPMA0GA1UECAwGQWNoYWlhMSMwIQYDVQQDDBpub3ZpcGwubm92aS5jZWxpYV92\n"+
+				  "ZWxheW9zMjAeFw0xMjAyMDIxMzI4MTBaFw0xNzAxMzExMzI4MTBaMEMxCzAJBgNV\n"+
+				  "BAYTAkdSMQ8wDQYDVQQIDAZBY2hhaWExIzAhBgNVBAMMGm5vdmlwbC5ub3ZpLmNl\n"+
+				  "bGlhX3ZlbGF5b3MyMIIBIDANBgkqhkiG9w0BAQEFAAOCAQ0AMIIBCAKCAQEA0h8O\n"+
+				  "+/EaO86M0IXVBpR7ikfc2JCVZgZj3ivlGhvPpIosl4VMEsr42BHvLbz/thRTdaqM\n"+
+				  "JZh5gNdBC6lmHlN9Y77zB/3cYItQ054yUoiPjv8oDIkpeanBCU/wa+wV5IqcQyH9\n"+
+				  "a0m3kQkO5+E+D/WoB1/Ke6Fx+9oaFq0UjituSxpGJCArZXWsRWjnTf/C+gxYbEdH\n"+
+				  "k2biEQoCwxJwxnjqalsNhvDtX5lahe4xkknj3T1D4BQXIygJ5oVZf+eMyvrMZKNZ\n"+
+				  "+w+HL+08oy5AhQjEE/z6srYoCdH8L0sLBFRfVHUMXfgkQ6hwrzFHCBtdEdTxRu74\n"+
+				  "nWaaR+gmSSPxCcN95wIBIzANBgkqhkiG9w0BAQUFAAOCAQEASzJ44Vk9PKirp65X\n"+
+				  "LFnExslN5EO415dUNbEZnHB53i33pSjAVwf3GsYI4O7ANvSjLZeLz9IkmllprAN7\n"+
+				  "j8MGt8B2mnAOZ7NRJpfJ/kRGNHcWTr5Mp1KRU322HzpFzhSY3u5zJVYLIXOOiED7\n"+
+				  "gtvv+gSpQ3KkND7spLe2UADtlScLpWw4Oz8NAqzJ179ULKRmdSKFVDBx9nL9ZZuR\n"+
+				  "YhOx9y9RErR7IjAHW0OSOmsXFezU4/xZr/F8y5erHI937D4K4QIDtLA09+eCGfi1\n"+
+				  "PCspgeE0CI0CNUu6cv/LB+1crfygRIxUYYapywhzIRfsCrfJuyS85xPx/aj7RMjo\n"+
+				  "xdNQNg==\n"+
+				  "-----END CERTIFICATE-----") );
 						                                   
 						    params.addElement( new String(authority));
 						    params.addElement( new String("user"));

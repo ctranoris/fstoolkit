@@ -12,6 +12,10 @@ public class SFAUtils {
 	public static final String TRUSTSTORE_FILEPATH = "TRUSTSTORE_FILEPATH";
 	public static final String USERNAME = "USERNAME";
 	public static final String SELF_CERTIFICATE_FILEPATH = "SELF_CERTIFICATE_FILEPATH";
+	public static final String SFA_VERSION = "SFAVERSION";
+	public static final String SFA_TYPE = "SFATYPE";
+	public static final String ENABLED_ACCOUND = "ENABLED_ACCOUND";
+	public static final String CACHE_MODEL = "CACHE_MODEL";
 	
 	
 	/**

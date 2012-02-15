@@ -21,11 +21,14 @@ import FederationOffice.providersite.ProvidersiteFactory;
 import FederationOffice.providersite.Site;
 import FederationOffice.resources.OfferedResource;
 import FederationOffice.resources.ResourceSetting;
+import FederationOffice.resources.ResourceType;
 import FederationOffice.resources.ResourcesFactory;
 import FederationOffice.services.OfferedService;
 import FederationOffice.services.ServiceSetting;
 import FederationOffice.services.ServicesFactory;
+import FederationOffice.services.SettingType;
 import FederationOffice.services.Taxonomy;
+import FederationOffice.services.tideTypeString;
 import FederationOffice.users.Account;
 import FederationOffice.users.OfficeCustomer;
 import FederationOffice.users.ResourcesProvider;
@@ -44,7 +47,7 @@ public class SFAModel2OfficeModel {
 	
 	public SFAModel2OfficeModel(AuthorizationKey authorizationKey) {
 		this.authorizationKey=authorizationKey;
-		client = SFA_XMLRPCClient.getInstance();
+		client = new SFA_XMLRPCClient();
 		client.Init_SFA_XMLRPCClient(authorizationKey);
 		xmlutl = new XMLutils(displayLog);
 	}
@@ -102,6 +105,9 @@ public class SFAModel2OfficeModel {
 		
 		
 		NodeList networks = xmlutl.getNodeListFromObject(resourceSpecDocument, "//network");
+		
+		if (networks == null)
+			return;
 		
 		for (int ixOrgan = 0; ixOrgan < networks.getLength(); ixOrgan++) {
 			Node network = networks.item(ixOrgan);
@@ -161,11 +167,16 @@ public class SFAModel2OfficeModel {
 	
 	private void CreateOfferedService_Resource_Contract(String serviceName, Site partnerSite, Node resNode,
 			Boolean createResource) {
-
+		
 
 		String resourceName = xmlutl.getNodeValueFromObject( resNode, "@component_name" );
 		log("resourceName : "+resourceName);
 		String resourceSpecID = xmlutl.getNodeValueFromObject( resNode, "@component_id" );
+		
+		if (resourceName.equals("")){
+			resourceName = xmlutl.getNodeValueFromObject( resNode, "hostname/text()" );			
+			
+		}
 		
 //		NodeList resourceSpecNodes = xmlutl.getNodeListFromObject( resourceSpecDocument, "//resourceSpec [@id="+resourceSpecID+"]");								
 		String offeredServiceName = serviceName; 
@@ -210,89 +221,116 @@ public class SFAModel2OfficeModel {
 //			String prefix="";
 //			if ((partnerSite.getPtm() != null) && (partnerSite.getPtm().getName() != null))
 //				prefix = partnerSite.getPtm().getName(); 
-			offeredResource.setName(resourceName.replace('.', '_') ); //in SFA seems node names are unique//Will replace . with _
+			offeredResource.setName(resourceName ); //in SFA seems node names are unique//Will replace . with _
 			offeredResource.setDescription(offeredServiceDescr);
 			offeredResource.setImplOfferedService(offService);	
-
+			offeredResource.setMultitonMaxOccur(1);//we have atleast one of these resources to be reserved
+			
 			int prefix= partnerSite.getBelongsToProvider().getId() ;
+			
+			offeredResource.setGeocoords("-170, 50");
 			
 			CreateResourceContract(offeredResource);
 		}
-//		
-//		NodeList configParamAtomicNodes = xmlutl.getNodeListFromObject(configParamCompositeDocument , "//configParamComposite[@id="+configParamCompositeId+"]/configParams/configParamAtomic");
-//		
-//		for (int ixcPANodes = 0; ixcPANodes <configParamAtomicNodes.getLength(); ixcPANodes++) {
-//			String setId = configParamAtomicNodes.item(ixcPANodes).getAttributes().getNamedItem("id").getNodeValue();
-//			log("configParamAtomic id = "+ setId );
-//			//http://repos.pii.tssg.org:8080/repository/rest/configParamAtomic/586
-//
-//			//NodeList ParamAtomicNode = xmlutl.getNodeListFromObject ( configParamAtomicDocument , "//configParamAtomic[@id="+setId+"]");
-//			String setName = xmlutl.getNodeValueFromObject( configParamAtomicDocument ,  "//configParamAtomic[@id="+setId+"]/commonName/text()");
-//			log("setName = "+ setName );			
-//			String setDescription = xmlutl.getNodeValueFromObject( configParamAtomicDocument ,  "//configParamAtomic[@id="+setId+"]/description/text()");
-//			log("setDescription = "+ setDescription );
-//			
-//			ServiceSetting servSetting = null;
-//			if (!newServiceCreated) {
-//				log("try to find  servSetting : "+ setName +" for service : "+offService );
-//				servSetting = FindServiceSettingOfOfferedService(offService, setName);
-//			}
-//			
-//			if (newServiceCreated || (servSetting==null) ) {
-//				servSetting = ServicesFactory.eINSTANCE.createServiceSetting();
-//				servSetting.setName(setName);
-//				servSetting.setDescription(setDescription);
-//				servSetting.setId(ixcPANodes + 1);
-//				servSetting.setUniqueID( offService.getUniqueID() +"_set_"+servSetting.getId() );
-//				servSetting.setCanBePublished(false);
-//				servSetting.setUserEditable(true);
-//				servSetting.setUserExposed(true);
-//				servSetting.setReadable(true);
-//				servSetting.setWritable(true);
-//				
-//				//The following constraint means that the parameter is available after the CREATE operation!
-////				SettingConstraint setconstraint = ServicesFactory.eINSTANCE.createSettingConstraint();
-////				setconstraint.setForOperation(ServiceResourceOperation.OP_CREATE);
-////				setconstraint.setAvailableAfterOperation(true);
-////				servSetting.getSettingConstraints().add(setconstraint);
-//				
-//				
-//				offService.getServiceSettings().add(servSetting);
-//				log("servSettings = OK!");
-//			}
-//			//service settings now to resource settings
-//			
-//			if (offeredResource != null){
-//				ResourceSetting resourceSetting = ResourcesFactory.eINSTANCE.createResourceSetting() ;
-//				resourceSetting.setName(setName);
-//				resourceSetting.setDescription(setDescription);
-//				resourceSetting.setId( servSetting.getId());
-//				resourceSetting.setUniqueID(offeredResource.getUniqueID()+"_set_"+servSetting.getId() );				
-//				resourceSetting.setCanBePublished( false );
-//				resourceSetting.setUserEditable(true);
-//				resourceSetting.setUserExposed(true);
-//				resourceSetting.setReadable(true);
-//				resourceSetting.setWritable(true);
-//				resourceSetting.setImplServiceSetting(servSetting);
-//				offeredResource.getResourceSettings().add(resourceSetting );
-//				log("ResourceSettings = OK!" );		
-//			}
-//			
-//		}//for (int ixcPANodes = 0
-//		
-//		
+
+		CreateSetting("hostname", "defvalHostNameSet", "node hostname", newServiceCreated, offService, offeredResource, true, false, true);
+		CreateSetting("vsys", "", "request access to a vsys script on the selected node", newServiceCreated, offService, offeredResource, true, true, true);
+		CreateSetting("initscript", "", "initscript on the selected node", newServiceCreated, offService, offeredResource, true, true, true);
+		CreateSetting("vsys_vnet", "", "initscript on the selected node", newServiceCreated, offService, offeredResource, true, true, true);
 		
 		//Finally add service to the general ServiceCategories
 		generalTaxonomy.getTaxonomies().get(0).getHasServices().add(offService);
 		
 	}
 
+	
+	
+	public void CreateSetting( String setttingName,String defaultValue,
+			String settingDescription, boolean newServiceCreated,
+			OfferedService offService, OfferedResource offeredResource,
+			boolean readable, boolean writable, boolean isOptional) {
+
+		// http://repos.pii.tssg.org:8080/repository/rest/configParamAtomic/586
+
+		// NodeList ParamAtomicNode = xmlutl.getNodeListFromObject (
+		// configParamAtomicDocument , "//configParamAtomic[@id="+setId+"]");
+		log("setttingName = " + setttingName);
+		log("setDescription = " + settingDescription);
+
+		ServiceSetting servSetting = null;
+		if (!newServiceCreated) {
+			log("try to find  servSetting : " + setttingName
+					+ " for service : " + offService);
+			servSetting = FindServiceSettingOfOfferedService(offService,	setttingName);
+		}
+
+		if (newServiceCreated || (servSetting == null)) {
+			servSetting = ServicesFactory.eINSTANCE.createServiceSetting();
+			servSetting.setName(setttingName);
+			servSetting.setDescription(settingDescription);
+			servSetting.setId(offService.getServiceSettings().size()  + 1);
+			servSetting.setUniqueID(offService.getUniqueID() + "_set_"	+ servSetting.getId());
+			servSetting.setCanBePublished(false);
+			servSetting.setUserEditable(writable);
+			servSetting.setUserExposed(true);
+			servSetting.setReadable( readable );
+			servSetting.setWritable( writable );
+			
+
+			// The following constraint means that the parameter is available
+			// after the CREATE operation!
+			// SettingConstraint setconstraint =
+			// ServicesFactory.eINSTANCE.createSettingConstraint();
+			// setconstraint.setForOperation(ServiceResourceOperation.OP_CREATE);
+			// setconstraint.setAvailableAfterOperation(true);
+			// servSetting.getSettingConstraints().add(setconstraint);
+
+			offService.getServiceSettings().add(servSetting);
+			log("servSettings = OK!");
+		}
+		// service settings now to resource settings
+
+		if (offeredResource != null) {
+			ResourceSetting resourceSetting = ResourcesFactory.eINSTANCE
+					.createResourceSetting();
+			resourceSetting.setName(setttingName);
+			
+			tideTypeString  sType = FederationOffice.services.ServicesFactory.eINSTANCE.createtideTypeString();
+			sType.setDefaultValue(defaultValue);
+			resourceSetting.setSettingType(sType);
+			
+			resourceSetting.setDescription(settingDescription);
+			resourceSetting.setId(servSetting.getId());
+			resourceSetting.setUniqueID(offeredResource.getUniqueID() + "_set_"
+					+ servSetting.getId());
+			resourceSetting.setCanBePublished(false);
+			resourceSetting.setUserEditable(writable);
+			resourceSetting.setUserExposed(true);
+			resourceSetting.setReadable(readable);
+			resourceSetting.setWritable(writable);
+			resourceSetting.setOptional(isOptional);
+			resourceSetting.setImplServiceSetting(servSetting);
+			offeredResource.getResourceSettings().add(resourceSetting);
+			
+			log("ResourceSettings = OK!");
+		}
+
+	}
+	
 	public Office getOffice() {
 		return this.office;
 	}
 	
 	
+	private ServiceSetting FindServiceSettingOfOfferedService(OfferedService offService, String setName) {
+		for (int i = 0; i < offService.getServiceSettings().size() ; i++) {
+			if (offService.getServiceSettings().get(i).getName().equalsIgnoreCase(setName) ){
+				return offService.getServiceSettings().get(i);	
+			}
+		}
 
+		return null;
+	}
 
 	
 	private void CreateResourceContract(OfferedResource offeredResource) {
@@ -329,6 +367,7 @@ public class SFAModel2OfficeModel {
 		contract.setForOfferedService(offeredResource.getImplOfferedService() );
 		contract.setStartDate(fromdate);
 		contract.setEndDate(todate);
+		
 		
 		office.getResourceServiceContracts().add(contract );
 

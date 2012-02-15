@@ -1,6 +1,7 @@
 package org.panlab.software.fci.sfa;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.MalformedURLException;
@@ -31,57 +32,131 @@ public class SFA_XMLRPCClient {
 
 	private AuthorizationKey authorizationKey;
 	
-	final static XmlRpcClient client = new XmlRpcClient();
-	final static XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
+	 XmlRpcClient client = new XmlRpcClient();
+	  XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
 	private String registry_url;
 	private String am_url;
 	private String sm_url;
 	private String SFAcredential;
 	private String username ;
 	private String self_certificate_text ;//= "";
-
+	private String SFAVersion;
+	private String SFAType;
 	
-	private static SFA_XMLRPCClient  instance;
+//	private static SFA_XMLRPCClient  instance;
 	
-	public static SFA_XMLRPCClient getInstance(){
-		if (instance == null){
-			instance = new SFA_XMLRPCClient();
-		}
-		return instance;
-	}
+//	public static SFA_XMLRPCClient getInstance(){
+//		if (instance == null){
+//			instance = new SFA_XMLRPCClient();
+//		}
+//		return instance;
+//	}
 	
 	public void Init_SFA_XMLRPCClient(AuthorizationKey authorizationKey){
 		
 //		if ((this.getSFACredential()!=null) && ( !this.getSFACredential().equals("")) )
 //			return;//no need to initialize again
 		
+		
+		
 		this.authorizationKey = authorizationKey;
 		this.registry_url = authorizationKey.getCredentials().getCredoptions().get(SFAUtils.REGISTRY_URL);				
 		this.am_url = authorizationKey.getCredentials().getCredoptions().get(SFAUtils.AM_URL);
 		this.sm_url = authorizationKey.getCredentials().getCredoptions().get(SFAUtils.SM_URL);
 		this.username = authorizationKey.getCredentials().getCredoptions().get(SFAUtils.USERNAME );
+		this.SFAVersion = authorizationKey.getCredentials().getCredoptions().get(SFAUtils.SFA_VERSION );
+		this.SFAType = authorizationKey.getCredentials().getCredoptions().get(SFAUtils.SFA_TYPE );
+		
+//		if (!username.equals("novipl.novi.celia_velayos2")) 
+//			return;
+		
+		
+		String res = System.setProperty("javax.net.ssl.keyStoreType", "pkcs12");
+		
+		//fainetai oti agnoei to keystore...?
+		
+		res = System.setProperty("javax.net.ssl.keyStore", 
+				authorizationKey.getCredentials().getCredoptions().get(SFAUtils.KEYSTORE_FILEPATH ) );
+		
+
+		res = System.setProperty("javax.net.ssl.keyStorePassword", 
+				authorizationKey.getCredentials().getCredoptions().get(SFAUtils.KEYSTORE_PASSWORD ) );
+
+		res = System.setProperty("javax.net.ssl.trustStoreType", "jks");
+		
+
+		System.clearProperty("javax.net.ssl.trustStore");
+		res = System.setProperty("javax.net.ssl.trustStore", 
+				authorizationKey.getCredentials().getCredoptions().get(SFAUtils.TRUSTSTORE_FILEPATH ) );
+		
+
+		System.clearProperty("javax.net.ssl.trustStorePassword");
+		res = System.setProperty("javax.net.ssl.trustStorePassword", 
+				authorizationKey.getCredentials().getCredoptions().get(SFAUtils.TRUSTSTORE_PASSWORD ) );
+			
+		res = System.setProperty("javax.net.debug", "all");
+		System.out.println(res);		
+		res =System.getProperty("javax.net.debug");
+		System.out.println(res);
+		
+		self_certificate_text = "";
+		self_certificate_text = readFileContents( authorizationKey.getCredentials().getCredoptions().get(SFAUtils.SELF_CERTIFICATE_FILEPATH ) );
+
+		SSLContext sc = null;
+		try {
+			sc = SSLContext.getDefault(); // SSLContext.getInstance("TLS");
+			
+		} catch (NoSuchAlgorithmException e1) {
+			e1.printStackTrace();
+		}
+
+		sc.getClientSessionContext().setSessionTimeout(0);
+		// //////////
+		// Create empty HostnameVerifier This is to trust in SSL even it the CN
+		// value is different from the requested url
+		HostnameVerifier hv = new HostnameVerifier() {
+			@Override
+			public boolean verify(String arg0, SSLSession arg1) {
+				return true;
+			}
+		};
+
+		HttpsURLConnection.setDefaultHostnameVerifier(hv);
+
+		SFAcredential = "";
+		SFAcredential = GetSelfCredential();
+		
+	}
+	
+	
+	public Object testMe(String regurl, String smurl, String amurl, String kstore,
+			String Keypass, String tstore, String tStorePass, String auth,
+			String username, String certtext, String SFAver, String SFA_Type) {
+
+
+		registry_url = regurl;
+		sm_url = smurl;
+		am_url = amurl;
+		this.username = username;
+		self_certificate_text = certtext;
+		SFAVersion = SFAver;
+		SFAType = SFA_Type;
 		
 		
 		System.setProperty("javax.net.ssl.keyStoreType", "pkcs12");
-		System.setProperty("javax.net.ssl.keyStore", 
-				authorizationKey.getCredentials().getCredoptions().get(SFAUtils.KEYSTORE_FILEPATH ) );
-		System.setProperty("javax.net.ssl.keyStorePassword", 
-				authorizationKey.getCredentials().getCredoptions().get(SFAUtils.KEYSTORE_PASSWORD ) );
+		System.setProperty("javax.net.ssl.keyStore", kstore);
+		System.setProperty("javax.net.ssl.keyStorePassword", Keypass);
 
 		System.setProperty("javax.net.ssl.trustStoreType", "jks");
-		System.setProperty("javax.net.ssl.trustStore", 
-				authorizationKey.getCredentials().getCredoptions().get(SFAUtils.TRUSTSTORE_FILEPATH ) );
-		System.setProperty("javax.net.ssl.trustStorePassword", 
-				authorizationKey.getCredentials().getCredoptions().get(SFAUtils.TRUSTSTORE_PASSWORD ) );
-		//System.setProperty("javax.net.debug", "all");
 		
-		try {
-			self_certificate_text = readFileContents( authorizationKey.getCredentials().getCredoptions().get(SFAUtils.SELF_CERTIFICATE_FILEPATH ) );
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}	
 		
+		String res = System.setProperty("javax.net.ssl.trustStore", tstore);
+		System.out.println( res);
+		
+		System.setProperty("javax.net.debug", "all");
+		System.setProperty("javax.net.ssl.trustStorePassword", tStorePass);
+
+		System.out.println("Tstep 1");
 
 		SSLContext sc = null;
 		try {
@@ -103,15 +178,33 @@ public class SFA_XMLRPCClient {
 
 		HttpsURLConnection.setDefaultHostnameVerifier(hv);
 
+		SFAcredential = "";
 		SFAcredential = GetSelfCredential();
-		
+
+		Enumeration<byte[]> a = sc.getClientSessionContext().getIds();
+		if (a.hasMoreElements())
+			sc.getClientSessionContext().getSession(a.nextElement())
+					.invalidate();
+
+		// List displays all the Records in the Registry for a given authority
+		// or subauthority.
+		// ListRecords();
+		//return ListResources();
+		return "------SFAcredential--------\n"+SFAcredential+
+				"\n-------GetVersion-------\n"+GetVersion() + 
+				"\n-------ListResources-------\n"+ ListResources();
+		// ShowRecord();
+
 	}
 
 	/** Read the contents of the given file. */
-	 protected String readFileContents(String fFileName) throws IOException {
+	 protected String readFileContents(String fFileName)  {
 	    StringBuilder text = new StringBuilder();
 	    String NL = System.getProperty("line.separator");
-	    Scanner scanner = new Scanner(new FileInputStream(fFileName), "UTF-8");
+	    Scanner scanner;
+		try {
+			scanner = new Scanner(new FileInputStream(fFileName), "UTF-8");
+		
 	    try {
 	      while (scanner.hasNextLine()){
 	        text.append(scanner.nextLine() + NL);
@@ -120,6 +213,11 @@ public class SFA_XMLRPCClient {
 	    finally{
 	      scanner.close();
 	    }
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	    return text.toString() ;
 	  }
 	 
@@ -144,7 +242,9 @@ public class SFA_XMLRPCClient {
 	    try {
 	    	
 	    	invalidateSessions();
-	        
+
+		     System.out.println("============================================================");
+		     System.out.println("url for xmlrpc = "+ url);
 			config.setServerURL(new URL( url )) ; 
 			config.setReplyTimeout(10000);
 			config.setContentLengthOptional(true);
@@ -166,14 +266,17 @@ public class SFA_XMLRPCClient {
 			    return result;
 				
 			} catch (XmlRpcClientException e) {
+				result = e.toString();
 				 e.printStackTrace();
 			} catch (XmlRpcException e) {
+				result = e.toString();
 				e.printStackTrace();
 			}
 
 
 		     
 		} catch (MalformedURLException e) {
+			result = e.toString();
 			e.printStackTrace();
 		}
 
@@ -274,8 +377,8 @@ public class SFA_XMLRPCClient {
 //	    auth.put("type", "ProtoGENI");
 //	    auth.put("version", "2");
 	    
-	    auth.put("version", "1");
-	    auth.put("type", "SFA");
+	    auth.put("version", this.SFAVersion );
+	    auth.put("type", this.SFAType );
 //	    java.util.List<String>  extensions = new java.util.ArrayList<String>();
 	    //auth.put ("extensions", extensions );
 	    //auth.put("namespace", null);
@@ -295,7 +398,7 @@ public class SFA_XMLRPCClient {
 	    	Set<String> ks = map.keySet();
 	    	//System.out.println("xmltype: " + map.get("value").toString()  );
 	    	xml = (String) map.get("value");
-		}else 
+		}else if (result!=null)
 			xml = result.toString();
 		
 		return xml;
