@@ -107,8 +107,8 @@ public class Activator extends AbstractUIPlugin {
 		for (Iterator<FCICredentials> iterator = creds.iterator(); iterator.hasNext();) {
 			FCICredentials cred = (FCICredentials) iterator.next();
 			AuthorizationKey authKey = fci.createAuthorizationKey(cred);
-			ResourceContext sfa = fci.createResourceContext(SFAUtils.RESOURCE_CONTEXT_NAME, authKey);
-			Office sfaOffice  = sfa.getOfficeModel();
+			ResourceContext r = fci.createResourceContext(SFAUtils.RESOURCE_CONTEXT_NAME, authKey);
+			Office sfaOffice  = r.getOfficeModel();
 			
 			if (sfaOffice instanceof SFAOfficeProxy)
 				if ( !((SFAOfficeProxy)sfaOffice).officeLoaded() ){

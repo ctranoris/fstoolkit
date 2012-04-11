@@ -242,13 +242,14 @@ public class EditSFAAccountDialog extends StatusDialog {
 		gridData.grabExcessHorizontalSpace = true;
 		gridData.verticalAlignment = SWT.FILL;
 		gridData.grabExcessVerticalSpace = true;
-		gridData.heightHint = 200;
+		gridData.heightHint = 400;
 		testConnection.setLayoutData(gridData);
 		testConnection.setText("Press the Test button after filling your settings to test connectivity.");
 		
 		button = new Button(container, SWT.PUSH);
 		button.setText("Test / Update model");
 		button.setLayoutData(new GridData(GridData.VERTICAL_ALIGN_BEGINNING) );
+		
 		
         button.setLayoutData(gdButton);
         
