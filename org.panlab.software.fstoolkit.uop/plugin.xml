@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.panlab.software.fstoolkit.preferences.FSToolkitPreferencePage"
+            class="org.panlab.software.fstoolkit.uop.preferences.UoPPreferencePage"
+            id="org.panlab.software.fstoolkit.uop.preferencepage"
+            name="UoP">
+      </page>
+   </extension>
+   <extension
+         point="org.panlab.software.fstoolkit.provisionresource">
+   </extension>
+   <extension
+         point="org.panlab.software.fstoolkit.extensionpoint.officerepository">
+      <OfficeRepository
+            class="org.panlab.software.fstoolkit.uop.UoPRepository">
+      </OfficeRepository>
+   </extension>
+
+</plugin>
