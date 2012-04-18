@@ -1,6 +1,7 @@
 package org.panlab.software.fci.core;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import FederationOffice.experimentRuntime.ExperimentRuntimeFactory;
@@ -78,15 +79,34 @@ public class ResourceProxy {
 		}
 		
 		/**
-		 * Updates the Resource
+		 * Updates the Resource throug provided list of params
 		 * @author ctranoris
 		 * @return the response of the update
 		 * @param ParameterValuePairList The alias of the resource type (e.g rubis_db)
 		 */
 		public String UpdateResource(List<ParameterValuePair> val){
-			return FCI.getInstance().UpdateResource(this, val);
+			for (ParameterValuePair param_to_update : val) {
+				
+				for (ParameterValuePair param : params) {
+					if ( param.getParameter().equalsIgnoreCase( param_to_update.getParameter() ) ){
+						param.setValue(  param_to_update.getValue()  );
+						break;
+					}
+				}
+				
+			} 
+			
+			return UpdateResource();
 		}
 		
+		/**
+		 * Updates the Resource with the stored params
+		 * @author ctranoris
+		 * @return the response of the update
+		 */
+		private String UpdateResource(){
+			return FCI.getInstance().UpdateResource(this, params);
+		}
 		
 	
 		/**
@@ -105,7 +125,7 @@ public class ResourceProxy {
 				}
 			}
 			
-			this.UpdateResource(params);
+			this.UpdateResource();
 			return null;
 			
 		}
