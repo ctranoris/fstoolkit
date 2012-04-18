@@ -15,6 +15,7 @@ limitations under the License.
 package org.panlab.software.fci.uop;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Date;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
@@ -48,10 +49,9 @@ import FederationOffice.federationscenarios.ResourceSettingInstance;
 public class UoPServices implements IFCIService{
 	
 	private Office uopOffice;
-//	private static String panlabGWAddress = "http://62.103.214.70:9000/teaglegw";
-	//public static String PanlabGWCAlias = "http://150.140.184.156:9000/teaglegw";
-	public static String UoPGWCAlias = "http://teaglegw.dyndns.org:9000/teaglegw";
-//	public static String PanlabRepoGWCAlias = "http://repos.pii.tssg.org:8080/repository-staging/rest";
+	public static String UoPGWCAlias = "http://creativese.no-ip.org:9000/teaglegw";
+	public static String fedway= "http://nam.ece.upatras.gr/fedway";
+	public String username;
 	
 	private static UoPServices instance;
 
@@ -79,6 +79,7 @@ public class UoPServices implements IFCIService{
 			return uopOffice;				  
 
 		uopOffice = new UoPOfficeProxy(username, password,  forceRefresh);
+		this.username = username;
 		
 		if (( (UoPOfficeProxy)uopOffice).officeLoaded() )
 			return uopOffice;
@@ -104,16 +105,23 @@ public class UoPServices implements IFCIService{
 	@Override
 	public String CreateResource(String scenario, String ptmAlias, 
 			String resourceTypeName, ResourceRequest resourceReq){
+		
+	
 
-		UoPGWClient pgw = new UoPGWClient( UoPGWCAlias	);
+		UoPGWClient pgw = new UoPGWClient( UoPServices.UoPGWCAlias	);
 		
 		String params="";
 		
 		for (ResourceSettingInstance pv : resourceReq.getReqResourceSettings()) {
-			if ( (pv.getStaticValue()!=null)&&(!"".equals( pv.getStaticValue())) ) //propagate only if not empty
-				params+= "<"+pv.getName() +">"+pv.getStaticValue() +"</"+pv.getName() +">" ;
+			if ( (pv.getStaticValue()!=null)&&(!"".equals( pv.getStaticValue())) ){ //propagate only if not empty
+				
+				if (pv.getRefResourceSetting()!=null)
+					params+= "<"+pv.getRefResourceSetting().getName()  +">"+pv.getStaticValue() +"</"+pv.getRefResourceSetting().getName() +">" ;
+				else
+					params+= "<"+pv.getName()  +">"+pv.getStaticValue() +"</"+pv.getName() +">" ;
+			}
 		}
-		pgw.POSTexecute( ptmAlias+".top-0", ptmAlias,
+		boolean req =pgw.POSTExecute( ptmAlias+".top-0", ptmAlias,
 		 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
 		 	"<"+resourceTypeName+">" +
 		 		"<context><vctId>"+scenario+"</vctId></context>" +
@@ -123,16 +131,43 @@ public class UoPServices implements IFCIService{
 		 "</"+resourceTypeName+">"
 		 	);
 		 
-		XMLutils x = new XMLutils(true);
-		String s = x.getNodeValueFromXML( pgw.getResponse_stream(), "//uuid/text()");
-		//<?xml version="1.0" encoding="utf-8"?><rubis_db status="SUCCESS"><uuid type="string">uop.rubis_db-58</uuid></rubis_db>
+		String s = "";
+		if (req){
+			XMLutils x = new XMLutils(true);
+			s = x.getNodeValueFromXML( pgw.getResponse_stream(), "//uuid/text()");
+			//<?xml version="1.0" encoding="utf-8"?><rubis_db status="SUCCESS"><uuid type="string">uop.rubis_db-58</uuid></rubis_db>
+		}else
+			s=ptmAlias+"."+resourceTypeName+".node-0";
 		
+		try {
+			////http://nam.ece.upatras.gr/fedway/submit_event.php?subject=aResource&descr=myDescription&resourceid=123456&start_ts=2011-09-15%2017:00:00&end_ts=2011-09-17%2011:01:31&guid=guid5&scenarioid=scen1234&scenarioName=myScenario
+			
+			
+			String subject = resourceReq.getRefOfferedResource().getName();
+			String myDescription = resourceReq.getRefOfferedResource().getName() 
+					+"created by FCI with Alias: "+resourceReq.getName() +", for Scenario: "+scenario + 
+					", by user: "+this.username;
+			String resourceid = resourceReq.getRefOfferedResource().getUniqueID(); 		
+			Date start_ts = new Date ();
+			Date end_ts = new Date ();
+			String guid = s;
+			String scenarioid = scenario;
+			String scenarioName = scenario;
+			
+			
+			pgw.informFedWay(fedway, subject , myDescription, resourceid, 
+					start_ts, end_ts, guid, scenarioid, scenarioName, this.username);
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 		return s;
 		
 
 //		//a CREATE resource example
-//		PanlabGWClient u = new PanlabGWClient( "http://150.140.184.156:9000/teaglegw"	);
+//		UoPGWClient u = new UoPGWClient( "http://150.140.184.156:9000/teaglegw"	);
 //		 u.POSTexecute( "uop.top-0", "uop",
 //		 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
 //		 		"<rubis_db>" +
@@ -155,22 +190,31 @@ public class UoPServices implements IFCIService{
 	 * @param runtimeID The RuntimeID (or GUID) of the resource to be updated. In Panlab, probably is something like resource-number (e.g. rubisdb-12)
 	 * @param resourceReq A ResourceRequest object containing  ResourceSettingInstances, a list with params to be created
 	*/
-	@Override
 	public String UpdateResource(String contextName, String providerURI, 
 			String resourceTypeName, 
 			String runtimeID, 
 			ResourceRequest resourceReq){
 
-		UoPGWClient pgw = new UoPGWClient( UoPGWCAlias	);
+
+		
+		UoPGWClient pgw = new UoPGWClient( UoPServices.UoPGWCAlias	);
 		
 		String params="";
+	
+		
 		for (ResourceSettingInstance pv : resourceReq.getReqResourceSettings()) {
-			params+= "<"+pv.getName() +">"+pv.getStaticValue() +"</"+pv.getName() +">" ;
+			if ( (pv.getStaticValue()!=null)&&(!"".equals( pv.getStaticValue())) ){ //propagate only if not empty
+				
+				if (pv.getRefResourceSetting()!=null)
+					params+= "<"+pv.getRefResourceSetting().getName()  +">"+pv.getStaticValue() +"</"+pv.getRefResourceSetting().getName() +">" ;
+				else
+					params+= "<"+pv.getName()  +">"+pv.getStaticValue() +"</"+pv.getName() +">" ;
+			}
 		}
 		
 		//ptmAlias.«name»
 //		System.out.println("update «name» "+ this.getInstanceName() );
-//		PanlabGWClient pgw = PanlabGWClient.getInstance();
+//		UoPGWClient pgw = UoPGWClient.getInstance();
 //		String cname = this.getClass().getName();
 //		pgw.POSTexecute(this.getInstanceName(), ptmAlias,  
 //				"<"+cname+" action=\"update\">" +
@@ -183,7 +227,7 @@ public class UoPServices implements IFCIService{
 //					"</configuration>" +
 //				"</configuration></"+cname+">");
 		
-		pgw.POSTexecute( runtimeID, providerURI,
+		boolean req = pgw.POSTExecute( runtimeID, providerURI,
 		 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
 		 	"<"+resourceTypeName+" action=\"update\">" +
 		 		"<context><vctId>"+contextName+"</vctId></context>" +
@@ -193,18 +237,64 @@ public class UoPServices implements IFCIService{
 		 "</"+resourceTypeName+">"
 		 	);
 		 
-		XMLutils x = new XMLutils(true);
-		String s = x.getNodeValueFromXML( pgw.getResponse_stream(), "//uuid/text()");
+		String s = "";
+		if (req){
+			XMLutils x = new XMLutils(true);
+			s = x.getNodeValueFromXML( pgw.getResponse_stream(), "//uuid/text()");
+			//<?xml version="1.0" encoding="utf-8"?><rubis_db status="SUCCESS"><uuid type="string">uop.rubis_db-58</uuid></rubis_db>
+		}else
+			s=providerURI+"."+resourceTypeName+".node-0";
+		
 		//System.out.println("Value = " + s);
 		return s;
 	}
 
-	@Override
 	public String DeleteResource(String contextName, String providerURI, 
 			String resourceTypeName, 
 			String runtimeID, 
 			ResourceRequest resourceReq) {
-		return "NOT IMPLEMENTED YET";
+		
+//		if (PanlabOfficeProxy.DONTPropagateToTeagleGW )
+//			return "test-DeleteResource-"+resourceReq.getName();
+		
+		UoPGWClient pgw = new UoPGWClient( UoPServices.UoPGWCAlias	);
+		
+		
+		
+		pgw.DELETEexecute( runtimeID, providerURI,
+		 "<delete>" +
+		 "</delete>"
+		 	);
+		 
+		XMLutils x = new XMLutils(true);
+		String s = x.getNodeValueFromXML( pgw.getResponse_stream(), "//uuid/text()");
+		//System.out.println("Value = " + s);
+		
+		
+		try {
+			////http://nam.ece.upatras.gr/fedway/submit_event.php?subject=aResource&descr=myDescription&resourceid=123456&start_ts=2011-09-15%2017:00:00&end_ts=2011-09-17%2011:01:31&guid=guid5&scenarioid=scen1234&scenarioName=myScenario
+			
+			
+			String subject = "";
+			String myDescription = "";
+			String resourceid = ""; 		
+			Date start_ts = new Date ();
+			Date end_ts = new Date ();
+			String guid = runtimeID;
+			String scenarioid = "";
+			String scenarioName = "";
+			
+			
+			pgw.informFedWay(fedway, subject , myDescription, resourceid, 
+					start_ts, end_ts, guid, scenarioid, scenarioName, this.username  );
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
+		return s;
 	}
 	
 	/**
@@ -213,11 +303,14 @@ public class UoPServices implements IFCIService{
 	*WARNING: Get currently works only with RAs implemented with RADL that
 	*respond to get with their XML.(e.g. if(top.equalsIgnoreCase("get")) in RAService.java)
 	*/
-	@Override
 	public String getParameterValueOfResource(String scenario, String ptmAlias, 
 			String resourceRuntimeID, String paramName){
 
-		UoPGWClient pgw = new UoPGWClient( UoPGWCAlias	);
+
+//		if (PanlabOfficeProxy.DONTPropagateToTeagleGW )
+//			return "test-getParameterValueOfResource-"+paramName;
+		
+		UoPGWClient pgw = new UoPGWClient( UoPServices.UoPGWCAlias	);
 	
 		pgw.GETexecute( resourceRuntimeID, ptmAlias);
 		XMLutils x = new XMLutils(true);

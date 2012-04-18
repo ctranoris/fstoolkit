@@ -13,12 +13,15 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.panlab.software.officedl2.OfficeDLStandaloneSetup;
+import org.panlab.software.officedl2.officeDL.OfficeRule;
 
 import FederationOffice.FederationOfficePackage;
 import FederationOffice.Office;
@@ -49,32 +52,41 @@ public class UoPOfficeProxy implements Office {
 		
 	private Office PreloadedOffice() {
 		
+		if (!EPackage.Registry.INSTANCE.containsKey("http://www.panlab.org/software/officedl2/OfficeDL")) {
+			new OfficeDLStandaloneSetup().createInjectorAndDoEMFRegistration();
+		}
+		
 		// Initialize the model
 		FederationOfficePackage.eINSTANCE.eClass();
 
 		// As of here we preparing to save the model content
 		// Register the XMI resource factory for the .office extension
 
-		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-		Map<String, Object> m = reg.getExtensionToFactoryMap();
-		m.put("xmi", new XMIResourceFactoryImpl());
+//		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+//		Map<String, Object> m = reg.getExtensionToFactoryMap();
+//		m.put("xmi", new XMIResourceFactoryImpl());
 
 		// Obtain a new resource set
 		ResourceSet resSet = new ResourceSetImpl();
 
 		// Create a resource 
-		String uri =  "C:\\Users\\ctranoris\\wsHeliosM4\\org.panlab.software.FCI.uop\\src\\org\\panlab\\software\\fci\\uop\\uop.xmi";
-		Resource resourcePanlabOffice = resSet.createResource( URI.createFileURI(uri) );
+		//String uri =  "C:\\Users\\ctranoris\\wsHeliosM4\\org.panlab.software.FCI.uop\\src\\org\\panlab\\software\\fci\\uop\\uop.xmi";
+		
+		String uri =  "http://nam.ece.upatras.gr/fstoolkit/utils/uop.officedl";
+		Resource resourceUoPOffice = resSet.createResource( URI.createURI(uri) );
 		
 		try {
-				System.out.println("Loading panlab.office from: "+uri);				
-				resourcePanlabOffice.load(Collections.EMPTY_MAP);
+				System.out.println("Loading uop resource definition from: "+uri);				
+				resourceUoPOffice.load(Collections.EMPTY_MAP);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
 		// Get the first model element and cast it to the right type
-		return (Office)resourcePanlabOffice.getContents().get(0);
+		OfficeRule officeRule = (OfficeRule) resourceUoPOffice.getContents().get(0);
+		officeRule.getTestbedOfficev().setResourceURI( resourceUoPOffice.getURI().toString() );
+		
+		return officeRule.getTestbedOfficev();
 		
 	}
 
@@ -148,8 +160,10 @@ public class UoPOfficeProxy implements Office {
 
 	@Override
 	public boolean eIsProxy() {
-		return true;//well this is for sure a proxy #:-)
-		//return office.eIsProxy();
+		if (office!=null)
+			return office.eIsProxy();
+		else
+			return true;
 	}
 
 	@Override

@@ -23,11 +23,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.commons.httpclient.DefaultHttpMethodRetryHandler;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.HttpStatus;
+import org.apache.commons.httpclient.methods.DeleteMethod;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.RequestEntity;
@@ -104,8 +109,11 @@ public class UoPGWClient {
 	 * @param ptmAlias sets the name of the provider URI, e.g.: uop
 	 * @param content sets the name of the content; send in utf8
 	 */
-	public void POSTexecute(String resourceInstance, String ptmAlias,
+	public boolean POSTExecute(String resourceInstance, String ptmAlias,
 			String content) {
+		
+		boolean status = false;
+		System.out.println("content body=" + "\n" + content);
 		HttpClient client = new HttpClient();
 		String tgwcontent = content;
 
@@ -122,9 +130,8 @@ public class UoPGWClient {
 				"application/x-www-form-urlencoded");
 
 		// Provide custom retry handler is necessary
-		post.getParams().setParameter(HttpMethodParams.RETRY_HANDLER,
-				new DefaultHttpMethodRetryHandler(3, false));
-
+		post.getParams().setParameter(HttpMethodParams.RETRY_HANDLER, new DefaultHttpMethodRetryHandler(0, false));
+		//HttpMethodParams.
 		RequestEntity requestEntity = null;
 		try {
 			requestEntity = new StringRequestEntity(tgwcontent,
@@ -157,28 +164,34 @@ public class UoPGWClient {
 //			System.out.println("for address: " + url + " the response is:\n "
 //					+ post.getResponseBodyAsString());
 
+			status = true;
 		} catch (HttpException e) {
 			System.err.println("Fatal protocol violation: " + e.getMessage());
 			e.printStackTrace();
+			return false;
 		} catch (IOException e) {
 			System.err.println("Fatal transport error: " + e.getMessage());
 			e.printStackTrace();
+			return false;
 		} finally {
 			// Release the connection.
 			post.releaseConnection();
 		}
 
+		return status;
+		
+
 	}
 	
 	/**
-	 * It makes a GET towards the gateway. The response is retrieved with the {@link  UoPGWClient#getResponse_stream()} ;
+	 * It makes a GET towards the gateway. The response is retrieved with the {@link  PanlabGWClient#getResponse_stream()} ;
 	 * @author ctranoris
 	 * @param resourceInstance sets the name of the resource Instance, e.g.: uop.rubis_db-27
 	 * @param ptmAlias sets the name of the resource Instance, e.g.: uop
-	 * @see UoPGWClient#getResponse_stream()
+	 * @see PanlabGWClient#getResponse_stream()
 	 */
 	public void GETexecute(String resourceInstance, String ptmAlias) {
-//		HttpClient client = new HttpClient();
+		HttpClient client = new HttpClient();
 
 		// resource instance is like uop.rubis_db-6 so we need to make it like
 		// this /uop/uop.rubis_db-6
@@ -194,7 +207,7 @@ public class UoPGWClient {
 
 		try {
 			// execute the GET
-//			int status = client.executeMethod(get);
+			client.executeMethod(get);
 
 			// print the status and response
 			InputStream responseBody = get.getResponseBodyAsStream();
@@ -218,11 +231,88 @@ public class UoPGWClient {
 		}
 
 	}
+	
+	
+	/**
+	 * It makes a DELETE towards the gateway
+	 * @author ctranoris
+	 * @param resourceInstance sets the name of the resource Instance, e.g.: uop.rubis_db-27
+	 * @param ptmAlias sets the name of the provider URI, e.g.: uop
+	 * @param content sets the name of the content; send in utf8
+	 */
+	public void DELETEexecute(String resourceInstance, String ptmAlias,
+			String content) {
+		System.out.println("content body=" + "\n" + content);
+		HttpClient client = new HttpClient();
+		String tgwcontent = content;
+
+		// resource instance is like uop.rubis_db-6 so we need to make it like
+		// this /uop/uop.rubis_db-6
+		String ptm = ptmAlias;
+		String url = uopGWAddress + "/" + ptm + "/" + resourceInstance;
+		System.out.println("Request: " + url);
+
+		// Create a method instance.
+		 
+		DeleteMethod delMethod = new DeleteMethod(url);
+		delMethod.setRequestHeader("User-Agent", userAgent);
+		delMethod.setRequestHeader("Content-Type",
+				"application/x-www-form-urlencoded");
+
+		// Provide custom retry handler is necessary
+//		delMethod.getParams().setParameter(HttpMethodParams.RETRY_HANDLER,
+//				new DefaultHttpMethodRetryHandler(3, false));
+
+//		RequestEntity requestEntity = null;
+//		try {
+//			requestEntity = new StringRequestEntity(tgwcontent,
+//					"application/x-www-form-urlencoded", "utf-8");
+//		} catch (UnsupportedEncodingException e1) {
+//			e1.printStackTrace();
+//		}
+		
+		//delMethod.setRequestEntity(requestEntity);
+
+		try {
+			// Execute the method.
+			int statusCode = client.executeMethod(delMethod);
+
+			if (statusCode != HttpStatus.SC_OK) {
+				System.err.println("Method failed: " + delMethod.getStatusLine());
+			}
+
+			// Deal with the response.
+			// Use caution: ensure correct character encoding and is not binary
+			// data
+			// print the status and response
+			InputStream responseBody = delMethod.getResponseBodyAsStream();
+
+			CopyInputStream cis = new CopyInputStream(responseBody);
+			response_stream = cis.getCopy();
+			System.out.println("Response body=" + "\n"
+					+ convertStreamToString(response_stream));
+			response_stream.reset();
+			
+//			System.out.println("for address: " + url + " the response is:\n "
+//					+ post.getResponseBodyAsString());
+
+		} catch (HttpException e) {
+			System.err.println("Fatal protocol violation: " + e.getMessage());
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.err.println("Fatal transport error: " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			// Release the connection.
+			delMethod.releaseConnection();
+		}
+
+	}
 
 	/**
 	 * @return the response_stream from a GET request
 	 * @author ctranoris
-	 * @see UoPGWClient#GETexecute(String, String)
+	 * @see PanlabGWClient#GETexecute(String, String)
 	 */
 	public InputStream getResponse_stream() {
 		CopyInputStream cis = new CopyInputStream(response_stream);
@@ -241,9 +331,9 @@ public class UoPGWClient {
 	 * This must be used with caution since if the GET or POST is called 
 	 * again the client is responsible to handle it with the same object.
 	 * @author ctranoris
-	 * @see UoPGWClient#GETexecute(String, String)
-	 * @see UoPGWClient#POSTexecute(String, String, String)
-	 * @see UoPGWClient#getResponse_stream()
+	 * @see PanlabGWClient#GETexecute(String, String)
+	 * @see PanlabGWClient#POSTexecute(String, String, String)
+	 * @see PanlabGWClient#getResponse_stream()
 	 */
 	public String getResponse_streamAsString() {
 		try {
@@ -317,5 +407,78 @@ public class UoPGWClient {
 			return new ByteArrayInputStream(_copy.toByteArray());
 		}
 
+	}
+
+	/**
+	 * It makes a GET towards the FedWay gateway. The response is retrieved with the {@link  PanlabGWClient#getResponse_stream()} ;
+	 * @author ctranoris
+	 * @param subject sets the name of the resource Instance, e.g.: uop.rubis_db-27
+	 * @param ptmAlias sets the name of the resource Instance, e.g.: uop
+	 * @see PanlabGWClient#getResponse_stream()
+	 */
+	public void informFedWay(String fedway, String subject, String myDescription, String  resourceid,
+			Date start_ts, Date end_ts, String guid, String scenarioid, String scenarioName, String username) {
+	////http://nam.ece.upatras.gr/fedway/submit_event.php?subject=aResource&descr=myDescription&resourceid=123456&start_ts=2011-09-15%2017:00:00&end_ts=2011-09-17%2011:01:31&guid=guid5&scenarioid=scen1234&scenarioName=myScenario
+		
+		
+		DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+		
+		
+		HttpClient client = new HttpClient();
+		String url = "";
+		
+		try {
+		 url = "subject=" + URLEncoder.encode(subject, "UTF-8")  + 
+				"&descr=" + URLEncoder.encode(myDescription, "UTF-8") +
+				"&resourceid=" + URLEncoder.encode(resourceid, "UTF-8") +
+				"&start_ts=" + URLEncoder.encode(sdf.format (start_ts) , "UTF-8") +//2011-09-15%2017:00:00
+				"&end_ts="+ URLEncoder.encode(sdf.format (end_ts) , "UTF-8")+ //2011-09-17%2011:01:31
+				"&guid=" + URLEncoder.encode(guid, "UTF-8") +
+				"&scenarioid=" + URLEncoder.encode(scenarioid, "UTF-8") +
+				"&scenarioName="+ URLEncoder.encode(scenarioName, "UTF-8")+
+				"&username="+ URLEncoder.encode(username, "UTF-8");
+		
+		
+		
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		url = fedway + "/submit_event.php?" + url;
+				
+		System.out.println("Request: " + url);
+
+		// Create a method instance.
+		GetMethod get = new GetMethod(url);
+		get.setRequestHeader("User-Agent", userAgent);
+		get.setRequestHeader("Content-Type",
+				"application/x-www-form-urlencoded");
+
+		try {
+			// execute the GET
+			client.executeMethod(get);
+
+			// print the status and response
+			InputStream responseBody = get.getResponseBodyAsStream();
+
+			CopyInputStream cis = new CopyInputStream(responseBody);
+			response_stream = cis.getCopy();
+			System.out.println("Response body=" + "\n"
+					+ convertStreamToString(response_stream));
+			response_stream.reset();
+
+		} catch (HttpException e) {
+			System.err.println("Fatal protocol violation: " + e.getMessage());
+			e.printStackTrace();
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.err.println("Fatal transport error: " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			// release any connection resources used by the method
+			get.releaseConnection();
+		}	
+		
 	}
 }
