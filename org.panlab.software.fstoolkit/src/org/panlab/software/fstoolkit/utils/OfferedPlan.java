@@ -141,7 +141,10 @@ public class OfferedPlan{
 		}
 				
 
-		System.out.println("AddOfferedResourceForService refService=" + refService.getName() +"("+serviceReq.getName() +")"+"for office"+tempoffice.getName() );
+		System.out.println("AddOfferedResourceForService refService=" + 
+							refService.getName() +"("+serviceReq.getName() +")"+
+							"for office"+tempoffice.getName() +
+							" candidateContracts: "+ candidateContracts.size());
 		Random generator = new Random();
 		
 		if (candidateContracts.size()>0){
@@ -157,7 +160,7 @@ public class OfferedPlan{
 					maximumResourcesToOffer = candidateContracts.get(ix).getForOfferedResource().getMultitonMaxOccur()  ;
 				
 				safeguard++;
-			}while ( (countContracts >= maximumResourcesToOffer) && (safeguard<10000) );
+			}while ( (countContracts >= maximumResourcesToOffer) && (safeguard<10000) && (maximumResourcesToOffer!=-1) );
 			
 //			while ( (countContracts > maximumResourcesToOffer) && (safeguard<1000) ){
 //				ix = generator.nextInt( candidateContracts.size() );
@@ -166,7 +169,7 @@ public class OfferedPlan{
 //				safeguard++;
 //			}
 			
-			if (countContracts< maximumResourcesToOffer){
+			if ( (countContracts< maximumResourcesToOffer) || (maximumResourcesToOffer==-1) ){
 				AdvicedOffer offer = AddOfferForContract(tempoffice, serviceReq, candidateContracts.get(ix),proposedResourceName );
 				return offer.getResourceRequest();
 			}
