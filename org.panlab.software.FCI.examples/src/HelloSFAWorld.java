@@ -48,29 +48,34 @@ public class HelloSFAWorld {
 		opts.put(SFAUtils.AUTHORITY, "pla.openlab");
 		opts.put(SFAUtils.USERNAME, "pla.openlab.ctranoris");
 		opts.put(SFAUtils.SELF_CERTIFICATE_FILEPATH, "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\sfa1inriactranoris.sscert");
-				
+		opts.put(SFAUtils.SFA_VERSION, "2");
+		opts.put(SFAUtils.SFA_TYPE, "SFA");
+		
 		FCICredentials cred = fci.createFCICredentials(opts);
 
 		AuthorizationKey authKey = fci.createAuthorizationKey(cred);
 		
 		ResourceContext sfa = fci.createResourceContext(SFAUtils.RESOURCE_CONTEXT_NAME, authKey);
 
+
+		System.out.println("Office name: " + sfa.getOfficeModel().getName() );
+				
 		for (ServiceType elem : sfa.getAvailableServices()) {
 			System.out.println("Service: " + elem.getName() + "("
 					+ elem.getDescription() + ")");
 		}
 
-//		ServiceType service = sfa.getServiceType("echo");
-//
-//		for (ResourceProvider elem : sfa.getResourceProvidersForServiceType(service)) {
-//			System.out.println("Service Provider: " + elem.getName() + "("+ elem.getDescription() + ")");
-//		}
-//		
-//		ResourceProvider provider = sfa.getFirstResourceProviderOfService(service);
-//		System.out.println("A first available Provider: " + provider.getName());
-//
-//		ResourceGroup myGroup = fci.createResourceGroup("ScenarioExample");
-//
+		ServiceType service = sfa.getServiceType("node");
+
+		for (ResourceProvider elem : sfa.getResourceProvidersForServiceType(service)) {
+			System.out.println("Service Provider: " + elem.getName() + "("+ elem.getDescription() + ")");
+		}
+		
+		ResourceProvider provider = sfa.getFirstResourceProviderOfService(service);
+		System.out.println("A first available Provider: " + provider.getName());
+
+		ResourceGroup myGroup = fci.createResourceGroup("ScenarioExample");
+
 //		List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
 //		ParameterValuePair p = new ParameterValuePair("input", "Christos");
 //		params.add(p);
@@ -84,7 +89,7 @@ public class HelloSFAWorld {
 //		
 //
 //		// Terminate the group..terminate any contained resources
-//		myGroup.TearDownResources();
+		myGroup.TearDownResources();
 	}
 
 	
