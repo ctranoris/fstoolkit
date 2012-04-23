@@ -12,6 +12,9 @@
    </extension>
    <extension
          point="org.panlab.software.fstoolkit.provisionresource">
+      <provisionresource
+            class="org.panlab.software.fstoolkit.uop.ProvisionResource">
+      </provisionresource>
    </extension>
    <extension
          point="org.panlab.software.fstoolkit.extensionpoint.officerepository">
