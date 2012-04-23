@@ -48,9 +48,9 @@ import FederationOffice.fcielements.FCICredentials;
 			String _username_UoP ="ctranoris";
 			String _password_UoP ="PASSWORD";
 			
+			boolean createsflow = true;
+			
 			FCI fci = FCI.getInstance();
-			
-			
 			
 			ResourceContext _context_UoP;
 			
@@ -75,7 +75,8 @@ import FederationOffice.fcielements.FCICredentials;
 				//create Parameters of a resource
 				List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
 				ParameterValuePair p;
-				p = new ParameterValuePair("target", "150.140.255.162:6343");
+//				p = new ParameterValuePair("target", "150.140.255.162:6343");
+				p = new ParameterValuePair("target", "150.140.184.213:6343");
 				params.add(p);
 				p = new ParameterValuePair("sflow_id", "-");
 				params.add(p);
@@ -133,10 +134,12 @@ import FederationOffice.fcielements.FCICredentials;
 			private void CreateScenario() {
 		    //    Group (for grouping resources)
 				ResourceGroup myGroup = FCI.getInstance().createResourceGroup("myGroup");
-				//all creates				
-//				ResourceProxy resource_mysflow = createResource_mysflow();
-//				System.out.println("mysflow resource GUID: " + resource_mysflow.getGUID());
-//				myGroup.addResourceProxy(resource_mysflow);
+				//all creates			
+				if (createsflow){
+					ResourceProxy resource_mysflow = createResource_mysflow();
+					System.out.println("mysflow resource GUID: " + resource_mysflow.getGUID());
+					myGroup.addResourceProxy(resource_mysflow);
+				}
 				ResourceProxy resource_myqos_rate_limiting = createResource_myqos_rate_limiting();
 				System.out.println("myqos_rate_limiting resource GUID: " + resource_myqos_rate_limiting.getGUID());
 				myGroup.addResourceProxy(resource_myqos_rate_limiting);
@@ -179,7 +182,7 @@ import FederationOffice.fcielements.FCICredentials;
 				
 				List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
 				ParameterValuePair p;
-				p = new ParameterValuePair("ingress_policing_rate", "1000000");
+				p = new ParameterValuePair("ingress_policing_rate", "1000000");//1Gbps
 				params.add(p);
 				p = new ParameterValuePair("ingress_policing_burst", "100000");
 				params.add(p);
@@ -191,9 +194,9 @@ import FederationOffice.fcielements.FCICredentials;
 				
 				List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
 				ParameterValuePair p;
-				p = new ParameterValuePair("ingress_policing_rate", "3000000");
+				p = new ParameterValuePair("ingress_policing_rate", "2000000");//2Gbps
 				params.add(p);
-				p = new ParameterValuePair("ingress_policing_burst", "300000");
+				p = new ParameterValuePair("ingress_policing_burst", "200000");
 				params.add(p);
 				resource.UpdateResource(params); 
 				

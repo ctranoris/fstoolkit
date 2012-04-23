@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.panlab.FederationOffice:Office xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.panlab.FederationOffice="http://www.panlab.org/FederationOffice" xmlns:org.panlab.FederationOffice.model.services="http://www.panlab.org/FederationOffice/model/services" xmlns:org.panlab.FederationOffice.model.users="http://www.panlab.org/FederationOffice/model/users" name="novipl.novi.celia_velayos2" APIGateway="https://150.254.160.18:12347">
+  <registeredUsers xsi:type="org.panlab.FederationOffice.model.users:OfficeCustomer">
+    <hasAccount>
+      <authorizationKey>
+        <credentials>
+          <credoptions key="TRUSTSTORE_FILEPATH" value="C:\Users\ctranoris\Desktop\_downloads\tmp\plckeys\novi\client3.keystore"/>
+          <credoptions key="AUTHORITY" value="novipl.novi"/>
+          <credoptions key="TRUSTSTORE_PASSWORD" value="123456"/>
+          <credoptions key="KEYSTORE_FILEPATH" value="C:\Users\ctranoris\Desktop\_downloads\tmp\plckeys\novi\client3.p12"/>
+          <credoptions key="SM_URL" value="https://150.254.160.18:12347"/>
+          <credoptions key="REGISTRY_URL" value="https://150.254.160.18:12345"/>
+          <credoptions key="USERNAME" value="novipl.novi.celia_velayos2"/>
+          <credoptions key="AM_URL" value="https://150.254.160.18:12346"/>
+          <credoptions key="SELF_CERTIFICATE_FILEPATH" value="C:\Users\ctranoris\Desktop\_downloads\tmp\plckeys\novi\certForClient.txt"/>
+          <credoptions key="KEYSTORE_PASSWORD" value="123456"/>
+        </credentials>
+      </authorizationKey>
+    </hasAccount>
+  </registeredUsers>
+  <registeredUsers xsi:type="org.panlab.FederationOffice.model.users:ResourcesProvider" name="novipl" description="novipl" uniqueID="rpnovipl" organization="novipl">
+    <offeredSiteList name="site" uniqueID="rpnovipl_snovipl">
+      <ptm/>
+      <offeredResourcesList name="smilax2.man.poznan.pl" description="sfa node" uniqueID="smilax2.man.poznan.pl" implOfferedService="osnode" multitonMaxOccur="1" geocoords="-170, 50">
+        <resourceSettings name="hostname" id="1" description="node hostname" uniqueID="smilax2.man.poznan.pl_set_1" userExposed="true" Readable="true" Optional="true" implServiceSetting="osnode_set_1">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue="defvalHostNameSet"/>
+        </resourceSettings>
+        <resourceSettings name="vsys" id="2" description="request access to a vsys script on the selected node" uniqueID="smilax2.man.poznan.pl_set_2" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_2">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="initscript" id="3" description="initscript on the selected node" uniqueID="smilax2.man.poznan.pl_set_3" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_3">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="vsys_vnet" id="4" description="initscript on the selected node" uniqueID="smilax2.man.poznan.pl_set_4" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_4">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+      </offeredResourcesList>
+      <offeredResourcesList name="planetlab1-novi.lab.netmode.ece.ntua.gr" description="sfa node" uniqueID="planetlab1-novi.lab.netmode.ece.ntua.gr" implOfferedService="osnode" multitonMaxOccur="1" geocoords="-170, 50">
+        <resourceSettings name="hostname" id="1" description="node hostname" uniqueID="planetlab1-novi.lab.netmode.ece.ntua.gr_set_1" userExposed="true" Readable="true" Optional="true" implServiceSetting="osnode_set_1">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue="defvalHostNameSet"/>
+        </resourceSettings>
+        <resourceSettings name="vsys" id="2" description="request access to a vsys script on the selected node" uniqueID="planetlab1-novi.lab.netmode.ece.ntua.gr_set_2" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_2">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="initscript" id="3" description="initscript on the selected node" uniqueID="planetlab1-novi.lab.netmode.ece.ntua.gr_set_3" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_3">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="vsys_vnet" id="4" description="initscript on the selected node" uniqueID="planetlab1-novi.lab.netmode.ece.ntua.gr_set_4" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_4">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+      </offeredResourcesList>
+      <offeredResourcesList name="planetlab2-novi.lab.netmode.ece.ntua.gr" description="sfa node" uniqueID="planetlab2-novi.lab.netmode.ece.ntua.gr" implOfferedService="osnode" multitonMaxOccur="1" geocoords="-170, 50">
+        <resourceSettings name="hostname" id="1" description="node hostname" uniqueID="planetlab2-novi.lab.netmode.ece.ntua.gr_set_1" userExposed="true" Readable="true" Optional="true" implServiceSetting="osnode_set_1">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue="defvalHostNameSet"/>
+        </resourceSettings>
+        <resourceSettings name="vsys" id="2" description="request access to a vsys script on the selected node" uniqueID="planetlab2-novi.lab.netmode.ece.ntua.gr_set_2" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_2">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="initscript" id="3" description="initscript on the selected node" uniqueID="planetlab2-novi.lab.netmode.ece.ntua.gr_set_3" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_3">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="vsys_vnet" id="4" description="initscript on the selected node" uniqueID="planetlab2-novi.lab.netmode.ece.ntua.gr_set_4" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_4">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+      </offeredResourcesList>
+      <offeredResourcesList name="novilab.elte.hu" description="sfa node" uniqueID="novilab.elte.hu" implOfferedService="osnode" multitonMaxOccur="1" geocoords="-170, 50">
+        <resourceSettings name="hostname" id="1" description="node hostname" uniqueID="novilab.elte.hu_set_1" userExposed="true" Readable="true" Optional="true" implServiceSetting="osnode_set_1">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue="defvalHostNameSet"/>
+        </resourceSettings>
+        <resourceSettings name="vsys" id="2" description="request access to a vsys script on the selected node" uniqueID="novilab.elte.hu_set_2" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_2">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="initscript" id="3" description="initscript on the selected node" uniqueID="novilab.elte.hu_set_3" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_3">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="vsys_vnet" id="4" description="initscript on the selected node" uniqueID="novilab.elte.hu_set_4" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_4">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+      </offeredResourcesList>
+      <offeredResourcesList name="smilax1.man.poznan.pl" description="sfa node" uniqueID="smilax1.man.poznan.pl" implOfferedService="osnode" multitonMaxOccur="1" geocoords="-170, 50">
+        <resourceSettings name="hostname" id="1" description="node hostname" uniqueID="smilax1.man.poznan.pl_set_1" userExposed="true" Readable="true" Optional="true" implServiceSetting="osnode_set_1">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue="defvalHostNameSet"/>
+        </resourceSettings>
+        <resourceSettings name="vsys" id="2" description="request access to a vsys script on the selected node" uniqueID="smilax1.man.poznan.pl_set_2" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_2">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="initscript" id="3" description="initscript on the selected node" uniqueID="smilax1.man.poznan.pl_set_3" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_3">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="vsys_vnet" id="4" description="initscript on the selected node" uniqueID="smilax1.man.poznan.pl_set_4" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_4">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+      </offeredResourcesList>
+      <offeredResourcesList name="smilax3.man.poznan.pl" description="sfa node" uniqueID="smilax3.man.poznan.pl" implOfferedService="osnode" multitonMaxOccur="1" geocoords="-170, 50">
+        <resourceSettings name="hostname" id="1" description="node hostname" uniqueID="smilax3.man.poznan.pl_set_1" userExposed="true" Readable="true" Optional="true" implServiceSetting="osnode_set_1">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue="defvalHostNameSet"/>
+        </resourceSettings>
+        <resourceSettings name="vsys" id="2" description="request access to a vsys script on the selected node" uniqueID="smilax3.man.poznan.pl_set_2" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_2">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="initscript" id="3" description="initscript on the selected node" uniqueID="smilax3.man.poznan.pl_set_3" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_3">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="vsys_vnet" id="4" description="initscript on the selected node" uniqueID="smilax3.man.poznan.pl_set_4" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_4">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+      </offeredResourcesList>
+      <offeredResourcesList name="smilax4.man.poznan.pl" description="sfa node" uniqueID="smilax4.man.poznan.pl" implOfferedService="osnode" multitonMaxOccur="1" geocoords="-170, 50">
+        <resourceSettings name="hostname" id="1" description="node hostname" uniqueID="smilax4.man.poznan.pl_set_1" userExposed="true" Readable="true" Optional="true" implServiceSetting="osnode_set_1">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue="defvalHostNameSet"/>
+        </resourceSettings>
+        <resourceSettings name="vsys" id="2" description="request access to a vsys script on the selected node" uniqueID="smilax4.man.poznan.pl_set_2" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_2">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="initscript" id="3" description="initscript on the selected node" uniqueID="smilax4.man.poznan.pl_set_3" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_3">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="vsys_vnet" id="4" description="initscript on the selected node" uniqueID="smilax4.man.poznan.pl_set_4" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_4">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+      </offeredResourcesList>
+      <offeredResourcesList name="smilax5.man.poznan.pl" description="sfa node" uniqueID="smilax5.man.poznan.pl" implOfferedService="osnode" multitonMaxOccur="1" geocoords="-170, 50">
+        <resourceSettings name="hostname" id="1" description="node hostname" uniqueID="smilax5.man.poznan.pl_set_1" userExposed="true" Readable="true" Optional="true" implServiceSetting="osnode_set_1">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue="defvalHostNameSet"/>
+        </resourceSettings>
+        <resourceSettings name="vsys" id="2" description="request access to a vsys script on the selected node" uniqueID="smilax5.man.poznan.pl_set_2" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_2">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="initscript" id="3" description="initscript on the selected node" uniqueID="smilax5.man.poznan.pl_set_3" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_3">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="vsys_vnet" id="4" description="initscript on the selected node" uniqueID="smilax5.man.poznan.pl_set_4" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_4">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+      </offeredResourcesList>
+      <offeredResourcesList name="www.test.pl" description="sfa node" uniqueID="www.test.pl" implOfferedService="osnode" multitonMaxOccur="1" geocoords="-170, 50">
+        <resourceSettings name="hostname" id="1" description="node hostname" uniqueID="www.test.pl_set_1" userExposed="true" Readable="true" Optional="true" implServiceSetting="osnode_set_1">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue="defvalHostNameSet"/>
+        </resourceSettings>
+        <resourceSettings name="vsys" id="2" description="request access to a vsys script on the selected node" uniqueID="www.test.pl_set_2" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_2">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="initscript" id="3" description="initscript on the selected node" uniqueID="www.test.pl_set_3" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_3">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="vsys_vnet" id="4" description="initscript on the selected node" uniqueID="www.test.pl_set_4" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_4">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+      </offeredResourcesList>
+      <offeredResourcesList name="novi1.pl.sophia.inria.fr" description="sfa node" uniqueID="novi1.pl.sophia.inria.fr" implOfferedService="osnode" multitonMaxOccur="1" geocoords="-170, 50">
+        <resourceSettings name="hostname" id="1" description="node hostname" uniqueID="novi1.pl.sophia.inria.fr_set_1" userExposed="true" Readable="true" Optional="true" implServiceSetting="osnode_set_1">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue="defvalHostNameSet"/>
+        </resourceSettings>
+        <resourceSettings name="vsys" id="2" description="request access to a vsys script on the selected node" uniqueID="novi1.pl.sophia.inria.fr_set_2" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_2">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="initscript" id="3" description="initscript on the selected node" uniqueID="novi1.pl.sophia.inria.fr_set_3" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_3">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="vsys_vnet" id="4" description="initscript on the selected node" uniqueID="novi1.pl.sophia.inria.fr_set_4" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_4">
+          <settingType xsi:type="org.panlab.FederationOffice.model.services:tideTypeString" defaultValue=""/>
+        </resourceSettings>
+      </offeredResourcesList>
+    </offeredSiteList>
+  </registeredUsers>
+  <contributedTaxonomies name="General">
+    <taxonomies name="General Services" hasServices="osnode"/>
+  </contributedTaxonomies>
+  <offeredServices name="node" description="sfa node" uniqueID="osnode">
+    <serviceSettings name="hostname" id="1" description="node hostname" uniqueID="osnode_set_1" userExposed="true" Readable="true"/>
+    <serviceSettings name="vsys" id="2" description="request access to a vsys script on the selected node" uniqueID="osnode_set_2" userExposed="true" userEditable="true" Readable="true" Writable="true"/>
+    <serviceSettings name="initscript" id="3" description="initscript on the selected node" uniqueID="osnode_set_3" userExposed="true" userEditable="true" Readable="true" Writable="true"/>
+    <serviceSettings name="vsys_vnet" id="4" description="initscript on the selected node" uniqueID="osnode_set_4" userExposed="true" userEditable="true" Readable="true" Writable="true"/>
+  </offeredServices>
+  <ResourceServiceContracts name="C1_smilax2.man.poznan.pl_node" id="1" description="a contract between service node and offered resource smilax2.man.poznan.pl, offered by site site of provider novipl" uniqueID="contr_1" forOfferedService="osnode" forOfferedResource="smilax2.man.poznan.pl" StartDate="2012-02-02T19:41:49.373+0200" EndDate="2015-02-02T19:41:49.373+0200">
+    <availability FromDate="2012-02-02T19:41:49.373+0200" ToDate="2015-02-02T19:41:49.373+0200">
+      <cost perUnit="HOUR" Amount="0.3"/>
+    </availability>
+  </ResourceServiceContracts>
+  <ResourceServiceContracts name="C2_planetlab1-novi.lab.netmode.ece.ntua.gr_node" id="2" description="a contract between service node and offered resource planetlab1-novi.lab.netmode.ece.ntua.gr, offered by site site of provider novipl" uniqueID="contr_2" forOfferedService="osnode" forOfferedResource="planetlab1-novi.lab.netmode.ece.ntua.gr" StartDate="2012-02-02T19:41:49.389+0200" EndDate="2015-02-02T19:41:49.389+0200">
+    <availability FromDate="2012-02-02T19:41:49.389+0200" ToDate="2015-02-02T19:41:49.389+0200">
+      <cost perUnit="HOUR" Amount="0.25"/>
+    </availability>
+  </ResourceServiceContracts>
+  <ResourceServiceContracts name="C3_planetlab2-novi.lab.netmode.ece.ntua.gr_node" id="3" description="a contract between service node and offered resource planetlab2-novi.lab.netmode.ece.ntua.gr, offered by site site of provider novipl" uniqueID="contr_3" forOfferedService="osnode" forOfferedResource="planetlab2-novi.lab.netmode.ece.ntua.gr" StartDate="2012-02-02T19:41:49.402+0200" EndDate="2015-02-02T19:41:49.402+0200">
+    <availability FromDate="2012-02-02T19:41:49.402+0200" ToDate="2015-02-02T19:41:49.402+0200">
+      <cost perUnit="HOUR" Amount="0.3"/>
+    </availability>
+  </ResourceServiceContracts>
+  <ResourceServiceContracts name="C4_novilab.elte.hu_node" id="4" description="a contract between service node and offered resource novilab.elte.hu, offered by site site of provider novipl" uniqueID="contr_4" forOfferedService="osnode" forOfferedResource="novilab.elte.hu" StartDate="2012-02-02T19:41:49.411+0200" EndDate="2015-02-02T19:41:49.411+0200">
+    <availability FromDate="2012-02-02T19:41:49.411+0200" ToDate="2015-02-02T19:41:49.411+0200">
+      <cost perUnit="HOUR" Amount="0.25"/>
+    </availability>
+  </ResourceServiceContracts>
+  <ResourceServiceContracts name="C5_smilax1.man.poznan.pl_node" id="5" description="a contract between service node and offered resource smilax1.man.poznan.pl, offered by site site of provider novipl" uniqueID="contr_5" forOfferedService="osnode" forOfferedResource="smilax1.man.poznan.pl" StartDate="2012-02-02T19:41:49.421+0200" EndDate="2015-02-02T19:41:49.421+0200">
+    <availability FromDate="2012-02-02T19:41:49.421+0200" ToDate="2015-02-02T19:41:49.421+0200">
+      <cost perUnit="HOUR" Amount="0.75"/>
+    </availability>
+  </ResourceServiceContracts>
+  <ResourceServiceContracts name="C6_smilax3.man.poznan.pl_node" id="6" description="a contract between service node and offered resource smilax3.man.poznan.pl, offered by site site of provider novipl" uniqueID="contr_6" forOfferedService="osnode" forOfferedResource="smilax3.man.poznan.pl" StartDate="2012-02-02T19:41:49.429+0200" EndDate="2015-02-02T19:41:49.429+0200">
+    <availability FromDate="2012-02-02T19:41:49.429+0200" ToDate="2015-02-02T19:41:49.429+0200">
+      <cost perUnit="HOUR" Amount="0.45"/>
+    </availability>
+  </ResourceServiceContracts>
+  <ResourceServiceContracts name="C7_smilax4.man.poznan.pl_node" id="7" description="a contract between service node and offered resource smilax4.man.poznan.pl, offered by site site of provider novipl" uniqueID="contr_7" forOfferedService="osnode" forOfferedResource="smilax4.man.poznan.pl" StartDate="2012-02-02T19:41:49.453+0200" EndDate="2015-02-02T19:41:49.453+0200">
+    <availability FromDate="2012-02-02T19:41:49.453+0200" ToDate="2015-02-02T19:41:49.453+0200">
+      <cost perUnit="HOUR" Amount="0.1"/>
+    </availability>
+  </ResourceServiceContracts>
+  <ResourceServiceContracts name="C8_smilax5.man.poznan.pl_node" id="8" description="a contract between service node and offered resource smilax5.man.poznan.pl, offered by site site of provider novipl" uniqueID="contr_8" forOfferedService="osnode" forOfferedResource="smilax5.man.poznan.pl" StartDate="2012-02-02T19:41:49.478+0200" EndDate="2015-02-02T19:41:49.478+0200">
+    <availability FromDate="2012-02-02T19:41:49.478+0200" ToDate="2015-02-02T19:41:49.478+0200">
+      <cost perUnit="HOUR" Amount="0.35"/>
+    </availability>
+  </ResourceServiceContracts>
+  <ResourceServiceContracts name="C9_www.test.pl_node" id="9" description="a contract between service node and offered resource www.test.pl, offered by site site of provider novipl" uniqueID="contr_9" forOfferedService="osnode" forOfferedResource="www.test.pl" StartDate="2012-02-02T19:41:49.502+0200" EndDate="2015-02-02T19:41:49.502+0200">
+    <availability FromDate="2012-02-02T19:41:49.502+0200" ToDate="2015-02-02T19:41:49.502+0200">
+      <cost perUnit="HOUR" Amount="0.35"/>
+    </availability>
+  </ResourceServiceContracts>
+  <ResourceServiceContracts name="C10_novi1.pl.sophia.inria.fr_node" id="10" description="a contract between service node and offered resource novi1.pl.sophia.inria.fr, offered by site site of provider novipl" uniqueID="contr_10" forOfferedService="osnode" forOfferedResource="novi1.pl.sophia.inria.fr" StartDate="2012-02-02T19:41:49.529+0200" EndDate="2015-02-02T19:41:49.529+0200">
+    <availability FromDate="2012-02-02T19:41:49.529+0200" ToDate="2015-02-02T19:41:49.529+0200">
+      <cost perUnit="HOUR" Amount="0.3"/>
+    </availability>
+  </ResourceServiceContracts>
+</org.panlab.FederationOffice:Office>
