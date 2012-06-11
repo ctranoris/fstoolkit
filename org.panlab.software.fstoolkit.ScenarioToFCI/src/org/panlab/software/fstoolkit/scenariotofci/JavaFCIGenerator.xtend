@@ -42,6 +42,9 @@ class JavaFCIGenerator  implements IGenerator {
 		resContexts.add(e.name );
 		
 		 '''
+		 //TODO: Please enter here identity for «e.name»
+		String _username_«e.name» ="ENTER USERNAME";
+		String _password_«e.name» ="ENTER PASSWORD";
 		ResourceContext _context_«e.name»;
 		
 		public ResourceContext _return_context_«e.name»(){ 
@@ -121,13 +124,7 @@ class JavaFCIGenerator  implements IGenerator {
 		
 		public class «e.name» {
 			
-			«FOR  s : e.infrastructureRequest.reqOfferedResources»
-				«var office =  s.refOfferedResource.belongsToSite.belongsToProvider.eContainer as Office»
-				//TODO: Please enter here identity for «office.name»
-				String _username_«office.name» ="ENTER USERNAME";
-				String _password_«office.name» ="ENTER PASSWORD";
-			«ENDFOR»
-			
+
 			FCI fci = FCI.getInstance();
 			
 			//for each imported office, we need a Resource Context	
