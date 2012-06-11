@@ -5,43 +5,22 @@
       <authorizationKey>
         <credentials>
           <credoptions key="TRUSTSTORE_FILEPATH" value="C:\Users\ctranoris\Desktop\_downloads\tmp\myplc.keystore"/>
-          <credoptions key="AUTHORITY" value="pla.openlab"/>
+          <credoptions key="AUTHORITY" value="openlab"/>
           <credoptions key="TRUSTSTORE_PASSWORD" value="123456"/>
           <credoptions key="KEYSTORE_FILEPATH" value="C:\Users\ctranoris\Desktop\_downloads\tmp\plckeys\sfa1inriactranoris.p12"/>
+          <credoptions key="SFAVERSION" value="2"/>
           <credoptions key="SM_URL" value="https://sfa1.pl.sophia.inria.fr:12347"/>
           <credoptions key="REGISTRY_URL" value="https://sfa1.pl.sophia.inria.fr:12345"/>
           <credoptions key="USERNAME" value="pla.openlab.ctranoris"/>
           <credoptions key="AM_URL" value="https://sfa1.pl.sophia.inria.fr:12346"/>
           <credoptions key="SELF_CERTIFICATE_FILEPATH" value="C:\Users\ctranoris\Desktop\_downloads\tmp\plckeys\sfa1inriactranoris.sscert"/>
+          <credoptions key="SFATYPE" value="SFA"/>
           <credoptions key="KEYSTORE_PASSWORD" value="123456"/>
         </credentials>
       </authorizationKey>
     </hasAccount>
   </registeredUsers>
-  <registeredUsers xsi:type="org.panlab.FederationOffice.model.users:ResourcesProvider" name="pla" description="pla" uniqueID="rppla" organization="pla">
-    <offeredSiteList name="site" uniqueID="rppla_spla">
-      <ptm/>
-      <offeredResourcesList name="sfanode1.pl.sophia.inria.fr" description="sfa node" uniqueID="sfanode1.pl.sophia.inria.fr" implOfferedService="osnode" multitonMaxOccur="1"/>
-    </offeredSiteList>
-  </registeredUsers>
-  <registeredUsers xsi:type="org.panlab.FederationOffice.model.users:ResourcesProvider" name="plb" id="1" description="plb" uniqueID="rpplb" organization="plb">
-    <offeredSiteList name="site" uniqueID="rpplb_splb">
-      <ptm/>
-      <offeredResourcesList name="sfanode2.pl.sophia.inria.fr" description="sfa node" uniqueID="sfanode2.pl.sophia.inria.fr" implOfferedService="osnode" multitonMaxOccur="1"/>
-    </offeredSiteList>
-  </registeredUsers>
   <contributedTaxonomies name="General">
-    <taxonomies name="General Services" hasServices="osnode"/>
+    <taxonomies name="General Services"/>
   </contributedTaxonomies>
-  <offeredServices name="node" description="sfa node" uniqueID="osnode"/>
-  <ResourceServiceContracts name="C1_sfanode1.pl.sophia.inria.fr_node" id="1" description="a contract between service node and offered resource sfanode1.pl.sophia.inria.fr, offered by site site of provider pla" uniqueID="contr_1" forOfferedService="osnode" forOfferedResource="sfanode1.pl.sophia.inria.fr" StartDate="2011-12-28T18:44:30.756+0200" EndDate="2014-12-28T18:44:30.756+0200">
-    <availability FromDate="2011-12-28T18:44:30.756+0200" ToDate="2014-12-28T18:44:30.756+0200">
-      <cost perUnit="HOUR" Amount="0.5"/>
-    </availability>
-  </ResourceServiceContracts>
-  <ResourceServiceContracts name="C2_sfanode2.pl.sophia.inria.fr_node" id="2" description="a contract between service node and offered resource sfanode2.pl.sophia.inria.fr, offered by site site of provider plb" uniqueID="contr_2" forOfferedService="osnode" forOfferedResource="sfanode2.pl.sophia.inria.fr" StartDate="2011-12-28T18:44:30.787+0200" EndDate="2014-12-28T18:44:30.787+0200">
-    <availability FromDate="2011-12-28T18:44:30.787+0200" ToDate="2014-12-28T18:44:30.787+0200">
-      <cost perUnit="HOUR" Amount="0.4"/>
-    </availability>
-  </ResourceServiceContracts>
 </org.panlab.FederationOffice:Office>
