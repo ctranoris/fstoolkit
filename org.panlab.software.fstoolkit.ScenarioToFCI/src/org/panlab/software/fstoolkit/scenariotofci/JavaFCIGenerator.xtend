@@ -12,10 +12,14 @@ import FederationOffice.federationscenarios.ResourceRequest
 import FederationOffice.federationscenarios.RequestedFederationScenario
 import FederationOffice.resources.OfferedResource
 import org.eclipse.xtext.naming.IQualifiedNameProvider
+import java.util.List
+import java.util.ArrayList
 
 class JavaFCIGenerator  implements IGenerator {
 
-
+	
+	ArrayList resContexts
+	
 	@Inject extension IQualifiedNameProvider nameProvider 
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
@@ -27,14 +31,26 @@ class JavaFCIGenerator  implements IGenerator {
     	}
     	
 	}
+	
+	
+	
+	
 
 	def addResourceContext(Office e) {
+		
+		
+		if (resContexts.indexOf(e.name)>=0 ){
+			return '''//''';
+		}
+		
+		resContexts.add(e.name );
+		
 		 '''
 		ResourceContext _context_«e.name»;
 		
 		public ResourceContext _return_context_«e.name»(){ 
 			//credentials for amazon Office
-			FCICredentials cred = new FCICredentials(_username_«e.name», _password_«e.name»);
+			FCICredentials cred = fci.createFCICredentials(_username_«e.name», _password_«e.name»);
 			AuthorizationKey authKey = fci.createAuthorizationKey(cred);
 			ResourceContext _context_«e.name» = fci.createResourceContext("«e.name»", authKey);
 			return _context_«e.name»;
@@ -71,6 +87,8 @@ class JavaFCIGenerator  implements IGenerator {
 	def dispatch toClass(RequestedFederationScenario e, IFileSystemAccess fsa) {
 		System::out.println( "compile2="+e.toString )
 		
+		resContexts = new ArrayList<String>();
+		
 		for(reqResource : e.infrastructureRequest.reqOfferedResources ){
 			reqResource.refOfferedResource.toClass(fsa);	
 		}
@@ -95,15 +113,15 @@ class JavaFCIGenerator  implements IGenerator {
 		
 		import java.util.ArrayList;
 		import java.util.List;		
-		import org.panlab.software.fci.core.AuthorizationKey;
 		import org.panlab.software.fci.core.FCI;
-		import org.panlab.software.fci.core.FCICredentials;
 		import org.panlab.software.fci.core.ParameterValuePair;
 		import org.panlab.software.fci.core.ResourceContext;
 		import org.panlab.software.fci.core.ResourceGroup;
 		import org.panlab.software.fci.core.ResourceProvider;
 		import org.panlab.software.fci.core.ResourceProxy;
 		import org.panlab.software.fci.core.ServiceType;
+		import FederationOffice.fcielements.AuthorizationKey;
+		import FederationOffice.fcielements.FCICredentials;
 		
 		public class «e.name» {
 			
