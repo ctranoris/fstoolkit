@@ -18,7 +18,8 @@ import java.util.ArrayList
 class JavaFCIGenerator  implements IGenerator {
 
 	
-	ArrayList resContexts
+	ArrayList<String> resContexts
+	String scenarioName
 	
 	@Inject extension IQualifiedNameProvider nameProvider 
 	
@@ -74,7 +75,7 @@ class JavaFCIGenerator  implements IGenerator {
 			p = new ParameterValuePair("«p.refResourceSetting.name»", "«p.staticValue»");
 			params.add(p);
 			«ENDFOR»
-			ResourceProxy resource_«e.name» = _context_«o.name».createResourceProxy("myScenario", "echo_rp12_s12_or10782", provider, service, params);
+			ResourceProxy resource_«e.name» = _context_«o.name».createResourceProxy("«scenarioName»", "«e.name + "_"+e.uniqueID  »", provider, service, params);
 			return  resource_«e.name»;
 		}
 		'''	
@@ -92,6 +93,7 @@ class JavaFCIGenerator  implements IGenerator {
 			reqResource.refOfferedResource.toClass(fsa);	
 		}
 		
+		scenarioName = e.name
 		fsa.generateFile("scenario/"+e.name + ".java", '''
 		/*************************************************************************
 		Copyright 2010 Panlab 
@@ -154,9 +156,8 @@ class JavaFCIGenerator  implements IGenerator {
 			}
 			
 			public void CreateContexts(){
-				«FOR  s : e.infrastructureRequest.reqOfferedResources»
-				«var office =  s.refOfferedResource.belongsToSite.belongsToProvider.eContainer as Office»
-				_context_«office.name» = _return_context_«office.name»();
+				«FOR  s : resContexts »
+				_context_«s» = _return_context_«s»();
 				«ENDFOR»
 				
 			}
