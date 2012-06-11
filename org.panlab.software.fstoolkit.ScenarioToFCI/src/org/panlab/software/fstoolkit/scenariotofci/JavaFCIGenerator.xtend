@@ -26,13 +26,9 @@ class JavaFCIGenerator  implements IGenerator {
 		System::out.println( "resource="+resource.toString )
 		for(EObject e: resource.allContentsIterable.filter(typeof( RequestedFederationScenario ))) {
 			e.toClass(fsa)
-			
-			
     	}
     	
 	}
-	
-	
 	
 	
 
