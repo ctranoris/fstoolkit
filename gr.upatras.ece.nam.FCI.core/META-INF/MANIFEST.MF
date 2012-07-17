@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Core
+Bundle-SymbolicName: gr.upatras.ece.nam.FCI.core
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: gr.upatras.ece.nam.broker.model;bundle-version="1.0.0"
+Export-Package: gr.upatras.ece.nam.fci.core
