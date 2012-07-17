@@ -22,7 +22,7 @@ import java.util.Set;
 import java.util.Map.Entry;
 
 import org.panlab.software.fci.amazon.AmazonServices;
-import org.panlab.software.fci.panlab.PanlabServices;
+import gr.upatras.ece.nam.fci.panlab.PanlabServices;
 import org.panlab.software.fci.sfa.SFAServices;
 import org.panlab.software.fci.uop.UoPServices;
 
@@ -162,7 +162,7 @@ public class FCI {
 	}
 
 	private ResourceContext CreateUoPResourceContext(AuthorizationKey authKey) {
-		Broker office = UoPServices.getInstance().getOffice(
+		Broker office = UoPServices.getInstance().getBroker(
 				
 //				PREPEI TO authKey na erxetai edw...
 //				To AuthorizationKey na ginei class sto model??
@@ -179,7 +179,7 @@ public class FCI {
 	private ResourceContext CreatePanlabResourceContext(AuthorizationKey authKey) {
 		
 		
-		Broker office = PanlabServices.getInstance().getOffice(
+		Broker office = PanlabServices.getInstance().getBroker(
 				authKey.getUsername(), authKey.getPassword(), true);
 		
 		if (office != null) {
@@ -190,7 +190,7 @@ public class FCI {
 	}
 	
 	private ResourceContext CreateAmazonResourceContext(AuthorizationKey authKey) {
-		brokermodel office = AmazonServices.getInstance().getOffice(
+		Broker office = AmazonServices.getInstance().getBroker(
 				authKey.getUsername(), authKey.getPassword(), true);
 		
 		if (office != null) {
