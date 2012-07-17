@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://nam.ece.upatras.gr/broker"
+            class="Broker.BrokerPackage"
+            genModel="model/Broker.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="broker"
+            class="Broker.util.BrokerResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://nam.ece.upatras.gr/broker/model/users"
+            class="Broker.users.UsersPackage"
+            genModel="model/Broker.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="users"
+            class="Broker.users.util.UsersResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://nam.ece.upatras.gr/broker/model/resources"
+            class="Broker.resources.ResourcesPackage"
+            genModel="model/Broker.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="resources"
+            class="Broker.resources.util.ResourcesResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://nam.ece.upatras.gr/broker/model/networkelements"
+            class="Broker.networkelements.NetworkelementsPackage"
+            genModel="model/Broker.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="networkelements"
+            class="Broker.networkelements.util.NetworkelementsResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://nam.ece.upatras.gr/broker/model/providersite"
+            class="Broker.providersite.ProvidersitePackage"
+            genModel="model/Broker.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="providersite"
+            class="Broker.providersite.util.ProvidersiteResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://nam.ece.upatras.gr/broker/model/slareservations"
+            class="Broker.slareservations.SlareservationsPackage"
+            genModel="model/Broker.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="slareservations"
+            class="Broker.slareservations.util.SlareservationsResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://nam.ece.upatras.gr/broker/model/federationscenarios"
+            class="Broker.federationscenarios.FederationscenariosPackage"
+            genModel="model/Broker.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="federationscenarios"
+            class="Broker.federationscenarios.util.FederationscenariosResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://nam.ece.upatras.gr/broker/model/services"
+            class="Broker.services.ServicesPackage"
+            genModel="model/Broker.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="services"
+            class="Broker.services.util.ServicesResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://nam.ece.upatras.gr/broker/model/availabilitycontract"
+            class="Broker.availabilityContract.AvailabilityContractPackage"
+            genModel="model/Broker.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="availabilitycontract"
+            class="Broker.availabilityContract.util.AvailabilityContractResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://nam.ece.upatras.gr/broker/model/uiObjects"
+            class="Broker.uiObjects.UiObjectsPackage"
+            genModel="model/Broker.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="uiobjects"
+            class="Broker.uiObjects.util.UiObjectsResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://nam.ece.upatras.gr/broker/model/experimentRuntime"
+            class="Broker.experimentRuntime.ExperimentRuntimePackage"
+            genModel="model/Broker.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="experimentruntime"
+            class="Broker.experimentRuntime.util.ExperimentRuntimeResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://nam.ece.upatras.gr/broker/model/extensionInterfaces"
+            class="Broker.extensionInterfaces.ExtensionInterfacesPackage"
+            genModel="model/Broker.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="extensioninterfaces"
+            class="Broker.extensionInterfaces.util.ExtensionInterfacesResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://nam.ece.upatras.gr/broker/model/FCIElements"
+            class="Broker.fcielements.FcielementsPackage"
+            genModel="model/Broker.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="fcielements"
+            class="Broker.fcielements.util.FcielementsResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Broker" nsURI="http://nam.ece.upatras.gr/broker" nsPrefix="gr.upatras.ece.nam.broker">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="brokermodel" nsURI="http://nam.ece.upatras.gr/broker" nsPrefix="gr.upatras.ece.nam.broker">
   <eClassifiers xsi:type="ecore:EEnum" name="ScenarioStatus">
     <eLiterals name="NEW"/>
     <eLiterals name="REQUESTED" value="1"/>
@@ -154,8 +154,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="Site" eSuperTypes="#//NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="ptm" lowerBound="1" eType="#//providersite/DomainManager"
           containment="true" eOpposite="#//providersite/DomainManager/belongsToSite"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="igwlist" lowerBound="1"
-          upperBound="-1" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="locatedAt" lowerBound="1"
           eType="#//providersite/SiteLocation" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="offeredResourcesList"
