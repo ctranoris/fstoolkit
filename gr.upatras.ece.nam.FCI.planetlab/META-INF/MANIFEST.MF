@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Planetlab
+Bundle-SymbolicName: gr.upatras.ece.nam.FCI.planetlab
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: gr.upatras.ece.nam.fci.planetlab.Activator
+Require-Bundle: org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
