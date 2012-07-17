@@ -21,10 +21,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
 
-import org.panlab.software.fci.amazon.AmazonServices;
+import gr.upatras.ece.nam.fci.amazon.AmazonServices;
 import gr.upatras.ece.nam.fci.panlab.PanlabServices;
-import org.panlab.software.fci.sfa.SFAServices;
-import org.panlab.software.fci.uop.UoPServices;
+import gr.upatras.ece.nam.fci.sfa.SFAServices;
+import gr.upatras.ece.nam.fci.uop.UoPServices;
 
 import brokermodel.Broker;
 import brokermodel.fcielements.AuthorizationKey;
@@ -152,7 +152,7 @@ public class FCI {
 	
 	private ResourceContext CreateSFAResourceContext(AuthorizationKey authKey) {
 
-		Broker office = SFAServices.getInstance().getOffice(authKey , true);
+		Broker office = SFAServices.getInstance().getBroker(authKey , true);
 		
 		if (office != null) {
 			return new ResourceContext( office );
