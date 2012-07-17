@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: gr.upatras.ece.namg.broker.model
+Bundle-SymbolicName: gr.upatras.ece.nam.broker.model;singleton:=true
+Bundle-Version: 0.1.0
+Require-Bundle: org.eclipse.emf.ecore
