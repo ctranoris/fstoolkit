@@ -22,7 +22,7 @@ public class MyVTDLValueConverter extends DefaultTerminalConverters {
         	
         	@Override
             public Date toValue(String string, INode node) throws ValueConverterException{
-        		System.out.println(">>>Date toValue "+string );
+        		//System.out.println(">>>Date toValue "+string );
             	DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss"); 
             	Date dateNow = new Date ();
             	string = string.replace("\"", "");
@@ -33,7 +33,7 @@ public class MyVTDLValueConverter extends DefaultTerminalConverters {
                     return  dateNow;
                 
                 try {
-                	System.out.println("MyVTDLValueConverter.toValue() in return! ="+ sdf.parse(string));
+                	//System.out.println("MyVTDLValueConverter.toValue() in return! ="+ sdf.parse(string));
                     return  sdf.parse(string) ;
                 } catch (ParseException e) {
                 	//System.out.println("MyVTDLValueConverter.toValue() in return ParseException! ");
@@ -43,7 +43,7 @@ public class MyVTDLValueConverter extends DefaultTerminalConverters {
 
 	        @Override
 			public String toString(Date value) throws ValueConverterException {
-            	System.out.println("MyVTDLValueConverter.toString()= "+value);
+            	//System.out.println("MyVTDLValueConverter.toString()= "+value);
         		
             	DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss"); 
                 return   sdf.format (value) ;
