@@ -31,13 +31,13 @@ ImportBroker :
 Broker returns Broker::Broker:
 	{Broker::Broker}
 	'Broker'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('resourceURI' resourceURI=EString)?
-		('APIGateway' APIGateway=EString)?
+		('description' description=STRING)?
+		('resourceURI' resourceURI=STRING)?
+		('APIGateway' APIGateway=STRING)?
 		('registeredUsers' '{' registeredUsers+=BrokerUser ( "," registeredUsers+=BrokerUser)* '}' )?
 		('contributedTaxonomies' '{' contributedTaxonomies+=Taxonomy ( "," contributedTaxonomies+=Taxonomy)* '}' )?
 		('offeredServices' '{' offeredServices+=OfferedService ( "," offeredServices+=OfferedService)* '}' )?
@@ -99,8 +99,8 @@ SettingInstance returns federationscenarios::SettingInstance:
 
 
 
-EString returns ecore::EString:
-	STRING | ID;
+//STRING returns ecore::STRING:
+//	STRING | ID;
 
 EInt returns ecore::EInt:
 	'-'? INT;
@@ -108,13 +108,13 @@ EInt returns ecore::EInt:
 Taxonomy returns services::Taxonomy:
 	{services::Taxonomy}
 	'Taxonomy'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('hasScenarios' '(' hasScenarios+=[federationscenarios::RequestedFederationScenario|EString] ( "," hasScenarios+=[federationscenarios::RequestedFederationScenario|EString])* ')' )?
-		('hasServices' '(' hasServices+=[services::Service|EString] ( "," hasServices+=[services::Service|EString])* ')' )?
+		('description' description=STRING)?
+		('hasScenarios' '(' hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING] ( "," hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING])* ')' )?
+		('hasServices' '(' hasServices+=[services::Service|STRING] ( "," hasServices+=[services::Service|STRING])* ')' )?
 		('taxonomies' '{' taxonomies+=Taxonomy ( "," taxonomies+=Taxonomy)* '}' )?
 		('categories' '{' categories+=ResourceCategory ( "," categories+=ResourceCategory)* '}' )?
 	'}';
@@ -122,12 +122,12 @@ Taxonomy returns services::Taxonomy:
 OfferedService returns services::OfferedService:
 	{services::OfferedService}
 	'OfferedService'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('requiresServices' '(' requiresServices+=[services::Service|EString] ( "," requiresServices+=[services::Service|EString])* ')' )?
+		('description' description=STRING)?
+		('requiresServices' '(' requiresServices+=[services::Service|STRING] ( "," requiresServices+=[services::Service|STRING])* ')' )?
 		('serviceSettings' '{' serviceSettings+=ServiceSetting ( "," serviceSettings+=ServiceSetting)* '}' )?
 	'}';
 
@@ -135,11 +135,11 @@ RequestedFederationScenario returns federationscenarios::RequestedFederationScen
 	{federationscenarios::RequestedFederationScenario}
 	(isShared?='isShared')?
 	'RequestedFederationScenario'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
+		('description' description=STRING)?
 		('status' status=ScenarioStatus)?
 		('VTCredentials' VTCredentials=Credentials)?
 		('servicesRequest' servicesRequest=ServicesRequest)?
@@ -152,65 +152,65 @@ RequestedFederationScenario returns federationscenarios::RequestedFederationScen
 ServiceComposition returns services::ServiceComposition:
 	{services::ServiceComposition}
 	'ServiceComposition'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('hasServices' '(' hasServices+=[services::Service|EString] ( "," hasServices+=[services::Service|EString])* ')' )?
+		('description' description=STRING)?
+		('hasServices' '(' hasServices+=[services::Service|STRING] ( "," hasServices+=[services::Service|STRING])* ')' )?
 	'}';
 
 ResourceServiceContract returns availabilityContract::ResourceServiceContract:
 	'ResourceServiceContract'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
+		('description' description=STRING)?
 		'StartDate' StartDate=EDate
 		'EndDate' EndDate=EDate
-		'forOfferedService' forOfferedService=[services::Service|EString]
-		'forOfferedResource' forOfferedResource=[resources::OfferedResource|EString]
+		'forOfferedService' forOfferedService=[services::Service|STRING]
+		'forOfferedResource' forOfferedResource=[resources::OfferedResource|STRING]
 		('availability' availability=Availability)?
 	'}';
 
 SLA returns slareservations::SLA:
 	{slareservations::SLA}
 	'SLA'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
+		('description' description=STRING)?
 		('ValidFrom' ValidFrom=EDate)?
 		('ValidUntil' ValidUntil=EDate)?
-		('forVT' forVT=[federationscenarios::RequestedFederationScenario|EString])?
+		('forVT' forVT=[federationscenarios::RequestedFederationScenario|STRING])?
 		('ReservedRsources' '{' ReservedRsources+=ReservedResourceContract ( "," ReservedRsources+=ReservedResourceContract)* '}' )?
 	'}';
 
 Account returns users::Account:
 	{users::Account}
 	'Account'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('password' password=EString)?
-		('username' username=EString)?
+		('description' description=STRING)?
+		('password' password=STRING)?
+		('username' username=STRING)?
 	'}';
 
 ResourcesProvider returns users::ResourcesProvider:
 	{users::ResourcesProvider}
 	'ResourcesProvider'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('organization' organization=EString)?
-		('address' address=EString)?
-		('telephone' telephone=EString)?
+		('description' description=STRING)?
+		('organization' organization=STRING)?
+		('address' address=STRING)?
+		('telephone' telephone=STRING)?
 		('hasAccount' hasAccount=Account)?
 		('offeredSiteList' '{' offeredSiteList+=Site ( "," offeredSiteList+=Site)* '}' )?
 	'}';
@@ -218,59 +218,59 @@ ResourcesProvider returns users::ResourcesProvider:
 TestbedDesigner returns users::TestbedDesigner:
 	{users::TestbedDesigner}
 	'TestbedDesigner'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('organization' organization=EString)?
-		('address' address=EString)?
-		('telephone' telephone=EString)?
-		('designsVirtualTestbeds' '(' designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString] ( "," designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString])* ')' )?
+		('description' description=STRING)?
+		('organization' organization=STRING)?
+		('address' address=STRING)?
+		('telephone' telephone=STRING)?
+		('designsVirtualTestbeds' '(' designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING] ( "," designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING])* ')' )?
 		('hasAccount' hasAccount=Account)?
 	'}';
 
 Admin returns users::Admin:
 	{users::Admin}
 	'Admin'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('organization' organization=EString)?
-		('address' address=EString)?
-		('telephone' telephone=EString)?
+		('description' description=STRING)?
+		('organization' organization=STRING)?
+		('address' address=STRING)?
+		('telephone' telephone=STRING)?
 		('hasAccount' hasAccount=Account)?
 	'}';
 
 BrokerCustomer returns users::BrokerCustomer:
 	{users::BrokerCustomer}
 	'BrokerCustomer'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('organization' organization=EString)?
-		('address' address=EString)?
-		('telephone' telephone=EString)?
-		('utilizesVirtualTestbed' '(' utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString] ( "," utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString])* ')' )?
-		('hasTestbedDesigner' hasTestbedDesigner=[users::TestbedDesigner|EString])?
+		('description' description=STRING)?
+		('organization' organization=STRING)?
+		('address' address=STRING)?
+		('telephone' telephone=STRING)?
+		('utilizesVirtualTestbed' '(' utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING] ( "," utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING])* ')' )?
+		('hasTestbedDesigner' hasTestbedDesigner=[users::TestbedDesigner|STRING])?
 		('hasAccount' hasAccount=Account)?
 	'}';
 
 BrokerPersonel_Impl returns users::BrokerPersonel:
 	{users::BrokerPersonel}
 	'BrokerPersonel'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('organization' organization=EString)?
-		('address' address=EString)?
-		('telephone' telephone=EString)?
+		('description' description=STRING)?
+		('organization' organization=STRING)?
+		('address' address=STRING)?
+		('telephone' telephone=STRING)?
 		('hasAccount' hasAccount=Account)?
 	'}';
 
@@ -278,12 +278,12 @@ BrokerPersonel_Impl returns users::BrokerPersonel:
 
 Site returns providersite::Site:
 	'Site'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		'domainmanager'  domainManager= DomainManager
+		('description' description=STRING)?
+		domainManager= DomainManager
 		'locatedAt' locatedAt=SiteLocation
 		('offeredResourcesList' '{' offeredResourcesList+=OfferedResource ( "," offeredResourcesList+=OfferedResource)* '}' )?
 	'}';
@@ -291,60 +291,60 @@ Site returns providersite::Site:
 DomainManager returns providersite::DomainManager:
 	{providersite::DomainManager}
 	'DomainManager'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('IP' IP=EString)?
+		('description' description=STRING)?
+		('IP' IP=STRING)?
 	'}';
 
 SiteLocation returns providersite::SiteLocation:
 	{providersite::SiteLocation}
 	'SiteLocation'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('address' address=EString)?
-		('geocoords' geocoords=EString)?
+		('description' description=STRING)?
+		('address' address=STRING)?
+		('geocoords' geocoords=STRING)?
 	'}';
 
 OfferedResource returns resources::OfferedResource:
 	{resources::OfferedResource}
 	'OfferedResource'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
+		('description' description=STRING)?
 		('resourceType' resourceType=ResourceType)?
 		('multitonMaxOccur' multitonMaxOccur=EInt)?
-		('geocoords' geocoords=EString)?
-		('contributesToCategories' '(' contributesToCategories+=[resources::ResourceCategory|EString] ( "," contributesToCategories+=[resources::ResourceCategory|EString])* ')' )?
-		('requiresResources' '(' requiresResources+=[resources::Resource|EString] ( "," requiresResources+=[resources::Resource|EString])* ')' )?
-		('implOfferedService' implOfferedService=[services::Service|EString])?
+		('geocoords' geocoords=STRING)?
+		('contributesToCategories' '(' contributesToCategories+=[resources::ResourceCategory|STRING] ( "," contributesToCategories+=[resources::ResourceCategory|STRING])* ')' )?
+		('requiresResources' '(' requiresResources+=[resources::Resource|STRING] ( "," requiresResources+=[resources::Resource|STRING])* ')' )?
+		('implOfferedService' implOfferedService=[services::Service|STRING])?
 		('resourceSettings' '{' resourceSettings+=ResourceSetting ( "," resourceSettings+=ResourceSetting)* '}' )?
 	'}';
 
 ResourceSetting returns resources::ResourceSetting:
 	{resources::ResourceSetting}
 	'ResourceSetting'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
+		('description' description=STRING)?
 		(userExposed?='userExposed')?
 		(userEditable?='userEditable')?
 		(canBePublished?='canBePublished')?
 		(Readable?='Readable')?
 		(Writable?='Writable')?
 		(Optional?='Optional')?
-		('requiresParams' '(' requiresParams+=[services::AbstractSetting|EString] ( "," requiresParams+=[services::AbstractSetting|EString])* ')' )?
-		('OnlyConfiguredByResources' '(' OnlyConfiguredByResources+=[resources::Resource|EString] ( "," OnlyConfiguredByResources+=[resources::Resource|EString])* ')' )?
-		('implServiceSetting' implServiceSetting=[services::ServiceSetting|EString])?
+		('requiresParams' '(' requiresParams+=[services::AbstractSetting|STRING] ( "," requiresParams+=[services::AbstractSetting|STRING])* ')' )?
+		('OnlyConfiguredByResources' '(' OnlyConfiguredByResources+=[resources::Resource|STRING] ( "," OnlyConfiguredByResources+=[resources::Resource|STRING])* ')' )?
+		('implServiceSetting' implServiceSetting=[services::ServiceSetting|STRING])?
 		('settingType' settingType=SettingType)?
 		('settingConstraints' '{' settingConstraints+=SettingConstraint ( "," settingConstraints+=SettingConstraint)* '}' )?
 	'}';
@@ -352,24 +352,24 @@ ResourceSetting returns resources::ResourceSetting:
 ResourceCategory returns resources::ResourceCategory:
 	{resources::ResourceCategory}
 	'ResourceCategory'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('resourcelist' '(' resourcelist+=[resources::Resource|EString] ( "," resourcelist+=[resources::Resource|EString])* ')' )?
+		('description' description=STRING)?
+		('resourcelist' '(' resourcelist+=[resources::Resource|STRING] ( "," resourcelist+=[resources::Resource|STRING])* ')' )?
 	'}';
 
 Resource_Impl returns resources::Resource:
 	{resources::Resource}
 	'Resource'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('contributesToCategories' '(' contributesToCategories+=[resources::ResourceCategory|EString] ( "," contributesToCategories+=[resources::ResourceCategory|EString])* ')' )?
-		('requiresResources' '(' requiresResources+=[resources::Resource|EString] ( "," requiresResources+=[resources::Resource|EString])* ')' )?
+		('description' description=STRING)?
+		('contributesToCategories' '(' contributesToCategories+=[resources::ResourceCategory|STRING] ( "," contributesToCategories+=[resources::ResourceCategory|STRING])* ')' )?
+		('requiresResources' '(' requiresResources+=[resources::Resource|STRING] ( "," requiresResources+=[resources::Resource|STRING])* ')' )?
 		('resourceSettings' '{' resourceSettings+=ResourceSetting ( "," resourceSettings+=ResourceSetting)* '}' )?
 	'}';
 
@@ -379,12 +379,12 @@ ResourceType returns resources::ResourceType:
 Service_Impl returns services::Service:
 	{services::Service}
 	'Service'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('requiresServices' '(' requiresServices+=[services::Service|EString] ( "," requiresServices+=[services::Service|EString])* ')' )?
+		('description' description=STRING)?
+		('requiresServices' '(' requiresServices+=[services::Service|STRING] ( "," requiresServices+=[services::Service|STRING])* ')' )?
 		('serviceSettings' '{' serviceSettings+=ServiceSetting ( "," serviceSettings+=ServiceSetting)* '}' )?
 	'}';
 
@@ -396,29 +396,29 @@ SettingConstraint returns services::SettingConstraint:
 	(AvailableAfterOperation?='AvailableAfterOperation')?
 	(RequiredBeforeOperation?='RequiredBeforeOperation')?
 	'SettingConstraint'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
+		('description' description=STRING)?
 		('ForOperation' ForOperation=ServiceResourceOperation)?
 	'}';
 
 AbstractSetting_Impl returns services::AbstractSetting:
 	{services::AbstractSetting}
 	'AbstractSetting'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
+		('description' description=STRING)?
 		(userExposed?='userExposed')?
 		(userEditable?='userEditable')?
 		(canBePublished?='canBePublished')?
 		(Readable?='Readable')?
 		(Writable?='Writable')?
 		(Optional?='Optional')?
-		('requiresParams' '(' requiresParams+=[services::AbstractSetting|EString] ( "," requiresParams+=[services::AbstractSetting|EString])* ')' )?
+		('requiresParams' '(' requiresParams+=[services::AbstractSetting|STRING] ( "," requiresParams+=[services::AbstractSetting|STRING])* ')' )?
 		('settingType' settingType=SettingType)?
 		('settingConstraints' '{' settingConstraints+=SettingConstraint ( "," settingConstraints+=SettingConstraint)* '}' )?
 	'}';
@@ -426,20 +426,20 @@ AbstractSetting_Impl returns services::AbstractSetting:
 ServiceSetting returns services::ServiceSetting:
 	{services::ServiceSetting}
 	'ServiceSetting'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
+		('description' description=STRING)?
 		(userExposed?='userExposed')?
 		(userEditable?='userEditable')?
 		(canBePublished?='canBePublished')?
 		(Readable?='Readable')?
 		(Writable?='Writable')?
 		(Optional?='Optional')?
-		('requiresParams' '(' requiresParams+=[services::AbstractSetting|EString] ( "," requiresParams+=[services::AbstractSetting|EString])* ')' )?
-		('mappedToResourceSettings' '(' mappedToResourceSettings+=[resources::ResourceSetting|EString] ( "," mappedToResourceSettings+=[resources::ResourceSetting|EString])* ')' )?
-		('providedByResources' '(' providedByResources+=[resources::Resource|EString] ( "," providedByResources+=[resources::Resource|EString])* ')' )?
+		('requiresParams' '(' requiresParams+=[services::AbstractSetting|STRING] ( "," requiresParams+=[services::AbstractSetting|STRING])* ')' )?
+		('mappedToResourceSettings' '(' mappedToResourceSettings+=[resources::ResourceSetting|STRING] ( "," mappedToResourceSettings+=[resources::ResourceSetting|STRING])* ')' )?
+		('providedByResources' '(' providedByResources+=[resources::Resource|STRING] ( "," providedByResources+=[resources::Resource|STRING])* ')' )?
 		('settingType' settingType=SettingType)?
 		('settingConstraints' '{' settingConstraints+=SettingConstraint ( "," settingConstraints+=SettingConstraint)* '}' )?
 	'}';
@@ -447,54 +447,54 @@ ServiceSetting returns services::ServiceSetting:
 brTypeString returns services::brTypeString:
 	{services::brTypeString}
 	'brTypeString'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('defaultValue' defaultValue=EString)?
+		('description' description=STRING)?
+		('defaultValue' defaultValue=STRING)?
 	'}';
 
 brTypeEnum returns services::brTypeEnum:
 	{services::brTypeEnum}
 	'brTypeEnum'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('defaultValue' defaultValue=[services::brTypeEnumItem|EString])?
+		('description' description=STRING)?
+		('defaultValue' defaultValue=[services::brTypeEnumItem|STRING])?
 		('tideEnumlist' '{' tideEnumlist+=brTypeEnumItem ( "," tideEnumlist+=brTypeEnumItem)* '}' )?
 	'}';
 
 brTypeList returns services::brTypeList:
 	{services::brTypeList}
 	'brTypeList'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('ContainsElementsOf' ContainsElementsOf=[Broker::NamedElement|EString])?
+		('description' description=STRING)?
+		('ContainsElementsOf' ContainsElementsOf=[Broker::NamedElement|STRING])?
 	'}';
 
 brTypeTideElement returns services::brTypeTideElement:
 	{services::brTypeTideElement}
 	'brTypeTideElement'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('ofTideElement' ofTideElement=[Broker::NamedElement|EString])?
+		('description' description=STRING)?
+		('ofTideElement' ofTideElement=[Broker::NamedElement|STRING])?
 	'}';
 
 brTypeEnumItem returns services::brTypeEnumItem:
 	{services::brTypeEnumItem}
 	'brTypeEnumItem'
 	'{'
-		('value' value=EString)?
-		('description' description=EString)?
+		('value' value=STRING)?
+		('description' description=STRING)?
 	'}';
 
 ServiceResourceOperation returns services::ServiceResourceOperation:
@@ -506,34 +506,34 @@ ScenarioStatus returns Broker::ScenarioStatus:
 Credentials returns federationscenarios::Credentials:
 	{federationscenarios::Credentials}
 	'Credentials'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('username' username=EString)?
-		('password' password=EString)?
+		('description' description=STRING)?
+		('username' username=STRING)?
+		('password' password=STRING)?
 	'}';
 
 ServicesRequest returns federationscenarios::ServicesRequest:
 	{federationscenarios::ServicesRequest}
 	'ServicesRequest'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
+		('description' description=STRING)?
 		('serviceRequestList' '{' serviceRequestList+=ServiceRequest ( "," serviceRequestList+=ServiceRequest)* '}' )?
 	'}';
 
 InfrastructureRequest returns federationscenarios::InfrastructureRequest:
 	{federationscenarios::InfrastructureRequest}
 	'InfrastructureRequest'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
+		('description' description=STRING)?
 		('reqOfferedResources' '{' reqOfferedResources+=ResourceRequest ( "," reqOfferedResources+=ResourceRequest)* '}' )?
 		('resourceGroups' '{' resourceGroups+=ResourceGroup ( "," resourceGroups+=ResourceGroup)* '}' )?
 	'}';
@@ -550,79 +550,79 @@ Import returns federationscenarios::Import:
 	{federationscenarios::Import}
 	'Import'
 	'{'
-		('importURI' importURI=EString)?
+		('importURI' importURI=STRING)?
 	'}';
 
 RuntimeElement returns experimentRuntime::RuntimeElement:
 	{experimentRuntime::RuntimeElement}
 	'RuntimeElement'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
+		('description' description=STRING)?
 		('status' status=RuntimeElementStatus)?
-		('GUID' GUID=EString)?
-		('context' context=EString)?
+		('GUID' GUID=STRING)?
+		('context' context=STRING)?
 	'}';
 
 ServiceRequest returns federationscenarios::ServiceRequest:
 	'ServiceRequest'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
+		('description' description=STRING)?
 		('numOfServices' numOfServices=EInt)?
-		'refService' refService=[services::Service|EString]
-		('OfferedByProviders' OfferedByProviders=[users::ResourcesProvider|EString])?
+		'refService' refService=[services::Service|STRING]
+		('OfferedByProviders' OfferedByProviders=[users::ResourcesProvider|STRING])?
 		('reqServiceSettings' '{' reqServiceSettings+=ServiceSettingInstance ( "," reqServiceSettings+=ServiceSettingInstance)* '}' )?
 	'}';
 
 ServiceSettingInstance returns federationscenarios::ServiceSettingInstance:
 	'ServiceSettingInstance'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('staticValue' staticValue=EString)?
-		('assignSetting' '(' assignSetting+=[federationscenarios::SettingInstance|EString] ( "," assignSetting+=[federationscenarios::SettingInstance|EString])* ')' )?
-		'refServiceSetting' refServiceSetting=[services::ServiceSetting|EString]
+		('description' description=STRING)?
+		('staticValue' staticValue=STRING)?
+		('assignSetting' '(' assignSetting+=[federationscenarios::SettingInstance|STRING] ( "," assignSetting+=[federationscenarios::SettingInstance|STRING])* ')' )?
+		'refServiceSetting' refServiceSetting=[services::ServiceSetting|STRING]
 	'}';
 
 SettingInstance_Impl returns federationscenarios::SettingInstance:
 	{federationscenarios::SettingInstance}
 	'SettingInstance'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('staticValue' staticValue=EString)?
-		('assignSetting' '(' assignSetting+=[federationscenarios::SettingInstance|EString] ( "," assignSetting+=[federationscenarios::SettingInstance|EString])* ')' )?
+		('description' description=STRING)?
+		('staticValue' staticValue=STRING)?
+		('assignSetting' '(' assignSetting+=[federationscenarios::SettingInstance|STRING] ( "," assignSetting+=[federationscenarios::SettingInstance|STRING])* ')' )?
 	'}';
 
 ResourceSettingInstance returns federationscenarios::ResourceSettingInstance:
 	'ResourceSettingInstance'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('staticValue' staticValue=EString)?
-		('assignSetting' '(' assignSetting+=[federationscenarios::SettingInstance|EString] ( "," assignSetting+=[federationscenarios::SettingInstance|EString])* ')' )?
-		'refResourceSetting' refResourceSetting=[resources::ResourceSetting|EString]
+		('description' description=STRING)?
+		('staticValue' staticValue=STRING)?
+		('assignSetting' '(' assignSetting+=[federationscenarios::SettingInstance|STRING] ( "," assignSetting+=[federationscenarios::SettingInstance|STRING])* ')' )?
+		'refResourceSetting' refResourceSetting=[resources::ResourceSetting|STRING]
 	'}';
 
 ResourceRequest returns federationscenarios::ResourceRequest:
 	'ResourceRequest'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		'refOfferedResource' refOfferedResource=[resources::OfferedResource|EString]
+		('description' description=STRING)?
+		'refOfferedResource' refOfferedResource=[resources::OfferedResource|STRING]
 		('reqResourceSettings' '{' reqResourceSettings+=ResourceSettingInstance ( "," reqResourceSettings+=ResourceSettingInstance)* '}' )?
 		('runtimeInfo' runtimeInfo=RuntimeElement)?
 	'}';
@@ -630,23 +630,22 @@ ResourceRequest returns federationscenarios::ResourceRequest:
 ResourceGroup returns federationscenarios::ResourceGroup:
 	{federationscenarios::ResourceGroup}
 	'ResourceGroup'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
-		('groupedResources' '(' groupedResources+=[federationscenarios::ResourceRequest|EString] ( "," groupedResources+=[federationscenarios::ResourceRequest|EString])* ')' )?
+		('description' description=STRING)?
+		('groupedResources' '(' groupedResources+=[federationscenarios::ResourceRequest|STRING] ( "," groupedResources+=[federationscenarios::ResourceRequest|STRING])* ')' )?
 	'}';
 
 EDate returns ecore::EDate:
-	'EDate' /* TODO: implement this rule and an appropriate IValueConverter */;
+	STRING /* TODO: implement this rule and an appropriate IValueConverter */;
 
 RuntimeElementStatus returns experimentRuntime::RuntimeElementStatus:
 	'RuntimeElementStatus' /* TODO: implement this rule and an appropriate IValueConverter */;
 
 Availability returns availabilityContract::Availability:
 	{availabilityContract::Availability}
-	(Repeat?='Repeat')?
 	'Availability'
 	'{'
 		('FromTime' FromTime=EDate)?
@@ -656,6 +655,7 @@ Availability returns availabilityContract::Availability:
 		('Repeatability' Repeatability=RepatabilityScheme)?
 		('RepeatUntil' RepeatUntil=EDate)?
 		('cost' cost=Cost)?
+		(Repeat?='Repeat')?
 	'}';
 
 Cost returns availabilityContract::Cost:
@@ -666,11 +666,11 @@ Cost returns availabilityContract::Cost:
 		('Amount' Amount=EDoubleObject)?
 	'}';
 
-RepatabilityScheme returns availabilityContract::RepatabilityScheme:
-	'RepatabilityScheme' /* TODO: implement this rule and an appropriate IValueConverter */;
+enum RepatabilityScheme returns availabilityContract::RepatabilityScheme:
+	DAILY = 'DAILY' | WEEKLY = 'WEEKLY' | MONTHLY = 'MONTHLY' | YEARLY = 'YEARLY';
 
-costUnit returns availabilityContract::costUnit:
-	'costUnit' /* TODO: implement this rule and an appropriate IValueConverter */;
+enum costUnit returns availabilityContract::costUnit:
+	MIN = 'MIN' | HOUR = 'HOUR' | DAY = 'DAY' | USAGE = 'USAGE' | OTHER = 'OTHER';
 
 EDoubleObject returns ecore::EDoubleObject:
 	'-'? INT? '.' INT (('E'|'e') '-'? INT)?;
@@ -678,12 +678,12 @@ EDoubleObject returns ecore::EDoubleObject:
 ReservedResourceContract returns slareservations::ReservedResourceContract:
 	{slareservations::ReservedResourceContract}
 	'ReservedResourceContract'
-	uniqueID=EString
+	uniqueID=STRING
 	'{'
-		('name' name=EString)?
+		('name' name=STRING)?
 		('id' id=EInt)?
-		('description' description=EString)?
+		('description' description=STRING)?
 		('ValidFrom' ValidFrom=EDate)?
 		('ValidUntil' ValidUntil=EDate)?
-		('forResource' forResource=[resources::OfferedResource|EString])?
+		('forResource' forResource=[resources::OfferedResource|STRING])?
 	'}';

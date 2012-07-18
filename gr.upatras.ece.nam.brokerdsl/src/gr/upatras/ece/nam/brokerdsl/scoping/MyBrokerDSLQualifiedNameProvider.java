@@ -30,8 +30,9 @@ public class MyBrokerDSLQualifiedNameProvider extends
 	
 	public QualifiedName qualifiedName( brokermodel.resources.OfferedResource obj) {
 		//System.out.println(">>>qualifiedName ServiceSettingInstance>>>="+ obj.toString() );
-		String n = obj.getName() ;//obj.getFullQualifiedName();
+		String n = obj. getName() ;//obj.getFullQualifiedName();
 		QualifiedName qualifiedNameFromConverter = getConverter().toQualifiedName(n);
+		//System.out.println(">>>qualifiedNameFromConverter>>>="+ qualifiedNameFromConverter );
 		return qualifiedNameFromConverter;
 		
 	}
@@ -41,6 +42,7 @@ public class MyBrokerDSLQualifiedNameProvider extends
 		//System.out.println(">>>qualifiedName ServiceSettingInstance>>>="+ obj.toString() );
 		String n =  obj.getName()+"."+((Broker)obj.eContainer()).getName();
 		QualifiedName qualifiedNameFromConverter = getConverter().toQualifiedName(n);
+		//System.out.println(">>>qualifiedNameFromConverter>>>="+ qualifiedNameFromConverter );
 		return qualifiedNameFromConverter;
 		
 	}

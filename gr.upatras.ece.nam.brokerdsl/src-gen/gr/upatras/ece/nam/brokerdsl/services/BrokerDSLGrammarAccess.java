@@ -87,12 +87,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cBrokerAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cBrokerKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -100,15 +100,15 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cResourceURIKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cResourceURIAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cResourceURIEStringParserRuleCall_7_1_0 = (RuleCall)cResourceURIAssignment_7_1.eContents().get(0);
+		private final RuleCall cResourceURISTRINGTerminalRuleCall_7_1_0 = (RuleCall)cResourceURIAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cAPIGatewayKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cAPIGatewayAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cAPIGatewayEStringParserRuleCall_8_1_0 = (RuleCall)cAPIGatewayAssignment_8_1.eContents().get(0);
+		private final RuleCall cAPIGatewaySTRINGTerminalRuleCall_8_1_0 = (RuleCall)cAPIGatewayAssignment_8_1.eContents().get(0);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
 		private final Keyword cRegisteredUsersKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
@@ -183,9 +183,9 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Broker returns Broker::Broker:
 		//
-		//	{Broker::Broker} "Broker" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//	{Broker::Broker} "Broker" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//	description=EString)? ("resourceURI" resourceURI=EString)? ("APIGateway" APIGateway=EString)? ("registeredUsers" "{"
+		//	description=STRING)? ("resourceURI" resourceURI=STRING)? ("APIGateway" APIGateway=STRING)? ("registeredUsers" "{"
 		//
 		//	registeredUsers+=BrokerUser ("," registeredUsers+=BrokerUser)* "}")? ("contributedTaxonomies" "{"
 		//
@@ -204,9 +204,9 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//	ResourceServiceContracts+=ResourceServiceContract)* "}")? ("SLAs" "{" SLAs+=SLA ("," SLAs+=SLA)* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{Broker::Broker} "Broker" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//{Broker::Broker} "Broker" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 		//
-		//description=EString)? ("resourceURI" resourceURI=EString)? ("APIGateway" APIGateway=EString)? ("registeredUsers" "{"
+		//("resourceURI" resourceURI=STRING)? ("APIGateway" APIGateway=STRING)? ("registeredUsers" "{"
 		//
 		//registeredUsers+=BrokerUser ("," registeredUsers+=BrokerUser)* "}")? ("contributedTaxonomies" "{"
 		//
@@ -231,26 +231,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"Broker"
 		public Keyword getBrokerKeyword_1() { return cBrokerKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -264,41 +264,41 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("resourceURI" resourceURI=EString)?
+		//("resourceURI" resourceURI=STRING)?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"resourceURI"
 		public Keyword getResourceURIKeyword_7_0() { return cResourceURIKeyword_7_0; }
 
-		//resourceURI=EString
+		//resourceURI=STRING
 		public Assignment getResourceURIAssignment_7_1() { return cResourceURIAssignment_7_1; }
 
-		//EString
-		public RuleCall getResourceURIEStringParserRuleCall_7_1_0() { return cResourceURIEStringParserRuleCall_7_1_0; }
+		//STRING
+		public RuleCall getResourceURISTRINGTerminalRuleCall_7_1_0() { return cResourceURISTRINGTerminalRuleCall_7_1_0; }
 
-		//("APIGateway" APIGateway=EString)?
+		//("APIGateway" APIGateway=STRING)?
 		public Group getGroup_8() { return cGroup_8; }
 
 		//"APIGateway"
 		public Keyword getAPIGatewayKeyword_8_0() { return cAPIGatewayKeyword_8_0; }
 
-		//APIGateway=EString
+		//APIGateway=STRING
 		public Assignment getAPIGatewayAssignment_8_1() { return cAPIGatewayAssignment_8_1; }
 
-		//EString
-		public RuleCall getAPIGatewayEStringParserRuleCall_8_1_0() { return cAPIGatewayEStringParserRuleCall_8_1_0; }
+		//STRING
+		public RuleCall getAPIGatewaySTRINGTerminalRuleCall_8_1_0() { return cAPIGatewaySTRINGTerminalRuleCall_8_1_0; }
 
 		//("registeredUsers" "{" registeredUsers+=BrokerUser ("," registeredUsers+=BrokerUser)* "}")?
 		public Group getGroup_9() { return cGroup_9; }
@@ -683,33 +683,16 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getResourceSettingInstanceParserRuleCall_2() { return cResourceSettingInstanceParserRuleCall_2; }
 	}
 
-	public class EStringElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EString");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSTRINGTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//EString returns ecore::EString:
-		//
-		//	STRING | ID;
-		public ParserRule getRule() { return rule; }
-
-		//STRING | ID
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_0() { return cSTRINGTerminalRuleCall_0; }
-
-		//ID
-		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
-	}
-
 	public class EIntElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EInt");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
+		////STRING returns ecore::STRING:
+		//
+		////	STRING | ID;
+		//
 		//EInt returns ecore::EInt:
 		//
 		//	"-"? INT;
@@ -731,12 +714,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cTaxonomyAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cTaxonomyKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -744,30 +727,30 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cHasScenariosKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
 		private final Assignment cHasScenariosAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
 		private final CrossReference cHasScenariosRequestedFederationScenarioCrossReference_7_2_0 = (CrossReference)cHasScenariosAssignment_7_2.eContents().get(0);
-		private final RuleCall cHasScenariosRequestedFederationScenarioEStringParserRuleCall_7_2_0_1 = (RuleCall)cHasScenariosRequestedFederationScenarioCrossReference_7_2_0.eContents().get(1);
+		private final RuleCall cHasScenariosRequestedFederationScenarioSTRINGTerminalRuleCall_7_2_0_1 = (RuleCall)cHasScenariosRequestedFederationScenarioCrossReference_7_2_0.eContents().get(1);
 		private final Group cGroup_7_3 = (Group)cGroup_7.eContents().get(3);
 		private final Keyword cCommaKeyword_7_3_0 = (Keyword)cGroup_7_3.eContents().get(0);
 		private final Assignment cHasScenariosAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
 		private final CrossReference cHasScenariosRequestedFederationScenarioCrossReference_7_3_1_0 = (CrossReference)cHasScenariosAssignment_7_3_1.eContents().get(0);
-		private final RuleCall cHasScenariosRequestedFederationScenarioEStringParserRuleCall_7_3_1_0_1 = (RuleCall)cHasScenariosRequestedFederationScenarioCrossReference_7_3_1_0.eContents().get(1);
+		private final RuleCall cHasScenariosRequestedFederationScenarioSTRINGTerminalRuleCall_7_3_1_0_1 = (RuleCall)cHasScenariosRequestedFederationScenarioCrossReference_7_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cHasServicesKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
 		private final Assignment cHasServicesAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
 		private final CrossReference cHasServicesServiceCrossReference_8_2_0 = (CrossReference)cHasServicesAssignment_8_2.eContents().get(0);
-		private final RuleCall cHasServicesServiceEStringParserRuleCall_8_2_0_1 = (RuleCall)cHasServicesServiceCrossReference_8_2_0.eContents().get(1);
+		private final RuleCall cHasServicesServiceSTRINGTerminalRuleCall_8_2_0_1 = (RuleCall)cHasServicesServiceCrossReference_8_2_0.eContents().get(1);
 		private final Group cGroup_8_3 = (Group)cGroup_8.eContents().get(3);
 		private final Keyword cCommaKeyword_8_3_0 = (Keyword)cGroup_8_3.eContents().get(0);
 		private final Assignment cHasServicesAssignment_8_3_1 = (Assignment)cGroup_8_3.eContents().get(1);
 		private final CrossReference cHasServicesServiceCrossReference_8_3_1_0 = (CrossReference)cHasServicesAssignment_8_3_1.eContents().get(0);
-		private final RuleCall cHasServicesServiceEStringParserRuleCall_8_3_1_0_1 = (RuleCall)cHasServicesServiceCrossReference_8_3_1_0.eContents().get(1);
+		private final RuleCall cHasServicesServiceSTRINGTerminalRuleCall_8_3_1_0_1 = (RuleCall)cHasServicesServiceCrossReference_8_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_8_4 = (Keyword)cGroup_8.eContents().get(4);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
 		private final Keyword cTaxonomiesKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
@@ -793,26 +776,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Taxonomy returns services::Taxonomy:
 		//
-		//	{services::Taxonomy} "Taxonomy" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//	{services::Taxonomy} "Taxonomy" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//	description=EString)? ("hasScenarios" "(" hasScenarios+=[federationscenarios::RequestedFederationScenario|EString]
+		//	description=STRING)? ("hasScenarios" "(" hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING] (","
 		//
-		//	("," hasScenarios+=[federationscenarios::RequestedFederationScenario|EString])* ")")? ("hasServices" "("
+		//	hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING])* ")")? ("hasServices" "("
 		//
-		//	hasServices+=[services::Service|EString] ("," hasServices+=[services::Service|EString])* ")")? ("taxonomies" "{"
+		//	hasServices+=[services::Service|STRING] ("," hasServices+=[services::Service|STRING])* ")")? ("taxonomies" "{"
 		//
 		//	taxonomies+=Taxonomy ("," taxonomies+=Taxonomy)* "}")? ("categories" "{" categories+=ResourceCategory (","
 		//
 		//	categories+=ResourceCategory)* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{services::Taxonomy} "Taxonomy" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//{services::Taxonomy} "Taxonomy" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//description=EString)? ("hasScenarios" "(" hasScenarios+=[federationscenarios::RequestedFederationScenario|EString]
+		//description=STRING)? ("hasScenarios" "(" hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING] (","
 		//
-		//("," hasScenarios+=[federationscenarios::RequestedFederationScenario|EString])* ")")? ("hasServices" "("
+		//hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING])* ")")? ("hasServices" "("
 		//
-		//hasServices+=[services::Service|EString] ("," hasServices+=[services::Service|EString])* ")")? ("taxonomies" "{"
+		//hasServices+=[services::Service|STRING] ("," hasServices+=[services::Service|STRING])* ")")? ("taxonomies" "{"
 		//
 		//taxonomies+=Taxonomy ("," taxonomies+=Taxonomy)* "}")? ("categories" "{" categories+=ResourceCategory (","
 		//
@@ -825,26 +808,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"Taxonomy"
 		public Keyword getTaxonomyKeyword_1() { return cTaxonomyKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -858,21 +841,21 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("hasScenarios" "(" hasScenarios+=[federationscenarios::RequestedFederationScenario|EString] (","
+		//("hasScenarios" "(" hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING] (","
 		//
-		//hasScenarios+=[federationscenarios::RequestedFederationScenario|EString])* ")")?
+		//hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING])* ")")?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"hasScenarios"
@@ -881,34 +864,34 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_7_1() { return cLeftParenthesisKeyword_7_1; }
 
-		//hasScenarios+=[federationscenarios::RequestedFederationScenario|EString]
+		//hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING]
 		public Assignment getHasScenariosAssignment_7_2() { return cHasScenariosAssignment_7_2; }
 
-		//[federationscenarios::RequestedFederationScenario|EString]
+		//[federationscenarios::RequestedFederationScenario|STRING]
 		public CrossReference getHasScenariosRequestedFederationScenarioCrossReference_7_2_0() { return cHasScenariosRequestedFederationScenarioCrossReference_7_2_0; }
 
-		//EString
-		public RuleCall getHasScenariosRequestedFederationScenarioEStringParserRuleCall_7_2_0_1() { return cHasScenariosRequestedFederationScenarioEStringParserRuleCall_7_2_0_1; }
+		//STRING
+		public RuleCall getHasScenariosRequestedFederationScenarioSTRINGTerminalRuleCall_7_2_0_1() { return cHasScenariosRequestedFederationScenarioSTRINGTerminalRuleCall_7_2_0_1; }
 
-		//("," hasScenarios+=[federationscenarios::RequestedFederationScenario|EString])*
+		//("," hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING])*
 		public Group getGroup_7_3() { return cGroup_7_3; }
 
 		//","
 		public Keyword getCommaKeyword_7_3_0() { return cCommaKeyword_7_3_0; }
 
-		//hasScenarios+=[federationscenarios::RequestedFederationScenario|EString]
+		//hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING]
 		public Assignment getHasScenariosAssignment_7_3_1() { return cHasScenariosAssignment_7_3_1; }
 
-		//[federationscenarios::RequestedFederationScenario|EString]
+		//[federationscenarios::RequestedFederationScenario|STRING]
 		public CrossReference getHasScenariosRequestedFederationScenarioCrossReference_7_3_1_0() { return cHasScenariosRequestedFederationScenarioCrossReference_7_3_1_0; }
 
-		//EString
-		public RuleCall getHasScenariosRequestedFederationScenarioEStringParserRuleCall_7_3_1_0_1() { return cHasScenariosRequestedFederationScenarioEStringParserRuleCall_7_3_1_0_1; }
+		//STRING
+		public RuleCall getHasScenariosRequestedFederationScenarioSTRINGTerminalRuleCall_7_3_1_0_1() { return cHasScenariosRequestedFederationScenarioSTRINGTerminalRuleCall_7_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_7_4() { return cRightParenthesisKeyword_7_4; }
 
-		//("hasServices" "(" hasServices+=[services::Service|EString] ("," hasServices+=[services::Service|EString])* ")")?
+		//("hasServices" "(" hasServices+=[services::Service|STRING] ("," hasServices+=[services::Service|STRING])* ")")?
 		public Group getGroup_8() { return cGroup_8; }
 
 		//"hasServices"
@@ -917,29 +900,29 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_8_1() { return cLeftParenthesisKeyword_8_1; }
 
-		//hasServices+=[services::Service|EString]
+		//hasServices+=[services::Service|STRING]
 		public Assignment getHasServicesAssignment_8_2() { return cHasServicesAssignment_8_2; }
 
-		//[services::Service|EString]
+		//[services::Service|STRING]
 		public CrossReference getHasServicesServiceCrossReference_8_2_0() { return cHasServicesServiceCrossReference_8_2_0; }
 
-		//EString
-		public RuleCall getHasServicesServiceEStringParserRuleCall_8_2_0_1() { return cHasServicesServiceEStringParserRuleCall_8_2_0_1; }
+		//STRING
+		public RuleCall getHasServicesServiceSTRINGTerminalRuleCall_8_2_0_1() { return cHasServicesServiceSTRINGTerminalRuleCall_8_2_0_1; }
 
-		//("," hasServices+=[services::Service|EString])*
+		//("," hasServices+=[services::Service|STRING])*
 		public Group getGroup_8_3() { return cGroup_8_3; }
 
 		//","
 		public Keyword getCommaKeyword_8_3_0() { return cCommaKeyword_8_3_0; }
 
-		//hasServices+=[services::Service|EString]
+		//hasServices+=[services::Service|STRING]
 		public Assignment getHasServicesAssignment_8_3_1() { return cHasServicesAssignment_8_3_1; }
 
-		//[services::Service|EString]
+		//[services::Service|STRING]
 		public CrossReference getHasServicesServiceCrossReference_8_3_1_0() { return cHasServicesServiceCrossReference_8_3_1_0; }
 
-		//EString
-		public RuleCall getHasServicesServiceEStringParserRuleCall_8_3_1_0_1() { return cHasServicesServiceEStringParserRuleCall_8_3_1_0_1; }
+		//STRING
+		public RuleCall getHasServicesServiceSTRINGTerminalRuleCall_8_3_1_0_1() { return cHasServicesServiceSTRINGTerminalRuleCall_8_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_8_4() { return cRightParenthesisKeyword_8_4; }
@@ -1014,12 +997,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cOfferedServiceAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cOfferedServiceKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -1027,18 +1010,18 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cRequiresServicesKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
 		private final Assignment cRequiresServicesAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
 		private final CrossReference cRequiresServicesServiceCrossReference_7_2_0 = (CrossReference)cRequiresServicesAssignment_7_2.eContents().get(0);
-		private final RuleCall cRequiresServicesServiceEStringParserRuleCall_7_2_0_1 = (RuleCall)cRequiresServicesServiceCrossReference_7_2_0.eContents().get(1);
+		private final RuleCall cRequiresServicesServiceSTRINGTerminalRuleCall_7_2_0_1 = (RuleCall)cRequiresServicesServiceCrossReference_7_2_0.eContents().get(1);
 		private final Group cGroup_7_3 = (Group)cGroup_7.eContents().get(3);
 		private final Keyword cCommaKeyword_7_3_0 = (Keyword)cGroup_7_3.eContents().get(0);
 		private final Assignment cRequiresServicesAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
 		private final CrossReference cRequiresServicesServiceCrossReference_7_3_1_0 = (CrossReference)cRequiresServicesAssignment_7_3_1.eContents().get(0);
-		private final RuleCall cRequiresServicesServiceEStringParserRuleCall_7_3_1_0_1 = (RuleCall)cRequiresServicesServiceCrossReference_7_3_1_0.eContents().get(1);
+		private final RuleCall cRequiresServicesServiceSTRINGTerminalRuleCall_7_3_1_0_1 = (RuleCall)cRequiresServicesServiceCrossReference_7_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cServiceSettingsKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
@@ -1054,20 +1037,20 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//OfferedService returns services::OfferedService:
 		//
-		//	{services::OfferedService} "OfferedService" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//	{services::OfferedService} "OfferedService" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//	("description" description=EString)? ("requiresServices" "(" requiresServices+=[services::Service|EString] (","
+		//	description=STRING)? ("requiresServices" "(" requiresServices+=[services::Service|STRING] (","
 		//
-		//	requiresServices+=[services::Service|EString])* ")")? ("serviceSettings" "{" serviceSettings+=ServiceSetting (","
+		//	requiresServices+=[services::Service|STRING])* ")")? ("serviceSettings" "{" serviceSettings+=ServiceSetting (","
 		//
 		//	serviceSettings+=ServiceSetting)* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{services::OfferedService} "OfferedService" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//{services::OfferedService} "OfferedService" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//description=EString)? ("requiresServices" "(" requiresServices+=[services::Service|EString] (","
+		//description=STRING)? ("requiresServices" "(" requiresServices+=[services::Service|STRING] (","
 		//
-		//requiresServices+=[services::Service|EString])* ")")? ("serviceSettings" "{" serviceSettings+=ServiceSetting (","
+		//requiresServices+=[services::Service|STRING])* ")")? ("serviceSettings" "{" serviceSettings+=ServiceSetting (","
 		//
 		//serviceSettings+=ServiceSetting)* "}")? "}"
 		public Group getGroup() { return cGroup; }
@@ -1078,26 +1061,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"OfferedService"
 		public Keyword getOfferedServiceKeyword_1() { return cOfferedServiceKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -1111,21 +1094,21 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("requiresServices" "(" requiresServices+=[services::Service|EString] (","
+		//("requiresServices" "(" requiresServices+=[services::Service|STRING] ("," requiresServices+=[services::Service|STRING])*
 		//
-		//requiresServices+=[services::Service|EString])* ")")?
+		//")")?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"requiresServices"
@@ -1134,29 +1117,29 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_7_1() { return cLeftParenthesisKeyword_7_1; }
 
-		//requiresServices+=[services::Service|EString]
+		//requiresServices+=[services::Service|STRING]
 		public Assignment getRequiresServicesAssignment_7_2() { return cRequiresServicesAssignment_7_2; }
 
-		//[services::Service|EString]
+		//[services::Service|STRING]
 		public CrossReference getRequiresServicesServiceCrossReference_7_2_0() { return cRequiresServicesServiceCrossReference_7_2_0; }
 
-		//EString
-		public RuleCall getRequiresServicesServiceEStringParserRuleCall_7_2_0_1() { return cRequiresServicesServiceEStringParserRuleCall_7_2_0_1; }
+		//STRING
+		public RuleCall getRequiresServicesServiceSTRINGTerminalRuleCall_7_2_0_1() { return cRequiresServicesServiceSTRINGTerminalRuleCall_7_2_0_1; }
 
-		//("," requiresServices+=[services::Service|EString])*
+		//("," requiresServices+=[services::Service|STRING])*
 		public Group getGroup_7_3() { return cGroup_7_3; }
 
 		//","
 		public Keyword getCommaKeyword_7_3_0() { return cCommaKeyword_7_3_0; }
 
-		//requiresServices+=[services::Service|EString]
+		//requiresServices+=[services::Service|STRING]
 		public Assignment getRequiresServicesAssignment_7_3_1() { return cRequiresServicesAssignment_7_3_1; }
 
-		//[services::Service|EString]
+		//[services::Service|STRING]
 		public CrossReference getRequiresServicesServiceCrossReference_7_3_1_0() { return cRequiresServicesServiceCrossReference_7_3_1_0; }
 
-		//EString
-		public RuleCall getRequiresServicesServiceEStringParserRuleCall_7_3_1_0_1() { return cRequiresServicesServiceEStringParserRuleCall_7_3_1_0_1; }
+		//STRING
+		public RuleCall getRequiresServicesServiceSTRINGTerminalRuleCall_7_3_1_0_1() { return cRequiresServicesServiceSTRINGTerminalRuleCall_7_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_7_4() { return cRightParenthesisKeyword_7_4; }
@@ -1203,12 +1186,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cIsSharedIsSharedKeyword_1_0 = (Keyword)cIsSharedAssignment_1.eContents().get(0);
 		private final Keyword cRequestedFederationScenarioKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cUniqueIDAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cUniqueIDEStringParserRuleCall_3_0 = (RuleCall)cUniqueIDAssignment_3.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_3_0 = (RuleCall)cUniqueIDAssignment_3.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cNameKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cNameAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_5_1_0 = (RuleCall)cNameAssignment_5_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cNameAssignment_5_1.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cIdKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cIdAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
@@ -1216,7 +1199,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cDescriptionKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cDescriptionAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_7_1_0 = (RuleCall)cDescriptionAssignment_7_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cDescriptionAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cStatusKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cStatusAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
@@ -1257,7 +1240,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//
 		//	{federationscenarios::RequestedFederationScenario} isShared?="isShared"? "RequestedFederationScenario"
 		//
-		//	uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)? ("status"
+		//	uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)? ("status"
 		//
 		//	status=ScenarioStatus)? ("VTCredentials" VTCredentials=Credentials)? ("servicesRequest"
 		//
@@ -1268,9 +1251,9 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//	("runtimeInfo" runtimeInfo=RuntimeElement)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{federationscenarios::RequestedFederationScenario} isShared?="isShared"? "RequestedFederationScenario" uniqueID=EString
+		//{federationscenarios::RequestedFederationScenario} isShared?="isShared"? "RequestedFederationScenario" uniqueID=STRING
 		//
-		//"{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)? ("status" status=ScenarioStatus)?
+		//"{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)? ("status" status=ScenarioStatus)?
 		//
 		//("VTCredentials" VTCredentials=Credentials)? ("servicesRequest" servicesRequest=ServicesRequest)?
 		//
@@ -1291,26 +1274,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"RequestedFederationScenario"
 		public Keyword getRequestedFederationScenarioKeyword_2() { return cRequestedFederationScenarioKeyword_2; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_3() { return cUniqueIDAssignment_3; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_3_0() { return cUniqueIDEStringParserRuleCall_3_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_3_0() { return cUniqueIDSTRINGTerminalRuleCall_3_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_5() { return cGroup_5; }
 
 		//"name"
 		public Keyword getNameKeyword_5_0() { return cNameKeyword_5_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_5_1() { return cNameAssignment_5_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_5_1_0() { return cNameEStringParserRuleCall_5_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_5_1_0() { return cNameSTRINGTerminalRuleCall_5_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_6() { return cGroup_6; }
@@ -1324,17 +1307,17 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_6_1_0() { return cIdEIntParserRuleCall_6_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_7_0() { return cDescriptionKeyword_7_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_7_1() { return cDescriptionAssignment_7_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_7_1_0() { return cDescriptionEStringParserRuleCall_7_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_7_1_0() { return cDescriptionSTRINGTerminalRuleCall_7_1_0; }
 
 		//("status" status=ScenarioStatus)?
 		public Group getGroup_8() { return cGroup_8; }
@@ -1448,12 +1431,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cServiceCompositionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cServiceCompositionKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -1461,35 +1444,35 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cHasServicesKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
 		private final Assignment cHasServicesAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
 		private final CrossReference cHasServicesServiceCrossReference_7_2_0 = (CrossReference)cHasServicesAssignment_7_2.eContents().get(0);
-		private final RuleCall cHasServicesServiceEStringParserRuleCall_7_2_0_1 = (RuleCall)cHasServicesServiceCrossReference_7_2_0.eContents().get(1);
+		private final RuleCall cHasServicesServiceSTRINGTerminalRuleCall_7_2_0_1 = (RuleCall)cHasServicesServiceCrossReference_7_2_0.eContents().get(1);
 		private final Group cGroup_7_3 = (Group)cGroup_7.eContents().get(3);
 		private final Keyword cCommaKeyword_7_3_0 = (Keyword)cGroup_7_3.eContents().get(0);
 		private final Assignment cHasServicesAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
 		private final CrossReference cHasServicesServiceCrossReference_7_3_1_0 = (CrossReference)cHasServicesAssignment_7_3_1.eContents().get(0);
-		private final RuleCall cHasServicesServiceEStringParserRuleCall_7_3_1_0_1 = (RuleCall)cHasServicesServiceCrossReference_7_3_1_0.eContents().get(1);
+		private final RuleCall cHasServicesServiceSTRINGTerminalRuleCall_7_3_1_0_1 = (RuleCall)cHasServicesServiceCrossReference_7_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//ServiceComposition returns services::ServiceComposition:
 		//
-		//	{services::ServiceComposition} "ServiceComposition" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//	{services::ServiceComposition} "ServiceComposition" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//	("description" description=EString)? ("hasServices" "(" hasServices+=[services::Service|EString] (","
+		//	("description" description=STRING)? ("hasServices" "(" hasServices+=[services::Service|STRING] (","
 		//
-		//	hasServices+=[services::Service|EString])* ")")? "}";
+		//	hasServices+=[services::Service|STRING])* ")")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{services::ServiceComposition} "ServiceComposition" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//{services::ServiceComposition} "ServiceComposition" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//("description" description=EString)? ("hasServices" "(" hasServices+=[services::Service|EString] (","
+		//("description" description=STRING)? ("hasServices" "(" hasServices+=[services::Service|STRING] (","
 		//
-		//hasServices+=[services::Service|EString])* ")")? "}"
+		//hasServices+=[services::Service|STRING])* ")")? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{services::ServiceComposition}
@@ -1498,26 +1481,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"ServiceComposition"
 		public Keyword getServiceCompositionKeyword_1() { return cServiceCompositionKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -1531,19 +1514,19 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("hasServices" "(" hasServices+=[services::Service|EString] ("," hasServices+=[services::Service|EString])* ")")?
+		//("hasServices" "(" hasServices+=[services::Service|STRING] ("," hasServices+=[services::Service|STRING])* ")")?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"hasServices"
@@ -1552,29 +1535,29 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_7_1() { return cLeftParenthesisKeyword_7_1; }
 
-		//hasServices+=[services::Service|EString]
+		//hasServices+=[services::Service|STRING]
 		public Assignment getHasServicesAssignment_7_2() { return cHasServicesAssignment_7_2; }
 
-		//[services::Service|EString]
+		//[services::Service|STRING]
 		public CrossReference getHasServicesServiceCrossReference_7_2_0() { return cHasServicesServiceCrossReference_7_2_0; }
 
-		//EString
-		public RuleCall getHasServicesServiceEStringParserRuleCall_7_2_0_1() { return cHasServicesServiceEStringParserRuleCall_7_2_0_1; }
+		//STRING
+		public RuleCall getHasServicesServiceSTRINGTerminalRuleCall_7_2_0_1() { return cHasServicesServiceSTRINGTerminalRuleCall_7_2_0_1; }
 
-		//("," hasServices+=[services::Service|EString])*
+		//("," hasServices+=[services::Service|STRING])*
 		public Group getGroup_7_3() { return cGroup_7_3; }
 
 		//","
 		public Keyword getCommaKeyword_7_3_0() { return cCommaKeyword_7_3_0; }
 
-		//hasServices+=[services::Service|EString]
+		//hasServices+=[services::Service|STRING]
 		public Assignment getHasServicesAssignment_7_3_1() { return cHasServicesAssignment_7_3_1; }
 
-		//[services::Service|EString]
+		//[services::Service|STRING]
 		public CrossReference getHasServicesServiceCrossReference_7_3_1_0() { return cHasServicesServiceCrossReference_7_3_1_0; }
 
-		//EString
-		public RuleCall getHasServicesServiceEStringParserRuleCall_7_3_1_0_1() { return cHasServicesServiceEStringParserRuleCall_7_3_1_0_1; }
+		//STRING
+		public RuleCall getHasServicesServiceSTRINGTerminalRuleCall_7_3_1_0_1() { return cHasServicesServiceSTRINGTerminalRuleCall_7_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_7_4() { return cRightParenthesisKeyword_7_4; }
@@ -1588,12 +1571,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cResourceServiceContractKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cUniqueIDAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cUniqueIDEStringParserRuleCall_1_0 = (RuleCall)cUniqueIDAssignment_1.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_1_0 = (RuleCall)cUniqueIDAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cNameKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cNameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cIdKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cIdAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
@@ -1601,7 +1584,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cDescriptionKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cDescriptionAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_5_1_0 = (RuleCall)cDescriptionAssignment_5_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cDescriptionAssignment_5_1.eContents().get(0);
 		private final Keyword cStartDateKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Assignment cStartDateAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cStartDateEDateParserRuleCall_7_0 = (RuleCall)cStartDateAssignment_7.eContents().get(0);
@@ -1611,11 +1594,11 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cForOfferedServiceKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		private final Assignment cForOfferedServiceAssignment_11 = (Assignment)cGroup.eContents().get(11);
 		private final CrossReference cForOfferedServiceServiceCrossReference_11_0 = (CrossReference)cForOfferedServiceAssignment_11.eContents().get(0);
-		private final RuleCall cForOfferedServiceServiceEStringParserRuleCall_11_0_1 = (RuleCall)cForOfferedServiceServiceCrossReference_11_0.eContents().get(1);
+		private final RuleCall cForOfferedServiceServiceSTRINGTerminalRuleCall_11_0_1 = (RuleCall)cForOfferedServiceServiceCrossReference_11_0.eContents().get(1);
 		private final Keyword cForOfferedResourceKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		private final Assignment cForOfferedResourceAssignment_13 = (Assignment)cGroup.eContents().get(13);
 		private final CrossReference cForOfferedResourceOfferedResourceCrossReference_13_0 = (CrossReference)cForOfferedResourceAssignment_13.eContents().get(0);
-		private final RuleCall cForOfferedResourceOfferedResourceEStringParserRuleCall_13_0_1 = (RuleCall)cForOfferedResourceOfferedResourceCrossReference_13_0.eContents().get(1);
+		private final RuleCall cForOfferedResourceOfferedResourceSTRINGTerminalRuleCall_13_0_1 = (RuleCall)cForOfferedResourceOfferedResourceCrossReference_13_0.eContents().get(1);
 		private final Group cGroup_14 = (Group)cGroup.eContents().get(14);
 		private final Keyword cAvailabilityKeyword_14_0 = (Keyword)cGroup_14.eContents().get(0);
 		private final Assignment cAvailabilityAssignment_14_1 = (Assignment)cGroup_14.eContents().get(1);
@@ -1624,47 +1607,47 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ResourceServiceContract returns availabilityContract::ResourceServiceContract:
 		//
-		//	"ResourceServiceContract" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//	"ResourceServiceContract" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//	description=EString)? "StartDate" StartDate=EDate "EndDate" EndDate=EDate "forOfferedService"
+		//	description=STRING)? "StartDate" StartDate=EDate "EndDate" EndDate=EDate "forOfferedService"
 		//
-		//	forOfferedService=[services::Service|EString] "forOfferedResource"
+		//	forOfferedService=[services::Service|STRING] "forOfferedResource"
 		//
-		//	forOfferedResource=[resources::OfferedResource|EString] ("availability" availability=Availability)? "}";
+		//	forOfferedResource=[resources::OfferedResource|STRING] ("availability" availability=Availability)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"ResourceServiceContract" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//"ResourceServiceContract" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 		//
-		//description=EString)? "StartDate" StartDate=EDate "EndDate" EndDate=EDate "forOfferedService"
+		//"StartDate" StartDate=EDate "EndDate" EndDate=EDate "forOfferedService" forOfferedService=[services::Service|STRING]
 		//
-		//forOfferedService=[services::Service|EString] "forOfferedResource"
+		//"forOfferedResource" forOfferedResource=[resources::OfferedResource|STRING] ("availability"
 		//
-		//forOfferedResource=[resources::OfferedResource|EString] ("availability" availability=Availability)? "}"
+		//availability=Availability)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"ResourceServiceContract"
 		public Keyword getResourceServiceContractKeyword_0() { return cResourceServiceContractKeyword_0; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_1() { return cUniqueIDAssignment_1; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_1_0() { return cUniqueIDEStringParserRuleCall_1_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_1_0() { return cUniqueIDSTRINGTerminalRuleCall_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//"name"
 		public Keyword getNameKeyword_3_0() { return cNameKeyword_3_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_3_1() { return cNameAssignment_3_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_3_1_0() { return cNameEStringParserRuleCall_3_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_3_1_0() { return cNameSTRINGTerminalRuleCall_3_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_4() { return cGroup_4; }
@@ -1678,17 +1661,17 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_4_1_0() { return cIdEIntParserRuleCall_4_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_5() { return cGroup_5; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_5_0() { return cDescriptionKeyword_5_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_5_1() { return cDescriptionAssignment_5_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_5_1_0() { return cDescriptionEStringParserRuleCall_5_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_5_1_0() { return cDescriptionSTRINGTerminalRuleCall_5_1_0; }
 
 		//"StartDate"
 		public Keyword getStartDateKeyword_6() { return cStartDateKeyword_6; }
@@ -1711,26 +1694,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"forOfferedService"
 		public Keyword getForOfferedServiceKeyword_10() { return cForOfferedServiceKeyword_10; }
 
-		//forOfferedService=[services::Service|EString]
+		//forOfferedService=[services::Service|STRING]
 		public Assignment getForOfferedServiceAssignment_11() { return cForOfferedServiceAssignment_11; }
 
-		//[services::Service|EString]
+		//[services::Service|STRING]
 		public CrossReference getForOfferedServiceServiceCrossReference_11_0() { return cForOfferedServiceServiceCrossReference_11_0; }
 
-		//EString
-		public RuleCall getForOfferedServiceServiceEStringParserRuleCall_11_0_1() { return cForOfferedServiceServiceEStringParserRuleCall_11_0_1; }
+		//STRING
+		public RuleCall getForOfferedServiceServiceSTRINGTerminalRuleCall_11_0_1() { return cForOfferedServiceServiceSTRINGTerminalRuleCall_11_0_1; }
 
 		//"forOfferedResource"
 		public Keyword getForOfferedResourceKeyword_12() { return cForOfferedResourceKeyword_12; }
 
-		//forOfferedResource=[resources::OfferedResource|EString]
+		//forOfferedResource=[resources::OfferedResource|STRING]
 		public Assignment getForOfferedResourceAssignment_13() { return cForOfferedResourceAssignment_13; }
 
-		//[resources::OfferedResource|EString]
+		//[resources::OfferedResource|STRING]
 		public CrossReference getForOfferedResourceOfferedResourceCrossReference_13_0() { return cForOfferedResourceOfferedResourceCrossReference_13_0; }
 
-		//EString
-		public RuleCall getForOfferedResourceOfferedResourceEStringParserRuleCall_13_0_1() { return cForOfferedResourceOfferedResourceEStringParserRuleCall_13_0_1; }
+		//STRING
+		public RuleCall getForOfferedResourceOfferedResourceSTRINGTerminalRuleCall_13_0_1() { return cForOfferedResourceOfferedResourceSTRINGTerminalRuleCall_13_0_1; }
 
 		//("availability" availability=Availability)?
 		public Group getGroup_14() { return cGroup_14; }
@@ -1754,12 +1737,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cSLAAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cSLAKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -1767,7 +1750,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cValidFromKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cValidFromAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
@@ -1780,7 +1763,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cForVTKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
 		private final Assignment cForVTAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
 		private final CrossReference cForVTRequestedFederationScenarioCrossReference_9_1_0 = (CrossReference)cForVTAssignment_9_1.eContents().get(0);
-		private final RuleCall cForVTRequestedFederationScenarioEStringParserRuleCall_9_1_0_1 = (RuleCall)cForVTRequestedFederationScenarioCrossReference_9_1_0.eContents().get(1);
+		private final RuleCall cForVTRequestedFederationScenarioSTRINGTerminalRuleCall_9_1_0_1 = (RuleCall)cForVTRequestedFederationScenarioCrossReference_9_1_0.eContents().get(1);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
 		private final Keyword cReservedRsourcesKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
@@ -1795,20 +1778,20 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//SLA returns slareservations::SLA:
 		//
-		//	{slareservations::SLA} "SLA" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//	{slareservations::SLA} "SLA" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//	description=EString)? ("ValidFrom" ValidFrom=EDate)? ("ValidUntil" ValidUntil=EDate)? ("forVT"
+		//	description=STRING)? ("ValidFrom" ValidFrom=EDate)? ("ValidUntil" ValidUntil=EDate)? ("forVT"
 		//
-		//	forVT=[federationscenarios::RequestedFederationScenario|EString])? ("ReservedRsources" "{"
+		//	forVT=[federationscenarios::RequestedFederationScenario|STRING])? ("ReservedRsources" "{"
 		//
 		//	ReservedRsources+=ReservedResourceContract ("," ReservedRsources+=ReservedResourceContract)* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{slareservations::SLA} "SLA" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//{slareservations::SLA} "SLA" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//description=EString)? ("ValidFrom" ValidFrom=EDate)? ("ValidUntil" ValidUntil=EDate)? ("forVT"
+		//description=STRING)? ("ValidFrom" ValidFrom=EDate)? ("ValidUntil" ValidUntil=EDate)? ("forVT"
 		//
-		//forVT=[federationscenarios::RequestedFederationScenario|EString])? ("ReservedRsources" "{"
+		//forVT=[federationscenarios::RequestedFederationScenario|STRING])? ("ReservedRsources" "{"
 		//
 		//ReservedRsources+=ReservedResourceContract ("," ReservedRsources+=ReservedResourceContract)* "}")? "}"
 		public Group getGroup() { return cGroup; }
@@ -1819,26 +1802,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"SLA"
 		public Keyword getSLAKeyword_1() { return cSLAKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -1852,17 +1835,17 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
 		//("ValidFrom" ValidFrom=EDate)?
 		public Group getGroup_7() { return cGroup_7; }
@@ -1888,20 +1871,20 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EDate
 		public RuleCall getValidUntilEDateParserRuleCall_8_1_0() { return cValidUntilEDateParserRuleCall_8_1_0; }
 
-		//("forVT" forVT=[federationscenarios::RequestedFederationScenario|EString])?
+		//("forVT" forVT=[federationscenarios::RequestedFederationScenario|STRING])?
 		public Group getGroup_9() { return cGroup_9; }
 
 		//"forVT"
 		public Keyword getForVTKeyword_9_0() { return cForVTKeyword_9_0; }
 
-		//forVT=[federationscenarios::RequestedFederationScenario|EString]
+		//forVT=[federationscenarios::RequestedFederationScenario|STRING]
 		public Assignment getForVTAssignment_9_1() { return cForVTAssignment_9_1; }
 
-		//[federationscenarios::RequestedFederationScenario|EString]
+		//[federationscenarios::RequestedFederationScenario|STRING]
 		public CrossReference getForVTRequestedFederationScenarioCrossReference_9_1_0() { return cForVTRequestedFederationScenarioCrossReference_9_1_0; }
 
-		//EString
-		public RuleCall getForVTRequestedFederationScenarioEStringParserRuleCall_9_1_0_1() { return cForVTRequestedFederationScenarioEStringParserRuleCall_9_1_0_1; }
+		//STRING
+		public RuleCall getForVTRequestedFederationScenarioSTRINGTerminalRuleCall_9_1_0_1() { return cForVTRequestedFederationScenarioSTRINGTerminalRuleCall_9_1_0_1; }
 
 		//("ReservedRsources" "{" ReservedRsources+=ReservedResourceContract ("," ReservedRsources+=ReservedResourceContract)*
 		//
@@ -1945,12 +1928,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cAccountAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cAccountKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -1958,27 +1941,27 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cPasswordKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cPasswordAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cPasswordEStringParserRuleCall_7_1_0 = (RuleCall)cPasswordAssignment_7_1.eContents().get(0);
+		private final RuleCall cPasswordSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cPasswordAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cUsernameKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cUsernameAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cUsernameEStringParserRuleCall_8_1_0 = (RuleCall)cUsernameAssignment_8_1.eContents().get(0);
+		private final RuleCall cUsernameSTRINGTerminalRuleCall_8_1_0 = (RuleCall)cUsernameAssignment_8_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Account returns users::Account:
 		//
-		//	{users::Account} "Account" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//	{users::Account} "Account" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//	description=EString)? ("password" password=EString)? ("username" username=EString)? "}";
+		//	description=STRING)? ("password" password=STRING)? ("username" username=STRING)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{users::Account} "Account" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//{users::Account} "Account" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 		//
-		//description=EString)? ("password" password=EString)? ("username" username=EString)? "}"
+		//("password" password=STRING)? ("username" username=STRING)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{users::Account}
@@ -1987,26 +1970,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"Account"
 		public Keyword getAccountKeyword_1() { return cAccountKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -2020,41 +2003,41 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("password" password=EString)?
+		//("password" password=STRING)?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"password"
 		public Keyword getPasswordKeyword_7_0() { return cPasswordKeyword_7_0; }
 
-		//password=EString
+		//password=STRING
 		public Assignment getPasswordAssignment_7_1() { return cPasswordAssignment_7_1; }
 
-		//EString
-		public RuleCall getPasswordEStringParserRuleCall_7_1_0() { return cPasswordEStringParserRuleCall_7_1_0; }
+		//STRING
+		public RuleCall getPasswordSTRINGTerminalRuleCall_7_1_0() { return cPasswordSTRINGTerminalRuleCall_7_1_0; }
 
-		//("username" username=EString)?
+		//("username" username=STRING)?
 		public Group getGroup_8() { return cGroup_8; }
 
 		//"username"
 		public Keyword getUsernameKeyword_8_0() { return cUsernameKeyword_8_0; }
 
-		//username=EString
+		//username=STRING
 		public Assignment getUsernameAssignment_8_1() { return cUsernameAssignment_8_1; }
 
-		//EString
-		public RuleCall getUsernameEStringParserRuleCall_8_1_0() { return cUsernameEStringParserRuleCall_8_1_0; }
+		//STRING
+		public RuleCall getUsernameSTRINGTerminalRuleCall_8_1_0() { return cUsernameSTRINGTerminalRuleCall_8_1_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
@@ -2066,12 +2049,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cResourcesProviderAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cResourcesProviderKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -2079,19 +2062,19 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cOrganizationKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cOrganizationAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cOrganizationEStringParserRuleCall_7_1_0 = (RuleCall)cOrganizationAssignment_7_1.eContents().get(0);
+		private final RuleCall cOrganizationSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cOrganizationAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cAddressKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cAddressAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cAddressEStringParserRuleCall_8_1_0 = (RuleCall)cAddressAssignment_8_1.eContents().get(0);
+		private final RuleCall cAddressSTRINGTerminalRuleCall_8_1_0 = (RuleCall)cAddressAssignment_8_1.eContents().get(0);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
 		private final Keyword cTelephoneKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
 		private final Assignment cTelephoneAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final RuleCall cTelephoneEStringParserRuleCall_9_1_0 = (RuleCall)cTelephoneAssignment_9_1.eContents().get(0);
+		private final RuleCall cTelephoneSTRINGTerminalRuleCall_9_1_0 = (RuleCall)cTelephoneAssignment_9_1.eContents().get(0);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
 		private final Keyword cHasAccountKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
 		private final Assignment cHasAccountAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
@@ -2110,22 +2093,20 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ResourcesProvider returns users::ResourcesProvider:
 		//
-		//	{users::ResourcesProvider} "ResourcesProvider" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//	{users::ResourcesProvider} "ResourcesProvider" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//	("description" description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+		//	("description" description=STRING)? ("organization" organization=STRING)? ("address" address=STRING)? ("telephone"
 		//
-		//	telephone=EString)? ("hasAccount" hasAccount=Account)? ("offeredSiteList" "{" offeredSiteList+=Site (","
+		//	telephone=STRING)? ("hasAccount" hasAccount=Account)? ("offeredSiteList" "{" offeredSiteList+=Site (","
 		//
 		//	offeredSiteList+=Site)* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{users::ResourcesProvider} "ResourcesProvider" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//{users::ResourcesProvider} "ResourcesProvider" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//("description" description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+		//description=STRING)? ("organization" organization=STRING)? ("address" address=STRING)? ("telephone" telephone=STRING)?
 		//
-		//telephone=EString)? ("hasAccount" hasAccount=Account)? ("offeredSiteList" "{" offeredSiteList+=Site (","
-		//
-		//offeredSiteList+=Site)* "}")? "}"
+		//("hasAccount" hasAccount=Account)? ("offeredSiteList" "{" offeredSiteList+=Site ("," offeredSiteList+=Site)* "}")? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{users::ResourcesProvider}
@@ -2134,26 +2115,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"ResourcesProvider"
 		public Keyword getResourcesProviderKeyword_1() { return cResourcesProviderKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -2167,53 +2148,53 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("organization" organization=EString)?
+		//("organization" organization=STRING)?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"organization"
 		public Keyword getOrganizationKeyword_7_0() { return cOrganizationKeyword_7_0; }
 
-		//organization=EString
+		//organization=STRING
 		public Assignment getOrganizationAssignment_7_1() { return cOrganizationAssignment_7_1; }
 
-		//EString
-		public RuleCall getOrganizationEStringParserRuleCall_7_1_0() { return cOrganizationEStringParserRuleCall_7_1_0; }
+		//STRING
+		public RuleCall getOrganizationSTRINGTerminalRuleCall_7_1_0() { return cOrganizationSTRINGTerminalRuleCall_7_1_0; }
 
-		//("address" address=EString)?
+		//("address" address=STRING)?
 		public Group getGroup_8() { return cGroup_8; }
 
 		//"address"
 		public Keyword getAddressKeyword_8_0() { return cAddressKeyword_8_0; }
 
-		//address=EString
+		//address=STRING
 		public Assignment getAddressAssignment_8_1() { return cAddressAssignment_8_1; }
 
-		//EString
-		public RuleCall getAddressEStringParserRuleCall_8_1_0() { return cAddressEStringParserRuleCall_8_1_0; }
+		//STRING
+		public RuleCall getAddressSTRINGTerminalRuleCall_8_1_0() { return cAddressSTRINGTerminalRuleCall_8_1_0; }
 
-		//("telephone" telephone=EString)?
+		//("telephone" telephone=STRING)?
 		public Group getGroup_9() { return cGroup_9; }
 
 		//"telephone"
 		public Keyword getTelephoneKeyword_9_0() { return cTelephoneKeyword_9_0; }
 
-		//telephone=EString
+		//telephone=STRING
 		public Assignment getTelephoneAssignment_9_1() { return cTelephoneAssignment_9_1; }
 
-		//EString
-		public RuleCall getTelephoneEStringParserRuleCall_9_1_0() { return cTelephoneEStringParserRuleCall_9_1_0; }
+		//STRING
+		public RuleCall getTelephoneSTRINGTerminalRuleCall_9_1_0() { return cTelephoneSTRINGTerminalRuleCall_9_1_0; }
 
 		//("hasAccount" hasAccount=Account)?
 		public Group getGroup_10() { return cGroup_10; }
@@ -2267,12 +2248,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cTestbedDesignerAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cTestbedDesignerKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -2280,30 +2261,30 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cOrganizationKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cOrganizationAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cOrganizationEStringParserRuleCall_7_1_0 = (RuleCall)cOrganizationAssignment_7_1.eContents().get(0);
+		private final RuleCall cOrganizationSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cOrganizationAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cAddressKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cAddressAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cAddressEStringParserRuleCall_8_1_0 = (RuleCall)cAddressAssignment_8_1.eContents().get(0);
+		private final RuleCall cAddressSTRINGTerminalRuleCall_8_1_0 = (RuleCall)cAddressAssignment_8_1.eContents().get(0);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
 		private final Keyword cTelephoneKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
 		private final Assignment cTelephoneAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final RuleCall cTelephoneEStringParserRuleCall_9_1_0 = (RuleCall)cTelephoneAssignment_9_1.eContents().get(0);
+		private final RuleCall cTelephoneSTRINGTerminalRuleCall_9_1_0 = (RuleCall)cTelephoneAssignment_9_1.eContents().get(0);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
 		private final Keyword cDesignsVirtualTestbedsKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
 		private final Assignment cDesignsVirtualTestbedsAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
 		private final CrossReference cDesignsVirtualTestbedsRequestedFederationScenarioCrossReference_10_2_0 = (CrossReference)cDesignsVirtualTestbedsAssignment_10_2.eContents().get(0);
-		private final RuleCall cDesignsVirtualTestbedsRequestedFederationScenarioEStringParserRuleCall_10_2_0_1 = (RuleCall)cDesignsVirtualTestbedsRequestedFederationScenarioCrossReference_10_2_0.eContents().get(1);
+		private final RuleCall cDesignsVirtualTestbedsRequestedFederationScenarioSTRINGTerminalRuleCall_10_2_0_1 = (RuleCall)cDesignsVirtualTestbedsRequestedFederationScenarioCrossReference_10_2_0.eContents().get(1);
 		private final Group cGroup_10_3 = (Group)cGroup_10.eContents().get(3);
 		private final Keyword cCommaKeyword_10_3_0 = (Keyword)cGroup_10_3.eContents().get(0);
 		private final Assignment cDesignsVirtualTestbedsAssignment_10_3_1 = (Assignment)cGroup_10_3.eContents().get(1);
 		private final CrossReference cDesignsVirtualTestbedsRequestedFederationScenarioCrossReference_10_3_1_0 = (CrossReference)cDesignsVirtualTestbedsAssignment_10_3_1.eContents().get(0);
-		private final RuleCall cDesignsVirtualTestbedsRequestedFederationScenarioEStringParserRuleCall_10_3_1_0_1 = (RuleCall)cDesignsVirtualTestbedsRequestedFederationScenarioCrossReference_10_3_1_0.eContents().get(1);
+		private final RuleCall cDesignsVirtualTestbedsRequestedFederationScenarioSTRINGTerminalRuleCall_10_3_1_0_1 = (RuleCall)cDesignsVirtualTestbedsRequestedFederationScenarioCrossReference_10_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_10_4 = (Keyword)cGroup_10.eContents().get(4);
 		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
 		private final Keyword cHasAccountKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
@@ -2313,28 +2294,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//TestbedDesigner returns users::TestbedDesigner:
 		//
-		//	{users::TestbedDesigner} "TestbedDesigner" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//	{users::TestbedDesigner} "TestbedDesigner" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//	description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+		//	description=STRING)? ("organization" organization=STRING)? ("address" address=STRING)? ("telephone"
 		//
-		//	telephone=EString)? ("designsVirtualTestbeds" "("
+		//	telephone=STRING)? ("designsVirtualTestbeds" "("
 		//
-		//	designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString] (","
+		//	designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING] (","
 		//
-		//	designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString])* ")")? ("hasAccount"
+		//	designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING])* ")")? ("hasAccount"
 		//
 		//	hasAccount=Account)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{users::TestbedDesigner} "TestbedDesigner" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//{users::TestbedDesigner} "TestbedDesigner" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+		//description=STRING)? ("organization" organization=STRING)? ("address" address=STRING)? ("telephone" telephone=STRING)?
 		//
-		//telephone=EString)? ("designsVirtualTestbeds" "("
+		//("designsVirtualTestbeds" "(" designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING] (","
 		//
-		//designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString] (","
-		//
-		//designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString])* ")")? ("hasAccount"
+		//designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING])* ")")? ("hasAccount"
 		//
 		//hasAccount=Account)? "}"
 		public Group getGroup() { return cGroup; }
@@ -2345,26 +2324,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"TestbedDesigner"
 		public Keyword getTestbedDesignerKeyword_1() { return cTestbedDesignerKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -2378,57 +2357,57 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("organization" organization=EString)?
+		//("organization" organization=STRING)?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"organization"
 		public Keyword getOrganizationKeyword_7_0() { return cOrganizationKeyword_7_0; }
 
-		//organization=EString
+		//organization=STRING
 		public Assignment getOrganizationAssignment_7_1() { return cOrganizationAssignment_7_1; }
 
-		//EString
-		public RuleCall getOrganizationEStringParserRuleCall_7_1_0() { return cOrganizationEStringParserRuleCall_7_1_0; }
+		//STRING
+		public RuleCall getOrganizationSTRINGTerminalRuleCall_7_1_0() { return cOrganizationSTRINGTerminalRuleCall_7_1_0; }
 
-		//("address" address=EString)?
+		//("address" address=STRING)?
 		public Group getGroup_8() { return cGroup_8; }
 
 		//"address"
 		public Keyword getAddressKeyword_8_0() { return cAddressKeyword_8_0; }
 
-		//address=EString
+		//address=STRING
 		public Assignment getAddressAssignment_8_1() { return cAddressAssignment_8_1; }
 
-		//EString
-		public RuleCall getAddressEStringParserRuleCall_8_1_0() { return cAddressEStringParserRuleCall_8_1_0; }
+		//STRING
+		public RuleCall getAddressSTRINGTerminalRuleCall_8_1_0() { return cAddressSTRINGTerminalRuleCall_8_1_0; }
 
-		//("telephone" telephone=EString)?
+		//("telephone" telephone=STRING)?
 		public Group getGroup_9() { return cGroup_9; }
 
 		//"telephone"
 		public Keyword getTelephoneKeyword_9_0() { return cTelephoneKeyword_9_0; }
 
-		//telephone=EString
+		//telephone=STRING
 		public Assignment getTelephoneAssignment_9_1() { return cTelephoneAssignment_9_1; }
 
-		//EString
-		public RuleCall getTelephoneEStringParserRuleCall_9_1_0() { return cTelephoneEStringParserRuleCall_9_1_0; }
+		//STRING
+		public RuleCall getTelephoneSTRINGTerminalRuleCall_9_1_0() { return cTelephoneSTRINGTerminalRuleCall_9_1_0; }
 
-		//("designsVirtualTestbeds" "(" designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString] (","
+		//("designsVirtualTestbeds" "(" designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING] (","
 		//
-		//designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString])* ")")?
+		//designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING])* ")")?
 		public Group getGroup_10() { return cGroup_10; }
 
 		//"designsVirtualTestbeds"
@@ -2437,29 +2416,29 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_10_1() { return cLeftParenthesisKeyword_10_1; }
 
-		//designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString]
+		//designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING]
 		public Assignment getDesignsVirtualTestbedsAssignment_10_2() { return cDesignsVirtualTestbedsAssignment_10_2; }
 
-		//[federationscenarios::RequestedFederationScenario|EString]
+		//[federationscenarios::RequestedFederationScenario|STRING]
 		public CrossReference getDesignsVirtualTestbedsRequestedFederationScenarioCrossReference_10_2_0() { return cDesignsVirtualTestbedsRequestedFederationScenarioCrossReference_10_2_0; }
 
-		//EString
-		public RuleCall getDesignsVirtualTestbedsRequestedFederationScenarioEStringParserRuleCall_10_2_0_1() { return cDesignsVirtualTestbedsRequestedFederationScenarioEStringParserRuleCall_10_2_0_1; }
+		//STRING
+		public RuleCall getDesignsVirtualTestbedsRequestedFederationScenarioSTRINGTerminalRuleCall_10_2_0_1() { return cDesignsVirtualTestbedsRequestedFederationScenarioSTRINGTerminalRuleCall_10_2_0_1; }
 
-		//("," designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString])*
+		//("," designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING])*
 		public Group getGroup_10_3() { return cGroup_10_3; }
 
 		//","
 		public Keyword getCommaKeyword_10_3_0() { return cCommaKeyword_10_3_0; }
 
-		//designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString]
+		//designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING]
 		public Assignment getDesignsVirtualTestbedsAssignment_10_3_1() { return cDesignsVirtualTestbedsAssignment_10_3_1; }
 
-		//[federationscenarios::RequestedFederationScenario|EString]
+		//[federationscenarios::RequestedFederationScenario|STRING]
 		public CrossReference getDesignsVirtualTestbedsRequestedFederationScenarioCrossReference_10_3_1_0() { return cDesignsVirtualTestbedsRequestedFederationScenarioCrossReference_10_3_1_0; }
 
-		//EString
-		public RuleCall getDesignsVirtualTestbedsRequestedFederationScenarioEStringParserRuleCall_10_3_1_0_1() { return cDesignsVirtualTestbedsRequestedFederationScenarioEStringParserRuleCall_10_3_1_0_1; }
+		//STRING
+		public RuleCall getDesignsVirtualTestbedsRequestedFederationScenarioSTRINGTerminalRuleCall_10_3_1_0_1() { return cDesignsVirtualTestbedsRequestedFederationScenarioSTRINGTerminalRuleCall_10_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_10_4() { return cRightParenthesisKeyword_10_4; }
@@ -2486,12 +2465,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cAdminAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cAdminKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -2499,19 +2478,19 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cOrganizationKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cOrganizationAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cOrganizationEStringParserRuleCall_7_1_0 = (RuleCall)cOrganizationAssignment_7_1.eContents().get(0);
+		private final RuleCall cOrganizationSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cOrganizationAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cAddressKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cAddressAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cAddressEStringParserRuleCall_8_1_0 = (RuleCall)cAddressAssignment_8_1.eContents().get(0);
+		private final RuleCall cAddressSTRINGTerminalRuleCall_8_1_0 = (RuleCall)cAddressAssignment_8_1.eContents().get(0);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
 		private final Keyword cTelephoneKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
 		private final Assignment cTelephoneAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final RuleCall cTelephoneEStringParserRuleCall_9_1_0 = (RuleCall)cTelephoneAssignment_9_1.eContents().get(0);
+		private final RuleCall cTelephoneSTRINGTerminalRuleCall_9_1_0 = (RuleCall)cTelephoneAssignment_9_1.eContents().get(0);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
 		private final Keyword cHasAccountKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
 		private final Assignment cHasAccountAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
@@ -2520,16 +2499,16 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Admin returns users::Admin:
 		//
-		//	{users::Admin} "Admin" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//	{users::Admin} "Admin" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 		//
-		//	description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+		//	("organization" organization=STRING)? ("address" address=STRING)? ("telephone" telephone=STRING)? ("hasAccount"
 		//
-		//	telephone=EString)? ("hasAccount" hasAccount=Account)? "}";
+		//	hasAccount=Account)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{users::Admin} "Admin" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)?
+		//{users::Admin} "Admin" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 		//
-		//("organization" organization=EString)? ("address" address=EString)? ("telephone" telephone=EString)? ("hasAccount"
+		//("organization" organization=STRING)? ("address" address=STRING)? ("telephone" telephone=STRING)? ("hasAccount"
 		//
 		//hasAccount=Account)? "}"
 		public Group getGroup() { return cGroup; }
@@ -2540,26 +2519,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"Admin"
 		public Keyword getAdminKeyword_1() { return cAdminKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -2573,53 +2552,53 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("organization" organization=EString)?
+		//("organization" organization=STRING)?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"organization"
 		public Keyword getOrganizationKeyword_7_0() { return cOrganizationKeyword_7_0; }
 
-		//organization=EString
+		//organization=STRING
 		public Assignment getOrganizationAssignment_7_1() { return cOrganizationAssignment_7_1; }
 
-		//EString
-		public RuleCall getOrganizationEStringParserRuleCall_7_1_0() { return cOrganizationEStringParserRuleCall_7_1_0; }
+		//STRING
+		public RuleCall getOrganizationSTRINGTerminalRuleCall_7_1_0() { return cOrganizationSTRINGTerminalRuleCall_7_1_0; }
 
-		//("address" address=EString)?
+		//("address" address=STRING)?
 		public Group getGroup_8() { return cGroup_8; }
 
 		//"address"
 		public Keyword getAddressKeyword_8_0() { return cAddressKeyword_8_0; }
 
-		//address=EString
+		//address=STRING
 		public Assignment getAddressAssignment_8_1() { return cAddressAssignment_8_1; }
 
-		//EString
-		public RuleCall getAddressEStringParserRuleCall_8_1_0() { return cAddressEStringParserRuleCall_8_1_0; }
+		//STRING
+		public RuleCall getAddressSTRINGTerminalRuleCall_8_1_0() { return cAddressSTRINGTerminalRuleCall_8_1_0; }
 
-		//("telephone" telephone=EString)?
+		//("telephone" telephone=STRING)?
 		public Group getGroup_9() { return cGroup_9; }
 
 		//"telephone"
 		public Keyword getTelephoneKeyword_9_0() { return cTelephoneKeyword_9_0; }
 
-		//telephone=EString
+		//telephone=STRING
 		public Assignment getTelephoneAssignment_9_1() { return cTelephoneAssignment_9_1; }
 
-		//EString
-		public RuleCall getTelephoneEStringParserRuleCall_9_1_0() { return cTelephoneEStringParserRuleCall_9_1_0; }
+		//STRING
+		public RuleCall getTelephoneSTRINGTerminalRuleCall_9_1_0() { return cTelephoneSTRINGTerminalRuleCall_9_1_0; }
 
 		//("hasAccount" hasAccount=Account)?
 		public Group getGroup_10() { return cGroup_10; }
@@ -2643,12 +2622,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cBrokerCustomerAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cBrokerCustomerKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -2656,36 +2635,36 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cOrganizationKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cOrganizationAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cOrganizationEStringParserRuleCall_7_1_0 = (RuleCall)cOrganizationAssignment_7_1.eContents().get(0);
+		private final RuleCall cOrganizationSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cOrganizationAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cAddressKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cAddressAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cAddressEStringParserRuleCall_8_1_0 = (RuleCall)cAddressAssignment_8_1.eContents().get(0);
+		private final RuleCall cAddressSTRINGTerminalRuleCall_8_1_0 = (RuleCall)cAddressAssignment_8_1.eContents().get(0);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
 		private final Keyword cTelephoneKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
 		private final Assignment cTelephoneAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final RuleCall cTelephoneEStringParserRuleCall_9_1_0 = (RuleCall)cTelephoneAssignment_9_1.eContents().get(0);
+		private final RuleCall cTelephoneSTRINGTerminalRuleCall_9_1_0 = (RuleCall)cTelephoneAssignment_9_1.eContents().get(0);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
 		private final Keyword cUtilizesVirtualTestbedKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
 		private final Assignment cUtilizesVirtualTestbedAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
 		private final CrossReference cUtilizesVirtualTestbedRequestedFederationScenarioCrossReference_10_2_0 = (CrossReference)cUtilizesVirtualTestbedAssignment_10_2.eContents().get(0);
-		private final RuleCall cUtilizesVirtualTestbedRequestedFederationScenarioEStringParserRuleCall_10_2_0_1 = (RuleCall)cUtilizesVirtualTestbedRequestedFederationScenarioCrossReference_10_2_0.eContents().get(1);
+		private final RuleCall cUtilizesVirtualTestbedRequestedFederationScenarioSTRINGTerminalRuleCall_10_2_0_1 = (RuleCall)cUtilizesVirtualTestbedRequestedFederationScenarioCrossReference_10_2_0.eContents().get(1);
 		private final Group cGroup_10_3 = (Group)cGroup_10.eContents().get(3);
 		private final Keyword cCommaKeyword_10_3_0 = (Keyword)cGroup_10_3.eContents().get(0);
 		private final Assignment cUtilizesVirtualTestbedAssignment_10_3_1 = (Assignment)cGroup_10_3.eContents().get(1);
 		private final CrossReference cUtilizesVirtualTestbedRequestedFederationScenarioCrossReference_10_3_1_0 = (CrossReference)cUtilizesVirtualTestbedAssignment_10_3_1.eContents().get(0);
-		private final RuleCall cUtilizesVirtualTestbedRequestedFederationScenarioEStringParserRuleCall_10_3_1_0_1 = (RuleCall)cUtilizesVirtualTestbedRequestedFederationScenarioCrossReference_10_3_1_0.eContents().get(1);
+		private final RuleCall cUtilizesVirtualTestbedRequestedFederationScenarioSTRINGTerminalRuleCall_10_3_1_0_1 = (RuleCall)cUtilizesVirtualTestbedRequestedFederationScenarioCrossReference_10_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_10_4 = (Keyword)cGroup_10.eContents().get(4);
 		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
 		private final Keyword cHasTestbedDesignerKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
 		private final Assignment cHasTestbedDesignerAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
 		private final CrossReference cHasTestbedDesignerTestbedDesignerCrossReference_11_1_0 = (CrossReference)cHasTestbedDesignerAssignment_11_1.eContents().get(0);
-		private final RuleCall cHasTestbedDesignerTestbedDesignerEStringParserRuleCall_11_1_0_1 = (RuleCall)cHasTestbedDesignerTestbedDesignerCrossReference_11_1_0.eContents().get(1);
+		private final RuleCall cHasTestbedDesignerTestbedDesignerSTRINGTerminalRuleCall_11_1_0_1 = (RuleCall)cHasTestbedDesignerTestbedDesignerCrossReference_11_1_0.eContents().get(1);
 		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
 		private final Keyword cHasAccountKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
 		private final Assignment cHasAccountAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
@@ -2694,30 +2673,28 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//BrokerCustomer returns users::BrokerCustomer:
 		//
-		//	{users::BrokerCustomer} "BrokerCustomer" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//	{users::BrokerCustomer} "BrokerCustomer" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//	description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+		//	description=STRING)? ("organization" organization=STRING)? ("address" address=STRING)? ("telephone"
 		//
-		//	telephone=EString)? ("utilizesVirtualTestbed" "("
+		//	telephone=STRING)? ("utilizesVirtualTestbed" "("
 		//
-		//	utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString] (","
+		//	utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING] (","
 		//
-		//	utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString])* ")")? ("hasTestbedDesigner"
+		//	utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING])* ")")? ("hasTestbedDesigner"
 		//
-		//	hasTestbedDesigner=[users::TestbedDesigner|EString])? ("hasAccount" hasAccount=Account)? "}";
+		//	hasTestbedDesigner=[users::TestbedDesigner|STRING])? ("hasAccount" hasAccount=Account)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{users::BrokerCustomer} "BrokerCustomer" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//{users::BrokerCustomer} "BrokerCustomer" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+		//description=STRING)? ("organization" organization=STRING)? ("address" address=STRING)? ("telephone" telephone=STRING)?
 		//
-		//telephone=EString)? ("utilizesVirtualTestbed" "("
+		//("utilizesVirtualTestbed" "(" utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING] (","
 		//
-		//utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString] (","
+		//utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING])* ")")? ("hasTestbedDesigner"
 		//
-		//utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString])* ")")? ("hasTestbedDesigner"
-		//
-		//hasTestbedDesigner=[users::TestbedDesigner|EString])? ("hasAccount" hasAccount=Account)? "}"
+		//hasTestbedDesigner=[users::TestbedDesigner|STRING])? ("hasAccount" hasAccount=Account)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{users::BrokerCustomer}
@@ -2726,26 +2703,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"BrokerCustomer"
 		public Keyword getBrokerCustomerKeyword_1() { return cBrokerCustomerKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -2759,57 +2736,57 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("organization" organization=EString)?
+		//("organization" organization=STRING)?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"organization"
 		public Keyword getOrganizationKeyword_7_0() { return cOrganizationKeyword_7_0; }
 
-		//organization=EString
+		//organization=STRING
 		public Assignment getOrganizationAssignment_7_1() { return cOrganizationAssignment_7_1; }
 
-		//EString
-		public RuleCall getOrganizationEStringParserRuleCall_7_1_0() { return cOrganizationEStringParserRuleCall_7_1_0; }
+		//STRING
+		public RuleCall getOrganizationSTRINGTerminalRuleCall_7_1_0() { return cOrganizationSTRINGTerminalRuleCall_7_1_0; }
 
-		//("address" address=EString)?
+		//("address" address=STRING)?
 		public Group getGroup_8() { return cGroup_8; }
 
 		//"address"
 		public Keyword getAddressKeyword_8_0() { return cAddressKeyword_8_0; }
 
-		//address=EString
+		//address=STRING
 		public Assignment getAddressAssignment_8_1() { return cAddressAssignment_8_1; }
 
-		//EString
-		public RuleCall getAddressEStringParserRuleCall_8_1_0() { return cAddressEStringParserRuleCall_8_1_0; }
+		//STRING
+		public RuleCall getAddressSTRINGTerminalRuleCall_8_1_0() { return cAddressSTRINGTerminalRuleCall_8_1_0; }
 
-		//("telephone" telephone=EString)?
+		//("telephone" telephone=STRING)?
 		public Group getGroup_9() { return cGroup_9; }
 
 		//"telephone"
 		public Keyword getTelephoneKeyword_9_0() { return cTelephoneKeyword_9_0; }
 
-		//telephone=EString
+		//telephone=STRING
 		public Assignment getTelephoneAssignment_9_1() { return cTelephoneAssignment_9_1; }
 
-		//EString
-		public RuleCall getTelephoneEStringParserRuleCall_9_1_0() { return cTelephoneEStringParserRuleCall_9_1_0; }
+		//STRING
+		public RuleCall getTelephoneSTRINGTerminalRuleCall_9_1_0() { return cTelephoneSTRINGTerminalRuleCall_9_1_0; }
 
-		//("utilizesVirtualTestbed" "(" utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString] (","
+		//("utilizesVirtualTestbed" "(" utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING] (","
 		//
-		//utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString])* ")")?
+		//utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING])* ")")?
 		public Group getGroup_10() { return cGroup_10; }
 
 		//"utilizesVirtualTestbed"
@@ -2818,47 +2795,47 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_10_1() { return cLeftParenthesisKeyword_10_1; }
 
-		//utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString]
+		//utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING]
 		public Assignment getUtilizesVirtualTestbedAssignment_10_2() { return cUtilizesVirtualTestbedAssignment_10_2; }
 
-		//[federationscenarios::RequestedFederationScenario|EString]
+		//[federationscenarios::RequestedFederationScenario|STRING]
 		public CrossReference getUtilizesVirtualTestbedRequestedFederationScenarioCrossReference_10_2_0() { return cUtilizesVirtualTestbedRequestedFederationScenarioCrossReference_10_2_0; }
 
-		//EString
-		public RuleCall getUtilizesVirtualTestbedRequestedFederationScenarioEStringParserRuleCall_10_2_0_1() { return cUtilizesVirtualTestbedRequestedFederationScenarioEStringParserRuleCall_10_2_0_1; }
+		//STRING
+		public RuleCall getUtilizesVirtualTestbedRequestedFederationScenarioSTRINGTerminalRuleCall_10_2_0_1() { return cUtilizesVirtualTestbedRequestedFederationScenarioSTRINGTerminalRuleCall_10_2_0_1; }
 
-		//("," utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString])*
+		//("," utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING])*
 		public Group getGroup_10_3() { return cGroup_10_3; }
 
 		//","
 		public Keyword getCommaKeyword_10_3_0() { return cCommaKeyword_10_3_0; }
 
-		//utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString]
+		//utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING]
 		public Assignment getUtilizesVirtualTestbedAssignment_10_3_1() { return cUtilizesVirtualTestbedAssignment_10_3_1; }
 
-		//[federationscenarios::RequestedFederationScenario|EString]
+		//[federationscenarios::RequestedFederationScenario|STRING]
 		public CrossReference getUtilizesVirtualTestbedRequestedFederationScenarioCrossReference_10_3_1_0() { return cUtilizesVirtualTestbedRequestedFederationScenarioCrossReference_10_3_1_0; }
 
-		//EString
-		public RuleCall getUtilizesVirtualTestbedRequestedFederationScenarioEStringParserRuleCall_10_3_1_0_1() { return cUtilizesVirtualTestbedRequestedFederationScenarioEStringParserRuleCall_10_3_1_0_1; }
+		//STRING
+		public RuleCall getUtilizesVirtualTestbedRequestedFederationScenarioSTRINGTerminalRuleCall_10_3_1_0_1() { return cUtilizesVirtualTestbedRequestedFederationScenarioSTRINGTerminalRuleCall_10_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_10_4() { return cRightParenthesisKeyword_10_4; }
 
-		//("hasTestbedDesigner" hasTestbedDesigner=[users::TestbedDesigner|EString])?
+		//("hasTestbedDesigner" hasTestbedDesigner=[users::TestbedDesigner|STRING])?
 		public Group getGroup_11() { return cGroup_11; }
 
 		//"hasTestbedDesigner"
 		public Keyword getHasTestbedDesignerKeyword_11_0() { return cHasTestbedDesignerKeyword_11_0; }
 
-		//hasTestbedDesigner=[users::TestbedDesigner|EString]
+		//hasTestbedDesigner=[users::TestbedDesigner|STRING]
 		public Assignment getHasTestbedDesignerAssignment_11_1() { return cHasTestbedDesignerAssignment_11_1; }
 
-		//[users::TestbedDesigner|EString]
+		//[users::TestbedDesigner|STRING]
 		public CrossReference getHasTestbedDesignerTestbedDesignerCrossReference_11_1_0() { return cHasTestbedDesignerTestbedDesignerCrossReference_11_1_0; }
 
-		//EString
-		public RuleCall getHasTestbedDesignerTestbedDesignerEStringParserRuleCall_11_1_0_1() { return cHasTestbedDesignerTestbedDesignerEStringParserRuleCall_11_1_0_1; }
+		//STRING
+		public RuleCall getHasTestbedDesignerTestbedDesignerSTRINGTerminalRuleCall_11_1_0_1() { return cHasTestbedDesignerTestbedDesignerSTRINGTerminalRuleCall_11_1_0_1; }
 
 		//("hasAccount" hasAccount=Account)?
 		public Group getGroup_12() { return cGroup_12; }
@@ -2882,12 +2859,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cBrokerPersonelAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cBrokerPersonelKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -2895,19 +2872,19 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cOrganizationKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cOrganizationAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cOrganizationEStringParserRuleCall_7_1_0 = (RuleCall)cOrganizationAssignment_7_1.eContents().get(0);
+		private final RuleCall cOrganizationSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cOrganizationAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cAddressKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cAddressAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cAddressEStringParserRuleCall_8_1_0 = (RuleCall)cAddressAssignment_8_1.eContents().get(0);
+		private final RuleCall cAddressSTRINGTerminalRuleCall_8_1_0 = (RuleCall)cAddressAssignment_8_1.eContents().get(0);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
 		private final Keyword cTelephoneKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
 		private final Assignment cTelephoneAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final RuleCall cTelephoneEStringParserRuleCall_9_1_0 = (RuleCall)cTelephoneAssignment_9_1.eContents().get(0);
+		private final RuleCall cTelephoneSTRINGTerminalRuleCall_9_1_0 = (RuleCall)cTelephoneAssignment_9_1.eContents().get(0);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
 		private final Keyword cHasAccountKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
 		private final Assignment cHasAccountAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
@@ -2916,18 +2893,18 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//BrokerPersonel_Impl returns users::BrokerPersonel:
 		//
-		//	{users::BrokerPersonel} "BrokerPersonel" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//	{users::BrokerPersonel} "BrokerPersonel" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//	description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+		//	description=STRING)? ("organization" organization=STRING)? ("address" address=STRING)? ("telephone"
 		//
-		//	telephone=EString)? ("hasAccount" hasAccount=Account)? "}";
+		//	telephone=STRING)? ("hasAccount" hasAccount=Account)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{users::BrokerPersonel} "BrokerPersonel" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//{users::BrokerPersonel} "BrokerPersonel" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+		//description=STRING)? ("organization" organization=STRING)? ("address" address=STRING)? ("telephone" telephone=STRING)?
 		//
-		//telephone=EString)? ("hasAccount" hasAccount=Account)? "}"
+		//("hasAccount" hasAccount=Account)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{users::BrokerPersonel}
@@ -2936,26 +2913,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"BrokerPersonel"
 		public Keyword getBrokerPersonelKeyword_1() { return cBrokerPersonelKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -2969,53 +2946,53 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("organization" organization=EString)?
+		//("organization" organization=STRING)?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"organization"
 		public Keyword getOrganizationKeyword_7_0() { return cOrganizationKeyword_7_0; }
 
-		//organization=EString
+		//organization=STRING
 		public Assignment getOrganizationAssignment_7_1() { return cOrganizationAssignment_7_1; }
 
-		//EString
-		public RuleCall getOrganizationEStringParserRuleCall_7_1_0() { return cOrganizationEStringParserRuleCall_7_1_0; }
+		//STRING
+		public RuleCall getOrganizationSTRINGTerminalRuleCall_7_1_0() { return cOrganizationSTRINGTerminalRuleCall_7_1_0; }
 
-		//("address" address=EString)?
+		//("address" address=STRING)?
 		public Group getGroup_8() { return cGroup_8; }
 
 		//"address"
 		public Keyword getAddressKeyword_8_0() { return cAddressKeyword_8_0; }
 
-		//address=EString
+		//address=STRING
 		public Assignment getAddressAssignment_8_1() { return cAddressAssignment_8_1; }
 
-		//EString
-		public RuleCall getAddressEStringParserRuleCall_8_1_0() { return cAddressEStringParserRuleCall_8_1_0; }
+		//STRING
+		public RuleCall getAddressSTRINGTerminalRuleCall_8_1_0() { return cAddressSTRINGTerminalRuleCall_8_1_0; }
 
-		//("telephone" telephone=EString)?
+		//("telephone" telephone=STRING)?
 		public Group getGroup_9() { return cGroup_9; }
 
 		//"telephone"
 		public Keyword getTelephoneKeyword_9_0() { return cTelephoneKeyword_9_0; }
 
-		//telephone=EString
+		//telephone=STRING
 		public Assignment getTelephoneAssignment_9_1() { return cTelephoneAssignment_9_1; }
 
-		//EString
-		public RuleCall getTelephoneEStringParserRuleCall_9_1_0() { return cTelephoneEStringParserRuleCall_9_1_0; }
+		//STRING
+		public RuleCall getTelephoneSTRINGTerminalRuleCall_9_1_0() { return cTelephoneSTRINGTerminalRuleCall_9_1_0; }
 
 		//("hasAccount" hasAccount=Account)?
 		public Group getGroup_10() { return cGroup_10; }
@@ -3038,12 +3015,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cSiteKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cUniqueIDAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cUniqueIDEStringParserRuleCall_1_0 = (RuleCall)cUniqueIDAssignment_1.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_1_0 = (RuleCall)cUniqueIDAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cNameKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cNameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cIdKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cIdAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
@@ -3051,35 +3028,34 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cDescriptionKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cDescriptionAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_5_1_0 = (RuleCall)cDescriptionAssignment_5_1.eContents().get(0);
-		private final Keyword cDomainmanagerKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cDomainManagerAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cDomainManagerDomainManagerParserRuleCall_7_0 = (RuleCall)cDomainManagerAssignment_7.eContents().get(0);
-		private final Keyword cLocatedAtKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cLocatedAtAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cLocatedAtSiteLocationParserRuleCall_9_0 = (RuleCall)cLocatedAtAssignment_9.eContents().get(0);
-		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
-		private final Keyword cOfferedResourcesListKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
-		private final Assignment cOfferedResourcesListAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
-		private final RuleCall cOfferedResourcesListOfferedResourceParserRuleCall_10_2_0 = (RuleCall)cOfferedResourcesListAssignment_10_2.eContents().get(0);
-		private final Group cGroup_10_3 = (Group)cGroup_10.eContents().get(3);
-		private final Keyword cCommaKeyword_10_3_0 = (Keyword)cGroup_10_3.eContents().get(0);
-		private final Assignment cOfferedResourcesListAssignment_10_3_1 = (Assignment)cGroup_10_3.eContents().get(1);
-		private final RuleCall cOfferedResourcesListOfferedResourceParserRuleCall_10_3_1_0 = (RuleCall)cOfferedResourcesListAssignment_10_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_10_4 = (Keyword)cGroup_10.eContents().get(4);
-		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cDescriptionAssignment_5_1.eContents().get(0);
+		private final Assignment cDomainManagerAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cDomainManagerDomainManagerParserRuleCall_6_0 = (RuleCall)cDomainManagerAssignment_6.eContents().get(0);
+		private final Keyword cLocatedAtKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cLocatedAtAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cLocatedAtSiteLocationParserRuleCall_8_0 = (RuleCall)cLocatedAtAssignment_8.eContents().get(0);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cOfferedResourcesListKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
+		private final Assignment cOfferedResourcesListAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
+		private final RuleCall cOfferedResourcesListOfferedResourceParserRuleCall_9_2_0 = (RuleCall)cOfferedResourcesListAssignment_9_2.eContents().get(0);
+		private final Group cGroup_9_3 = (Group)cGroup_9.eContents().get(3);
+		private final Keyword cCommaKeyword_9_3_0 = (Keyword)cGroup_9_3.eContents().get(0);
+		private final Assignment cOfferedResourcesListAssignment_9_3_1 = (Assignment)cGroup_9_3.eContents().get(1);
+		private final RuleCall cOfferedResourcesListOfferedResourceParserRuleCall_9_3_1_0 = (RuleCall)cOfferedResourcesListAssignment_9_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_9_4 = (Keyword)cGroup_9.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//Site returns providersite::Site:
 		//
-		//	"Site" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)?
+		//	"Site" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 		//
-		//	"domainmanager" domainManager=DomainManager "locatedAt" locatedAt=SiteLocation ("offeredResourcesList" "{"
+		//	domainManager=DomainManager "locatedAt" locatedAt=SiteLocation ("offeredResourcesList" "{"
 		//
 		//	offeredResourcesList+=OfferedResource ("," offeredResourcesList+=OfferedResource)* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"Site" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)? "domainmanager"
+		//"Site" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 		//
 		//domainManager=DomainManager "locatedAt" locatedAt=SiteLocation ("offeredResourcesList" "{"
 		//
@@ -3089,26 +3065,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"Site"
 		public Keyword getSiteKeyword_0() { return cSiteKeyword_0; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_1() { return cUniqueIDAssignment_1; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_1_0() { return cUniqueIDEStringParserRuleCall_1_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_1_0() { return cUniqueIDSTRINGTerminalRuleCall_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//"name"
 		public Keyword getNameKeyword_3_0() { return cNameKeyword_3_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_3_1() { return cNameAssignment_3_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_3_1_0() { return cNameEStringParserRuleCall_3_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_3_1_0() { return cNameSTRINGTerminalRuleCall_3_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_4() { return cGroup_4; }
@@ -3122,68 +3098,65 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_4_1_0() { return cIdEIntParserRuleCall_4_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_5() { return cGroup_5; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_5_0() { return cDescriptionKeyword_5_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_5_1() { return cDescriptionAssignment_5_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_5_1_0() { return cDescriptionEStringParserRuleCall_5_1_0; }
-
-		//"domainmanager"
-		public Keyword getDomainmanagerKeyword_6() { return cDomainmanagerKeyword_6; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_5_1_0() { return cDescriptionSTRINGTerminalRuleCall_5_1_0; }
 
 		//domainManager=DomainManager
-		public Assignment getDomainManagerAssignment_7() { return cDomainManagerAssignment_7; }
+		public Assignment getDomainManagerAssignment_6() { return cDomainManagerAssignment_6; }
 
 		//DomainManager
-		public RuleCall getDomainManagerDomainManagerParserRuleCall_7_0() { return cDomainManagerDomainManagerParserRuleCall_7_0; }
+		public RuleCall getDomainManagerDomainManagerParserRuleCall_6_0() { return cDomainManagerDomainManagerParserRuleCall_6_0; }
 
 		//"locatedAt"
-		public Keyword getLocatedAtKeyword_8() { return cLocatedAtKeyword_8; }
+		public Keyword getLocatedAtKeyword_7() { return cLocatedAtKeyword_7; }
 
 		//locatedAt=SiteLocation
-		public Assignment getLocatedAtAssignment_9() { return cLocatedAtAssignment_9; }
+		public Assignment getLocatedAtAssignment_8() { return cLocatedAtAssignment_8; }
 
 		//SiteLocation
-		public RuleCall getLocatedAtSiteLocationParserRuleCall_9_0() { return cLocatedAtSiteLocationParserRuleCall_9_0; }
+		public RuleCall getLocatedAtSiteLocationParserRuleCall_8_0() { return cLocatedAtSiteLocationParserRuleCall_8_0; }
 
 		//("offeredResourcesList" "{" offeredResourcesList+=OfferedResource ("," offeredResourcesList+=OfferedResource)* "}")?
-		public Group getGroup_10() { return cGroup_10; }
+		public Group getGroup_9() { return cGroup_9; }
 
 		//"offeredResourcesList"
-		public Keyword getOfferedResourcesListKeyword_10_0() { return cOfferedResourcesListKeyword_10_0; }
+		public Keyword getOfferedResourcesListKeyword_9_0() { return cOfferedResourcesListKeyword_9_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_10_1() { return cLeftCurlyBracketKeyword_10_1; }
+		public Keyword getLeftCurlyBracketKeyword_9_1() { return cLeftCurlyBracketKeyword_9_1; }
 
 		//offeredResourcesList+=OfferedResource
-		public Assignment getOfferedResourcesListAssignment_10_2() { return cOfferedResourcesListAssignment_10_2; }
+		public Assignment getOfferedResourcesListAssignment_9_2() { return cOfferedResourcesListAssignment_9_2; }
 
 		//OfferedResource
-		public RuleCall getOfferedResourcesListOfferedResourceParserRuleCall_10_2_0() { return cOfferedResourcesListOfferedResourceParserRuleCall_10_2_0; }
+		public RuleCall getOfferedResourcesListOfferedResourceParserRuleCall_9_2_0() { return cOfferedResourcesListOfferedResourceParserRuleCall_9_2_0; }
 
 		//("," offeredResourcesList+=OfferedResource)*
-		public Group getGroup_10_3() { return cGroup_10_3; }
+		public Group getGroup_9_3() { return cGroup_9_3; }
 
 		//","
-		public Keyword getCommaKeyword_10_3_0() { return cCommaKeyword_10_3_0; }
+		public Keyword getCommaKeyword_9_3_0() { return cCommaKeyword_9_3_0; }
 
 		//offeredResourcesList+=OfferedResource
-		public Assignment getOfferedResourcesListAssignment_10_3_1() { return cOfferedResourcesListAssignment_10_3_1; }
+		public Assignment getOfferedResourcesListAssignment_9_3_1() { return cOfferedResourcesListAssignment_9_3_1; }
 
 		//OfferedResource
-		public RuleCall getOfferedResourcesListOfferedResourceParserRuleCall_10_3_1_0() { return cOfferedResourcesListOfferedResourceParserRuleCall_10_3_1_0; }
+		public RuleCall getOfferedResourcesListOfferedResourceParserRuleCall_9_3_1_0() { return cOfferedResourcesListOfferedResourceParserRuleCall_9_3_1_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_10_4() { return cRightCurlyBracketKeyword_10_4; }
+		public Keyword getRightCurlyBracketKeyword_9_4() { return cRightCurlyBracketKeyword_9_4; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
+		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
 	}
 
 	public class DomainManagerElements extends AbstractParserRuleElementFinder {
@@ -3192,12 +3165,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cDomainManagerAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cDomainManagerKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -3205,23 +3178,23 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cIPKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cIPAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cIPEStringParserRuleCall_7_1_0 = (RuleCall)cIPAssignment_7_1.eContents().get(0);
+		private final RuleCall cIPSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cIPAssignment_7_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//DomainManager returns providersite::DomainManager:
 		//
-		//	{providersite::DomainManager} "DomainManager" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//	{providersite::DomainManager} "DomainManager" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//	("description" description=EString)? ("IP" IP=EString)? "}";
+		//	("description" description=STRING)? ("IP" IP=STRING)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{providersite::DomainManager} "DomainManager" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//{providersite::DomainManager} "DomainManager" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//description=EString)? ("IP" IP=EString)? "}"
+		//description=STRING)? ("IP" IP=STRING)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{providersite::DomainManager}
@@ -3230,26 +3203,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"DomainManager"
 		public Keyword getDomainManagerKeyword_1() { return cDomainManagerKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -3263,29 +3236,29 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("IP" IP=EString)?
+		//("IP" IP=STRING)?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"IP"
 		public Keyword getIPKeyword_7_0() { return cIPKeyword_7_0; }
 
-		//IP=EString
+		//IP=STRING
 		public Assignment getIPAssignment_7_1() { return cIPAssignment_7_1; }
 
-		//EString
-		public RuleCall getIPEStringParserRuleCall_7_1_0() { return cIPEStringParserRuleCall_7_1_0; }
+		//STRING
+		public RuleCall getIPSTRINGTerminalRuleCall_7_1_0() { return cIPSTRINGTerminalRuleCall_7_1_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
@@ -3297,12 +3270,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cSiteLocationAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cSiteLocationKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -3310,27 +3283,27 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cAddressKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cAddressAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cAddressEStringParserRuleCall_7_1_0 = (RuleCall)cAddressAssignment_7_1.eContents().get(0);
+		private final RuleCall cAddressSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cAddressAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cGeocoordsKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cGeocoordsAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cGeocoordsEStringParserRuleCall_8_1_0 = (RuleCall)cGeocoordsAssignment_8_1.eContents().get(0);
+		private final RuleCall cGeocoordsSTRINGTerminalRuleCall_8_1_0 = (RuleCall)cGeocoordsAssignment_8_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//SiteLocation returns providersite::SiteLocation:
 		//
-		//	{providersite::SiteLocation} "SiteLocation" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//	{providersite::SiteLocation} "SiteLocation" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//	("description" description=EString)? ("address" address=EString)? ("geocoords" geocoords=EString)? "}";
+		//	description=STRING)? ("address" address=STRING)? ("geocoords" geocoords=STRING)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{providersite::SiteLocation} "SiteLocation" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//{providersite::SiteLocation} "SiteLocation" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//description=EString)? ("address" address=EString)? ("geocoords" geocoords=EString)? "}"
+		//description=STRING)? ("address" address=STRING)? ("geocoords" geocoords=STRING)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{providersite::SiteLocation}
@@ -3339,26 +3312,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"SiteLocation"
 		public Keyword getSiteLocationKeyword_1() { return cSiteLocationKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -3372,41 +3345,41 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("address" address=EString)?
+		//("address" address=STRING)?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"address"
 		public Keyword getAddressKeyword_7_0() { return cAddressKeyword_7_0; }
 
-		//address=EString
+		//address=STRING
 		public Assignment getAddressAssignment_7_1() { return cAddressAssignment_7_1; }
 
-		//EString
-		public RuleCall getAddressEStringParserRuleCall_7_1_0() { return cAddressEStringParserRuleCall_7_1_0; }
+		//STRING
+		public RuleCall getAddressSTRINGTerminalRuleCall_7_1_0() { return cAddressSTRINGTerminalRuleCall_7_1_0; }
 
-		//("geocoords" geocoords=EString)?
+		//("geocoords" geocoords=STRING)?
 		public Group getGroup_8() { return cGroup_8; }
 
 		//"geocoords"
 		public Keyword getGeocoordsKeyword_8_0() { return cGeocoordsKeyword_8_0; }
 
-		//geocoords=EString
+		//geocoords=STRING
 		public Assignment getGeocoordsAssignment_8_1() { return cGeocoordsAssignment_8_1; }
 
-		//EString
-		public RuleCall getGeocoordsEStringParserRuleCall_8_1_0() { return cGeocoordsEStringParserRuleCall_8_1_0; }
+		//STRING
+		public RuleCall getGeocoordsSTRINGTerminalRuleCall_8_1_0() { return cGeocoordsSTRINGTerminalRuleCall_8_1_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
@@ -3418,12 +3391,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cOfferedResourceAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cOfferedResourceKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -3431,7 +3404,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cResourceTypeKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cResourceTypeAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
@@ -3443,36 +3416,36 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
 		private final Keyword cGeocoordsKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
 		private final Assignment cGeocoordsAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final RuleCall cGeocoordsEStringParserRuleCall_9_1_0 = (RuleCall)cGeocoordsAssignment_9_1.eContents().get(0);
+		private final RuleCall cGeocoordsSTRINGTerminalRuleCall_9_1_0 = (RuleCall)cGeocoordsAssignment_9_1.eContents().get(0);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
 		private final Keyword cContributesToCategoriesKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
 		private final Assignment cContributesToCategoriesAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
 		private final CrossReference cContributesToCategoriesResourceCategoryCrossReference_10_2_0 = (CrossReference)cContributesToCategoriesAssignment_10_2.eContents().get(0);
-		private final RuleCall cContributesToCategoriesResourceCategoryEStringParserRuleCall_10_2_0_1 = (RuleCall)cContributesToCategoriesResourceCategoryCrossReference_10_2_0.eContents().get(1);
+		private final RuleCall cContributesToCategoriesResourceCategorySTRINGTerminalRuleCall_10_2_0_1 = (RuleCall)cContributesToCategoriesResourceCategoryCrossReference_10_2_0.eContents().get(1);
 		private final Group cGroup_10_3 = (Group)cGroup_10.eContents().get(3);
 		private final Keyword cCommaKeyword_10_3_0 = (Keyword)cGroup_10_3.eContents().get(0);
 		private final Assignment cContributesToCategoriesAssignment_10_3_1 = (Assignment)cGroup_10_3.eContents().get(1);
 		private final CrossReference cContributesToCategoriesResourceCategoryCrossReference_10_3_1_0 = (CrossReference)cContributesToCategoriesAssignment_10_3_1.eContents().get(0);
-		private final RuleCall cContributesToCategoriesResourceCategoryEStringParserRuleCall_10_3_1_0_1 = (RuleCall)cContributesToCategoriesResourceCategoryCrossReference_10_3_1_0.eContents().get(1);
+		private final RuleCall cContributesToCategoriesResourceCategorySTRINGTerminalRuleCall_10_3_1_0_1 = (RuleCall)cContributesToCategoriesResourceCategoryCrossReference_10_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_10_4 = (Keyword)cGroup_10.eContents().get(4);
 		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
 		private final Keyword cRequiresResourcesKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_11_1 = (Keyword)cGroup_11.eContents().get(1);
 		private final Assignment cRequiresResourcesAssignment_11_2 = (Assignment)cGroup_11.eContents().get(2);
 		private final CrossReference cRequiresResourcesResourceCrossReference_11_2_0 = (CrossReference)cRequiresResourcesAssignment_11_2.eContents().get(0);
-		private final RuleCall cRequiresResourcesResourceEStringParserRuleCall_11_2_0_1 = (RuleCall)cRequiresResourcesResourceCrossReference_11_2_0.eContents().get(1);
+		private final RuleCall cRequiresResourcesResourceSTRINGTerminalRuleCall_11_2_0_1 = (RuleCall)cRequiresResourcesResourceCrossReference_11_2_0.eContents().get(1);
 		private final Group cGroup_11_3 = (Group)cGroup_11.eContents().get(3);
 		private final Keyword cCommaKeyword_11_3_0 = (Keyword)cGroup_11_3.eContents().get(0);
 		private final Assignment cRequiresResourcesAssignment_11_3_1 = (Assignment)cGroup_11_3.eContents().get(1);
 		private final CrossReference cRequiresResourcesResourceCrossReference_11_3_1_0 = (CrossReference)cRequiresResourcesAssignment_11_3_1.eContents().get(0);
-		private final RuleCall cRequiresResourcesResourceEStringParserRuleCall_11_3_1_0_1 = (RuleCall)cRequiresResourcesResourceCrossReference_11_3_1_0.eContents().get(1);
+		private final RuleCall cRequiresResourcesResourceSTRINGTerminalRuleCall_11_3_1_0_1 = (RuleCall)cRequiresResourcesResourceCrossReference_11_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_11_4 = (Keyword)cGroup_11.eContents().get(4);
 		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
 		private final Keyword cImplOfferedServiceKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
 		private final Assignment cImplOfferedServiceAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
 		private final CrossReference cImplOfferedServiceServiceCrossReference_12_1_0 = (CrossReference)cImplOfferedServiceAssignment_12_1.eContents().get(0);
-		private final RuleCall cImplOfferedServiceServiceEStringParserRuleCall_12_1_0_1 = (RuleCall)cImplOfferedServiceServiceCrossReference_12_1_0.eContents().get(1);
+		private final RuleCall cImplOfferedServiceServiceSTRINGTerminalRuleCall_12_1_0_1 = (RuleCall)cImplOfferedServiceServiceCrossReference_12_1_0.eContents().get(1);
 		private final Group cGroup_13 = (Group)cGroup.eContents().get(13);
 		private final Keyword cResourceSettingsKeyword_13_0 = (Keyword)cGroup_13.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_13_1 = (Keyword)cGroup_13.eContents().get(1);
@@ -3487,36 +3460,36 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//OfferedResource returns resources::OfferedResource:
 		//
-		//	{resources::OfferedResource} "OfferedResource" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//	{resources::OfferedResource} "OfferedResource" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//	("description" description=EString)? ("resourceType" resourceType=ResourceType)? ("multitonMaxOccur"
+		//	("description" description=STRING)? ("resourceType" resourceType=ResourceType)? ("multitonMaxOccur"
 		//
-		//	multitonMaxOccur=EInt)? ("geocoords" geocoords=EString)? ("contributesToCategories" "("
+		//	multitonMaxOccur=EInt)? ("geocoords" geocoords=STRING)? ("contributesToCategories" "("
 		//
-		//	contributesToCategories+=[resources::ResourceCategory|EString] (","
+		//	contributesToCategories+=[resources::ResourceCategory|STRING] (","
 		//
-		//	contributesToCategories+=[resources::ResourceCategory|EString])* ")")? ("requiresResources" "("
+		//	contributesToCategories+=[resources::ResourceCategory|STRING])* ")")? ("requiresResources" "("
 		//
-		//	requiresResources+=[resources::Resource|EString] ("," requiresResources+=[resources::Resource|EString])* ")")?
+		//	requiresResources+=[resources::Resource|STRING] ("," requiresResources+=[resources::Resource|STRING])* ")")?
 		//
-		//	("implOfferedService" implOfferedService=[services::Service|EString])? ("resourceSettings" "{"
+		//	("implOfferedService" implOfferedService=[services::Service|STRING])? ("resourceSettings" "{"
 		//
 		//	resourceSettings+=ResourceSetting ("," resourceSettings+=ResourceSetting)* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{resources::OfferedResource} "OfferedResource" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//{resources::OfferedResource} "OfferedResource" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//("description" description=EString)? ("resourceType" resourceType=ResourceType)? ("multitonMaxOccur"
+		//description=STRING)? ("resourceType" resourceType=ResourceType)? ("multitonMaxOccur" multitonMaxOccur=EInt)?
 		//
-		//multitonMaxOccur=EInt)? ("geocoords" geocoords=EString)? ("contributesToCategories" "("
+		//("geocoords" geocoords=STRING)? ("contributesToCategories" "("
 		//
-		//contributesToCategories+=[resources::ResourceCategory|EString] (","
+		//contributesToCategories+=[resources::ResourceCategory|STRING] (","
 		//
-		//contributesToCategories+=[resources::ResourceCategory|EString])* ")")? ("requiresResources" "("
+		//contributesToCategories+=[resources::ResourceCategory|STRING])* ")")? ("requiresResources" "("
 		//
-		//requiresResources+=[resources::Resource|EString] ("," requiresResources+=[resources::Resource|EString])* ")")?
+		//requiresResources+=[resources::Resource|STRING] ("," requiresResources+=[resources::Resource|STRING])* ")")?
 		//
-		//("implOfferedService" implOfferedService=[services::Service|EString])? ("resourceSettings" "{"
+		//("implOfferedService" implOfferedService=[services::Service|STRING])? ("resourceSettings" "{"
 		//
 		//resourceSettings+=ResourceSetting ("," resourceSettings+=ResourceSetting)* "}")? "}"
 		public Group getGroup() { return cGroup; }
@@ -3527,26 +3500,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"OfferedResource"
 		public Keyword getOfferedResourceKeyword_1() { return cOfferedResourceKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -3560,17 +3533,17 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
 		//("resourceType" resourceType=ResourceType)?
 		public Group getGroup_7() { return cGroup_7; }
@@ -3596,21 +3569,21 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getMultitonMaxOccurEIntParserRuleCall_8_1_0() { return cMultitonMaxOccurEIntParserRuleCall_8_1_0; }
 
-		//("geocoords" geocoords=EString)?
+		//("geocoords" geocoords=STRING)?
 		public Group getGroup_9() { return cGroup_9; }
 
 		//"geocoords"
 		public Keyword getGeocoordsKeyword_9_0() { return cGeocoordsKeyword_9_0; }
 
-		//geocoords=EString
+		//geocoords=STRING
 		public Assignment getGeocoordsAssignment_9_1() { return cGeocoordsAssignment_9_1; }
 
-		//EString
-		public RuleCall getGeocoordsEStringParserRuleCall_9_1_0() { return cGeocoordsEStringParserRuleCall_9_1_0; }
+		//STRING
+		public RuleCall getGeocoordsSTRINGTerminalRuleCall_9_1_0() { return cGeocoordsSTRINGTerminalRuleCall_9_1_0; }
 
-		//("contributesToCategories" "(" contributesToCategories+=[resources::ResourceCategory|EString] (","
+		//("contributesToCategories" "(" contributesToCategories+=[resources::ResourceCategory|STRING] (","
 		//
-		//contributesToCategories+=[resources::ResourceCategory|EString])* ")")?
+		//contributesToCategories+=[resources::ResourceCategory|STRING])* ")")?
 		public Group getGroup_10() { return cGroup_10; }
 
 		//"contributesToCategories"
@@ -3619,36 +3592,36 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_10_1() { return cLeftParenthesisKeyword_10_1; }
 
-		//contributesToCategories+=[resources::ResourceCategory|EString]
+		//contributesToCategories+=[resources::ResourceCategory|STRING]
 		public Assignment getContributesToCategoriesAssignment_10_2() { return cContributesToCategoriesAssignment_10_2; }
 
-		//[resources::ResourceCategory|EString]
+		//[resources::ResourceCategory|STRING]
 		public CrossReference getContributesToCategoriesResourceCategoryCrossReference_10_2_0() { return cContributesToCategoriesResourceCategoryCrossReference_10_2_0; }
 
-		//EString
-		public RuleCall getContributesToCategoriesResourceCategoryEStringParserRuleCall_10_2_0_1() { return cContributesToCategoriesResourceCategoryEStringParserRuleCall_10_2_0_1; }
+		//STRING
+		public RuleCall getContributesToCategoriesResourceCategorySTRINGTerminalRuleCall_10_2_0_1() { return cContributesToCategoriesResourceCategorySTRINGTerminalRuleCall_10_2_0_1; }
 
-		//("," contributesToCategories+=[resources::ResourceCategory|EString])*
+		//("," contributesToCategories+=[resources::ResourceCategory|STRING])*
 		public Group getGroup_10_3() { return cGroup_10_3; }
 
 		//","
 		public Keyword getCommaKeyword_10_3_0() { return cCommaKeyword_10_3_0; }
 
-		//contributesToCategories+=[resources::ResourceCategory|EString]
+		//contributesToCategories+=[resources::ResourceCategory|STRING]
 		public Assignment getContributesToCategoriesAssignment_10_3_1() { return cContributesToCategoriesAssignment_10_3_1; }
 
-		//[resources::ResourceCategory|EString]
+		//[resources::ResourceCategory|STRING]
 		public CrossReference getContributesToCategoriesResourceCategoryCrossReference_10_3_1_0() { return cContributesToCategoriesResourceCategoryCrossReference_10_3_1_0; }
 
-		//EString
-		public RuleCall getContributesToCategoriesResourceCategoryEStringParserRuleCall_10_3_1_0_1() { return cContributesToCategoriesResourceCategoryEStringParserRuleCall_10_3_1_0_1; }
+		//STRING
+		public RuleCall getContributesToCategoriesResourceCategorySTRINGTerminalRuleCall_10_3_1_0_1() { return cContributesToCategoriesResourceCategorySTRINGTerminalRuleCall_10_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_10_4() { return cRightParenthesisKeyword_10_4; }
 
-		//("requiresResources" "(" requiresResources+=[resources::Resource|EString] (","
+		//("requiresResources" "(" requiresResources+=[resources::Resource|STRING] (","
 		//
-		//requiresResources+=[resources::Resource|EString])* ")")?
+		//requiresResources+=[resources::Resource|STRING])* ")")?
 		public Group getGroup_11() { return cGroup_11; }
 
 		//"requiresResources"
@@ -3657,47 +3630,47 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_11_1() { return cLeftParenthesisKeyword_11_1; }
 
-		//requiresResources+=[resources::Resource|EString]
+		//requiresResources+=[resources::Resource|STRING]
 		public Assignment getRequiresResourcesAssignment_11_2() { return cRequiresResourcesAssignment_11_2; }
 
-		//[resources::Resource|EString]
+		//[resources::Resource|STRING]
 		public CrossReference getRequiresResourcesResourceCrossReference_11_2_0() { return cRequiresResourcesResourceCrossReference_11_2_0; }
 
-		//EString
-		public RuleCall getRequiresResourcesResourceEStringParserRuleCall_11_2_0_1() { return cRequiresResourcesResourceEStringParserRuleCall_11_2_0_1; }
+		//STRING
+		public RuleCall getRequiresResourcesResourceSTRINGTerminalRuleCall_11_2_0_1() { return cRequiresResourcesResourceSTRINGTerminalRuleCall_11_2_0_1; }
 
-		//("," requiresResources+=[resources::Resource|EString])*
+		//("," requiresResources+=[resources::Resource|STRING])*
 		public Group getGroup_11_3() { return cGroup_11_3; }
 
 		//","
 		public Keyword getCommaKeyword_11_3_0() { return cCommaKeyword_11_3_0; }
 
-		//requiresResources+=[resources::Resource|EString]
+		//requiresResources+=[resources::Resource|STRING]
 		public Assignment getRequiresResourcesAssignment_11_3_1() { return cRequiresResourcesAssignment_11_3_1; }
 
-		//[resources::Resource|EString]
+		//[resources::Resource|STRING]
 		public CrossReference getRequiresResourcesResourceCrossReference_11_3_1_0() { return cRequiresResourcesResourceCrossReference_11_3_1_0; }
 
-		//EString
-		public RuleCall getRequiresResourcesResourceEStringParserRuleCall_11_3_1_0_1() { return cRequiresResourcesResourceEStringParserRuleCall_11_3_1_0_1; }
+		//STRING
+		public RuleCall getRequiresResourcesResourceSTRINGTerminalRuleCall_11_3_1_0_1() { return cRequiresResourcesResourceSTRINGTerminalRuleCall_11_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_11_4() { return cRightParenthesisKeyword_11_4; }
 
-		//("implOfferedService" implOfferedService=[services::Service|EString])?
+		//("implOfferedService" implOfferedService=[services::Service|STRING])?
 		public Group getGroup_12() { return cGroup_12; }
 
 		//"implOfferedService"
 		public Keyword getImplOfferedServiceKeyword_12_0() { return cImplOfferedServiceKeyword_12_0; }
 
-		//implOfferedService=[services::Service|EString]
+		//implOfferedService=[services::Service|STRING]
 		public Assignment getImplOfferedServiceAssignment_12_1() { return cImplOfferedServiceAssignment_12_1; }
 
-		//[services::Service|EString]
+		//[services::Service|STRING]
 		public CrossReference getImplOfferedServiceServiceCrossReference_12_1_0() { return cImplOfferedServiceServiceCrossReference_12_1_0; }
 
-		//EString
-		public RuleCall getImplOfferedServiceServiceEStringParserRuleCall_12_1_0_1() { return cImplOfferedServiceServiceEStringParserRuleCall_12_1_0_1; }
+		//STRING
+		public RuleCall getImplOfferedServiceServiceSTRINGTerminalRuleCall_12_1_0_1() { return cImplOfferedServiceServiceSTRINGTerminalRuleCall_12_1_0_1; }
 
 		//("resourceSettings" "{" resourceSettings+=ResourceSetting ("," resourceSettings+=ResourceSetting)* "}")?
 		public Group getGroup_13() { return cGroup_13; }
@@ -3739,12 +3712,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cResourceSettingAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cResourceSettingKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -3752,7 +3725,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Assignment cUserExposedAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final Keyword cUserExposedUserExposedKeyword_7_0 = (Keyword)cUserExposedAssignment_7.eContents().get(0);
 		private final Assignment cUserEditableAssignment_8 = (Assignment)cGroup.eContents().get(8);
@@ -3770,30 +3743,30 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_13_1 = (Keyword)cGroup_13.eContents().get(1);
 		private final Assignment cRequiresParamsAssignment_13_2 = (Assignment)cGroup_13.eContents().get(2);
 		private final CrossReference cRequiresParamsAbstractSettingCrossReference_13_2_0 = (CrossReference)cRequiresParamsAssignment_13_2.eContents().get(0);
-		private final RuleCall cRequiresParamsAbstractSettingEStringParserRuleCall_13_2_0_1 = (RuleCall)cRequiresParamsAbstractSettingCrossReference_13_2_0.eContents().get(1);
+		private final RuleCall cRequiresParamsAbstractSettingSTRINGTerminalRuleCall_13_2_0_1 = (RuleCall)cRequiresParamsAbstractSettingCrossReference_13_2_0.eContents().get(1);
 		private final Group cGroup_13_3 = (Group)cGroup_13.eContents().get(3);
 		private final Keyword cCommaKeyword_13_3_0 = (Keyword)cGroup_13_3.eContents().get(0);
 		private final Assignment cRequiresParamsAssignment_13_3_1 = (Assignment)cGroup_13_3.eContents().get(1);
 		private final CrossReference cRequiresParamsAbstractSettingCrossReference_13_3_1_0 = (CrossReference)cRequiresParamsAssignment_13_3_1.eContents().get(0);
-		private final RuleCall cRequiresParamsAbstractSettingEStringParserRuleCall_13_3_1_0_1 = (RuleCall)cRequiresParamsAbstractSettingCrossReference_13_3_1_0.eContents().get(1);
+		private final RuleCall cRequiresParamsAbstractSettingSTRINGTerminalRuleCall_13_3_1_0_1 = (RuleCall)cRequiresParamsAbstractSettingCrossReference_13_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_13_4 = (Keyword)cGroup_13.eContents().get(4);
 		private final Group cGroup_14 = (Group)cGroup.eContents().get(14);
 		private final Keyword cOnlyConfiguredByResourcesKeyword_14_0 = (Keyword)cGroup_14.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_14_1 = (Keyword)cGroup_14.eContents().get(1);
 		private final Assignment cOnlyConfiguredByResourcesAssignment_14_2 = (Assignment)cGroup_14.eContents().get(2);
 		private final CrossReference cOnlyConfiguredByResourcesResourceCrossReference_14_2_0 = (CrossReference)cOnlyConfiguredByResourcesAssignment_14_2.eContents().get(0);
-		private final RuleCall cOnlyConfiguredByResourcesResourceEStringParserRuleCall_14_2_0_1 = (RuleCall)cOnlyConfiguredByResourcesResourceCrossReference_14_2_0.eContents().get(1);
+		private final RuleCall cOnlyConfiguredByResourcesResourceSTRINGTerminalRuleCall_14_2_0_1 = (RuleCall)cOnlyConfiguredByResourcesResourceCrossReference_14_2_0.eContents().get(1);
 		private final Group cGroup_14_3 = (Group)cGroup_14.eContents().get(3);
 		private final Keyword cCommaKeyword_14_3_0 = (Keyword)cGroup_14_3.eContents().get(0);
 		private final Assignment cOnlyConfiguredByResourcesAssignment_14_3_1 = (Assignment)cGroup_14_3.eContents().get(1);
 		private final CrossReference cOnlyConfiguredByResourcesResourceCrossReference_14_3_1_0 = (CrossReference)cOnlyConfiguredByResourcesAssignment_14_3_1.eContents().get(0);
-		private final RuleCall cOnlyConfiguredByResourcesResourceEStringParserRuleCall_14_3_1_0_1 = (RuleCall)cOnlyConfiguredByResourcesResourceCrossReference_14_3_1_0.eContents().get(1);
+		private final RuleCall cOnlyConfiguredByResourcesResourceSTRINGTerminalRuleCall_14_3_1_0_1 = (RuleCall)cOnlyConfiguredByResourcesResourceCrossReference_14_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_14_4 = (Keyword)cGroup_14.eContents().get(4);
 		private final Group cGroup_15 = (Group)cGroup.eContents().get(15);
 		private final Keyword cImplServiceSettingKeyword_15_0 = (Keyword)cGroup_15.eContents().get(0);
 		private final Assignment cImplServiceSettingAssignment_15_1 = (Assignment)cGroup_15.eContents().get(1);
 		private final CrossReference cImplServiceSettingServiceSettingCrossReference_15_1_0 = (CrossReference)cImplServiceSettingAssignment_15_1.eContents().get(0);
-		private final RuleCall cImplServiceSettingServiceSettingEStringParserRuleCall_15_1_0_1 = (RuleCall)cImplServiceSettingServiceSettingCrossReference_15_1_0.eContents().get(1);
+		private final RuleCall cImplServiceSettingServiceSettingSTRINGTerminalRuleCall_15_1_0_1 = (RuleCall)cImplServiceSettingServiceSettingCrossReference_15_1_0.eContents().get(1);
 		private final Group cGroup_16 = (Group)cGroup.eContents().get(16);
 		private final Keyword cSettingTypeKeyword_16_0 = (Keyword)cGroup_16.eContents().get(0);
 		private final Assignment cSettingTypeAssignment_16_1 = (Assignment)cGroup_16.eContents().get(1);
@@ -3812,38 +3785,36 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ResourceSetting returns resources::ResourceSetting:
 		//
-		//	{resources::ResourceSetting} "ResourceSetting" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//	{resources::ResourceSetting} "ResourceSetting" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//	("description" description=EString)? userExposed?="userExposed"? userEditable?="userEditable"?
+		//	("description" description=STRING)? userExposed?="userExposed"? userEditable?="userEditable"?
 		//
 		//	canBePublished?="canBePublished"? Readable?="Readable"? Writable?="Writable"? Optional?="Optional"? ("requiresParams"
 		//
-		//	"(" requiresParams+=[services::AbstractSetting|EString] ("," requiresParams+=[services::AbstractSetting|EString])*
+		//	"(" requiresParams+=[services::AbstractSetting|STRING] ("," requiresParams+=[services::AbstractSetting|STRING])*
 		//
-		//	")")? ("OnlyConfiguredByResources" "(" OnlyConfiguredByResources+=[resources::Resource|EString] (","
+		//	")")? ("OnlyConfiguredByResources" "(" OnlyConfiguredByResources+=[resources::Resource|STRING] (","
 		//
-		//	OnlyConfiguredByResources+=[resources::Resource|EString])* ")")? ("implServiceSetting"
+		//	OnlyConfiguredByResources+=[resources::Resource|STRING])* ")")? ("implServiceSetting"
 		//
-		//	implServiceSetting=[services::ServiceSetting|EString])? ("settingType" settingType=SettingType)?
+		//	implServiceSetting=[services::ServiceSetting|STRING])? ("settingType" settingType=SettingType)? ("settingConstraints"
 		//
-		//	("settingConstraints" "{" settingConstraints+=SettingConstraint ("," settingConstraints+=SettingConstraint)* "}")?
-		//
-		//	"}";
+		//	"{" settingConstraints+=SettingConstraint ("," settingConstraints+=SettingConstraint)* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{resources::ResourceSetting} "ResourceSetting" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//{resources::ResourceSetting} "ResourceSetting" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//("description" description=EString)? userExposed?="userExposed"? userEditable?="userEditable"?
+		//description=STRING)? userExposed?="userExposed"? userEditable?="userEditable"? canBePublished?="canBePublished"?
 		//
-		//canBePublished?="canBePublished"? Readable?="Readable"? Writable?="Writable"? Optional?="Optional"? ("requiresParams"
+		//Readable?="Readable"? Writable?="Writable"? Optional?="Optional"? ("requiresParams" "("
 		//
-		//"(" requiresParams+=[services::AbstractSetting|EString] ("," requiresParams+=[services::AbstractSetting|EString])*
+		//requiresParams+=[services::AbstractSetting|STRING] ("," requiresParams+=[services::AbstractSetting|STRING])* ")")?
 		//
-		//")")? ("OnlyConfiguredByResources" "(" OnlyConfiguredByResources+=[resources::Resource|EString] (","
+		//("OnlyConfiguredByResources" "(" OnlyConfiguredByResources+=[resources::Resource|STRING] (","
 		//
-		//OnlyConfiguredByResources+=[resources::Resource|EString])* ")")? ("implServiceSetting"
+		//OnlyConfiguredByResources+=[resources::Resource|STRING])* ")")? ("implServiceSetting"
 		//
-		//implServiceSetting=[services::ServiceSetting|EString])? ("settingType" settingType=SettingType)? ("settingConstraints"
+		//implServiceSetting=[services::ServiceSetting|STRING])? ("settingType" settingType=SettingType)? ("settingConstraints"
 		//
 		//"{" settingConstraints+=SettingConstraint ("," settingConstraints+=SettingConstraint)* "}")? "}"
 		public Group getGroup() { return cGroup; }
@@ -3854,26 +3825,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"ResourceSetting"
 		public Keyword getResourceSettingKeyword_1() { return cResourceSettingKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -3887,17 +3858,17 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
 		//userExposed?="userExposed"?
 		public Assignment getUserExposedAssignment_7() { return cUserExposedAssignment_7; }
@@ -3935,9 +3906,9 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"Optional"
 		public Keyword getOptionalOptionalKeyword_12_0() { return cOptionalOptionalKeyword_12_0; }
 
-		//("requiresParams" "(" requiresParams+=[services::AbstractSetting|EString] (","
+		//("requiresParams" "(" requiresParams+=[services::AbstractSetting|STRING] (","
 		//
-		//requiresParams+=[services::AbstractSetting|EString])* ")")?
+		//requiresParams+=[services::AbstractSetting|STRING])* ")")?
 		public Group getGroup_13() { return cGroup_13; }
 
 		//"requiresParams"
@@ -3946,36 +3917,36 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_13_1() { return cLeftParenthesisKeyword_13_1; }
 
-		//requiresParams+=[services::AbstractSetting|EString]
+		//requiresParams+=[services::AbstractSetting|STRING]
 		public Assignment getRequiresParamsAssignment_13_2() { return cRequiresParamsAssignment_13_2; }
 
-		//[services::AbstractSetting|EString]
+		//[services::AbstractSetting|STRING]
 		public CrossReference getRequiresParamsAbstractSettingCrossReference_13_2_0() { return cRequiresParamsAbstractSettingCrossReference_13_2_0; }
 
-		//EString
-		public RuleCall getRequiresParamsAbstractSettingEStringParserRuleCall_13_2_0_1() { return cRequiresParamsAbstractSettingEStringParserRuleCall_13_2_0_1; }
+		//STRING
+		public RuleCall getRequiresParamsAbstractSettingSTRINGTerminalRuleCall_13_2_0_1() { return cRequiresParamsAbstractSettingSTRINGTerminalRuleCall_13_2_0_1; }
 
-		//("," requiresParams+=[services::AbstractSetting|EString])*
+		//("," requiresParams+=[services::AbstractSetting|STRING])*
 		public Group getGroup_13_3() { return cGroup_13_3; }
 
 		//","
 		public Keyword getCommaKeyword_13_3_0() { return cCommaKeyword_13_3_0; }
 
-		//requiresParams+=[services::AbstractSetting|EString]
+		//requiresParams+=[services::AbstractSetting|STRING]
 		public Assignment getRequiresParamsAssignment_13_3_1() { return cRequiresParamsAssignment_13_3_1; }
 
-		//[services::AbstractSetting|EString]
+		//[services::AbstractSetting|STRING]
 		public CrossReference getRequiresParamsAbstractSettingCrossReference_13_3_1_0() { return cRequiresParamsAbstractSettingCrossReference_13_3_1_0; }
 
-		//EString
-		public RuleCall getRequiresParamsAbstractSettingEStringParserRuleCall_13_3_1_0_1() { return cRequiresParamsAbstractSettingEStringParserRuleCall_13_3_1_0_1; }
+		//STRING
+		public RuleCall getRequiresParamsAbstractSettingSTRINGTerminalRuleCall_13_3_1_0_1() { return cRequiresParamsAbstractSettingSTRINGTerminalRuleCall_13_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_13_4() { return cRightParenthesisKeyword_13_4; }
 
-		//("OnlyConfiguredByResources" "(" OnlyConfiguredByResources+=[resources::Resource|EString] (","
+		//("OnlyConfiguredByResources" "(" OnlyConfiguredByResources+=[resources::Resource|STRING] (","
 		//
-		//OnlyConfiguredByResources+=[resources::Resource|EString])* ")")?
+		//OnlyConfiguredByResources+=[resources::Resource|STRING])* ")")?
 		public Group getGroup_14() { return cGroup_14; }
 
 		//"OnlyConfiguredByResources"
@@ -3984,47 +3955,47 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_14_1() { return cLeftParenthesisKeyword_14_1; }
 
-		//OnlyConfiguredByResources+=[resources::Resource|EString]
+		//OnlyConfiguredByResources+=[resources::Resource|STRING]
 		public Assignment getOnlyConfiguredByResourcesAssignment_14_2() { return cOnlyConfiguredByResourcesAssignment_14_2; }
 
-		//[resources::Resource|EString]
+		//[resources::Resource|STRING]
 		public CrossReference getOnlyConfiguredByResourcesResourceCrossReference_14_2_0() { return cOnlyConfiguredByResourcesResourceCrossReference_14_2_0; }
 
-		//EString
-		public RuleCall getOnlyConfiguredByResourcesResourceEStringParserRuleCall_14_2_0_1() { return cOnlyConfiguredByResourcesResourceEStringParserRuleCall_14_2_0_1; }
+		//STRING
+		public RuleCall getOnlyConfiguredByResourcesResourceSTRINGTerminalRuleCall_14_2_0_1() { return cOnlyConfiguredByResourcesResourceSTRINGTerminalRuleCall_14_2_0_1; }
 
-		//("," OnlyConfiguredByResources+=[resources::Resource|EString])*
+		//("," OnlyConfiguredByResources+=[resources::Resource|STRING])*
 		public Group getGroup_14_3() { return cGroup_14_3; }
 
 		//","
 		public Keyword getCommaKeyword_14_3_0() { return cCommaKeyword_14_3_0; }
 
-		//OnlyConfiguredByResources+=[resources::Resource|EString]
+		//OnlyConfiguredByResources+=[resources::Resource|STRING]
 		public Assignment getOnlyConfiguredByResourcesAssignment_14_3_1() { return cOnlyConfiguredByResourcesAssignment_14_3_1; }
 
-		//[resources::Resource|EString]
+		//[resources::Resource|STRING]
 		public CrossReference getOnlyConfiguredByResourcesResourceCrossReference_14_3_1_0() { return cOnlyConfiguredByResourcesResourceCrossReference_14_3_1_0; }
 
-		//EString
-		public RuleCall getOnlyConfiguredByResourcesResourceEStringParserRuleCall_14_3_1_0_1() { return cOnlyConfiguredByResourcesResourceEStringParserRuleCall_14_3_1_0_1; }
+		//STRING
+		public RuleCall getOnlyConfiguredByResourcesResourceSTRINGTerminalRuleCall_14_3_1_0_1() { return cOnlyConfiguredByResourcesResourceSTRINGTerminalRuleCall_14_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_14_4() { return cRightParenthesisKeyword_14_4; }
 
-		//("implServiceSetting" implServiceSetting=[services::ServiceSetting|EString])?
+		//("implServiceSetting" implServiceSetting=[services::ServiceSetting|STRING])?
 		public Group getGroup_15() { return cGroup_15; }
 
 		//"implServiceSetting"
 		public Keyword getImplServiceSettingKeyword_15_0() { return cImplServiceSettingKeyword_15_0; }
 
-		//implServiceSetting=[services::ServiceSetting|EString]
+		//implServiceSetting=[services::ServiceSetting|STRING]
 		public Assignment getImplServiceSettingAssignment_15_1() { return cImplServiceSettingAssignment_15_1; }
 
-		//[services::ServiceSetting|EString]
+		//[services::ServiceSetting|STRING]
 		public CrossReference getImplServiceSettingServiceSettingCrossReference_15_1_0() { return cImplServiceSettingServiceSettingCrossReference_15_1_0; }
 
-		//EString
-		public RuleCall getImplServiceSettingServiceSettingEStringParserRuleCall_15_1_0_1() { return cImplServiceSettingServiceSettingEStringParserRuleCall_15_1_0_1; }
+		//STRING
+		public RuleCall getImplServiceSettingServiceSettingSTRINGTerminalRuleCall_15_1_0_1() { return cImplServiceSettingServiceSettingSTRINGTerminalRuleCall_15_1_0_1; }
 
 		//("settingType" settingType=SettingType)?
 		public Group getGroup_16() { return cGroup_16; }
@@ -4078,12 +4049,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cResourceCategoryAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cResourceCategoryKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -4091,35 +4062,35 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cResourcelistKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
 		private final Assignment cResourcelistAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
 		private final CrossReference cResourcelistResourceCrossReference_7_2_0 = (CrossReference)cResourcelistAssignment_7_2.eContents().get(0);
-		private final RuleCall cResourcelistResourceEStringParserRuleCall_7_2_0_1 = (RuleCall)cResourcelistResourceCrossReference_7_2_0.eContents().get(1);
+		private final RuleCall cResourcelistResourceSTRINGTerminalRuleCall_7_2_0_1 = (RuleCall)cResourcelistResourceCrossReference_7_2_0.eContents().get(1);
 		private final Group cGroup_7_3 = (Group)cGroup_7.eContents().get(3);
 		private final Keyword cCommaKeyword_7_3_0 = (Keyword)cGroup_7_3.eContents().get(0);
 		private final Assignment cResourcelistAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
 		private final CrossReference cResourcelistResourceCrossReference_7_3_1_0 = (CrossReference)cResourcelistAssignment_7_3_1.eContents().get(0);
-		private final RuleCall cResourcelistResourceEStringParserRuleCall_7_3_1_0_1 = (RuleCall)cResourcelistResourceCrossReference_7_3_1_0.eContents().get(1);
+		private final RuleCall cResourcelistResourceSTRINGTerminalRuleCall_7_3_1_0_1 = (RuleCall)cResourcelistResourceCrossReference_7_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//ResourceCategory returns resources::ResourceCategory:
 		//
-		//	{resources::ResourceCategory} "ResourceCategory" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//	{resources::ResourceCategory} "ResourceCategory" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//	("description" description=EString)? ("resourcelist" "(" resourcelist+=[resources::Resource|EString] (","
+		//	("description" description=STRING)? ("resourcelist" "(" resourcelist+=[resources::Resource|STRING] (","
 		//
-		//	resourcelist+=[resources::Resource|EString])* ")")? "}";
+		//	resourcelist+=[resources::Resource|STRING])* ")")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{resources::ResourceCategory} "ResourceCategory" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//{resources::ResourceCategory} "ResourceCategory" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//("description" description=EString)? ("resourcelist" "(" resourcelist+=[resources::Resource|EString] (","
+		//("description" description=STRING)? ("resourcelist" "(" resourcelist+=[resources::Resource|STRING] (","
 		//
-		//resourcelist+=[resources::Resource|EString])* ")")? "}"
+		//resourcelist+=[resources::Resource|STRING])* ")")? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{resources::ResourceCategory}
@@ -4128,26 +4099,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"ResourceCategory"
 		public Keyword getResourceCategoryKeyword_1() { return cResourceCategoryKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -4161,19 +4132,19 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("resourcelist" "(" resourcelist+=[resources::Resource|EString] ("," resourcelist+=[resources::Resource|EString])* ")")?
+		//("resourcelist" "(" resourcelist+=[resources::Resource|STRING] ("," resourcelist+=[resources::Resource|STRING])* ")")?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"resourcelist"
@@ -4182,29 +4153,29 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_7_1() { return cLeftParenthesisKeyword_7_1; }
 
-		//resourcelist+=[resources::Resource|EString]
+		//resourcelist+=[resources::Resource|STRING]
 		public Assignment getResourcelistAssignment_7_2() { return cResourcelistAssignment_7_2; }
 
-		//[resources::Resource|EString]
+		//[resources::Resource|STRING]
 		public CrossReference getResourcelistResourceCrossReference_7_2_0() { return cResourcelistResourceCrossReference_7_2_0; }
 
-		//EString
-		public RuleCall getResourcelistResourceEStringParserRuleCall_7_2_0_1() { return cResourcelistResourceEStringParserRuleCall_7_2_0_1; }
+		//STRING
+		public RuleCall getResourcelistResourceSTRINGTerminalRuleCall_7_2_0_1() { return cResourcelistResourceSTRINGTerminalRuleCall_7_2_0_1; }
 
-		//("," resourcelist+=[resources::Resource|EString])*
+		//("," resourcelist+=[resources::Resource|STRING])*
 		public Group getGroup_7_3() { return cGroup_7_3; }
 
 		//","
 		public Keyword getCommaKeyword_7_3_0() { return cCommaKeyword_7_3_0; }
 
-		//resourcelist+=[resources::Resource|EString]
+		//resourcelist+=[resources::Resource|STRING]
 		public Assignment getResourcelistAssignment_7_3_1() { return cResourcelistAssignment_7_3_1; }
 
-		//[resources::Resource|EString]
+		//[resources::Resource|STRING]
 		public CrossReference getResourcelistResourceCrossReference_7_3_1_0() { return cResourcelistResourceCrossReference_7_3_1_0; }
 
-		//EString
-		public RuleCall getResourcelistResourceEStringParserRuleCall_7_3_1_0_1() { return cResourcelistResourceEStringParserRuleCall_7_3_1_0_1; }
+		//STRING
+		public RuleCall getResourcelistResourceSTRINGTerminalRuleCall_7_3_1_0_1() { return cResourcelistResourceSTRINGTerminalRuleCall_7_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_7_4() { return cRightParenthesisKeyword_7_4; }
@@ -4219,12 +4190,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cResourceAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cResourceKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -4232,30 +4203,30 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cContributesToCategoriesKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
 		private final Assignment cContributesToCategoriesAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
 		private final CrossReference cContributesToCategoriesResourceCategoryCrossReference_7_2_0 = (CrossReference)cContributesToCategoriesAssignment_7_2.eContents().get(0);
-		private final RuleCall cContributesToCategoriesResourceCategoryEStringParserRuleCall_7_2_0_1 = (RuleCall)cContributesToCategoriesResourceCategoryCrossReference_7_2_0.eContents().get(1);
+		private final RuleCall cContributesToCategoriesResourceCategorySTRINGTerminalRuleCall_7_2_0_1 = (RuleCall)cContributesToCategoriesResourceCategoryCrossReference_7_2_0.eContents().get(1);
 		private final Group cGroup_7_3 = (Group)cGroup_7.eContents().get(3);
 		private final Keyword cCommaKeyword_7_3_0 = (Keyword)cGroup_7_3.eContents().get(0);
 		private final Assignment cContributesToCategoriesAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
 		private final CrossReference cContributesToCategoriesResourceCategoryCrossReference_7_3_1_0 = (CrossReference)cContributesToCategoriesAssignment_7_3_1.eContents().get(0);
-		private final RuleCall cContributesToCategoriesResourceCategoryEStringParserRuleCall_7_3_1_0_1 = (RuleCall)cContributesToCategoriesResourceCategoryCrossReference_7_3_1_0.eContents().get(1);
+		private final RuleCall cContributesToCategoriesResourceCategorySTRINGTerminalRuleCall_7_3_1_0_1 = (RuleCall)cContributesToCategoriesResourceCategoryCrossReference_7_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cRequiresResourcesKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
 		private final Assignment cRequiresResourcesAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
 		private final CrossReference cRequiresResourcesResourceCrossReference_8_2_0 = (CrossReference)cRequiresResourcesAssignment_8_2.eContents().get(0);
-		private final RuleCall cRequiresResourcesResourceEStringParserRuleCall_8_2_0_1 = (RuleCall)cRequiresResourcesResourceCrossReference_8_2_0.eContents().get(1);
+		private final RuleCall cRequiresResourcesResourceSTRINGTerminalRuleCall_8_2_0_1 = (RuleCall)cRequiresResourcesResourceCrossReference_8_2_0.eContents().get(1);
 		private final Group cGroup_8_3 = (Group)cGroup_8.eContents().get(3);
 		private final Keyword cCommaKeyword_8_3_0 = (Keyword)cGroup_8_3.eContents().get(0);
 		private final Assignment cRequiresResourcesAssignment_8_3_1 = (Assignment)cGroup_8_3.eContents().get(1);
 		private final CrossReference cRequiresResourcesResourceCrossReference_8_3_1_0 = (CrossReference)cRequiresResourcesAssignment_8_3_1.eContents().get(0);
-		private final RuleCall cRequiresResourcesResourceEStringParserRuleCall_8_3_1_0_1 = (RuleCall)cRequiresResourcesResourceCrossReference_8_3_1_0.eContents().get(1);
+		private final RuleCall cRequiresResourcesResourceSTRINGTerminalRuleCall_8_3_1_0_1 = (RuleCall)cRequiresResourcesResourceCrossReference_8_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_8_4 = (Keyword)cGroup_8.eContents().get(4);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
 		private final Keyword cResourceSettingsKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
@@ -4271,24 +4242,24 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Resource_Impl returns resources::Resource:
 		//
-		//	{resources::Resource} "Resource" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//	{resources::Resource} "Resource" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//	description=EString)? ("contributesToCategories" "(" contributesToCategories+=[resources::ResourceCategory|EString]
+		//	description=STRING)? ("contributesToCategories" "(" contributesToCategories+=[resources::ResourceCategory|STRING]
 		//
-		//	("," contributesToCategories+=[resources::ResourceCategory|EString])* ")")? ("requiresResources" "("
+		//	("," contributesToCategories+=[resources::ResourceCategory|STRING])* ")")? ("requiresResources" "("
 		//
-		//	requiresResources+=[resources::Resource|EString] ("," requiresResources+=[resources::Resource|EString])* ")")?
+		//	requiresResources+=[resources::Resource|STRING] ("," requiresResources+=[resources::Resource|STRING])* ")")?
 		//
 		//	("resourceSettings" "{" resourceSettings+=ResourceSetting ("," resourceSettings+=ResourceSetting)* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{resources::Resource} "Resource" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//{resources::Resource} "Resource" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//description=EString)? ("contributesToCategories" "(" contributesToCategories+=[resources::ResourceCategory|EString]
+		//description=STRING)? ("contributesToCategories" "(" contributesToCategories+=[resources::ResourceCategory|STRING] (","
 		//
-		//("," contributesToCategories+=[resources::ResourceCategory|EString])* ")")? ("requiresResources" "("
+		//contributesToCategories+=[resources::ResourceCategory|STRING])* ")")? ("requiresResources" "("
 		//
-		//requiresResources+=[resources::Resource|EString] ("," requiresResources+=[resources::Resource|EString])* ")")?
+		//requiresResources+=[resources::Resource|STRING] ("," requiresResources+=[resources::Resource|STRING])* ")")?
 		//
 		//("resourceSettings" "{" resourceSettings+=ResourceSetting ("," resourceSettings+=ResourceSetting)* "}")? "}"
 		public Group getGroup() { return cGroup; }
@@ -4299,26 +4270,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"Resource"
 		public Keyword getResourceKeyword_1() { return cResourceKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -4332,21 +4303,21 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("contributesToCategories" "(" contributesToCategories+=[resources::ResourceCategory|EString] (","
+		//("contributesToCategories" "(" contributesToCategories+=[resources::ResourceCategory|STRING] (","
 		//
-		//contributesToCategories+=[resources::ResourceCategory|EString])* ")")?
+		//contributesToCategories+=[resources::ResourceCategory|STRING])* ")")?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"contributesToCategories"
@@ -4355,36 +4326,36 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_7_1() { return cLeftParenthesisKeyword_7_1; }
 
-		//contributesToCategories+=[resources::ResourceCategory|EString]
+		//contributesToCategories+=[resources::ResourceCategory|STRING]
 		public Assignment getContributesToCategoriesAssignment_7_2() { return cContributesToCategoriesAssignment_7_2; }
 
-		//[resources::ResourceCategory|EString]
+		//[resources::ResourceCategory|STRING]
 		public CrossReference getContributesToCategoriesResourceCategoryCrossReference_7_2_0() { return cContributesToCategoriesResourceCategoryCrossReference_7_2_0; }
 
-		//EString
-		public RuleCall getContributesToCategoriesResourceCategoryEStringParserRuleCall_7_2_0_1() { return cContributesToCategoriesResourceCategoryEStringParserRuleCall_7_2_0_1; }
+		//STRING
+		public RuleCall getContributesToCategoriesResourceCategorySTRINGTerminalRuleCall_7_2_0_1() { return cContributesToCategoriesResourceCategorySTRINGTerminalRuleCall_7_2_0_1; }
 
-		//("," contributesToCategories+=[resources::ResourceCategory|EString])*
+		//("," contributesToCategories+=[resources::ResourceCategory|STRING])*
 		public Group getGroup_7_3() { return cGroup_7_3; }
 
 		//","
 		public Keyword getCommaKeyword_7_3_0() { return cCommaKeyword_7_3_0; }
 
-		//contributesToCategories+=[resources::ResourceCategory|EString]
+		//contributesToCategories+=[resources::ResourceCategory|STRING]
 		public Assignment getContributesToCategoriesAssignment_7_3_1() { return cContributesToCategoriesAssignment_7_3_1; }
 
-		//[resources::ResourceCategory|EString]
+		//[resources::ResourceCategory|STRING]
 		public CrossReference getContributesToCategoriesResourceCategoryCrossReference_7_3_1_0() { return cContributesToCategoriesResourceCategoryCrossReference_7_3_1_0; }
 
-		//EString
-		public RuleCall getContributesToCategoriesResourceCategoryEStringParserRuleCall_7_3_1_0_1() { return cContributesToCategoriesResourceCategoryEStringParserRuleCall_7_3_1_0_1; }
+		//STRING
+		public RuleCall getContributesToCategoriesResourceCategorySTRINGTerminalRuleCall_7_3_1_0_1() { return cContributesToCategoriesResourceCategorySTRINGTerminalRuleCall_7_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_7_4() { return cRightParenthesisKeyword_7_4; }
 
-		//("requiresResources" "(" requiresResources+=[resources::Resource|EString] (","
+		//("requiresResources" "(" requiresResources+=[resources::Resource|STRING] (","
 		//
-		//requiresResources+=[resources::Resource|EString])* ")")?
+		//requiresResources+=[resources::Resource|STRING])* ")")?
 		public Group getGroup_8() { return cGroup_8; }
 
 		//"requiresResources"
@@ -4393,29 +4364,29 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_8_1() { return cLeftParenthesisKeyword_8_1; }
 
-		//requiresResources+=[resources::Resource|EString]
+		//requiresResources+=[resources::Resource|STRING]
 		public Assignment getRequiresResourcesAssignment_8_2() { return cRequiresResourcesAssignment_8_2; }
 
-		//[resources::Resource|EString]
+		//[resources::Resource|STRING]
 		public CrossReference getRequiresResourcesResourceCrossReference_8_2_0() { return cRequiresResourcesResourceCrossReference_8_2_0; }
 
-		//EString
-		public RuleCall getRequiresResourcesResourceEStringParserRuleCall_8_2_0_1() { return cRequiresResourcesResourceEStringParserRuleCall_8_2_0_1; }
+		//STRING
+		public RuleCall getRequiresResourcesResourceSTRINGTerminalRuleCall_8_2_0_1() { return cRequiresResourcesResourceSTRINGTerminalRuleCall_8_2_0_1; }
 
-		//("," requiresResources+=[resources::Resource|EString])*
+		//("," requiresResources+=[resources::Resource|STRING])*
 		public Group getGroup_8_3() { return cGroup_8_3; }
 
 		//","
 		public Keyword getCommaKeyword_8_3_0() { return cCommaKeyword_8_3_0; }
 
-		//requiresResources+=[resources::Resource|EString]
+		//requiresResources+=[resources::Resource|STRING]
 		public Assignment getRequiresResourcesAssignment_8_3_1() { return cRequiresResourcesAssignment_8_3_1; }
 
-		//[resources::Resource|EString]
+		//[resources::Resource|STRING]
 		public CrossReference getRequiresResourcesResourceCrossReference_8_3_1_0() { return cRequiresResourcesResourceCrossReference_8_3_1_0; }
 
-		//EString
-		public RuleCall getRequiresResourcesResourceEStringParserRuleCall_8_3_1_0_1() { return cRequiresResourcesResourceEStringParserRuleCall_8_3_1_0_1; }
+		//STRING
+		public RuleCall getRequiresResourcesResourceSTRINGTerminalRuleCall_8_3_1_0_1() { return cRequiresResourcesResourceSTRINGTerminalRuleCall_8_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_8_4() { return cRightParenthesisKeyword_8_4; }
@@ -4473,12 +4444,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cServiceAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cServiceKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -4486,18 +4457,18 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cRequiresServicesKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
 		private final Assignment cRequiresServicesAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
 		private final CrossReference cRequiresServicesServiceCrossReference_7_2_0 = (CrossReference)cRequiresServicesAssignment_7_2.eContents().get(0);
-		private final RuleCall cRequiresServicesServiceEStringParserRuleCall_7_2_0_1 = (RuleCall)cRequiresServicesServiceCrossReference_7_2_0.eContents().get(1);
+		private final RuleCall cRequiresServicesServiceSTRINGTerminalRuleCall_7_2_0_1 = (RuleCall)cRequiresServicesServiceCrossReference_7_2_0.eContents().get(1);
 		private final Group cGroup_7_3 = (Group)cGroup_7.eContents().get(3);
 		private final Keyword cCommaKeyword_7_3_0 = (Keyword)cGroup_7_3.eContents().get(0);
 		private final Assignment cRequiresServicesAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
 		private final CrossReference cRequiresServicesServiceCrossReference_7_3_1_0 = (CrossReference)cRequiresServicesAssignment_7_3_1.eContents().get(0);
-		private final RuleCall cRequiresServicesServiceEStringParserRuleCall_7_3_1_0_1 = (RuleCall)cRequiresServicesServiceCrossReference_7_3_1_0.eContents().get(1);
+		private final RuleCall cRequiresServicesServiceSTRINGTerminalRuleCall_7_3_1_0_1 = (RuleCall)cRequiresServicesServiceCrossReference_7_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cServiceSettingsKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
@@ -4513,20 +4484,20 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Service_Impl returns services::Service:
 		//
-		//	{services::Service} "Service" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//	{services::Service} "Service" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//	description=EString)? ("requiresServices" "(" requiresServices+=[services::Service|EString] (","
+		//	description=STRING)? ("requiresServices" "(" requiresServices+=[services::Service|STRING] (","
 		//
-		//	requiresServices+=[services::Service|EString])* ")")? ("serviceSettings" "{" serviceSettings+=ServiceSetting (","
+		//	requiresServices+=[services::Service|STRING])* ")")? ("serviceSettings" "{" serviceSettings+=ServiceSetting (","
 		//
 		//	serviceSettings+=ServiceSetting)* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{services::Service} "Service" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//{services::Service} "Service" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//description=EString)? ("requiresServices" "(" requiresServices+=[services::Service|EString] (","
+		//description=STRING)? ("requiresServices" "(" requiresServices+=[services::Service|STRING] (","
 		//
-		//requiresServices+=[services::Service|EString])* ")")? ("serviceSettings" "{" serviceSettings+=ServiceSetting (","
+		//requiresServices+=[services::Service|STRING])* ")")? ("serviceSettings" "{" serviceSettings+=ServiceSetting (","
 		//
 		//serviceSettings+=ServiceSetting)* "}")? "}"
 		public Group getGroup() { return cGroup; }
@@ -4537,26 +4508,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"Service"
 		public Keyword getServiceKeyword_1() { return cServiceKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -4570,21 +4541,21 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("requiresServices" "(" requiresServices+=[services::Service|EString] (","
+		//("requiresServices" "(" requiresServices+=[services::Service|STRING] ("," requiresServices+=[services::Service|STRING])*
 		//
-		//requiresServices+=[services::Service|EString])* ")")?
+		//")")?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"requiresServices"
@@ -4593,29 +4564,29 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_7_1() { return cLeftParenthesisKeyword_7_1; }
 
-		//requiresServices+=[services::Service|EString]
+		//requiresServices+=[services::Service|STRING]
 		public Assignment getRequiresServicesAssignment_7_2() { return cRequiresServicesAssignment_7_2; }
 
-		//[services::Service|EString]
+		//[services::Service|STRING]
 		public CrossReference getRequiresServicesServiceCrossReference_7_2_0() { return cRequiresServicesServiceCrossReference_7_2_0; }
 
-		//EString
-		public RuleCall getRequiresServicesServiceEStringParserRuleCall_7_2_0_1() { return cRequiresServicesServiceEStringParserRuleCall_7_2_0_1; }
+		//STRING
+		public RuleCall getRequiresServicesServiceSTRINGTerminalRuleCall_7_2_0_1() { return cRequiresServicesServiceSTRINGTerminalRuleCall_7_2_0_1; }
 
-		//("," requiresServices+=[services::Service|EString])*
+		//("," requiresServices+=[services::Service|STRING])*
 		public Group getGroup_7_3() { return cGroup_7_3; }
 
 		//","
 		public Keyword getCommaKeyword_7_3_0() { return cCommaKeyword_7_3_0; }
 
-		//requiresServices+=[services::Service|EString]
+		//requiresServices+=[services::Service|STRING]
 		public Assignment getRequiresServicesAssignment_7_3_1() { return cRequiresServicesAssignment_7_3_1; }
 
-		//[services::Service|EString]
+		//[services::Service|STRING]
 		public CrossReference getRequiresServicesServiceCrossReference_7_3_1_0() { return cRequiresServicesServiceCrossReference_7_3_1_0; }
 
-		//EString
-		public RuleCall getRequiresServicesServiceEStringParserRuleCall_7_3_1_0_1() { return cRequiresServicesServiceEStringParserRuleCall_7_3_1_0_1; }
+		//STRING
+		public RuleCall getRequiresServicesServiceSTRINGTerminalRuleCall_7_3_1_0_1() { return cRequiresServicesServiceSTRINGTerminalRuleCall_7_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_7_4() { return cRightParenthesisKeyword_7_4; }
@@ -4685,12 +4656,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRequiredBeforeOperationRequiredBeforeOperationKeyword_2_0 = (Keyword)cRequiredBeforeOperationAssignment_2.eContents().get(0);
 		private final Keyword cSettingConstraintKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cUniqueIDAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cUniqueIDEStringParserRuleCall_4_0 = (RuleCall)cUniqueIDAssignment_4.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_4_0 = (RuleCall)cUniqueIDAssignment_4.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cNameKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cNameAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_6_1_0 = (RuleCall)cNameAssignment_6_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cNameAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cIdKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cIdAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
@@ -4698,7 +4669,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cDescriptionKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cDescriptionAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_8_1_0 = (RuleCall)cDescriptionAssignment_8_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_8_1_0 = (RuleCall)cDescriptionAssignment_8_1.eContents().get(0);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
 		private final Keyword cForOperationKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
 		private final Assignment cForOperationAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
@@ -4709,16 +4680,16 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//
 		//	{services::SettingConstraint} AvailableAfterOperation?="AvailableAfterOperation"?
 		//
-		//	RequiredBeforeOperation?="RequiredBeforeOperation"? "SettingConstraint" uniqueID=EString "{" ("name" name=EString)?
+		//	RequiredBeforeOperation?="RequiredBeforeOperation"? "SettingConstraint" uniqueID=STRING "{" ("name" name=STRING)?
 		//
-		//	("id" id=EInt)? ("description" description=EString)? ("ForOperation" ForOperation=ServiceResourceOperation)? "}";
+		//	("id" id=EInt)? ("description" description=STRING)? ("ForOperation" ForOperation=ServiceResourceOperation)? "}";
 		public ParserRule getRule() { return rule; }
 
 		//{services::SettingConstraint} AvailableAfterOperation?="AvailableAfterOperation"?
 		//
-		//RequiredBeforeOperation?="RequiredBeforeOperation"? "SettingConstraint" uniqueID=EString "{" ("name" name=EString)?
+		//RequiredBeforeOperation?="RequiredBeforeOperation"? "SettingConstraint" uniqueID=STRING "{" ("name" name=STRING)?
 		//
-		//("id" id=EInt)? ("description" description=EString)? ("ForOperation" ForOperation=ServiceResourceOperation)? "}"
+		//("id" id=EInt)? ("description" description=STRING)? ("ForOperation" ForOperation=ServiceResourceOperation)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{services::SettingConstraint}
@@ -4739,26 +4710,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"SettingConstraint"
 		public Keyword getSettingConstraintKeyword_3() { return cSettingConstraintKeyword_3; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_4() { return cUniqueIDAssignment_4; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_4_0() { return cUniqueIDEStringParserRuleCall_4_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_4_0() { return cUniqueIDSTRINGTerminalRuleCall_4_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"name"
 		public Keyword getNameKeyword_6_0() { return cNameKeyword_6_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_6_1() { return cNameAssignment_6_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_6_1_0() { return cNameEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_6_1_0() { return cNameSTRINGTerminalRuleCall_6_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_7() { return cGroup_7; }
@@ -4772,17 +4743,17 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_7_1_0() { return cIdEIntParserRuleCall_7_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_8() { return cGroup_8; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_8_0() { return cDescriptionKeyword_8_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_8_1() { return cDescriptionAssignment_8_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_8_1_0() { return cDescriptionEStringParserRuleCall_8_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_8_1_0() { return cDescriptionSTRINGTerminalRuleCall_8_1_0; }
 
 		//("ForOperation" ForOperation=ServiceResourceOperation)?
 		public Group getGroup_9() { return cGroup_9; }
@@ -4806,12 +4777,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cAbstractSettingAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cAbstractSettingKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -4819,7 +4790,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Assignment cUserExposedAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final Keyword cUserExposedUserExposedKeyword_7_0 = (Keyword)cUserExposedAssignment_7.eContents().get(0);
 		private final Assignment cUserEditableAssignment_8 = (Assignment)cGroup.eContents().get(8);
@@ -4837,12 +4808,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_13_1 = (Keyword)cGroup_13.eContents().get(1);
 		private final Assignment cRequiresParamsAssignment_13_2 = (Assignment)cGroup_13.eContents().get(2);
 		private final CrossReference cRequiresParamsAbstractSettingCrossReference_13_2_0 = (CrossReference)cRequiresParamsAssignment_13_2.eContents().get(0);
-		private final RuleCall cRequiresParamsAbstractSettingEStringParserRuleCall_13_2_0_1 = (RuleCall)cRequiresParamsAbstractSettingCrossReference_13_2_0.eContents().get(1);
+		private final RuleCall cRequiresParamsAbstractSettingSTRINGTerminalRuleCall_13_2_0_1 = (RuleCall)cRequiresParamsAbstractSettingCrossReference_13_2_0.eContents().get(1);
 		private final Group cGroup_13_3 = (Group)cGroup_13.eContents().get(3);
 		private final Keyword cCommaKeyword_13_3_0 = (Keyword)cGroup_13_3.eContents().get(0);
 		private final Assignment cRequiresParamsAssignment_13_3_1 = (Assignment)cGroup_13_3.eContents().get(1);
 		private final CrossReference cRequiresParamsAbstractSettingCrossReference_13_3_1_0 = (CrossReference)cRequiresParamsAssignment_13_3_1.eContents().get(0);
-		private final RuleCall cRequiresParamsAbstractSettingEStringParserRuleCall_13_3_1_0_1 = (RuleCall)cRequiresParamsAbstractSettingCrossReference_13_3_1_0.eContents().get(1);
+		private final RuleCall cRequiresParamsAbstractSettingSTRINGTerminalRuleCall_13_3_1_0_1 = (RuleCall)cRequiresParamsAbstractSettingCrossReference_13_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_13_4 = (Keyword)cGroup_13.eContents().get(4);
 		private final Group cGroup_14 = (Group)cGroup.eContents().get(14);
 		private final Keyword cSettingTypeKeyword_14_0 = (Keyword)cGroup_14.eContents().get(0);
@@ -4862,26 +4833,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//AbstractSetting_Impl returns services::AbstractSetting:
 		//
-		//	{services::AbstractSetting} "AbstractSetting" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//	{services::AbstractSetting} "AbstractSetting" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//	("description" description=EString)? userExposed?="userExposed"? userEditable?="userEditable"?
+		//	("description" description=STRING)? userExposed?="userExposed"? userEditable?="userEditable"?
 		//
 		//	canBePublished?="canBePublished"? Readable?="Readable"? Writable?="Writable"? Optional?="Optional"? ("requiresParams"
 		//
-		//	"(" requiresParams+=[services::AbstractSetting|EString] ("," requiresParams+=[services::AbstractSetting|EString])*
+		//	"(" requiresParams+=[services::AbstractSetting|STRING] ("," requiresParams+=[services::AbstractSetting|STRING])*
 		//
 		//	")")? ("settingType" settingType=SettingType)? ("settingConstraints" "{" settingConstraints+=SettingConstraint (","
 		//
 		//	settingConstraints+=SettingConstraint)* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{services::AbstractSetting} "AbstractSetting" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//{services::AbstractSetting} "AbstractSetting" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//description=EString)? userExposed?="userExposed"? userEditable?="userEditable"? canBePublished?="canBePublished"?
+		//description=STRING)? userExposed?="userExposed"? userEditable?="userEditable"? canBePublished?="canBePublished"?
 		//
 		//Readable?="Readable"? Writable?="Writable"? Optional?="Optional"? ("requiresParams" "("
 		//
-		//requiresParams+=[services::AbstractSetting|EString] ("," requiresParams+=[services::AbstractSetting|EString])* ")")?
+		//requiresParams+=[services::AbstractSetting|STRING] ("," requiresParams+=[services::AbstractSetting|STRING])* ")")?
 		//
 		//("settingType" settingType=SettingType)? ("settingConstraints" "{" settingConstraints+=SettingConstraint (","
 		//
@@ -4894,26 +4865,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"AbstractSetting"
 		public Keyword getAbstractSettingKeyword_1() { return cAbstractSettingKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -4927,17 +4898,17 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
 		//userExposed?="userExposed"?
 		public Assignment getUserExposedAssignment_7() { return cUserExposedAssignment_7; }
@@ -4975,9 +4946,9 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"Optional"
 		public Keyword getOptionalOptionalKeyword_12_0() { return cOptionalOptionalKeyword_12_0; }
 
-		//("requiresParams" "(" requiresParams+=[services::AbstractSetting|EString] (","
+		//("requiresParams" "(" requiresParams+=[services::AbstractSetting|STRING] (","
 		//
-		//requiresParams+=[services::AbstractSetting|EString])* ")")?
+		//requiresParams+=[services::AbstractSetting|STRING])* ")")?
 		public Group getGroup_13() { return cGroup_13; }
 
 		//"requiresParams"
@@ -4986,29 +4957,29 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_13_1() { return cLeftParenthesisKeyword_13_1; }
 
-		//requiresParams+=[services::AbstractSetting|EString]
+		//requiresParams+=[services::AbstractSetting|STRING]
 		public Assignment getRequiresParamsAssignment_13_2() { return cRequiresParamsAssignment_13_2; }
 
-		//[services::AbstractSetting|EString]
+		//[services::AbstractSetting|STRING]
 		public CrossReference getRequiresParamsAbstractSettingCrossReference_13_2_0() { return cRequiresParamsAbstractSettingCrossReference_13_2_0; }
 
-		//EString
-		public RuleCall getRequiresParamsAbstractSettingEStringParserRuleCall_13_2_0_1() { return cRequiresParamsAbstractSettingEStringParserRuleCall_13_2_0_1; }
+		//STRING
+		public RuleCall getRequiresParamsAbstractSettingSTRINGTerminalRuleCall_13_2_0_1() { return cRequiresParamsAbstractSettingSTRINGTerminalRuleCall_13_2_0_1; }
 
-		//("," requiresParams+=[services::AbstractSetting|EString])*
+		//("," requiresParams+=[services::AbstractSetting|STRING])*
 		public Group getGroup_13_3() { return cGroup_13_3; }
 
 		//","
 		public Keyword getCommaKeyword_13_3_0() { return cCommaKeyword_13_3_0; }
 
-		//requiresParams+=[services::AbstractSetting|EString]
+		//requiresParams+=[services::AbstractSetting|STRING]
 		public Assignment getRequiresParamsAssignment_13_3_1() { return cRequiresParamsAssignment_13_3_1; }
 
-		//[services::AbstractSetting|EString]
+		//[services::AbstractSetting|STRING]
 		public CrossReference getRequiresParamsAbstractSettingCrossReference_13_3_1_0() { return cRequiresParamsAbstractSettingCrossReference_13_3_1_0; }
 
-		//EString
-		public RuleCall getRequiresParamsAbstractSettingEStringParserRuleCall_13_3_1_0_1() { return cRequiresParamsAbstractSettingEStringParserRuleCall_13_3_1_0_1; }
+		//STRING
+		public RuleCall getRequiresParamsAbstractSettingSTRINGTerminalRuleCall_13_3_1_0_1() { return cRequiresParamsAbstractSettingSTRINGTerminalRuleCall_13_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_13_4() { return cRightParenthesisKeyword_13_4; }
@@ -5065,12 +5036,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cServiceSettingAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cServiceSettingKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -5078,7 +5049,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Assignment cUserExposedAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final Keyword cUserExposedUserExposedKeyword_7_0 = (Keyword)cUserExposedAssignment_7.eContents().get(0);
 		private final Assignment cUserEditableAssignment_8 = (Assignment)cGroup.eContents().get(8);
@@ -5096,36 +5067,36 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_13_1 = (Keyword)cGroup_13.eContents().get(1);
 		private final Assignment cRequiresParamsAssignment_13_2 = (Assignment)cGroup_13.eContents().get(2);
 		private final CrossReference cRequiresParamsAbstractSettingCrossReference_13_2_0 = (CrossReference)cRequiresParamsAssignment_13_2.eContents().get(0);
-		private final RuleCall cRequiresParamsAbstractSettingEStringParserRuleCall_13_2_0_1 = (RuleCall)cRequiresParamsAbstractSettingCrossReference_13_2_0.eContents().get(1);
+		private final RuleCall cRequiresParamsAbstractSettingSTRINGTerminalRuleCall_13_2_0_1 = (RuleCall)cRequiresParamsAbstractSettingCrossReference_13_2_0.eContents().get(1);
 		private final Group cGroup_13_3 = (Group)cGroup_13.eContents().get(3);
 		private final Keyword cCommaKeyword_13_3_0 = (Keyword)cGroup_13_3.eContents().get(0);
 		private final Assignment cRequiresParamsAssignment_13_3_1 = (Assignment)cGroup_13_3.eContents().get(1);
 		private final CrossReference cRequiresParamsAbstractSettingCrossReference_13_3_1_0 = (CrossReference)cRequiresParamsAssignment_13_3_1.eContents().get(0);
-		private final RuleCall cRequiresParamsAbstractSettingEStringParserRuleCall_13_3_1_0_1 = (RuleCall)cRequiresParamsAbstractSettingCrossReference_13_3_1_0.eContents().get(1);
+		private final RuleCall cRequiresParamsAbstractSettingSTRINGTerminalRuleCall_13_3_1_0_1 = (RuleCall)cRequiresParamsAbstractSettingCrossReference_13_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_13_4 = (Keyword)cGroup_13.eContents().get(4);
 		private final Group cGroup_14 = (Group)cGroup.eContents().get(14);
 		private final Keyword cMappedToResourceSettingsKeyword_14_0 = (Keyword)cGroup_14.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_14_1 = (Keyword)cGroup_14.eContents().get(1);
 		private final Assignment cMappedToResourceSettingsAssignment_14_2 = (Assignment)cGroup_14.eContents().get(2);
 		private final CrossReference cMappedToResourceSettingsResourceSettingCrossReference_14_2_0 = (CrossReference)cMappedToResourceSettingsAssignment_14_2.eContents().get(0);
-		private final RuleCall cMappedToResourceSettingsResourceSettingEStringParserRuleCall_14_2_0_1 = (RuleCall)cMappedToResourceSettingsResourceSettingCrossReference_14_2_0.eContents().get(1);
+		private final RuleCall cMappedToResourceSettingsResourceSettingSTRINGTerminalRuleCall_14_2_0_1 = (RuleCall)cMappedToResourceSettingsResourceSettingCrossReference_14_2_0.eContents().get(1);
 		private final Group cGroup_14_3 = (Group)cGroup_14.eContents().get(3);
 		private final Keyword cCommaKeyword_14_3_0 = (Keyword)cGroup_14_3.eContents().get(0);
 		private final Assignment cMappedToResourceSettingsAssignment_14_3_1 = (Assignment)cGroup_14_3.eContents().get(1);
 		private final CrossReference cMappedToResourceSettingsResourceSettingCrossReference_14_3_1_0 = (CrossReference)cMappedToResourceSettingsAssignment_14_3_1.eContents().get(0);
-		private final RuleCall cMappedToResourceSettingsResourceSettingEStringParserRuleCall_14_3_1_0_1 = (RuleCall)cMappedToResourceSettingsResourceSettingCrossReference_14_3_1_0.eContents().get(1);
+		private final RuleCall cMappedToResourceSettingsResourceSettingSTRINGTerminalRuleCall_14_3_1_0_1 = (RuleCall)cMappedToResourceSettingsResourceSettingCrossReference_14_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_14_4 = (Keyword)cGroup_14.eContents().get(4);
 		private final Group cGroup_15 = (Group)cGroup.eContents().get(15);
 		private final Keyword cProvidedByResourcesKeyword_15_0 = (Keyword)cGroup_15.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_15_1 = (Keyword)cGroup_15.eContents().get(1);
 		private final Assignment cProvidedByResourcesAssignment_15_2 = (Assignment)cGroup_15.eContents().get(2);
 		private final CrossReference cProvidedByResourcesResourceCrossReference_15_2_0 = (CrossReference)cProvidedByResourcesAssignment_15_2.eContents().get(0);
-		private final RuleCall cProvidedByResourcesResourceEStringParserRuleCall_15_2_0_1 = (RuleCall)cProvidedByResourcesResourceCrossReference_15_2_0.eContents().get(1);
+		private final RuleCall cProvidedByResourcesResourceSTRINGTerminalRuleCall_15_2_0_1 = (RuleCall)cProvidedByResourcesResourceCrossReference_15_2_0.eContents().get(1);
 		private final Group cGroup_15_3 = (Group)cGroup_15.eContents().get(3);
 		private final Keyword cCommaKeyword_15_3_0 = (Keyword)cGroup_15_3.eContents().get(0);
 		private final Assignment cProvidedByResourcesAssignment_15_3_1 = (Assignment)cGroup_15_3.eContents().get(1);
 		private final CrossReference cProvidedByResourcesResourceCrossReference_15_3_1_0 = (CrossReference)cProvidedByResourcesAssignment_15_3_1.eContents().get(0);
-		private final RuleCall cProvidedByResourcesResourceEStringParserRuleCall_15_3_1_0_1 = (RuleCall)cProvidedByResourcesResourceCrossReference_15_3_1_0.eContents().get(1);
+		private final RuleCall cProvidedByResourcesResourceSTRINGTerminalRuleCall_15_3_1_0_1 = (RuleCall)cProvidedByResourcesResourceCrossReference_15_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_15_4 = (Keyword)cGroup_15.eContents().get(4);
 		private final Group cGroup_16 = (Group)cGroup.eContents().get(16);
 		private final Keyword cSettingTypeKeyword_16_0 = (Keyword)cGroup_16.eContents().get(0);
@@ -5145,38 +5116,38 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ServiceSetting returns services::ServiceSetting:
 		//
-		//	{services::ServiceSetting} "ServiceSetting" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//	{services::ServiceSetting} "ServiceSetting" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//	("description" description=EString)? userExposed?="userExposed"? userEditable?="userEditable"?
+		//	description=STRING)? userExposed?="userExposed"? userEditable?="userEditable"? canBePublished?="canBePublished"?
 		//
-		//	canBePublished?="canBePublished"? Readable?="Readable"? Writable?="Writable"? Optional?="Optional"? ("requiresParams"
+		//	Readable?="Readable"? Writable?="Writable"? Optional?="Optional"? ("requiresParams" "("
 		//
-		//	"(" requiresParams+=[services::AbstractSetting|EString] ("," requiresParams+=[services::AbstractSetting|EString])*
+		//	requiresParams+=[services::AbstractSetting|STRING] ("," requiresParams+=[services::AbstractSetting|STRING])* ")")?
 		//
-		//	")")? ("mappedToResourceSettings" "(" mappedToResourceSettings+=[resources::ResourceSetting|EString] (","
+		//	("mappedToResourceSettings" "(" mappedToResourceSettings+=[resources::ResourceSetting|STRING] (","
 		//
-		//	mappedToResourceSettings+=[resources::ResourceSetting|EString])* ")")? ("providedByResources" "("
+		//	mappedToResourceSettings+=[resources::ResourceSetting|STRING])* ")")? ("providedByResources" "("
 		//
-		//	providedByResources+=[resources::Resource|EString] ("," providedByResources+=[resources::Resource|EString])* ")")?
+		//	providedByResources+=[resources::Resource|STRING] ("," providedByResources+=[resources::Resource|STRING])* ")")?
 		//
 		//	("settingType" settingType=SettingType)? ("settingConstraints" "{" settingConstraints+=SettingConstraint (","
 		//
 		//	settingConstraints+=SettingConstraint)* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{services::ServiceSetting} "ServiceSetting" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//{services::ServiceSetting} "ServiceSetting" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//description=EString)? userExposed?="userExposed"? userEditable?="userEditable"? canBePublished?="canBePublished"?
+		//description=STRING)? userExposed?="userExposed"? userEditable?="userEditable"? canBePublished?="canBePublished"?
 		//
 		//Readable?="Readable"? Writable?="Writable"? Optional?="Optional"? ("requiresParams" "("
 		//
-		//requiresParams+=[services::AbstractSetting|EString] ("," requiresParams+=[services::AbstractSetting|EString])* ")")?
+		//requiresParams+=[services::AbstractSetting|STRING] ("," requiresParams+=[services::AbstractSetting|STRING])* ")")?
 		//
-		//("mappedToResourceSettings" "(" mappedToResourceSettings+=[resources::ResourceSetting|EString] (","
+		//("mappedToResourceSettings" "(" mappedToResourceSettings+=[resources::ResourceSetting|STRING] (","
 		//
-		//mappedToResourceSettings+=[resources::ResourceSetting|EString])* ")")? ("providedByResources" "("
+		//mappedToResourceSettings+=[resources::ResourceSetting|STRING])* ")")? ("providedByResources" "("
 		//
-		//providedByResources+=[resources::Resource|EString] ("," providedByResources+=[resources::Resource|EString])* ")")?
+		//providedByResources+=[resources::Resource|STRING] ("," providedByResources+=[resources::Resource|STRING])* ")")?
 		//
 		//("settingType" settingType=SettingType)? ("settingConstraints" "{" settingConstraints+=SettingConstraint (","
 		//
@@ -5189,26 +5160,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"ServiceSetting"
 		public Keyword getServiceSettingKeyword_1() { return cServiceSettingKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -5222,17 +5193,17 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
 		//userExposed?="userExposed"?
 		public Assignment getUserExposedAssignment_7() { return cUserExposedAssignment_7; }
@@ -5270,9 +5241,9 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"Optional"
 		public Keyword getOptionalOptionalKeyword_12_0() { return cOptionalOptionalKeyword_12_0; }
 
-		//("requiresParams" "(" requiresParams+=[services::AbstractSetting|EString] (","
+		//("requiresParams" "(" requiresParams+=[services::AbstractSetting|STRING] (","
 		//
-		//requiresParams+=[services::AbstractSetting|EString])* ")")?
+		//requiresParams+=[services::AbstractSetting|STRING])* ")")?
 		public Group getGroup_13() { return cGroup_13; }
 
 		//"requiresParams"
@@ -5281,36 +5252,36 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_13_1() { return cLeftParenthesisKeyword_13_1; }
 
-		//requiresParams+=[services::AbstractSetting|EString]
+		//requiresParams+=[services::AbstractSetting|STRING]
 		public Assignment getRequiresParamsAssignment_13_2() { return cRequiresParamsAssignment_13_2; }
 
-		//[services::AbstractSetting|EString]
+		//[services::AbstractSetting|STRING]
 		public CrossReference getRequiresParamsAbstractSettingCrossReference_13_2_0() { return cRequiresParamsAbstractSettingCrossReference_13_2_0; }
 
-		//EString
-		public RuleCall getRequiresParamsAbstractSettingEStringParserRuleCall_13_2_0_1() { return cRequiresParamsAbstractSettingEStringParserRuleCall_13_2_0_1; }
+		//STRING
+		public RuleCall getRequiresParamsAbstractSettingSTRINGTerminalRuleCall_13_2_0_1() { return cRequiresParamsAbstractSettingSTRINGTerminalRuleCall_13_2_0_1; }
 
-		//("," requiresParams+=[services::AbstractSetting|EString])*
+		//("," requiresParams+=[services::AbstractSetting|STRING])*
 		public Group getGroup_13_3() { return cGroup_13_3; }
 
 		//","
 		public Keyword getCommaKeyword_13_3_0() { return cCommaKeyword_13_3_0; }
 
-		//requiresParams+=[services::AbstractSetting|EString]
+		//requiresParams+=[services::AbstractSetting|STRING]
 		public Assignment getRequiresParamsAssignment_13_3_1() { return cRequiresParamsAssignment_13_3_1; }
 
-		//[services::AbstractSetting|EString]
+		//[services::AbstractSetting|STRING]
 		public CrossReference getRequiresParamsAbstractSettingCrossReference_13_3_1_0() { return cRequiresParamsAbstractSettingCrossReference_13_3_1_0; }
 
-		//EString
-		public RuleCall getRequiresParamsAbstractSettingEStringParserRuleCall_13_3_1_0_1() { return cRequiresParamsAbstractSettingEStringParserRuleCall_13_3_1_0_1; }
+		//STRING
+		public RuleCall getRequiresParamsAbstractSettingSTRINGTerminalRuleCall_13_3_1_0_1() { return cRequiresParamsAbstractSettingSTRINGTerminalRuleCall_13_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_13_4() { return cRightParenthesisKeyword_13_4; }
 
-		//("mappedToResourceSettings" "(" mappedToResourceSettings+=[resources::ResourceSetting|EString] (","
+		//("mappedToResourceSettings" "(" mappedToResourceSettings+=[resources::ResourceSetting|STRING] (","
 		//
-		//mappedToResourceSettings+=[resources::ResourceSetting|EString])* ")")?
+		//mappedToResourceSettings+=[resources::ResourceSetting|STRING])* ")")?
 		public Group getGroup_14() { return cGroup_14; }
 
 		//"mappedToResourceSettings"
@@ -5319,36 +5290,36 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_14_1() { return cLeftParenthesisKeyword_14_1; }
 
-		//mappedToResourceSettings+=[resources::ResourceSetting|EString]
+		//mappedToResourceSettings+=[resources::ResourceSetting|STRING]
 		public Assignment getMappedToResourceSettingsAssignment_14_2() { return cMappedToResourceSettingsAssignment_14_2; }
 
-		//[resources::ResourceSetting|EString]
+		//[resources::ResourceSetting|STRING]
 		public CrossReference getMappedToResourceSettingsResourceSettingCrossReference_14_2_0() { return cMappedToResourceSettingsResourceSettingCrossReference_14_2_0; }
 
-		//EString
-		public RuleCall getMappedToResourceSettingsResourceSettingEStringParserRuleCall_14_2_0_1() { return cMappedToResourceSettingsResourceSettingEStringParserRuleCall_14_2_0_1; }
+		//STRING
+		public RuleCall getMappedToResourceSettingsResourceSettingSTRINGTerminalRuleCall_14_2_0_1() { return cMappedToResourceSettingsResourceSettingSTRINGTerminalRuleCall_14_2_0_1; }
 
-		//("," mappedToResourceSettings+=[resources::ResourceSetting|EString])*
+		//("," mappedToResourceSettings+=[resources::ResourceSetting|STRING])*
 		public Group getGroup_14_3() { return cGroup_14_3; }
 
 		//","
 		public Keyword getCommaKeyword_14_3_0() { return cCommaKeyword_14_3_0; }
 
-		//mappedToResourceSettings+=[resources::ResourceSetting|EString]
+		//mappedToResourceSettings+=[resources::ResourceSetting|STRING]
 		public Assignment getMappedToResourceSettingsAssignment_14_3_1() { return cMappedToResourceSettingsAssignment_14_3_1; }
 
-		//[resources::ResourceSetting|EString]
+		//[resources::ResourceSetting|STRING]
 		public CrossReference getMappedToResourceSettingsResourceSettingCrossReference_14_3_1_0() { return cMappedToResourceSettingsResourceSettingCrossReference_14_3_1_0; }
 
-		//EString
-		public RuleCall getMappedToResourceSettingsResourceSettingEStringParserRuleCall_14_3_1_0_1() { return cMappedToResourceSettingsResourceSettingEStringParserRuleCall_14_3_1_0_1; }
+		//STRING
+		public RuleCall getMappedToResourceSettingsResourceSettingSTRINGTerminalRuleCall_14_3_1_0_1() { return cMappedToResourceSettingsResourceSettingSTRINGTerminalRuleCall_14_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_14_4() { return cRightParenthesisKeyword_14_4; }
 
-		//("providedByResources" "(" providedByResources+=[resources::Resource|EString] (","
+		//("providedByResources" "(" providedByResources+=[resources::Resource|STRING] (","
 		//
-		//providedByResources+=[resources::Resource|EString])* ")")?
+		//providedByResources+=[resources::Resource|STRING])* ")")?
 		public Group getGroup_15() { return cGroup_15; }
 
 		//"providedByResources"
@@ -5357,29 +5328,29 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_15_1() { return cLeftParenthesisKeyword_15_1; }
 
-		//providedByResources+=[resources::Resource|EString]
+		//providedByResources+=[resources::Resource|STRING]
 		public Assignment getProvidedByResourcesAssignment_15_2() { return cProvidedByResourcesAssignment_15_2; }
 
-		//[resources::Resource|EString]
+		//[resources::Resource|STRING]
 		public CrossReference getProvidedByResourcesResourceCrossReference_15_2_0() { return cProvidedByResourcesResourceCrossReference_15_2_0; }
 
-		//EString
-		public RuleCall getProvidedByResourcesResourceEStringParserRuleCall_15_2_0_1() { return cProvidedByResourcesResourceEStringParserRuleCall_15_2_0_1; }
+		//STRING
+		public RuleCall getProvidedByResourcesResourceSTRINGTerminalRuleCall_15_2_0_1() { return cProvidedByResourcesResourceSTRINGTerminalRuleCall_15_2_0_1; }
 
-		//("," providedByResources+=[resources::Resource|EString])*
+		//("," providedByResources+=[resources::Resource|STRING])*
 		public Group getGroup_15_3() { return cGroup_15_3; }
 
 		//","
 		public Keyword getCommaKeyword_15_3_0() { return cCommaKeyword_15_3_0; }
 
-		//providedByResources+=[resources::Resource|EString]
+		//providedByResources+=[resources::Resource|STRING]
 		public Assignment getProvidedByResourcesAssignment_15_3_1() { return cProvidedByResourcesAssignment_15_3_1; }
 
-		//[resources::Resource|EString]
+		//[resources::Resource|STRING]
 		public CrossReference getProvidedByResourcesResourceCrossReference_15_3_1_0() { return cProvidedByResourcesResourceCrossReference_15_3_1_0; }
 
-		//EString
-		public RuleCall getProvidedByResourcesResourceEStringParserRuleCall_15_3_1_0_1() { return cProvidedByResourcesResourceEStringParserRuleCall_15_3_1_0_1; }
+		//STRING
+		public RuleCall getProvidedByResourcesResourceSTRINGTerminalRuleCall_15_3_1_0_1() { return cProvidedByResourcesResourceSTRINGTerminalRuleCall_15_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_15_4() { return cRightParenthesisKeyword_15_4; }
@@ -5436,12 +5407,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cBrTypeStringAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cBrTypeStringKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -5449,23 +5420,23 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cDefaultValueKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cDefaultValueAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cDefaultValueEStringParserRuleCall_7_1_0 = (RuleCall)cDefaultValueAssignment_7_1.eContents().get(0);
+		private final RuleCall cDefaultValueSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cDefaultValueAssignment_7_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//brTypeString returns services::brTypeString:
 		//
-		//	{services::brTypeString} "brTypeString" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//	{services::brTypeString} "brTypeString" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//	description=EString)? ("defaultValue" defaultValue=EString)? "}";
+		//	description=STRING)? ("defaultValue" defaultValue=STRING)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{services::brTypeString} "brTypeString" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//{services::brTypeString} "brTypeString" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//description=EString)? ("defaultValue" defaultValue=EString)? "}"
+		//description=STRING)? ("defaultValue" defaultValue=STRING)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{services::brTypeString}
@@ -5474,26 +5445,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"brTypeString"
 		public Keyword getBrTypeStringKeyword_1() { return cBrTypeStringKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -5507,29 +5478,29 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("defaultValue" defaultValue=EString)?
+		//("defaultValue" defaultValue=STRING)?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"defaultValue"
 		public Keyword getDefaultValueKeyword_7_0() { return cDefaultValueKeyword_7_0; }
 
-		//defaultValue=EString
+		//defaultValue=STRING
 		public Assignment getDefaultValueAssignment_7_1() { return cDefaultValueAssignment_7_1; }
 
-		//EString
-		public RuleCall getDefaultValueEStringParserRuleCall_7_1_0() { return cDefaultValueEStringParserRuleCall_7_1_0; }
+		//STRING
+		public RuleCall getDefaultValueSTRINGTerminalRuleCall_7_1_0() { return cDefaultValueSTRINGTerminalRuleCall_7_1_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
@@ -5541,12 +5512,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cBrTypeEnumAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cBrTypeEnumKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -5554,12 +5525,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cDefaultValueKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cDefaultValueAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
 		private final CrossReference cDefaultValueBrTypeEnumItemCrossReference_7_1_0 = (CrossReference)cDefaultValueAssignment_7_1.eContents().get(0);
-		private final RuleCall cDefaultValueBrTypeEnumItemEStringParserRuleCall_7_1_0_1 = (RuleCall)cDefaultValueBrTypeEnumItemCrossReference_7_1_0.eContents().get(1);
+		private final RuleCall cDefaultValueBrTypeEnumItemSTRINGTerminalRuleCall_7_1_0_1 = (RuleCall)cDefaultValueBrTypeEnumItemCrossReference_7_1_0.eContents().get(1);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cTideEnumlistKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
@@ -5574,16 +5545,16 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//brTypeEnum returns services::brTypeEnum:
 		//
-		//	{services::brTypeEnum} "brTypeEnum" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//	{services::brTypeEnum} "brTypeEnum" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//	description=EString)? ("defaultValue" defaultValue=[services::brTypeEnumItem|EString])? ("tideEnumlist" "{"
+		//	description=STRING)? ("defaultValue" defaultValue=[services::brTypeEnumItem|STRING])? ("tideEnumlist" "{"
 		//
 		//	tideEnumlist+=brTypeEnumItem ("," tideEnumlist+=brTypeEnumItem)* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{services::brTypeEnum} "brTypeEnum" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//{services::brTypeEnum} "brTypeEnum" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//description=EString)? ("defaultValue" defaultValue=[services::brTypeEnumItem|EString])? ("tideEnumlist" "{"
+		//description=STRING)? ("defaultValue" defaultValue=[services::brTypeEnumItem|STRING])? ("tideEnumlist" "{"
 		//
 		//tideEnumlist+=brTypeEnumItem ("," tideEnumlist+=brTypeEnumItem)* "}")? "}"
 		public Group getGroup() { return cGroup; }
@@ -5594,26 +5565,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"brTypeEnum"
 		public Keyword getBrTypeEnumKeyword_1() { return cBrTypeEnumKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -5627,32 +5598,32 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("defaultValue" defaultValue=[services::brTypeEnumItem|EString])?
+		//("defaultValue" defaultValue=[services::brTypeEnumItem|STRING])?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"defaultValue"
 		public Keyword getDefaultValueKeyword_7_0() { return cDefaultValueKeyword_7_0; }
 
-		//defaultValue=[services::brTypeEnumItem|EString]
+		//defaultValue=[services::brTypeEnumItem|STRING]
 		public Assignment getDefaultValueAssignment_7_1() { return cDefaultValueAssignment_7_1; }
 
-		//[services::brTypeEnumItem|EString]
+		//[services::brTypeEnumItem|STRING]
 		public CrossReference getDefaultValueBrTypeEnumItemCrossReference_7_1_0() { return cDefaultValueBrTypeEnumItemCrossReference_7_1_0; }
 
-		//EString
-		public RuleCall getDefaultValueBrTypeEnumItemEStringParserRuleCall_7_1_0_1() { return cDefaultValueBrTypeEnumItemEStringParserRuleCall_7_1_0_1; }
+		//STRING
+		public RuleCall getDefaultValueBrTypeEnumItemSTRINGTerminalRuleCall_7_1_0_1() { return cDefaultValueBrTypeEnumItemSTRINGTerminalRuleCall_7_1_0_1; }
 
 		//("tideEnumlist" "{" tideEnumlist+=brTypeEnumItem ("," tideEnumlist+=brTypeEnumItem)* "}")?
 		public Group getGroup_8() { return cGroup_8; }
@@ -5694,12 +5665,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cBrTypeListAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cBrTypeListKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -5707,24 +5678,24 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cContainsElementsOfKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cContainsElementsOfAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
 		private final CrossReference cContainsElementsOfNamedElementCrossReference_7_1_0 = (CrossReference)cContainsElementsOfAssignment_7_1.eContents().get(0);
-		private final RuleCall cContainsElementsOfNamedElementEStringParserRuleCall_7_1_0_1 = (RuleCall)cContainsElementsOfNamedElementCrossReference_7_1_0.eContents().get(1);
+		private final RuleCall cContainsElementsOfNamedElementSTRINGTerminalRuleCall_7_1_0_1 = (RuleCall)cContainsElementsOfNamedElementCrossReference_7_1_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//brTypeList returns services::brTypeList:
 		//
-		//	{services::brTypeList} "brTypeList" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//	{services::brTypeList} "brTypeList" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//	description=EString)? ("ContainsElementsOf" ContainsElementsOf=[Broker::NamedElement|EString])? "}";
+		//	description=STRING)? ("ContainsElementsOf" ContainsElementsOf=[Broker::NamedElement|STRING])? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{services::brTypeList} "brTypeList" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//{services::brTypeList} "brTypeList" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//description=EString)? ("ContainsElementsOf" ContainsElementsOf=[Broker::NamedElement|EString])? "}"
+		//description=STRING)? ("ContainsElementsOf" ContainsElementsOf=[Broker::NamedElement|STRING])? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{services::brTypeList}
@@ -5733,26 +5704,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"brTypeList"
 		public Keyword getBrTypeListKeyword_1() { return cBrTypeListKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -5766,32 +5737,32 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("ContainsElementsOf" ContainsElementsOf=[Broker::NamedElement|EString])?
+		//("ContainsElementsOf" ContainsElementsOf=[Broker::NamedElement|STRING])?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"ContainsElementsOf"
 		public Keyword getContainsElementsOfKeyword_7_0() { return cContainsElementsOfKeyword_7_0; }
 
-		//ContainsElementsOf=[Broker::NamedElement|EString]
+		//ContainsElementsOf=[Broker::NamedElement|STRING]
 		public Assignment getContainsElementsOfAssignment_7_1() { return cContainsElementsOfAssignment_7_1; }
 
-		//[Broker::NamedElement|EString]
+		//[Broker::NamedElement|STRING]
 		public CrossReference getContainsElementsOfNamedElementCrossReference_7_1_0() { return cContainsElementsOfNamedElementCrossReference_7_1_0; }
 
-		//EString
-		public RuleCall getContainsElementsOfNamedElementEStringParserRuleCall_7_1_0_1() { return cContainsElementsOfNamedElementEStringParserRuleCall_7_1_0_1; }
+		//STRING
+		public RuleCall getContainsElementsOfNamedElementSTRINGTerminalRuleCall_7_1_0_1() { return cContainsElementsOfNamedElementSTRINGTerminalRuleCall_7_1_0_1; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
@@ -5803,12 +5774,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cBrTypeTideElementAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cBrTypeTideElementKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -5816,24 +5787,24 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cOfTideElementKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cOfTideElementAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
 		private final CrossReference cOfTideElementNamedElementCrossReference_7_1_0 = (CrossReference)cOfTideElementAssignment_7_1.eContents().get(0);
-		private final RuleCall cOfTideElementNamedElementEStringParserRuleCall_7_1_0_1 = (RuleCall)cOfTideElementNamedElementCrossReference_7_1_0.eContents().get(1);
+		private final RuleCall cOfTideElementNamedElementSTRINGTerminalRuleCall_7_1_0_1 = (RuleCall)cOfTideElementNamedElementCrossReference_7_1_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//brTypeTideElement returns services::brTypeTideElement:
 		//
-		//	{services::brTypeTideElement} "brTypeTideElement" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//	{services::brTypeTideElement} "brTypeTideElement" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//	("description" description=EString)? ("ofTideElement" ofTideElement=[Broker::NamedElement|EString])? "}";
+		//	("description" description=STRING)? ("ofTideElement" ofTideElement=[Broker::NamedElement|STRING])? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{services::brTypeTideElement} "brTypeTideElement" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//{services::brTypeTideElement} "brTypeTideElement" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//("description" description=EString)? ("ofTideElement" ofTideElement=[Broker::NamedElement|EString])? "}"
+		//("description" description=STRING)? ("ofTideElement" ofTideElement=[Broker::NamedElement|STRING])? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{services::brTypeTideElement}
@@ -5842,26 +5813,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"brTypeTideElement"
 		public Keyword getBrTypeTideElementKeyword_1() { return cBrTypeTideElementKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -5875,32 +5846,32 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("ofTideElement" ofTideElement=[Broker::NamedElement|EString])?
+		//("ofTideElement" ofTideElement=[Broker::NamedElement|STRING])?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"ofTideElement"
 		public Keyword getOfTideElementKeyword_7_0() { return cOfTideElementKeyword_7_0; }
 
-		//ofTideElement=[Broker::NamedElement|EString]
+		//ofTideElement=[Broker::NamedElement|STRING]
 		public Assignment getOfTideElementAssignment_7_1() { return cOfTideElementAssignment_7_1; }
 
-		//[Broker::NamedElement|EString]
+		//[Broker::NamedElement|STRING]
 		public CrossReference getOfTideElementNamedElementCrossReference_7_1_0() { return cOfTideElementNamedElementCrossReference_7_1_0; }
 
-		//EString
-		public RuleCall getOfTideElementNamedElementEStringParserRuleCall_7_1_0_1() { return cOfTideElementNamedElementEStringParserRuleCall_7_1_0_1; }
+		//STRING
+		public RuleCall getOfTideElementNamedElementSTRINGTerminalRuleCall_7_1_0_1() { return cOfTideElementNamedElementSTRINGTerminalRuleCall_7_1_0_1; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
@@ -5915,19 +5886,19 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cValueKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cValueAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cValueEStringParserRuleCall_3_1_0 = (RuleCall)cValueAssignment_3_1.eContents().get(0);
+		private final RuleCall cValueSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cValueAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cDescriptionKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cDescriptionAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_4_1_0 = (RuleCall)cDescriptionAssignment_4_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cDescriptionAssignment_4_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//brTypeEnumItem returns services::brTypeEnumItem:
 		//
-		//	{services::brTypeEnumItem} "brTypeEnumItem" "{" ("value" value=EString)? ("description" description=EString)? "}";
+		//	{services::brTypeEnumItem} "brTypeEnumItem" "{" ("value" value=STRING)? ("description" description=STRING)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{services::brTypeEnumItem} "brTypeEnumItem" "{" ("value" value=EString)? ("description" description=EString)? "}"
+		//{services::brTypeEnumItem} "brTypeEnumItem" "{" ("value" value=STRING)? ("description" description=STRING)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{services::brTypeEnumItem}
@@ -5939,29 +5910,29 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//("value" value=EString)?
+		//("value" value=STRING)?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//"value"
 		public Keyword getValueKeyword_3_0() { return cValueKeyword_3_0; }
 
-		//value=EString
+		//value=STRING
 		public Assignment getValueAssignment_3_1() { return cValueAssignment_3_1; }
 
-		//EString
-		public RuleCall getValueEStringParserRuleCall_3_1_0() { return cValueEStringParserRuleCall_3_1_0; }
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_3_1_0() { return cValueSTRINGTerminalRuleCall_3_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_4_0() { return cDescriptionKeyword_4_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_4_1() { return cDescriptionAssignment_4_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_4_1_0() { return cDescriptionEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_4_1_0() { return cDescriptionSTRINGTerminalRuleCall_4_1_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
@@ -6001,12 +5972,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cCredentialsAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cCredentialsKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -6014,27 +5985,27 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cUsernameKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cUsernameAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cUsernameEStringParserRuleCall_7_1_0 = (RuleCall)cUsernameAssignment_7_1.eContents().get(0);
+		private final RuleCall cUsernameSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cUsernameAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cPasswordKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cPasswordAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cPasswordEStringParserRuleCall_8_1_0 = (RuleCall)cPasswordAssignment_8_1.eContents().get(0);
+		private final RuleCall cPasswordSTRINGTerminalRuleCall_8_1_0 = (RuleCall)cPasswordAssignment_8_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Credentials returns federationscenarios::Credentials:
 		//
-		//	{federationscenarios::Credentials} "Credentials" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//	{federationscenarios::Credentials} "Credentials" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//	("description" description=EString)? ("username" username=EString)? ("password" password=EString)? "}";
+		//	("description" description=STRING)? ("username" username=STRING)? ("password" password=STRING)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{federationscenarios::Credentials} "Credentials" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//{federationscenarios::Credentials} "Credentials" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//("description" description=EString)? ("username" username=EString)? ("password" password=EString)? "}"
+		//("description" description=STRING)? ("username" username=STRING)? ("password" password=STRING)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{federationscenarios::Credentials}
@@ -6043,26 +6014,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"Credentials"
 		public Keyword getCredentialsKeyword_1() { return cCredentialsKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -6076,41 +6047,41 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("username" username=EString)?
+		//("username" username=STRING)?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"username"
 		public Keyword getUsernameKeyword_7_0() { return cUsernameKeyword_7_0; }
 
-		//username=EString
+		//username=STRING
 		public Assignment getUsernameAssignment_7_1() { return cUsernameAssignment_7_1; }
 
-		//EString
-		public RuleCall getUsernameEStringParserRuleCall_7_1_0() { return cUsernameEStringParserRuleCall_7_1_0; }
+		//STRING
+		public RuleCall getUsernameSTRINGTerminalRuleCall_7_1_0() { return cUsernameSTRINGTerminalRuleCall_7_1_0; }
 
-		//("password" password=EString)?
+		//("password" password=STRING)?
 		public Group getGroup_8() { return cGroup_8; }
 
 		//"password"
 		public Keyword getPasswordKeyword_8_0() { return cPasswordKeyword_8_0; }
 
-		//password=EString
+		//password=STRING
 		public Assignment getPasswordAssignment_8_1() { return cPasswordAssignment_8_1; }
 
-		//EString
-		public RuleCall getPasswordEStringParserRuleCall_8_1_0() { return cPasswordEStringParserRuleCall_8_1_0; }
+		//STRING
+		public RuleCall getPasswordSTRINGTerminalRuleCall_8_1_0() { return cPasswordSTRINGTerminalRuleCall_8_1_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
@@ -6122,12 +6093,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cServicesRequestAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cServicesRequestKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -6135,7 +6106,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cServiceRequestListKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
@@ -6150,16 +6121,16 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ServicesRequest returns federationscenarios::ServicesRequest:
 		//
-		//	{federationscenarios::ServicesRequest} "ServicesRequest" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//	{federationscenarios::ServicesRequest} "ServicesRequest" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//	("description" description=EString)? ("serviceRequestList" "{" serviceRequestList+=ServiceRequest (","
+		//	("description" description=STRING)? ("serviceRequestList" "{" serviceRequestList+=ServiceRequest (","
 		//
 		//	serviceRequestList+=ServiceRequest)* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{federationscenarios::ServicesRequest} "ServicesRequest" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//{federationscenarios::ServicesRequest} "ServicesRequest" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//("description" description=EString)? ("serviceRequestList" "{" serviceRequestList+=ServiceRequest (","
+		//("description" description=STRING)? ("serviceRequestList" "{" serviceRequestList+=ServiceRequest (","
 		//
 		//serviceRequestList+=ServiceRequest)* "}")? "}"
 		public Group getGroup() { return cGroup; }
@@ -6170,26 +6141,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"ServicesRequest"
 		public Keyword getServicesRequestKeyword_1() { return cServicesRequestKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -6203,17 +6174,17 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
 		//("serviceRequestList" "{" serviceRequestList+=ServiceRequest ("," serviceRequestList+=ServiceRequest)* "}")?
 		public Group getGroup_7() { return cGroup_7; }
@@ -6255,12 +6226,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cInfrastructureRequestAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cInfrastructureRequestKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -6268,7 +6239,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cReqOfferedResourcesKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
@@ -6293,18 +6264,18 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//InfrastructureRequest returns federationscenarios::InfrastructureRequest:
 		//
-		//	{federationscenarios::InfrastructureRequest} "InfrastructureRequest" uniqueID=EString "{" ("name" name=EString)?
+		//	{federationscenarios::InfrastructureRequest} "InfrastructureRequest" uniqueID=STRING "{" ("name" name=STRING)? ("id"
 		//
-		//	("id" id=EInt)? ("description" description=EString)? ("reqOfferedResources" "{" reqOfferedResources+=ResourceRequest
+		//	id=EInt)? ("description" description=STRING)? ("reqOfferedResources" "{" reqOfferedResources+=ResourceRequest (","
 		//
-		//	("," reqOfferedResources+=ResourceRequest)* "}")? ("resourceGroups" "{" resourceGroups+=ResourceGroup (","
+		//	reqOfferedResources+=ResourceRequest)* "}")? ("resourceGroups" "{" resourceGroups+=ResourceGroup (","
 		//
 		//	resourceGroups+=ResourceGroup)* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{federationscenarios::InfrastructureRequest} "InfrastructureRequest" uniqueID=EString "{" ("name" name=EString)? ("id"
+		//{federationscenarios::InfrastructureRequest} "InfrastructureRequest" uniqueID=STRING "{" ("name" name=STRING)? ("id"
 		//
-		//id=EInt)? ("description" description=EString)? ("reqOfferedResources" "{" reqOfferedResources+=ResourceRequest (","
+		//id=EInt)? ("description" description=STRING)? ("reqOfferedResources" "{" reqOfferedResources+=ResourceRequest (","
 		//
 		//reqOfferedResources+=ResourceRequest)* "}")? ("resourceGroups" "{" resourceGroups+=ResourceGroup (","
 		//
@@ -6317,26 +6288,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"InfrastructureRequest"
 		public Keyword getInfrastructureRequestKeyword_1() { return cInfrastructureRequestKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -6350,17 +6321,17 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
 		//("reqOfferedResources" "{" reqOfferedResources+=ResourceRequest ("," reqOfferedResources+=ResourceRequest)* "}")?
 		public Group getGroup_7() { return cGroup_7; }
@@ -6500,15 +6471,15 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cImportURIKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cImportURIAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cImportURIEStringParserRuleCall_3_1_0 = (RuleCall)cImportURIAssignment_3_1.eContents().get(0);
+		private final RuleCall cImportURISTRINGTerminalRuleCall_3_1_0 = (RuleCall)cImportURIAssignment_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Import returns federationscenarios::Import:
 		//
-		//	{federationscenarios::Import} "Import" "{" ("importURI" importURI=EString)? "}";
+		//	{federationscenarios::Import} "Import" "{" ("importURI" importURI=STRING)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{federationscenarios::Import} "Import" "{" ("importURI" importURI=EString)? "}"
+		//{federationscenarios::Import} "Import" "{" ("importURI" importURI=STRING)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{federationscenarios::Import}
@@ -6520,17 +6491,17 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//("importURI" importURI=EString)?
+		//("importURI" importURI=STRING)?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//"importURI"
 		public Keyword getImportURIKeyword_3_0() { return cImportURIKeyword_3_0; }
 
-		//importURI=EString
+		//importURI=STRING
 		public Assignment getImportURIAssignment_3_1() { return cImportURIAssignment_3_1; }
 
-		//EString
-		public RuleCall getImportURIEStringParserRuleCall_3_1_0() { return cImportURIEStringParserRuleCall_3_1_0; }
+		//STRING
+		public RuleCall getImportURISTRINGTerminalRuleCall_3_1_0() { return cImportURISTRINGTerminalRuleCall_3_1_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -6542,12 +6513,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cRuntimeElementAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cRuntimeElementKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -6555,7 +6526,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cStatusKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cStatusAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
@@ -6563,27 +6534,27 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cGUIDKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cGUIDAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cGUIDEStringParserRuleCall_8_1_0 = (RuleCall)cGUIDAssignment_8_1.eContents().get(0);
+		private final RuleCall cGUIDSTRINGTerminalRuleCall_8_1_0 = (RuleCall)cGUIDAssignment_8_1.eContents().get(0);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
 		private final Keyword cContextKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
 		private final Assignment cContextAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final RuleCall cContextEStringParserRuleCall_9_1_0 = (RuleCall)cContextAssignment_9_1.eContents().get(0);
+		private final RuleCall cContextSTRINGTerminalRuleCall_9_1_0 = (RuleCall)cContextAssignment_9_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//RuntimeElement returns experimentRuntime::RuntimeElement:
 		//
-		//	{experimentRuntime::RuntimeElement} "RuntimeElement" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//	{experimentRuntime::RuntimeElement} "RuntimeElement" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//	("description" description=EString)? ("status" status=RuntimeElementStatus)? ("GUID" GUID=EString)? ("context"
+		//	("description" description=STRING)? ("status" status=RuntimeElementStatus)? ("GUID" GUID=STRING)? ("context"
 		//
-		//	context=EString)? "}";
+		//	context=STRING)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{experimentRuntime::RuntimeElement} "RuntimeElement" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//{experimentRuntime::RuntimeElement} "RuntimeElement" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//("description" description=EString)? ("status" status=RuntimeElementStatus)? ("GUID" GUID=EString)? ("context"
+		//("description" description=STRING)? ("status" status=RuntimeElementStatus)? ("GUID" GUID=STRING)? ("context"
 		//
-		//context=EString)? "}"
+		//context=STRING)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{experimentRuntime::RuntimeElement}
@@ -6592,26 +6563,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"RuntimeElement"
 		public Keyword getRuntimeElementKeyword_1() { return cRuntimeElementKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -6625,17 +6596,17 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
 		//("status" status=RuntimeElementStatus)?
 		public Group getGroup_7() { return cGroup_7; }
@@ -6649,29 +6620,29 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//RuntimeElementStatus
 		public RuleCall getStatusRuntimeElementStatusParserRuleCall_7_1_0() { return cStatusRuntimeElementStatusParserRuleCall_7_1_0; }
 
-		//("GUID" GUID=EString)?
+		//("GUID" GUID=STRING)?
 		public Group getGroup_8() { return cGroup_8; }
 
 		//"GUID"
 		public Keyword getGUIDKeyword_8_0() { return cGUIDKeyword_8_0; }
 
-		//GUID=EString
+		//GUID=STRING
 		public Assignment getGUIDAssignment_8_1() { return cGUIDAssignment_8_1; }
 
-		//EString
-		public RuleCall getGUIDEStringParserRuleCall_8_1_0() { return cGUIDEStringParserRuleCall_8_1_0; }
+		//STRING
+		public RuleCall getGUIDSTRINGTerminalRuleCall_8_1_0() { return cGUIDSTRINGTerminalRuleCall_8_1_0; }
 
-		//("context" context=EString)?
+		//("context" context=STRING)?
 		public Group getGroup_9() { return cGroup_9; }
 
 		//"context"
 		public Keyword getContextKeyword_9_0() { return cContextKeyword_9_0; }
 
-		//context=EString
+		//context=STRING
 		public Assignment getContextAssignment_9_1() { return cContextAssignment_9_1; }
 
-		//EString
-		public RuleCall getContextEStringParserRuleCall_9_1_0() { return cContextEStringParserRuleCall_9_1_0; }
+		//STRING
+		public RuleCall getContextSTRINGTerminalRuleCall_9_1_0() { return cContextSTRINGTerminalRuleCall_9_1_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
@@ -6682,12 +6653,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cServiceRequestKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cUniqueIDAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cUniqueIDEStringParserRuleCall_1_0 = (RuleCall)cUniqueIDAssignment_1.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_1_0 = (RuleCall)cUniqueIDAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cNameKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cNameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cIdKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cIdAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
@@ -6695,7 +6666,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cDescriptionKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cDescriptionAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_5_1_0 = (RuleCall)cDescriptionAssignment_5_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cDescriptionAssignment_5_1.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cNumOfServicesKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cNumOfServicesAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
@@ -6703,12 +6674,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRefServiceKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Assignment cRefServiceAssignment_8 = (Assignment)cGroup.eContents().get(8);
 		private final CrossReference cRefServiceServiceCrossReference_8_0 = (CrossReference)cRefServiceAssignment_8.eContents().get(0);
-		private final RuleCall cRefServiceServiceEStringParserRuleCall_8_0_1 = (RuleCall)cRefServiceServiceCrossReference_8_0.eContents().get(1);
+		private final RuleCall cRefServiceServiceSTRINGTerminalRuleCall_8_0_1 = (RuleCall)cRefServiceServiceCrossReference_8_0.eContents().get(1);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
 		private final Keyword cOfferedByProvidersKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
 		private final Assignment cOfferedByProvidersAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
 		private final CrossReference cOfferedByProvidersResourcesProviderCrossReference_9_1_0 = (CrossReference)cOfferedByProvidersAssignment_9_1.eContents().get(0);
-		private final RuleCall cOfferedByProvidersResourcesProviderEStringParserRuleCall_9_1_0_1 = (RuleCall)cOfferedByProvidersResourcesProviderCrossReference_9_1_0.eContents().get(1);
+		private final RuleCall cOfferedByProvidersResourcesProviderSTRINGTerminalRuleCall_9_1_0_1 = (RuleCall)cOfferedByProvidersResourcesProviderCrossReference_9_1_0.eContents().get(1);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
 		private final Keyword cReqServiceSettingsKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
@@ -6723,20 +6694,20 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ServiceRequest returns federationscenarios::ServiceRequest:
 		//
-		//	"ServiceRequest" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)?
+		//	"ServiceRequest" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 		//
-		//	("numOfServices" numOfServices=EInt)? "refService" refService=[services::Service|EString] ("OfferedByProviders"
+		//	("numOfServices" numOfServices=EInt)? "refService" refService=[services::Service|STRING] ("OfferedByProviders"
 		//
-		//	OfferedByProviders=[users::ResourcesProvider|EString])? ("reqServiceSettings" "{"
+		//	OfferedByProviders=[users::ResourcesProvider|STRING])? ("reqServiceSettings" "{"
 		//
 		//	reqServiceSettings+=ServiceSettingInstance ("," reqServiceSettings+=ServiceSettingInstance)* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"ServiceRequest" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)?
+		//"ServiceRequest" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 		//
-		//("numOfServices" numOfServices=EInt)? "refService" refService=[services::Service|EString] ("OfferedByProviders"
+		//("numOfServices" numOfServices=EInt)? "refService" refService=[services::Service|STRING] ("OfferedByProviders"
 		//
-		//OfferedByProviders=[users::ResourcesProvider|EString])? ("reqServiceSettings" "{"
+		//OfferedByProviders=[users::ResourcesProvider|STRING])? ("reqServiceSettings" "{"
 		//
 		//reqServiceSettings+=ServiceSettingInstance ("," reqServiceSettings+=ServiceSettingInstance)* "}")? "}"
 		public Group getGroup() { return cGroup; }
@@ -6744,26 +6715,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"ServiceRequest"
 		public Keyword getServiceRequestKeyword_0() { return cServiceRequestKeyword_0; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_1() { return cUniqueIDAssignment_1; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_1_0() { return cUniqueIDEStringParserRuleCall_1_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_1_0() { return cUniqueIDSTRINGTerminalRuleCall_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//"name"
 		public Keyword getNameKeyword_3_0() { return cNameKeyword_3_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_3_1() { return cNameAssignment_3_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_3_1_0() { return cNameEStringParserRuleCall_3_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_3_1_0() { return cNameSTRINGTerminalRuleCall_3_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_4() { return cGroup_4; }
@@ -6777,17 +6748,17 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_4_1_0() { return cIdEIntParserRuleCall_4_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_5() { return cGroup_5; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_5_0() { return cDescriptionKeyword_5_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_5_1() { return cDescriptionAssignment_5_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_5_1_0() { return cDescriptionEStringParserRuleCall_5_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_5_1_0() { return cDescriptionSTRINGTerminalRuleCall_5_1_0; }
 
 		//("numOfServices" numOfServices=EInt)?
 		public Group getGroup_6() { return cGroup_6; }
@@ -6804,29 +6775,29 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"refService"
 		public Keyword getRefServiceKeyword_7() { return cRefServiceKeyword_7; }
 
-		//refService=[services::Service|EString]
+		//refService=[services::Service|STRING]
 		public Assignment getRefServiceAssignment_8() { return cRefServiceAssignment_8; }
 
-		//[services::Service|EString]
+		//[services::Service|STRING]
 		public CrossReference getRefServiceServiceCrossReference_8_0() { return cRefServiceServiceCrossReference_8_0; }
 
-		//EString
-		public RuleCall getRefServiceServiceEStringParserRuleCall_8_0_1() { return cRefServiceServiceEStringParserRuleCall_8_0_1; }
+		//STRING
+		public RuleCall getRefServiceServiceSTRINGTerminalRuleCall_8_0_1() { return cRefServiceServiceSTRINGTerminalRuleCall_8_0_1; }
 
-		//("OfferedByProviders" OfferedByProviders=[users::ResourcesProvider|EString])?
+		//("OfferedByProviders" OfferedByProviders=[users::ResourcesProvider|STRING])?
 		public Group getGroup_9() { return cGroup_9; }
 
 		//"OfferedByProviders"
 		public Keyword getOfferedByProvidersKeyword_9_0() { return cOfferedByProvidersKeyword_9_0; }
 
-		//OfferedByProviders=[users::ResourcesProvider|EString]
+		//OfferedByProviders=[users::ResourcesProvider|STRING]
 		public Assignment getOfferedByProvidersAssignment_9_1() { return cOfferedByProvidersAssignment_9_1; }
 
-		//[users::ResourcesProvider|EString]
+		//[users::ResourcesProvider|STRING]
 		public CrossReference getOfferedByProvidersResourcesProviderCrossReference_9_1_0() { return cOfferedByProvidersResourcesProviderCrossReference_9_1_0; }
 
-		//EString
-		public RuleCall getOfferedByProvidersResourcesProviderEStringParserRuleCall_9_1_0_1() { return cOfferedByProvidersResourcesProviderEStringParserRuleCall_9_1_0_1; }
+		//STRING
+		public RuleCall getOfferedByProvidersResourcesProviderSTRINGTerminalRuleCall_9_1_0_1() { return cOfferedByProvidersResourcesProviderSTRINGTerminalRuleCall_9_1_0_1; }
 
 		//("reqServiceSettings" "{" reqServiceSettings+=ServiceSettingInstance ("," reqServiceSettings+=ServiceSettingInstance)*
 		//
@@ -6869,12 +6840,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cServiceSettingInstanceKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cUniqueIDAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cUniqueIDEStringParserRuleCall_1_0 = (RuleCall)cUniqueIDAssignment_1.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_1_0 = (RuleCall)cUniqueIDAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cNameKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cNameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cIdKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cIdAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
@@ -6882,76 +6853,74 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cDescriptionKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cDescriptionAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_5_1_0 = (RuleCall)cDescriptionAssignment_5_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cDescriptionAssignment_5_1.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cStaticValueKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cStaticValueAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cStaticValueEStringParserRuleCall_6_1_0 = (RuleCall)cStaticValueAssignment_6_1.eContents().get(0);
+		private final RuleCall cStaticValueSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cStaticValueAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cAssignSettingKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
 		private final Assignment cAssignSettingAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
 		private final CrossReference cAssignSettingSettingInstanceCrossReference_7_2_0 = (CrossReference)cAssignSettingAssignment_7_2.eContents().get(0);
-		private final RuleCall cAssignSettingSettingInstanceEStringParserRuleCall_7_2_0_1 = (RuleCall)cAssignSettingSettingInstanceCrossReference_7_2_0.eContents().get(1);
+		private final RuleCall cAssignSettingSettingInstanceSTRINGTerminalRuleCall_7_2_0_1 = (RuleCall)cAssignSettingSettingInstanceCrossReference_7_2_0.eContents().get(1);
 		private final Group cGroup_7_3 = (Group)cGroup_7.eContents().get(3);
 		private final Keyword cCommaKeyword_7_3_0 = (Keyword)cGroup_7_3.eContents().get(0);
 		private final Assignment cAssignSettingAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
 		private final CrossReference cAssignSettingSettingInstanceCrossReference_7_3_1_0 = (CrossReference)cAssignSettingAssignment_7_3_1.eContents().get(0);
-		private final RuleCall cAssignSettingSettingInstanceEStringParserRuleCall_7_3_1_0_1 = (RuleCall)cAssignSettingSettingInstanceCrossReference_7_3_1_0.eContents().get(1);
+		private final RuleCall cAssignSettingSettingInstanceSTRINGTerminalRuleCall_7_3_1_0_1 = (RuleCall)cAssignSettingSettingInstanceCrossReference_7_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
 		private final Keyword cRefServiceSettingKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final Assignment cRefServiceSettingAssignment_9 = (Assignment)cGroup.eContents().get(9);
 		private final CrossReference cRefServiceSettingServiceSettingCrossReference_9_0 = (CrossReference)cRefServiceSettingAssignment_9.eContents().get(0);
-		private final RuleCall cRefServiceSettingServiceSettingEStringParserRuleCall_9_0_1 = (RuleCall)cRefServiceSettingServiceSettingCrossReference_9_0.eContents().get(1);
+		private final RuleCall cRefServiceSettingServiceSettingSTRINGTerminalRuleCall_9_0_1 = (RuleCall)cRefServiceSettingServiceSettingCrossReference_9_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//ServiceSettingInstance returns federationscenarios::ServiceSettingInstance:
 		//
-		//	"ServiceSettingInstance" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//	"ServiceSettingInstance" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//	description=EString)? ("staticValue" staticValue=EString)? ("assignSetting" "("
+		//	description=STRING)? ("staticValue" staticValue=STRING)? ("assignSetting" "("
 		//
-		//	assignSetting+=[federationscenarios::SettingInstance|EString] (","
+		//	assignSetting+=[federationscenarios::SettingInstance|STRING] (","
 		//
-		//	assignSetting+=[federationscenarios::SettingInstance|EString])* ")")? "refServiceSetting"
+		//	assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")? "refServiceSetting"
 		//
-		//	refServiceSetting=[services::ServiceSetting|EString] "}";
+		//	refServiceSetting=[services::ServiceSetting|STRING] "}";
 		public ParserRule getRule() { return rule; }
 
-		//"ServiceSettingInstance" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//"ServiceSettingInstance" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 		//
-		//description=EString)? ("staticValue" staticValue=EString)? ("assignSetting" "("
+		//("staticValue" staticValue=STRING)? ("assignSetting" "(" assignSetting+=[federationscenarios::SettingInstance|STRING]
 		//
-		//assignSetting+=[federationscenarios::SettingInstance|EString] (","
+		//("," assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")? "refServiceSetting"
 		//
-		//assignSetting+=[federationscenarios::SettingInstance|EString])* ")")? "refServiceSetting"
-		//
-		//refServiceSetting=[services::ServiceSetting|EString] "}"
+		//refServiceSetting=[services::ServiceSetting|STRING] "}"
 		public Group getGroup() { return cGroup; }
 
 		//"ServiceSettingInstance"
 		public Keyword getServiceSettingInstanceKeyword_0() { return cServiceSettingInstanceKeyword_0; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_1() { return cUniqueIDAssignment_1; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_1_0() { return cUniqueIDEStringParserRuleCall_1_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_1_0() { return cUniqueIDSTRINGTerminalRuleCall_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//"name"
 		public Keyword getNameKeyword_3_0() { return cNameKeyword_3_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_3_1() { return cNameAssignment_3_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_3_1_0() { return cNameEStringParserRuleCall_3_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_3_1_0() { return cNameSTRINGTerminalRuleCall_3_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_4() { return cGroup_4; }
@@ -6965,33 +6934,33 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_4_1_0() { return cIdEIntParserRuleCall_4_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_5() { return cGroup_5; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_5_0() { return cDescriptionKeyword_5_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_5_1() { return cDescriptionAssignment_5_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_5_1_0() { return cDescriptionEStringParserRuleCall_5_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_5_1_0() { return cDescriptionSTRINGTerminalRuleCall_5_1_0; }
 
-		//("staticValue" staticValue=EString)?
+		//("staticValue" staticValue=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"staticValue"
 		public Keyword getStaticValueKeyword_6_0() { return cStaticValueKeyword_6_0; }
 
-		//staticValue=EString
+		//staticValue=STRING
 		public Assignment getStaticValueAssignment_6_1() { return cStaticValueAssignment_6_1; }
 
-		//EString
-		public RuleCall getStaticValueEStringParserRuleCall_6_1_0() { return cStaticValueEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getStaticValueSTRINGTerminalRuleCall_6_1_0() { return cStaticValueSTRINGTerminalRuleCall_6_1_0; }
 
-		//("assignSetting" "(" assignSetting+=[federationscenarios::SettingInstance|EString] (","
+		//("assignSetting" "(" assignSetting+=[federationscenarios::SettingInstance|STRING] (","
 		//
-		//assignSetting+=[federationscenarios::SettingInstance|EString])* ")")?
+		//assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"assignSetting"
@@ -7000,29 +6969,29 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_7_1() { return cLeftParenthesisKeyword_7_1; }
 
-		//assignSetting+=[federationscenarios::SettingInstance|EString]
+		//assignSetting+=[federationscenarios::SettingInstance|STRING]
 		public Assignment getAssignSettingAssignment_7_2() { return cAssignSettingAssignment_7_2; }
 
-		//[federationscenarios::SettingInstance|EString]
+		//[federationscenarios::SettingInstance|STRING]
 		public CrossReference getAssignSettingSettingInstanceCrossReference_7_2_0() { return cAssignSettingSettingInstanceCrossReference_7_2_0; }
 
-		//EString
-		public RuleCall getAssignSettingSettingInstanceEStringParserRuleCall_7_2_0_1() { return cAssignSettingSettingInstanceEStringParserRuleCall_7_2_0_1; }
+		//STRING
+		public RuleCall getAssignSettingSettingInstanceSTRINGTerminalRuleCall_7_2_0_1() { return cAssignSettingSettingInstanceSTRINGTerminalRuleCall_7_2_0_1; }
 
-		//("," assignSetting+=[federationscenarios::SettingInstance|EString])*
+		//("," assignSetting+=[federationscenarios::SettingInstance|STRING])*
 		public Group getGroup_7_3() { return cGroup_7_3; }
 
 		//","
 		public Keyword getCommaKeyword_7_3_0() { return cCommaKeyword_7_3_0; }
 
-		//assignSetting+=[federationscenarios::SettingInstance|EString]
+		//assignSetting+=[federationscenarios::SettingInstance|STRING]
 		public Assignment getAssignSettingAssignment_7_3_1() { return cAssignSettingAssignment_7_3_1; }
 
-		//[federationscenarios::SettingInstance|EString]
+		//[federationscenarios::SettingInstance|STRING]
 		public CrossReference getAssignSettingSettingInstanceCrossReference_7_3_1_0() { return cAssignSettingSettingInstanceCrossReference_7_3_1_0; }
 
-		//EString
-		public RuleCall getAssignSettingSettingInstanceEStringParserRuleCall_7_3_1_0_1() { return cAssignSettingSettingInstanceEStringParserRuleCall_7_3_1_0_1; }
+		//STRING
+		public RuleCall getAssignSettingSettingInstanceSTRINGTerminalRuleCall_7_3_1_0_1() { return cAssignSettingSettingInstanceSTRINGTerminalRuleCall_7_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_7_4() { return cRightParenthesisKeyword_7_4; }
@@ -7030,14 +6999,14 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"refServiceSetting"
 		public Keyword getRefServiceSettingKeyword_8() { return cRefServiceSettingKeyword_8; }
 
-		//refServiceSetting=[services::ServiceSetting|EString]
+		//refServiceSetting=[services::ServiceSetting|STRING]
 		public Assignment getRefServiceSettingAssignment_9() { return cRefServiceSettingAssignment_9; }
 
-		//[services::ServiceSetting|EString]
+		//[services::ServiceSetting|STRING]
 		public CrossReference getRefServiceSettingServiceSettingCrossReference_9_0() { return cRefServiceSettingServiceSettingCrossReference_9_0; }
 
-		//EString
-		public RuleCall getRefServiceSettingServiceSettingEStringParserRuleCall_9_0_1() { return cRefServiceSettingServiceSettingEStringParserRuleCall_9_0_1; }
+		//STRING
+		public RuleCall getRefServiceSettingServiceSettingSTRINGTerminalRuleCall_9_0_1() { return cRefServiceSettingServiceSettingSTRINGTerminalRuleCall_9_0_1; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
@@ -7049,12 +7018,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cSettingInstanceAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cSettingInstanceKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -7062,43 +7031,43 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cStaticValueKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cStaticValueAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cStaticValueEStringParserRuleCall_7_1_0 = (RuleCall)cStaticValueAssignment_7_1.eContents().get(0);
+		private final RuleCall cStaticValueSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cStaticValueAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cAssignSettingKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
 		private final Assignment cAssignSettingAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
 		private final CrossReference cAssignSettingSettingInstanceCrossReference_8_2_0 = (CrossReference)cAssignSettingAssignment_8_2.eContents().get(0);
-		private final RuleCall cAssignSettingSettingInstanceEStringParserRuleCall_8_2_0_1 = (RuleCall)cAssignSettingSettingInstanceCrossReference_8_2_0.eContents().get(1);
+		private final RuleCall cAssignSettingSettingInstanceSTRINGTerminalRuleCall_8_2_0_1 = (RuleCall)cAssignSettingSettingInstanceCrossReference_8_2_0.eContents().get(1);
 		private final Group cGroup_8_3 = (Group)cGroup_8.eContents().get(3);
 		private final Keyword cCommaKeyword_8_3_0 = (Keyword)cGroup_8_3.eContents().get(0);
 		private final Assignment cAssignSettingAssignment_8_3_1 = (Assignment)cGroup_8_3.eContents().get(1);
 		private final CrossReference cAssignSettingSettingInstanceCrossReference_8_3_1_0 = (CrossReference)cAssignSettingAssignment_8_3_1.eContents().get(0);
-		private final RuleCall cAssignSettingSettingInstanceEStringParserRuleCall_8_3_1_0_1 = (RuleCall)cAssignSettingSettingInstanceCrossReference_8_3_1_0.eContents().get(1);
+		private final RuleCall cAssignSettingSettingInstanceSTRINGTerminalRuleCall_8_3_1_0_1 = (RuleCall)cAssignSettingSettingInstanceCrossReference_8_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_8_4 = (Keyword)cGroup_8.eContents().get(4);
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//SettingInstance_Impl returns federationscenarios::SettingInstance:
 		//
-		//	{federationscenarios::SettingInstance} "SettingInstance" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//	{federationscenarios::SettingInstance} "SettingInstance" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//	("description" description=EString)? ("staticValue" staticValue=EString)? ("assignSetting" "("
+		//	("description" description=STRING)? ("staticValue" staticValue=STRING)? ("assignSetting" "("
 		//
-		//	assignSetting+=[federationscenarios::SettingInstance|EString] (","
+		//	assignSetting+=[federationscenarios::SettingInstance|STRING] (","
 		//
-		//	assignSetting+=[federationscenarios::SettingInstance|EString])* ")")? "}";
+		//	assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{federationscenarios::SettingInstance} "SettingInstance" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//{federationscenarios::SettingInstance} "SettingInstance" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//("description" description=EString)? ("staticValue" staticValue=EString)? ("assignSetting" "("
+		//("description" description=STRING)? ("staticValue" staticValue=STRING)? ("assignSetting" "("
 		//
-		//assignSetting+=[federationscenarios::SettingInstance|EString] (","
+		//assignSetting+=[federationscenarios::SettingInstance|STRING] (","
 		//
-		//assignSetting+=[federationscenarios::SettingInstance|EString])* ")")? "}"
+		//assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{federationscenarios::SettingInstance}
@@ -7107,26 +7076,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"SettingInstance"
 		public Keyword getSettingInstanceKeyword_1() { return cSettingInstanceKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -7140,33 +7109,33 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("staticValue" staticValue=EString)?
+		//("staticValue" staticValue=STRING)?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"staticValue"
 		public Keyword getStaticValueKeyword_7_0() { return cStaticValueKeyword_7_0; }
 
-		//staticValue=EString
+		//staticValue=STRING
 		public Assignment getStaticValueAssignment_7_1() { return cStaticValueAssignment_7_1; }
 
-		//EString
-		public RuleCall getStaticValueEStringParserRuleCall_7_1_0() { return cStaticValueEStringParserRuleCall_7_1_0; }
+		//STRING
+		public RuleCall getStaticValueSTRINGTerminalRuleCall_7_1_0() { return cStaticValueSTRINGTerminalRuleCall_7_1_0; }
 
-		//("assignSetting" "(" assignSetting+=[federationscenarios::SettingInstance|EString] (","
+		//("assignSetting" "(" assignSetting+=[federationscenarios::SettingInstance|STRING] (","
 		//
-		//assignSetting+=[federationscenarios::SettingInstance|EString])* ")")?
+		//assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")?
 		public Group getGroup_8() { return cGroup_8; }
 
 		//"assignSetting"
@@ -7175,29 +7144,29 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_8_1() { return cLeftParenthesisKeyword_8_1; }
 
-		//assignSetting+=[federationscenarios::SettingInstance|EString]
+		//assignSetting+=[federationscenarios::SettingInstance|STRING]
 		public Assignment getAssignSettingAssignment_8_2() { return cAssignSettingAssignment_8_2; }
 
-		//[federationscenarios::SettingInstance|EString]
+		//[federationscenarios::SettingInstance|STRING]
 		public CrossReference getAssignSettingSettingInstanceCrossReference_8_2_0() { return cAssignSettingSettingInstanceCrossReference_8_2_0; }
 
-		//EString
-		public RuleCall getAssignSettingSettingInstanceEStringParserRuleCall_8_2_0_1() { return cAssignSettingSettingInstanceEStringParserRuleCall_8_2_0_1; }
+		//STRING
+		public RuleCall getAssignSettingSettingInstanceSTRINGTerminalRuleCall_8_2_0_1() { return cAssignSettingSettingInstanceSTRINGTerminalRuleCall_8_2_0_1; }
 
-		//("," assignSetting+=[federationscenarios::SettingInstance|EString])*
+		//("," assignSetting+=[federationscenarios::SettingInstance|STRING])*
 		public Group getGroup_8_3() { return cGroup_8_3; }
 
 		//","
 		public Keyword getCommaKeyword_8_3_0() { return cCommaKeyword_8_3_0; }
 
-		//assignSetting+=[federationscenarios::SettingInstance|EString]
+		//assignSetting+=[federationscenarios::SettingInstance|STRING]
 		public Assignment getAssignSettingAssignment_8_3_1() { return cAssignSettingAssignment_8_3_1; }
 
-		//[federationscenarios::SettingInstance|EString]
+		//[federationscenarios::SettingInstance|STRING]
 		public CrossReference getAssignSettingSettingInstanceCrossReference_8_3_1_0() { return cAssignSettingSettingInstanceCrossReference_8_3_1_0; }
 
-		//EString
-		public RuleCall getAssignSettingSettingInstanceEStringParserRuleCall_8_3_1_0_1() { return cAssignSettingSettingInstanceEStringParserRuleCall_8_3_1_0_1; }
+		//STRING
+		public RuleCall getAssignSettingSettingInstanceSTRINGTerminalRuleCall_8_3_1_0_1() { return cAssignSettingSettingInstanceSTRINGTerminalRuleCall_8_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_8_4() { return cRightParenthesisKeyword_8_4; }
@@ -7211,12 +7180,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cResourceSettingInstanceKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cUniqueIDAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cUniqueIDEStringParserRuleCall_1_0 = (RuleCall)cUniqueIDAssignment_1.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_1_0 = (RuleCall)cUniqueIDAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cNameKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cNameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cIdKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cIdAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
@@ -7224,76 +7193,74 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cDescriptionKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cDescriptionAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_5_1_0 = (RuleCall)cDescriptionAssignment_5_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cDescriptionAssignment_5_1.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cStaticValueKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cStaticValueAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cStaticValueEStringParserRuleCall_6_1_0 = (RuleCall)cStaticValueAssignment_6_1.eContents().get(0);
+		private final RuleCall cStaticValueSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cStaticValueAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cAssignSettingKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
 		private final Assignment cAssignSettingAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
 		private final CrossReference cAssignSettingSettingInstanceCrossReference_7_2_0 = (CrossReference)cAssignSettingAssignment_7_2.eContents().get(0);
-		private final RuleCall cAssignSettingSettingInstanceEStringParserRuleCall_7_2_0_1 = (RuleCall)cAssignSettingSettingInstanceCrossReference_7_2_0.eContents().get(1);
+		private final RuleCall cAssignSettingSettingInstanceSTRINGTerminalRuleCall_7_2_0_1 = (RuleCall)cAssignSettingSettingInstanceCrossReference_7_2_0.eContents().get(1);
 		private final Group cGroup_7_3 = (Group)cGroup_7.eContents().get(3);
 		private final Keyword cCommaKeyword_7_3_0 = (Keyword)cGroup_7_3.eContents().get(0);
 		private final Assignment cAssignSettingAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
 		private final CrossReference cAssignSettingSettingInstanceCrossReference_7_3_1_0 = (CrossReference)cAssignSettingAssignment_7_3_1.eContents().get(0);
-		private final RuleCall cAssignSettingSettingInstanceEStringParserRuleCall_7_3_1_0_1 = (RuleCall)cAssignSettingSettingInstanceCrossReference_7_3_1_0.eContents().get(1);
+		private final RuleCall cAssignSettingSettingInstanceSTRINGTerminalRuleCall_7_3_1_0_1 = (RuleCall)cAssignSettingSettingInstanceCrossReference_7_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
 		private final Keyword cRefResourceSettingKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final Assignment cRefResourceSettingAssignment_9 = (Assignment)cGroup.eContents().get(9);
 		private final CrossReference cRefResourceSettingResourceSettingCrossReference_9_0 = (CrossReference)cRefResourceSettingAssignment_9.eContents().get(0);
-		private final RuleCall cRefResourceSettingResourceSettingEStringParserRuleCall_9_0_1 = (RuleCall)cRefResourceSettingResourceSettingCrossReference_9_0.eContents().get(1);
+		private final RuleCall cRefResourceSettingResourceSettingSTRINGTerminalRuleCall_9_0_1 = (RuleCall)cRefResourceSettingResourceSettingCrossReference_9_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//ResourceSettingInstance returns federationscenarios::ResourceSettingInstance:
 		//
-		//	"ResourceSettingInstance" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//	"ResourceSettingInstance" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 		//
-		//	description=EString)? ("staticValue" staticValue=EString)? ("assignSetting" "("
+		//	description=STRING)? ("staticValue" staticValue=STRING)? ("assignSetting" "("
 		//
-		//	assignSetting+=[federationscenarios::SettingInstance|EString] (","
+		//	assignSetting+=[federationscenarios::SettingInstance|STRING] (","
 		//
-		//	assignSetting+=[federationscenarios::SettingInstance|EString])* ")")? "refResourceSetting"
+		//	assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")? "refResourceSetting"
 		//
-		//	refResourceSetting=[resources::ResourceSetting|EString] "}";
+		//	refResourceSetting=[resources::ResourceSetting|STRING] "}";
 		public ParserRule getRule() { return rule; }
 
-		//"ResourceSettingInstance" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+		//"ResourceSettingInstance" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 		//
-		//description=EString)? ("staticValue" staticValue=EString)? ("assignSetting" "("
+		//("staticValue" staticValue=STRING)? ("assignSetting" "(" assignSetting+=[federationscenarios::SettingInstance|STRING]
 		//
-		//assignSetting+=[federationscenarios::SettingInstance|EString] (","
+		//("," assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")? "refResourceSetting"
 		//
-		//assignSetting+=[federationscenarios::SettingInstance|EString])* ")")? "refResourceSetting"
-		//
-		//refResourceSetting=[resources::ResourceSetting|EString] "}"
+		//refResourceSetting=[resources::ResourceSetting|STRING] "}"
 		public Group getGroup() { return cGroup; }
 
 		//"ResourceSettingInstance"
 		public Keyword getResourceSettingInstanceKeyword_0() { return cResourceSettingInstanceKeyword_0; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_1() { return cUniqueIDAssignment_1; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_1_0() { return cUniqueIDEStringParserRuleCall_1_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_1_0() { return cUniqueIDSTRINGTerminalRuleCall_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//"name"
 		public Keyword getNameKeyword_3_0() { return cNameKeyword_3_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_3_1() { return cNameAssignment_3_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_3_1_0() { return cNameEStringParserRuleCall_3_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_3_1_0() { return cNameSTRINGTerminalRuleCall_3_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_4() { return cGroup_4; }
@@ -7307,33 +7274,33 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_4_1_0() { return cIdEIntParserRuleCall_4_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_5() { return cGroup_5; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_5_0() { return cDescriptionKeyword_5_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_5_1() { return cDescriptionAssignment_5_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_5_1_0() { return cDescriptionEStringParserRuleCall_5_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_5_1_0() { return cDescriptionSTRINGTerminalRuleCall_5_1_0; }
 
-		//("staticValue" staticValue=EString)?
+		//("staticValue" staticValue=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"staticValue"
 		public Keyword getStaticValueKeyword_6_0() { return cStaticValueKeyword_6_0; }
 
-		//staticValue=EString
+		//staticValue=STRING
 		public Assignment getStaticValueAssignment_6_1() { return cStaticValueAssignment_6_1; }
 
-		//EString
-		public RuleCall getStaticValueEStringParserRuleCall_6_1_0() { return cStaticValueEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getStaticValueSTRINGTerminalRuleCall_6_1_0() { return cStaticValueSTRINGTerminalRuleCall_6_1_0; }
 
-		//("assignSetting" "(" assignSetting+=[federationscenarios::SettingInstance|EString] (","
+		//("assignSetting" "(" assignSetting+=[federationscenarios::SettingInstance|STRING] (","
 		//
-		//assignSetting+=[federationscenarios::SettingInstance|EString])* ")")?
+		//assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"assignSetting"
@@ -7342,29 +7309,29 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_7_1() { return cLeftParenthesisKeyword_7_1; }
 
-		//assignSetting+=[federationscenarios::SettingInstance|EString]
+		//assignSetting+=[federationscenarios::SettingInstance|STRING]
 		public Assignment getAssignSettingAssignment_7_2() { return cAssignSettingAssignment_7_2; }
 
-		//[federationscenarios::SettingInstance|EString]
+		//[federationscenarios::SettingInstance|STRING]
 		public CrossReference getAssignSettingSettingInstanceCrossReference_7_2_0() { return cAssignSettingSettingInstanceCrossReference_7_2_0; }
 
-		//EString
-		public RuleCall getAssignSettingSettingInstanceEStringParserRuleCall_7_2_0_1() { return cAssignSettingSettingInstanceEStringParserRuleCall_7_2_0_1; }
+		//STRING
+		public RuleCall getAssignSettingSettingInstanceSTRINGTerminalRuleCall_7_2_0_1() { return cAssignSettingSettingInstanceSTRINGTerminalRuleCall_7_2_0_1; }
 
-		//("," assignSetting+=[federationscenarios::SettingInstance|EString])*
+		//("," assignSetting+=[federationscenarios::SettingInstance|STRING])*
 		public Group getGroup_7_3() { return cGroup_7_3; }
 
 		//","
 		public Keyword getCommaKeyword_7_3_0() { return cCommaKeyword_7_3_0; }
 
-		//assignSetting+=[federationscenarios::SettingInstance|EString]
+		//assignSetting+=[federationscenarios::SettingInstance|STRING]
 		public Assignment getAssignSettingAssignment_7_3_1() { return cAssignSettingAssignment_7_3_1; }
 
-		//[federationscenarios::SettingInstance|EString]
+		//[federationscenarios::SettingInstance|STRING]
 		public CrossReference getAssignSettingSettingInstanceCrossReference_7_3_1_0() { return cAssignSettingSettingInstanceCrossReference_7_3_1_0; }
 
-		//EString
-		public RuleCall getAssignSettingSettingInstanceEStringParserRuleCall_7_3_1_0_1() { return cAssignSettingSettingInstanceEStringParserRuleCall_7_3_1_0_1; }
+		//STRING
+		public RuleCall getAssignSettingSettingInstanceSTRINGTerminalRuleCall_7_3_1_0_1() { return cAssignSettingSettingInstanceSTRINGTerminalRuleCall_7_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_7_4() { return cRightParenthesisKeyword_7_4; }
@@ -7372,14 +7339,14 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"refResourceSetting"
 		public Keyword getRefResourceSettingKeyword_8() { return cRefResourceSettingKeyword_8; }
 
-		//refResourceSetting=[resources::ResourceSetting|EString]
+		//refResourceSetting=[resources::ResourceSetting|STRING]
 		public Assignment getRefResourceSettingAssignment_9() { return cRefResourceSettingAssignment_9; }
 
-		//[resources::ResourceSetting|EString]
+		//[resources::ResourceSetting|STRING]
 		public CrossReference getRefResourceSettingResourceSettingCrossReference_9_0() { return cRefResourceSettingResourceSettingCrossReference_9_0; }
 
-		//EString
-		public RuleCall getRefResourceSettingResourceSettingEStringParserRuleCall_9_0_1() { return cRefResourceSettingResourceSettingEStringParserRuleCall_9_0_1; }
+		//STRING
+		public RuleCall getRefResourceSettingResourceSettingSTRINGTerminalRuleCall_9_0_1() { return cRefResourceSettingResourceSettingSTRINGTerminalRuleCall_9_0_1; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
@@ -7390,12 +7357,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cResourceRequestKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cUniqueIDAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cUniqueIDEStringParserRuleCall_1_0 = (RuleCall)cUniqueIDAssignment_1.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_1_0 = (RuleCall)cUniqueIDAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cNameKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cNameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cIdKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cIdAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
@@ -7403,11 +7370,11 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cDescriptionKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cDescriptionAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_5_1_0 = (RuleCall)cDescriptionAssignment_5_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cDescriptionAssignment_5_1.eContents().get(0);
 		private final Keyword cRefOfferedResourceKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Assignment cRefOfferedResourceAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final CrossReference cRefOfferedResourceOfferedResourceCrossReference_7_0 = (CrossReference)cRefOfferedResourceAssignment_7.eContents().get(0);
-		private final RuleCall cRefOfferedResourceOfferedResourceEStringParserRuleCall_7_0_1 = (RuleCall)cRefOfferedResourceOfferedResourceCrossReference_7_0.eContents().get(1);
+		private final RuleCall cRefOfferedResourceOfferedResourceSTRINGTerminalRuleCall_7_0_1 = (RuleCall)cRefOfferedResourceOfferedResourceCrossReference_7_0.eContents().get(1);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cReqResourceSettingsKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
@@ -7426,18 +7393,18 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ResourceRequest returns federationscenarios::ResourceRequest:
 		//
-		//	"ResourceRequest" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)?
+		//	"ResourceRequest" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 		//
-		//	"refOfferedResource" refOfferedResource=[resources::OfferedResource|EString] ("reqResourceSettings" "{"
+		//	"refOfferedResource" refOfferedResource=[resources::OfferedResource|STRING] ("reqResourceSettings" "{"
 		//
 		//	reqResourceSettings+=ResourceSettingInstance ("," reqResourceSettings+=ResourceSettingInstance)* "}")? ("runtimeInfo"
 		//
 		//	runtimeInfo=RuntimeElement)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"ResourceRequest" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)?
+		//"ResourceRequest" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 		//
-		//"refOfferedResource" refOfferedResource=[resources::OfferedResource|EString] ("reqResourceSettings" "{"
+		//"refOfferedResource" refOfferedResource=[resources::OfferedResource|STRING] ("reqResourceSettings" "{"
 		//
 		//reqResourceSettings+=ResourceSettingInstance ("," reqResourceSettings+=ResourceSettingInstance)* "}")? ("runtimeInfo"
 		//
@@ -7447,26 +7414,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"ResourceRequest"
 		public Keyword getResourceRequestKeyword_0() { return cResourceRequestKeyword_0; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_1() { return cUniqueIDAssignment_1; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_1_0() { return cUniqueIDEStringParserRuleCall_1_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_1_0() { return cUniqueIDSTRINGTerminalRuleCall_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//"name"
 		public Keyword getNameKeyword_3_0() { return cNameKeyword_3_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_3_1() { return cNameAssignment_3_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_3_1_0() { return cNameEStringParserRuleCall_3_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_3_1_0() { return cNameSTRINGTerminalRuleCall_3_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_4() { return cGroup_4; }
@@ -7480,29 +7447,29 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_4_1_0() { return cIdEIntParserRuleCall_4_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_5() { return cGroup_5; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_5_0() { return cDescriptionKeyword_5_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_5_1() { return cDescriptionAssignment_5_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_5_1_0() { return cDescriptionEStringParserRuleCall_5_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_5_1_0() { return cDescriptionSTRINGTerminalRuleCall_5_1_0; }
 
 		//"refOfferedResource"
 		public Keyword getRefOfferedResourceKeyword_6() { return cRefOfferedResourceKeyword_6; }
 
-		//refOfferedResource=[resources::OfferedResource|EString]
+		//refOfferedResource=[resources::OfferedResource|STRING]
 		public Assignment getRefOfferedResourceAssignment_7() { return cRefOfferedResourceAssignment_7; }
 
-		//[resources::OfferedResource|EString]
+		//[resources::OfferedResource|STRING]
 		public CrossReference getRefOfferedResourceOfferedResourceCrossReference_7_0() { return cRefOfferedResourceOfferedResourceCrossReference_7_0; }
 
-		//EString
-		public RuleCall getRefOfferedResourceOfferedResourceEStringParserRuleCall_7_0_1() { return cRefOfferedResourceOfferedResourceEStringParserRuleCall_7_0_1; }
+		//STRING
+		public RuleCall getRefOfferedResourceOfferedResourceSTRINGTerminalRuleCall_7_0_1() { return cRefOfferedResourceOfferedResourceSTRINGTerminalRuleCall_7_0_1; }
 
 		//("reqResourceSettings" "{" reqResourceSettings+=ResourceSettingInstance (","
 		//
@@ -7558,12 +7525,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cResourceGroupAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cResourceGroupKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -7571,39 +7538,39 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cGroupedResourcesKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
 		private final Assignment cGroupedResourcesAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
 		private final CrossReference cGroupedResourcesResourceRequestCrossReference_7_2_0 = (CrossReference)cGroupedResourcesAssignment_7_2.eContents().get(0);
-		private final RuleCall cGroupedResourcesResourceRequestEStringParserRuleCall_7_2_0_1 = (RuleCall)cGroupedResourcesResourceRequestCrossReference_7_2_0.eContents().get(1);
+		private final RuleCall cGroupedResourcesResourceRequestSTRINGTerminalRuleCall_7_2_0_1 = (RuleCall)cGroupedResourcesResourceRequestCrossReference_7_2_0.eContents().get(1);
 		private final Group cGroup_7_3 = (Group)cGroup_7.eContents().get(3);
 		private final Keyword cCommaKeyword_7_3_0 = (Keyword)cGroup_7_3.eContents().get(0);
 		private final Assignment cGroupedResourcesAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
 		private final CrossReference cGroupedResourcesResourceRequestCrossReference_7_3_1_0 = (CrossReference)cGroupedResourcesAssignment_7_3_1.eContents().get(0);
-		private final RuleCall cGroupedResourcesResourceRequestEStringParserRuleCall_7_3_1_0_1 = (RuleCall)cGroupedResourcesResourceRequestCrossReference_7_3_1_0.eContents().get(1);
+		private final RuleCall cGroupedResourcesResourceRequestSTRINGTerminalRuleCall_7_3_1_0_1 = (RuleCall)cGroupedResourcesResourceRequestCrossReference_7_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//ResourceGroup returns federationscenarios::ResourceGroup:
 		//
-		//	{federationscenarios::ResourceGroup} "ResourceGroup" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//	{federationscenarios::ResourceGroup} "ResourceGroup" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//	("description" description=EString)? ("groupedResources" "("
+		//	("description" description=STRING)? ("groupedResources" "("
 		//
-		//	groupedResources+=[federationscenarios::ResourceRequest|EString] (","
+		//	groupedResources+=[federationscenarios::ResourceRequest|STRING] (","
 		//
-		//	groupedResources+=[federationscenarios::ResourceRequest|EString])* ")")? "}";
+		//	groupedResources+=[federationscenarios::ResourceRequest|STRING])* ")")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{federationscenarios::ResourceGroup} "ResourceGroup" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+		//{federationscenarios::ResourceGroup} "ResourceGroup" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 		//
-		//("description" description=EString)? ("groupedResources" "("
+		//("description" description=STRING)? ("groupedResources" "("
 		//
-		//groupedResources+=[federationscenarios::ResourceRequest|EString] (","
+		//groupedResources+=[federationscenarios::ResourceRequest|STRING] (","
 		//
-		//groupedResources+=[federationscenarios::ResourceRequest|EString])* ")")? "}"
+		//groupedResources+=[federationscenarios::ResourceRequest|STRING])* ")")? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{federationscenarios::ResourceGroup}
@@ -7612,26 +7579,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"ResourceGroup"
 		public Keyword getResourceGroupKeyword_1() { return cResourceGroupKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -7645,21 +7612,21 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
-		//("groupedResources" "(" groupedResources+=[federationscenarios::ResourceRequest|EString] (","
+		//("groupedResources" "(" groupedResources+=[federationscenarios::ResourceRequest|STRING] (","
 		//
-		//groupedResources+=[federationscenarios::ResourceRequest|EString])* ")")?
+		//groupedResources+=[federationscenarios::ResourceRequest|STRING])* ")")?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"groupedResources"
@@ -7668,29 +7635,29 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_7_1() { return cLeftParenthesisKeyword_7_1; }
 
-		//groupedResources+=[federationscenarios::ResourceRequest|EString]
+		//groupedResources+=[federationscenarios::ResourceRequest|STRING]
 		public Assignment getGroupedResourcesAssignment_7_2() { return cGroupedResourcesAssignment_7_2; }
 
-		//[federationscenarios::ResourceRequest|EString]
+		//[federationscenarios::ResourceRequest|STRING]
 		public CrossReference getGroupedResourcesResourceRequestCrossReference_7_2_0() { return cGroupedResourcesResourceRequestCrossReference_7_2_0; }
 
-		//EString
-		public RuleCall getGroupedResourcesResourceRequestEStringParserRuleCall_7_2_0_1() { return cGroupedResourcesResourceRequestEStringParserRuleCall_7_2_0_1; }
+		//STRING
+		public RuleCall getGroupedResourcesResourceRequestSTRINGTerminalRuleCall_7_2_0_1() { return cGroupedResourcesResourceRequestSTRINGTerminalRuleCall_7_2_0_1; }
 
-		//("," groupedResources+=[federationscenarios::ResourceRequest|EString])*
+		//("," groupedResources+=[federationscenarios::ResourceRequest|STRING])*
 		public Group getGroup_7_3() { return cGroup_7_3; }
 
 		//","
 		public Keyword getCommaKeyword_7_3_0() { return cCommaKeyword_7_3_0; }
 
-		//groupedResources+=[federationscenarios::ResourceRequest|EString]
+		//groupedResources+=[federationscenarios::ResourceRequest|STRING]
 		public Assignment getGroupedResourcesAssignment_7_3_1() { return cGroupedResourcesAssignment_7_3_1; }
 
-		//[federationscenarios::ResourceRequest|EString]
+		//[federationscenarios::ResourceRequest|STRING]
 		public CrossReference getGroupedResourcesResourceRequestCrossReference_7_3_1_0() { return cGroupedResourcesResourceRequestCrossReference_7_3_1_0; }
 
-		//EString
-		public RuleCall getGroupedResourcesResourceRequestEStringParserRuleCall_7_3_1_0_1() { return cGroupedResourcesResourceRequestEStringParserRuleCall_7_3_1_0_1; }
+		//STRING
+		public RuleCall getGroupedResourcesResourceRequestSTRINGTerminalRuleCall_7_3_1_0_1() { return cGroupedResourcesResourceRequestSTRINGTerminalRuleCall_7_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_7_4() { return cRightParenthesisKeyword_7_4; }
@@ -7701,15 +7668,15 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class EDateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EDate");
-		private final Keyword cEDateKeyword = (Keyword)rule.eContents().get(1);
+		private final RuleCall cSTRINGTerminalRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		/// * TODO: implement this rule and an appropriate IValueConverter * / EDate returns ecore::EDate:
 		//
-		//	"EDate";
+		//	STRING;
 		public ParserRule getRule() { return rule; }
 
-		//"EDate"
-		public Keyword getEDateKeyword() { return cEDateKeyword; }
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall() { return cSTRINGTerminalRuleCall; }
 	}
 
 	public class RuntimeElementStatusElements extends AbstractParserRuleElementFinder {
@@ -7731,154 +7698,154 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Availability");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cAvailabilityAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cRepeatAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Keyword cRepeatRepeatKeyword_1_0 = (Keyword)cRepeatAssignment_1.eContents().get(0);
-		private final Keyword cAvailabilityKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cAvailabilityKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cFromTimeKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cFromTimeAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cFromTimeEDateParserRuleCall_3_1_0 = (RuleCall)cFromTimeAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cFromTimeKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cFromTimeAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cFromTimeEDateParserRuleCall_4_1_0 = (RuleCall)cFromTimeAssignment_4_1.eContents().get(0);
+		private final Keyword cToTimeKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cToTimeAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cToTimeEDateParserRuleCall_4_1_0 = (RuleCall)cToTimeAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cToTimeKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cToTimeAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cToTimeEDateParserRuleCall_5_1_0 = (RuleCall)cToTimeAssignment_5_1.eContents().get(0);
+		private final Keyword cFromDateKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cFromDateAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cFromDateEDateParserRuleCall_5_1_0 = (RuleCall)cFromDateAssignment_5_1.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cFromDateKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cFromDateAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cFromDateEDateParserRuleCall_6_1_0 = (RuleCall)cFromDateAssignment_6_1.eContents().get(0);
+		private final Keyword cToDateKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cToDateAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cToDateEDateParserRuleCall_6_1_0 = (RuleCall)cToDateAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cToDateKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cToDateAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cToDateEDateParserRuleCall_7_1_0 = (RuleCall)cToDateAssignment_7_1.eContents().get(0);
+		private final Keyword cRepeatabilityKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cRepeatabilityAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cRepeatabilityRepatabilitySchemeEnumRuleCall_7_1_0 = (RuleCall)cRepeatabilityAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cRepeatabilityKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cRepeatabilityAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cRepeatabilityRepatabilitySchemeParserRuleCall_8_1_0 = (RuleCall)cRepeatabilityAssignment_8_1.eContents().get(0);
+		private final Keyword cRepeatUntilKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cRepeatUntilAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cRepeatUntilEDateParserRuleCall_8_1_0 = (RuleCall)cRepeatUntilAssignment_8_1.eContents().get(0);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
-		private final Keyword cRepeatUntilKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
-		private final Assignment cRepeatUntilAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final RuleCall cRepeatUntilEDateParserRuleCall_9_1_0 = (RuleCall)cRepeatUntilAssignment_9_1.eContents().get(0);
-		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
-		private final Keyword cCostKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
-		private final Assignment cCostAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
-		private final RuleCall cCostCostParserRuleCall_10_1_0 = (RuleCall)cCostAssignment_10_1.eContents().get(0);
+		private final Keyword cCostKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cCostAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cCostCostParserRuleCall_9_1_0 = (RuleCall)cCostAssignment_9_1.eContents().get(0);
+		private final Assignment cRepeatAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final Keyword cRepeatRepeatKeyword_10_0 = (Keyword)cRepeatAssignment_10.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		//Availability returns availabilityContract::Availability:
 		//
-		//	{availabilityContract::Availability} Repeat?="Repeat"? "Availability" "{" ("FromTime" FromTime=EDate)? ("ToTime"
+		//	{availabilityContract::Availability} "Availability" "{" ("FromTime" FromTime=EDate)? ("ToTime" ToTime=EDate)?
 		//
-		//	ToTime=EDate)? ("FromDate" FromDate=EDate)? ("ToDate" ToDate=EDate)? ("Repeatability"
+		//	("FromDate" FromDate=EDate)? ("ToDate" ToDate=EDate)? ("Repeatability" Repeatability=RepatabilityScheme)?
 		//
-		//	Repeatability=RepatabilityScheme)? ("RepeatUntil" RepeatUntil=EDate)? ("cost" cost=Cost)? "}";
+		//	("RepeatUntil" RepeatUntil=EDate)? ("cost" cost=Cost)? Repeat?="Repeat"? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{availabilityContract::Availability} Repeat?="Repeat"? "Availability" "{" ("FromTime" FromTime=EDate)? ("ToTime"
+		//{availabilityContract::Availability} "Availability" "{" ("FromTime" FromTime=EDate)? ("ToTime" ToTime=EDate)?
 		//
-		//ToTime=EDate)? ("FromDate" FromDate=EDate)? ("ToDate" ToDate=EDate)? ("Repeatability"
+		//("FromDate" FromDate=EDate)? ("ToDate" ToDate=EDate)? ("Repeatability" Repeatability=RepatabilityScheme)?
 		//
-		//Repeatability=RepatabilityScheme)? ("RepeatUntil" RepeatUntil=EDate)? ("cost" cost=Cost)? "}"
+		//("RepeatUntil" RepeatUntil=EDate)? ("cost" cost=Cost)? Repeat?="Repeat"? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{availabilityContract::Availability}
 		public Action getAvailabilityAction_0() { return cAvailabilityAction_0; }
 
-		//Repeat?="Repeat"?
-		public Assignment getRepeatAssignment_1() { return cRepeatAssignment_1; }
-
-		//"Repeat"
-		public Keyword getRepeatRepeatKeyword_1_0() { return cRepeatRepeatKeyword_1_0; }
-
 		//"Availability"
-		public Keyword getAvailabilityKeyword_2() { return cAvailabilityKeyword_2; }
+		public Keyword getAvailabilityKeyword_1() { return cAvailabilityKeyword_1; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
 		//("FromTime" FromTime=EDate)?
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_3() { return cGroup_3; }
 
 		//"FromTime"
-		public Keyword getFromTimeKeyword_4_0() { return cFromTimeKeyword_4_0; }
+		public Keyword getFromTimeKeyword_3_0() { return cFromTimeKeyword_3_0; }
 
 		//FromTime=EDate
-		public Assignment getFromTimeAssignment_4_1() { return cFromTimeAssignment_4_1; }
+		public Assignment getFromTimeAssignment_3_1() { return cFromTimeAssignment_3_1; }
 
 		//EDate
-		public RuleCall getFromTimeEDateParserRuleCall_4_1_0() { return cFromTimeEDateParserRuleCall_4_1_0; }
+		public RuleCall getFromTimeEDateParserRuleCall_3_1_0() { return cFromTimeEDateParserRuleCall_3_1_0; }
 
 		//("ToTime" ToTime=EDate)?
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_4() { return cGroup_4; }
 
 		//"ToTime"
-		public Keyword getToTimeKeyword_5_0() { return cToTimeKeyword_5_0; }
+		public Keyword getToTimeKeyword_4_0() { return cToTimeKeyword_4_0; }
 
 		//ToTime=EDate
-		public Assignment getToTimeAssignment_5_1() { return cToTimeAssignment_5_1; }
+		public Assignment getToTimeAssignment_4_1() { return cToTimeAssignment_4_1; }
 
 		//EDate
-		public RuleCall getToTimeEDateParserRuleCall_5_1_0() { return cToTimeEDateParserRuleCall_5_1_0; }
+		public RuleCall getToTimeEDateParserRuleCall_4_1_0() { return cToTimeEDateParserRuleCall_4_1_0; }
 
 		//("FromDate" FromDate=EDate)?
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_5() { return cGroup_5; }
 
 		//"FromDate"
-		public Keyword getFromDateKeyword_6_0() { return cFromDateKeyword_6_0; }
+		public Keyword getFromDateKeyword_5_0() { return cFromDateKeyword_5_0; }
 
 		//FromDate=EDate
-		public Assignment getFromDateAssignment_6_1() { return cFromDateAssignment_6_1; }
+		public Assignment getFromDateAssignment_5_1() { return cFromDateAssignment_5_1; }
 
 		//EDate
-		public RuleCall getFromDateEDateParserRuleCall_6_1_0() { return cFromDateEDateParserRuleCall_6_1_0; }
+		public RuleCall getFromDateEDateParserRuleCall_5_1_0() { return cFromDateEDateParserRuleCall_5_1_0; }
 
 		//("ToDate" ToDate=EDate)?
-		public Group getGroup_7() { return cGroup_7; }
+		public Group getGroup_6() { return cGroup_6; }
 
 		//"ToDate"
-		public Keyword getToDateKeyword_7_0() { return cToDateKeyword_7_0; }
+		public Keyword getToDateKeyword_6_0() { return cToDateKeyword_6_0; }
 
 		//ToDate=EDate
-		public Assignment getToDateAssignment_7_1() { return cToDateAssignment_7_1; }
+		public Assignment getToDateAssignment_6_1() { return cToDateAssignment_6_1; }
 
 		//EDate
-		public RuleCall getToDateEDateParserRuleCall_7_1_0() { return cToDateEDateParserRuleCall_7_1_0; }
+		public RuleCall getToDateEDateParserRuleCall_6_1_0() { return cToDateEDateParserRuleCall_6_1_0; }
 
 		//("Repeatability" Repeatability=RepatabilityScheme)?
-		public Group getGroup_8() { return cGroup_8; }
+		public Group getGroup_7() { return cGroup_7; }
 
 		//"Repeatability"
-		public Keyword getRepeatabilityKeyword_8_0() { return cRepeatabilityKeyword_8_0; }
+		public Keyword getRepeatabilityKeyword_7_0() { return cRepeatabilityKeyword_7_0; }
 
 		//Repeatability=RepatabilityScheme
-		public Assignment getRepeatabilityAssignment_8_1() { return cRepeatabilityAssignment_8_1; }
+		public Assignment getRepeatabilityAssignment_7_1() { return cRepeatabilityAssignment_7_1; }
 
 		//RepatabilityScheme
-		public RuleCall getRepeatabilityRepatabilitySchemeParserRuleCall_8_1_0() { return cRepeatabilityRepatabilitySchemeParserRuleCall_8_1_0; }
+		public RuleCall getRepeatabilityRepatabilitySchemeEnumRuleCall_7_1_0() { return cRepeatabilityRepatabilitySchemeEnumRuleCall_7_1_0; }
 
 		//("RepeatUntil" RepeatUntil=EDate)?
-		public Group getGroup_9() { return cGroup_9; }
+		public Group getGroup_8() { return cGroup_8; }
 
 		//"RepeatUntil"
-		public Keyword getRepeatUntilKeyword_9_0() { return cRepeatUntilKeyword_9_0; }
+		public Keyword getRepeatUntilKeyword_8_0() { return cRepeatUntilKeyword_8_0; }
 
 		//RepeatUntil=EDate
-		public Assignment getRepeatUntilAssignment_9_1() { return cRepeatUntilAssignment_9_1; }
+		public Assignment getRepeatUntilAssignment_8_1() { return cRepeatUntilAssignment_8_1; }
 
 		//EDate
-		public RuleCall getRepeatUntilEDateParserRuleCall_9_1_0() { return cRepeatUntilEDateParserRuleCall_9_1_0; }
+		public RuleCall getRepeatUntilEDateParserRuleCall_8_1_0() { return cRepeatUntilEDateParserRuleCall_8_1_0; }
 
 		//("cost" cost=Cost)?
-		public Group getGroup_10() { return cGroup_10; }
+		public Group getGroup_9() { return cGroup_9; }
 
 		//"cost"
-		public Keyword getCostKeyword_10_0() { return cCostKeyword_10_0; }
+		public Keyword getCostKeyword_9_0() { return cCostKeyword_9_0; }
 
 		//cost=Cost
-		public Assignment getCostAssignment_10_1() { return cCostAssignment_10_1; }
+		public Assignment getCostAssignment_9_1() { return cCostAssignment_9_1; }
 
 		//Cost
-		public RuleCall getCostCostParserRuleCall_10_1_0() { return cCostCostParserRuleCall_10_1_0; }
+		public RuleCall getCostCostParserRuleCall_9_1_0() { return cCostCostParserRuleCall_9_1_0; }
+
+		//Repeat?="Repeat"?
+		public Assignment getRepeatAssignment_10() { return cRepeatAssignment_10; }
+
+		//"Repeat"
+		public Keyword getRepeatRepeatKeyword_10_0() { return cRepeatRepeatKeyword_10_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
@@ -7893,7 +7860,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cPerUnitKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cPerUnitAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cPerUnitCostUnitParserRuleCall_3_1_0 = (RuleCall)cPerUnitAssignment_3_1.eContents().get(0);
+		private final RuleCall cPerUnitCostUnitEnumRuleCall_3_1_0 = (RuleCall)cPerUnitAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cAmountKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cAmountAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
@@ -7927,7 +7894,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getPerUnitAssignment_3_1() { return cPerUnitAssignment_3_1; }
 
 		//costUnit
-		public RuleCall getPerUnitCostUnitParserRuleCall_3_1_0() { return cPerUnitCostUnitParserRuleCall_3_1_0; }
+		public RuleCall getPerUnitCostUnitEnumRuleCall_3_1_0() { return cPerUnitCostUnitEnumRuleCall_3_1_0; }
 
 		//("Amount" Amount=EDoubleObject)?
 		public Group getGroup_4() { return cGroup_4; }
@@ -7943,34 +7910,6 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
-	}
-
-	public class RepatabilitySchemeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RepatabilityScheme");
-		private final Keyword cRepatabilitySchemeKeyword = (Keyword)rule.eContents().get(1);
-		
-		/// * TODO: implement this rule and an appropriate IValueConverter * / RepatabilityScheme returns
-		//
-		//availabilityContract::RepatabilityScheme:
-		//
-		//	"RepatabilityScheme";
-		public ParserRule getRule() { return rule; }
-
-		//"RepatabilityScheme"
-		public Keyword getRepatabilitySchemeKeyword() { return cRepatabilitySchemeKeyword; }
-	}
-
-	public class CostUnitElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "costUnit");
-		private final Keyword cCostUnitKeyword = (Keyword)rule.eContents().get(1);
-		
-		/// * TODO: implement this rule and an appropriate IValueConverter * / costUnit returns availabilityContract::costUnit:
-		//
-		//	"costUnit";
-		public ParserRule getRule() { return rule; }
-
-		//"costUnit"
-		public Keyword getCostUnitKeyword() { return cCostUnitKeyword; }
 	}
 
 	public class EDoubleObjectElements extends AbstractParserRuleElementFinder {
@@ -8032,12 +7971,12 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cReservedResourceContractAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cReservedResourceContractKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cUniqueIDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cUniqueIDEStringParserRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
+		private final RuleCall cUniqueIDSTRINGTerminalRuleCall_2_0 = (RuleCall)cUniqueIDAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cNameKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cNameAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cNameAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cIdKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cIdAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -8045,7 +7984,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDescriptionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDescriptionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDescriptionAssignment_6_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cValidFromKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cValidFromAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
@@ -8058,23 +7997,23 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cForResourceKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
 		private final Assignment cForResourceAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
 		private final CrossReference cForResourceOfferedResourceCrossReference_9_1_0 = (CrossReference)cForResourceAssignment_9_1.eContents().get(0);
-		private final RuleCall cForResourceOfferedResourceEStringParserRuleCall_9_1_0_1 = (RuleCall)cForResourceOfferedResourceCrossReference_9_1_0.eContents().get(1);
+		private final RuleCall cForResourceOfferedResourceSTRINGTerminalRuleCall_9_1_0_1 = (RuleCall)cForResourceOfferedResourceCrossReference_9_1_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//ReservedResourceContract returns slareservations::ReservedResourceContract:
 		//
-		//	{slareservations::ReservedResourceContract} "ReservedResourceContract" uniqueID=EString "{" ("name" name=EString)?
+		//	{slareservations::ReservedResourceContract} "ReservedResourceContract" uniqueID=STRING "{" ("name" name=STRING)?
 		//
-		//	("id" id=EInt)? ("description" description=EString)? ("ValidFrom" ValidFrom=EDate)? ("ValidUntil" ValidUntil=EDate)?
+		//	("id" id=EInt)? ("description" description=STRING)? ("ValidFrom" ValidFrom=EDate)? ("ValidUntil" ValidUntil=EDate)?
 		//
-		//	("forResource" forResource=[resources::OfferedResource|EString])? "}";
+		//	("forResource" forResource=[resources::OfferedResource|STRING])? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{slareservations::ReservedResourceContract} "ReservedResourceContract" uniqueID=EString "{" ("name" name=EString)? ("id"
+		//{slareservations::ReservedResourceContract} "ReservedResourceContract" uniqueID=STRING "{" ("name" name=STRING)? ("id"
 		//
-		//id=EInt)? ("description" description=EString)? ("ValidFrom" ValidFrom=EDate)? ("ValidUntil" ValidUntil=EDate)?
+		//id=EInt)? ("description" description=STRING)? ("ValidFrom" ValidFrom=EDate)? ("ValidUntil" ValidUntil=EDate)?
 		//
-		//("forResource" forResource=[resources::OfferedResource|EString])? "}"
+		//("forResource" forResource=[resources::OfferedResource|STRING])? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{slareservations::ReservedResourceContract}
@@ -8083,26 +8022,26 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//"ReservedResourceContract"
 		public Keyword getReservedResourceContractKeyword_1() { return cReservedResourceContractKeyword_1; }
 
-		//uniqueID=EString
+		//uniqueID=STRING
 		public Assignment getUniqueIDAssignment_2() { return cUniqueIDAssignment_2; }
 
-		//EString
-		public RuleCall getUniqueIDEStringParserRuleCall_2_0() { return cUniqueIDEStringParserRuleCall_2_0; }
+		//STRING
+		public RuleCall getUniqueIDSTRINGTerminalRuleCall_2_0() { return cUniqueIDSTRINGTerminalRuleCall_2_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//("name" name=EString)?
+		//("name" name=STRING)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"name"
 		public Keyword getNameKeyword_4_0() { return cNameKeyword_4_0; }
 
-		//name=EString
+		//name=STRING
 		public Assignment getNameAssignment_4_1() { return cNameAssignment_4_1; }
 
-		//EString
-		public RuleCall getNameEStringParserRuleCall_4_1_0() { return cNameEStringParserRuleCall_4_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_4_1_0() { return cNameSTRINGTerminalRuleCall_4_1_0; }
 
 		//("id" id=EInt)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -8116,17 +8055,17 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getIdEIntParserRuleCall_5_1_0() { return cIdEIntParserRuleCall_5_1_0; }
 
-		//("description" description=EString)?
+		//("description" description=STRING)?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"description"
 		public Keyword getDescriptionKeyword_6_0() { return cDescriptionKeyword_6_0; }
 
-		//description=EString
+		//description=STRING
 		public Assignment getDescriptionAssignment_6_1() { return cDescriptionAssignment_6_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_6_1_0() { return cDescriptionEStringParserRuleCall_6_1_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_6_1_0() { return cDescriptionSTRINGTerminalRuleCall_6_1_0; }
 
 		//("ValidFrom" ValidFrom=EDate)?
 		public Group getGroup_7() { return cGroup_7; }
@@ -8152,25 +8091,123 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		//EDate
 		public RuleCall getValidUntilEDateParserRuleCall_8_1_0() { return cValidUntilEDateParserRuleCall_8_1_0; }
 
-		//("forResource" forResource=[resources::OfferedResource|EString])?
+		//("forResource" forResource=[resources::OfferedResource|STRING])?
 		public Group getGroup_9() { return cGroup_9; }
 
 		//"forResource"
 		public Keyword getForResourceKeyword_9_0() { return cForResourceKeyword_9_0; }
 
-		//forResource=[resources::OfferedResource|EString]
+		//forResource=[resources::OfferedResource|STRING]
 		public Assignment getForResourceAssignment_9_1() { return cForResourceAssignment_9_1; }
 
-		//[resources::OfferedResource|EString]
+		//[resources::OfferedResource|STRING]
 		public CrossReference getForResourceOfferedResourceCrossReference_9_1_0() { return cForResourceOfferedResourceCrossReference_9_1_0; }
 
-		//EString
-		public RuleCall getForResourceOfferedResourceEStringParserRuleCall_9_1_0_1() { return cForResourceOfferedResourceEStringParserRuleCall_9_1_0_1; }
+		//STRING
+		public RuleCall getForResourceOfferedResourceSTRINGTerminalRuleCall_9_1_0_1() { return cForResourceOfferedResourceSTRINGTerminalRuleCall_9_1_0_1; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
 	}
 	
+	
+	public class RepatabilitySchemeElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "RepatabilityScheme");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cDAILYEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cDAILYDAILYKeyword_0_0 = (Keyword)cDAILYEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cWEEKLYEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cWEEKLYWEEKLYKeyword_1_0 = (Keyword)cWEEKLYEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cMONTHLYEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cMONTHLYMONTHLYKeyword_2_0 = (Keyword)cMONTHLYEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cYEARLYEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cYEARLYYEARLYKeyword_3_0 = (Keyword)cYEARLYEnumLiteralDeclaration_3.eContents().get(0);
+		
+		//enum RepatabilityScheme returns availabilityContract::RepatabilityScheme:
+		//
+		//	DAILY | WEEKLY | MONTHLY | YEARLY;
+		public EnumRule getRule() { return rule; }
+
+		//DAILY | WEEKLY | MONTHLY | YEARLY
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//DAILY
+		public EnumLiteralDeclaration getDAILYEnumLiteralDeclaration_0() { return cDAILYEnumLiteralDeclaration_0; }
+
+		//"DAILY"
+		public Keyword getDAILYDAILYKeyword_0_0() { return cDAILYDAILYKeyword_0_0; }
+
+		//WEEKLY
+		public EnumLiteralDeclaration getWEEKLYEnumLiteralDeclaration_1() { return cWEEKLYEnumLiteralDeclaration_1; }
+
+		//"WEEKLY"
+		public Keyword getWEEKLYWEEKLYKeyword_1_0() { return cWEEKLYWEEKLYKeyword_1_0; }
+
+		//MONTHLY
+		public EnumLiteralDeclaration getMONTHLYEnumLiteralDeclaration_2() { return cMONTHLYEnumLiteralDeclaration_2; }
+
+		//"MONTHLY"
+		public Keyword getMONTHLYMONTHLYKeyword_2_0() { return cMONTHLYMONTHLYKeyword_2_0; }
+
+		//YEARLY
+		public EnumLiteralDeclaration getYEARLYEnumLiteralDeclaration_3() { return cYEARLYEnumLiteralDeclaration_3; }
+
+		//"YEARLY"
+		public Keyword getYEARLYYEARLYKeyword_3_0() { return cYEARLYYEARLYKeyword_3_0; }
+	}
+
+	public class CostUnitElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "costUnit");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cMINEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cMINMINKeyword_0_0 = (Keyword)cMINEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cHOUREnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cHOURHOURKeyword_1_0 = (Keyword)cHOUREnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cDAYEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cDAYDAYKeyword_2_0 = (Keyword)cDAYEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cUSAGEEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cUSAGEUSAGEKeyword_3_0 = (Keyword)cUSAGEEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cOTHEREnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cOTHEROTHERKeyword_4_0 = (Keyword)cOTHEREnumLiteralDeclaration_4.eContents().get(0);
+		
+		//enum costUnit returns availabilityContract::costUnit:
+		//
+		//	MIN | HOUR | DAY | USAGE | OTHER;
+		public EnumRule getRule() { return rule; }
+
+		//MIN | HOUR | DAY | USAGE | OTHER
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//MIN
+		public EnumLiteralDeclaration getMINEnumLiteralDeclaration_0() { return cMINEnumLiteralDeclaration_0; }
+
+		//"MIN"
+		public Keyword getMINMINKeyword_0_0() { return cMINMINKeyword_0_0; }
+
+		//HOUR
+		public EnumLiteralDeclaration getHOUREnumLiteralDeclaration_1() { return cHOUREnumLiteralDeclaration_1; }
+
+		//"HOUR"
+		public Keyword getHOURHOURKeyword_1_0() { return cHOURHOURKeyword_1_0; }
+
+		//DAY
+		public EnumLiteralDeclaration getDAYEnumLiteralDeclaration_2() { return cDAYEnumLiteralDeclaration_2; }
+
+		//"DAY"
+		public Keyword getDAYDAYKeyword_2_0() { return cDAYDAYKeyword_2_0; }
+
+		//USAGE
+		public EnumLiteralDeclaration getUSAGEEnumLiteralDeclaration_3() { return cUSAGEEnumLiteralDeclaration_3; }
+
+		//"USAGE"
+		public Keyword getUSAGEUSAGEKeyword_3_0() { return cUSAGEUSAGEKeyword_3_0; }
+
+		//OTHER
+		public EnumLiteralDeclaration getOTHEREnumLiteralDeclaration_4() { return cOTHEREnumLiteralDeclaration_4; }
+
+		//"OTHER"
+		public Keyword getOTHEROTHERKeyword_4_0() { return cOTHEROTHERKeyword_4_0; }
+	}
 	
 	private BrokerRuleElements pBrokerRule;
 	private ImportBrokerElements pImportBroker;
@@ -8182,7 +8219,6 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 	private AbstractSettingElements pAbstractSetting;
 	private NamedElementElements pNamedElement;
 	private SettingInstanceElements pSettingInstance;
-	private EStringElements pEString;
 	private EIntElements pEInt;
 	private TaxonomyElements pTaxonomy;
 	private OfferedServiceElements pOfferedService;
@@ -8232,8 +8268,8 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 	private RuntimeElementStatusElements pRuntimeElementStatus;
 	private AvailabilityElements pAvailability;
 	private CostElements pCost;
-	private RepatabilitySchemeElements pRepatabilityScheme;
-	private CostUnitElements pCostUnit;
+	private RepatabilitySchemeElements unknownRuleRepatabilityScheme;
+	private CostUnitElements unknownRuleCostUnit;
 	private EDoubleObjectElements pEDoubleObject;
 	private ReservedResourceContractElements pReservedResourceContract;
 	
@@ -8299,9 +8335,9 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Broker returns Broker::Broker:
 	//
-	//	{Broker::Broker} "Broker" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+	//	{Broker::Broker} "Broker" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 	//
-	//	description=EString)? ("resourceURI" resourceURI=EString)? ("APIGateway" APIGateway=EString)? ("registeredUsers" "{"
+	//	description=STRING)? ("resourceURI" resourceURI=STRING)? ("APIGateway" APIGateway=STRING)? ("registeredUsers" "{"
 	//
 	//	registeredUsers+=BrokerUser ("," registeredUsers+=BrokerUser)* "}")? ("contributedTaxonomies" "{"
 	//
@@ -8403,17 +8439,10 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		return getSettingInstanceAccess().getRule();
 	}
 
-	//EString returns ecore::EString:
+	////STRING returns ecore::STRING:
 	//
-	//	STRING | ID;
-	public EStringElements getEStringAccess() {
-		return (pEString != null) ? pEString : (pEString = new EStringElements());
-	}
-	
-	public ParserRule getEStringRule() {
-		return getEStringAccess().getRule();
-	}
-
+	////	STRING | ID;
+	//
 	//EInt returns ecore::EInt:
 	//
 	//	"-"? INT;
@@ -8427,13 +8456,13 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Taxonomy returns services::Taxonomy:
 	//
-	//	{services::Taxonomy} "Taxonomy" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+	//	{services::Taxonomy} "Taxonomy" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 	//
-	//	description=EString)? ("hasScenarios" "(" hasScenarios+=[federationscenarios::RequestedFederationScenario|EString]
+	//	description=STRING)? ("hasScenarios" "(" hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING] (","
 	//
-	//	("," hasScenarios+=[federationscenarios::RequestedFederationScenario|EString])* ")")? ("hasServices" "("
+	//	hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING])* ")")? ("hasServices" "("
 	//
-	//	hasServices+=[services::Service|EString] ("," hasServices+=[services::Service|EString])* ")")? ("taxonomies" "{"
+	//	hasServices+=[services::Service|STRING] ("," hasServices+=[services::Service|STRING])* ")")? ("taxonomies" "{"
 	//
 	//	taxonomies+=Taxonomy ("," taxonomies+=Taxonomy)* "}")? ("categories" "{" categories+=ResourceCategory (","
 	//
@@ -8448,11 +8477,11 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//OfferedService returns services::OfferedService:
 	//
-	//	{services::OfferedService} "OfferedService" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+	//	{services::OfferedService} "OfferedService" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 	//
-	//	("description" description=EString)? ("requiresServices" "(" requiresServices+=[services::Service|EString] (","
+	//	description=STRING)? ("requiresServices" "(" requiresServices+=[services::Service|STRING] (","
 	//
-	//	requiresServices+=[services::Service|EString])* ")")? ("serviceSettings" "{" serviceSettings+=ServiceSetting (","
+	//	requiresServices+=[services::Service|STRING])* ")")? ("serviceSettings" "{" serviceSettings+=ServiceSetting (","
 	//
 	//	serviceSettings+=ServiceSetting)* "}")? "}";
 	public OfferedServiceElements getOfferedServiceAccess() {
@@ -8467,7 +8496,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//
 	//	{federationscenarios::RequestedFederationScenario} isShared?="isShared"? "RequestedFederationScenario"
 	//
-	//	uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)? ("status"
+	//	uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)? ("status"
 	//
 	//	status=ScenarioStatus)? ("VTCredentials" VTCredentials=Credentials)? ("servicesRequest"
 	//
@@ -8486,11 +8515,11 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ServiceComposition returns services::ServiceComposition:
 	//
-	//	{services::ServiceComposition} "ServiceComposition" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+	//	{services::ServiceComposition} "ServiceComposition" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 	//
-	//	("description" description=EString)? ("hasServices" "(" hasServices+=[services::Service|EString] (","
+	//	("description" description=STRING)? ("hasServices" "(" hasServices+=[services::Service|STRING] (","
 	//
-	//	hasServices+=[services::Service|EString])* ")")? "}";
+	//	hasServices+=[services::Service|STRING])* ")")? "}";
 	public ServiceCompositionElements getServiceCompositionAccess() {
 		return (pServiceComposition != null) ? pServiceComposition : (pServiceComposition = new ServiceCompositionElements());
 	}
@@ -8501,13 +8530,13 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ResourceServiceContract returns availabilityContract::ResourceServiceContract:
 	//
-	//	"ResourceServiceContract" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+	//	"ResourceServiceContract" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 	//
-	//	description=EString)? "StartDate" StartDate=EDate "EndDate" EndDate=EDate "forOfferedService"
+	//	description=STRING)? "StartDate" StartDate=EDate "EndDate" EndDate=EDate "forOfferedService"
 	//
-	//	forOfferedService=[services::Service|EString] "forOfferedResource"
+	//	forOfferedService=[services::Service|STRING] "forOfferedResource"
 	//
-	//	forOfferedResource=[resources::OfferedResource|EString] ("availability" availability=Availability)? "}";
+	//	forOfferedResource=[resources::OfferedResource|STRING] ("availability" availability=Availability)? "}";
 	public ResourceServiceContractElements getResourceServiceContractAccess() {
 		return (pResourceServiceContract != null) ? pResourceServiceContract : (pResourceServiceContract = new ResourceServiceContractElements());
 	}
@@ -8518,11 +8547,11 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//SLA returns slareservations::SLA:
 	//
-	//	{slareservations::SLA} "SLA" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+	//	{slareservations::SLA} "SLA" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 	//
-	//	description=EString)? ("ValidFrom" ValidFrom=EDate)? ("ValidUntil" ValidUntil=EDate)? ("forVT"
+	//	description=STRING)? ("ValidFrom" ValidFrom=EDate)? ("ValidUntil" ValidUntil=EDate)? ("forVT"
 	//
-	//	forVT=[federationscenarios::RequestedFederationScenario|EString])? ("ReservedRsources" "{"
+	//	forVT=[federationscenarios::RequestedFederationScenario|STRING])? ("ReservedRsources" "{"
 	//
 	//	ReservedRsources+=ReservedResourceContract ("," ReservedRsources+=ReservedResourceContract)* "}")? "}";
 	public SLAElements getSLAAccess() {
@@ -8535,9 +8564,9 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Account returns users::Account:
 	//
-	//	{users::Account} "Account" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+	//	{users::Account} "Account" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 	//
-	//	description=EString)? ("password" password=EString)? ("username" username=EString)? "}";
+	//	description=STRING)? ("password" password=STRING)? ("username" username=STRING)? "}";
 	public AccountElements getAccountAccess() {
 		return (pAccount != null) ? pAccount : (pAccount = new AccountElements());
 	}
@@ -8548,11 +8577,11 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ResourcesProvider returns users::ResourcesProvider:
 	//
-	//	{users::ResourcesProvider} "ResourcesProvider" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+	//	{users::ResourcesProvider} "ResourcesProvider" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 	//
-	//	("description" description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+	//	("description" description=STRING)? ("organization" organization=STRING)? ("address" address=STRING)? ("telephone"
 	//
-	//	telephone=EString)? ("hasAccount" hasAccount=Account)? ("offeredSiteList" "{" offeredSiteList+=Site (","
+	//	telephone=STRING)? ("hasAccount" hasAccount=Account)? ("offeredSiteList" "{" offeredSiteList+=Site (","
 	//
 	//	offeredSiteList+=Site)* "}")? "}";
 	public ResourcesProviderElements getResourcesProviderAccess() {
@@ -8565,15 +8594,15 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//TestbedDesigner returns users::TestbedDesigner:
 	//
-	//	{users::TestbedDesigner} "TestbedDesigner" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+	//	{users::TestbedDesigner} "TestbedDesigner" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 	//
-	//	description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+	//	description=STRING)? ("organization" organization=STRING)? ("address" address=STRING)? ("telephone"
 	//
-	//	telephone=EString)? ("designsVirtualTestbeds" "("
+	//	telephone=STRING)? ("designsVirtualTestbeds" "("
 	//
-	//	designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString] (","
+	//	designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING] (","
 	//
-	//	designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString])* ")")? ("hasAccount"
+	//	designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING])* ")")? ("hasAccount"
 	//
 	//	hasAccount=Account)? "}";
 	public TestbedDesignerElements getTestbedDesignerAccess() {
@@ -8586,11 +8615,11 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Admin returns users::Admin:
 	//
-	//	{users::Admin} "Admin" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+	//	{users::Admin} "Admin" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 	//
-	//	description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+	//	("organization" organization=STRING)? ("address" address=STRING)? ("telephone" telephone=STRING)? ("hasAccount"
 	//
-	//	telephone=EString)? ("hasAccount" hasAccount=Account)? "}";
+	//	hasAccount=Account)? "}";
 	public AdminElements getAdminAccess() {
 		return (pAdmin != null) ? pAdmin : (pAdmin = new AdminElements());
 	}
@@ -8601,17 +8630,17 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//BrokerCustomer returns users::BrokerCustomer:
 	//
-	//	{users::BrokerCustomer} "BrokerCustomer" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+	//	{users::BrokerCustomer} "BrokerCustomer" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 	//
-	//	description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+	//	description=STRING)? ("organization" organization=STRING)? ("address" address=STRING)? ("telephone"
 	//
-	//	telephone=EString)? ("utilizesVirtualTestbed" "("
+	//	telephone=STRING)? ("utilizesVirtualTestbed" "("
 	//
-	//	utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString] (","
+	//	utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING] (","
 	//
-	//	utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString])* ")")? ("hasTestbedDesigner"
+	//	utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING])* ")")? ("hasTestbedDesigner"
 	//
-	//	hasTestbedDesigner=[users::TestbedDesigner|EString])? ("hasAccount" hasAccount=Account)? "}";
+	//	hasTestbedDesigner=[users::TestbedDesigner|STRING])? ("hasAccount" hasAccount=Account)? "}";
 	public BrokerCustomerElements getBrokerCustomerAccess() {
 		return (pBrokerCustomer != null) ? pBrokerCustomer : (pBrokerCustomer = new BrokerCustomerElements());
 	}
@@ -8622,11 +8651,11 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//BrokerPersonel_Impl returns users::BrokerPersonel:
 	//
-	//	{users::BrokerPersonel} "BrokerPersonel" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+	//	{users::BrokerPersonel} "BrokerPersonel" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 	//
-	//	description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+	//	description=STRING)? ("organization" organization=STRING)? ("address" address=STRING)? ("telephone"
 	//
-	//	telephone=EString)? ("hasAccount" hasAccount=Account)? "}";
+	//	telephone=STRING)? ("hasAccount" hasAccount=Account)? "}";
 	public BrokerPersonel_ImplElements getBrokerPersonel_ImplAccess() {
 		return (pBrokerPersonel_Impl != null) ? pBrokerPersonel_Impl : (pBrokerPersonel_Impl = new BrokerPersonel_ImplElements());
 	}
@@ -8637,9 +8666,9 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Site returns providersite::Site:
 	//
-	//	"Site" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)?
+	//	"Site" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 	//
-	//	"domainmanager" domainManager=DomainManager "locatedAt" locatedAt=SiteLocation ("offeredResourcesList" "{"
+	//	domainManager=DomainManager "locatedAt" locatedAt=SiteLocation ("offeredResourcesList" "{"
 	//
 	//	offeredResourcesList+=OfferedResource ("," offeredResourcesList+=OfferedResource)* "}")? "}";
 	public SiteElements getSiteAccess() {
@@ -8652,9 +8681,9 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//DomainManager returns providersite::DomainManager:
 	//
-	//	{providersite::DomainManager} "DomainManager" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+	//	{providersite::DomainManager} "DomainManager" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 	//
-	//	("description" description=EString)? ("IP" IP=EString)? "}";
+	//	("description" description=STRING)? ("IP" IP=STRING)? "}";
 	public DomainManagerElements getDomainManagerAccess() {
 		return (pDomainManager != null) ? pDomainManager : (pDomainManager = new DomainManagerElements());
 	}
@@ -8665,9 +8694,9 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//SiteLocation returns providersite::SiteLocation:
 	//
-	//	{providersite::SiteLocation} "SiteLocation" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+	//	{providersite::SiteLocation} "SiteLocation" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 	//
-	//	("description" description=EString)? ("address" address=EString)? ("geocoords" geocoords=EString)? "}";
+	//	description=STRING)? ("address" address=STRING)? ("geocoords" geocoords=STRING)? "}";
 	public SiteLocationElements getSiteLocationAccess() {
 		return (pSiteLocation != null) ? pSiteLocation : (pSiteLocation = new SiteLocationElements());
 	}
@@ -8678,19 +8707,19 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//OfferedResource returns resources::OfferedResource:
 	//
-	//	{resources::OfferedResource} "OfferedResource" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+	//	{resources::OfferedResource} "OfferedResource" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 	//
-	//	("description" description=EString)? ("resourceType" resourceType=ResourceType)? ("multitonMaxOccur"
+	//	("description" description=STRING)? ("resourceType" resourceType=ResourceType)? ("multitonMaxOccur"
 	//
-	//	multitonMaxOccur=EInt)? ("geocoords" geocoords=EString)? ("contributesToCategories" "("
+	//	multitonMaxOccur=EInt)? ("geocoords" geocoords=STRING)? ("contributesToCategories" "("
 	//
-	//	contributesToCategories+=[resources::ResourceCategory|EString] (","
+	//	contributesToCategories+=[resources::ResourceCategory|STRING] (","
 	//
-	//	contributesToCategories+=[resources::ResourceCategory|EString])* ")")? ("requiresResources" "("
+	//	contributesToCategories+=[resources::ResourceCategory|STRING])* ")")? ("requiresResources" "("
 	//
-	//	requiresResources+=[resources::Resource|EString] ("," requiresResources+=[resources::Resource|EString])* ")")?
+	//	requiresResources+=[resources::Resource|STRING] ("," requiresResources+=[resources::Resource|STRING])* ")")?
 	//
-	//	("implOfferedService" implOfferedService=[services::Service|EString])? ("resourceSettings" "{"
+	//	("implOfferedService" implOfferedService=[services::Service|STRING])? ("resourceSettings" "{"
 	//
 	//	resourceSettings+=ResourceSetting ("," resourceSettings+=ResourceSetting)* "}")? "}";
 	public OfferedResourceElements getOfferedResourceAccess() {
@@ -8703,23 +8732,21 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ResourceSetting returns resources::ResourceSetting:
 	//
-	//	{resources::ResourceSetting} "ResourceSetting" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+	//	{resources::ResourceSetting} "ResourceSetting" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 	//
-	//	("description" description=EString)? userExposed?="userExposed"? userEditable?="userEditable"?
+	//	("description" description=STRING)? userExposed?="userExposed"? userEditable?="userEditable"?
 	//
 	//	canBePublished?="canBePublished"? Readable?="Readable"? Writable?="Writable"? Optional?="Optional"? ("requiresParams"
 	//
-	//	"(" requiresParams+=[services::AbstractSetting|EString] ("," requiresParams+=[services::AbstractSetting|EString])*
+	//	"(" requiresParams+=[services::AbstractSetting|STRING] ("," requiresParams+=[services::AbstractSetting|STRING])*
 	//
-	//	")")? ("OnlyConfiguredByResources" "(" OnlyConfiguredByResources+=[resources::Resource|EString] (","
+	//	")")? ("OnlyConfiguredByResources" "(" OnlyConfiguredByResources+=[resources::Resource|STRING] (","
 	//
-	//	OnlyConfiguredByResources+=[resources::Resource|EString])* ")")? ("implServiceSetting"
+	//	OnlyConfiguredByResources+=[resources::Resource|STRING])* ")")? ("implServiceSetting"
 	//
-	//	implServiceSetting=[services::ServiceSetting|EString])? ("settingType" settingType=SettingType)?
+	//	implServiceSetting=[services::ServiceSetting|STRING])? ("settingType" settingType=SettingType)? ("settingConstraints"
 	//
-	//	("settingConstraints" "{" settingConstraints+=SettingConstraint ("," settingConstraints+=SettingConstraint)* "}")?
-	//
-	//	"}";
+	//	"{" settingConstraints+=SettingConstraint ("," settingConstraints+=SettingConstraint)* "}")? "}";
 	public ResourceSettingElements getResourceSettingAccess() {
 		return (pResourceSetting != null) ? pResourceSetting : (pResourceSetting = new ResourceSettingElements());
 	}
@@ -8730,11 +8757,11 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ResourceCategory returns resources::ResourceCategory:
 	//
-	//	{resources::ResourceCategory} "ResourceCategory" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+	//	{resources::ResourceCategory} "ResourceCategory" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 	//
-	//	("description" description=EString)? ("resourcelist" "(" resourcelist+=[resources::Resource|EString] (","
+	//	("description" description=STRING)? ("resourcelist" "(" resourcelist+=[resources::Resource|STRING] (","
 	//
-	//	resourcelist+=[resources::Resource|EString])* ")")? "}";
+	//	resourcelist+=[resources::Resource|STRING])* ")")? "}";
 	public ResourceCategoryElements getResourceCategoryAccess() {
 		return (pResourceCategory != null) ? pResourceCategory : (pResourceCategory = new ResourceCategoryElements());
 	}
@@ -8745,13 +8772,13 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Resource_Impl returns resources::Resource:
 	//
-	//	{resources::Resource} "Resource" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+	//	{resources::Resource} "Resource" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 	//
-	//	description=EString)? ("contributesToCategories" "(" contributesToCategories+=[resources::ResourceCategory|EString]
+	//	description=STRING)? ("contributesToCategories" "(" contributesToCategories+=[resources::ResourceCategory|STRING]
 	//
-	//	("," contributesToCategories+=[resources::ResourceCategory|EString])* ")")? ("requiresResources" "("
+	//	("," contributesToCategories+=[resources::ResourceCategory|STRING])* ")")? ("requiresResources" "("
 	//
-	//	requiresResources+=[resources::Resource|EString] ("," requiresResources+=[resources::Resource|EString])* ")")?
+	//	requiresResources+=[resources::Resource|STRING] ("," requiresResources+=[resources::Resource|STRING])* ")")?
 	//
 	//	("resourceSettings" "{" resourceSettings+=ResourceSetting ("," resourceSettings+=ResourceSetting)* "}")? "}";
 	public Resource_ImplElements getResource_ImplAccess() {
@@ -8775,11 +8802,11 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Service_Impl returns services::Service:
 	//
-	//	{services::Service} "Service" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+	//	{services::Service} "Service" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 	//
-	//	description=EString)? ("requiresServices" "(" requiresServices+=[services::Service|EString] (","
+	//	description=STRING)? ("requiresServices" "(" requiresServices+=[services::Service|STRING] (","
 	//
-	//	requiresServices+=[services::Service|EString])* ")")? ("serviceSettings" "{" serviceSettings+=ServiceSetting (","
+	//	requiresServices+=[services::Service|STRING])* ")")? ("serviceSettings" "{" serviceSettings+=ServiceSetting (","
 	//
 	//	serviceSettings+=ServiceSetting)* "}")? "}";
 	public Service_ImplElements getService_ImplAccess() {
@@ -8805,9 +8832,9 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//
 	//	{services::SettingConstraint} AvailableAfterOperation?="AvailableAfterOperation"?
 	//
-	//	RequiredBeforeOperation?="RequiredBeforeOperation"? "SettingConstraint" uniqueID=EString "{" ("name" name=EString)?
+	//	RequiredBeforeOperation?="RequiredBeforeOperation"? "SettingConstraint" uniqueID=STRING "{" ("name" name=STRING)?
 	//
-	//	("id" id=EInt)? ("description" description=EString)? ("ForOperation" ForOperation=ServiceResourceOperation)? "}";
+	//	("id" id=EInt)? ("description" description=STRING)? ("ForOperation" ForOperation=ServiceResourceOperation)? "}";
 	public SettingConstraintElements getSettingConstraintAccess() {
 		return (pSettingConstraint != null) ? pSettingConstraint : (pSettingConstraint = new SettingConstraintElements());
 	}
@@ -8818,13 +8845,13 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//AbstractSetting_Impl returns services::AbstractSetting:
 	//
-	//	{services::AbstractSetting} "AbstractSetting" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+	//	{services::AbstractSetting} "AbstractSetting" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 	//
-	//	("description" description=EString)? userExposed?="userExposed"? userEditable?="userEditable"?
+	//	("description" description=STRING)? userExposed?="userExposed"? userEditable?="userEditable"?
 	//
 	//	canBePublished?="canBePublished"? Readable?="Readable"? Writable?="Writable"? Optional?="Optional"? ("requiresParams"
 	//
-	//	"(" requiresParams+=[services::AbstractSetting|EString] ("," requiresParams+=[services::AbstractSetting|EString])*
+	//	"(" requiresParams+=[services::AbstractSetting|STRING] ("," requiresParams+=[services::AbstractSetting|STRING])*
 	//
 	//	")")? ("settingType" settingType=SettingType)? ("settingConstraints" "{" settingConstraints+=SettingConstraint (","
 	//
@@ -8839,19 +8866,19 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ServiceSetting returns services::ServiceSetting:
 	//
-	//	{services::ServiceSetting} "ServiceSetting" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+	//	{services::ServiceSetting} "ServiceSetting" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 	//
-	//	("description" description=EString)? userExposed?="userExposed"? userEditable?="userEditable"?
+	//	description=STRING)? userExposed?="userExposed"? userEditable?="userEditable"? canBePublished?="canBePublished"?
 	//
-	//	canBePublished?="canBePublished"? Readable?="Readable"? Writable?="Writable"? Optional?="Optional"? ("requiresParams"
+	//	Readable?="Readable"? Writable?="Writable"? Optional?="Optional"? ("requiresParams" "("
 	//
-	//	"(" requiresParams+=[services::AbstractSetting|EString] ("," requiresParams+=[services::AbstractSetting|EString])*
+	//	requiresParams+=[services::AbstractSetting|STRING] ("," requiresParams+=[services::AbstractSetting|STRING])* ")")?
 	//
-	//	")")? ("mappedToResourceSettings" "(" mappedToResourceSettings+=[resources::ResourceSetting|EString] (","
+	//	("mappedToResourceSettings" "(" mappedToResourceSettings+=[resources::ResourceSetting|STRING] (","
 	//
-	//	mappedToResourceSettings+=[resources::ResourceSetting|EString])* ")")? ("providedByResources" "("
+	//	mappedToResourceSettings+=[resources::ResourceSetting|STRING])* ")")? ("providedByResources" "("
 	//
-	//	providedByResources+=[resources::Resource|EString] ("," providedByResources+=[resources::Resource|EString])* ")")?
+	//	providedByResources+=[resources::Resource|STRING] ("," providedByResources+=[resources::Resource|STRING])* ")")?
 	//
 	//	("settingType" settingType=SettingType)? ("settingConstraints" "{" settingConstraints+=SettingConstraint (","
 	//
@@ -8866,9 +8893,9 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//brTypeString returns services::brTypeString:
 	//
-	//	{services::brTypeString} "brTypeString" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+	//	{services::brTypeString} "brTypeString" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 	//
-	//	description=EString)? ("defaultValue" defaultValue=EString)? "}";
+	//	description=STRING)? ("defaultValue" defaultValue=STRING)? "}";
 	public BrTypeStringElements getBrTypeStringAccess() {
 		return (pBrTypeString != null) ? pBrTypeString : (pBrTypeString = new BrTypeStringElements());
 	}
@@ -8879,9 +8906,9 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//brTypeEnum returns services::brTypeEnum:
 	//
-	//	{services::brTypeEnum} "brTypeEnum" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+	//	{services::brTypeEnum} "brTypeEnum" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 	//
-	//	description=EString)? ("defaultValue" defaultValue=[services::brTypeEnumItem|EString])? ("tideEnumlist" "{"
+	//	description=STRING)? ("defaultValue" defaultValue=[services::brTypeEnumItem|STRING])? ("tideEnumlist" "{"
 	//
 	//	tideEnumlist+=brTypeEnumItem ("," tideEnumlist+=brTypeEnumItem)* "}")? "}";
 	public BrTypeEnumElements getBrTypeEnumAccess() {
@@ -8894,9 +8921,9 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//brTypeList returns services::brTypeList:
 	//
-	//	{services::brTypeList} "brTypeList" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+	//	{services::brTypeList} "brTypeList" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 	//
-	//	description=EString)? ("ContainsElementsOf" ContainsElementsOf=[Broker::NamedElement|EString])? "}";
+	//	description=STRING)? ("ContainsElementsOf" ContainsElementsOf=[Broker::NamedElement|STRING])? "}";
 	public BrTypeListElements getBrTypeListAccess() {
 		return (pBrTypeList != null) ? pBrTypeList : (pBrTypeList = new BrTypeListElements());
 	}
@@ -8907,9 +8934,9 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//brTypeTideElement returns services::brTypeTideElement:
 	//
-	//	{services::brTypeTideElement} "brTypeTideElement" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+	//	{services::brTypeTideElement} "brTypeTideElement" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 	//
-	//	("description" description=EString)? ("ofTideElement" ofTideElement=[Broker::NamedElement|EString])? "}";
+	//	("description" description=STRING)? ("ofTideElement" ofTideElement=[Broker::NamedElement|STRING])? "}";
 	public BrTypeTideElementElements getBrTypeTideElementAccess() {
 		return (pBrTypeTideElement != null) ? pBrTypeTideElement : (pBrTypeTideElement = new BrTypeTideElementElements());
 	}
@@ -8920,7 +8947,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//brTypeEnumItem returns services::brTypeEnumItem:
 	//
-	//	{services::brTypeEnumItem} "brTypeEnumItem" "{" ("value" value=EString)? ("description" description=EString)? "}";
+	//	{services::brTypeEnumItem} "brTypeEnumItem" "{" ("value" value=STRING)? ("description" description=STRING)? "}";
 	public BrTypeEnumItemElements getBrTypeEnumItemAccess() {
 		return (pBrTypeEnumItem != null) ? pBrTypeEnumItem : (pBrTypeEnumItem = new BrTypeEnumItemElements());
 	}
@@ -8955,9 +8982,9 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Credentials returns federationscenarios::Credentials:
 	//
-	//	{federationscenarios::Credentials} "Credentials" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+	//	{federationscenarios::Credentials} "Credentials" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 	//
-	//	("description" description=EString)? ("username" username=EString)? ("password" password=EString)? "}";
+	//	("description" description=STRING)? ("username" username=STRING)? ("password" password=STRING)? "}";
 	public CredentialsElements getCredentialsAccess() {
 		return (pCredentials != null) ? pCredentials : (pCredentials = new CredentialsElements());
 	}
@@ -8968,9 +8995,9 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ServicesRequest returns federationscenarios::ServicesRequest:
 	//
-	//	{federationscenarios::ServicesRequest} "ServicesRequest" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+	//	{federationscenarios::ServicesRequest} "ServicesRequest" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 	//
-	//	("description" description=EString)? ("serviceRequestList" "{" serviceRequestList+=ServiceRequest (","
+	//	("description" description=STRING)? ("serviceRequestList" "{" serviceRequestList+=ServiceRequest (","
 	//
 	//	serviceRequestList+=ServiceRequest)* "}")? "}";
 	public ServicesRequestElements getServicesRequestAccess() {
@@ -8983,11 +9010,11 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//InfrastructureRequest returns federationscenarios::InfrastructureRequest:
 	//
-	//	{federationscenarios::InfrastructureRequest} "InfrastructureRequest" uniqueID=EString "{" ("name" name=EString)?
+	//	{federationscenarios::InfrastructureRequest} "InfrastructureRequest" uniqueID=STRING "{" ("name" name=STRING)? ("id"
 	//
-	//	("id" id=EInt)? ("description" description=EString)? ("reqOfferedResources" "{" reqOfferedResources+=ResourceRequest
+	//	id=EInt)? ("description" description=STRING)? ("reqOfferedResources" "{" reqOfferedResources+=ResourceRequest (","
 	//
-	//	("," reqOfferedResources+=ResourceRequest)* "}")? ("resourceGroups" "{" resourceGroups+=ResourceGroup (","
+	//	reqOfferedResources+=ResourceRequest)* "}")? ("resourceGroups" "{" resourceGroups+=ResourceGroup (","
 	//
 	//	resourceGroups+=ResourceGroup)* "}")? "}";
 	public InfrastructureRequestElements getInfrastructureRequestAccess() {
@@ -9013,7 +9040,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Import returns federationscenarios::Import:
 	//
-	//	{federationscenarios::Import} "Import" "{" ("importURI" importURI=EString)? "}";
+	//	{federationscenarios::Import} "Import" "{" ("importURI" importURI=STRING)? "}";
 	public ImportElements getImportAccess() {
 		return (pImport != null) ? pImport : (pImport = new ImportElements());
 	}
@@ -9024,11 +9051,11 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//RuntimeElement returns experimentRuntime::RuntimeElement:
 	//
-	//	{experimentRuntime::RuntimeElement} "RuntimeElement" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+	//	{experimentRuntime::RuntimeElement} "RuntimeElement" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 	//
-	//	("description" description=EString)? ("status" status=RuntimeElementStatus)? ("GUID" GUID=EString)? ("context"
+	//	("description" description=STRING)? ("status" status=RuntimeElementStatus)? ("GUID" GUID=STRING)? ("context"
 	//
-	//	context=EString)? "}";
+	//	context=STRING)? "}";
 	public RuntimeElementElements getRuntimeElementAccess() {
 		return (pRuntimeElement != null) ? pRuntimeElement : (pRuntimeElement = new RuntimeElementElements());
 	}
@@ -9039,11 +9066,11 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ServiceRequest returns federationscenarios::ServiceRequest:
 	//
-	//	"ServiceRequest" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)?
+	//	"ServiceRequest" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 	//
-	//	("numOfServices" numOfServices=EInt)? "refService" refService=[services::Service|EString] ("OfferedByProviders"
+	//	("numOfServices" numOfServices=EInt)? "refService" refService=[services::Service|STRING] ("OfferedByProviders"
 	//
-	//	OfferedByProviders=[users::ResourcesProvider|EString])? ("reqServiceSettings" "{"
+	//	OfferedByProviders=[users::ResourcesProvider|STRING])? ("reqServiceSettings" "{"
 	//
 	//	reqServiceSettings+=ServiceSettingInstance ("," reqServiceSettings+=ServiceSettingInstance)* "}")? "}";
 	public ServiceRequestElements getServiceRequestAccess() {
@@ -9056,15 +9083,15 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ServiceSettingInstance returns federationscenarios::ServiceSettingInstance:
 	//
-	//	"ServiceSettingInstance" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+	//	"ServiceSettingInstance" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 	//
-	//	description=EString)? ("staticValue" staticValue=EString)? ("assignSetting" "("
+	//	description=STRING)? ("staticValue" staticValue=STRING)? ("assignSetting" "("
 	//
-	//	assignSetting+=[federationscenarios::SettingInstance|EString] (","
+	//	assignSetting+=[federationscenarios::SettingInstance|STRING] (","
 	//
-	//	assignSetting+=[federationscenarios::SettingInstance|EString])* ")")? "refServiceSetting"
+	//	assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")? "refServiceSetting"
 	//
-	//	refServiceSetting=[services::ServiceSetting|EString] "}";
+	//	refServiceSetting=[services::ServiceSetting|STRING] "}";
 	public ServiceSettingInstanceElements getServiceSettingInstanceAccess() {
 		return (pServiceSettingInstance != null) ? pServiceSettingInstance : (pServiceSettingInstance = new ServiceSettingInstanceElements());
 	}
@@ -9075,13 +9102,13 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//SettingInstance_Impl returns federationscenarios::SettingInstance:
 	//
-	//	{federationscenarios::SettingInstance} "SettingInstance" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+	//	{federationscenarios::SettingInstance} "SettingInstance" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 	//
-	//	("description" description=EString)? ("staticValue" staticValue=EString)? ("assignSetting" "("
+	//	("description" description=STRING)? ("staticValue" staticValue=STRING)? ("assignSetting" "("
 	//
-	//	assignSetting+=[federationscenarios::SettingInstance|EString] (","
+	//	assignSetting+=[federationscenarios::SettingInstance|STRING] (","
 	//
-	//	assignSetting+=[federationscenarios::SettingInstance|EString])* ")")? "}";
+	//	assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")? "}";
 	public SettingInstance_ImplElements getSettingInstance_ImplAccess() {
 		return (pSettingInstance_Impl != null) ? pSettingInstance_Impl : (pSettingInstance_Impl = new SettingInstance_ImplElements());
 	}
@@ -9092,15 +9119,15 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ResourceSettingInstance returns federationscenarios::ResourceSettingInstance:
 	//
-	//	"ResourceSettingInstance" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+	//	"ResourceSettingInstance" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 	//
-	//	description=EString)? ("staticValue" staticValue=EString)? ("assignSetting" "("
+	//	description=STRING)? ("staticValue" staticValue=STRING)? ("assignSetting" "("
 	//
-	//	assignSetting+=[federationscenarios::SettingInstance|EString] (","
+	//	assignSetting+=[federationscenarios::SettingInstance|STRING] (","
 	//
-	//	assignSetting+=[federationscenarios::SettingInstance|EString])* ")")? "refResourceSetting"
+	//	assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")? "refResourceSetting"
 	//
-	//	refResourceSetting=[resources::ResourceSetting|EString] "}";
+	//	refResourceSetting=[resources::ResourceSetting|STRING] "}";
 	public ResourceSettingInstanceElements getResourceSettingInstanceAccess() {
 		return (pResourceSettingInstance != null) ? pResourceSettingInstance : (pResourceSettingInstance = new ResourceSettingInstanceElements());
 	}
@@ -9111,9 +9138,9 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ResourceRequest returns federationscenarios::ResourceRequest:
 	//
-	//	"ResourceRequest" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)?
+	//	"ResourceRequest" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 	//
-	//	"refOfferedResource" refOfferedResource=[resources::OfferedResource|EString] ("reqResourceSettings" "{"
+	//	"refOfferedResource" refOfferedResource=[resources::OfferedResource|STRING] ("reqResourceSettings" "{"
 	//
 	//	reqResourceSettings+=ResourceSettingInstance ("," reqResourceSettings+=ResourceSettingInstance)* "}")? ("runtimeInfo"
 	//
@@ -9128,13 +9155,13 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ResourceGroup returns federationscenarios::ResourceGroup:
 	//
-	//	{federationscenarios::ResourceGroup} "ResourceGroup" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+	//	{federationscenarios::ResourceGroup} "ResourceGroup" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 	//
-	//	("description" description=EString)? ("groupedResources" "("
+	//	("description" description=STRING)? ("groupedResources" "("
 	//
-	//	groupedResources+=[federationscenarios::ResourceRequest|EString] (","
+	//	groupedResources+=[federationscenarios::ResourceRequest|STRING] (","
 	//
-	//	groupedResources+=[federationscenarios::ResourceRequest|EString])* ")")? "}";
+	//	groupedResources+=[federationscenarios::ResourceRequest|STRING])* ")")? "}";
 	public ResourceGroupElements getResourceGroupAccess() {
 		return (pResourceGroup != null) ? pResourceGroup : (pResourceGroup = new ResourceGroupElements());
 	}
@@ -9145,7 +9172,7 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	/// * TODO: implement this rule and an appropriate IValueConverter * / EDate returns ecore::EDate:
 	//
-	//	"EDate";
+	//	STRING;
 	public EDateElements getEDateAccess() {
 		return (pEDate != null) ? pEDate : (pEDate = new EDateElements());
 	}
@@ -9169,11 +9196,11 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Availability returns availabilityContract::Availability:
 	//
-	//	{availabilityContract::Availability} Repeat?="Repeat"? "Availability" "{" ("FromTime" FromTime=EDate)? ("ToTime"
+	//	{availabilityContract::Availability} "Availability" "{" ("FromTime" FromTime=EDate)? ("ToTime" ToTime=EDate)?
 	//
-	//	ToTime=EDate)? ("FromDate" FromDate=EDate)? ("ToDate" ToDate=EDate)? ("Repeatability"
+	//	("FromDate" FromDate=EDate)? ("ToDate" ToDate=EDate)? ("Repeatability" Repeatability=RepatabilityScheme)?
 	//
-	//	Repeatability=RepatabilityScheme)? ("RepeatUntil" RepeatUntil=EDate)? ("cost" cost=Cost)? "}";
+	//	("RepeatUntil" RepeatUntil=EDate)? ("cost" cost=Cost)? Repeat?="Repeat"? "}";
 	public AvailabilityElements getAvailabilityAccess() {
 		return (pAvailability != null) ? pAvailability : (pAvailability = new AvailabilityElements());
 	}
@@ -9193,27 +9220,25 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 		return getCostAccess().getRule();
 	}
 
-	/// * TODO: implement this rule and an appropriate IValueConverter * / RepatabilityScheme returns
+	//enum RepatabilityScheme returns availabilityContract::RepatabilityScheme:
 	//
-	//availabilityContract::RepatabilityScheme:
-	//
-	//	"RepatabilityScheme";
+	//	DAILY | WEEKLY | MONTHLY | YEARLY;
 	public RepatabilitySchemeElements getRepatabilitySchemeAccess() {
-		return (pRepatabilityScheme != null) ? pRepatabilityScheme : (pRepatabilityScheme = new RepatabilitySchemeElements());
+		return (unknownRuleRepatabilityScheme != null) ? unknownRuleRepatabilityScheme : (unknownRuleRepatabilityScheme = new RepatabilitySchemeElements());
 	}
 	
-	public ParserRule getRepatabilitySchemeRule() {
+	public EnumRule getRepatabilitySchemeRule() {
 		return getRepatabilitySchemeAccess().getRule();
 	}
 
-	/// * TODO: implement this rule and an appropriate IValueConverter * / costUnit returns availabilityContract::costUnit:
+	//enum costUnit returns availabilityContract::costUnit:
 	//
-	//	"costUnit";
+	//	MIN | HOUR | DAY | USAGE | OTHER;
 	public CostUnitElements getCostUnitAccess() {
-		return (pCostUnit != null) ? pCostUnit : (pCostUnit = new CostUnitElements());
+		return (unknownRuleCostUnit != null) ? unknownRuleCostUnit : (unknownRuleCostUnit = new CostUnitElements());
 	}
 	
-	public ParserRule getCostUnitRule() {
+	public EnumRule getCostUnitRule() {
 		return getCostUnitAccess().getRule();
 	}
 
@@ -9230,11 +9255,11 @@ public class BrokerDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ReservedResourceContract returns slareservations::ReservedResourceContract:
 	//
-	//	{slareservations::ReservedResourceContract} "ReservedResourceContract" uniqueID=EString "{" ("name" name=EString)?
+	//	{slareservations::ReservedResourceContract} "ReservedResourceContract" uniqueID=STRING "{" ("name" name=STRING)?
 	//
-	//	("id" id=EInt)? ("description" description=EString)? ("ValidFrom" ValidFrom=EDate)? ("ValidUntil" ValidUntil=EDate)?
+	//	("id" id=EInt)? ("description" description=STRING)? ("ValidFrom" ValidFrom=EDate)? ("ValidUntil" ValidUntil=EDate)?
 	//
-	//	("forResource" forResource=[resources::OfferedResource|EString])? "}";
+	//	("forResource" forResource=[resources::OfferedResource|STRING])? "}";
 	public ReservedResourceContractElements getReservedResourceContractAccess() {
 		return (pReservedResourceContract != null) ? pReservedResourceContract : (pReservedResourceContract = new ReservedResourceContractElements());
 	}

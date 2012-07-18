@@ -373,9 +373,9 @@ protected class ImportBroker_SemicolonKeyword_2 extends KeywordToken  {
  *
  * Broker returns Broker::Broker:
  * 
- * 	{Broker::Broker} "Broker" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+ * 	{Broker::Broker} "Broker" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
  * 
- * 	description=EString)? ("resourceURI" resourceURI=EString)? ("APIGateway" APIGateway=EString)? ("registeredUsers" "{"
+ * 	description=STRING)? ("resourceURI" resourceURI=STRING)? ("APIGateway" APIGateway=STRING)? ("registeredUsers" "{"
  * 
  * 	registeredUsers+=BrokerUser ("," registeredUsers+=BrokerUser)* "}")? ("contributedTaxonomies" "{"
  * 
@@ -395,9 +395,9 @@ protected class ImportBroker_SemicolonKeyword_2 extends KeywordToken  {
  *
  **/
 
-// {Broker::Broker} "Broker" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+// {Broker::Broker} "Broker" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 // 
-// description=EString)? ("resourceURI" resourceURI=EString)? ("APIGateway" APIGateway=EString)? ("registeredUsers" "{"
+// ("resourceURI" resourceURI=STRING)? ("APIGateway" APIGateway=STRING)? ("registeredUsers" "{"
 // 
 // registeredUsers+=BrokerUser ("," registeredUsers+=BrokerUser)* "}")? ("contributedTaxonomies" "{"
 // 
@@ -490,7 +490,7 @@ protected class Broker_BrokerKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class Broker_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public Broker_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -514,9 +514,9 @@ protected class Broker_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrokerAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrokerAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -546,7 +546,7 @@ protected class Broker_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class Broker_Group_4 extends GroupToken {
 	
 	public Broker_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -590,7 +590,7 @@ protected class Broker_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class Broker_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public Broker_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -614,9 +614,9 @@ protected class Broker_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrokerAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrokerAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -705,7 +705,7 @@ protected class Broker_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class Broker_Group_6 extends GroupToken {
 	
 	public Broker_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -751,7 +751,7 @@ protected class Broker_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class Broker_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public Broker_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -775,9 +775,9 @@ protected class Broker_DescriptionAssignment_6_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrokerAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrokerAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -786,7 +786,7 @@ protected class Broker_DescriptionAssignment_6_1 extends AssignmentToken  {
 }
 
 
-// ("resourceURI" resourceURI=EString)?
+// ("resourceURI" resourceURI=STRING)?
 protected class Broker_Group_7 extends GroupToken {
 	
 	public Broker_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -833,7 +833,7 @@ protected class Broker_ResourceURIKeyword_7_0 extends KeywordToken  {
 
 }
 
-// resourceURI=EString
+// resourceURI=STRING
 protected class Broker_ResourceURIAssignment_7_1 extends AssignmentToken  {
 	
 	public Broker_ResourceURIAssignment_7_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -857,9 +857,9 @@ protected class Broker_ResourceURIAssignment_7_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("resourceURI",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("resourceURI");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerAccess().getResourceURIEStringParserRuleCall_7_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrokerAccess().getResourceURIEStringParserRuleCall_7_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerAccess().getResourceURISTRINGTerminalRuleCall_7_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrokerAccess().getResourceURISTRINGTerminalRuleCall_7_1_0();
 			return obj;
 		}
 		return null;
@@ -868,7 +868,7 @@ protected class Broker_ResourceURIAssignment_7_1 extends AssignmentToken  {
 }
 
 
-// ("APIGateway" APIGateway=EString)?
+// ("APIGateway" APIGateway=STRING)?
 protected class Broker_Group_8 extends GroupToken {
 	
 	public Broker_Group_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -916,7 +916,7 @@ protected class Broker_APIGatewayKeyword_8_0 extends KeywordToken  {
 
 }
 
-// APIGateway=EString
+// APIGateway=STRING
 protected class Broker_APIGatewayAssignment_8_1 extends AssignmentToken  {
 	
 	public Broker_APIGatewayAssignment_8_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -940,9 +940,9 @@ protected class Broker_APIGatewayAssignment_8_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("APIGateway",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("APIGateway");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerAccess().getAPIGatewayEStringParserRuleCall_8_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrokerAccess().getAPIGatewayEStringParserRuleCall_8_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerAccess().getAPIGatewaySTRINGTerminalRuleCall_8_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrokerAccess().getAPIGatewaySTRINGTerminalRuleCall_8_1_0();
 			return obj;
 		}
 		return null;
@@ -3613,18 +3613,17 @@ protected class SettingInstance_ResourceSettingInstanceParserRuleCall_2 extends 
 
 
 
-
 /************ begin Rule Taxonomy ****************
  *
  * Taxonomy returns services::Taxonomy:
  * 
- * 	{services::Taxonomy} "Taxonomy" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+ * 	{services::Taxonomy} "Taxonomy" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
  * 
- * 	description=EString)? ("hasScenarios" "(" hasScenarios+=[federationscenarios::RequestedFederationScenario|EString]
+ * 	description=STRING)? ("hasScenarios" "(" hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING] (","
  * 
- * 	("," hasScenarios+=[federationscenarios::RequestedFederationScenario|EString])* ")")? ("hasServices" "("
+ * 	hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING])* ")")? ("hasServices" "("
  * 
- * 	hasServices+=[services::Service|EString] ("," hasServices+=[services::Service|EString])* ")")? ("taxonomies" "{"
+ * 	hasServices+=[services::Service|STRING] ("," hasServices+=[services::Service|STRING])* ")")? ("taxonomies" "{"
  * 
  * 	taxonomies+=Taxonomy ("," taxonomies+=Taxonomy)* "}")? ("categories" "{" categories+=ResourceCategory (","
  * 
@@ -3632,13 +3631,13 @@ protected class SettingInstance_ResourceSettingInstanceParserRuleCall_2 extends 
  *
  **/
 
-// {services::Taxonomy} "Taxonomy" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+// {services::Taxonomy} "Taxonomy" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 // 
-// description=EString)? ("hasScenarios" "(" hasScenarios+=[federationscenarios::RequestedFederationScenario|EString]
+// description=STRING)? ("hasScenarios" "(" hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING] (","
 // 
-// ("," hasScenarios+=[federationscenarios::RequestedFederationScenario|EString])* ")")? ("hasServices" "("
+// hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING])* ")")? ("hasServices" "("
 // 
-// hasServices+=[services::Service|EString] ("," hasServices+=[services::Service|EString])* ")")? ("taxonomies" "{"
+// hasServices+=[services::Service|STRING] ("," hasServices+=[services::Service|STRING])* ")")? ("taxonomies" "{"
 // 
 // taxonomies+=Taxonomy ("," taxonomies+=Taxonomy)* "}")? ("categories" "{" categories+=ResourceCategory (","
 // 
@@ -3719,7 +3718,7 @@ protected class Taxonomy_TaxonomyKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class Taxonomy_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public Taxonomy_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3743,9 +3742,9 @@ protected class Taxonomy_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTaxonomyAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getTaxonomyAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTaxonomyAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getTaxonomyAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -3775,7 +3774,7 @@ protected class Taxonomy_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class Taxonomy_Group_4 extends GroupToken {
 	
 	public Taxonomy_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3819,7 +3818,7 @@ protected class Taxonomy_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class Taxonomy_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public Taxonomy_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3843,9 +3842,9 @@ protected class Taxonomy_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTaxonomyAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getTaxonomyAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTaxonomyAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getTaxonomyAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -3934,7 +3933,7 @@ protected class Taxonomy_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class Taxonomy_Group_6 extends GroupToken {
 	
 	public Taxonomy_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3980,7 +3979,7 @@ protected class Taxonomy_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class Taxonomy_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public Taxonomy_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4004,9 +4003,9 @@ protected class Taxonomy_DescriptionAssignment_6_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTaxonomyAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getTaxonomyAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTaxonomyAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getTaxonomyAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -4015,9 +4014,9 @@ protected class Taxonomy_DescriptionAssignment_6_1 extends AssignmentToken  {
 }
 
 
-// ("hasScenarios" "(" hasScenarios+=[federationscenarios::RequestedFederationScenario|EString] (","
+// ("hasScenarios" "(" hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING] (","
 // 
-// hasScenarios+=[federationscenarios::RequestedFederationScenario|EString])* ")")?
+// hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING])* ")")?
 protected class Taxonomy_Group_7 extends GroupToken {
 	
 	public Taxonomy_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4086,7 +4085,7 @@ protected class Taxonomy_LeftParenthesisKeyword_7_1 extends KeywordToken  {
 
 }
 
-// hasScenarios+=[federationscenarios::RequestedFederationScenario|EString]
+// hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING]
 protected class Taxonomy_HasScenariosAssignment_7_2 extends AssignmentToken  {
 	
 	public Taxonomy_HasScenariosAssignment_7_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4123,7 +4122,7 @@ protected class Taxonomy_HasScenariosAssignment_7_2 extends AssignmentToken  {
 
 }
 
-// ("," hasScenarios+=[federationscenarios::RequestedFederationScenario|EString])*
+// ("," hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING])*
 protected class Taxonomy_Group_7_3 extends GroupToken {
 	
 	public Taxonomy_Group_7_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4168,7 +4167,7 @@ protected class Taxonomy_CommaKeyword_7_3_0 extends KeywordToken  {
 
 }
 
-// hasScenarios+=[federationscenarios::RequestedFederationScenario|EString]
+// hasScenarios+=[federationscenarios::RequestedFederationScenario|STRING]
 protected class Taxonomy_HasScenariosAssignment_7_3_1 extends AssignmentToken  {
 	
 	public Taxonomy_HasScenariosAssignment_7_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4230,7 +4229,7 @@ protected class Taxonomy_RightParenthesisKeyword_7_4 extends KeywordToken  {
 }
 
 
-// ("hasServices" "(" hasServices+=[services::Service|EString] ("," hasServices+=[services::Service|EString])* ")")?
+// ("hasServices" "(" hasServices+=[services::Service|STRING] ("," hasServices+=[services::Service|STRING])* ")")?
 protected class Taxonomy_Group_8 extends GroupToken {
 	
 	public Taxonomy_Group_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4300,7 +4299,7 @@ protected class Taxonomy_LeftParenthesisKeyword_8_1 extends KeywordToken  {
 
 }
 
-// hasServices+=[services::Service|EString]
+// hasServices+=[services::Service|STRING]
 protected class Taxonomy_HasServicesAssignment_8_2 extends AssignmentToken  {
 	
 	public Taxonomy_HasServicesAssignment_8_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4337,7 +4336,7 @@ protected class Taxonomy_HasServicesAssignment_8_2 extends AssignmentToken  {
 
 }
 
-// ("," hasServices+=[services::Service|EString])*
+// ("," hasServices+=[services::Service|STRING])*
 protected class Taxonomy_Group_8_3 extends GroupToken {
 	
 	public Taxonomy_Group_8_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4382,7 +4381,7 @@ protected class Taxonomy_CommaKeyword_8_3_0 extends KeywordToken  {
 
 }
 
-// hasServices+=[services::Service|EString]
+// hasServices+=[services::Service|STRING]
 protected class Taxonomy_HasServicesAssignment_8_3_1 extends AssignmentToken  {
 	
 	public Taxonomy_HasServicesAssignment_8_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4948,21 +4947,21 @@ protected class Taxonomy_RightCurlyBracketKeyword_11 extends KeywordToken  {
  *
  * OfferedService returns services::OfferedService:
  * 
- * 	{services::OfferedService} "OfferedService" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+ * 	{services::OfferedService} "OfferedService" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
  * 
- * 	("description" description=EString)? ("requiresServices" "(" requiresServices+=[services::Service|EString] (","
+ * 	description=STRING)? ("requiresServices" "(" requiresServices+=[services::Service|STRING] (","
  * 
- * 	requiresServices+=[services::Service|EString])* ")")? ("serviceSettings" "{" serviceSettings+=ServiceSetting (","
+ * 	requiresServices+=[services::Service|STRING])* ")")? ("serviceSettings" "{" serviceSettings+=ServiceSetting (","
  * 
  * 	serviceSettings+=ServiceSetting)* "}")? "}";
  *
  **/
 
-// {services::OfferedService} "OfferedService" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+// {services::OfferedService} "OfferedService" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 // 
-// description=EString)? ("requiresServices" "(" requiresServices+=[services::Service|EString] (","
+// description=STRING)? ("requiresServices" "(" requiresServices+=[services::Service|STRING] (","
 // 
-// requiresServices+=[services::Service|EString])* ")")? ("serviceSettings" "{" serviceSettings+=ServiceSetting (","
+// requiresServices+=[services::Service|STRING])* ")")? ("serviceSettings" "{" serviceSettings+=ServiceSetting (","
 // 
 // serviceSettings+=ServiceSetting)* "}")? "}"
 protected class OfferedService_Group extends GroupToken {
@@ -5041,7 +5040,7 @@ protected class OfferedService_OfferedServiceKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class OfferedService_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public OfferedService_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5065,9 +5064,9 @@ protected class OfferedService_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getOfferedServiceAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getOfferedServiceAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getOfferedServiceAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getOfferedServiceAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -5097,7 +5096,7 @@ protected class OfferedService_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class OfferedService_Group_4 extends GroupToken {
 	
 	public OfferedService_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5141,7 +5140,7 @@ protected class OfferedService_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class OfferedService_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public OfferedService_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5165,9 +5164,9 @@ protected class OfferedService_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getOfferedServiceAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getOfferedServiceAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getOfferedServiceAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getOfferedServiceAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -5256,7 +5255,7 @@ protected class OfferedService_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class OfferedService_Group_6 extends GroupToken {
 	
 	public OfferedService_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5302,7 +5301,7 @@ protected class OfferedService_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class OfferedService_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public OfferedService_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5326,9 +5325,9 @@ protected class OfferedService_DescriptionAssignment_6_1 extends AssignmentToken
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getOfferedServiceAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getOfferedServiceAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getOfferedServiceAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getOfferedServiceAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -5337,9 +5336,9 @@ protected class OfferedService_DescriptionAssignment_6_1 extends AssignmentToken
 }
 
 
-// ("requiresServices" "(" requiresServices+=[services::Service|EString] (","
+// ("requiresServices" "(" requiresServices+=[services::Service|STRING] ("," requiresServices+=[services::Service|STRING])*
 // 
-// requiresServices+=[services::Service|EString])* ")")?
+// ")")?
 protected class OfferedService_Group_7 extends GroupToken {
 	
 	public OfferedService_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5408,7 +5407,7 @@ protected class OfferedService_LeftParenthesisKeyword_7_1 extends KeywordToken  
 
 }
 
-// requiresServices+=[services::Service|EString]
+// requiresServices+=[services::Service|STRING]
 protected class OfferedService_RequiresServicesAssignment_7_2 extends AssignmentToken  {
 	
 	public OfferedService_RequiresServicesAssignment_7_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5445,7 +5444,7 @@ protected class OfferedService_RequiresServicesAssignment_7_2 extends Assignment
 
 }
 
-// ("," requiresServices+=[services::Service|EString])*
+// ("," requiresServices+=[services::Service|STRING])*
 protected class OfferedService_Group_7_3 extends GroupToken {
 	
 	public OfferedService_Group_7_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5490,7 +5489,7 @@ protected class OfferedService_CommaKeyword_7_3_0 extends KeywordToken  {
 
 }
 
-// requiresServices+=[services::Service|EString]
+// requiresServices+=[services::Service|STRING]
 protected class OfferedService_RequiresServicesAssignment_7_3_1 extends AssignmentToken  {
 	
 	public OfferedService_RequiresServicesAssignment_7_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5821,7 +5820,7 @@ protected class OfferedService_RightCurlyBracketKeyword_9 extends KeywordToken  
  * 
  * 	{federationscenarios::RequestedFederationScenario} isShared?="isShared"? "RequestedFederationScenario"
  * 
- * 	uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)? ("status"
+ * 	uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)? ("status"
  * 
  * 	status=ScenarioStatus)? ("VTCredentials" VTCredentials=Credentials)? ("servicesRequest"
  * 
@@ -5833,9 +5832,9 @@ protected class OfferedService_RightCurlyBracketKeyword_9 extends KeywordToken  
  *
  **/
 
-// {federationscenarios::RequestedFederationScenario} isShared?="isShared"? "RequestedFederationScenario" uniqueID=EString
+// {federationscenarios::RequestedFederationScenario} isShared?="isShared"? "RequestedFederationScenario" uniqueID=STRING
 // 
-// "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)? ("status" status=ScenarioStatus)?
+// "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)? ("status" status=ScenarioStatus)?
 // 
 // ("VTCredentials" VTCredentials=Credentials)? ("servicesRequest" servicesRequest=ServicesRequest)?
 // 
@@ -5953,7 +5952,7 @@ protected class RequestedFederationScenario_RequestedFederationScenarioKeyword_2
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class RequestedFederationScenario_UniqueIDAssignment_3 extends AssignmentToken  {
 	
 	public RequestedFederationScenario_UniqueIDAssignment_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5977,9 +5976,9 @@ protected class RequestedFederationScenario_UniqueIDAssignment_3 extends Assignm
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getRequestedFederationScenarioAccess().getUniqueIDEStringParserRuleCall_3_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getRequestedFederationScenarioAccess().getUniqueIDEStringParserRuleCall_3_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getRequestedFederationScenarioAccess().getUniqueIDSTRINGTerminalRuleCall_3_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getRequestedFederationScenarioAccess().getUniqueIDSTRINGTerminalRuleCall_3_0();
 			return obj;
 		}
 		return null;
@@ -6009,7 +6008,7 @@ protected class RequestedFederationScenario_LeftCurlyBracketKeyword_4 extends Ke
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class RequestedFederationScenario_Group_5 extends GroupToken {
 	
 	public RequestedFederationScenario_Group_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6053,7 +6052,7 @@ protected class RequestedFederationScenario_NameKeyword_5_0 extends KeywordToken
 
 }
 
-// name=EString
+// name=STRING
 protected class RequestedFederationScenario_NameAssignment_5_1 extends AssignmentToken  {
 	
 	public RequestedFederationScenario_NameAssignment_5_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6077,9 +6076,9 @@ protected class RequestedFederationScenario_NameAssignment_5_1 extends Assignmen
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getRequestedFederationScenarioAccess().getNameEStringParserRuleCall_5_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getRequestedFederationScenarioAccess().getNameEStringParserRuleCall_5_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getRequestedFederationScenarioAccess().getNameSTRINGTerminalRuleCall_5_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getRequestedFederationScenarioAccess().getNameSTRINGTerminalRuleCall_5_1_0();
 			return obj;
 		}
 		return null;
@@ -6168,7 +6167,7 @@ protected class RequestedFederationScenario_IdAssignment_6_1 extends AssignmentT
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class RequestedFederationScenario_Group_7 extends GroupToken {
 	
 	public RequestedFederationScenario_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6214,7 +6213,7 @@ protected class RequestedFederationScenario_DescriptionKeyword_7_0 extends Keywo
 
 }
 
-// description=EString
+// description=STRING
 protected class RequestedFederationScenario_DescriptionAssignment_7_1 extends AssignmentToken  {
 	
 	public RequestedFederationScenario_DescriptionAssignment_7_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6238,9 +6237,9 @@ protected class RequestedFederationScenario_DescriptionAssignment_7_1 extends As
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getRequestedFederationScenarioAccess().getDescriptionEStringParserRuleCall_7_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getRequestedFederationScenarioAccess().getDescriptionEStringParserRuleCall_7_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getRequestedFederationScenarioAccess().getDescriptionSTRINGTerminalRuleCall_7_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getRequestedFederationScenarioAccess().getDescriptionSTRINGTerminalRuleCall_7_1_0();
 			return obj;
 		}
 		return null;
@@ -7093,19 +7092,19 @@ protected class RequestedFederationScenario_RightCurlyBracketKeyword_15 extends 
  *
  * ServiceComposition returns services::ServiceComposition:
  * 
- * 	{services::ServiceComposition} "ServiceComposition" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+ * 	{services::ServiceComposition} "ServiceComposition" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
  * 
- * 	("description" description=EString)? ("hasServices" "(" hasServices+=[services::Service|EString] (","
+ * 	("description" description=STRING)? ("hasServices" "(" hasServices+=[services::Service|STRING] (","
  * 
- * 	hasServices+=[services::Service|EString])* ")")? "}";
+ * 	hasServices+=[services::Service|STRING])* ")")? "}";
  *
  **/
 
-// {services::ServiceComposition} "ServiceComposition" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+// {services::ServiceComposition} "ServiceComposition" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 // 
-// ("description" description=EString)? ("hasServices" "(" hasServices+=[services::Service|EString] (","
+// ("description" description=STRING)? ("hasServices" "(" hasServices+=[services::Service|STRING] (","
 // 
-// hasServices+=[services::Service|EString])* ")")? "}"
+// hasServices+=[services::Service|STRING])* ")")? "}"
 protected class ServiceComposition_Group extends GroupToken {
 	
 	public ServiceComposition_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7182,7 +7181,7 @@ protected class ServiceComposition_ServiceCompositionKeyword_1 extends KeywordTo
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class ServiceComposition_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public ServiceComposition_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7206,9 +7205,9 @@ protected class ServiceComposition_UniqueIDAssignment_2 extends AssignmentToken 
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceCompositionAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getServiceCompositionAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceCompositionAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getServiceCompositionAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -7238,7 +7237,7 @@ protected class ServiceComposition_LeftCurlyBracketKeyword_3 extends KeywordToke
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class ServiceComposition_Group_4 extends GroupToken {
 	
 	public ServiceComposition_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7282,7 +7281,7 @@ protected class ServiceComposition_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class ServiceComposition_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public ServiceComposition_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7306,9 +7305,9 @@ protected class ServiceComposition_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceCompositionAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getServiceCompositionAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceCompositionAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getServiceCompositionAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -7397,7 +7396,7 @@ protected class ServiceComposition_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class ServiceComposition_Group_6 extends GroupToken {
 	
 	public ServiceComposition_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7443,7 +7442,7 @@ protected class ServiceComposition_DescriptionKeyword_6_0 extends KeywordToken  
 
 }
 
-// description=EString
+// description=STRING
 protected class ServiceComposition_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public ServiceComposition_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7467,9 +7466,9 @@ protected class ServiceComposition_DescriptionAssignment_6_1 extends AssignmentT
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceCompositionAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getServiceCompositionAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceCompositionAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getServiceCompositionAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -7478,7 +7477,7 @@ protected class ServiceComposition_DescriptionAssignment_6_1 extends AssignmentT
 }
 
 
-// ("hasServices" "(" hasServices+=[services::Service|EString] ("," hasServices+=[services::Service|EString])* ")")?
+// ("hasServices" "(" hasServices+=[services::Service|STRING] ("," hasServices+=[services::Service|STRING])* ")")?
 protected class ServiceComposition_Group_7 extends GroupToken {
 	
 	public ServiceComposition_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7547,7 +7546,7 @@ protected class ServiceComposition_LeftParenthesisKeyword_7_1 extends KeywordTok
 
 }
 
-// hasServices+=[services::Service|EString]
+// hasServices+=[services::Service|STRING]
 protected class ServiceComposition_HasServicesAssignment_7_2 extends AssignmentToken  {
 	
 	public ServiceComposition_HasServicesAssignment_7_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7584,7 +7583,7 @@ protected class ServiceComposition_HasServicesAssignment_7_2 extends AssignmentT
 
 }
 
-// ("," hasServices+=[services::Service|EString])*
+// ("," hasServices+=[services::Service|STRING])*
 protected class ServiceComposition_Group_7_3 extends GroupToken {
 	
 	public ServiceComposition_Group_7_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7629,7 +7628,7 @@ protected class ServiceComposition_CommaKeyword_7_3_0 extends KeywordToken  {
 
 }
 
-// hasServices+=[services::Service|EString]
+// hasServices+=[services::Service|STRING]
 protected class ServiceComposition_HasServicesAssignment_7_3_1 extends AssignmentToken  {
 	
 	public ServiceComposition_HasServicesAssignment_7_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7725,23 +7724,23 @@ protected class ServiceComposition_RightCurlyBracketKeyword_8 extends KeywordTok
  *
  * ResourceServiceContract returns availabilityContract::ResourceServiceContract:
  * 
- * 	"ResourceServiceContract" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+ * 	"ResourceServiceContract" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
  * 
- * 	description=EString)? "StartDate" StartDate=EDate "EndDate" EndDate=EDate "forOfferedService"
+ * 	description=STRING)? "StartDate" StartDate=EDate "EndDate" EndDate=EDate "forOfferedService"
  * 
- * 	forOfferedService=[services::Service|EString] "forOfferedResource"
+ * 	forOfferedService=[services::Service|STRING] "forOfferedResource"
  * 
- * 	forOfferedResource=[resources::OfferedResource|EString] ("availability" availability=Availability)? "}";
+ * 	forOfferedResource=[resources::OfferedResource|STRING] ("availability" availability=Availability)? "}";
  *
  **/
 
-// "ResourceServiceContract" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+// "ResourceServiceContract" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 // 
-// description=EString)? "StartDate" StartDate=EDate "EndDate" EndDate=EDate "forOfferedService"
+// "StartDate" StartDate=EDate "EndDate" EndDate=EDate "forOfferedService" forOfferedService=[services::Service|STRING]
 // 
-// forOfferedService=[services::Service|EString] "forOfferedResource"
+// "forOfferedResource" forOfferedResource=[resources::OfferedResource|STRING] ("availability"
 // 
-// forOfferedResource=[resources::OfferedResource|EString] ("availability" availability=Availability)? "}"
+// availability=Availability)? "}"
 protected class ResourceServiceContract_Group extends GroupToken {
 	
 	public ResourceServiceContract_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7791,7 +7790,7 @@ protected class ResourceServiceContract_ResourceServiceContractKeyword_0 extends
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class ResourceServiceContract_UniqueIDAssignment_1 extends AssignmentToken  {
 	
 	public ResourceServiceContract_UniqueIDAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7815,9 +7814,9 @@ protected class ResourceServiceContract_UniqueIDAssignment_1 extends AssignmentT
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceServiceContractAccess().getUniqueIDEStringParserRuleCall_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourceServiceContractAccess().getUniqueIDEStringParserRuleCall_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceServiceContractAccess().getUniqueIDSTRINGTerminalRuleCall_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourceServiceContractAccess().getUniqueIDSTRINGTerminalRuleCall_1_0();
 			return obj;
 		}
 		return null;
@@ -7847,7 +7846,7 @@ protected class ResourceServiceContract_LeftCurlyBracketKeyword_2 extends Keywor
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class ResourceServiceContract_Group_3 extends GroupToken {
 	
 	public ResourceServiceContract_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7891,7 +7890,7 @@ protected class ResourceServiceContract_NameKeyword_3_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class ResourceServiceContract_NameAssignment_3_1 extends AssignmentToken  {
 	
 	public ResourceServiceContract_NameAssignment_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7915,9 +7914,9 @@ protected class ResourceServiceContract_NameAssignment_3_1 extends AssignmentTok
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceServiceContractAccess().getNameEStringParserRuleCall_3_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourceServiceContractAccess().getNameEStringParserRuleCall_3_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceServiceContractAccess().getNameSTRINGTerminalRuleCall_3_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourceServiceContractAccess().getNameSTRINGTerminalRuleCall_3_1_0();
 			return obj;
 		}
 		return null;
@@ -8006,7 +8005,7 @@ protected class ResourceServiceContract_IdAssignment_4_1 extends AssignmentToken
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class ResourceServiceContract_Group_5 extends GroupToken {
 	
 	public ResourceServiceContract_Group_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8052,7 +8051,7 @@ protected class ResourceServiceContract_DescriptionKeyword_5_0 extends KeywordTo
 
 }
 
-// description=EString
+// description=STRING
 protected class ResourceServiceContract_DescriptionAssignment_5_1 extends AssignmentToken  {
 	
 	public ResourceServiceContract_DescriptionAssignment_5_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8076,9 +8075,9 @@ protected class ResourceServiceContract_DescriptionAssignment_5_1 extends Assign
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceServiceContractAccess().getDescriptionEStringParserRuleCall_5_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourceServiceContractAccess().getDescriptionEStringParserRuleCall_5_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceServiceContractAccess().getDescriptionSTRINGTerminalRuleCall_5_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourceServiceContractAccess().getDescriptionSTRINGTerminalRuleCall_5_1_0();
 			return obj;
 		}
 		return null;
@@ -8224,7 +8223,7 @@ protected class ResourceServiceContract_ForOfferedServiceKeyword_10 extends Keyw
 
 }
 
-// forOfferedService=[services::Service|EString]
+// forOfferedService=[services::Service|STRING]
 protected class ResourceServiceContract_ForOfferedServiceAssignment_11 extends AssignmentToken  {
 	
 	public ResourceServiceContract_ForOfferedServiceAssignment_11(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8283,7 +8282,7 @@ protected class ResourceServiceContract_ForOfferedResourceKeyword_12 extends Key
 
 }
 
-// forOfferedResource=[resources::OfferedResource|EString]
+// forOfferedResource=[resources::OfferedResource|STRING]
 protected class ResourceServiceContract_ForOfferedResourceAssignment_13 extends AssignmentToken  {
 	
 	public ResourceServiceContract_ForOfferedResourceAssignment_13(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8442,21 +8441,21 @@ protected class ResourceServiceContract_RightCurlyBracketKeyword_15 extends Keyw
  *
  * SLA returns slareservations::SLA:
  * 
- * 	{slareservations::SLA} "SLA" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+ * 	{slareservations::SLA} "SLA" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
  * 
- * 	description=EString)? ("ValidFrom" ValidFrom=EDate)? ("ValidUntil" ValidUntil=EDate)? ("forVT"
+ * 	description=STRING)? ("ValidFrom" ValidFrom=EDate)? ("ValidUntil" ValidUntil=EDate)? ("forVT"
  * 
- * 	forVT=[federationscenarios::RequestedFederationScenario|EString])? ("ReservedRsources" "{"
+ * 	forVT=[federationscenarios::RequestedFederationScenario|STRING])? ("ReservedRsources" "{"
  * 
  * 	ReservedRsources+=ReservedResourceContract ("," ReservedRsources+=ReservedResourceContract)* "}")? "}";
  *
  **/
 
-// {slareservations::SLA} "SLA" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+// {slareservations::SLA} "SLA" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 // 
-// description=EString)? ("ValidFrom" ValidFrom=EDate)? ("ValidUntil" ValidUntil=EDate)? ("forVT"
+// description=STRING)? ("ValidFrom" ValidFrom=EDate)? ("ValidUntil" ValidUntil=EDate)? ("forVT"
 // 
-// forVT=[federationscenarios::RequestedFederationScenario|EString])? ("ReservedRsources" "{"
+// forVT=[federationscenarios::RequestedFederationScenario|STRING])? ("ReservedRsources" "{"
 // 
 // ReservedRsources+=ReservedResourceContract ("," ReservedRsources+=ReservedResourceContract)* "}")? "}"
 protected class SLA_Group extends GroupToken {
@@ -8535,7 +8534,7 @@ protected class SLA_SLAKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class SLA_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public SLA_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8559,9 +8558,9 @@ protected class SLA_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSLAAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSLAAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSLAAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSLAAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -8591,7 +8590,7 @@ protected class SLA_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class SLA_Group_4 extends GroupToken {
 	
 	public SLA_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8635,7 +8634,7 @@ protected class SLA_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class SLA_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public SLA_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8659,9 +8658,9 @@ protected class SLA_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSLAAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSLAAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSLAAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSLAAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -8750,7 +8749,7 @@ protected class SLA_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class SLA_Group_6 extends GroupToken {
 	
 	public SLA_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8796,7 +8795,7 @@ protected class SLA_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class SLA_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public SLA_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8820,9 +8819,9 @@ protected class SLA_DescriptionAssignment_6_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSLAAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSLAAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSLAAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSLAAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -8996,7 +8995,7 @@ protected class SLA_ValidUntilAssignment_8_1 extends AssignmentToken  {
 }
 
 
-// ("forVT" forVT=[federationscenarios::RequestedFederationScenario|EString])?
+// ("forVT" forVT=[federationscenarios::RequestedFederationScenario|STRING])?
 protected class SLA_Group_9 extends GroupToken {
 	
 	public SLA_Group_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9045,7 +9044,7 @@ protected class SLA_ForVTKeyword_9_0 extends KeywordToken  {
 
 }
 
-// forVT=[federationscenarios::RequestedFederationScenario|EString]
+// forVT=[federationscenarios::RequestedFederationScenario|STRING]
 protected class SLA_ForVTAssignment_9_1 extends AssignmentToken  {
 	
 	public SLA_ForVTAssignment_9_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9356,15 +9355,15 @@ protected class SLA_RightCurlyBracketKeyword_11 extends KeywordToken  {
  *
  * Account returns users::Account:
  * 
- * 	{users::Account} "Account" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+ * 	{users::Account} "Account" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
  * 
- * 	description=EString)? ("password" password=EString)? ("username" username=EString)? "}";
+ * 	description=STRING)? ("password" password=STRING)? ("username" username=STRING)? "}";
  *
  **/
 
-// {users::Account} "Account" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+// {users::Account} "Account" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 // 
-// description=EString)? ("password" password=EString)? ("username" username=EString)? "}"
+// ("password" password=STRING)? ("username" username=STRING)? "}"
 protected class Account_Group extends GroupToken {
 	
 	public Account_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9441,7 +9440,7 @@ protected class Account_AccountKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class Account_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public Account_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9465,9 +9464,9 @@ protected class Account_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAccountAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getAccountAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAccountAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getAccountAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -9497,7 +9496,7 @@ protected class Account_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class Account_Group_4 extends GroupToken {
 	
 	public Account_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9541,7 +9540,7 @@ protected class Account_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class Account_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public Account_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9565,9 +9564,9 @@ protected class Account_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAccountAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getAccountAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAccountAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getAccountAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -9656,7 +9655,7 @@ protected class Account_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class Account_Group_6 extends GroupToken {
 	
 	public Account_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9702,7 +9701,7 @@ protected class Account_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class Account_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public Account_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9726,9 +9725,9 @@ protected class Account_DescriptionAssignment_6_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAccountAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getAccountAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAccountAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getAccountAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -9737,7 +9736,7 @@ protected class Account_DescriptionAssignment_6_1 extends AssignmentToken  {
 }
 
 
-// ("password" password=EString)?
+// ("password" password=STRING)?
 protected class Account_Group_7 extends GroupToken {
 	
 	public Account_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9784,7 +9783,7 @@ protected class Account_PasswordKeyword_7_0 extends KeywordToken  {
 
 }
 
-// password=EString
+// password=STRING
 protected class Account_PasswordAssignment_7_1 extends AssignmentToken  {
 	
 	public Account_PasswordAssignment_7_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9808,9 +9807,9 @@ protected class Account_PasswordAssignment_7_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("password",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("password");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAccountAccess().getPasswordEStringParserRuleCall_7_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getAccountAccess().getPasswordEStringParserRuleCall_7_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAccountAccess().getPasswordSTRINGTerminalRuleCall_7_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getAccountAccess().getPasswordSTRINGTerminalRuleCall_7_1_0();
 			return obj;
 		}
 		return null;
@@ -9819,7 +9818,7 @@ protected class Account_PasswordAssignment_7_1 extends AssignmentToken  {
 }
 
 
-// ("username" username=EString)?
+// ("username" username=STRING)?
 protected class Account_Group_8 extends GroupToken {
 	
 	public Account_Group_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9867,7 +9866,7 @@ protected class Account_UsernameKeyword_8_0 extends KeywordToken  {
 
 }
 
-// username=EString
+// username=STRING
 protected class Account_UsernameAssignment_8_1 extends AssignmentToken  {
 	
 	public Account_UsernameAssignment_8_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9891,9 +9890,9 @@ protected class Account_UsernameAssignment_8_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("username",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("username");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAccountAccess().getUsernameEStringParserRuleCall_8_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getAccountAccess().getUsernameEStringParserRuleCall_8_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAccountAccess().getUsernameSTRINGTerminalRuleCall_8_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getAccountAccess().getUsernameSTRINGTerminalRuleCall_8_1_0();
 			return obj;
 		}
 		return null;
@@ -9937,23 +9936,21 @@ protected class Account_RightCurlyBracketKeyword_9 extends KeywordToken  {
  *
  * ResourcesProvider returns users::ResourcesProvider:
  * 
- * 	{users::ResourcesProvider} "ResourcesProvider" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+ * 	{users::ResourcesProvider} "ResourcesProvider" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
  * 
- * 	("description" description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+ * 	("description" description=STRING)? ("organization" organization=STRING)? ("address" address=STRING)? ("telephone"
  * 
- * 	telephone=EString)? ("hasAccount" hasAccount=Account)? ("offeredSiteList" "{" offeredSiteList+=Site (","
+ * 	telephone=STRING)? ("hasAccount" hasAccount=Account)? ("offeredSiteList" "{" offeredSiteList+=Site (","
  * 
  * 	offeredSiteList+=Site)* "}")? "}";
  *
  **/
 
-// {users::ResourcesProvider} "ResourcesProvider" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+// {users::ResourcesProvider} "ResourcesProvider" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 // 
-// ("description" description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+// description=STRING)? ("organization" organization=STRING)? ("address" address=STRING)? ("telephone" telephone=STRING)?
 // 
-// telephone=EString)? ("hasAccount" hasAccount=Account)? ("offeredSiteList" "{" offeredSiteList+=Site (","
-// 
-// offeredSiteList+=Site)* "}")? "}"
+// ("hasAccount" hasAccount=Account)? ("offeredSiteList" "{" offeredSiteList+=Site ("," offeredSiteList+=Site)* "}")? "}"
 protected class ResourcesProvider_Group extends GroupToken {
 	
 	public ResourcesProvider_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10030,7 +10027,7 @@ protected class ResourcesProvider_ResourcesProviderKeyword_1 extends KeywordToke
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class ResourcesProvider_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public ResourcesProvider_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10054,9 +10051,9 @@ protected class ResourcesProvider_UniqueIDAssignment_2 extends AssignmentToken  
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourcesProviderAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourcesProviderAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourcesProviderAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourcesProviderAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -10086,7 +10083,7 @@ protected class ResourcesProvider_LeftCurlyBracketKeyword_3 extends KeywordToken
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class ResourcesProvider_Group_4 extends GroupToken {
 	
 	public ResourcesProvider_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10130,7 +10127,7 @@ protected class ResourcesProvider_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class ResourcesProvider_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public ResourcesProvider_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10154,9 +10151,9 @@ protected class ResourcesProvider_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourcesProviderAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourcesProviderAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourcesProviderAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourcesProviderAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -10245,7 +10242,7 @@ protected class ResourcesProvider_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class ResourcesProvider_Group_6 extends GroupToken {
 	
 	public ResourcesProvider_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10291,7 +10288,7 @@ protected class ResourcesProvider_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class ResourcesProvider_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public ResourcesProvider_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10315,9 +10312,9 @@ protected class ResourcesProvider_DescriptionAssignment_6_1 extends AssignmentTo
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourcesProviderAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourcesProviderAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourcesProviderAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourcesProviderAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -10326,7 +10323,7 @@ protected class ResourcesProvider_DescriptionAssignment_6_1 extends AssignmentTo
 }
 
 
-// ("organization" organization=EString)?
+// ("organization" organization=STRING)?
 protected class ResourcesProvider_Group_7 extends GroupToken {
 	
 	public ResourcesProvider_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10373,7 +10370,7 @@ protected class ResourcesProvider_OrganizationKeyword_7_0 extends KeywordToken  
 
 }
 
-// organization=EString
+// organization=STRING
 protected class ResourcesProvider_OrganizationAssignment_7_1 extends AssignmentToken  {
 	
 	public ResourcesProvider_OrganizationAssignment_7_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10397,9 +10394,9 @@ protected class ResourcesProvider_OrganizationAssignment_7_1 extends AssignmentT
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("organization",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("organization");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourcesProviderAccess().getOrganizationEStringParserRuleCall_7_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourcesProviderAccess().getOrganizationEStringParserRuleCall_7_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourcesProviderAccess().getOrganizationSTRINGTerminalRuleCall_7_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourcesProviderAccess().getOrganizationSTRINGTerminalRuleCall_7_1_0();
 			return obj;
 		}
 		return null;
@@ -10408,7 +10405,7 @@ protected class ResourcesProvider_OrganizationAssignment_7_1 extends AssignmentT
 }
 
 
-// ("address" address=EString)?
+// ("address" address=STRING)?
 protected class ResourcesProvider_Group_8 extends GroupToken {
 	
 	public ResourcesProvider_Group_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10456,7 +10453,7 @@ protected class ResourcesProvider_AddressKeyword_8_0 extends KeywordToken  {
 
 }
 
-// address=EString
+// address=STRING
 protected class ResourcesProvider_AddressAssignment_8_1 extends AssignmentToken  {
 	
 	public ResourcesProvider_AddressAssignment_8_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10480,9 +10477,9 @@ protected class ResourcesProvider_AddressAssignment_8_1 extends AssignmentToken 
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("address",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("address");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourcesProviderAccess().getAddressEStringParserRuleCall_8_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourcesProviderAccess().getAddressEStringParserRuleCall_8_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourcesProviderAccess().getAddressSTRINGTerminalRuleCall_8_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourcesProviderAccess().getAddressSTRINGTerminalRuleCall_8_1_0();
 			return obj;
 		}
 		return null;
@@ -10491,7 +10488,7 @@ protected class ResourcesProvider_AddressAssignment_8_1 extends AssignmentToken 
 }
 
 
-// ("telephone" telephone=EString)?
+// ("telephone" telephone=STRING)?
 protected class ResourcesProvider_Group_9 extends GroupToken {
 	
 	public ResourcesProvider_Group_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10540,7 +10537,7 @@ protected class ResourcesProvider_TelephoneKeyword_9_0 extends KeywordToken  {
 
 }
 
-// telephone=EString
+// telephone=STRING
 protected class ResourcesProvider_TelephoneAssignment_9_1 extends AssignmentToken  {
 	
 	public ResourcesProvider_TelephoneAssignment_9_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10564,9 +10561,9 @@ protected class ResourcesProvider_TelephoneAssignment_9_1 extends AssignmentToke
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("telephone",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("telephone");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourcesProviderAccess().getTelephoneEStringParserRuleCall_9_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourcesProviderAccess().getTelephoneEStringParserRuleCall_9_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourcesProviderAccess().getTelephoneSTRINGTerminalRuleCall_9_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourcesProviderAccess().getTelephoneSTRINGTerminalRuleCall_9_1_0();
 			return obj;
 		}
 		return null;
@@ -10945,29 +10942,27 @@ protected class ResourcesProvider_RightCurlyBracketKeyword_12 extends KeywordTok
  *
  * TestbedDesigner returns users::TestbedDesigner:
  * 
- * 	{users::TestbedDesigner} "TestbedDesigner" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+ * 	{users::TestbedDesigner} "TestbedDesigner" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
  * 
- * 	description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+ * 	description=STRING)? ("organization" organization=STRING)? ("address" address=STRING)? ("telephone"
  * 
- * 	telephone=EString)? ("designsVirtualTestbeds" "("
+ * 	telephone=STRING)? ("designsVirtualTestbeds" "("
  * 
- * 	designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString] (","
+ * 	designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING] (","
  * 
- * 	designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString])* ")")? ("hasAccount"
+ * 	designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING])* ")")? ("hasAccount"
  * 
  * 	hasAccount=Account)? "}";
  *
  **/
 
-// {users::TestbedDesigner} "TestbedDesigner" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+// {users::TestbedDesigner} "TestbedDesigner" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 // 
-// description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+// description=STRING)? ("organization" organization=STRING)? ("address" address=STRING)? ("telephone" telephone=STRING)?
 // 
-// telephone=EString)? ("designsVirtualTestbeds" "("
+// ("designsVirtualTestbeds" "(" designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING] (","
 // 
-// designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString] (","
-// 
-// designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString])* ")")? ("hasAccount"
+// designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING])* ")")? ("hasAccount"
 // 
 // hasAccount=Account)? "}"
 protected class TestbedDesigner_Group extends GroupToken {
@@ -11046,7 +11041,7 @@ protected class TestbedDesigner_TestbedDesignerKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class TestbedDesigner_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public TestbedDesigner_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11070,9 +11065,9 @@ protected class TestbedDesigner_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTestbedDesignerAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getTestbedDesignerAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTestbedDesignerAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getTestbedDesignerAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -11102,7 +11097,7 @@ protected class TestbedDesigner_LeftCurlyBracketKeyword_3 extends KeywordToken  
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class TestbedDesigner_Group_4 extends GroupToken {
 	
 	public TestbedDesigner_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11146,7 +11141,7 @@ protected class TestbedDesigner_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class TestbedDesigner_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public TestbedDesigner_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11170,9 +11165,9 @@ protected class TestbedDesigner_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTestbedDesignerAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getTestbedDesignerAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTestbedDesignerAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getTestbedDesignerAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -11261,7 +11256,7 @@ protected class TestbedDesigner_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class TestbedDesigner_Group_6 extends GroupToken {
 	
 	public TestbedDesigner_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11307,7 +11302,7 @@ protected class TestbedDesigner_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class TestbedDesigner_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public TestbedDesigner_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11331,9 +11326,9 @@ protected class TestbedDesigner_DescriptionAssignment_6_1 extends AssignmentToke
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTestbedDesignerAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getTestbedDesignerAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTestbedDesignerAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getTestbedDesignerAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -11342,7 +11337,7 @@ protected class TestbedDesigner_DescriptionAssignment_6_1 extends AssignmentToke
 }
 
 
-// ("organization" organization=EString)?
+// ("organization" organization=STRING)?
 protected class TestbedDesigner_Group_7 extends GroupToken {
 	
 	public TestbedDesigner_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11389,7 +11384,7 @@ protected class TestbedDesigner_OrganizationKeyword_7_0 extends KeywordToken  {
 
 }
 
-// organization=EString
+// organization=STRING
 protected class TestbedDesigner_OrganizationAssignment_7_1 extends AssignmentToken  {
 	
 	public TestbedDesigner_OrganizationAssignment_7_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11413,9 +11408,9 @@ protected class TestbedDesigner_OrganizationAssignment_7_1 extends AssignmentTok
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("organization",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("organization");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTestbedDesignerAccess().getOrganizationEStringParserRuleCall_7_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getTestbedDesignerAccess().getOrganizationEStringParserRuleCall_7_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTestbedDesignerAccess().getOrganizationSTRINGTerminalRuleCall_7_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getTestbedDesignerAccess().getOrganizationSTRINGTerminalRuleCall_7_1_0();
 			return obj;
 		}
 		return null;
@@ -11424,7 +11419,7 @@ protected class TestbedDesigner_OrganizationAssignment_7_1 extends AssignmentTok
 }
 
 
-// ("address" address=EString)?
+// ("address" address=STRING)?
 protected class TestbedDesigner_Group_8 extends GroupToken {
 	
 	public TestbedDesigner_Group_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11472,7 +11467,7 @@ protected class TestbedDesigner_AddressKeyword_8_0 extends KeywordToken  {
 
 }
 
-// address=EString
+// address=STRING
 protected class TestbedDesigner_AddressAssignment_8_1 extends AssignmentToken  {
 	
 	public TestbedDesigner_AddressAssignment_8_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11496,9 +11491,9 @@ protected class TestbedDesigner_AddressAssignment_8_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("address",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("address");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTestbedDesignerAccess().getAddressEStringParserRuleCall_8_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getTestbedDesignerAccess().getAddressEStringParserRuleCall_8_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTestbedDesignerAccess().getAddressSTRINGTerminalRuleCall_8_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getTestbedDesignerAccess().getAddressSTRINGTerminalRuleCall_8_1_0();
 			return obj;
 		}
 		return null;
@@ -11507,7 +11502,7 @@ protected class TestbedDesigner_AddressAssignment_8_1 extends AssignmentToken  {
 }
 
 
-// ("telephone" telephone=EString)?
+// ("telephone" telephone=STRING)?
 protected class TestbedDesigner_Group_9 extends GroupToken {
 	
 	public TestbedDesigner_Group_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11556,7 +11551,7 @@ protected class TestbedDesigner_TelephoneKeyword_9_0 extends KeywordToken  {
 
 }
 
-// telephone=EString
+// telephone=STRING
 protected class TestbedDesigner_TelephoneAssignment_9_1 extends AssignmentToken  {
 	
 	public TestbedDesigner_TelephoneAssignment_9_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11580,9 +11575,9 @@ protected class TestbedDesigner_TelephoneAssignment_9_1 extends AssignmentToken 
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("telephone",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("telephone");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTestbedDesignerAccess().getTelephoneEStringParserRuleCall_9_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getTestbedDesignerAccess().getTelephoneEStringParserRuleCall_9_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTestbedDesignerAccess().getTelephoneSTRINGTerminalRuleCall_9_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getTestbedDesignerAccess().getTelephoneSTRINGTerminalRuleCall_9_1_0();
 			return obj;
 		}
 		return null;
@@ -11591,9 +11586,9 @@ protected class TestbedDesigner_TelephoneAssignment_9_1 extends AssignmentToken 
 }
 
 
-// ("designsVirtualTestbeds" "(" designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString] (","
+// ("designsVirtualTestbeds" "(" designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING] (","
 // 
-// designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString])* ")")?
+// designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING])* ")")?
 protected class TestbedDesigner_Group_10 extends GroupToken {
 	
 	public TestbedDesigner_Group_10(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11665,7 +11660,7 @@ protected class TestbedDesigner_LeftParenthesisKeyword_10_1 extends KeywordToken
 
 }
 
-// designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString]
+// designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING]
 protected class TestbedDesigner_DesignsVirtualTestbedsAssignment_10_2 extends AssignmentToken  {
 	
 	public TestbedDesigner_DesignsVirtualTestbedsAssignment_10_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11702,7 +11697,7 @@ protected class TestbedDesigner_DesignsVirtualTestbedsAssignment_10_2 extends As
 
 }
 
-// ("," designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString])*
+// ("," designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING])*
 protected class TestbedDesigner_Group_10_3 extends GroupToken {
 	
 	public TestbedDesigner_Group_10_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11747,7 +11742,7 @@ protected class TestbedDesigner_CommaKeyword_10_3_0 extends KeywordToken  {
 
 }
 
-// designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|EString]
+// designsVirtualTestbeds+=[federationscenarios::RequestedFederationScenario|STRING]
 protected class TestbedDesigner_DesignsVirtualTestbedsAssignment_10_3_1 extends AssignmentToken  {
 	
 	public TestbedDesigner_DesignsVirtualTestbedsAssignment_10_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11945,17 +11940,17 @@ protected class TestbedDesigner_RightCurlyBracketKeyword_12 extends KeywordToken
  *
  * Admin returns users::Admin:
  * 
- * 	{users::Admin} "Admin" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+ * 	{users::Admin} "Admin" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
  * 
- * 	description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+ * 	("organization" organization=STRING)? ("address" address=STRING)? ("telephone" telephone=STRING)? ("hasAccount"
  * 
- * 	telephone=EString)? ("hasAccount" hasAccount=Account)? "}";
+ * 	hasAccount=Account)? "}";
  *
  **/
 
-// {users::Admin} "Admin" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)?
+// {users::Admin} "Admin" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 // 
-// ("organization" organization=EString)? ("address" address=EString)? ("telephone" telephone=EString)? ("hasAccount"
+// ("organization" organization=STRING)? ("address" address=STRING)? ("telephone" telephone=STRING)? ("hasAccount"
 // 
 // hasAccount=Account)? "}"
 protected class Admin_Group extends GroupToken {
@@ -12034,7 +12029,7 @@ protected class Admin_AdminKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class Admin_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public Admin_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12058,9 +12053,9 @@ protected class Admin_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAdminAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getAdminAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAdminAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getAdminAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -12090,7 +12085,7 @@ protected class Admin_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class Admin_Group_4 extends GroupToken {
 	
 	public Admin_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12134,7 +12129,7 @@ protected class Admin_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class Admin_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public Admin_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12158,9 +12153,9 @@ protected class Admin_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAdminAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getAdminAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAdminAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getAdminAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -12249,7 +12244,7 @@ protected class Admin_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class Admin_Group_6 extends GroupToken {
 	
 	public Admin_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12295,7 +12290,7 @@ protected class Admin_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class Admin_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public Admin_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12319,9 +12314,9 @@ protected class Admin_DescriptionAssignment_6_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAdminAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getAdminAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAdminAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getAdminAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -12330,7 +12325,7 @@ protected class Admin_DescriptionAssignment_6_1 extends AssignmentToken  {
 }
 
 
-// ("organization" organization=EString)?
+// ("organization" organization=STRING)?
 protected class Admin_Group_7 extends GroupToken {
 	
 	public Admin_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12377,7 +12372,7 @@ protected class Admin_OrganizationKeyword_7_0 extends KeywordToken  {
 
 }
 
-// organization=EString
+// organization=STRING
 protected class Admin_OrganizationAssignment_7_1 extends AssignmentToken  {
 	
 	public Admin_OrganizationAssignment_7_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12401,9 +12396,9 @@ protected class Admin_OrganizationAssignment_7_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("organization",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("organization");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAdminAccess().getOrganizationEStringParserRuleCall_7_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getAdminAccess().getOrganizationEStringParserRuleCall_7_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAdminAccess().getOrganizationSTRINGTerminalRuleCall_7_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getAdminAccess().getOrganizationSTRINGTerminalRuleCall_7_1_0();
 			return obj;
 		}
 		return null;
@@ -12412,7 +12407,7 @@ protected class Admin_OrganizationAssignment_7_1 extends AssignmentToken  {
 }
 
 
-// ("address" address=EString)?
+// ("address" address=STRING)?
 protected class Admin_Group_8 extends GroupToken {
 	
 	public Admin_Group_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12460,7 +12455,7 @@ protected class Admin_AddressKeyword_8_0 extends KeywordToken  {
 
 }
 
-// address=EString
+// address=STRING
 protected class Admin_AddressAssignment_8_1 extends AssignmentToken  {
 	
 	public Admin_AddressAssignment_8_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12484,9 +12479,9 @@ protected class Admin_AddressAssignment_8_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("address",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("address");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAdminAccess().getAddressEStringParserRuleCall_8_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getAdminAccess().getAddressEStringParserRuleCall_8_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAdminAccess().getAddressSTRINGTerminalRuleCall_8_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getAdminAccess().getAddressSTRINGTerminalRuleCall_8_1_0();
 			return obj;
 		}
 		return null;
@@ -12495,7 +12490,7 @@ protected class Admin_AddressAssignment_8_1 extends AssignmentToken  {
 }
 
 
-// ("telephone" telephone=EString)?
+// ("telephone" telephone=STRING)?
 protected class Admin_Group_9 extends GroupToken {
 	
 	public Admin_Group_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12544,7 +12539,7 @@ protected class Admin_TelephoneKeyword_9_0 extends KeywordToken  {
 
 }
 
-// telephone=EString
+// telephone=STRING
 protected class Admin_TelephoneAssignment_9_1 extends AssignmentToken  {
 	
 	public Admin_TelephoneAssignment_9_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12568,9 +12563,9 @@ protected class Admin_TelephoneAssignment_9_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("telephone",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("telephone");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAdminAccess().getTelephoneEStringParserRuleCall_9_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getAdminAccess().getTelephoneEStringParserRuleCall_9_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAdminAccess().getTelephoneSTRINGTerminalRuleCall_9_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getAdminAccess().getTelephoneSTRINGTerminalRuleCall_9_1_0();
 			return obj;
 		}
 		return null;
@@ -12713,31 +12708,29 @@ protected class Admin_RightCurlyBracketKeyword_11 extends KeywordToken  {
  *
  * BrokerCustomer returns users::BrokerCustomer:
  * 
- * 	{users::BrokerCustomer} "BrokerCustomer" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+ * 	{users::BrokerCustomer} "BrokerCustomer" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
  * 
- * 	description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+ * 	description=STRING)? ("organization" organization=STRING)? ("address" address=STRING)? ("telephone"
  * 
- * 	telephone=EString)? ("utilizesVirtualTestbed" "("
+ * 	telephone=STRING)? ("utilizesVirtualTestbed" "("
  * 
- * 	utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString] (","
+ * 	utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING] (","
  * 
- * 	utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString])* ")")? ("hasTestbedDesigner"
+ * 	utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING])* ")")? ("hasTestbedDesigner"
  * 
- * 	hasTestbedDesigner=[users::TestbedDesigner|EString])? ("hasAccount" hasAccount=Account)? "}";
+ * 	hasTestbedDesigner=[users::TestbedDesigner|STRING])? ("hasAccount" hasAccount=Account)? "}";
  *
  **/
 
-// {users::BrokerCustomer} "BrokerCustomer" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+// {users::BrokerCustomer} "BrokerCustomer" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 // 
-// description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+// description=STRING)? ("organization" organization=STRING)? ("address" address=STRING)? ("telephone" telephone=STRING)?
 // 
-// telephone=EString)? ("utilizesVirtualTestbed" "("
+// ("utilizesVirtualTestbed" "(" utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING] (","
 // 
-// utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString] (","
+// utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING])* ")")? ("hasTestbedDesigner"
 // 
-// utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString])* ")")? ("hasTestbedDesigner"
-// 
-// hasTestbedDesigner=[users::TestbedDesigner|EString])? ("hasAccount" hasAccount=Account)? "}"
+// hasTestbedDesigner=[users::TestbedDesigner|STRING])? ("hasAccount" hasAccount=Account)? "}"
 protected class BrokerCustomer_Group extends GroupToken {
 	
 	public BrokerCustomer_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12814,7 +12807,7 @@ protected class BrokerCustomer_BrokerCustomerKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class BrokerCustomer_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public BrokerCustomer_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12838,9 +12831,9 @@ protected class BrokerCustomer_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerCustomerAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrokerCustomerAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerCustomerAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrokerCustomerAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -12870,7 +12863,7 @@ protected class BrokerCustomer_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class BrokerCustomer_Group_4 extends GroupToken {
 	
 	public BrokerCustomer_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12914,7 +12907,7 @@ protected class BrokerCustomer_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class BrokerCustomer_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public BrokerCustomer_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12938,9 +12931,9 @@ protected class BrokerCustomer_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerCustomerAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrokerCustomerAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerCustomerAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrokerCustomerAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -13029,7 +13022,7 @@ protected class BrokerCustomer_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class BrokerCustomer_Group_6 extends GroupToken {
 	
 	public BrokerCustomer_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -13075,7 +13068,7 @@ protected class BrokerCustomer_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class BrokerCustomer_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public BrokerCustomer_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -13099,9 +13092,9 @@ protected class BrokerCustomer_DescriptionAssignment_6_1 extends AssignmentToken
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerCustomerAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrokerCustomerAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerCustomerAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrokerCustomerAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -13110,7 +13103,7 @@ protected class BrokerCustomer_DescriptionAssignment_6_1 extends AssignmentToken
 }
 
 
-// ("organization" organization=EString)?
+// ("organization" organization=STRING)?
 protected class BrokerCustomer_Group_7 extends GroupToken {
 	
 	public BrokerCustomer_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -13157,7 +13150,7 @@ protected class BrokerCustomer_OrganizationKeyword_7_0 extends KeywordToken  {
 
 }
 
-// organization=EString
+// organization=STRING
 protected class BrokerCustomer_OrganizationAssignment_7_1 extends AssignmentToken  {
 	
 	public BrokerCustomer_OrganizationAssignment_7_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -13181,9 +13174,9 @@ protected class BrokerCustomer_OrganizationAssignment_7_1 extends AssignmentToke
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("organization",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("organization");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerCustomerAccess().getOrganizationEStringParserRuleCall_7_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrokerCustomerAccess().getOrganizationEStringParserRuleCall_7_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerCustomerAccess().getOrganizationSTRINGTerminalRuleCall_7_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrokerCustomerAccess().getOrganizationSTRINGTerminalRuleCall_7_1_0();
 			return obj;
 		}
 		return null;
@@ -13192,7 +13185,7 @@ protected class BrokerCustomer_OrganizationAssignment_7_1 extends AssignmentToke
 }
 
 
-// ("address" address=EString)?
+// ("address" address=STRING)?
 protected class BrokerCustomer_Group_8 extends GroupToken {
 	
 	public BrokerCustomer_Group_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -13240,7 +13233,7 @@ protected class BrokerCustomer_AddressKeyword_8_0 extends KeywordToken  {
 
 }
 
-// address=EString
+// address=STRING
 protected class BrokerCustomer_AddressAssignment_8_1 extends AssignmentToken  {
 	
 	public BrokerCustomer_AddressAssignment_8_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -13264,9 +13257,9 @@ protected class BrokerCustomer_AddressAssignment_8_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("address",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("address");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerCustomerAccess().getAddressEStringParserRuleCall_8_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrokerCustomerAccess().getAddressEStringParserRuleCall_8_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerCustomerAccess().getAddressSTRINGTerminalRuleCall_8_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrokerCustomerAccess().getAddressSTRINGTerminalRuleCall_8_1_0();
 			return obj;
 		}
 		return null;
@@ -13275,7 +13268,7 @@ protected class BrokerCustomer_AddressAssignment_8_1 extends AssignmentToken  {
 }
 
 
-// ("telephone" telephone=EString)?
+// ("telephone" telephone=STRING)?
 protected class BrokerCustomer_Group_9 extends GroupToken {
 	
 	public BrokerCustomer_Group_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -13324,7 +13317,7 @@ protected class BrokerCustomer_TelephoneKeyword_9_0 extends KeywordToken  {
 
 }
 
-// telephone=EString
+// telephone=STRING
 protected class BrokerCustomer_TelephoneAssignment_9_1 extends AssignmentToken  {
 	
 	public BrokerCustomer_TelephoneAssignment_9_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -13348,9 +13341,9 @@ protected class BrokerCustomer_TelephoneAssignment_9_1 extends AssignmentToken  
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("telephone",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("telephone");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerCustomerAccess().getTelephoneEStringParserRuleCall_9_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrokerCustomerAccess().getTelephoneEStringParserRuleCall_9_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerCustomerAccess().getTelephoneSTRINGTerminalRuleCall_9_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrokerCustomerAccess().getTelephoneSTRINGTerminalRuleCall_9_1_0();
 			return obj;
 		}
 		return null;
@@ -13359,9 +13352,9 @@ protected class BrokerCustomer_TelephoneAssignment_9_1 extends AssignmentToken  
 }
 
 
-// ("utilizesVirtualTestbed" "(" utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString] (","
+// ("utilizesVirtualTestbed" "(" utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING] (","
 // 
-// utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString])* ")")?
+// utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING])* ")")?
 protected class BrokerCustomer_Group_10 extends GroupToken {
 	
 	public BrokerCustomer_Group_10(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -13433,7 +13426,7 @@ protected class BrokerCustomer_LeftParenthesisKeyword_10_1 extends KeywordToken 
 
 }
 
-// utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString]
+// utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING]
 protected class BrokerCustomer_UtilizesVirtualTestbedAssignment_10_2 extends AssignmentToken  {
 	
 	public BrokerCustomer_UtilizesVirtualTestbedAssignment_10_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -13470,7 +13463,7 @@ protected class BrokerCustomer_UtilizesVirtualTestbedAssignment_10_2 extends Ass
 
 }
 
-// ("," utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString])*
+// ("," utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING])*
 protected class BrokerCustomer_Group_10_3 extends GroupToken {
 	
 	public BrokerCustomer_Group_10_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -13515,7 +13508,7 @@ protected class BrokerCustomer_CommaKeyword_10_3_0 extends KeywordToken  {
 
 }
 
-// utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|EString]
+// utilizesVirtualTestbed+=[federationscenarios::RequestedFederationScenario|STRING]
 protected class BrokerCustomer_UtilizesVirtualTestbedAssignment_10_3_1 extends AssignmentToken  {
 	
 	public BrokerCustomer_UtilizesVirtualTestbedAssignment_10_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -13577,7 +13570,7 @@ protected class BrokerCustomer_RightParenthesisKeyword_10_4 extends KeywordToken
 }
 
 
-// ("hasTestbedDesigner" hasTestbedDesigner=[users::TestbedDesigner|EString])?
+// ("hasTestbedDesigner" hasTestbedDesigner=[users::TestbedDesigner|STRING])?
 protected class BrokerCustomer_Group_11 extends GroupToken {
 	
 	public BrokerCustomer_Group_11(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -13628,7 +13621,7 @@ protected class BrokerCustomer_HasTestbedDesignerKeyword_11_0 extends KeywordTok
 
 }
 
-// hasTestbedDesigner=[users::TestbedDesigner|EString]
+// hasTestbedDesigner=[users::TestbedDesigner|STRING]
 protected class BrokerCustomer_HasTestbedDesignerAssignment_11_1 extends AssignmentToken  {
 	
 	public BrokerCustomer_HasTestbedDesignerAssignment_11_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -13804,19 +13797,19 @@ protected class BrokerCustomer_RightCurlyBracketKeyword_13 extends KeywordToken 
  *
  * BrokerPersonel_Impl returns users::BrokerPersonel:
  * 
- * 	{users::BrokerPersonel} "BrokerPersonel" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+ * 	{users::BrokerPersonel} "BrokerPersonel" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
  * 
- * 	description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+ * 	description=STRING)? ("organization" organization=STRING)? ("address" address=STRING)? ("telephone"
  * 
- * 	telephone=EString)? ("hasAccount" hasAccount=Account)? "}";
+ * 	telephone=STRING)? ("hasAccount" hasAccount=Account)? "}";
  *
  **/
 
-// {users::BrokerPersonel} "BrokerPersonel" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+// {users::BrokerPersonel} "BrokerPersonel" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 // 
-// description=EString)? ("organization" organization=EString)? ("address" address=EString)? ("telephone"
+// description=STRING)? ("organization" organization=STRING)? ("address" address=STRING)? ("telephone" telephone=STRING)?
 // 
-// telephone=EString)? ("hasAccount" hasAccount=Account)? "}"
+// ("hasAccount" hasAccount=Account)? "}"
 protected class BrokerPersonel_Impl_Group extends GroupToken {
 	
 	public BrokerPersonel_Impl_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -13893,7 +13886,7 @@ protected class BrokerPersonel_Impl_BrokerPersonelKeyword_1 extends KeywordToken
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class BrokerPersonel_Impl_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public BrokerPersonel_Impl_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -13917,9 +13910,9 @@ protected class BrokerPersonel_Impl_UniqueIDAssignment_2 extends AssignmentToken
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerPersonel_ImplAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrokerPersonel_ImplAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerPersonel_ImplAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrokerPersonel_ImplAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -13949,7 +13942,7 @@ protected class BrokerPersonel_Impl_LeftCurlyBracketKeyword_3 extends KeywordTok
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class BrokerPersonel_Impl_Group_4 extends GroupToken {
 	
 	public BrokerPersonel_Impl_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -13993,7 +13986,7 @@ protected class BrokerPersonel_Impl_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class BrokerPersonel_Impl_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public BrokerPersonel_Impl_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14017,9 +14010,9 @@ protected class BrokerPersonel_Impl_NameAssignment_4_1 extends AssignmentToken  
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerPersonel_ImplAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrokerPersonel_ImplAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerPersonel_ImplAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrokerPersonel_ImplAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -14108,7 +14101,7 @@ protected class BrokerPersonel_Impl_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class BrokerPersonel_Impl_Group_6 extends GroupToken {
 	
 	public BrokerPersonel_Impl_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14154,7 +14147,7 @@ protected class BrokerPersonel_Impl_DescriptionKeyword_6_0 extends KeywordToken 
 
 }
 
-// description=EString
+// description=STRING
 protected class BrokerPersonel_Impl_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public BrokerPersonel_Impl_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14178,9 +14171,9 @@ protected class BrokerPersonel_Impl_DescriptionAssignment_6_1 extends Assignment
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerPersonel_ImplAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrokerPersonel_ImplAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerPersonel_ImplAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrokerPersonel_ImplAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -14189,7 +14182,7 @@ protected class BrokerPersonel_Impl_DescriptionAssignment_6_1 extends Assignment
 }
 
 
-// ("organization" organization=EString)?
+// ("organization" organization=STRING)?
 protected class BrokerPersonel_Impl_Group_7 extends GroupToken {
 	
 	public BrokerPersonel_Impl_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14236,7 +14229,7 @@ protected class BrokerPersonel_Impl_OrganizationKeyword_7_0 extends KeywordToken
 
 }
 
-// organization=EString
+// organization=STRING
 protected class BrokerPersonel_Impl_OrganizationAssignment_7_1 extends AssignmentToken  {
 	
 	public BrokerPersonel_Impl_OrganizationAssignment_7_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14260,9 +14253,9 @@ protected class BrokerPersonel_Impl_OrganizationAssignment_7_1 extends Assignmen
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("organization",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("organization");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerPersonel_ImplAccess().getOrganizationEStringParserRuleCall_7_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrokerPersonel_ImplAccess().getOrganizationEStringParserRuleCall_7_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerPersonel_ImplAccess().getOrganizationSTRINGTerminalRuleCall_7_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrokerPersonel_ImplAccess().getOrganizationSTRINGTerminalRuleCall_7_1_0();
 			return obj;
 		}
 		return null;
@@ -14271,7 +14264,7 @@ protected class BrokerPersonel_Impl_OrganizationAssignment_7_1 extends Assignmen
 }
 
 
-// ("address" address=EString)?
+// ("address" address=STRING)?
 protected class BrokerPersonel_Impl_Group_8 extends GroupToken {
 	
 	public BrokerPersonel_Impl_Group_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14319,7 +14312,7 @@ protected class BrokerPersonel_Impl_AddressKeyword_8_0 extends KeywordToken  {
 
 }
 
-// address=EString
+// address=STRING
 protected class BrokerPersonel_Impl_AddressAssignment_8_1 extends AssignmentToken  {
 	
 	public BrokerPersonel_Impl_AddressAssignment_8_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14343,9 +14336,9 @@ protected class BrokerPersonel_Impl_AddressAssignment_8_1 extends AssignmentToke
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("address",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("address");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerPersonel_ImplAccess().getAddressEStringParserRuleCall_8_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrokerPersonel_ImplAccess().getAddressEStringParserRuleCall_8_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerPersonel_ImplAccess().getAddressSTRINGTerminalRuleCall_8_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrokerPersonel_ImplAccess().getAddressSTRINGTerminalRuleCall_8_1_0();
 			return obj;
 		}
 		return null;
@@ -14354,7 +14347,7 @@ protected class BrokerPersonel_Impl_AddressAssignment_8_1 extends AssignmentToke
 }
 
 
-// ("telephone" telephone=EString)?
+// ("telephone" telephone=STRING)?
 protected class BrokerPersonel_Impl_Group_9 extends GroupToken {
 	
 	public BrokerPersonel_Impl_Group_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14403,7 +14396,7 @@ protected class BrokerPersonel_Impl_TelephoneKeyword_9_0 extends KeywordToken  {
 
 }
 
-// telephone=EString
+// telephone=STRING
 protected class BrokerPersonel_Impl_TelephoneAssignment_9_1 extends AssignmentToken  {
 	
 	public BrokerPersonel_Impl_TelephoneAssignment_9_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14427,9 +14420,9 @@ protected class BrokerPersonel_Impl_TelephoneAssignment_9_1 extends AssignmentTo
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("telephone",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("telephone");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerPersonel_ImplAccess().getTelephoneEStringParserRuleCall_9_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrokerPersonel_ImplAccess().getTelephoneEStringParserRuleCall_9_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrokerPersonel_ImplAccess().getTelephoneSTRINGTerminalRuleCall_9_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrokerPersonel_ImplAccess().getTelephoneSTRINGTerminalRuleCall_9_1_0();
 			return obj;
 		}
 		return null;
@@ -14572,15 +14565,15 @@ protected class BrokerPersonel_Impl_RightCurlyBracketKeyword_11 extends KeywordT
  *
  * Site returns providersite::Site:
  * 
- * 	"Site" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)?
+ * 	"Site" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
  * 
- * 	"domainmanager" domainManager=DomainManager "locatedAt" locatedAt=SiteLocation ("offeredResourcesList" "{"
+ * 	domainManager=DomainManager "locatedAt" locatedAt=SiteLocation ("offeredResourcesList" "{"
  * 
  * 	offeredResourcesList+=OfferedResource ("," offeredResourcesList+=OfferedResource)* "}")? "}";
  *
  **/
 
-// "Site" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)? "domainmanager"
+// "Site" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 // 
 // domainManager=DomainManager "locatedAt" locatedAt=SiteLocation ("offeredResourcesList" "{"
 // 
@@ -14599,7 +14592,7 @@ protected class Site_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Site_RightCurlyBracketKeyword_11(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Site_RightCurlyBracketKeyword_10(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -14634,7 +14627,7 @@ protected class Site_SiteKeyword_0 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class Site_UniqueIDAssignment_1 extends AssignmentToken  {
 	
 	public Site_UniqueIDAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14658,9 +14651,9 @@ protected class Site_UniqueIDAssignment_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSiteAccess().getUniqueIDEStringParserRuleCall_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSiteAccess().getUniqueIDEStringParserRuleCall_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSiteAccess().getUniqueIDSTRINGTerminalRuleCall_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSiteAccess().getUniqueIDSTRINGTerminalRuleCall_1_0();
 			return obj;
 		}
 		return null;
@@ -14690,7 +14683,7 @@ protected class Site_LeftCurlyBracketKeyword_2 extends KeywordToken  {
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class Site_Group_3 extends GroupToken {
 	
 	public Site_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14734,7 +14727,7 @@ protected class Site_NameKeyword_3_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class Site_NameAssignment_3_1 extends AssignmentToken  {
 	
 	public Site_NameAssignment_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14758,9 +14751,9 @@ protected class Site_NameAssignment_3_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSiteAccess().getNameEStringParserRuleCall_3_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSiteAccess().getNameEStringParserRuleCall_3_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSiteAccess().getNameSTRINGTerminalRuleCall_3_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSiteAccess().getNameSTRINGTerminalRuleCall_3_1_0();
 			return obj;
 		}
 		return null;
@@ -14849,7 +14842,7 @@ protected class Site_IdAssignment_4_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class Site_Group_5 extends GroupToken {
 	
 	public Site_Group_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14895,7 +14888,7 @@ protected class Site_DescriptionKeyword_5_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class Site_DescriptionAssignment_5_1 extends AssignmentToken  {
 	
 	public Site_DescriptionAssignment_5_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14919,9 +14912,9 @@ protected class Site_DescriptionAssignment_5_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSiteAccess().getDescriptionEStringParserRuleCall_5_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSiteAccess().getDescriptionEStringParserRuleCall_5_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSiteAccess().getDescriptionSTRINGTerminalRuleCall_5_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSiteAccess().getDescriptionSTRINGTerminalRuleCall_5_1_0();
 			return obj;
 		}
 		return null;
@@ -14930,41 +14923,16 @@ protected class Site_DescriptionAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// "domainmanager"
-protected class Site_DomainmanagerKeyword_6 extends KeywordToken  {
-	
-	public Site_DomainmanagerKeyword_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getSiteAccess().getDomainmanagerKeyword_6();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Site_Group_5(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Site_Group_4(lastRuleCallOrigin, this, 1, inst);
-			case 2: return new Site_Group_3(lastRuleCallOrigin, this, 2, inst);
-			case 3: return new Site_LeftCurlyBracketKeyword_2(lastRuleCallOrigin, this, 3, inst);
-			default: return null;
-		}	
-	}
-
-}
-
 // domainManager=DomainManager
-protected class Site_DomainManagerAssignment_7 extends AssignmentToken  {
+protected class Site_DomainManagerAssignment_6 extends AssignmentToken  {
 	
-	public Site_DomainManagerAssignment_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Site_DomainManagerAssignment_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getSiteAccess().getDomainManagerAssignment_7();
+		return grammarAccess.getSiteAccess().getDomainManagerAssignment_6();
 	}
 
     @Override
@@ -14983,7 +14951,7 @@ protected class Site_DomainManagerAssignment_7 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getDomainManagerRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getSiteAccess().getDomainManagerDomainManagerParserRuleCall_7_0(); 
+				element = grammarAccess.getSiteAccess().getDomainManagerDomainManagerParserRuleCall_6_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -14995,28 +14963,31 @@ protected class Site_DomainManagerAssignment_7 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Site_DomainmanagerKeyword_6(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Site_Group_5(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new Site_Group_4(lastRuleCallOrigin, next, actIndex, consumed);
+			case 2: return new Site_Group_3(lastRuleCallOrigin, next, actIndex, consumed);
+			case 3: return new Site_LeftCurlyBracketKeyword_2(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // "locatedAt"
-protected class Site_LocatedAtKeyword_8 extends KeywordToken  {
+protected class Site_LocatedAtKeyword_7 extends KeywordToken  {
 	
-	public Site_LocatedAtKeyword_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Site_LocatedAtKeyword_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getSiteAccess().getLocatedAtKeyword_8();
+		return grammarAccess.getSiteAccess().getLocatedAtKeyword_7();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Site_DomainManagerAssignment_7(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Site_DomainManagerAssignment_6(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -15024,15 +14995,15 @@ protected class Site_LocatedAtKeyword_8 extends KeywordToken  {
 }
 
 // locatedAt=SiteLocation
-protected class Site_LocatedAtAssignment_9 extends AssignmentToken  {
+protected class Site_LocatedAtAssignment_8 extends AssignmentToken  {
 	
-	public Site_LocatedAtAssignment_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Site_LocatedAtAssignment_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getSiteAccess().getLocatedAtAssignment_9();
+		return grammarAccess.getSiteAccess().getLocatedAtAssignment_8();
 	}
 
     @Override
@@ -15051,7 +15022,7 @@ protected class Site_LocatedAtAssignment_9 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getSiteLocationRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getSiteAccess().getLocatedAtSiteLocationParserRuleCall_9_0(); 
+				element = grammarAccess.getSiteAccess().getLocatedAtSiteLocationParserRuleCall_8_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -15063,28 +15034,28 @@ protected class Site_LocatedAtAssignment_9 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Site_LocatedAtKeyword_8(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Site_LocatedAtKeyword_7(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // ("offeredResourcesList" "{" offeredResourcesList+=OfferedResource ("," offeredResourcesList+=OfferedResource)* "}")?
-protected class Site_Group_10 extends GroupToken {
+protected class Site_Group_9 extends GroupToken {
 	
-	public Site_Group_10(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Site_Group_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getSiteAccess().getGroup_10();
+		return grammarAccess.getSiteAccess().getGroup_9();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Site_RightCurlyBracketKeyword_10_4(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Site_RightCurlyBracketKeyword_9_4(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -15092,21 +15063,21 @@ protected class Site_Group_10 extends GroupToken {
 }
 
 // "offeredResourcesList"
-protected class Site_OfferedResourcesListKeyword_10_0 extends KeywordToken  {
+protected class Site_OfferedResourcesListKeyword_9_0 extends KeywordToken  {
 	
-	public Site_OfferedResourcesListKeyword_10_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Site_OfferedResourcesListKeyword_9_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getSiteAccess().getOfferedResourcesListKeyword_10_0();
+		return grammarAccess.getSiteAccess().getOfferedResourcesListKeyword_9_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Site_LocatedAtAssignment_9(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Site_LocatedAtAssignment_8(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -15114,21 +15085,21 @@ protected class Site_OfferedResourcesListKeyword_10_0 extends KeywordToken  {
 }
 
 // "{"
-protected class Site_LeftCurlyBracketKeyword_10_1 extends KeywordToken  {
+protected class Site_LeftCurlyBracketKeyword_9_1 extends KeywordToken  {
 	
-	public Site_LeftCurlyBracketKeyword_10_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Site_LeftCurlyBracketKeyword_9_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getSiteAccess().getLeftCurlyBracketKeyword_10_1();
+		return grammarAccess.getSiteAccess().getLeftCurlyBracketKeyword_9_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Site_OfferedResourcesListKeyword_10_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Site_OfferedResourcesListKeyword_9_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -15136,15 +15107,15 @@ protected class Site_LeftCurlyBracketKeyword_10_1 extends KeywordToken  {
 }
 
 // offeredResourcesList+=OfferedResource
-protected class Site_OfferedResourcesListAssignment_10_2 extends AssignmentToken  {
+protected class Site_OfferedResourcesListAssignment_9_2 extends AssignmentToken  {
 	
-	public Site_OfferedResourcesListAssignment_10_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Site_OfferedResourcesListAssignment_9_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getSiteAccess().getOfferedResourcesListAssignment_10_2();
+		return grammarAccess.getSiteAccess().getOfferedResourcesListAssignment_9_2();
 	}
 
     @Override
@@ -15163,7 +15134,7 @@ protected class Site_OfferedResourcesListAssignment_10_2 extends AssignmentToken
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getOfferedResourceRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getSiteAccess().getOfferedResourcesListOfferedResourceParserRuleCall_10_2_0(); 
+				element = grammarAccess.getSiteAccess().getOfferedResourcesListOfferedResourceParserRuleCall_9_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -15175,28 +15146,28 @@ protected class Site_OfferedResourcesListAssignment_10_2 extends AssignmentToken
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Site_LeftCurlyBracketKeyword_10_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Site_LeftCurlyBracketKeyword_9_1(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // ("," offeredResourcesList+=OfferedResource)*
-protected class Site_Group_10_3 extends GroupToken {
+protected class Site_Group_9_3 extends GroupToken {
 	
-	public Site_Group_10_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Site_Group_9_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getSiteAccess().getGroup_10_3();
+		return grammarAccess.getSiteAccess().getGroup_9_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Site_OfferedResourcesListAssignment_10_3_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Site_OfferedResourcesListAssignment_9_3_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -15204,22 +15175,22 @@ protected class Site_Group_10_3 extends GroupToken {
 }
 
 // ","
-protected class Site_CommaKeyword_10_3_0 extends KeywordToken  {
+protected class Site_CommaKeyword_9_3_0 extends KeywordToken  {
 	
-	public Site_CommaKeyword_10_3_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Site_CommaKeyword_9_3_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getSiteAccess().getCommaKeyword_10_3_0();
+		return grammarAccess.getSiteAccess().getCommaKeyword_9_3_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Site_Group_10_3(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Site_OfferedResourcesListAssignment_10_2(lastRuleCallOrigin, this, 1, inst);
+			case 0: return new Site_Group_9_3(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Site_OfferedResourcesListAssignment_9_2(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -15227,15 +15198,15 @@ protected class Site_CommaKeyword_10_3_0 extends KeywordToken  {
 }
 
 // offeredResourcesList+=OfferedResource
-protected class Site_OfferedResourcesListAssignment_10_3_1 extends AssignmentToken  {
+protected class Site_OfferedResourcesListAssignment_9_3_1 extends AssignmentToken  {
 	
-	public Site_OfferedResourcesListAssignment_10_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Site_OfferedResourcesListAssignment_9_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getSiteAccess().getOfferedResourcesListAssignment_10_3_1();
+		return grammarAccess.getSiteAccess().getOfferedResourcesListAssignment_9_3_1();
 	}
 
     @Override
@@ -15254,7 +15225,7 @@ protected class Site_OfferedResourcesListAssignment_10_3_1 extends AssignmentTok
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getOfferedResourceRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getSiteAccess().getOfferedResourcesListOfferedResourceParserRuleCall_10_3_1_0(); 
+				element = grammarAccess.getSiteAccess().getOfferedResourcesListOfferedResourceParserRuleCall_9_3_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -15266,7 +15237,7 @@ protected class Site_OfferedResourcesListAssignment_10_3_1 extends AssignmentTok
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Site_CommaKeyword_10_3_0(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Site_CommaKeyword_9_3_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -15274,22 +15245,22 @@ protected class Site_OfferedResourcesListAssignment_10_3_1 extends AssignmentTok
 
 
 // "}"
-protected class Site_RightCurlyBracketKeyword_10_4 extends KeywordToken  {
+protected class Site_RightCurlyBracketKeyword_9_4 extends KeywordToken  {
 	
-	public Site_RightCurlyBracketKeyword_10_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Site_RightCurlyBracketKeyword_9_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getSiteAccess().getRightCurlyBracketKeyword_10_4();
+		return grammarAccess.getSiteAccess().getRightCurlyBracketKeyword_9_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Site_Group_10_3(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Site_OfferedResourcesListAssignment_10_2(lastRuleCallOrigin, this, 1, inst);
+			case 0: return new Site_Group_9_3(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Site_OfferedResourcesListAssignment_9_2(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -15298,22 +15269,22 @@ protected class Site_RightCurlyBracketKeyword_10_4 extends KeywordToken  {
 
 
 // "}"
-protected class Site_RightCurlyBracketKeyword_11 extends KeywordToken  {
+protected class Site_RightCurlyBracketKeyword_10 extends KeywordToken  {
 	
-	public Site_RightCurlyBracketKeyword_11(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Site_RightCurlyBracketKeyword_10(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getSiteAccess().getRightCurlyBracketKeyword_11();
+		return grammarAccess.getSiteAccess().getRightCurlyBracketKeyword_10();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Site_Group_10(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Site_LocatedAtAssignment_9(lastRuleCallOrigin, this, 1, inst);
+			case 0: return new Site_Group_9(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Site_LocatedAtAssignment_8(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -15328,15 +15299,15 @@ protected class Site_RightCurlyBracketKeyword_11 extends KeywordToken  {
  *
  * DomainManager returns providersite::DomainManager:
  * 
- * 	{providersite::DomainManager} "DomainManager" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+ * 	{providersite::DomainManager} "DomainManager" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
  * 
- * 	("description" description=EString)? ("IP" IP=EString)? "}";
+ * 	("description" description=STRING)? ("IP" IP=STRING)? "}";
  *
  **/
 
-// {providersite::DomainManager} "DomainManager" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+// {providersite::DomainManager} "DomainManager" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 // 
-// description=EString)? ("IP" IP=EString)? "}"
+// description=STRING)? ("IP" IP=STRING)? "}"
 protected class DomainManager_Group extends GroupToken {
 	
 	public DomainManager_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15413,7 +15384,7 @@ protected class DomainManager_DomainManagerKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class DomainManager_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public DomainManager_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15437,9 +15408,9 @@ protected class DomainManager_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getDomainManagerAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getDomainManagerAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getDomainManagerAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getDomainManagerAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -15469,7 +15440,7 @@ protected class DomainManager_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class DomainManager_Group_4 extends GroupToken {
 	
 	public DomainManager_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15513,7 +15484,7 @@ protected class DomainManager_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class DomainManager_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public DomainManager_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15537,9 +15508,9 @@ protected class DomainManager_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getDomainManagerAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getDomainManagerAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getDomainManagerAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getDomainManagerAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -15628,7 +15599,7 @@ protected class DomainManager_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class DomainManager_Group_6 extends GroupToken {
 	
 	public DomainManager_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15674,7 +15645,7 @@ protected class DomainManager_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class DomainManager_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public DomainManager_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15698,9 +15669,9 @@ protected class DomainManager_DescriptionAssignment_6_1 extends AssignmentToken 
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getDomainManagerAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getDomainManagerAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getDomainManagerAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getDomainManagerAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -15709,7 +15680,7 @@ protected class DomainManager_DescriptionAssignment_6_1 extends AssignmentToken 
 }
 
 
-// ("IP" IP=EString)?
+// ("IP" IP=STRING)?
 protected class DomainManager_Group_7 extends GroupToken {
 	
 	public DomainManager_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15756,7 +15727,7 @@ protected class DomainManager_IPKeyword_7_0 extends KeywordToken  {
 
 }
 
-// IP=EString
+// IP=STRING
 protected class DomainManager_IPAssignment_7_1 extends AssignmentToken  {
 	
 	public DomainManager_IPAssignment_7_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15780,9 +15751,9 @@ protected class DomainManager_IPAssignment_7_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("IP",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("IP");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getDomainManagerAccess().getIPEStringParserRuleCall_7_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getDomainManagerAccess().getIPEStringParserRuleCall_7_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getDomainManagerAccess().getIPSTRINGTerminalRuleCall_7_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getDomainManagerAccess().getIPSTRINGTerminalRuleCall_7_1_0();
 			return obj;
 		}
 		return null;
@@ -15825,15 +15796,15 @@ protected class DomainManager_RightCurlyBracketKeyword_8 extends KeywordToken  {
  *
  * SiteLocation returns providersite::SiteLocation:
  * 
- * 	{providersite::SiteLocation} "SiteLocation" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+ * 	{providersite::SiteLocation} "SiteLocation" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
  * 
- * 	("description" description=EString)? ("address" address=EString)? ("geocoords" geocoords=EString)? "}";
+ * 	description=STRING)? ("address" address=STRING)? ("geocoords" geocoords=STRING)? "}";
  *
  **/
 
-// {providersite::SiteLocation} "SiteLocation" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+// {providersite::SiteLocation} "SiteLocation" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 // 
-// description=EString)? ("address" address=EString)? ("geocoords" geocoords=EString)? "}"
+// description=STRING)? ("address" address=STRING)? ("geocoords" geocoords=STRING)? "}"
 protected class SiteLocation_Group extends GroupToken {
 	
 	public SiteLocation_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15910,7 +15881,7 @@ protected class SiteLocation_SiteLocationKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class SiteLocation_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public SiteLocation_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15934,9 +15905,9 @@ protected class SiteLocation_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSiteLocationAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSiteLocationAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSiteLocationAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSiteLocationAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -15966,7 +15937,7 @@ protected class SiteLocation_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class SiteLocation_Group_4 extends GroupToken {
 	
 	public SiteLocation_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16010,7 +15981,7 @@ protected class SiteLocation_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class SiteLocation_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public SiteLocation_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16034,9 +16005,9 @@ protected class SiteLocation_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSiteLocationAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSiteLocationAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSiteLocationAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSiteLocationAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -16125,7 +16096,7 @@ protected class SiteLocation_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class SiteLocation_Group_6 extends GroupToken {
 	
 	public SiteLocation_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16171,7 +16142,7 @@ protected class SiteLocation_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class SiteLocation_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public SiteLocation_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16195,9 +16166,9 @@ protected class SiteLocation_DescriptionAssignment_6_1 extends AssignmentToken  
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSiteLocationAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSiteLocationAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSiteLocationAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSiteLocationAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -16206,7 +16177,7 @@ protected class SiteLocation_DescriptionAssignment_6_1 extends AssignmentToken  
 }
 
 
-// ("address" address=EString)?
+// ("address" address=STRING)?
 protected class SiteLocation_Group_7 extends GroupToken {
 	
 	public SiteLocation_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16253,7 +16224,7 @@ protected class SiteLocation_AddressKeyword_7_0 extends KeywordToken  {
 
 }
 
-// address=EString
+// address=STRING
 protected class SiteLocation_AddressAssignment_7_1 extends AssignmentToken  {
 	
 	public SiteLocation_AddressAssignment_7_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16277,9 +16248,9 @@ protected class SiteLocation_AddressAssignment_7_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("address",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("address");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSiteLocationAccess().getAddressEStringParserRuleCall_7_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSiteLocationAccess().getAddressEStringParserRuleCall_7_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSiteLocationAccess().getAddressSTRINGTerminalRuleCall_7_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSiteLocationAccess().getAddressSTRINGTerminalRuleCall_7_1_0();
 			return obj;
 		}
 		return null;
@@ -16288,7 +16259,7 @@ protected class SiteLocation_AddressAssignment_7_1 extends AssignmentToken  {
 }
 
 
-// ("geocoords" geocoords=EString)?
+// ("geocoords" geocoords=STRING)?
 protected class SiteLocation_Group_8 extends GroupToken {
 	
 	public SiteLocation_Group_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16336,7 +16307,7 @@ protected class SiteLocation_GeocoordsKeyword_8_0 extends KeywordToken  {
 
 }
 
-// geocoords=EString
+// geocoords=STRING
 protected class SiteLocation_GeocoordsAssignment_8_1 extends AssignmentToken  {
 	
 	public SiteLocation_GeocoordsAssignment_8_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16360,9 +16331,9 @@ protected class SiteLocation_GeocoordsAssignment_8_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("geocoords",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("geocoords");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSiteLocationAccess().getGeocoordsEStringParserRuleCall_8_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSiteLocationAccess().getGeocoordsEStringParserRuleCall_8_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSiteLocationAccess().getGeocoordsSTRINGTerminalRuleCall_8_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSiteLocationAccess().getGeocoordsSTRINGTerminalRuleCall_8_1_0();
 			return obj;
 		}
 		return null;
@@ -16406,37 +16377,37 @@ protected class SiteLocation_RightCurlyBracketKeyword_9 extends KeywordToken  {
  *
  * OfferedResource returns resources::OfferedResource:
  * 
- * 	{resources::OfferedResource} "OfferedResource" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+ * 	{resources::OfferedResource} "OfferedResource" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
  * 
- * 	("description" description=EString)? ("resourceType" resourceType=ResourceType)? ("multitonMaxOccur"
+ * 	("description" description=STRING)? ("resourceType" resourceType=ResourceType)? ("multitonMaxOccur"
  * 
- * 	multitonMaxOccur=EInt)? ("geocoords" geocoords=EString)? ("contributesToCategories" "("
+ * 	multitonMaxOccur=EInt)? ("geocoords" geocoords=STRING)? ("contributesToCategories" "("
  * 
- * 	contributesToCategories+=[resources::ResourceCategory|EString] (","
+ * 	contributesToCategories+=[resources::ResourceCategory|STRING] (","
  * 
- * 	contributesToCategories+=[resources::ResourceCategory|EString])* ")")? ("requiresResources" "("
+ * 	contributesToCategories+=[resources::ResourceCategory|STRING])* ")")? ("requiresResources" "("
  * 
- * 	requiresResources+=[resources::Resource|EString] ("," requiresResources+=[resources::Resource|EString])* ")")?
+ * 	requiresResources+=[resources::Resource|STRING] ("," requiresResources+=[resources::Resource|STRING])* ")")?
  * 
- * 	("implOfferedService" implOfferedService=[services::Service|EString])? ("resourceSettings" "{"
+ * 	("implOfferedService" implOfferedService=[services::Service|STRING])? ("resourceSettings" "{"
  * 
  * 	resourceSettings+=ResourceSetting ("," resourceSettings+=ResourceSetting)* "}")? "}";
  *
  **/
 
-// {resources::OfferedResource} "OfferedResource" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+// {resources::OfferedResource} "OfferedResource" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 // 
-// ("description" description=EString)? ("resourceType" resourceType=ResourceType)? ("multitonMaxOccur"
+// description=STRING)? ("resourceType" resourceType=ResourceType)? ("multitonMaxOccur" multitonMaxOccur=EInt)?
 // 
-// multitonMaxOccur=EInt)? ("geocoords" geocoords=EString)? ("contributesToCategories" "("
+// ("geocoords" geocoords=STRING)? ("contributesToCategories" "("
 // 
-// contributesToCategories+=[resources::ResourceCategory|EString] (","
+// contributesToCategories+=[resources::ResourceCategory|STRING] (","
 // 
-// contributesToCategories+=[resources::ResourceCategory|EString])* ")")? ("requiresResources" "("
+// contributesToCategories+=[resources::ResourceCategory|STRING])* ")")? ("requiresResources" "("
 // 
-// requiresResources+=[resources::Resource|EString] ("," requiresResources+=[resources::Resource|EString])* ")")?
+// requiresResources+=[resources::Resource|STRING] ("," requiresResources+=[resources::Resource|STRING])* ")")?
 // 
-// ("implOfferedService" implOfferedService=[services::Service|EString])? ("resourceSettings" "{"
+// ("implOfferedService" implOfferedService=[services::Service|STRING])? ("resourceSettings" "{"
 // 
 // resourceSettings+=ResourceSetting ("," resourceSettings+=ResourceSetting)* "}")? "}"
 protected class OfferedResource_Group extends GroupToken {
@@ -16515,7 +16486,7 @@ protected class OfferedResource_OfferedResourceKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class OfferedResource_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public OfferedResource_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16539,9 +16510,9 @@ protected class OfferedResource_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getOfferedResourceAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getOfferedResourceAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getOfferedResourceAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getOfferedResourceAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -16571,7 +16542,7 @@ protected class OfferedResource_LeftCurlyBracketKeyword_3 extends KeywordToken  
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class OfferedResource_Group_4 extends GroupToken {
 	
 	public OfferedResource_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16615,7 +16586,7 @@ protected class OfferedResource_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class OfferedResource_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public OfferedResource_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16639,9 +16610,9 @@ protected class OfferedResource_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getOfferedResourceAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getOfferedResourceAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getOfferedResourceAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getOfferedResourceAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -16730,7 +16701,7 @@ protected class OfferedResource_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class OfferedResource_Group_6 extends GroupToken {
 	
 	public OfferedResource_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16776,7 +16747,7 @@ protected class OfferedResource_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class OfferedResource_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public OfferedResource_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16800,9 +16771,9 @@ protected class OfferedResource_DescriptionAssignment_6_1 extends AssignmentToke
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getOfferedResourceAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getOfferedResourceAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getOfferedResourceAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getOfferedResourceAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -16976,7 +16947,7 @@ protected class OfferedResource_MultitonMaxOccurAssignment_8_1 extends Assignmen
 }
 
 
-// ("geocoords" geocoords=EString)?
+// ("geocoords" geocoords=STRING)?
 protected class OfferedResource_Group_9 extends GroupToken {
 	
 	public OfferedResource_Group_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -17025,7 +16996,7 @@ protected class OfferedResource_GeocoordsKeyword_9_0 extends KeywordToken  {
 
 }
 
-// geocoords=EString
+// geocoords=STRING
 protected class OfferedResource_GeocoordsAssignment_9_1 extends AssignmentToken  {
 	
 	public OfferedResource_GeocoordsAssignment_9_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -17049,9 +17020,9 @@ protected class OfferedResource_GeocoordsAssignment_9_1 extends AssignmentToken 
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("geocoords",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("geocoords");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getOfferedResourceAccess().getGeocoordsEStringParserRuleCall_9_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getOfferedResourceAccess().getGeocoordsEStringParserRuleCall_9_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getOfferedResourceAccess().getGeocoordsSTRINGTerminalRuleCall_9_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getOfferedResourceAccess().getGeocoordsSTRINGTerminalRuleCall_9_1_0();
 			return obj;
 		}
 		return null;
@@ -17060,9 +17031,9 @@ protected class OfferedResource_GeocoordsAssignment_9_1 extends AssignmentToken 
 }
 
 
-// ("contributesToCategories" "(" contributesToCategories+=[resources::ResourceCategory|EString] (","
+// ("contributesToCategories" "(" contributesToCategories+=[resources::ResourceCategory|STRING] (","
 // 
-// contributesToCategories+=[resources::ResourceCategory|EString])* ")")?
+// contributesToCategories+=[resources::ResourceCategory|STRING])* ")")?
 protected class OfferedResource_Group_10 extends GroupToken {
 	
 	public OfferedResource_Group_10(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -17134,7 +17105,7 @@ protected class OfferedResource_LeftParenthesisKeyword_10_1 extends KeywordToken
 
 }
 
-// contributesToCategories+=[resources::ResourceCategory|EString]
+// contributesToCategories+=[resources::ResourceCategory|STRING]
 protected class OfferedResource_ContributesToCategoriesAssignment_10_2 extends AssignmentToken  {
 	
 	public OfferedResource_ContributesToCategoriesAssignment_10_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -17171,7 +17142,7 @@ protected class OfferedResource_ContributesToCategoriesAssignment_10_2 extends A
 
 }
 
-// ("," contributesToCategories+=[resources::ResourceCategory|EString])*
+// ("," contributesToCategories+=[resources::ResourceCategory|STRING])*
 protected class OfferedResource_Group_10_3 extends GroupToken {
 	
 	public OfferedResource_Group_10_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -17216,7 +17187,7 @@ protected class OfferedResource_CommaKeyword_10_3_0 extends KeywordToken  {
 
 }
 
-// contributesToCategories+=[resources::ResourceCategory|EString]
+// contributesToCategories+=[resources::ResourceCategory|STRING]
 protected class OfferedResource_ContributesToCategoriesAssignment_10_3_1 extends AssignmentToken  {
 	
 	public OfferedResource_ContributesToCategoriesAssignment_10_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -17278,9 +17249,9 @@ protected class OfferedResource_RightParenthesisKeyword_10_4 extends KeywordToke
 }
 
 
-// ("requiresResources" "(" requiresResources+=[resources::Resource|EString] (","
+// ("requiresResources" "(" requiresResources+=[resources::Resource|STRING] (","
 // 
-// requiresResources+=[resources::Resource|EString])* ")")?
+// requiresResources+=[resources::Resource|STRING])* ")")?
 protected class OfferedResource_Group_11 extends GroupToken {
 	
 	public OfferedResource_Group_11(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -17353,7 +17324,7 @@ protected class OfferedResource_LeftParenthesisKeyword_11_1 extends KeywordToken
 
 }
 
-// requiresResources+=[resources::Resource|EString]
+// requiresResources+=[resources::Resource|STRING]
 protected class OfferedResource_RequiresResourcesAssignment_11_2 extends AssignmentToken  {
 	
 	public OfferedResource_RequiresResourcesAssignment_11_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -17390,7 +17361,7 @@ protected class OfferedResource_RequiresResourcesAssignment_11_2 extends Assignm
 
 }
 
-// ("," requiresResources+=[resources::Resource|EString])*
+// ("," requiresResources+=[resources::Resource|STRING])*
 protected class OfferedResource_Group_11_3 extends GroupToken {
 	
 	public OfferedResource_Group_11_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -17435,7 +17406,7 @@ protected class OfferedResource_CommaKeyword_11_3_0 extends KeywordToken  {
 
 }
 
-// requiresResources+=[resources::Resource|EString]
+// requiresResources+=[resources::Resource|STRING]
 protected class OfferedResource_RequiresResourcesAssignment_11_3_1 extends AssignmentToken  {
 	
 	public OfferedResource_RequiresResourcesAssignment_11_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -17497,7 +17468,7 @@ protected class OfferedResource_RightParenthesisKeyword_11_4 extends KeywordToke
 }
 
 
-// ("implOfferedService" implOfferedService=[services::Service|EString])?
+// ("implOfferedService" implOfferedService=[services::Service|STRING])?
 protected class OfferedResource_Group_12 extends GroupToken {
 	
 	public OfferedResource_Group_12(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -17549,7 +17520,7 @@ protected class OfferedResource_ImplOfferedServiceKeyword_12_0 extends KeywordTo
 
 }
 
-// implOfferedService=[services::Service|EString]
+// implOfferedService=[services::Service|STRING]
 protected class OfferedResource_ImplOfferedServiceAssignment_12_1 extends AssignmentToken  {
 	
 	public OfferedResource_ImplOfferedServiceAssignment_12_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -17864,39 +17835,37 @@ protected class OfferedResource_RightCurlyBracketKeyword_14 extends KeywordToken
  *
  * ResourceSetting returns resources::ResourceSetting:
  * 
- * 	{resources::ResourceSetting} "ResourceSetting" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+ * 	{resources::ResourceSetting} "ResourceSetting" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
  * 
- * 	("description" description=EString)? userExposed?="userExposed"? userEditable?="userEditable"?
+ * 	("description" description=STRING)? userExposed?="userExposed"? userEditable?="userEditable"?
  * 
  * 	canBePublished?="canBePublished"? Readable?="Readable"? Writable?="Writable"? Optional?="Optional"? ("requiresParams"
  * 
- * 	"(" requiresParams+=[services::AbstractSetting|EString] ("," requiresParams+=[services::AbstractSetting|EString])*
+ * 	"(" requiresParams+=[services::AbstractSetting|STRING] ("," requiresParams+=[services::AbstractSetting|STRING])*
  * 
- * 	")")? ("OnlyConfiguredByResources" "(" OnlyConfiguredByResources+=[resources::Resource|EString] (","
+ * 	")")? ("OnlyConfiguredByResources" "(" OnlyConfiguredByResources+=[resources::Resource|STRING] (","
  * 
- * 	OnlyConfiguredByResources+=[resources::Resource|EString])* ")")? ("implServiceSetting"
+ * 	OnlyConfiguredByResources+=[resources::Resource|STRING])* ")")? ("implServiceSetting"
  * 
- * 	implServiceSetting=[services::ServiceSetting|EString])? ("settingType" settingType=SettingType)?
+ * 	implServiceSetting=[services::ServiceSetting|STRING])? ("settingType" settingType=SettingType)? ("settingConstraints"
  * 
- * 	("settingConstraints" "{" settingConstraints+=SettingConstraint ("," settingConstraints+=SettingConstraint)* "}")?
- * 
- * 	"}";
+ * 	"{" settingConstraints+=SettingConstraint ("," settingConstraints+=SettingConstraint)* "}")? "}";
  *
  **/
 
-// {resources::ResourceSetting} "ResourceSetting" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+// {resources::ResourceSetting} "ResourceSetting" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 // 
-// ("description" description=EString)? userExposed?="userExposed"? userEditable?="userEditable"?
+// description=STRING)? userExposed?="userExposed"? userEditable?="userEditable"? canBePublished?="canBePublished"?
 // 
-// canBePublished?="canBePublished"? Readable?="Readable"? Writable?="Writable"? Optional?="Optional"? ("requiresParams"
+// Readable?="Readable"? Writable?="Writable"? Optional?="Optional"? ("requiresParams" "("
 // 
-// "(" requiresParams+=[services::AbstractSetting|EString] ("," requiresParams+=[services::AbstractSetting|EString])*
+// requiresParams+=[services::AbstractSetting|STRING] ("," requiresParams+=[services::AbstractSetting|STRING])* ")")?
 // 
-// ")")? ("OnlyConfiguredByResources" "(" OnlyConfiguredByResources+=[resources::Resource|EString] (","
+// ("OnlyConfiguredByResources" "(" OnlyConfiguredByResources+=[resources::Resource|STRING] (","
 // 
-// OnlyConfiguredByResources+=[resources::Resource|EString])* ")")? ("implServiceSetting"
+// OnlyConfiguredByResources+=[resources::Resource|STRING])* ")")? ("implServiceSetting"
 // 
-// implServiceSetting=[services::ServiceSetting|EString])? ("settingType" settingType=SettingType)? ("settingConstraints"
+// implServiceSetting=[services::ServiceSetting|STRING])? ("settingType" settingType=SettingType)? ("settingConstraints"
 // 
 // "{" settingConstraints+=SettingConstraint ("," settingConstraints+=SettingConstraint)* "}")? "}"
 protected class ResourceSetting_Group extends GroupToken {
@@ -17975,7 +17944,7 @@ protected class ResourceSetting_ResourceSettingKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class ResourceSetting_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public ResourceSetting_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -17999,9 +17968,9 @@ protected class ResourceSetting_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceSettingAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourceSettingAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceSettingAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourceSettingAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -18031,7 +18000,7 @@ protected class ResourceSetting_LeftCurlyBracketKeyword_3 extends KeywordToken  
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class ResourceSetting_Group_4 extends GroupToken {
 	
 	public ResourceSetting_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18075,7 +18044,7 @@ protected class ResourceSetting_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class ResourceSetting_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public ResourceSetting_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18099,9 +18068,9 @@ protected class ResourceSetting_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceSettingAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourceSettingAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceSettingAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourceSettingAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -18190,7 +18159,7 @@ protected class ResourceSetting_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class ResourceSetting_Group_6 extends GroupToken {
 	
 	public ResourceSetting_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18236,7 +18205,7 @@ protected class ResourceSetting_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class ResourceSetting_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public ResourceSetting_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18260,9 +18229,9 @@ protected class ResourceSetting_DescriptionAssignment_6_1 extends AssignmentToke
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceSettingAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourceSettingAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceSettingAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourceSettingAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -18508,9 +18477,9 @@ protected class ResourceSetting_OptionalAssignment_12 extends AssignmentToken  {
 
 }
 
-// ("requiresParams" "(" requiresParams+=[services::AbstractSetting|EString] (","
+// ("requiresParams" "(" requiresParams+=[services::AbstractSetting|STRING] (","
 // 
-// requiresParams+=[services::AbstractSetting|EString])* ")")?
+// requiresParams+=[services::AbstractSetting|STRING])* ")")?
 protected class ResourceSetting_Group_13 extends GroupToken {
 	
 	public ResourceSetting_Group_13(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18585,7 +18554,7 @@ protected class ResourceSetting_LeftParenthesisKeyword_13_1 extends KeywordToken
 
 }
 
-// requiresParams+=[services::AbstractSetting|EString]
+// requiresParams+=[services::AbstractSetting|STRING]
 protected class ResourceSetting_RequiresParamsAssignment_13_2 extends AssignmentToken  {
 	
 	public ResourceSetting_RequiresParamsAssignment_13_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18622,7 +18591,7 @@ protected class ResourceSetting_RequiresParamsAssignment_13_2 extends Assignment
 
 }
 
-// ("," requiresParams+=[services::AbstractSetting|EString])*
+// ("," requiresParams+=[services::AbstractSetting|STRING])*
 protected class ResourceSetting_Group_13_3 extends GroupToken {
 	
 	public ResourceSetting_Group_13_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18667,7 +18636,7 @@ protected class ResourceSetting_CommaKeyword_13_3_0 extends KeywordToken  {
 
 }
 
-// requiresParams+=[services::AbstractSetting|EString]
+// requiresParams+=[services::AbstractSetting|STRING]
 protected class ResourceSetting_RequiresParamsAssignment_13_3_1 extends AssignmentToken  {
 	
 	public ResourceSetting_RequiresParamsAssignment_13_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18729,9 +18698,9 @@ protected class ResourceSetting_RightParenthesisKeyword_13_4 extends KeywordToke
 }
 
 
-// ("OnlyConfiguredByResources" "(" OnlyConfiguredByResources+=[resources::Resource|EString] (","
+// ("OnlyConfiguredByResources" "(" OnlyConfiguredByResources+=[resources::Resource|STRING] (","
 // 
-// OnlyConfiguredByResources+=[resources::Resource|EString])* ")")?
+// OnlyConfiguredByResources+=[resources::Resource|STRING])* ")")?
 protected class ResourceSetting_Group_14 extends GroupToken {
 	
 	public ResourceSetting_Group_14(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18807,7 +18776,7 @@ protected class ResourceSetting_LeftParenthesisKeyword_14_1 extends KeywordToken
 
 }
 
-// OnlyConfiguredByResources+=[resources::Resource|EString]
+// OnlyConfiguredByResources+=[resources::Resource|STRING]
 protected class ResourceSetting_OnlyConfiguredByResourcesAssignment_14_2 extends AssignmentToken  {
 	
 	public ResourceSetting_OnlyConfiguredByResourcesAssignment_14_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18844,7 +18813,7 @@ protected class ResourceSetting_OnlyConfiguredByResourcesAssignment_14_2 extends
 
 }
 
-// ("," OnlyConfiguredByResources+=[resources::Resource|EString])*
+// ("," OnlyConfiguredByResources+=[resources::Resource|STRING])*
 protected class ResourceSetting_Group_14_3 extends GroupToken {
 	
 	public ResourceSetting_Group_14_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18889,7 +18858,7 @@ protected class ResourceSetting_CommaKeyword_14_3_0 extends KeywordToken  {
 
 }
 
-// OnlyConfiguredByResources+=[resources::Resource|EString]
+// OnlyConfiguredByResources+=[resources::Resource|STRING]
 protected class ResourceSetting_OnlyConfiguredByResourcesAssignment_14_3_1 extends AssignmentToken  {
 	
 	public ResourceSetting_OnlyConfiguredByResourcesAssignment_14_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18951,7 +18920,7 @@ protected class ResourceSetting_RightParenthesisKeyword_14_4 extends KeywordToke
 }
 
 
-// ("implServiceSetting" implServiceSetting=[services::ServiceSetting|EString])?
+// ("implServiceSetting" implServiceSetting=[services::ServiceSetting|STRING])?
 protected class ResourceSetting_Group_15 extends GroupToken {
 	
 	public ResourceSetting_Group_15(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -19006,7 +18975,7 @@ protected class ResourceSetting_ImplServiceSettingKeyword_15_0 extends KeywordTo
 
 }
 
-// implServiceSetting=[services::ServiceSetting|EString]
+// implServiceSetting=[services::ServiceSetting|STRING]
 protected class ResourceSetting_ImplServiceSettingAssignment_15_1 extends AssignmentToken  {
 	
 	public ResourceSetting_ImplServiceSettingAssignment_15_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -19432,19 +19401,19 @@ protected class ResourceSetting_RightCurlyBracketKeyword_18 extends KeywordToken
  *
  * ResourceCategory returns resources::ResourceCategory:
  * 
- * 	{resources::ResourceCategory} "ResourceCategory" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+ * 	{resources::ResourceCategory} "ResourceCategory" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
  * 
- * 	("description" description=EString)? ("resourcelist" "(" resourcelist+=[resources::Resource|EString] (","
+ * 	("description" description=STRING)? ("resourcelist" "(" resourcelist+=[resources::Resource|STRING] (","
  * 
- * 	resourcelist+=[resources::Resource|EString])* ")")? "}";
+ * 	resourcelist+=[resources::Resource|STRING])* ")")? "}";
  *
  **/
 
-// {resources::ResourceCategory} "ResourceCategory" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+// {resources::ResourceCategory} "ResourceCategory" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 // 
-// ("description" description=EString)? ("resourcelist" "(" resourcelist+=[resources::Resource|EString] (","
+// ("description" description=STRING)? ("resourcelist" "(" resourcelist+=[resources::Resource|STRING] (","
 // 
-// resourcelist+=[resources::Resource|EString])* ")")? "}"
+// resourcelist+=[resources::Resource|STRING])* ")")? "}"
 protected class ResourceCategory_Group extends GroupToken {
 	
 	public ResourceCategory_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -19521,7 +19490,7 @@ protected class ResourceCategory_ResourceCategoryKeyword_1 extends KeywordToken 
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class ResourceCategory_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public ResourceCategory_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -19545,9 +19514,9 @@ protected class ResourceCategory_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceCategoryAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourceCategoryAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceCategoryAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourceCategoryAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -19577,7 +19546,7 @@ protected class ResourceCategory_LeftCurlyBracketKeyword_3 extends KeywordToken 
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class ResourceCategory_Group_4 extends GroupToken {
 	
 	public ResourceCategory_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -19621,7 +19590,7 @@ protected class ResourceCategory_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class ResourceCategory_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public ResourceCategory_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -19645,9 +19614,9 @@ protected class ResourceCategory_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceCategoryAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourceCategoryAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceCategoryAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourceCategoryAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -19736,7 +19705,7 @@ protected class ResourceCategory_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class ResourceCategory_Group_6 extends GroupToken {
 	
 	public ResourceCategory_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -19782,7 +19751,7 @@ protected class ResourceCategory_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class ResourceCategory_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public ResourceCategory_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -19806,9 +19775,9 @@ protected class ResourceCategory_DescriptionAssignment_6_1 extends AssignmentTok
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceCategoryAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourceCategoryAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceCategoryAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourceCategoryAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -19817,7 +19786,7 @@ protected class ResourceCategory_DescriptionAssignment_6_1 extends AssignmentTok
 }
 
 
-// ("resourcelist" "(" resourcelist+=[resources::Resource|EString] ("," resourcelist+=[resources::Resource|EString])* ")")?
+// ("resourcelist" "(" resourcelist+=[resources::Resource|STRING] ("," resourcelist+=[resources::Resource|STRING])* ")")?
 protected class ResourceCategory_Group_7 extends GroupToken {
 	
 	public ResourceCategory_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -19886,7 +19855,7 @@ protected class ResourceCategory_LeftParenthesisKeyword_7_1 extends KeywordToken
 
 }
 
-// resourcelist+=[resources::Resource|EString]
+// resourcelist+=[resources::Resource|STRING]
 protected class ResourceCategory_ResourcelistAssignment_7_2 extends AssignmentToken  {
 	
 	public ResourceCategory_ResourcelistAssignment_7_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -19923,7 +19892,7 @@ protected class ResourceCategory_ResourcelistAssignment_7_2 extends AssignmentTo
 
 }
 
-// ("," resourcelist+=[resources::Resource|EString])*
+// ("," resourcelist+=[resources::Resource|STRING])*
 protected class ResourceCategory_Group_7_3 extends GroupToken {
 	
 	public ResourceCategory_Group_7_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -19968,7 +19937,7 @@ protected class ResourceCategory_CommaKeyword_7_3_0 extends KeywordToken  {
 
 }
 
-// resourcelist+=[resources::Resource|EString]
+// resourcelist+=[resources::Resource|STRING]
 protected class ResourceCategory_ResourcelistAssignment_7_3_1 extends AssignmentToken  {
 	
 	public ResourceCategory_ResourcelistAssignment_7_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -20064,25 +20033,25 @@ protected class ResourceCategory_RightCurlyBracketKeyword_8 extends KeywordToken
  *
  * Resource_Impl returns resources::Resource:
  * 
- * 	{resources::Resource} "Resource" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+ * 	{resources::Resource} "Resource" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
  * 
- * 	description=EString)? ("contributesToCategories" "(" contributesToCategories+=[resources::ResourceCategory|EString]
+ * 	description=STRING)? ("contributesToCategories" "(" contributesToCategories+=[resources::ResourceCategory|STRING]
  * 
- * 	("," contributesToCategories+=[resources::ResourceCategory|EString])* ")")? ("requiresResources" "("
+ * 	("," contributesToCategories+=[resources::ResourceCategory|STRING])* ")")? ("requiresResources" "("
  * 
- * 	requiresResources+=[resources::Resource|EString] ("," requiresResources+=[resources::Resource|EString])* ")")?
+ * 	requiresResources+=[resources::Resource|STRING] ("," requiresResources+=[resources::Resource|STRING])* ")")?
  * 
  * 	("resourceSettings" "{" resourceSettings+=ResourceSetting ("," resourceSettings+=ResourceSetting)* "}")? "}";
  *
  **/
 
-// {resources::Resource} "Resource" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+// {resources::Resource} "Resource" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 // 
-// description=EString)? ("contributesToCategories" "(" contributesToCategories+=[resources::ResourceCategory|EString]
+// description=STRING)? ("contributesToCategories" "(" contributesToCategories+=[resources::ResourceCategory|STRING] (","
 // 
-// ("," contributesToCategories+=[resources::ResourceCategory|EString])* ")")? ("requiresResources" "("
+// contributesToCategories+=[resources::ResourceCategory|STRING])* ")")? ("requiresResources" "("
 // 
-// requiresResources+=[resources::Resource|EString] ("," requiresResources+=[resources::Resource|EString])* ")")?
+// requiresResources+=[resources::Resource|STRING] ("," requiresResources+=[resources::Resource|STRING])* ")")?
 // 
 // ("resourceSettings" "{" resourceSettings+=ResourceSetting ("," resourceSettings+=ResourceSetting)* "}")? "}"
 protected class Resource_Impl_Group extends GroupToken {
@@ -20161,7 +20130,7 @@ protected class Resource_Impl_ResourceKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class Resource_Impl_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public Resource_Impl_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -20185,9 +20154,9 @@ protected class Resource_Impl_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResource_ImplAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResource_ImplAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResource_ImplAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResource_ImplAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -20217,7 +20186,7 @@ protected class Resource_Impl_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class Resource_Impl_Group_4 extends GroupToken {
 	
 	public Resource_Impl_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -20261,7 +20230,7 @@ protected class Resource_Impl_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class Resource_Impl_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public Resource_Impl_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -20285,9 +20254,9 @@ protected class Resource_Impl_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResource_ImplAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResource_ImplAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResource_ImplAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResource_ImplAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -20376,7 +20345,7 @@ protected class Resource_Impl_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class Resource_Impl_Group_6 extends GroupToken {
 	
 	public Resource_Impl_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -20422,7 +20391,7 @@ protected class Resource_Impl_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class Resource_Impl_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public Resource_Impl_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -20446,9 +20415,9 @@ protected class Resource_Impl_DescriptionAssignment_6_1 extends AssignmentToken 
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResource_ImplAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResource_ImplAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResource_ImplAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResource_ImplAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -20457,9 +20426,9 @@ protected class Resource_Impl_DescriptionAssignment_6_1 extends AssignmentToken 
 }
 
 
-// ("contributesToCategories" "(" contributesToCategories+=[resources::ResourceCategory|EString] (","
+// ("contributesToCategories" "(" contributesToCategories+=[resources::ResourceCategory|STRING] (","
 // 
-// contributesToCategories+=[resources::ResourceCategory|EString])* ")")?
+// contributesToCategories+=[resources::ResourceCategory|STRING])* ")")?
 protected class Resource_Impl_Group_7 extends GroupToken {
 	
 	public Resource_Impl_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -20528,7 +20497,7 @@ protected class Resource_Impl_LeftParenthesisKeyword_7_1 extends KeywordToken  {
 
 }
 
-// contributesToCategories+=[resources::ResourceCategory|EString]
+// contributesToCategories+=[resources::ResourceCategory|STRING]
 protected class Resource_Impl_ContributesToCategoriesAssignment_7_2 extends AssignmentToken  {
 	
 	public Resource_Impl_ContributesToCategoriesAssignment_7_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -20565,7 +20534,7 @@ protected class Resource_Impl_ContributesToCategoriesAssignment_7_2 extends Assi
 
 }
 
-// ("," contributesToCategories+=[resources::ResourceCategory|EString])*
+// ("," contributesToCategories+=[resources::ResourceCategory|STRING])*
 protected class Resource_Impl_Group_7_3 extends GroupToken {
 	
 	public Resource_Impl_Group_7_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -20610,7 +20579,7 @@ protected class Resource_Impl_CommaKeyword_7_3_0 extends KeywordToken  {
 
 }
 
-// contributesToCategories+=[resources::ResourceCategory|EString]
+// contributesToCategories+=[resources::ResourceCategory|STRING]
 protected class Resource_Impl_ContributesToCategoriesAssignment_7_3_1 extends AssignmentToken  {
 	
 	public Resource_Impl_ContributesToCategoriesAssignment_7_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -20672,9 +20641,9 @@ protected class Resource_Impl_RightParenthesisKeyword_7_4 extends KeywordToken  
 }
 
 
-// ("requiresResources" "(" requiresResources+=[resources::Resource|EString] (","
+// ("requiresResources" "(" requiresResources+=[resources::Resource|STRING] (","
 // 
-// requiresResources+=[resources::Resource|EString])* ")")?
+// requiresResources+=[resources::Resource|STRING])* ")")?
 protected class Resource_Impl_Group_8 extends GroupToken {
 	
 	public Resource_Impl_Group_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -20744,7 +20713,7 @@ protected class Resource_Impl_LeftParenthesisKeyword_8_1 extends KeywordToken  {
 
 }
 
-// requiresResources+=[resources::Resource|EString]
+// requiresResources+=[resources::Resource|STRING]
 protected class Resource_Impl_RequiresResourcesAssignment_8_2 extends AssignmentToken  {
 	
 	public Resource_Impl_RequiresResourcesAssignment_8_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -20781,7 +20750,7 @@ protected class Resource_Impl_RequiresResourcesAssignment_8_2 extends Assignment
 
 }
 
-// ("," requiresResources+=[resources::Resource|EString])*
+// ("," requiresResources+=[resources::Resource|STRING])*
 protected class Resource_Impl_Group_8_3 extends GroupToken {
 	
 	public Resource_Impl_Group_8_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -20826,7 +20795,7 @@ protected class Resource_Impl_CommaKeyword_8_3_0 extends KeywordToken  {
 
 }
 
-// requiresResources+=[resources::Resource|EString]
+// requiresResources+=[resources::Resource|STRING]
 protected class Resource_Impl_RequiresResourcesAssignment_8_3_1 extends AssignmentToken  {
 	
 	public Resource_Impl_RequiresResourcesAssignment_8_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -21158,21 +21127,21 @@ protected class Resource_Impl_RightCurlyBracketKeyword_10 extends KeywordToken  
  *
  * Service_Impl returns services::Service:
  * 
- * 	{services::Service} "Service" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+ * 	{services::Service} "Service" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
  * 
- * 	description=EString)? ("requiresServices" "(" requiresServices+=[services::Service|EString] (","
+ * 	description=STRING)? ("requiresServices" "(" requiresServices+=[services::Service|STRING] (","
  * 
- * 	requiresServices+=[services::Service|EString])* ")")? ("serviceSettings" "{" serviceSettings+=ServiceSetting (","
+ * 	requiresServices+=[services::Service|STRING])* ")")? ("serviceSettings" "{" serviceSettings+=ServiceSetting (","
  * 
  * 	serviceSettings+=ServiceSetting)* "}")? "}";
  *
  **/
 
-// {services::Service} "Service" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+// {services::Service} "Service" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 // 
-// description=EString)? ("requiresServices" "(" requiresServices+=[services::Service|EString] (","
+// description=STRING)? ("requiresServices" "(" requiresServices+=[services::Service|STRING] (","
 // 
-// requiresServices+=[services::Service|EString])* ")")? ("serviceSettings" "{" serviceSettings+=ServiceSetting (","
+// requiresServices+=[services::Service|STRING])* ")")? ("serviceSettings" "{" serviceSettings+=ServiceSetting (","
 // 
 // serviceSettings+=ServiceSetting)* "}")? "}"
 protected class Service_Impl_Group extends GroupToken {
@@ -21251,7 +21220,7 @@ protected class Service_Impl_ServiceKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class Service_Impl_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public Service_Impl_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -21275,9 +21244,9 @@ protected class Service_Impl_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getService_ImplAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getService_ImplAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getService_ImplAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getService_ImplAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -21307,7 +21276,7 @@ protected class Service_Impl_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class Service_Impl_Group_4 extends GroupToken {
 	
 	public Service_Impl_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -21351,7 +21320,7 @@ protected class Service_Impl_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class Service_Impl_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public Service_Impl_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -21375,9 +21344,9 @@ protected class Service_Impl_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getService_ImplAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getService_ImplAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getService_ImplAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getService_ImplAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -21466,7 +21435,7 @@ protected class Service_Impl_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class Service_Impl_Group_6 extends GroupToken {
 	
 	public Service_Impl_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -21512,7 +21481,7 @@ protected class Service_Impl_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class Service_Impl_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public Service_Impl_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -21536,9 +21505,9 @@ protected class Service_Impl_DescriptionAssignment_6_1 extends AssignmentToken  
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getService_ImplAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getService_ImplAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getService_ImplAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getService_ImplAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -21547,9 +21516,9 @@ protected class Service_Impl_DescriptionAssignment_6_1 extends AssignmentToken  
 }
 
 
-// ("requiresServices" "(" requiresServices+=[services::Service|EString] (","
+// ("requiresServices" "(" requiresServices+=[services::Service|STRING] ("," requiresServices+=[services::Service|STRING])*
 // 
-// requiresServices+=[services::Service|EString])* ")")?
+// ")")?
 protected class Service_Impl_Group_7 extends GroupToken {
 	
 	public Service_Impl_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -21618,7 +21587,7 @@ protected class Service_Impl_LeftParenthesisKeyword_7_1 extends KeywordToken  {
 
 }
 
-// requiresServices+=[services::Service|EString]
+// requiresServices+=[services::Service|STRING]
 protected class Service_Impl_RequiresServicesAssignment_7_2 extends AssignmentToken  {
 	
 	public Service_Impl_RequiresServicesAssignment_7_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -21655,7 +21624,7 @@ protected class Service_Impl_RequiresServicesAssignment_7_2 extends AssignmentTo
 
 }
 
-// ("," requiresServices+=[services::Service|EString])*
+// ("," requiresServices+=[services::Service|STRING])*
 protected class Service_Impl_Group_7_3 extends GroupToken {
 	
 	public Service_Impl_Group_7_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -21700,7 +21669,7 @@ protected class Service_Impl_CommaKeyword_7_3_0 extends KeywordToken  {
 
 }
 
-// requiresServices+=[services::Service|EString]
+// requiresServices+=[services::Service|STRING]
 protected class Service_Impl_RequiresServicesAssignment_7_3_1 extends AssignmentToken  {
 	
 	public Service_Impl_RequiresServicesAssignment_7_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -22032,17 +22001,17 @@ protected class Service_Impl_RightCurlyBracketKeyword_9 extends KeywordToken  {
  * 
  * 	{services::SettingConstraint} AvailableAfterOperation?="AvailableAfterOperation"?
  * 
- * 	RequiredBeforeOperation?="RequiredBeforeOperation"? "SettingConstraint" uniqueID=EString "{" ("name" name=EString)?
+ * 	RequiredBeforeOperation?="RequiredBeforeOperation"? "SettingConstraint" uniqueID=STRING "{" ("name" name=STRING)?
  * 
- * 	("id" id=EInt)? ("description" description=EString)? ("ForOperation" ForOperation=ServiceResourceOperation)? "}";
+ * 	("id" id=EInt)? ("description" description=STRING)? ("ForOperation" ForOperation=ServiceResourceOperation)? "}";
  *
  **/
 
 // {services::SettingConstraint} AvailableAfterOperation?="AvailableAfterOperation"?
 // 
-// RequiredBeforeOperation?="RequiredBeforeOperation"? "SettingConstraint" uniqueID=EString "{" ("name" name=EString)?
+// RequiredBeforeOperation?="RequiredBeforeOperation"? "SettingConstraint" uniqueID=STRING "{" ("name" name=STRING)?
 // 
-// ("id" id=EInt)? ("description" description=EString)? ("ForOperation" ForOperation=ServiceResourceOperation)? "}"
+// ("id" id=EInt)? ("description" description=STRING)? ("ForOperation" ForOperation=ServiceResourceOperation)? "}"
 protected class SettingConstraint_Group extends GroupToken {
 	
 	public SettingConstraint_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -22190,7 +22159,7 @@ protected class SettingConstraint_SettingConstraintKeyword_3 extends KeywordToke
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class SettingConstraint_UniqueIDAssignment_4 extends AssignmentToken  {
 	
 	public SettingConstraint_UniqueIDAssignment_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -22214,9 +22183,9 @@ protected class SettingConstraint_UniqueIDAssignment_4 extends AssignmentToken  
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSettingConstraintAccess().getUniqueIDEStringParserRuleCall_4_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSettingConstraintAccess().getUniqueIDEStringParserRuleCall_4_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSettingConstraintAccess().getUniqueIDSTRINGTerminalRuleCall_4_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSettingConstraintAccess().getUniqueIDSTRINGTerminalRuleCall_4_0();
 			return obj;
 		}
 		return null;
@@ -22246,7 +22215,7 @@ protected class SettingConstraint_LeftCurlyBracketKeyword_5 extends KeywordToken
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class SettingConstraint_Group_6 extends GroupToken {
 	
 	public SettingConstraint_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -22290,7 +22259,7 @@ protected class SettingConstraint_NameKeyword_6_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class SettingConstraint_NameAssignment_6_1 extends AssignmentToken  {
 	
 	public SettingConstraint_NameAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -22314,9 +22283,9 @@ protected class SettingConstraint_NameAssignment_6_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSettingConstraintAccess().getNameEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSettingConstraintAccess().getNameEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSettingConstraintAccess().getNameSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSettingConstraintAccess().getNameSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -22405,7 +22374,7 @@ protected class SettingConstraint_IdAssignment_7_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class SettingConstraint_Group_8 extends GroupToken {
 	
 	public SettingConstraint_Group_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -22451,7 +22420,7 @@ protected class SettingConstraint_DescriptionKeyword_8_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class SettingConstraint_DescriptionAssignment_8_1 extends AssignmentToken  {
 	
 	public SettingConstraint_DescriptionAssignment_8_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -22475,9 +22444,9 @@ protected class SettingConstraint_DescriptionAssignment_8_1 extends AssignmentTo
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSettingConstraintAccess().getDescriptionEStringParserRuleCall_8_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSettingConstraintAccess().getDescriptionEStringParserRuleCall_8_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSettingConstraintAccess().getDescriptionSTRINGTerminalRuleCall_8_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSettingConstraintAccess().getDescriptionSTRINGTerminalRuleCall_8_1_0();
 			return obj;
 		}
 		return null;
@@ -22602,13 +22571,13 @@ protected class SettingConstraint_RightCurlyBracketKeyword_10 extends KeywordTok
  *
  * AbstractSetting_Impl returns services::AbstractSetting:
  * 
- * 	{services::AbstractSetting} "AbstractSetting" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+ * 	{services::AbstractSetting} "AbstractSetting" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
  * 
- * 	("description" description=EString)? userExposed?="userExposed"? userEditable?="userEditable"?
+ * 	("description" description=STRING)? userExposed?="userExposed"? userEditable?="userEditable"?
  * 
  * 	canBePublished?="canBePublished"? Readable?="Readable"? Writable?="Writable"? Optional?="Optional"? ("requiresParams"
  * 
- * 	"(" requiresParams+=[services::AbstractSetting|EString] ("," requiresParams+=[services::AbstractSetting|EString])*
+ * 	"(" requiresParams+=[services::AbstractSetting|STRING] ("," requiresParams+=[services::AbstractSetting|STRING])*
  * 
  * 	")")? ("settingType" settingType=SettingType)? ("settingConstraints" "{" settingConstraints+=SettingConstraint (","
  * 
@@ -22616,13 +22585,13 @@ protected class SettingConstraint_RightCurlyBracketKeyword_10 extends KeywordTok
  *
  **/
 
-// {services::AbstractSetting} "AbstractSetting" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+// {services::AbstractSetting} "AbstractSetting" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 // 
-// description=EString)? userExposed?="userExposed"? userEditable?="userEditable"? canBePublished?="canBePublished"?
+// description=STRING)? userExposed?="userExposed"? userEditable?="userEditable"? canBePublished?="canBePublished"?
 // 
 // Readable?="Readable"? Writable?="Writable"? Optional?="Optional"? ("requiresParams" "("
 // 
-// requiresParams+=[services::AbstractSetting|EString] ("," requiresParams+=[services::AbstractSetting|EString])* ")")?
+// requiresParams+=[services::AbstractSetting|STRING] ("," requiresParams+=[services::AbstractSetting|STRING])* ")")?
 // 
 // ("settingType" settingType=SettingType)? ("settingConstraints" "{" settingConstraints+=SettingConstraint (","
 // 
@@ -22703,7 +22672,7 @@ protected class AbstractSetting_Impl_AbstractSettingKeyword_1 extends KeywordTok
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class AbstractSetting_Impl_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public AbstractSetting_Impl_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -22727,9 +22696,9 @@ protected class AbstractSetting_Impl_UniqueIDAssignment_2 extends AssignmentToke
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAbstractSetting_ImplAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getAbstractSetting_ImplAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAbstractSetting_ImplAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getAbstractSetting_ImplAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -22759,7 +22728,7 @@ protected class AbstractSetting_Impl_LeftCurlyBracketKeyword_3 extends KeywordTo
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class AbstractSetting_Impl_Group_4 extends GroupToken {
 	
 	public AbstractSetting_Impl_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -22803,7 +22772,7 @@ protected class AbstractSetting_Impl_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class AbstractSetting_Impl_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public AbstractSetting_Impl_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -22827,9 +22796,9 @@ protected class AbstractSetting_Impl_NameAssignment_4_1 extends AssignmentToken 
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAbstractSetting_ImplAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getAbstractSetting_ImplAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAbstractSetting_ImplAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getAbstractSetting_ImplAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -22918,7 +22887,7 @@ protected class AbstractSetting_Impl_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class AbstractSetting_Impl_Group_6 extends GroupToken {
 	
 	public AbstractSetting_Impl_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -22964,7 +22933,7 @@ protected class AbstractSetting_Impl_DescriptionKeyword_6_0 extends KeywordToken
 
 }
 
-// description=EString
+// description=STRING
 protected class AbstractSetting_Impl_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public AbstractSetting_Impl_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -22988,9 +22957,9 @@ protected class AbstractSetting_Impl_DescriptionAssignment_6_1 extends Assignmen
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAbstractSetting_ImplAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getAbstractSetting_ImplAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAbstractSetting_ImplAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getAbstractSetting_ImplAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -23236,9 +23205,9 @@ protected class AbstractSetting_Impl_OptionalAssignment_12 extends AssignmentTok
 
 }
 
-// ("requiresParams" "(" requiresParams+=[services::AbstractSetting|EString] (","
+// ("requiresParams" "(" requiresParams+=[services::AbstractSetting|STRING] (","
 // 
-// requiresParams+=[services::AbstractSetting|EString])* ")")?
+// requiresParams+=[services::AbstractSetting|STRING])* ")")?
 protected class AbstractSetting_Impl_Group_13 extends GroupToken {
 	
 	public AbstractSetting_Impl_Group_13(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -23313,7 +23282,7 @@ protected class AbstractSetting_Impl_LeftParenthesisKeyword_13_1 extends Keyword
 
 }
 
-// requiresParams+=[services::AbstractSetting|EString]
+// requiresParams+=[services::AbstractSetting|STRING]
 protected class AbstractSetting_Impl_RequiresParamsAssignment_13_2 extends AssignmentToken  {
 	
 	public AbstractSetting_Impl_RequiresParamsAssignment_13_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -23350,7 +23319,7 @@ protected class AbstractSetting_Impl_RequiresParamsAssignment_13_2 extends Assig
 
 }
 
-// ("," requiresParams+=[services::AbstractSetting|EString])*
+// ("," requiresParams+=[services::AbstractSetting|STRING])*
 protected class AbstractSetting_Impl_Group_13_3 extends GroupToken {
 	
 	public AbstractSetting_Impl_Group_13_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -23395,7 +23364,7 @@ protected class AbstractSetting_Impl_CommaKeyword_13_3_0 extends KeywordToken  {
 
 }
 
-// requiresParams+=[services::AbstractSetting|EString]
+// requiresParams+=[services::AbstractSetting|STRING]
 protected class AbstractSetting_Impl_RequiresParamsAssignment_13_3_1 extends AssignmentToken  {
 	
 	public AbstractSetting_Impl_RequiresParamsAssignment_13_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -23839,19 +23808,19 @@ protected class AbstractSetting_Impl_RightCurlyBracketKeyword_16 extends Keyword
  *
  * ServiceSetting returns services::ServiceSetting:
  * 
- * 	{services::ServiceSetting} "ServiceSetting" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+ * 	{services::ServiceSetting} "ServiceSetting" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
  * 
- * 	("description" description=EString)? userExposed?="userExposed"? userEditable?="userEditable"?
+ * 	description=STRING)? userExposed?="userExposed"? userEditable?="userEditable"? canBePublished?="canBePublished"?
  * 
- * 	canBePublished?="canBePublished"? Readable?="Readable"? Writable?="Writable"? Optional?="Optional"? ("requiresParams"
+ * 	Readable?="Readable"? Writable?="Writable"? Optional?="Optional"? ("requiresParams" "("
  * 
- * 	"(" requiresParams+=[services::AbstractSetting|EString] ("," requiresParams+=[services::AbstractSetting|EString])*
+ * 	requiresParams+=[services::AbstractSetting|STRING] ("," requiresParams+=[services::AbstractSetting|STRING])* ")")?
  * 
- * 	")")? ("mappedToResourceSettings" "(" mappedToResourceSettings+=[resources::ResourceSetting|EString] (","
+ * 	("mappedToResourceSettings" "(" mappedToResourceSettings+=[resources::ResourceSetting|STRING] (","
  * 
- * 	mappedToResourceSettings+=[resources::ResourceSetting|EString])* ")")? ("providedByResources" "("
+ * 	mappedToResourceSettings+=[resources::ResourceSetting|STRING])* ")")? ("providedByResources" "("
  * 
- * 	providedByResources+=[resources::Resource|EString] ("," providedByResources+=[resources::Resource|EString])* ")")?
+ * 	providedByResources+=[resources::Resource|STRING] ("," providedByResources+=[resources::Resource|STRING])* ")")?
  * 
  * 	("settingType" settingType=SettingType)? ("settingConstraints" "{" settingConstraints+=SettingConstraint (","
  * 
@@ -23859,19 +23828,19 @@ protected class AbstractSetting_Impl_RightCurlyBracketKeyword_16 extends Keyword
  *
  **/
 
-// {services::ServiceSetting} "ServiceSetting" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+// {services::ServiceSetting} "ServiceSetting" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 // 
-// description=EString)? userExposed?="userExposed"? userEditable?="userEditable"? canBePublished?="canBePublished"?
+// description=STRING)? userExposed?="userExposed"? userEditable?="userEditable"? canBePublished?="canBePublished"?
 // 
 // Readable?="Readable"? Writable?="Writable"? Optional?="Optional"? ("requiresParams" "("
 // 
-// requiresParams+=[services::AbstractSetting|EString] ("," requiresParams+=[services::AbstractSetting|EString])* ")")?
+// requiresParams+=[services::AbstractSetting|STRING] ("," requiresParams+=[services::AbstractSetting|STRING])* ")")?
 // 
-// ("mappedToResourceSettings" "(" mappedToResourceSettings+=[resources::ResourceSetting|EString] (","
+// ("mappedToResourceSettings" "(" mappedToResourceSettings+=[resources::ResourceSetting|STRING] (","
 // 
-// mappedToResourceSettings+=[resources::ResourceSetting|EString])* ")")? ("providedByResources" "("
+// mappedToResourceSettings+=[resources::ResourceSetting|STRING])* ")")? ("providedByResources" "("
 // 
-// providedByResources+=[resources::Resource|EString] ("," providedByResources+=[resources::Resource|EString])* ")")?
+// providedByResources+=[resources::Resource|STRING] ("," providedByResources+=[resources::Resource|STRING])* ")")?
 // 
 // ("settingType" settingType=SettingType)? ("settingConstraints" "{" settingConstraints+=SettingConstraint (","
 // 
@@ -23952,7 +23921,7 @@ protected class ServiceSetting_ServiceSettingKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class ServiceSetting_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public ServiceSetting_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -23976,9 +23945,9 @@ protected class ServiceSetting_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceSettingAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getServiceSettingAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceSettingAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getServiceSettingAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -24008,7 +23977,7 @@ protected class ServiceSetting_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class ServiceSetting_Group_4 extends GroupToken {
 	
 	public ServiceSetting_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -24052,7 +24021,7 @@ protected class ServiceSetting_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class ServiceSetting_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public ServiceSetting_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -24076,9 +24045,9 @@ protected class ServiceSetting_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceSettingAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getServiceSettingAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceSettingAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getServiceSettingAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -24167,7 +24136,7 @@ protected class ServiceSetting_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class ServiceSetting_Group_6 extends GroupToken {
 	
 	public ServiceSetting_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -24213,7 +24182,7 @@ protected class ServiceSetting_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class ServiceSetting_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public ServiceSetting_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -24237,9 +24206,9 @@ protected class ServiceSetting_DescriptionAssignment_6_1 extends AssignmentToken
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceSettingAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getServiceSettingAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceSettingAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getServiceSettingAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -24485,9 +24454,9 @@ protected class ServiceSetting_OptionalAssignment_12 extends AssignmentToken  {
 
 }
 
-// ("requiresParams" "(" requiresParams+=[services::AbstractSetting|EString] (","
+// ("requiresParams" "(" requiresParams+=[services::AbstractSetting|STRING] (","
 // 
-// requiresParams+=[services::AbstractSetting|EString])* ")")?
+// requiresParams+=[services::AbstractSetting|STRING])* ")")?
 protected class ServiceSetting_Group_13 extends GroupToken {
 	
 	public ServiceSetting_Group_13(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -24562,7 +24531,7 @@ protected class ServiceSetting_LeftParenthesisKeyword_13_1 extends KeywordToken 
 
 }
 
-// requiresParams+=[services::AbstractSetting|EString]
+// requiresParams+=[services::AbstractSetting|STRING]
 protected class ServiceSetting_RequiresParamsAssignment_13_2 extends AssignmentToken  {
 	
 	public ServiceSetting_RequiresParamsAssignment_13_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -24599,7 +24568,7 @@ protected class ServiceSetting_RequiresParamsAssignment_13_2 extends AssignmentT
 
 }
 
-// ("," requiresParams+=[services::AbstractSetting|EString])*
+// ("," requiresParams+=[services::AbstractSetting|STRING])*
 protected class ServiceSetting_Group_13_3 extends GroupToken {
 	
 	public ServiceSetting_Group_13_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -24644,7 +24613,7 @@ protected class ServiceSetting_CommaKeyword_13_3_0 extends KeywordToken  {
 
 }
 
-// requiresParams+=[services::AbstractSetting|EString]
+// requiresParams+=[services::AbstractSetting|STRING]
 protected class ServiceSetting_RequiresParamsAssignment_13_3_1 extends AssignmentToken  {
 	
 	public ServiceSetting_RequiresParamsAssignment_13_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -24706,9 +24675,9 @@ protected class ServiceSetting_RightParenthesisKeyword_13_4 extends KeywordToken
 }
 
 
-// ("mappedToResourceSettings" "(" mappedToResourceSettings+=[resources::ResourceSetting|EString] (","
+// ("mappedToResourceSettings" "(" mappedToResourceSettings+=[resources::ResourceSetting|STRING] (","
 // 
-// mappedToResourceSettings+=[resources::ResourceSetting|EString])* ")")?
+// mappedToResourceSettings+=[resources::ResourceSetting|STRING])* ")")?
 protected class ServiceSetting_Group_14 extends GroupToken {
 	
 	public ServiceSetting_Group_14(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -24784,7 +24753,7 @@ protected class ServiceSetting_LeftParenthesisKeyword_14_1 extends KeywordToken 
 
 }
 
-// mappedToResourceSettings+=[resources::ResourceSetting|EString]
+// mappedToResourceSettings+=[resources::ResourceSetting|STRING]
 protected class ServiceSetting_MappedToResourceSettingsAssignment_14_2 extends AssignmentToken  {
 	
 	public ServiceSetting_MappedToResourceSettingsAssignment_14_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -24821,7 +24790,7 @@ protected class ServiceSetting_MappedToResourceSettingsAssignment_14_2 extends A
 
 }
 
-// ("," mappedToResourceSettings+=[resources::ResourceSetting|EString])*
+// ("," mappedToResourceSettings+=[resources::ResourceSetting|STRING])*
 protected class ServiceSetting_Group_14_3 extends GroupToken {
 	
 	public ServiceSetting_Group_14_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -24866,7 +24835,7 @@ protected class ServiceSetting_CommaKeyword_14_3_0 extends KeywordToken  {
 
 }
 
-// mappedToResourceSettings+=[resources::ResourceSetting|EString]
+// mappedToResourceSettings+=[resources::ResourceSetting|STRING]
 protected class ServiceSetting_MappedToResourceSettingsAssignment_14_3_1 extends AssignmentToken  {
 	
 	public ServiceSetting_MappedToResourceSettingsAssignment_14_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -24928,9 +24897,9 @@ protected class ServiceSetting_RightParenthesisKeyword_14_4 extends KeywordToken
 }
 
 
-// ("providedByResources" "(" providedByResources+=[resources::Resource|EString] (","
+// ("providedByResources" "(" providedByResources+=[resources::Resource|STRING] (","
 // 
-// providedByResources+=[resources::Resource|EString])* ")")?
+// providedByResources+=[resources::Resource|STRING])* ")")?
 protected class ServiceSetting_Group_15 extends GroupToken {
 	
 	public ServiceSetting_Group_15(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -25007,7 +24976,7 @@ protected class ServiceSetting_LeftParenthesisKeyword_15_1 extends KeywordToken 
 
 }
 
-// providedByResources+=[resources::Resource|EString]
+// providedByResources+=[resources::Resource|STRING]
 protected class ServiceSetting_ProvidedByResourcesAssignment_15_2 extends AssignmentToken  {
 	
 	public ServiceSetting_ProvidedByResourcesAssignment_15_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -25044,7 +25013,7 @@ protected class ServiceSetting_ProvidedByResourcesAssignment_15_2 extends Assign
 
 }
 
-// ("," providedByResources+=[resources::Resource|EString])*
+// ("," providedByResources+=[resources::Resource|STRING])*
 protected class ServiceSetting_Group_15_3 extends GroupToken {
 	
 	public ServiceSetting_Group_15_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -25089,7 +25058,7 @@ protected class ServiceSetting_CommaKeyword_15_3_0 extends KeywordToken  {
 
 }
 
-// providedByResources+=[resources::Resource|EString]
+// providedByResources+=[resources::Resource|STRING]
 protected class ServiceSetting_ProvidedByResourcesAssignment_15_3_1 extends AssignmentToken  {
 	
 	public ServiceSetting_ProvidedByResourcesAssignment_15_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -25539,15 +25508,15 @@ protected class ServiceSetting_RightCurlyBracketKeyword_18 extends KeywordToken 
  *
  * brTypeString returns services::brTypeString:
  * 
- * 	{services::brTypeString} "brTypeString" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+ * 	{services::brTypeString} "brTypeString" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
  * 
- * 	description=EString)? ("defaultValue" defaultValue=EString)? "}";
+ * 	description=STRING)? ("defaultValue" defaultValue=STRING)? "}";
  *
  **/
 
-// {services::brTypeString} "brTypeString" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+// {services::brTypeString} "brTypeString" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 // 
-// description=EString)? ("defaultValue" defaultValue=EString)? "}"
+// description=STRING)? ("defaultValue" defaultValue=STRING)? "}"
 protected class BrTypeString_Group extends GroupToken {
 	
 	public BrTypeString_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -25624,7 +25593,7 @@ protected class BrTypeString_BrTypeStringKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class BrTypeString_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public BrTypeString_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -25648,9 +25617,9 @@ protected class BrTypeString_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeStringAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrTypeStringAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeStringAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrTypeStringAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -25680,7 +25649,7 @@ protected class BrTypeString_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class BrTypeString_Group_4 extends GroupToken {
 	
 	public BrTypeString_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -25724,7 +25693,7 @@ protected class BrTypeString_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class BrTypeString_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public BrTypeString_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -25748,9 +25717,9 @@ protected class BrTypeString_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeStringAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrTypeStringAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeStringAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrTypeStringAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -25839,7 +25808,7 @@ protected class BrTypeString_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class BrTypeString_Group_6 extends GroupToken {
 	
 	public BrTypeString_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -25885,7 +25854,7 @@ protected class BrTypeString_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class BrTypeString_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public BrTypeString_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -25909,9 +25878,9 @@ protected class BrTypeString_DescriptionAssignment_6_1 extends AssignmentToken  
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeStringAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrTypeStringAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeStringAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrTypeStringAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -25920,7 +25889,7 @@ protected class BrTypeString_DescriptionAssignment_6_1 extends AssignmentToken  
 }
 
 
-// ("defaultValue" defaultValue=EString)?
+// ("defaultValue" defaultValue=STRING)?
 protected class BrTypeString_Group_7 extends GroupToken {
 	
 	public BrTypeString_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -25967,7 +25936,7 @@ protected class BrTypeString_DefaultValueKeyword_7_0 extends KeywordToken  {
 
 }
 
-// defaultValue=EString
+// defaultValue=STRING
 protected class BrTypeString_DefaultValueAssignment_7_1 extends AssignmentToken  {
 	
 	public BrTypeString_DefaultValueAssignment_7_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -25991,9 +25960,9 @@ protected class BrTypeString_DefaultValueAssignment_7_1 extends AssignmentToken 
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("defaultValue",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("defaultValue");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeStringAccess().getDefaultValueEStringParserRuleCall_7_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrTypeStringAccess().getDefaultValueEStringParserRuleCall_7_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeStringAccess().getDefaultValueSTRINGTerminalRuleCall_7_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrTypeStringAccess().getDefaultValueSTRINGTerminalRuleCall_7_1_0();
 			return obj;
 		}
 		return null;
@@ -26036,17 +26005,17 @@ protected class BrTypeString_RightCurlyBracketKeyword_8 extends KeywordToken  {
  *
  * brTypeEnum returns services::brTypeEnum:
  * 
- * 	{services::brTypeEnum} "brTypeEnum" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+ * 	{services::brTypeEnum} "brTypeEnum" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
  * 
- * 	description=EString)? ("defaultValue" defaultValue=[services::brTypeEnumItem|EString])? ("tideEnumlist" "{"
+ * 	description=STRING)? ("defaultValue" defaultValue=[services::brTypeEnumItem|STRING])? ("tideEnumlist" "{"
  * 
  * 	tideEnumlist+=brTypeEnumItem ("," tideEnumlist+=brTypeEnumItem)* "}")? "}";
  *
  **/
 
-// {services::brTypeEnum} "brTypeEnum" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+// {services::brTypeEnum} "brTypeEnum" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 // 
-// description=EString)? ("defaultValue" defaultValue=[services::brTypeEnumItem|EString])? ("tideEnumlist" "{"
+// description=STRING)? ("defaultValue" defaultValue=[services::brTypeEnumItem|STRING])? ("tideEnumlist" "{"
 // 
 // tideEnumlist+=brTypeEnumItem ("," tideEnumlist+=brTypeEnumItem)* "}")? "}"
 protected class BrTypeEnum_Group extends GroupToken {
@@ -26125,7 +26094,7 @@ protected class BrTypeEnum_BrTypeEnumKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class BrTypeEnum_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public BrTypeEnum_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -26149,9 +26118,9 @@ protected class BrTypeEnum_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeEnumAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrTypeEnumAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeEnumAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrTypeEnumAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -26181,7 +26150,7 @@ protected class BrTypeEnum_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class BrTypeEnum_Group_4 extends GroupToken {
 	
 	public BrTypeEnum_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -26225,7 +26194,7 @@ protected class BrTypeEnum_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class BrTypeEnum_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public BrTypeEnum_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -26249,9 +26218,9 @@ protected class BrTypeEnum_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeEnumAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrTypeEnumAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeEnumAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrTypeEnumAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -26340,7 +26309,7 @@ protected class BrTypeEnum_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class BrTypeEnum_Group_6 extends GroupToken {
 	
 	public BrTypeEnum_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -26386,7 +26355,7 @@ protected class BrTypeEnum_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class BrTypeEnum_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public BrTypeEnum_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -26410,9 +26379,9 @@ protected class BrTypeEnum_DescriptionAssignment_6_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeEnumAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrTypeEnumAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeEnumAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrTypeEnumAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -26421,7 +26390,7 @@ protected class BrTypeEnum_DescriptionAssignment_6_1 extends AssignmentToken  {
 }
 
 
-// ("defaultValue" defaultValue=[services::brTypeEnumItem|EString])?
+// ("defaultValue" defaultValue=[services::brTypeEnumItem|STRING])?
 protected class BrTypeEnum_Group_7 extends GroupToken {
 	
 	public BrTypeEnum_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -26468,7 +26437,7 @@ protected class BrTypeEnum_DefaultValueKeyword_7_0 extends KeywordToken  {
 
 }
 
-// defaultValue=[services::brTypeEnumItem|EString]
+// defaultValue=[services::brTypeEnumItem|STRING]
 protected class BrTypeEnum_DefaultValueAssignment_7_1 extends AssignmentToken  {
 	
 	public BrTypeEnum_DefaultValueAssignment_7_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -26773,15 +26742,15 @@ protected class BrTypeEnum_RightCurlyBracketKeyword_9 extends KeywordToken  {
  *
  * brTypeList returns services::brTypeList:
  * 
- * 	{services::brTypeList} "brTypeList" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+ * 	{services::brTypeList} "brTypeList" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
  * 
- * 	description=EString)? ("ContainsElementsOf" ContainsElementsOf=[Broker::NamedElement|EString])? "}";
+ * 	description=STRING)? ("ContainsElementsOf" ContainsElementsOf=[Broker::NamedElement|STRING])? "}";
  *
  **/
 
-// {services::brTypeList} "brTypeList" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+// {services::brTypeList} "brTypeList" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
 // 
-// description=EString)? ("ContainsElementsOf" ContainsElementsOf=[Broker::NamedElement|EString])? "}"
+// description=STRING)? ("ContainsElementsOf" ContainsElementsOf=[Broker::NamedElement|STRING])? "}"
 protected class BrTypeList_Group extends GroupToken {
 	
 	public BrTypeList_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -26858,7 +26827,7 @@ protected class BrTypeList_BrTypeListKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class BrTypeList_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public BrTypeList_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -26882,9 +26851,9 @@ protected class BrTypeList_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeListAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrTypeListAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeListAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrTypeListAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -26914,7 +26883,7 @@ protected class BrTypeList_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class BrTypeList_Group_4 extends GroupToken {
 	
 	public BrTypeList_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -26958,7 +26927,7 @@ protected class BrTypeList_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class BrTypeList_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public BrTypeList_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -26982,9 +26951,9 @@ protected class BrTypeList_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeListAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrTypeListAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeListAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrTypeListAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -27073,7 +27042,7 @@ protected class BrTypeList_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class BrTypeList_Group_6 extends GroupToken {
 	
 	public BrTypeList_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -27119,7 +27088,7 @@ protected class BrTypeList_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class BrTypeList_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public BrTypeList_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -27143,9 +27112,9 @@ protected class BrTypeList_DescriptionAssignment_6_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeListAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrTypeListAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeListAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrTypeListAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -27154,7 +27123,7 @@ protected class BrTypeList_DescriptionAssignment_6_1 extends AssignmentToken  {
 }
 
 
-// ("ContainsElementsOf" ContainsElementsOf=[Broker::NamedElement|EString])?
+// ("ContainsElementsOf" ContainsElementsOf=[Broker::NamedElement|STRING])?
 protected class BrTypeList_Group_7 extends GroupToken {
 	
 	public BrTypeList_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -27201,7 +27170,7 @@ protected class BrTypeList_ContainsElementsOfKeyword_7_0 extends KeywordToken  {
 
 }
 
-// ContainsElementsOf=[Broker::NamedElement|EString]
+// ContainsElementsOf=[Broker::NamedElement|STRING]
 protected class BrTypeList_ContainsElementsOfAssignment_7_1 extends AssignmentToken  {
 	
 	public BrTypeList_ContainsElementsOfAssignment_7_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -27273,15 +27242,15 @@ protected class BrTypeList_RightCurlyBracketKeyword_8 extends KeywordToken  {
  *
  * brTypeTideElement returns services::brTypeTideElement:
  * 
- * 	{services::brTypeTideElement} "brTypeTideElement" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+ * 	{services::brTypeTideElement} "brTypeTideElement" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
  * 
- * 	("description" description=EString)? ("ofTideElement" ofTideElement=[Broker::NamedElement|EString])? "}";
+ * 	("description" description=STRING)? ("ofTideElement" ofTideElement=[Broker::NamedElement|STRING])? "}";
  *
  **/
 
-// {services::brTypeTideElement} "brTypeTideElement" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+// {services::brTypeTideElement} "brTypeTideElement" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 // 
-// ("description" description=EString)? ("ofTideElement" ofTideElement=[Broker::NamedElement|EString])? "}"
+// ("description" description=STRING)? ("ofTideElement" ofTideElement=[Broker::NamedElement|STRING])? "}"
 protected class BrTypeTideElement_Group extends GroupToken {
 	
 	public BrTypeTideElement_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -27358,7 +27327,7 @@ protected class BrTypeTideElement_BrTypeTideElementKeyword_1 extends KeywordToke
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class BrTypeTideElement_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public BrTypeTideElement_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -27382,9 +27351,9 @@ protected class BrTypeTideElement_UniqueIDAssignment_2 extends AssignmentToken  
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeTideElementAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrTypeTideElementAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeTideElementAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrTypeTideElementAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -27414,7 +27383,7 @@ protected class BrTypeTideElement_LeftCurlyBracketKeyword_3 extends KeywordToken
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class BrTypeTideElement_Group_4 extends GroupToken {
 	
 	public BrTypeTideElement_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -27458,7 +27427,7 @@ protected class BrTypeTideElement_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class BrTypeTideElement_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public BrTypeTideElement_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -27482,9 +27451,9 @@ protected class BrTypeTideElement_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeTideElementAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrTypeTideElementAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeTideElementAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrTypeTideElementAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -27573,7 +27542,7 @@ protected class BrTypeTideElement_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class BrTypeTideElement_Group_6 extends GroupToken {
 	
 	public BrTypeTideElement_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -27619,7 +27588,7 @@ protected class BrTypeTideElement_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class BrTypeTideElement_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public BrTypeTideElement_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -27643,9 +27612,9 @@ protected class BrTypeTideElement_DescriptionAssignment_6_1 extends AssignmentTo
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeTideElementAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrTypeTideElementAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeTideElementAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrTypeTideElementAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -27654,7 +27623,7 @@ protected class BrTypeTideElement_DescriptionAssignment_6_1 extends AssignmentTo
 }
 
 
-// ("ofTideElement" ofTideElement=[Broker::NamedElement|EString])?
+// ("ofTideElement" ofTideElement=[Broker::NamedElement|STRING])?
 protected class BrTypeTideElement_Group_7 extends GroupToken {
 	
 	public BrTypeTideElement_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -27701,7 +27670,7 @@ protected class BrTypeTideElement_OfTideElementKeyword_7_0 extends KeywordToken 
 
 }
 
-// ofTideElement=[Broker::NamedElement|EString]
+// ofTideElement=[Broker::NamedElement|STRING]
 protected class BrTypeTideElement_OfTideElementAssignment_7_1 extends AssignmentToken  {
 	
 	public BrTypeTideElement_OfTideElementAssignment_7_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -27773,11 +27742,11 @@ protected class BrTypeTideElement_RightCurlyBracketKeyword_8 extends KeywordToke
  *
  * brTypeEnumItem returns services::brTypeEnumItem:
  * 
- * 	{services::brTypeEnumItem} "brTypeEnumItem" "{" ("value" value=EString)? ("description" description=EString)? "}";
+ * 	{services::brTypeEnumItem} "brTypeEnumItem" "{" ("value" value=STRING)? ("description" description=STRING)? "}";
  *
  **/
 
-// {services::brTypeEnumItem} "brTypeEnumItem" "{" ("value" value=EString)? ("description" description=EString)? "}"
+// {services::brTypeEnumItem} "brTypeEnumItem" "{" ("value" value=STRING)? ("description" description=STRING)? "}"
 protected class BrTypeEnumItem_Group extends GroupToken {
 	
 	public BrTypeEnumItem_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -27876,7 +27845,7 @@ protected class BrTypeEnumItem_LeftCurlyBracketKeyword_2 extends KeywordToken  {
 
 }
 
-// ("value" value=EString)?
+// ("value" value=STRING)?
 protected class BrTypeEnumItem_Group_3 extends GroupToken {
 	
 	public BrTypeEnumItem_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -27920,7 +27889,7 @@ protected class BrTypeEnumItem_ValueKeyword_3_0 extends KeywordToken  {
 
 }
 
-// value=EString
+// value=STRING
 protected class BrTypeEnumItem_ValueAssignment_3_1 extends AssignmentToken  {
 	
 	public BrTypeEnumItem_ValueAssignment_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -27944,9 +27913,9 @@ protected class BrTypeEnumItem_ValueAssignment_3_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("value",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("value");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeEnumItemAccess().getValueEStringParserRuleCall_3_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrTypeEnumItemAccess().getValueEStringParserRuleCall_3_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeEnumItemAccess().getValueSTRINGTerminalRuleCall_3_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrTypeEnumItemAccess().getValueSTRINGTerminalRuleCall_3_1_0();
 			return obj;
 		}
 		return null;
@@ -27955,7 +27924,7 @@ protected class BrTypeEnumItem_ValueAssignment_3_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class BrTypeEnumItem_Group_4 extends GroupToken {
 	
 	public BrTypeEnumItem_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -28000,7 +27969,7 @@ protected class BrTypeEnumItem_DescriptionKeyword_4_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class BrTypeEnumItem_DescriptionAssignment_4_1 extends AssignmentToken  {
 	
 	public BrTypeEnumItem_DescriptionAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -28024,9 +27993,9 @@ protected class BrTypeEnumItem_DescriptionAssignment_4_1 extends AssignmentToken
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeEnumItemAccess().getDescriptionEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getBrTypeEnumItemAccess().getDescriptionEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getBrTypeEnumItemAccess().getDescriptionSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getBrTypeEnumItemAccess().getDescriptionSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -28069,15 +28038,15 @@ protected class BrTypeEnumItem_RightCurlyBracketKeyword_5 extends KeywordToken  
  *
  * Credentials returns federationscenarios::Credentials:
  * 
- * 	{federationscenarios::Credentials} "Credentials" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+ * 	{federationscenarios::Credentials} "Credentials" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
  * 
- * 	("description" description=EString)? ("username" username=EString)? ("password" password=EString)? "}";
+ * 	("description" description=STRING)? ("username" username=STRING)? ("password" password=STRING)? "}";
  *
  **/
 
-// {federationscenarios::Credentials} "Credentials" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+// {federationscenarios::Credentials} "Credentials" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 // 
-// ("description" description=EString)? ("username" username=EString)? ("password" password=EString)? "}"
+// ("description" description=STRING)? ("username" username=STRING)? ("password" password=STRING)? "}"
 protected class Credentials_Group extends GroupToken {
 	
 	public Credentials_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -28154,7 +28123,7 @@ protected class Credentials_CredentialsKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class Credentials_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public Credentials_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -28178,9 +28147,9 @@ protected class Credentials_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getCredentialsAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getCredentialsAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getCredentialsAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getCredentialsAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -28210,7 +28179,7 @@ protected class Credentials_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class Credentials_Group_4 extends GroupToken {
 	
 	public Credentials_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -28254,7 +28223,7 @@ protected class Credentials_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class Credentials_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public Credentials_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -28278,9 +28247,9 @@ protected class Credentials_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getCredentialsAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getCredentialsAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getCredentialsAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getCredentialsAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -28369,7 +28338,7 @@ protected class Credentials_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class Credentials_Group_6 extends GroupToken {
 	
 	public Credentials_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -28415,7 +28384,7 @@ protected class Credentials_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class Credentials_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public Credentials_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -28439,9 +28408,9 @@ protected class Credentials_DescriptionAssignment_6_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getCredentialsAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getCredentialsAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getCredentialsAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getCredentialsAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -28450,7 +28419,7 @@ protected class Credentials_DescriptionAssignment_6_1 extends AssignmentToken  {
 }
 
 
-// ("username" username=EString)?
+// ("username" username=STRING)?
 protected class Credentials_Group_7 extends GroupToken {
 	
 	public Credentials_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -28497,7 +28466,7 @@ protected class Credentials_UsernameKeyword_7_0 extends KeywordToken  {
 
 }
 
-// username=EString
+// username=STRING
 protected class Credentials_UsernameAssignment_7_1 extends AssignmentToken  {
 	
 	public Credentials_UsernameAssignment_7_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -28521,9 +28490,9 @@ protected class Credentials_UsernameAssignment_7_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("username",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("username");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getCredentialsAccess().getUsernameEStringParserRuleCall_7_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getCredentialsAccess().getUsernameEStringParserRuleCall_7_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getCredentialsAccess().getUsernameSTRINGTerminalRuleCall_7_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getCredentialsAccess().getUsernameSTRINGTerminalRuleCall_7_1_0();
 			return obj;
 		}
 		return null;
@@ -28532,7 +28501,7 @@ protected class Credentials_UsernameAssignment_7_1 extends AssignmentToken  {
 }
 
 
-// ("password" password=EString)?
+// ("password" password=STRING)?
 protected class Credentials_Group_8 extends GroupToken {
 	
 	public Credentials_Group_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -28580,7 +28549,7 @@ protected class Credentials_PasswordKeyword_8_0 extends KeywordToken  {
 
 }
 
-// password=EString
+// password=STRING
 protected class Credentials_PasswordAssignment_8_1 extends AssignmentToken  {
 	
 	public Credentials_PasswordAssignment_8_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -28604,9 +28573,9 @@ protected class Credentials_PasswordAssignment_8_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("password",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("password");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getCredentialsAccess().getPasswordEStringParserRuleCall_8_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getCredentialsAccess().getPasswordEStringParserRuleCall_8_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getCredentialsAccess().getPasswordSTRINGTerminalRuleCall_8_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getCredentialsAccess().getPasswordSTRINGTerminalRuleCall_8_1_0();
 			return obj;
 		}
 		return null;
@@ -28650,17 +28619,17 @@ protected class Credentials_RightCurlyBracketKeyword_9 extends KeywordToken  {
  *
  * ServicesRequest returns federationscenarios::ServicesRequest:
  * 
- * 	{federationscenarios::ServicesRequest} "ServicesRequest" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+ * 	{federationscenarios::ServicesRequest} "ServicesRequest" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
  * 
- * 	("description" description=EString)? ("serviceRequestList" "{" serviceRequestList+=ServiceRequest (","
+ * 	("description" description=STRING)? ("serviceRequestList" "{" serviceRequestList+=ServiceRequest (","
  * 
  * 	serviceRequestList+=ServiceRequest)* "}")? "}";
  *
  **/
 
-// {federationscenarios::ServicesRequest} "ServicesRequest" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+// {federationscenarios::ServicesRequest} "ServicesRequest" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 // 
-// ("description" description=EString)? ("serviceRequestList" "{" serviceRequestList+=ServiceRequest (","
+// ("description" description=STRING)? ("serviceRequestList" "{" serviceRequestList+=ServiceRequest (","
 // 
 // serviceRequestList+=ServiceRequest)* "}")? "}"
 protected class ServicesRequest_Group extends GroupToken {
@@ -28739,7 +28708,7 @@ protected class ServicesRequest_ServicesRequestKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class ServicesRequest_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public ServicesRequest_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -28763,9 +28732,9 @@ protected class ServicesRequest_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServicesRequestAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getServicesRequestAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServicesRequestAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getServicesRequestAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -28795,7 +28764,7 @@ protected class ServicesRequest_LeftCurlyBracketKeyword_3 extends KeywordToken  
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class ServicesRequest_Group_4 extends GroupToken {
 	
 	public ServicesRequest_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -28839,7 +28808,7 @@ protected class ServicesRequest_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class ServicesRequest_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public ServicesRequest_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -28863,9 +28832,9 @@ protected class ServicesRequest_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServicesRequestAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getServicesRequestAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServicesRequestAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getServicesRequestAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -28954,7 +28923,7 @@ protected class ServicesRequest_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class ServicesRequest_Group_6 extends GroupToken {
 	
 	public ServicesRequest_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -29000,7 +28969,7 @@ protected class ServicesRequest_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class ServicesRequest_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public ServicesRequest_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -29024,9 +28993,9 @@ protected class ServicesRequest_DescriptionAssignment_6_1 extends AssignmentToke
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServicesRequestAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getServicesRequestAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServicesRequestAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getServicesRequestAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -29300,19 +29269,19 @@ protected class ServicesRequest_RightCurlyBracketKeyword_8 extends KeywordToken 
  *
  * InfrastructureRequest returns federationscenarios::InfrastructureRequest:
  * 
- * 	{federationscenarios::InfrastructureRequest} "InfrastructureRequest" uniqueID=EString "{" ("name" name=EString)?
+ * 	{federationscenarios::InfrastructureRequest} "InfrastructureRequest" uniqueID=STRING "{" ("name" name=STRING)? ("id"
  * 
- * 	("id" id=EInt)? ("description" description=EString)? ("reqOfferedResources" "{" reqOfferedResources+=ResourceRequest
+ * 	id=EInt)? ("description" description=STRING)? ("reqOfferedResources" "{" reqOfferedResources+=ResourceRequest (","
  * 
- * 	("," reqOfferedResources+=ResourceRequest)* "}")? ("resourceGroups" "{" resourceGroups+=ResourceGroup (","
+ * 	reqOfferedResources+=ResourceRequest)* "}")? ("resourceGroups" "{" resourceGroups+=ResourceGroup (","
  * 
  * 	resourceGroups+=ResourceGroup)* "}")? "}";
  *
  **/
 
-// {federationscenarios::InfrastructureRequest} "InfrastructureRequest" uniqueID=EString "{" ("name" name=EString)? ("id"
+// {federationscenarios::InfrastructureRequest} "InfrastructureRequest" uniqueID=STRING "{" ("name" name=STRING)? ("id"
 // 
-// id=EInt)? ("description" description=EString)? ("reqOfferedResources" "{" reqOfferedResources+=ResourceRequest (","
+// id=EInt)? ("description" description=STRING)? ("reqOfferedResources" "{" reqOfferedResources+=ResourceRequest (","
 // 
 // reqOfferedResources+=ResourceRequest)* "}")? ("resourceGroups" "{" resourceGroups+=ResourceGroup (","
 // 
@@ -29393,7 +29362,7 @@ protected class InfrastructureRequest_InfrastructureRequestKeyword_1 extends Key
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class InfrastructureRequest_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public InfrastructureRequest_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -29417,9 +29386,9 @@ protected class InfrastructureRequest_UniqueIDAssignment_2 extends AssignmentTok
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getInfrastructureRequestAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getInfrastructureRequestAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getInfrastructureRequestAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getInfrastructureRequestAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -29449,7 +29418,7 @@ protected class InfrastructureRequest_LeftCurlyBracketKeyword_3 extends KeywordT
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class InfrastructureRequest_Group_4 extends GroupToken {
 	
 	public InfrastructureRequest_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -29493,7 +29462,7 @@ protected class InfrastructureRequest_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class InfrastructureRequest_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public InfrastructureRequest_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -29517,9 +29486,9 @@ protected class InfrastructureRequest_NameAssignment_4_1 extends AssignmentToken
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getInfrastructureRequestAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getInfrastructureRequestAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getInfrastructureRequestAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getInfrastructureRequestAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -29608,7 +29577,7 @@ protected class InfrastructureRequest_IdAssignment_5_1 extends AssignmentToken  
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class InfrastructureRequest_Group_6 extends GroupToken {
 	
 	public InfrastructureRequest_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -29654,7 +29623,7 @@ protected class InfrastructureRequest_DescriptionKeyword_6_0 extends KeywordToke
 
 }
 
-// description=EString
+// description=STRING
 protected class InfrastructureRequest_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public InfrastructureRequest_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -29678,9 +29647,9 @@ protected class InfrastructureRequest_DescriptionAssignment_6_1 extends Assignme
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getInfrastructureRequestAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getInfrastructureRequestAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getInfrastructureRequestAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getInfrastructureRequestAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -30485,11 +30454,11 @@ protected class ScheduledPlan_RightCurlyBracketKeyword_5 extends KeywordToken  {
  *
  * Import returns federationscenarios::Import:
  * 
- * 	{federationscenarios::Import} "Import" "{" ("importURI" importURI=EString)? "}";
+ * 	{federationscenarios::Import} "Import" "{" ("importURI" importURI=STRING)? "}";
  *
  **/
 
-// {federationscenarios::Import} "Import" "{" ("importURI" importURI=EString)? "}"
+// {federationscenarios::Import} "Import" "{" ("importURI" importURI=STRING)? "}"
 protected class Import_Group extends GroupToken {
 	
 	public Import_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -30588,7 +30557,7 @@ protected class Import_LeftCurlyBracketKeyword_2 extends KeywordToken  {
 
 }
 
-// ("importURI" importURI=EString)?
+// ("importURI" importURI=STRING)?
 protected class Import_Group_3 extends GroupToken {
 	
 	public Import_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -30632,7 +30601,7 @@ protected class Import_ImportURIKeyword_3_0 extends KeywordToken  {
 
 }
 
-// importURI=EString
+// importURI=STRING
 protected class Import_ImportURIAssignment_3_1 extends AssignmentToken  {
 	
 	public Import_ImportURIAssignment_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -30656,9 +30625,9 @@ protected class Import_ImportURIAssignment_3_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("importURI",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("importURI");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getImportAccess().getImportURIEStringParserRuleCall_3_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getImportAccess().getImportURIEStringParserRuleCall_3_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getImportAccess().getImportURISTRINGTerminalRuleCall_3_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getImportAccess().getImportURISTRINGTerminalRuleCall_3_1_0();
 			return obj;
 		}
 		return null;
@@ -30698,19 +30667,19 @@ protected class Import_RightCurlyBracketKeyword_4 extends KeywordToken  {
  *
  * RuntimeElement returns experimentRuntime::RuntimeElement:
  * 
- * 	{experimentRuntime::RuntimeElement} "RuntimeElement" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+ * 	{experimentRuntime::RuntimeElement} "RuntimeElement" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
  * 
- * 	("description" description=EString)? ("status" status=RuntimeElementStatus)? ("GUID" GUID=EString)? ("context"
+ * 	("description" description=STRING)? ("status" status=RuntimeElementStatus)? ("GUID" GUID=STRING)? ("context"
  * 
- * 	context=EString)? "}";
+ * 	context=STRING)? "}";
  *
  **/
 
-// {experimentRuntime::RuntimeElement} "RuntimeElement" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+// {experimentRuntime::RuntimeElement} "RuntimeElement" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 // 
-// ("description" description=EString)? ("status" status=RuntimeElementStatus)? ("GUID" GUID=EString)? ("context"
+// ("description" description=STRING)? ("status" status=RuntimeElementStatus)? ("GUID" GUID=STRING)? ("context"
 // 
-// context=EString)? "}"
+// context=STRING)? "}"
 protected class RuntimeElement_Group extends GroupToken {
 	
 	public RuntimeElement_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -30787,7 +30756,7 @@ protected class RuntimeElement_RuntimeElementKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class RuntimeElement_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public RuntimeElement_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -30811,9 +30780,9 @@ protected class RuntimeElement_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getRuntimeElementAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getRuntimeElementAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getRuntimeElementAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getRuntimeElementAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -30843,7 +30812,7 @@ protected class RuntimeElement_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class RuntimeElement_Group_4 extends GroupToken {
 	
 	public RuntimeElement_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -30887,7 +30856,7 @@ protected class RuntimeElement_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class RuntimeElement_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public RuntimeElement_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -30911,9 +30880,9 @@ protected class RuntimeElement_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getRuntimeElementAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getRuntimeElementAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getRuntimeElementAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getRuntimeElementAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -31002,7 +30971,7 @@ protected class RuntimeElement_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class RuntimeElement_Group_6 extends GroupToken {
 	
 	public RuntimeElement_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -31048,7 +31017,7 @@ protected class RuntimeElement_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class RuntimeElement_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public RuntimeElement_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -31072,9 +31041,9 @@ protected class RuntimeElement_DescriptionAssignment_6_1 extends AssignmentToken
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getRuntimeElementAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getRuntimeElementAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getRuntimeElementAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getRuntimeElementAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -31165,7 +31134,7 @@ protected class RuntimeElement_StatusAssignment_7_1 extends AssignmentToken  {
 }
 
 
-// ("GUID" GUID=EString)?
+// ("GUID" GUID=STRING)?
 protected class RuntimeElement_Group_8 extends GroupToken {
 	
 	public RuntimeElement_Group_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -31213,7 +31182,7 @@ protected class RuntimeElement_GUIDKeyword_8_0 extends KeywordToken  {
 
 }
 
-// GUID=EString
+// GUID=STRING
 protected class RuntimeElement_GUIDAssignment_8_1 extends AssignmentToken  {
 	
 	public RuntimeElement_GUIDAssignment_8_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -31237,9 +31206,9 @@ protected class RuntimeElement_GUIDAssignment_8_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("GUID",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("GUID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getRuntimeElementAccess().getGUIDEStringParserRuleCall_8_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getRuntimeElementAccess().getGUIDEStringParserRuleCall_8_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getRuntimeElementAccess().getGUIDSTRINGTerminalRuleCall_8_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getRuntimeElementAccess().getGUIDSTRINGTerminalRuleCall_8_1_0();
 			return obj;
 		}
 		return null;
@@ -31248,7 +31217,7 @@ protected class RuntimeElement_GUIDAssignment_8_1 extends AssignmentToken  {
 }
 
 
-// ("context" context=EString)?
+// ("context" context=STRING)?
 protected class RuntimeElement_Group_9 extends GroupToken {
 	
 	public RuntimeElement_Group_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -31297,7 +31266,7 @@ protected class RuntimeElement_ContextKeyword_9_0 extends KeywordToken  {
 
 }
 
-// context=EString
+// context=STRING
 protected class RuntimeElement_ContextAssignment_9_1 extends AssignmentToken  {
 	
 	public RuntimeElement_ContextAssignment_9_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -31321,9 +31290,9 @@ protected class RuntimeElement_ContextAssignment_9_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("context",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("context");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getRuntimeElementAccess().getContextEStringParserRuleCall_9_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getRuntimeElementAccess().getContextEStringParserRuleCall_9_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getRuntimeElementAccess().getContextSTRINGTerminalRuleCall_9_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getRuntimeElementAccess().getContextSTRINGTerminalRuleCall_9_1_0();
 			return obj;
 		}
 		return null;
@@ -31368,21 +31337,21 @@ protected class RuntimeElement_RightCurlyBracketKeyword_10 extends KeywordToken 
  *
  * ServiceRequest returns federationscenarios::ServiceRequest:
  * 
- * 	"ServiceRequest" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)?
+ * 	"ServiceRequest" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
  * 
- * 	("numOfServices" numOfServices=EInt)? "refService" refService=[services::Service|EString] ("OfferedByProviders"
+ * 	("numOfServices" numOfServices=EInt)? "refService" refService=[services::Service|STRING] ("OfferedByProviders"
  * 
- * 	OfferedByProviders=[users::ResourcesProvider|EString])? ("reqServiceSettings" "{"
+ * 	OfferedByProviders=[users::ResourcesProvider|STRING])? ("reqServiceSettings" "{"
  * 
  * 	reqServiceSettings+=ServiceSettingInstance ("," reqServiceSettings+=ServiceSettingInstance)* "}")? "}";
  *
  **/
 
-// "ServiceRequest" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)?
+// "ServiceRequest" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 // 
-// ("numOfServices" numOfServices=EInt)? "refService" refService=[services::Service|EString] ("OfferedByProviders"
+// ("numOfServices" numOfServices=EInt)? "refService" refService=[services::Service|STRING] ("OfferedByProviders"
 // 
-// OfferedByProviders=[users::ResourcesProvider|EString])? ("reqServiceSettings" "{"
+// OfferedByProviders=[users::ResourcesProvider|STRING])? ("reqServiceSettings" "{"
 // 
 // reqServiceSettings+=ServiceSettingInstance ("," reqServiceSettings+=ServiceSettingInstance)* "}")? "}"
 protected class ServiceRequest_Group extends GroupToken {
@@ -31434,7 +31403,7 @@ protected class ServiceRequest_ServiceRequestKeyword_0 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class ServiceRequest_UniqueIDAssignment_1 extends AssignmentToken  {
 	
 	public ServiceRequest_UniqueIDAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -31458,9 +31427,9 @@ protected class ServiceRequest_UniqueIDAssignment_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceRequestAccess().getUniqueIDEStringParserRuleCall_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getServiceRequestAccess().getUniqueIDEStringParserRuleCall_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceRequestAccess().getUniqueIDSTRINGTerminalRuleCall_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getServiceRequestAccess().getUniqueIDSTRINGTerminalRuleCall_1_0();
 			return obj;
 		}
 		return null;
@@ -31490,7 +31459,7 @@ protected class ServiceRequest_LeftCurlyBracketKeyword_2 extends KeywordToken  {
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class ServiceRequest_Group_3 extends GroupToken {
 	
 	public ServiceRequest_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -31534,7 +31503,7 @@ protected class ServiceRequest_NameKeyword_3_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class ServiceRequest_NameAssignment_3_1 extends AssignmentToken  {
 	
 	public ServiceRequest_NameAssignment_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -31558,9 +31527,9 @@ protected class ServiceRequest_NameAssignment_3_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceRequestAccess().getNameEStringParserRuleCall_3_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getServiceRequestAccess().getNameEStringParserRuleCall_3_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceRequestAccess().getNameSTRINGTerminalRuleCall_3_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getServiceRequestAccess().getNameSTRINGTerminalRuleCall_3_1_0();
 			return obj;
 		}
 		return null;
@@ -31649,7 +31618,7 @@ protected class ServiceRequest_IdAssignment_4_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class ServiceRequest_Group_5 extends GroupToken {
 	
 	public ServiceRequest_Group_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -31695,7 +31664,7 @@ protected class ServiceRequest_DescriptionKeyword_5_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class ServiceRequest_DescriptionAssignment_5_1 extends AssignmentToken  {
 	
 	public ServiceRequest_DescriptionAssignment_5_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -31719,9 +31688,9 @@ protected class ServiceRequest_DescriptionAssignment_5_1 extends AssignmentToken
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceRequestAccess().getDescriptionEStringParserRuleCall_5_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getServiceRequestAccess().getDescriptionEStringParserRuleCall_5_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceRequestAccess().getDescriptionSTRINGTerminalRuleCall_5_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getServiceRequestAccess().getDescriptionSTRINGTerminalRuleCall_5_1_0();
 			return obj;
 		}
 		return null;
@@ -31838,7 +31807,7 @@ protected class ServiceRequest_RefServiceKeyword_7 extends KeywordToken  {
 
 }
 
-// refService=[services::Service|EString]
+// refService=[services::Service|STRING]
 protected class ServiceRequest_RefServiceAssignment_8 extends AssignmentToken  {
 	
 	public ServiceRequest_RefServiceAssignment_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -31875,7 +31844,7 @@ protected class ServiceRequest_RefServiceAssignment_8 extends AssignmentToken  {
 
 }
 
-// ("OfferedByProviders" OfferedByProviders=[users::ResourcesProvider|EString])?
+// ("OfferedByProviders" OfferedByProviders=[users::ResourcesProvider|STRING])?
 protected class ServiceRequest_Group_9 extends GroupToken {
 	
 	public ServiceRequest_Group_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -31919,7 +31888,7 @@ protected class ServiceRequest_OfferedByProvidersKeyword_9_0 extends KeywordToke
 
 }
 
-// OfferedByProviders=[users::ResourcesProvider|EString]
+// OfferedByProviders=[users::ResourcesProvider|STRING]
 protected class ServiceRequest_OfferedByProvidersAssignment_9_1 extends AssignmentToken  {
 	
 	public ServiceRequest_OfferedByProvidersAssignment_9_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -32220,27 +32189,25 @@ protected class ServiceRequest_RightCurlyBracketKeyword_11 extends KeywordToken 
  *
  * ServiceSettingInstance returns federationscenarios::ServiceSettingInstance:
  * 
- * 	"ServiceSettingInstance" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+ * 	"ServiceSettingInstance" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
  * 
- * 	description=EString)? ("staticValue" staticValue=EString)? ("assignSetting" "("
+ * 	description=STRING)? ("staticValue" staticValue=STRING)? ("assignSetting" "("
  * 
- * 	assignSetting+=[federationscenarios::SettingInstance|EString] (","
+ * 	assignSetting+=[federationscenarios::SettingInstance|STRING] (","
  * 
- * 	assignSetting+=[federationscenarios::SettingInstance|EString])* ")")? "refServiceSetting"
+ * 	assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")? "refServiceSetting"
  * 
- * 	refServiceSetting=[services::ServiceSetting|EString] "}";
+ * 	refServiceSetting=[services::ServiceSetting|STRING] "}";
  *
  **/
 
-// "ServiceSettingInstance" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+// "ServiceSettingInstance" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 // 
-// description=EString)? ("staticValue" staticValue=EString)? ("assignSetting" "("
+// ("staticValue" staticValue=STRING)? ("assignSetting" "(" assignSetting+=[federationscenarios::SettingInstance|STRING]
 // 
-// assignSetting+=[federationscenarios::SettingInstance|EString] (","
+// ("," assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")? "refServiceSetting"
 // 
-// assignSetting+=[federationscenarios::SettingInstance|EString])* ")")? "refServiceSetting"
-// 
-// refServiceSetting=[services::ServiceSetting|EString] "}"
+// refServiceSetting=[services::ServiceSetting|STRING] "}"
 protected class ServiceSettingInstance_Group extends GroupToken {
 	
 	public ServiceSettingInstance_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -32290,7 +32257,7 @@ protected class ServiceSettingInstance_ServiceSettingInstanceKeyword_0 extends K
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class ServiceSettingInstance_UniqueIDAssignment_1 extends AssignmentToken  {
 	
 	public ServiceSettingInstance_UniqueIDAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -32314,9 +32281,9 @@ protected class ServiceSettingInstance_UniqueIDAssignment_1 extends AssignmentTo
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceSettingInstanceAccess().getUniqueIDEStringParserRuleCall_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getServiceSettingInstanceAccess().getUniqueIDEStringParserRuleCall_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceSettingInstanceAccess().getUniqueIDSTRINGTerminalRuleCall_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getServiceSettingInstanceAccess().getUniqueIDSTRINGTerminalRuleCall_1_0();
 			return obj;
 		}
 		return null;
@@ -32346,7 +32313,7 @@ protected class ServiceSettingInstance_LeftCurlyBracketKeyword_2 extends Keyword
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class ServiceSettingInstance_Group_3 extends GroupToken {
 	
 	public ServiceSettingInstance_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -32390,7 +32357,7 @@ protected class ServiceSettingInstance_NameKeyword_3_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class ServiceSettingInstance_NameAssignment_3_1 extends AssignmentToken  {
 	
 	public ServiceSettingInstance_NameAssignment_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -32414,9 +32381,9 @@ protected class ServiceSettingInstance_NameAssignment_3_1 extends AssignmentToke
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceSettingInstanceAccess().getNameEStringParserRuleCall_3_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getServiceSettingInstanceAccess().getNameEStringParserRuleCall_3_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceSettingInstanceAccess().getNameSTRINGTerminalRuleCall_3_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getServiceSettingInstanceAccess().getNameSTRINGTerminalRuleCall_3_1_0();
 			return obj;
 		}
 		return null;
@@ -32505,7 +32472,7 @@ protected class ServiceSettingInstance_IdAssignment_4_1 extends AssignmentToken 
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class ServiceSettingInstance_Group_5 extends GroupToken {
 	
 	public ServiceSettingInstance_Group_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -32551,7 +32518,7 @@ protected class ServiceSettingInstance_DescriptionKeyword_5_0 extends KeywordTok
 
 }
 
-// description=EString
+// description=STRING
 protected class ServiceSettingInstance_DescriptionAssignment_5_1 extends AssignmentToken  {
 	
 	public ServiceSettingInstance_DescriptionAssignment_5_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -32575,9 +32542,9 @@ protected class ServiceSettingInstance_DescriptionAssignment_5_1 extends Assignm
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceSettingInstanceAccess().getDescriptionEStringParserRuleCall_5_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getServiceSettingInstanceAccess().getDescriptionEStringParserRuleCall_5_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceSettingInstanceAccess().getDescriptionSTRINGTerminalRuleCall_5_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getServiceSettingInstanceAccess().getDescriptionSTRINGTerminalRuleCall_5_1_0();
 			return obj;
 		}
 		return null;
@@ -32586,7 +32553,7 @@ protected class ServiceSettingInstance_DescriptionAssignment_5_1 extends Assignm
 }
 
 
-// ("staticValue" staticValue=EString)?
+// ("staticValue" staticValue=STRING)?
 protected class ServiceSettingInstance_Group_6 extends GroupToken {
 	
 	public ServiceSettingInstance_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -32633,7 +32600,7 @@ protected class ServiceSettingInstance_StaticValueKeyword_6_0 extends KeywordTok
 
 }
 
-// staticValue=EString
+// staticValue=STRING
 protected class ServiceSettingInstance_StaticValueAssignment_6_1 extends AssignmentToken  {
 	
 	public ServiceSettingInstance_StaticValueAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -32657,9 +32624,9 @@ protected class ServiceSettingInstance_StaticValueAssignment_6_1 extends Assignm
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("staticValue",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("staticValue");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceSettingInstanceAccess().getStaticValueEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getServiceSettingInstanceAccess().getStaticValueEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getServiceSettingInstanceAccess().getStaticValueSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getServiceSettingInstanceAccess().getStaticValueSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -32668,9 +32635,9 @@ protected class ServiceSettingInstance_StaticValueAssignment_6_1 extends Assignm
 }
 
 
-// ("assignSetting" "(" assignSetting+=[federationscenarios::SettingInstance|EString] (","
+// ("assignSetting" "(" assignSetting+=[federationscenarios::SettingInstance|STRING] (","
 // 
-// assignSetting+=[federationscenarios::SettingInstance|EString])* ")")?
+// assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")?
 protected class ServiceSettingInstance_Group_7 extends GroupToken {
 	
 	public ServiceSettingInstance_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -32740,7 +32707,7 @@ protected class ServiceSettingInstance_LeftParenthesisKeyword_7_1 extends Keywor
 
 }
 
-// assignSetting+=[federationscenarios::SettingInstance|EString]
+// assignSetting+=[federationscenarios::SettingInstance|STRING]
 protected class ServiceSettingInstance_AssignSettingAssignment_7_2 extends AssignmentToken  {
 	
 	public ServiceSettingInstance_AssignSettingAssignment_7_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -32777,7 +32744,7 @@ protected class ServiceSettingInstance_AssignSettingAssignment_7_2 extends Assig
 
 }
 
-// ("," assignSetting+=[federationscenarios::SettingInstance|EString])*
+// ("," assignSetting+=[federationscenarios::SettingInstance|STRING])*
 protected class ServiceSettingInstance_Group_7_3 extends GroupToken {
 	
 	public ServiceSettingInstance_Group_7_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -32822,7 +32789,7 @@ protected class ServiceSettingInstance_CommaKeyword_7_3_0 extends KeywordToken  
 
 }
 
-// assignSetting+=[federationscenarios::SettingInstance|EString]
+// assignSetting+=[federationscenarios::SettingInstance|STRING]
 protected class ServiceSettingInstance_AssignSettingAssignment_7_3_1 extends AssignmentToken  {
 	
 	public ServiceSettingInstance_AssignSettingAssignment_7_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -32911,7 +32878,7 @@ protected class ServiceSettingInstance_RefServiceSettingKeyword_8 extends Keywor
 
 }
 
-// refServiceSetting=[services::ServiceSetting|EString]
+// refServiceSetting=[services::ServiceSetting|STRING]
 protected class ServiceSettingInstance_RefServiceSettingAssignment_9 extends AssignmentToken  {
 	
 	public ServiceSettingInstance_RefServiceSettingAssignment_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -32978,23 +32945,23 @@ protected class ServiceSettingInstance_RightCurlyBracketKeyword_10 extends Keywo
  *
  * SettingInstance_Impl returns federationscenarios::SettingInstance:
  * 
- * 	{federationscenarios::SettingInstance} "SettingInstance" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+ * 	{federationscenarios::SettingInstance} "SettingInstance" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
  * 
- * 	("description" description=EString)? ("staticValue" staticValue=EString)? ("assignSetting" "("
+ * 	("description" description=STRING)? ("staticValue" staticValue=STRING)? ("assignSetting" "("
  * 
- * 	assignSetting+=[federationscenarios::SettingInstance|EString] (","
+ * 	assignSetting+=[federationscenarios::SettingInstance|STRING] (","
  * 
- * 	assignSetting+=[federationscenarios::SettingInstance|EString])* ")")? "}";
+ * 	assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")? "}";
  *
  **/
 
-// {federationscenarios::SettingInstance} "SettingInstance" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+// {federationscenarios::SettingInstance} "SettingInstance" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 // 
-// ("description" description=EString)? ("staticValue" staticValue=EString)? ("assignSetting" "("
+// ("description" description=STRING)? ("staticValue" staticValue=STRING)? ("assignSetting" "("
 // 
-// assignSetting+=[federationscenarios::SettingInstance|EString] (","
+// assignSetting+=[federationscenarios::SettingInstance|STRING] (","
 // 
-// assignSetting+=[federationscenarios::SettingInstance|EString])* ")")? "}"
+// assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")? "}"
 protected class SettingInstance_Impl_Group extends GroupToken {
 	
 	public SettingInstance_Impl_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -33071,7 +33038,7 @@ protected class SettingInstance_Impl_SettingInstanceKeyword_1 extends KeywordTok
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class SettingInstance_Impl_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public SettingInstance_Impl_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -33095,9 +33062,9 @@ protected class SettingInstance_Impl_UniqueIDAssignment_2 extends AssignmentToke
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSettingInstance_ImplAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSettingInstance_ImplAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSettingInstance_ImplAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSettingInstance_ImplAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -33127,7 +33094,7 @@ protected class SettingInstance_Impl_LeftCurlyBracketKeyword_3 extends KeywordTo
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class SettingInstance_Impl_Group_4 extends GroupToken {
 	
 	public SettingInstance_Impl_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -33171,7 +33138,7 @@ protected class SettingInstance_Impl_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class SettingInstance_Impl_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public SettingInstance_Impl_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -33195,9 +33162,9 @@ protected class SettingInstance_Impl_NameAssignment_4_1 extends AssignmentToken 
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSettingInstance_ImplAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSettingInstance_ImplAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSettingInstance_ImplAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSettingInstance_ImplAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -33286,7 +33253,7 @@ protected class SettingInstance_Impl_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class SettingInstance_Impl_Group_6 extends GroupToken {
 	
 	public SettingInstance_Impl_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -33332,7 +33299,7 @@ protected class SettingInstance_Impl_DescriptionKeyword_6_0 extends KeywordToken
 
 }
 
-// description=EString
+// description=STRING
 protected class SettingInstance_Impl_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public SettingInstance_Impl_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -33356,9 +33323,9 @@ protected class SettingInstance_Impl_DescriptionAssignment_6_1 extends Assignmen
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSettingInstance_ImplAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSettingInstance_ImplAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSettingInstance_ImplAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSettingInstance_ImplAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -33367,7 +33334,7 @@ protected class SettingInstance_Impl_DescriptionAssignment_6_1 extends Assignmen
 }
 
 
-// ("staticValue" staticValue=EString)?
+// ("staticValue" staticValue=STRING)?
 protected class SettingInstance_Impl_Group_7 extends GroupToken {
 	
 	public SettingInstance_Impl_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -33414,7 +33381,7 @@ protected class SettingInstance_Impl_StaticValueKeyword_7_0 extends KeywordToken
 
 }
 
-// staticValue=EString
+// staticValue=STRING
 protected class SettingInstance_Impl_StaticValueAssignment_7_1 extends AssignmentToken  {
 	
 	public SettingInstance_Impl_StaticValueAssignment_7_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -33438,9 +33405,9 @@ protected class SettingInstance_Impl_StaticValueAssignment_7_1 extends Assignmen
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("staticValue",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("staticValue");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSettingInstance_ImplAccess().getStaticValueEStringParserRuleCall_7_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSettingInstance_ImplAccess().getStaticValueEStringParserRuleCall_7_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSettingInstance_ImplAccess().getStaticValueSTRINGTerminalRuleCall_7_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSettingInstance_ImplAccess().getStaticValueSTRINGTerminalRuleCall_7_1_0();
 			return obj;
 		}
 		return null;
@@ -33449,9 +33416,9 @@ protected class SettingInstance_Impl_StaticValueAssignment_7_1 extends Assignmen
 }
 
 
-// ("assignSetting" "(" assignSetting+=[federationscenarios::SettingInstance|EString] (","
+// ("assignSetting" "(" assignSetting+=[federationscenarios::SettingInstance|STRING] (","
 // 
-// assignSetting+=[federationscenarios::SettingInstance|EString])* ")")?
+// assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")?
 protected class SettingInstance_Impl_Group_8 extends GroupToken {
 	
 	public SettingInstance_Impl_Group_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -33521,7 +33488,7 @@ protected class SettingInstance_Impl_LeftParenthesisKeyword_8_1 extends KeywordT
 
 }
 
-// assignSetting+=[federationscenarios::SettingInstance|EString]
+// assignSetting+=[federationscenarios::SettingInstance|STRING]
 protected class SettingInstance_Impl_AssignSettingAssignment_8_2 extends AssignmentToken  {
 	
 	public SettingInstance_Impl_AssignSettingAssignment_8_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -33558,7 +33525,7 @@ protected class SettingInstance_Impl_AssignSettingAssignment_8_2 extends Assignm
 
 }
 
-// ("," assignSetting+=[federationscenarios::SettingInstance|EString])*
+// ("," assignSetting+=[federationscenarios::SettingInstance|STRING])*
 protected class SettingInstance_Impl_Group_8_3 extends GroupToken {
 	
 	public SettingInstance_Impl_Group_8_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -33603,7 +33570,7 @@ protected class SettingInstance_Impl_CommaKeyword_8_3_0 extends KeywordToken  {
 
 }
 
-// assignSetting+=[federationscenarios::SettingInstance|EString]
+// assignSetting+=[federationscenarios::SettingInstance|STRING]
 protected class SettingInstance_Impl_AssignSettingAssignment_8_3_1 extends AssignmentToken  {
 	
 	public SettingInstance_Impl_AssignSettingAssignment_8_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -33700,27 +33667,25 @@ protected class SettingInstance_Impl_RightCurlyBracketKeyword_9 extends KeywordT
  *
  * ResourceSettingInstance returns federationscenarios::ResourceSettingInstance:
  * 
- * 	"ResourceSettingInstance" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+ * 	"ResourceSettingInstance" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description"
  * 
- * 	description=EString)? ("staticValue" staticValue=EString)? ("assignSetting" "("
+ * 	description=STRING)? ("staticValue" staticValue=STRING)? ("assignSetting" "("
  * 
- * 	assignSetting+=[federationscenarios::SettingInstance|EString] (","
+ * 	assignSetting+=[federationscenarios::SettingInstance|STRING] (","
  * 
- * 	assignSetting+=[federationscenarios::SettingInstance|EString])* ")")? "refResourceSetting"
+ * 	assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")? "refResourceSetting"
  * 
- * 	refResourceSetting=[resources::ResourceSetting|EString] "}";
+ * 	refResourceSetting=[resources::ResourceSetting|STRING] "}";
  *
  **/
 
-// "ResourceSettingInstance" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description"
+// "ResourceSettingInstance" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 // 
-// description=EString)? ("staticValue" staticValue=EString)? ("assignSetting" "("
+// ("staticValue" staticValue=STRING)? ("assignSetting" "(" assignSetting+=[federationscenarios::SettingInstance|STRING]
 // 
-// assignSetting+=[federationscenarios::SettingInstance|EString] (","
+// ("," assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")? "refResourceSetting"
 // 
-// assignSetting+=[federationscenarios::SettingInstance|EString])* ")")? "refResourceSetting"
-// 
-// refResourceSetting=[resources::ResourceSetting|EString] "}"
+// refResourceSetting=[resources::ResourceSetting|STRING] "}"
 protected class ResourceSettingInstance_Group extends GroupToken {
 	
 	public ResourceSettingInstance_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -33770,7 +33735,7 @@ protected class ResourceSettingInstance_ResourceSettingInstanceKeyword_0 extends
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class ResourceSettingInstance_UniqueIDAssignment_1 extends AssignmentToken  {
 	
 	public ResourceSettingInstance_UniqueIDAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -33794,9 +33759,9 @@ protected class ResourceSettingInstance_UniqueIDAssignment_1 extends AssignmentT
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceSettingInstanceAccess().getUniqueIDEStringParserRuleCall_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourceSettingInstanceAccess().getUniqueIDEStringParserRuleCall_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceSettingInstanceAccess().getUniqueIDSTRINGTerminalRuleCall_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourceSettingInstanceAccess().getUniqueIDSTRINGTerminalRuleCall_1_0();
 			return obj;
 		}
 		return null;
@@ -33826,7 +33791,7 @@ protected class ResourceSettingInstance_LeftCurlyBracketKeyword_2 extends Keywor
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class ResourceSettingInstance_Group_3 extends GroupToken {
 	
 	public ResourceSettingInstance_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -33870,7 +33835,7 @@ protected class ResourceSettingInstance_NameKeyword_3_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class ResourceSettingInstance_NameAssignment_3_1 extends AssignmentToken  {
 	
 	public ResourceSettingInstance_NameAssignment_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -33894,9 +33859,9 @@ protected class ResourceSettingInstance_NameAssignment_3_1 extends AssignmentTok
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceSettingInstanceAccess().getNameEStringParserRuleCall_3_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourceSettingInstanceAccess().getNameEStringParserRuleCall_3_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceSettingInstanceAccess().getNameSTRINGTerminalRuleCall_3_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourceSettingInstanceAccess().getNameSTRINGTerminalRuleCall_3_1_0();
 			return obj;
 		}
 		return null;
@@ -33985,7 +33950,7 @@ protected class ResourceSettingInstance_IdAssignment_4_1 extends AssignmentToken
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class ResourceSettingInstance_Group_5 extends GroupToken {
 	
 	public ResourceSettingInstance_Group_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -34031,7 +33996,7 @@ protected class ResourceSettingInstance_DescriptionKeyword_5_0 extends KeywordTo
 
 }
 
-// description=EString
+// description=STRING
 protected class ResourceSettingInstance_DescriptionAssignment_5_1 extends AssignmentToken  {
 	
 	public ResourceSettingInstance_DescriptionAssignment_5_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -34055,9 +34020,9 @@ protected class ResourceSettingInstance_DescriptionAssignment_5_1 extends Assign
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceSettingInstanceAccess().getDescriptionEStringParserRuleCall_5_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourceSettingInstanceAccess().getDescriptionEStringParserRuleCall_5_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceSettingInstanceAccess().getDescriptionSTRINGTerminalRuleCall_5_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourceSettingInstanceAccess().getDescriptionSTRINGTerminalRuleCall_5_1_0();
 			return obj;
 		}
 		return null;
@@ -34066,7 +34031,7 @@ protected class ResourceSettingInstance_DescriptionAssignment_5_1 extends Assign
 }
 
 
-// ("staticValue" staticValue=EString)?
+// ("staticValue" staticValue=STRING)?
 protected class ResourceSettingInstance_Group_6 extends GroupToken {
 	
 	public ResourceSettingInstance_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -34113,7 +34078,7 @@ protected class ResourceSettingInstance_StaticValueKeyword_6_0 extends KeywordTo
 
 }
 
-// staticValue=EString
+// staticValue=STRING
 protected class ResourceSettingInstance_StaticValueAssignment_6_1 extends AssignmentToken  {
 	
 	public ResourceSettingInstance_StaticValueAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -34137,9 +34102,9 @@ protected class ResourceSettingInstance_StaticValueAssignment_6_1 extends Assign
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("staticValue",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("staticValue");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceSettingInstanceAccess().getStaticValueEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourceSettingInstanceAccess().getStaticValueEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceSettingInstanceAccess().getStaticValueSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourceSettingInstanceAccess().getStaticValueSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -34148,9 +34113,9 @@ protected class ResourceSettingInstance_StaticValueAssignment_6_1 extends Assign
 }
 
 
-// ("assignSetting" "(" assignSetting+=[federationscenarios::SettingInstance|EString] (","
+// ("assignSetting" "(" assignSetting+=[federationscenarios::SettingInstance|STRING] (","
 // 
-// assignSetting+=[federationscenarios::SettingInstance|EString])* ")")?
+// assignSetting+=[federationscenarios::SettingInstance|STRING])* ")")?
 protected class ResourceSettingInstance_Group_7 extends GroupToken {
 	
 	public ResourceSettingInstance_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -34220,7 +34185,7 @@ protected class ResourceSettingInstance_LeftParenthesisKeyword_7_1 extends Keywo
 
 }
 
-// assignSetting+=[federationscenarios::SettingInstance|EString]
+// assignSetting+=[federationscenarios::SettingInstance|STRING]
 protected class ResourceSettingInstance_AssignSettingAssignment_7_2 extends AssignmentToken  {
 	
 	public ResourceSettingInstance_AssignSettingAssignment_7_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -34257,7 +34222,7 @@ protected class ResourceSettingInstance_AssignSettingAssignment_7_2 extends Assi
 
 }
 
-// ("," assignSetting+=[federationscenarios::SettingInstance|EString])*
+// ("," assignSetting+=[federationscenarios::SettingInstance|STRING])*
 protected class ResourceSettingInstance_Group_7_3 extends GroupToken {
 	
 	public ResourceSettingInstance_Group_7_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -34302,7 +34267,7 @@ protected class ResourceSettingInstance_CommaKeyword_7_3_0 extends KeywordToken 
 
 }
 
-// assignSetting+=[federationscenarios::SettingInstance|EString]
+// assignSetting+=[federationscenarios::SettingInstance|STRING]
 protected class ResourceSettingInstance_AssignSettingAssignment_7_3_1 extends AssignmentToken  {
 	
 	public ResourceSettingInstance_AssignSettingAssignment_7_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -34391,7 +34356,7 @@ protected class ResourceSettingInstance_RefResourceSettingKeyword_8 extends Keyw
 
 }
 
-// refResourceSetting=[resources::ResourceSetting|EString]
+// refResourceSetting=[resources::ResourceSetting|STRING]
 protected class ResourceSettingInstance_RefResourceSettingAssignment_9 extends AssignmentToken  {
 	
 	public ResourceSettingInstance_RefResourceSettingAssignment_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -34458,9 +34423,9 @@ protected class ResourceSettingInstance_RightCurlyBracketKeyword_10 extends Keyw
  *
  * ResourceRequest returns federationscenarios::ResourceRequest:
  * 
- * 	"ResourceRequest" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)?
+ * 	"ResourceRequest" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
  * 
- * 	"refOfferedResource" refOfferedResource=[resources::OfferedResource|EString] ("reqResourceSettings" "{"
+ * 	"refOfferedResource" refOfferedResource=[resources::OfferedResource|STRING] ("reqResourceSettings" "{"
  * 
  * 	reqResourceSettings+=ResourceSettingInstance ("," reqResourceSettings+=ResourceSettingInstance)* "}")? ("runtimeInfo"
  * 
@@ -34468,9 +34433,9 @@ protected class ResourceSettingInstance_RightCurlyBracketKeyword_10 extends Keyw
  *
  **/
 
-// "ResourceRequest" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)? ("description" description=EString)?
+// "ResourceRequest" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)? ("description" description=STRING)?
 // 
-// "refOfferedResource" refOfferedResource=[resources::OfferedResource|EString] ("reqResourceSettings" "{"
+// "refOfferedResource" refOfferedResource=[resources::OfferedResource|STRING] ("reqResourceSettings" "{"
 // 
 // reqResourceSettings+=ResourceSettingInstance ("," reqResourceSettings+=ResourceSettingInstance)* "}")? ("runtimeInfo"
 // 
@@ -34524,7 +34489,7 @@ protected class ResourceRequest_ResourceRequestKeyword_0 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class ResourceRequest_UniqueIDAssignment_1 extends AssignmentToken  {
 	
 	public ResourceRequest_UniqueIDAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -34548,9 +34513,9 @@ protected class ResourceRequest_UniqueIDAssignment_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceRequestAccess().getUniqueIDEStringParserRuleCall_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourceRequestAccess().getUniqueIDEStringParserRuleCall_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceRequestAccess().getUniqueIDSTRINGTerminalRuleCall_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourceRequestAccess().getUniqueIDSTRINGTerminalRuleCall_1_0();
 			return obj;
 		}
 		return null;
@@ -34580,7 +34545,7 @@ protected class ResourceRequest_LeftCurlyBracketKeyword_2 extends KeywordToken  
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class ResourceRequest_Group_3 extends GroupToken {
 	
 	public ResourceRequest_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -34624,7 +34589,7 @@ protected class ResourceRequest_NameKeyword_3_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class ResourceRequest_NameAssignment_3_1 extends AssignmentToken  {
 	
 	public ResourceRequest_NameAssignment_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -34648,9 +34613,9 @@ protected class ResourceRequest_NameAssignment_3_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceRequestAccess().getNameEStringParserRuleCall_3_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourceRequestAccess().getNameEStringParserRuleCall_3_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceRequestAccess().getNameSTRINGTerminalRuleCall_3_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourceRequestAccess().getNameSTRINGTerminalRuleCall_3_1_0();
 			return obj;
 		}
 		return null;
@@ -34739,7 +34704,7 @@ protected class ResourceRequest_IdAssignment_4_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class ResourceRequest_Group_5 extends GroupToken {
 	
 	public ResourceRequest_Group_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -34785,7 +34750,7 @@ protected class ResourceRequest_DescriptionKeyword_5_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class ResourceRequest_DescriptionAssignment_5_1 extends AssignmentToken  {
 	
 	public ResourceRequest_DescriptionAssignment_5_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -34809,9 +34774,9 @@ protected class ResourceRequest_DescriptionAssignment_5_1 extends AssignmentToke
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceRequestAccess().getDescriptionEStringParserRuleCall_5_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourceRequestAccess().getDescriptionEStringParserRuleCall_5_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceRequestAccess().getDescriptionSTRINGTerminalRuleCall_5_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourceRequestAccess().getDescriptionSTRINGTerminalRuleCall_5_1_0();
 			return obj;
 		}
 		return null;
@@ -34845,7 +34810,7 @@ protected class ResourceRequest_RefOfferedResourceKeyword_6 extends KeywordToken
 
 }
 
-// refOfferedResource=[resources::OfferedResource|EString]
+// refOfferedResource=[resources::OfferedResource|STRING]
 protected class ResourceRequest_RefOfferedResourceAssignment_7 extends AssignmentToken  {
 	
 	public ResourceRequest_RefOfferedResourceAssignment_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -35236,23 +35201,23 @@ protected class ResourceRequest_RightCurlyBracketKeyword_10 extends KeywordToken
  *
  * ResourceGroup returns federationscenarios::ResourceGroup:
  * 
- * 	{federationscenarios::ResourceGroup} "ResourceGroup" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+ * 	{federationscenarios::ResourceGroup} "ResourceGroup" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
  * 
- * 	("description" description=EString)? ("groupedResources" "("
+ * 	("description" description=STRING)? ("groupedResources" "("
  * 
- * 	groupedResources+=[federationscenarios::ResourceRequest|EString] (","
+ * 	groupedResources+=[federationscenarios::ResourceRequest|STRING] (","
  * 
- * 	groupedResources+=[federationscenarios::ResourceRequest|EString])* ")")? "}";
+ * 	groupedResources+=[federationscenarios::ResourceRequest|STRING])* ")")? "}";
  *
  **/
 
-// {federationscenarios::ResourceGroup} "ResourceGroup" uniqueID=EString "{" ("name" name=EString)? ("id" id=EInt)?
+// {federationscenarios::ResourceGroup} "ResourceGroup" uniqueID=STRING "{" ("name" name=STRING)? ("id" id=EInt)?
 // 
-// ("description" description=EString)? ("groupedResources" "("
+// ("description" description=STRING)? ("groupedResources" "("
 // 
-// groupedResources+=[federationscenarios::ResourceRequest|EString] (","
+// groupedResources+=[federationscenarios::ResourceRequest|STRING] (","
 // 
-// groupedResources+=[federationscenarios::ResourceRequest|EString])* ")")? "}"
+// groupedResources+=[federationscenarios::ResourceRequest|STRING])* ")")? "}"
 protected class ResourceGroup_Group extends GroupToken {
 	
 	public ResourceGroup_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -35329,7 +35294,7 @@ protected class ResourceGroup_ResourceGroupKeyword_1 extends KeywordToken  {
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class ResourceGroup_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public ResourceGroup_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -35353,9 +35318,9 @@ protected class ResourceGroup_UniqueIDAssignment_2 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceGroupAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourceGroupAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceGroupAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourceGroupAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -35385,7 +35350,7 @@ protected class ResourceGroup_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class ResourceGroup_Group_4 extends GroupToken {
 	
 	public ResourceGroup_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -35429,7 +35394,7 @@ protected class ResourceGroup_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class ResourceGroup_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public ResourceGroup_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -35453,9 +35418,9 @@ protected class ResourceGroup_NameAssignment_4_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceGroupAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourceGroupAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceGroupAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourceGroupAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -35544,7 +35509,7 @@ protected class ResourceGroup_IdAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class ResourceGroup_Group_6 extends GroupToken {
 	
 	public ResourceGroup_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -35590,7 +35555,7 @@ protected class ResourceGroup_DescriptionKeyword_6_0 extends KeywordToken  {
 
 }
 
-// description=EString
+// description=STRING
 protected class ResourceGroup_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public ResourceGroup_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -35614,9 +35579,9 @@ protected class ResourceGroup_DescriptionAssignment_6_1 extends AssignmentToken 
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceGroupAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getResourceGroupAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getResourceGroupAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getResourceGroupAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -35625,9 +35590,9 @@ protected class ResourceGroup_DescriptionAssignment_6_1 extends AssignmentToken 
 }
 
 
-// ("groupedResources" "(" groupedResources+=[federationscenarios::ResourceRequest|EString] (","
+// ("groupedResources" "(" groupedResources+=[federationscenarios::ResourceRequest|STRING] (","
 // 
-// groupedResources+=[federationscenarios::ResourceRequest|EString])* ")")?
+// groupedResources+=[federationscenarios::ResourceRequest|STRING])* ")")?
 protected class ResourceGroup_Group_7 extends GroupToken {
 	
 	public ResourceGroup_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -35696,7 +35661,7 @@ protected class ResourceGroup_LeftParenthesisKeyword_7_1 extends KeywordToken  {
 
 }
 
-// groupedResources+=[federationscenarios::ResourceRequest|EString]
+// groupedResources+=[federationscenarios::ResourceRequest|STRING]
 protected class ResourceGroup_GroupedResourcesAssignment_7_2 extends AssignmentToken  {
 	
 	public ResourceGroup_GroupedResourcesAssignment_7_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -35733,7 +35698,7 @@ protected class ResourceGroup_GroupedResourcesAssignment_7_2 extends AssignmentT
 
 }
 
-// ("," groupedResources+=[federationscenarios::ResourceRequest|EString])*
+// ("," groupedResources+=[federationscenarios::ResourceRequest|STRING])*
 protected class ResourceGroup_Group_7_3 extends GroupToken {
 	
 	public ResourceGroup_Group_7_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -35778,7 +35743,7 @@ protected class ResourceGroup_CommaKeyword_7_3_0 extends KeywordToken  {
 
 }
 
-// groupedResources+=[federationscenarios::ResourceRequest|EString]
+// groupedResources+=[federationscenarios::ResourceRequest|STRING]
 protected class ResourceGroup_GroupedResourcesAssignment_7_3_1 extends AssignmentToken  {
 	
 	public ResourceGroup_GroupedResourcesAssignment_7_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -35876,19 +35841,19 @@ protected class ResourceGroup_RightCurlyBracketKeyword_8 extends KeywordToken  {
  *
  * Availability returns availabilityContract::Availability:
  * 
- * 	{availabilityContract::Availability} Repeat?="Repeat"? "Availability" "{" ("FromTime" FromTime=EDate)? ("ToTime"
+ * 	{availabilityContract::Availability} "Availability" "{" ("FromTime" FromTime=EDate)? ("ToTime" ToTime=EDate)?
  * 
- * 	ToTime=EDate)? ("FromDate" FromDate=EDate)? ("ToDate" ToDate=EDate)? ("Repeatability"
+ * 	("FromDate" FromDate=EDate)? ("ToDate" ToDate=EDate)? ("Repeatability" Repeatability=RepatabilityScheme)?
  * 
- * 	Repeatability=RepatabilityScheme)? ("RepeatUntil" RepeatUntil=EDate)? ("cost" cost=Cost)? "}";
+ * 	("RepeatUntil" RepeatUntil=EDate)? ("cost" cost=Cost)? Repeat?="Repeat"? "}";
  *
  **/
 
-// {availabilityContract::Availability} Repeat?="Repeat"? "Availability" "{" ("FromTime" FromTime=EDate)? ("ToTime"
+// {availabilityContract::Availability} "Availability" "{" ("FromTime" FromTime=EDate)? ("ToTime" ToTime=EDate)?
 // 
-// ToTime=EDate)? ("FromDate" FromDate=EDate)? ("ToDate" ToDate=EDate)? ("Repeatability"
+// ("FromDate" FromDate=EDate)? ("ToDate" ToDate=EDate)? ("Repeatability" Repeatability=RepatabilityScheme)?
 // 
-// Repeatability=RepatabilityScheme)? ("RepeatUntil" RepeatUntil=EDate)? ("cost" cost=Cost)? "}"
+// ("RepeatUntil" RepeatUntil=EDate)? ("cost" cost=Cost)? Repeat?="Repeat"? "}"
 protected class Availability_Group extends GroupToken {
 	
 	public Availability_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -35943,16 +35908,16 @@ protected class Availability_AvailabilityAction_0 extends ActionToken  {
 	}
 }
 
-// Repeat?="Repeat"?
-protected class Availability_RepeatAssignment_1 extends AssignmentToken  {
+// "Availability"
+protected class Availability_AvailabilityKeyword_1 extends KeywordToken  {
 	
-	public Availability_RepeatAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Availability_AvailabilityKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getAvailabilityAccess().getRepeatAssignment_1();
+	public Keyword getGrammarElement() {
+		return grammarAccess.getAvailabilityAccess().getAvailabilityKeyword_1();
 	}
 
     @Override
@@ -35963,59 +35928,24 @@ protected class Availability_RepeatAssignment_1 extends AssignmentToken  {
 		}	
 	}
 
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("Repeat",false)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("Repeat");
-		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
-			type = AssignmentType.KEYWORD;
-			element = grammarAccess.getAvailabilityAccess().getRepeatRepeatKeyword_1_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// "Availability"
-protected class Availability_AvailabilityKeyword_2 extends KeywordToken  {
-	
-	public Availability_AvailabilityKeyword_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getAvailabilityAccess().getAvailabilityKeyword_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Availability_RepeatAssignment_1(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Availability_AvailabilityAction_0(lastRuleCallOrigin, this, 1, inst);
-			default: return null;
-		}	
-	}
-
 }
 
 // "{"
-protected class Availability_LeftCurlyBracketKeyword_3 extends KeywordToken  {
+protected class Availability_LeftCurlyBracketKeyword_2 extends KeywordToken  {
 	
-	public Availability_LeftCurlyBracketKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Availability_LeftCurlyBracketKeyword_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getAvailabilityAccess().getLeftCurlyBracketKeyword_3();
+		return grammarAccess.getAvailabilityAccess().getLeftCurlyBracketKeyword_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Availability_AvailabilityKeyword_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Availability_AvailabilityKeyword_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -36023,6 +35953,85 @@ protected class Availability_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 }
 
 // ("FromTime" FromTime=EDate)?
+protected class Availability_Group_3 extends GroupToken {
+	
+	public Availability_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getAvailabilityAccess().getGroup_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Availability_FromTimeAssignment_3_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// "FromTime"
+protected class Availability_FromTimeKeyword_3_0 extends KeywordToken  {
+	
+	public Availability_FromTimeKeyword_3_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getAvailabilityAccess().getFromTimeKeyword_3_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Availability_LeftCurlyBracketKeyword_2(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// FromTime=EDate
+protected class Availability_FromTimeAssignment_3_1 extends AssignmentToken  {
+	
+	public Availability_FromTimeAssignment_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getAvailabilityAccess().getFromTimeAssignment_3_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Availability_FromTimeKeyword_3_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("FromTime",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("FromTime");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAvailabilityAccess().getFromTimeEDateParserRuleCall_3_1_0(), value, null)) {
+			type = AssignmentType.DATATYPE_RULE_CALL;
+			element = grammarAccess.getAvailabilityAccess().getFromTimeEDateParserRuleCall_3_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+// ("ToTime" ToTime=EDate)?
 protected class Availability_Group_4 extends GroupToken {
 	
 	public Availability_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -36037,62 +36046,63 @@ protected class Availability_Group_4 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Availability_FromTimeAssignment_4_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Availability_ToTimeAssignment_4_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "FromTime"
-protected class Availability_FromTimeKeyword_4_0 extends KeywordToken  {
+// "ToTime"
+protected class Availability_ToTimeKeyword_4_0 extends KeywordToken  {
 	
-	public Availability_FromTimeKeyword_4_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Availability_ToTimeKeyword_4_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getAvailabilityAccess().getFromTimeKeyword_4_0();
+		return grammarAccess.getAvailabilityAccess().getToTimeKeyword_4_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Availability_LeftCurlyBracketKeyword_3(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Availability_Group_3(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Availability_LeftCurlyBracketKeyword_2(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// FromTime=EDate
-protected class Availability_FromTimeAssignment_4_1 extends AssignmentToken  {
+// ToTime=EDate
+protected class Availability_ToTimeAssignment_4_1 extends AssignmentToken  {
 	
-	public Availability_FromTimeAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Availability_ToTimeAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getAvailabilityAccess().getFromTimeAssignment_4_1();
+		return grammarAccess.getAvailabilityAccess().getToTimeAssignment_4_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Availability_FromTimeKeyword_4_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Availability_ToTimeKeyword_4_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("FromTime",false)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("FromTime");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAvailabilityAccess().getFromTimeEDateParserRuleCall_4_1_0(), value, null)) {
+		if((value = eObjectConsumer.getConsumable("ToTime",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("ToTime");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAvailabilityAccess().getToTimeEDateParserRuleCall_4_1_0(), value, null)) {
 			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getAvailabilityAccess().getFromTimeEDateParserRuleCall_4_1_0();
+			element = grammarAccess.getAvailabilityAccess().getToTimeEDateParserRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -36101,7 +36111,7 @@ protected class Availability_FromTimeAssignment_4_1 extends AssignmentToken  {
 }
 
 
-// ("ToTime" ToTime=EDate)?
+// ("FromDate" FromDate=EDate)?
 protected class Availability_Group_5 extends GroupToken {
 	
 	public Availability_Group_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -36116,63 +36126,64 @@ protected class Availability_Group_5 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Availability_ToTimeAssignment_5_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Availability_FromDateAssignment_5_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "ToTime"
-protected class Availability_ToTimeKeyword_5_0 extends KeywordToken  {
+// "FromDate"
+protected class Availability_FromDateKeyword_5_0 extends KeywordToken  {
 	
-	public Availability_ToTimeKeyword_5_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Availability_FromDateKeyword_5_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getAvailabilityAccess().getToTimeKeyword_5_0();
+		return grammarAccess.getAvailabilityAccess().getFromDateKeyword_5_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
 			case 0: return new Availability_Group_4(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Availability_LeftCurlyBracketKeyword_3(lastRuleCallOrigin, this, 1, inst);
+			case 1: return new Availability_Group_3(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new Availability_LeftCurlyBracketKeyword_2(lastRuleCallOrigin, this, 2, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// ToTime=EDate
-protected class Availability_ToTimeAssignment_5_1 extends AssignmentToken  {
+// FromDate=EDate
+protected class Availability_FromDateAssignment_5_1 extends AssignmentToken  {
 	
-	public Availability_ToTimeAssignment_5_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Availability_FromDateAssignment_5_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getAvailabilityAccess().getToTimeAssignment_5_1();
+		return grammarAccess.getAvailabilityAccess().getFromDateAssignment_5_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Availability_ToTimeKeyword_5_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Availability_FromDateKeyword_5_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("ToTime",false)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("ToTime");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAvailabilityAccess().getToTimeEDateParserRuleCall_5_1_0(), value, null)) {
+		if((value = eObjectConsumer.getConsumable("FromDate",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("FromDate");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAvailabilityAccess().getFromDateEDateParserRuleCall_5_1_0(), value, null)) {
 			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getAvailabilityAccess().getToTimeEDateParserRuleCall_5_1_0();
+			element = grammarAccess.getAvailabilityAccess().getFromDateEDateParserRuleCall_5_1_0();
 			return obj;
 		}
 		return null;
@@ -36181,7 +36192,7 @@ protected class Availability_ToTimeAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("FromDate" FromDate=EDate)?
+// ("ToDate" ToDate=EDate)?
 protected class Availability_Group_6 extends GroupToken {
 	
 	public Availability_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -36196,23 +36207,23 @@ protected class Availability_Group_6 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Availability_FromDateAssignment_6_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Availability_ToDateAssignment_6_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "FromDate"
-protected class Availability_FromDateKeyword_6_0 extends KeywordToken  {
+// "ToDate"
+protected class Availability_ToDateKeyword_6_0 extends KeywordToken  {
 	
-	public Availability_FromDateKeyword_6_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Availability_ToDateKeyword_6_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getAvailabilityAccess().getFromDateKeyword_6_0();
+		return grammarAccess.getAvailabilityAccess().getToDateKeyword_6_0();
 	}
 
     @Override
@@ -36220,40 +36231,41 @@ protected class Availability_FromDateKeyword_6_0 extends KeywordToken  {
 		switch(index) {
 			case 0: return new Availability_Group_5(lastRuleCallOrigin, this, 0, inst);
 			case 1: return new Availability_Group_4(lastRuleCallOrigin, this, 1, inst);
-			case 2: return new Availability_LeftCurlyBracketKeyword_3(lastRuleCallOrigin, this, 2, inst);
+			case 2: return new Availability_Group_3(lastRuleCallOrigin, this, 2, inst);
+			case 3: return new Availability_LeftCurlyBracketKeyword_2(lastRuleCallOrigin, this, 3, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// FromDate=EDate
-protected class Availability_FromDateAssignment_6_1 extends AssignmentToken  {
+// ToDate=EDate
+protected class Availability_ToDateAssignment_6_1 extends AssignmentToken  {
 	
-	public Availability_FromDateAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Availability_ToDateAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getAvailabilityAccess().getFromDateAssignment_6_1();
+		return grammarAccess.getAvailabilityAccess().getToDateAssignment_6_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Availability_FromDateKeyword_6_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Availability_ToDateKeyword_6_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("FromDate",false)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("FromDate");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAvailabilityAccess().getFromDateEDateParserRuleCall_6_1_0(), value, null)) {
+		if((value = eObjectConsumer.getConsumable("ToDate",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("ToDate");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAvailabilityAccess().getToDateEDateParserRuleCall_6_1_0(), value, null)) {
 			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getAvailabilityAccess().getFromDateEDateParserRuleCall_6_1_0();
+			element = grammarAccess.getAvailabilityAccess().getToDateEDateParserRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -36262,7 +36274,7 @@ protected class Availability_FromDateAssignment_6_1 extends AssignmentToken  {
 }
 
 
-// ("ToDate" ToDate=EDate)?
+// ("Repeatability" Repeatability=RepatabilityScheme)?
 protected class Availability_Group_7 extends GroupToken {
 	
 	public Availability_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -36277,23 +36289,23 @@ protected class Availability_Group_7 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Availability_ToDateAssignment_7_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Availability_RepeatabilityAssignment_7_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "ToDate"
-protected class Availability_ToDateKeyword_7_0 extends KeywordToken  {
+// "Repeatability"
+protected class Availability_RepeatabilityKeyword_7_0 extends KeywordToken  {
 	
-	public Availability_ToDateKeyword_7_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Availability_RepeatabilityKeyword_7_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getAvailabilityAccess().getToDateKeyword_7_0();
+		return grammarAccess.getAvailabilityAccess().getRepeatabilityKeyword_7_0();
 	}
 
     @Override
@@ -36302,40 +36314,41 @@ protected class Availability_ToDateKeyword_7_0 extends KeywordToken  {
 			case 0: return new Availability_Group_6(lastRuleCallOrigin, this, 0, inst);
 			case 1: return new Availability_Group_5(lastRuleCallOrigin, this, 1, inst);
 			case 2: return new Availability_Group_4(lastRuleCallOrigin, this, 2, inst);
-			case 3: return new Availability_LeftCurlyBracketKeyword_3(lastRuleCallOrigin, this, 3, inst);
+			case 3: return new Availability_Group_3(lastRuleCallOrigin, this, 3, inst);
+			case 4: return new Availability_LeftCurlyBracketKeyword_2(lastRuleCallOrigin, this, 4, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// ToDate=EDate
-protected class Availability_ToDateAssignment_7_1 extends AssignmentToken  {
+// Repeatability=RepatabilityScheme
+protected class Availability_RepeatabilityAssignment_7_1 extends AssignmentToken  {
 	
-	public Availability_ToDateAssignment_7_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Availability_RepeatabilityAssignment_7_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getAvailabilityAccess().getToDateAssignment_7_1();
+		return grammarAccess.getAvailabilityAccess().getRepeatabilityAssignment_7_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Availability_ToDateKeyword_7_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Availability_RepeatabilityKeyword_7_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("ToDate",false)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("ToDate");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAvailabilityAccess().getToDateEDateParserRuleCall_7_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getAvailabilityAccess().getToDateEDateParserRuleCall_7_1_0();
+		if((value = eObjectConsumer.getConsumable("Repeatability",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("Repeatability");
+		if(enumLitSerializer.isValid(obj.getEObject(), grammarAccess.getAvailabilityAccess().getRepeatabilityRepatabilitySchemeEnumRuleCall_7_1_0(), value, null)) { 
+			type = AssignmentType.ENUM_RULE_CALL;
+			element = grammarAccess.getAvailabilityAccess().getRepeatabilityRepatabilitySchemeEnumRuleCall_7_1_0();
 			return obj;
 		}
 		return null;
@@ -36344,7 +36357,7 @@ protected class Availability_ToDateAssignment_7_1 extends AssignmentToken  {
 }
 
 
-// ("Repeatability" Repeatability=RepatabilityScheme)?
+// ("RepeatUntil" RepeatUntil=EDate)?
 protected class Availability_Group_8 extends GroupToken {
 	
 	public Availability_Group_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -36359,23 +36372,23 @@ protected class Availability_Group_8 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Availability_RepeatabilityAssignment_8_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Availability_RepeatUntilAssignment_8_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "Repeatability"
-protected class Availability_RepeatabilityKeyword_8_0 extends KeywordToken  {
+// "RepeatUntil"
+protected class Availability_RepeatUntilKeyword_8_0 extends KeywordToken  {
 	
-	public Availability_RepeatabilityKeyword_8_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Availability_RepeatUntilKeyword_8_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getAvailabilityAccess().getRepeatabilityKeyword_8_0();
+		return grammarAccess.getAvailabilityAccess().getRepeatUntilKeyword_8_0();
 	}
 
     @Override
@@ -36385,40 +36398,41 @@ protected class Availability_RepeatabilityKeyword_8_0 extends KeywordToken  {
 			case 1: return new Availability_Group_6(lastRuleCallOrigin, this, 1, inst);
 			case 2: return new Availability_Group_5(lastRuleCallOrigin, this, 2, inst);
 			case 3: return new Availability_Group_4(lastRuleCallOrigin, this, 3, inst);
-			case 4: return new Availability_LeftCurlyBracketKeyword_3(lastRuleCallOrigin, this, 4, inst);
+			case 4: return new Availability_Group_3(lastRuleCallOrigin, this, 4, inst);
+			case 5: return new Availability_LeftCurlyBracketKeyword_2(lastRuleCallOrigin, this, 5, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// Repeatability=RepatabilityScheme
-protected class Availability_RepeatabilityAssignment_8_1 extends AssignmentToken  {
+// RepeatUntil=EDate
+protected class Availability_RepeatUntilAssignment_8_1 extends AssignmentToken  {
 	
-	public Availability_RepeatabilityAssignment_8_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Availability_RepeatUntilAssignment_8_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getAvailabilityAccess().getRepeatabilityAssignment_8_1();
+		return grammarAccess.getAvailabilityAccess().getRepeatUntilAssignment_8_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Availability_RepeatabilityKeyword_8_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Availability_RepeatUntilKeyword_8_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("Repeatability",false)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("Repeatability");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAvailabilityAccess().getRepeatabilityRepatabilitySchemeParserRuleCall_8_1_0(), value, null)) {
+		if((value = eObjectConsumer.getConsumable("RepeatUntil",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("RepeatUntil");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAvailabilityAccess().getRepeatUntilEDateParserRuleCall_8_1_0(), value, null)) {
 			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getAvailabilityAccess().getRepeatabilityRepatabilitySchemeParserRuleCall_8_1_0();
+			element = grammarAccess.getAvailabilityAccess().getRepeatUntilEDateParserRuleCall_8_1_0();
 			return obj;
 		}
 		return null;
@@ -36427,7 +36441,7 @@ protected class Availability_RepeatabilityAssignment_8_1 extends AssignmentToken
 }
 
 
-// ("RepeatUntil" RepeatUntil=EDate)?
+// ("cost" cost=Cost)?
 protected class Availability_Group_9 extends GroupToken {
 	
 	public Availability_Group_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -36442,23 +36456,23 @@ protected class Availability_Group_9 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Availability_RepeatUntilAssignment_9_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Availability_CostAssignment_9_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "RepeatUntil"
-protected class Availability_RepeatUntilKeyword_9_0 extends KeywordToken  {
+// "cost"
+protected class Availability_CostKeyword_9_0 extends KeywordToken  {
 	
-	public Availability_RepeatUntilKeyword_9_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Availability_CostKeyword_9_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getAvailabilityAccess().getRepeatUntilKeyword_9_0();
+		return grammarAccess.getAvailabilityAccess().getCostKeyword_9_0();
 	}
 
     @Override
@@ -36469,92 +36483,8 @@ protected class Availability_RepeatUntilKeyword_9_0 extends KeywordToken  {
 			case 2: return new Availability_Group_6(lastRuleCallOrigin, this, 2, inst);
 			case 3: return new Availability_Group_5(lastRuleCallOrigin, this, 3, inst);
 			case 4: return new Availability_Group_4(lastRuleCallOrigin, this, 4, inst);
-			case 5: return new Availability_LeftCurlyBracketKeyword_3(lastRuleCallOrigin, this, 5, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-// RepeatUntil=EDate
-protected class Availability_RepeatUntilAssignment_9_1 extends AssignmentToken  {
-	
-	public Availability_RepeatUntilAssignment_9_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getAvailabilityAccess().getRepeatUntilAssignment_9_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Availability_RepeatUntilKeyword_9_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("RepeatUntil",false)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("RepeatUntil");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAvailabilityAccess().getRepeatUntilEDateParserRuleCall_9_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getAvailabilityAccess().getRepeatUntilEDateParserRuleCall_9_1_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-
-// ("cost" cost=Cost)?
-protected class Availability_Group_10 extends GroupToken {
-	
-	public Availability_Group_10(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getAvailabilityAccess().getGroup_10();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Availability_CostAssignment_10_1(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-// "cost"
-protected class Availability_CostKeyword_10_0 extends KeywordToken  {
-	
-	public Availability_CostKeyword_10_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getAvailabilityAccess().getCostKeyword_10_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Availability_Group_9(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Availability_Group_8(lastRuleCallOrigin, this, 1, inst);
-			case 2: return new Availability_Group_7(lastRuleCallOrigin, this, 2, inst);
-			case 3: return new Availability_Group_6(lastRuleCallOrigin, this, 3, inst);
-			case 4: return new Availability_Group_5(lastRuleCallOrigin, this, 4, inst);
-			case 5: return new Availability_Group_4(lastRuleCallOrigin, this, 5, inst);
-			case 6: return new Availability_LeftCurlyBracketKeyword_3(lastRuleCallOrigin, this, 6, inst);
+			case 5: return new Availability_Group_3(lastRuleCallOrigin, this, 5, inst);
+			case 6: return new Availability_LeftCurlyBracketKeyword_2(lastRuleCallOrigin, this, 6, inst);
 			default: return null;
 		}	
 	}
@@ -36562,15 +36492,15 @@ protected class Availability_CostKeyword_10_0 extends KeywordToken  {
 }
 
 // cost=Cost
-protected class Availability_CostAssignment_10_1 extends AssignmentToken  {
+protected class Availability_CostAssignment_9_1 extends AssignmentToken  {
 	
-	public Availability_CostAssignment_10_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Availability_CostAssignment_9_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getAvailabilityAccess().getCostAssignment_10_1();
+		return grammarAccess.getAvailabilityAccess().getCostAssignment_9_1();
 	}
 
     @Override
@@ -36589,7 +36519,7 @@ protected class Availability_CostAssignment_10_1 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getCostRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getAvailabilityAccess().getCostCostParserRuleCall_10_1_0(); 
+				element = grammarAccess.getAvailabilityAccess().getCostCostParserRuleCall_9_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -36601,12 +36531,53 @@ protected class Availability_CostAssignment_10_1 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Availability_CostKeyword_10_0(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Availability_CostKeyword_9_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
+
+// Repeat?="Repeat"?
+protected class Availability_RepeatAssignment_10 extends AssignmentToken  {
+	
+	public Availability_RepeatAssignment_10(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getAvailabilityAccess().getRepeatAssignment_10();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Availability_Group_9(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Availability_Group_8(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new Availability_Group_7(lastRuleCallOrigin, this, 2, inst);
+			case 3: return new Availability_Group_6(lastRuleCallOrigin, this, 3, inst);
+			case 4: return new Availability_Group_5(lastRuleCallOrigin, this, 4, inst);
+			case 5: return new Availability_Group_4(lastRuleCallOrigin, this, 5, inst);
+			case 6: return new Availability_Group_3(lastRuleCallOrigin, this, 6, inst);
+			case 7: return new Availability_LeftCurlyBracketKeyword_2(lastRuleCallOrigin, this, 7, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("Repeat",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("Repeat");
+		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getAvailabilityAccess().getRepeatRepeatKeyword_10_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
 
 // "}"
 protected class Availability_RightCurlyBracketKeyword_11 extends KeywordToken  {
@@ -36623,14 +36594,15 @@ protected class Availability_RightCurlyBracketKeyword_11 extends KeywordToken  {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Availability_Group_10(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Availability_RepeatAssignment_10(lastRuleCallOrigin, this, 0, inst);
 			case 1: return new Availability_Group_9(lastRuleCallOrigin, this, 1, inst);
 			case 2: return new Availability_Group_8(lastRuleCallOrigin, this, 2, inst);
 			case 3: return new Availability_Group_7(lastRuleCallOrigin, this, 3, inst);
 			case 4: return new Availability_Group_6(lastRuleCallOrigin, this, 4, inst);
 			case 5: return new Availability_Group_5(lastRuleCallOrigin, this, 5, inst);
 			case 6: return new Availability_Group_4(lastRuleCallOrigin, this, 6, inst);
-			case 7: return new Availability_LeftCurlyBracketKeyword_3(lastRuleCallOrigin, this, 7, inst);
+			case 7: return new Availability_Group_3(lastRuleCallOrigin, this, 7, inst);
+			case 8: return new Availability_LeftCurlyBracketKeyword_2(lastRuleCallOrigin, this, 8, inst);
 			default: return null;
 		}	
 	}
@@ -36816,9 +36788,9 @@ protected class Cost_PerUnitAssignment_3_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("perUnit",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("perUnit");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getCostAccess().getPerUnitCostUnitParserRuleCall_3_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getCostAccess().getPerUnitCostUnitParserRuleCall_3_1_0();
+		if(enumLitSerializer.isValid(obj.getEObject(), grammarAccess.getCostAccess().getPerUnitCostUnitEnumRuleCall_3_1_0(), value, null)) { 
+			type = AssignmentType.ENUM_RULE_CALL;
+			element = grammarAccess.getCostAccess().getPerUnitCostUnitEnumRuleCall_3_1_0();
 			return obj;
 		}
 		return null;
@@ -36936,25 +36908,23 @@ protected class Cost_RightCurlyBracketKeyword_5 extends KeywordToken  {
 
 
 
-
-
 /************ begin Rule ReservedResourceContract ****************
  *
  * ReservedResourceContract returns slareservations::ReservedResourceContract:
  * 
- * 	{slareservations::ReservedResourceContract} "ReservedResourceContract" uniqueID=EString "{" ("name" name=EString)?
+ * 	{slareservations::ReservedResourceContract} "ReservedResourceContract" uniqueID=STRING "{" ("name" name=STRING)?
  * 
- * 	("id" id=EInt)? ("description" description=EString)? ("ValidFrom" ValidFrom=EDate)? ("ValidUntil" ValidUntil=EDate)?
+ * 	("id" id=EInt)? ("description" description=STRING)? ("ValidFrom" ValidFrom=EDate)? ("ValidUntil" ValidUntil=EDate)?
  * 
- * 	("forResource" forResource=[resources::OfferedResource|EString])? "}";
+ * 	("forResource" forResource=[resources::OfferedResource|STRING])? "}";
  *
  **/
 
-// {slareservations::ReservedResourceContract} "ReservedResourceContract" uniqueID=EString "{" ("name" name=EString)? ("id"
+// {slareservations::ReservedResourceContract} "ReservedResourceContract" uniqueID=STRING "{" ("name" name=STRING)? ("id"
 // 
-// id=EInt)? ("description" description=EString)? ("ValidFrom" ValidFrom=EDate)? ("ValidUntil" ValidUntil=EDate)?
+// id=EInt)? ("description" description=STRING)? ("ValidFrom" ValidFrom=EDate)? ("ValidUntil" ValidUntil=EDate)?
 // 
-// ("forResource" forResource=[resources::OfferedResource|EString])? "}"
+// ("forResource" forResource=[resources::OfferedResource|STRING])? "}"
 protected class ReservedResourceContract_Group extends GroupToken {
 	
 	public ReservedResourceContract_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -37031,7 +37001,7 @@ protected class ReservedResourceContract_ReservedResourceContractKeyword_1 exten
 
 }
 
-// uniqueID=EString
+// uniqueID=STRING
 protected class ReservedResourceContract_UniqueIDAssignment_2 extends AssignmentToken  {
 	
 	public ReservedResourceContract_UniqueIDAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -37055,9 +37025,9 @@ protected class ReservedResourceContract_UniqueIDAssignment_2 extends Assignment
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("uniqueID",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("uniqueID");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getReservedResourceContractAccess().getUniqueIDEStringParserRuleCall_2_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getReservedResourceContractAccess().getUniqueIDEStringParserRuleCall_2_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getReservedResourceContractAccess().getUniqueIDSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getReservedResourceContractAccess().getUniqueIDSTRINGTerminalRuleCall_2_0();
 			return obj;
 		}
 		return null;
@@ -37087,7 +37057,7 @@ protected class ReservedResourceContract_LeftCurlyBracketKeyword_3 extends Keywo
 
 }
 
-// ("name" name=EString)?
+// ("name" name=STRING)?
 protected class ReservedResourceContract_Group_4 extends GroupToken {
 	
 	public ReservedResourceContract_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -37131,7 +37101,7 @@ protected class ReservedResourceContract_NameKeyword_4_0 extends KeywordToken  {
 
 }
 
-// name=EString
+// name=STRING
 protected class ReservedResourceContract_NameAssignment_4_1 extends AssignmentToken  {
 	
 	public ReservedResourceContract_NameAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -37155,9 +37125,9 @@ protected class ReservedResourceContract_NameAssignment_4_1 extends AssignmentTo
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getReservedResourceContractAccess().getNameEStringParserRuleCall_4_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getReservedResourceContractAccess().getNameEStringParserRuleCall_4_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getReservedResourceContractAccess().getNameSTRINGTerminalRuleCall_4_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getReservedResourceContractAccess().getNameSTRINGTerminalRuleCall_4_1_0();
 			return obj;
 		}
 		return null;
@@ -37246,7 +37216,7 @@ protected class ReservedResourceContract_IdAssignment_5_1 extends AssignmentToke
 }
 
 
-// ("description" description=EString)?
+// ("description" description=STRING)?
 protected class ReservedResourceContract_Group_6 extends GroupToken {
 	
 	public ReservedResourceContract_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -37292,7 +37262,7 @@ protected class ReservedResourceContract_DescriptionKeyword_6_0 extends KeywordT
 
 }
 
-// description=EString
+// description=STRING
 protected class ReservedResourceContract_DescriptionAssignment_6_1 extends AssignmentToken  {
 	
 	public ReservedResourceContract_DescriptionAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -37316,9 +37286,9 @@ protected class ReservedResourceContract_DescriptionAssignment_6_1 extends Assig
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("description",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("description");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getReservedResourceContractAccess().getDescriptionEStringParserRuleCall_6_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getReservedResourceContractAccess().getDescriptionEStringParserRuleCall_6_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getReservedResourceContractAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getReservedResourceContractAccess().getDescriptionSTRINGTerminalRuleCall_6_1_0();
 			return obj;
 		}
 		return null;
@@ -37492,7 +37462,7 @@ protected class ReservedResourceContract_ValidUntilAssignment_8_1 extends Assign
 }
 
 
-// ("forResource" forResource=[resources::OfferedResource|EString])?
+// ("forResource" forResource=[resources::OfferedResource|STRING])?
 protected class ReservedResourceContract_Group_9 extends GroupToken {
 	
 	public ReservedResourceContract_Group_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -37541,7 +37511,7 @@ protected class ReservedResourceContract_ForResourceKeyword_9_0 extends KeywordT
 
 }
 
-// forResource=[resources::OfferedResource|EString]
+// forResource=[resources::OfferedResource|STRING]
 protected class ReservedResourceContract_ForResourceAssignment_9_1 extends AssignmentToken  {
 	
 	public ReservedResourceContract_ForResourceAssignment_9_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {

@@ -81,7 +81,7 @@ public class SiteItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ProvidersitePackage.Literals.SITE__PTM);
+			childrenFeatures.add(ProvidersitePackage.Literals.SITE__DOMAIN_MANAGER);
 			childrenFeatures.add(ProvidersitePackage.Literals.SITE__LOCATED_AT);
 			childrenFeatures.add(ProvidersitePackage.Literals.SITE__OFFERED_RESOURCES_LIST);
 		}
@@ -138,7 +138,7 @@ public class SiteItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Site.class)) {
-			case ProvidersitePackage.SITE__PTM:
+			case ProvidersitePackage.SITE__DOMAIN_MANAGER:
 			case ProvidersitePackage.SITE__LOCATED_AT:
 			case ProvidersitePackage.SITE__OFFERED_RESOURCES_LIST:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -160,7 +160,7 @@ public class SiteItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ProvidersitePackage.Literals.SITE__PTM,
+				(ProvidersitePackage.Literals.SITE__DOMAIN_MANAGER,
 				 ProvidersiteFactory.eINSTANCE.createDomainManager()));
 
 		newChildDescriptors.add
