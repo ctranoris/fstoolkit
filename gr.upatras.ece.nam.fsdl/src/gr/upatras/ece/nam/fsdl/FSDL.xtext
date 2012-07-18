@@ -1,0 +1,146 @@
+grammar gr.upatras.ece.nam.fsdl.FSDL with org.eclipse.xtext.common.Terminals
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+import "platform:/resource/gr.upatras.ece.nam.broker.model/model/Broker.ecore" as FederationOffice
+import "platform:/resource/gr.upatras.ece.nam.broker.model/model/Broker.ecore#//federationscenarios"  as federationscenarios
+import 'platform:/resource/gr.upatras.ece.nam.broker.model/model/Broker.ecore#//users'   as users
+import 'platform:/resource/gr.upatras.ece.nam.broker.model/model/Broker.ecore#//services'   as services
+import 'platform:/resource/gr.upatras.ece.nam.broker.model/model/Broker.ecore#//resources'   as resources
+
+//generate fSDL "http://www.panlab.org/software/fsdl2/FSDL"
+
+RequestedFederationScenario returns 
+			federationscenarios::RequestedFederationScenario:
+	{federationscenarios::RequestedFederationScenario}
+	'RequestedFederationScenario'
+	name=ID
+	(imports+=Import)*
+		(isShared?='isShared')?
+		('Description' description=STRING)?
+		('Credentials' VTCredentials=Credentials)?
+		(scheduledPlan=ScheduledPlan)?
+		(servicesRequest=ServicesRequest)?
+		(infrastructureRequest=InfrastructureRequest)?
+;
+
+
+Import returns federationscenarios::Import:
+  'import office' importURI= STRING 
+  ';'
+;
+
+
+ServicesRequest returns federationscenarios::ServicesRequest:
+	{federationscenarios::ServicesRequest}
+	'RequestServices'
+	'{'
+		(serviceRequestList+=ServiceRequest  )*
+
+    '}';
+    
+ServiceRequest returns federationscenarios::ServiceRequest:
+	{federationscenarios::ServiceRequest}
+	'Service' refService=[services::Service|STRING] 
+		'as' name=ID ('[1..' numOfServices=INT ']')?
+	('offered by' OfferedByProviders = 
+		[ users::ResourcesProvider  | STRING]  
+		('optional')?   )?	
+	('settings' 
+	'{' (reqServiceSettings+=ServiceSettingInstance)* '}')?
+;
+
+
+
+ScheduledPlan returns federationscenarios::ScheduledPlan:
+	{federationscenarios::ScheduledPlan}
+	'ScheduledPlan'
+	'{'
+		('ValidFrom' ValidFrom=EDate)?
+		('ValidUntil' ValidUntil=EDate)?
+    '}';
+
+
+
+ 
+
+Credentials returns federationscenarios::Credentials:
+	{federationscenarios::Credentials}
+	'Credentials'
+	name=STRING
+	'{'
+		('id' id=INT)?
+		('description' description=STRING)?
+		('UserName' username=STRING)?
+		('PassWord' password=STRING)?
+    '}';
+    
+    
+    
+    
+
+
+ServiceSettingInstance returns federationscenarios::ServiceSettingInstance:
+	'Setting' 	
+	refServiceSetting=[services::ServiceSetting|STRING] ':' name=(ID|STRING)  
+//	('id' id=INT)?
+//	('description' description=STRING)?
+	('=' staticValue=STRING)? 
+	('assign'  assignSetting += [federationscenarios::SettingInstance|STRING]  ( "," assignSetting+=[ federationscenarios::SettingInstance |STRING])* )?
+	
+;
+    
+
+InfrastructureRequest returns federationscenarios::InfrastructureRequest:
+	{federationscenarios::InfrastructureRequest}
+	'RequestInfrastructure'
+//	name=STRING
+	'{'
+//		('id' id=INT)?
+//		('description' description=STRING)?
+//		('reqOfferedResources' '{' reqOfferedResources+=OfferedResourceInstance ( "," reqOfferedResources+=OfferedResourceInstance)* '}' )?
+
+
+		(reqOfferedResources+=ResourceRequest)* 
+		(resourceGroups+=ResourceGroup)*
+//		('reqSettingDependencies' '{' reqSettingDependencies+=RequestedSettingDependency ( "," reqSettingDependencies+=RequestedSettingDependency)* '}' )?
+    '}'
+;
+    
+ResourceRequest returns federationscenarios::ResourceRequest:
+	
+	'Resource' refOfferedResource=[resources::OfferedResource|STRING] 'as' name=ID 
+	('settings' '{' (reqResourceSettings+=ResourceSettingInstance)* '}')?
+	
+//	name=STRING
+//	'{'
+//		('id' id=INT)?
+//		('description' description=STRING)?
+//		'refOfferedResource' refOfferedResource=[resources::OfferedResource|STRING]
+//		('reqResourceSettings' '{' reqResourceSettings+=ResourceSettingInstance ( "," reqResourceSettings+=ResourceSettingInstance)* '}' )?
+//    '}'
+; 
+
+ResourceGroup returns federationscenarios::ResourceGroup:
+	{federationscenarios::ResourceGroup}
+	'ResourceGroup'	name=ID	'refersResources' '{' 
+		(groupedResources+=[federationscenarios::ResourceRequest|STRING] ( "," groupedResources+=[federationscenarios::ResourceRequest|STRING])*  )?
+    '}';
+
+    
+ResourceSettingInstance returns federationscenarios::ResourceSettingInstance:
+	'Setting' 
+	refResourceSetting=[resources::ResourceSetting|STRING] ':' name=(ID|STRING) 
+	('=' staticValue=STRING)?
+	('assign' assignSetting+=[federationscenarios::SettingInstance|STRING] ( "," assignSetting+=[federationscenarios::SettingInstance|STRING])*  )? 
+	
+//	'{'
+//		('id' id=INT)?
+//		('description' description=STRING)?
+//		('staticValue' staticValue=STRING)?
+//		'refResourceSetting' refResourceSetting=[resources::ResourceSetting|STRING]
+//    '}'
+;
+    
+        
+EDate returns ecore::EDate:
+	STRING /* TODO: implement this rule and an appropriate IValueConverter */;
