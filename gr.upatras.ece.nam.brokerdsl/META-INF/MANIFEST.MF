@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: gr.upatras.ece.nam.brokerdsl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: gr.upatras.ece.nam.brokerdsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext;visibility:=reexport,
+ org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
+ org.eclipse.xtext.generator;resolution:=optional,
+ org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
+ org.eclipse.emf.codegen.ecore;resolution:=optional,
+ org.eclipse.emf.mwe.utils;resolution:=optional,
+ org.eclipse.emf.mwe2.launch;resolution:=optional,
+ gr.upatras.ece.nam.broker.model;bundle-version="1.0.0",
+ org.eclipse.xtext.util,
+ org.antlr.runtime,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: gr.upatras.ece.nam.brokerdsl,
+ gr.upatras.ece.nam.brokerdsl.services,
+ gr.upatras.ece.nam.brokerdsl.parseTreeConstruction,
+ gr.upatras.ece.nam.brokerdsl.parser.antlr,
+ gr.upatras.ece.nam.brokerdsl.parser.antlr.internal,
+ gr.upatras.ece.nam.brokerdsl.validation,
+ gr.upatras.ece.nam.brokerdsl.scoping,
+ gr.upatras.ece.nam.brokerdsl.formatting,
+ gr.upatras.ece.nam.brokerdsl.brokerDSLsyntax,
+ gr.upatras.ece.nam.brokerdsl.brokerDSLsyntax.impl,
+ gr.upatras.ece.nam.brokerdsl.brokerDSLsyntax.util
+

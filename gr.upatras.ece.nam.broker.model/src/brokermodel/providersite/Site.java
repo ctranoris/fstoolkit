@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link brokermodel.providersite.Site#getPtm <em>Ptm</em>}</li>
+ *   <li>{@link brokermodel.providersite.Site#getDomainManager <em>Domain Manager</em>}</li>
  *   <li>{@link brokermodel.providersite.Site#getLocatedAt <em>Located At</em>}</li>
  *   <li>{@link brokermodel.providersite.Site#getOfferedResourcesList <em>Offered Resources List</em>}</li>
  *   <li>{@link brokermodel.providersite.Site#getBelongsToProvider <em>Belongs To Provider</em>}</li>
@@ -31,32 +31,32 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Site extends NamedElement {
 	/**
-	 * Returns the value of the '<em><b>Ptm</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Domain Manager</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link brokermodel.providersite.DomainManager#getBelongsToSite <em>Belongs To Site</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Ptm</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Domain Manager</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ptm</em>' containment reference.
-	 * @see #setPtm(DomainManager)
-	 * @see brokermodel.providersite.ProvidersitePackage#getSite_Ptm()
+	 * @return the value of the '<em>Domain Manager</em>' containment reference.
+	 * @see #setDomainManager(DomainManager)
+	 * @see brokermodel.providersite.ProvidersitePackage#getSite_DomainManager()
 	 * @see brokermodel.providersite.DomainManager#getBelongsToSite
 	 * @model opposite="belongsToSite" containment="true" required="true"
 	 * @generated
 	 */
-	DomainManager getPtm();
+	DomainManager getDomainManager();
 
 	/**
-	 * Sets the value of the '{@link brokermodel.providersite.Site#getPtm <em>Ptm</em>}' containment reference.
+	 * Sets the value of the '{@link brokermodel.providersite.Site#getDomainManager <em>Domain Manager</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ptm</em>' containment reference.
-	 * @see #getPtm()
+	 * @param value the new value of the '<em>Domain Manager</em>' containment reference.
+	 * @see #getDomainManager()
 	 * @generated
 	 */
-	void setPtm(DomainManager value);
+	void setDomainManager(DomainManager value);
 
 	/**
 	 * Returns the value of the '<em><b>Located At</b></em>' containment reference.

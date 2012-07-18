@@ -35,8 +35,8 @@ public class ResourceProvider {
 	public Set<String> getURIs(){
 		Set<String> uris = new HashSet<String>();
 		for (Site site : this.officeprovider.getOfferedSiteList()) {
-			if ((site.getPtm()!=null) && (site.getPtm().getName()!=null))
-				uris.add(site.getPtm().getName());
+			if ((site.getDomainManager()!=null) && (site.getDomainManager().getName()!=null))
+				uris.add(site.getDomainManager().getName());
 			else
 				uris.add(site.getName());
 		}
@@ -50,7 +50,7 @@ public class ResourceProvider {
 	 */
 	public String getFirstURI(){
 		for (Site site : this.officeprovider.getOfferedSiteList()) {
-			return site.getPtm().getIP();
+			return site.getDomainManager().getIP();
 		}
 
 		return null;

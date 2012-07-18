@@ -6,7 +6,8 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: gr.upatras.ece.nam.fci.uop.Activator
 Require-Bundle: org.eclipse.core.runtime,
  gr.upatras.ece.nam.broker.model;bundle-version="1.0.0",
- org.apache.commons.httpclient;bundle-version="3.1.0"
+ org.apache.commons.httpclient;bundle-version="3.1.0",
+ gr.upatras.ece.nam.brokerdsl;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: gr.upatras.ece.nam.fci.uop

@@ -126,7 +126,7 @@ public class DomainManagerImpl extends NamedElementImpl implements DomainManager
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newBelongsToSite != null)
-				msgs = ((InternalEObject)newBelongsToSite).eInverseAdd(this, ProvidersitePackage.SITE__PTM, Site.class, msgs);
+				msgs = ((InternalEObject)newBelongsToSite).eInverseAdd(this, ProvidersitePackage.SITE__DOMAIN_MANAGER, Site.class, msgs);
 			msgs = basicSetBelongsToSite(newBelongsToSite, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -173,7 +173,7 @@ public class DomainManagerImpl extends NamedElementImpl implements DomainManager
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case ProvidersitePackage.DOMAIN_MANAGER__BELONGS_TO_SITE:
-				return eInternalContainer().eInverseRemove(this, ProvidersitePackage.SITE__PTM, Site.class, msgs);
+				return eInternalContainer().eInverseRemove(this, ProvidersitePackage.SITE__DOMAIN_MANAGER, Site.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

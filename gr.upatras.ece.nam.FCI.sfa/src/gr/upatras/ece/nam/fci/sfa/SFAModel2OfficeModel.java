@@ -139,7 +139,7 @@ public class SFAModel2OfficeModel {
 			
 			//Add now the PTM for the site
 			DomainManager ptm = ProvidersiteFactory.eINSTANCE.createDomainManager();
-			partnerSite.setPtm( ptm ); 
+			partnerSite.setDomainManager( ptm ); 
 			
 			ptm.setBelongsToSite(partnerSite);
 			NodeList resourceSpecNodes = xmlutl.getNodeListFromObject(resourceSpecDocument, "//network[@name=\""+organName+"\"]/node");

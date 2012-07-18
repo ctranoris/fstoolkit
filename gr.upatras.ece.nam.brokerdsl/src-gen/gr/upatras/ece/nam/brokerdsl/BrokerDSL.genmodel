@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/gr.upatras.ece.nam.brokerdsl/src-gen" editDirectory="/gr.upatras.ece.nam.brokerdsl.edit/src"
+    editorDirectory="/gr.upatras.ece.nam.brokerdsl.editor/src" modelPluginID="gr.upatras.ece.nam.brokerdsl"
+    forceOverwrite="true" modelName="BrokerDSL" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="gr.upatras.ece.nam.brokerdsl.edit"
+    editorPluginID="gr.upatras.ece.nam.brokerdsl.editor" runtimeVersion="2.8" usedGenPackages="../../../../../../../gr.upatras.ece.nam.broker.model/model/Broker.genmodel#//brokermodel">
+  <genPackages prefix="BrokerDSLsyntax" basePackage="gr.upatras.ece.nam.brokerdsl"
+      resource="XML" disposableProviderFactory="true" ecorePackage="BrokerDSL.ecore#/">
+    <genClasses ecoreClass="BrokerDSL.ecore#//BrokerRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BrokerDSL.ecore#//BrokerRule/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BrokerDSL.ecore#//BrokerRule/testbedBrokerv"/>
+    </genClasses>
+    <genClasses ecoreClass="BrokerDSL.ecore#//ImportBroker">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BrokerDSL.ecore#//ImportBroker/importURI"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

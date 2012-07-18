@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.panlab.software.officedl2.OfficeDLStandaloneSetup;
-import org.panlab.software.officedl2.officeDL.OfficeRule;
+import gr.upatras.ece.nam.brokerdsl.BrokerDSLStandaloneSetup;
+import gr.upatras.ece.nam.brokerdsl.brokerDSLsyntax.BrokerRule;
 
 import brokermodel.BrokermodelPackage;
 import brokermodel.Broker;
@@ -59,7 +59,7 @@ public class AmazonOfficeProxy implements Broker {
 	private Broker PreloadedBroker() {
 
 		if (!EPackage.Registry.INSTANCE.containsKey("http://www.panlab.org/software/officedl2/OfficeDL")) {
-			new OfficeDLStandaloneSetup().createInjectorAndDoEMFRegistration();
+			new BrokerDSLStandaloneSetup().createInjectorAndDoEMFRegistration();
 		}
 		
 		//String uri = "file:/C:/Users/ctranoris/runtime-FSToolkit/myProject/src/Amazon.officedl";
@@ -73,10 +73,10 @@ public class AmazonOfficeProxy implements Broker {
 		
 
 		// Get the first model element and cast it to the right type
-		OfficeRule officeRule = (OfficeRule) resourceAmazonOffice.getContents().get(0);
-		officeRule.getTestbedOfficev().setResourceURI( resourceAmazonOffice.getURI().toString() );
+		BrokerRule officeRule = (BrokerRule) resourceAmazonOffice.getContents().get(0);
+		officeRule.getTestbedBrokerv().setResourceURI( resourceAmazonOffice.getURI().toString() );
 		
-		return officeRule.getTestbedOfficev();
+		return officeRule.getTestbedBrokerv();
 	}
 
 	@Override

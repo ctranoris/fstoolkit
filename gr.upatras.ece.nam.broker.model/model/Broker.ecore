@@ -149,11 +149,11 @@
     <eClassifiers xsi:type="ecore:EClass" name="DomainManager" eSuperTypes="#//NamedElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="IP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="belongsToSite" eType="#//providersite/Site"
-          eOpposite="#//providersite/Site/ptm"/>
+          eOpposite="#//providersite/Site/domainManager"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Site" eSuperTypes="#//NamedElement">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ptm" lowerBound="1" eType="#//providersite/DomainManager"
-          containment="true" eOpposite="#//providersite/DomainManager/belongsToSite"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="domainManager" lowerBound="1"
+          eType="#//providersite/DomainManager" containment="true" eOpposite="#//providersite/DomainManager/belongsToSite"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="locatedAt" lowerBound="1"
           eType="#//providersite/SiteLocation" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="offeredResourcesList"

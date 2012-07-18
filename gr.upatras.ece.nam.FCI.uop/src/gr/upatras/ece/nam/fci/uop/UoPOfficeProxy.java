@@ -20,8 +20,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.panlab.software.officedl2.OfficeDLStandaloneSetup;
-import org.panlab.software.officedl2.officeDL.OfficeRule;
+import gr.upatras.ece.nam.brokerdsl.BrokerDSLStandaloneSetup;
+import gr.upatras.ece.nam.brokerdsl.brokerDSLsyntax.BrokerRule;
 
 import brokermodel.BrokermodelPackage;
 import brokermodel.Broker;
@@ -53,7 +53,7 @@ public class UoPOfficeProxy implements Broker {
 	private Broker PreloadedBroker() {
 		
 		if (!EPackage.Registry.INSTANCE.containsKey("http://www.panlab.org/software/officedl2/OfficeDL")) {
-			new OfficeDLStandaloneSetup().createInjectorAndDoEMFRegistration();
+			new BrokerDSLStandaloneSetup().createInjectorAndDoEMFRegistration();
 		}
 		
 		// Initialize the model
@@ -83,10 +83,10 @@ public class UoPOfficeProxy implements Broker {
 		}
 
 		// Get the first model element and cast it to the right type
-		OfficeRule officeRule = (OfficeRule) resourceUoPOffice.getContents().get(0);
-		officeRule.getTestbedOfficev().setResourceURI( resourceUoPOffice.getURI().toString() );
+		BrokerRule officeRule = (BrokerRule) resourceUoPOffice.getContents().get(0);
+		officeRule.getTestbedBrokerv().setResourceURI( resourceUoPOffice.getURI().toString() );
 		
-		return officeRule.getTestbedOfficev();
+		return officeRule.getTestbedBrokerv();
 		
 	}
 

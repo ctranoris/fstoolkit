@@ -177,13 +177,13 @@ public interface ProvidersitePackage extends EPackage {
 	int SITE__UNIQUE_ID = BrokermodelPackage.NAMED_ELEMENT__UNIQUE_ID;
 
 	/**
-	 * The feature id for the '<em><b>Ptm</b></em>' containment reference.
+	 * The feature id for the '<em><b>Domain Manager</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SITE__PTM = BrokermodelPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int SITE__DOMAIN_MANAGER = BrokermodelPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Located At</b></em>' containment reference.
@@ -338,15 +338,15 @@ public interface ProvidersitePackage extends EPackage {
 	EClass getSite();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link brokermodel.providersite.Site#getPtm <em>Ptm</em>}'.
+	 * Returns the meta object for the containment reference '{@link brokermodel.providersite.Site#getDomainManager <em>Domain Manager</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Ptm</em>'.
-	 * @see brokermodel.providersite.Site#getPtm()
+	 * @return the meta object for the containment reference '<em>Domain Manager</em>'.
+	 * @see brokermodel.providersite.Site#getDomainManager()
 	 * @see #getSite()
 	 * @generated
 	 */
-	EReference getSite_Ptm();
+	EReference getSite_DomainManager();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link brokermodel.providersite.Site#getLocatedAt <em>Located At</em>}'.
@@ -472,12 +472,12 @@ public interface ProvidersitePackage extends EPackage {
 		EClass SITE = eINSTANCE.getSite();
 
 		/**
-		 * The meta object literal for the '<em><b>Ptm</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Domain Manager</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SITE__PTM = eINSTANCE.getSite_Ptm();
+		EReference SITE__DOMAIN_MANAGER = eINSTANCE.getSite_DomainManager();
 
 		/**
 		 * The meta object literal for the '<em><b>Located At</b></em>' containment reference feature.

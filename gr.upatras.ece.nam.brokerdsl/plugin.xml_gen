@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://nam.ece.upatras.gr/brokerdsl/BrokerDSL" 
+       class = "gr.upatras.ece.nam.brokerdsl.brokerDSLsyntax.BrokerDSLsyntaxPackage"
+       genModel = "gr/upatras/ece/nam/brokerdsl/BrokerDSL.genmodel" /> 
+	
+  </extension>
+
+
+
+
+</plugin>

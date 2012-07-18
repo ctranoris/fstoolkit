@@ -231,7 +231,7 @@ public class ProvidersitePackageImpl extends EPackageImpl implements Providersit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSite_Ptm() {
+	public EReference getSite_DomainManager() {
 		return (EReference)siteEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -322,7 +322,7 @@ public class ProvidersitePackageImpl extends EPackageImpl implements Providersit
 		createEReference(domainManagerEClass, DOMAIN_MANAGER__BELONGS_TO_SITE);
 
 		siteEClass = createEClass(SITE);
-		createEReference(siteEClass, SITE__PTM);
+		createEReference(siteEClass, SITE__DOMAIN_MANAGER);
 		createEReference(siteEClass, SITE__LOCATED_AT);
 		createEReference(siteEClass, SITE__OFFERED_RESOURCES_LIST);
 		createEReference(siteEClass, SITE__BELONGS_TO_PROVIDER);
@@ -372,10 +372,10 @@ public class ProvidersitePackageImpl extends EPackageImpl implements Providersit
 		// Initialize classes and features; add operations and parameters
 		initEClass(domainManagerEClass, DomainManager.class, "DomainManager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDomainManager_IP(), ecorePackage.getEString(), "IP", null, 0, 1, DomainManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDomainManager_BelongsToSite(), this.getSite(), this.getSite_Ptm(), "belongsToSite", null, 0, 1, DomainManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomainManager_BelongsToSite(), this.getSite(), this.getSite_DomainManager(), "belongsToSite", null, 0, 1, DomainManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(siteEClass, Site.class, "Site", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSite_Ptm(), this.getDomainManager(), this.getDomainManager_BelongsToSite(), "ptm", null, 1, 1, Site.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSite_DomainManager(), this.getDomainManager(), this.getDomainManager_BelongsToSite(), "domainManager", null, 1, 1, Site.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSite_LocatedAt(), this.getSiteLocation(), null, "locatedAt", null, 1, 1, Site.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSite_OfferedResourcesList(), theResourcesPackage.getOfferedResource(), theResourcesPackage.getOfferedResource_BelongsToSite(), "offeredResourcesList", null, 0, -1, Site.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSite_BelongsToProvider(), theUsersPackage.getResourcesProvider(), theUsersPackage.getResourcesProvider_OfferedSiteList(), "belongsToProvider", null, 0, 1, Site.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

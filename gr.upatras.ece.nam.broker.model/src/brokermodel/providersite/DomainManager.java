@@ -50,7 +50,7 @@ public interface DomainManager extends NamedElement {
 
 	/**
 	 * Returns the value of the '<em><b>Belongs To Site</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link brokermodel.providersite.Site#getPtm <em>Ptm</em>}'.
+	 * It is bidirectional and its opposite is '{@link brokermodel.providersite.Site#getDomainManager <em>Domain Manager</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Belongs To Site</em>' container reference isn't clear,
@@ -60,8 +60,8 @@ public interface DomainManager extends NamedElement {
 	 * @return the value of the '<em>Belongs To Site</em>' container reference.
 	 * @see #setBelongsToSite(Site)
 	 * @see brokermodel.providersite.ProvidersitePackage#getDomainManager_BelongsToSite()
-	 * @see brokermodel.providersite.Site#getPtm
-	 * @model opposite="ptm" transient="false"
+	 * @see brokermodel.providersite.Site#getDomainManager
+	 * @model opposite="domainManager" transient="false"
 	 * @generated
 	 */
 	Site getBelongsToSite();

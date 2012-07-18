@@ -192,7 +192,7 @@ public class RepoXML2BrokerModel {
 			
 			//Add now the PTM for the site
 			DomainManager ptm = ProvidersiteFactory.eINSTANCE.createDomainManager();
-			partnerSite.setPtm( ptm ); 
+			partnerSite.setDomainManager( ptm ); 
 			
 			ptm.setBelongsToSite(partnerSite);
 			NodeList ptmSpecNodes = xmlutl.getNodeListFromObject( ptmDocument, "//ptm[provider/@id="+organID+"]");
@@ -653,7 +653,7 @@ public class RepoXML2BrokerModel {
 			if (o.getResourceServiceContracts().get(i).getForOfferedResource().getImplOfferedService().getId() == Integer.parseInt(resSpecID) ){
 				or = o.getResourceServiceContracts().get(i).getForOfferedResource();				
 				log( "FindOfferedResourceFromID return= "+ or.getName() );
-				log( "FindOfferedResourceFromID ptm= "+ or.getBelongsToSite().getPtm().getName() );
+				log( "FindOfferedResourceFromID ptm= "+ or.getBelongsToSite().getDomainManager().getName() );
 			}
 		}
 
