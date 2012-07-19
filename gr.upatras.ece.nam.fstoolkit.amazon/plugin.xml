@@ -3,9 +3,9 @@
 <plugin>
    <extension
          point="gr.upatras.ece.nam.fstoolkit.extensionpoint.brokerrepository">
-      <OfficeRepository
+      <BrokerRepository
             class="gr.upatras.ece.nam.fstoolkit.amazon.AmazonBrokerRepositoryProvider">
-      </OfficeRepository>
+      </BrokerRepository>
    </extension>
    <extension
          point="gr.upatras.ece.nam.fstoolkit.provisionresource">

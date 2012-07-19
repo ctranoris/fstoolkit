@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension-point id="gr.upatras.ece.nam.fstoolkit.extensionpoint.workflowengine" name="WorkflowEngine" schema="schema/gr.upatras.ece.nam.fstoolkit.extensionpoint.workflowengine.exsd"/>
-   <extension-point id="gr.upatras.ece.nam.fstoolkit.extensionpoint.brokerrepository" name="OfficeRepository" schema="schema/gr.upatras.ece.nam.fstoolkit.extensionpoint.brokerrepository.exsd"/>
+   <extension-point id="gr.upatras.ece.nam.fstoolkit.extensionpoint.brokerrepository" name="BrokerRepository" schema="schema/gr.upatras.ece.nam.fstoolkit.extensionpoint.brokerrepository.exsd"/>
    <extension-point id="gr.upatras.ece.nam.fstoolkit.extensionpoint.provisioningjoblistener" name="Provisioning Job Listener" schema="schema/gr.upatras.ece.nam.fstoolkit.extensionpoint.provisioningjoblistener.exsd"/>
    <extension
          point="org.eclipse.ui.perspectives">

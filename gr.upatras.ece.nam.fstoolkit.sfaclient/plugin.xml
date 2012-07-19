@@ -15,9 +15,9 @@
    </extension>
    <extension
          point="gr.upatras.ece.nam.fstoolkit.extensionpoint.brokerrepository">
-      <OfficeRepository
+      <BrokerRepository
             class="gr.upatras.ece.nam.fstoolkit.sfaclient.SFARepository">
-      </OfficeRepository>
+      </BrokerRepository>
    </extension>
 
 </plugin>

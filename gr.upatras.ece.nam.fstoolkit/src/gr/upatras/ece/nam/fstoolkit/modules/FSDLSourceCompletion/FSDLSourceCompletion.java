@@ -97,7 +97,7 @@ public class FSDLSourceCompletion {
 					offset = document.search(0, "RequestServices", true, false, true);
 
 				if (offset >=0)
-					InjectStringToOffset(offset, "\nimport office \"" + importURI	+ "\"; \n");
+					InjectStringToOffset(offset, "\nimport \"" + importURI	+ "\"; \n");
 			}
 		} catch (BadLocationException e1) {
 			// TODO Auto-generated catch block

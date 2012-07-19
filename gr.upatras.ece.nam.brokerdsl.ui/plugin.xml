@@ -148,6 +148,10 @@
             class="gr.upatras.ece.nam.brokerdsl.ui.BrokerDSLExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
             uriExtension="brokerdsl">
         </resourceServiceProvider>
+        <resourceServiceProvider
+            class="gr.upatras.ece.nam.brokerdsl.ui.BrokerDSLExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            uriExtension="brokermodel">
+        </resourceServiceProvider>
     </extension>
 
 

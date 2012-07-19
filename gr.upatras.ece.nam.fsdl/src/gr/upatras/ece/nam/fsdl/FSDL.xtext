@@ -22,7 +22,8 @@ RequestedFederationScenario returns
 		(servicesRequest=ServicesRequest)?
 		(infrastructureRequest=InfrastructureRequest)?
 ;
-
+ 
+//TO import not only .fsdl, .brokerdsl files but also .brokermodel (ecore)files please check org.eclipse.xtext.extension_resourceServiceProvider at the brokerdsl.ui plugin
 
 Import returns federationscenarios::Import:
   'import' importURI= STRING 

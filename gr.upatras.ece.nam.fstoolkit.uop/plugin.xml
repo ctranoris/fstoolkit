@@ -17,10 +17,10 @@
       </provisionresource>
    </extension>
    <extension
-         point="gr.upatras.ece.nam.fstoolkit.extensionpoint.officerepository">
-      <OfficeRepository
+         point="gr.upatras.ece.nam.fstoolkit.extensionpoint.brokerrepository">
+      <BrokerRepository
             class="gr.upatras.ece.nam.fstoolkit.uop.UoPRepository">
-      </OfficeRepository>
+      </BrokerRepository>
    </extension>
 
 </plugin>

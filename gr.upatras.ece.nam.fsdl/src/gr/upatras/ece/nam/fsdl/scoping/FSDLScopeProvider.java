@@ -30,12 +30,12 @@ import com.google.common.collect.Iterables;
 public class FSDLScopeProvider extends AbstractDeclarativeScopeProvider {
 
 //	The following is useful to discover Scope signatures. uncomment to see it in action
-	@Override
-	public IScope getScope(EObject context, EReference ref) {
-		System.out.println("scope_" + ref.getEContainingClass().getName() + "_"
-				+ ref.getName() + "(" + context.eClass().getName() + " ["+context.toString()+"], ..)");
-		return super.getScope(context, ref);
-	}
+//	@Override
+//	public IScope getScope(EObject context, EReference ref) {
+//		System.out.println("scope_" + ref.getEContainingClass().getName() + "_"
+//				+ ref.getName() + "(" + context.eClass().getName() + " ["+context.toString()+"], ..)");
+//		return super.getScope(context, ref);
+//	}
 	
 
 	IScope scope_ResourceSettingInstance_refResourceSetting(

@@ -159,7 +159,8 @@ public class PanlabOfficeProxy implements Broker {
 //			e.printStackTrace();
 //			System.out.println("Continue with saving the uri ");
 //		}
-		Resource resourcePanlabOffice = resSet.createResource( URI.createFileURI( uri ));
+//		Resource resourcePanlabOffice = resSet.createResource( URI.createFileURI( uri ));
+		Resource resourcePanlabOffice = resSet.createResource( URI.createURI( uri ));
 		
 		try {
 				System.out.println("Loading panlab.brokermodel from: "+uri);				
