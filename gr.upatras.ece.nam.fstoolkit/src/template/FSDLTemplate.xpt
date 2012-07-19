@@ -1,4 +1,4 @@
-«IMPORT FederationOffice»
+«IMPORT brokermodel»
 
 
 «DEFINE main(String filename) FOR brokermodel::federationscenarios::RequestedFederationScenario»
@@ -8,7 +8,7 @@ RequestedFederationScenario «name»
 
 «IF this.imports.size>0»
 «FOREACH this.imports AS imp»import"« imp.importURI »";«ENDFOREACH»
-«ELSE»import"« ((Office )this.eContainer).resourceURI  »";«ENDIF» 
+«ELSE»import"« ((brokermodel::Broker )this.eContainer).resourceURI  »";«ENDIF» 
 //ScheduledPlan { 
 //	ValidFrom "[enter value: now or dd/mm/yyyy hh:mm:ss]"
 //	ValidUntil "[enter value: now or dd/mm/yyyy hh:mm:ss]"
@@ -27,7 +27,7 @@ RequestInfrastructure {
 		«FOREACH f.reqResourceSettings  AS regSet-»
 		«IF !regSet.refResourceSetting.Writable»Setting "«regSet.refResourceSetting.name»" : «regSet.name» //«regSet.description»
 		«ELSEIF regSet.assignSetting.size>0 -»
- 		Setting "«regSet.refResourceSetting.name»" : «regSet.name» assign «FOREACH regSet.assignSetting AS aset SEPARATOR ","»"«((FederationOffice::federationscenarios::RequestedFederationScenario )aset.eContainer.eContainer.eContainer).name».«((FederationOffice::federationscenarios::ResourceRequest )aset.eContainer).name».«aset.name»"«ENDFOREACH»  //«regSet.description»
+ 		Setting "«regSet.refResourceSetting.name»" : «regSet.name» assign «FOREACH regSet.assignSetting AS aset SEPARATOR ","»"«((   brokermodel::federationscenarios::RequestedFederationScenario )aset.eContainer.eContainer.eContainer).name».«((brokermodel::federationscenarios::ResourceRequest )aset.eContainer).name».«aset.name»"«ENDFOREACH»  //«regSet.description»
 		«ELSE-»
  		Setting "«regSet.refResourceSetting.name»" : «regSet.name» = "«regSet.staticValue»"  //«regSet.description»
 		«ENDIF-»
