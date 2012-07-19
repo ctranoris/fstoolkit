@@ -25,7 +25,7 @@ RequestedFederationScenario returns
 
 
 Import returns federationscenarios::Import:
-  'import office' importURI= STRING 
+  'import' importURI= STRING 
   ';'
 ;
 

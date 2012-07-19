@@ -67,7 +67,7 @@
         <classifier xsi:type="ecore:EClass" href="http://nam.ece.upatras.gr/broker#//federationscenarios/Import"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:Keyword" value="import office"/>
+        <elements xsi:type="xtext:Keyword" value="import"/>
         <elements xsi:type="xtext:Assignment" feature="importURI" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
         </elements>

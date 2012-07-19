@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalFSDLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'RequestedFederationScenario'", "'isShared'", "'Description'", "'Credentials'", "'import office'", "';'", "'RequestServices'", "'{'", "'}'", "'Service'", "'as'", "'[1..'", "']'", "'offered by'", "'optional'", "'settings'", "'ScheduledPlan'", "'ValidFrom'", "'ValidUntil'", "'id'", "'description'", "'UserName'", "'PassWord'", "'Setting'", "':'", "'='", "'assign'", "','", "'RequestInfrastructure'", "'Resource'", "'ResourceGroup'", "'refersResources'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'RequestedFederationScenario'", "'isShared'", "'Description'", "'Credentials'", "'import'", "';'", "'RequestServices'", "'{'", "'}'", "'Service'", "'as'", "'[1..'", "']'", "'offered by'", "'optional'", "'settings'", "'ScheduledPlan'", "'ValidFrom'", "'ValidUntil'", "'id'", "'description'", "'UserName'", "'PassWord'", "'Setting'", "':'", "'='", "'assign'", "','", "'RequestInfrastructure'", "'Resource'", "'ResourceGroup'", "'refersResources'"
     };
     public static final int T__42=42;
     public static final int RULE_ID=4;
@@ -574,7 +574,7 @@ public class InternalFSDLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleImport"
-    // ../gr.upatras.ece.nam.fsdl/src-gen/gr/upatras/ece/nam/fsdl/parser/antlr/internal/InternalFSDL.g:256:1: ruleImport returns [EObject current=null] : (otherlv_0= 'import office' ( (lv_importURI_1_0= RULE_STRING ) ) otherlv_2= ';' ) ;
+    // ../gr.upatras.ece.nam.fsdl/src-gen/gr/upatras/ece/nam/fsdl/parser/antlr/internal/InternalFSDL.g:256:1: ruleImport returns [EObject current=null] : (otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) otherlv_2= ';' ) ;
     public final EObject ruleImport() throws RecognitionException {
         EObject current = null;
 
@@ -585,15 +585,15 @@ public class InternalFSDLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../gr.upatras.ece.nam.fsdl/src-gen/gr/upatras/ece/nam/fsdl/parser/antlr/internal/InternalFSDL.g:259:28: ( (otherlv_0= 'import office' ( (lv_importURI_1_0= RULE_STRING ) ) otherlv_2= ';' ) )
-            // ../gr.upatras.ece.nam.fsdl/src-gen/gr/upatras/ece/nam/fsdl/parser/antlr/internal/InternalFSDL.g:260:1: (otherlv_0= 'import office' ( (lv_importURI_1_0= RULE_STRING ) ) otherlv_2= ';' )
+            // ../gr.upatras.ece.nam.fsdl/src-gen/gr/upatras/ece/nam/fsdl/parser/antlr/internal/InternalFSDL.g:259:28: ( (otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) otherlv_2= ';' ) )
+            // ../gr.upatras.ece.nam.fsdl/src-gen/gr/upatras/ece/nam/fsdl/parser/antlr/internal/InternalFSDL.g:260:1: (otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) otherlv_2= ';' )
             {
-            // ../gr.upatras.ece.nam.fsdl/src-gen/gr/upatras/ece/nam/fsdl/parser/antlr/internal/InternalFSDL.g:260:1: (otherlv_0= 'import office' ( (lv_importURI_1_0= RULE_STRING ) ) otherlv_2= ';' )
-            // ../gr.upatras.ece.nam.fsdl/src-gen/gr/upatras/ece/nam/fsdl/parser/antlr/internal/InternalFSDL.g:260:3: otherlv_0= 'import office' ( (lv_importURI_1_0= RULE_STRING ) ) otherlv_2= ';'
+            // ../gr.upatras.ece.nam.fsdl/src-gen/gr/upatras/ece/nam/fsdl/parser/antlr/internal/InternalFSDL.g:260:1: (otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) otherlv_2= ';' )
+            // ../gr.upatras.ece.nam.fsdl/src-gen/gr/upatras/ece/nam/fsdl/parser/antlr/internal/InternalFSDL.g:260:3: otherlv_0= 'import' ( (lv_importURI_1_0= RULE_STRING ) ) otherlv_2= ';'
             {
             otherlv_0=(Token)match(input,15,FOLLOW_15_in_ruleImport429); 
 
-                	newLeafNode(otherlv_0, grammarAccess.getImportAccess().getImportOfficeKeyword_0());
+                	newLeafNode(otherlv_0, grammarAccess.getImportAccess().getImportKeyword_0());
                 
             // ../gr.upatras.ece.nam.fsdl/src-gen/gr/upatras/ece/nam/fsdl/parser/antlr/internal/InternalFSDL.g:264:1: ( (lv_importURI_1_0= RULE_STRING ) )
             // ../gr.upatras.ece.nam.fsdl/src-gen/gr/upatras/ece/nam/fsdl/parser/antlr/internal/InternalFSDL.g:265:1: (lv_importURI_1_0= RULE_STRING )

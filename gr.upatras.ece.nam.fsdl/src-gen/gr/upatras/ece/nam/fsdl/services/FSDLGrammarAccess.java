@@ -133,21 +133,21 @@ public class FSDLGrammarAccess extends AbstractGrammarElementFinder {
 	public class ImportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Import");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cImportOfficeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cImportKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cImportURIAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cImportURISTRINGTerminalRuleCall_1_0 = (RuleCall)cImportURIAssignment_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//Import returns federationscenarios::Import:
 		//
-		//	"import office" importURI=STRING ";";
+		//	"import" importURI=STRING ";";
 		public ParserRule getRule() { return rule; }
 
-		//"import office" importURI=STRING ";"
+		//"import" importURI=STRING ";"
 		public Group getGroup() { return cGroup; }
 
-		//"import office"
-		public Keyword getImportOfficeKeyword_0() { return cImportOfficeKeyword_0; }
+		//"import"
+		public Keyword getImportKeyword_0() { return cImportKeyword_0; }
 
 		//importURI=STRING
 		public Assignment getImportURIAssignment_1() { return cImportURIAssignment_1; }
@@ -1056,7 +1056,7 @@ public class FSDLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Import returns federationscenarios::Import:
 	//
-	//	"import office" importURI=STRING ";";
+	//	"import" importURI=STRING ";";
 	public ImportElements getImportAccess() {
 		return (pImport != null) ? pImport : (pImport = new ImportElements());
 	}

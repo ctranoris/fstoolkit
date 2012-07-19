@@ -896,11 +896,11 @@ rule__Import__Group__0__Impl
     }
 :
 (
-{ before(grammarAccess.getImportAccess().getImportOfficeKeyword_0()); }
+{ before(grammarAccess.getImportAccess().getImportKeyword_0()); }
 
-	'import office' 
+	'import' 
 
-{ after(grammarAccess.getImportAccess().getImportOfficeKeyword_0()); }
+{ after(grammarAccess.getImportAccess().getImportKeyword_0()); }
 )
 
 ;

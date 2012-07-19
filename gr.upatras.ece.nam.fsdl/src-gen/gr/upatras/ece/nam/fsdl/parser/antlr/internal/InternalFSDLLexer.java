@@ -155,10 +155,10 @@ public class InternalFSDLLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../gr.upatras.ece.nam.fsdl/src-gen/gr/upatras/ece/nam/fsdl/parser/antlr/internal/InternalFSDL.g:15:7: ( 'import office' )
-            // ../gr.upatras.ece.nam.fsdl/src-gen/gr/upatras/ece/nam/fsdl/parser/antlr/internal/InternalFSDL.g:15:9: 'import office'
+            // ../gr.upatras.ece.nam.fsdl/src-gen/gr/upatras/ece/nam/fsdl/parser/antlr/internal/InternalFSDL.g:15:7: ( 'import' )
+            // ../gr.upatras.ece.nam.fsdl/src-gen/gr/upatras/ece/nam/fsdl/parser/antlr/internal/InternalFSDL.g:15:9: 'import'
             {
-            match("import office"); 
+            match("import"); 
 
 
             }
@@ -1534,13 +1534,13 @@ public class InternalFSDLLexer extends Lexer {
         "\1\uffff\4\37\3\uffff\2\37\1\35\1\uffff\6\37\3\uffff\1\37\1\35"+
         "\2\uffff\3\35\2\uffff\1\37\1\uffff\2\37\1\101\2\37\3\uffff\2\37"+
         "\1\110\2\uffff\7\37\3\uffff\1\37\5\uffff\4\37\1\uffff\6\37\1\uffff"+
-        "\65\37\1\u0091\14\37\1\uffff\2\37\1\u00a2\1\u00a3\1\37\1\uffff\14"+
-        "\37\1\u00b2\1\u00b3\2\37\2\uffff\1\37\1\uffff\1\u00b7\1\u00b8\3"+
-        "\37\1\u00bc\1\u00bd\5\37\2\uffff\3\37\2\uffff\1\u00c6\2\37\2\uffff"+
-        "\10\37\1\uffff\1\u00d1\6\37\1\u00d8\1\u00d9\1\37\1\uffff\1\u00db"+
-        "\5\37\2\uffff\1\37\1\uffff\4\37\1\u00e6\1\u00e7\4\37\2\uffff\2\37"+
-        "\1\u00ee\1\37\1\u00f0\1\37\1\uffff\1\37\1\uffff\11\37\1\u00fc\1"+
-        "\37\1\uffff\4\37\1\u0102\1\uffff";
+        "\57\37\1\u008b\5\37\1\u0091\14\37\1\uffff\2\37\1\u00a2\1\u00a3\1"+
+        "\37\1\uffff\14\37\1\u00b2\1\u00b3\2\37\2\uffff\1\37\1\uffff\1\u00b7"+
+        "\1\u00b8\3\37\1\u00bc\1\u00bd\5\37\2\uffff\3\37\2\uffff\1\u00c6"+
+        "\2\37\2\uffff\10\37\1\uffff\1\u00d1\6\37\1\u00d8\1\u00d9\1\37\1"+
+        "\uffff\1\u00db\5\37\2\uffff\1\37\1\uffff\4\37\1\u00e6\1\u00e7\4"+
+        "\37\2\uffff\2\37\1\u00ee\1\37\1\u00f0\1\37\1\uffff\1\37\1\uffff"+
+        "\11\37\1\u00fc\1\37\1\uffff\4\37\1\u0102\1\uffff";
     static final String DFA12_eofS =
         "\u0103\uffff";
     static final String DFA12_minS =
@@ -1553,7 +1553,7 @@ public class InternalFSDLLexer extends Lexer {
         "\162\1\163\2\145\1\165\1\141\2\162\1\145\2\151\1\144\1\147\1\162"+
         "\1\157\1\151\1\144\1\162\1\116\1\127\1\162\1\163\2\162\1\164\1\151"+
         "\1\156\1\143\1\156\1\165\1\156\1\145\2\156\1\106\1\151\1\141\1\157"+
-        "\1\163\1\164\1\143\1\145\1\40\1\160\1\164\1\145\1\147\1\154\1\60"+
+        "\1\163\1\164\1\143\1\145\1\60\1\160\1\164\1\145\1\147\1\154\1\60"+
         "\1\144\1\141\1\147\1\162\1\156\1\160\1\155\1\162\1\122\1\111\1\145"+
         "\1\144\1\uffff\1\164\1\151\2\60\1\145\1\uffff\1\40\1\154\1\163\1"+
         "\157\2\164\1\145\1\144\1\145\1\144\1\145\1\156\2\60\1\151\1\141"+
@@ -1576,7 +1576,7 @@ public class InternalFSDLLexer extends Lexer {
         "\143\1\162\1\163\2\145\1\165\1\141\2\162\1\145\2\151\1\144\1\147"+
         "\1\162\1\157\1\151\1\144\1\162\1\116\1\127\1\162\1\163\2\162\1\164"+
         "\1\151\1\156\1\143\1\156\1\165\1\156\1\145\2\156\1\125\1\151\1\141"+
-        "\1\157\1\163\1\164\1\143\1\145\1\40\1\160\1\164\1\145\1\147\1\154"+
+        "\1\157\1\163\1\164\1\143\1\145\1\172\1\160\1\164\1\145\1\147\1\154"+
         "\1\172\1\144\1\141\1\147\1\162\1\156\1\160\1\155\1\162\1\122\2\145"+
         "\1\144\1\uffff\1\164\1\151\2\172\1\145\1\uffff\1\40\1\154\1\163"+
         "\1\157\2\164\1\145\1\144\1\145\1\144\1\145\1\156\2\172\1\151\1\141"+
@@ -1725,7 +1725,7 @@ public class InternalFSDLLexer extends Lexer {
             "\1\u0088",
             "\1\u0089",
             "\1\u008a",
-            "\1\u008b",
+            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
             "\1\u008c",
             "\1\u008d",
             "\1\u008e",

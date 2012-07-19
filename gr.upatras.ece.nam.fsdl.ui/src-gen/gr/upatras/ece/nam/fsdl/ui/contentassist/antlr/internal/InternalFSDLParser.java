@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalFSDLParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'RequestedFederationScenario'", "'Description'", "'Credentials'", "'import office'", "';'", "'RequestServices'", "'{'", "'}'", "'Service'", "'as'", "'[1..'", "']'", "'offered by'", "'optional'", "'settings'", "'ScheduledPlan'", "'ValidFrom'", "'ValidUntil'", "'id'", "'description'", "'UserName'", "'PassWord'", "'Setting'", "':'", "'='", "'assign'", "','", "'RequestInfrastructure'", "'Resource'", "'ResourceGroup'", "'refersResources'", "'isShared'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'RequestedFederationScenario'", "'Description'", "'Credentials'", "'import'", "';'", "'RequestServices'", "'{'", "'}'", "'Service'", "'as'", "'[1..'", "']'", "'offered by'", "'optional'", "'settings'", "'ScheduledPlan'", "'ValidFrom'", "'ValidUntil'", "'id'", "'description'", "'UserName'", "'PassWord'", "'Setting'", "':'", "'='", "'assign'", "','", "'RequestInfrastructure'", "'Resource'", "'ResourceGroup'", "'refersResources'", "'isShared'"
     };
     public static final int T__42=42;
     public static final int RULE_ID=5;
@@ -2416,21 +2416,21 @@ public class InternalFSDLParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Import__Group__0__Impl"
-    // ../gr.upatras.ece.nam.fsdl.ui/src-gen/gr/upatras/ece/nam/fsdl/ui/contentassist/antlr/internal/InternalFSDL.g:893:1: rule__Import__Group__0__Impl : ( 'import office' ) ;
+    // ../gr.upatras.ece.nam.fsdl.ui/src-gen/gr/upatras/ece/nam/fsdl/ui/contentassist/antlr/internal/InternalFSDL.g:893:1: rule__Import__Group__0__Impl : ( 'import' ) ;
     public final void rule__Import__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../gr.upatras.ece.nam.fsdl.ui/src-gen/gr/upatras/ece/nam/fsdl/ui/contentassist/antlr/internal/InternalFSDL.g:897:1: ( ( 'import office' ) )
-            // ../gr.upatras.ece.nam.fsdl.ui/src-gen/gr/upatras/ece/nam/fsdl/ui/contentassist/antlr/internal/InternalFSDL.g:898:1: ( 'import office' )
+            // ../gr.upatras.ece.nam.fsdl.ui/src-gen/gr/upatras/ece/nam/fsdl/ui/contentassist/antlr/internal/InternalFSDL.g:897:1: ( ( 'import' ) )
+            // ../gr.upatras.ece.nam.fsdl.ui/src-gen/gr/upatras/ece/nam/fsdl/ui/contentassist/antlr/internal/InternalFSDL.g:898:1: ( 'import' )
             {
-            // ../gr.upatras.ece.nam.fsdl.ui/src-gen/gr/upatras/ece/nam/fsdl/ui/contentassist/antlr/internal/InternalFSDL.g:898:1: ( 'import office' )
-            // ../gr.upatras.ece.nam.fsdl.ui/src-gen/gr/upatras/ece/nam/fsdl/ui/contentassist/antlr/internal/InternalFSDL.g:899:1: 'import office'
+            // ../gr.upatras.ece.nam.fsdl.ui/src-gen/gr/upatras/ece/nam/fsdl/ui/contentassist/antlr/internal/InternalFSDL.g:898:1: ( 'import' )
+            // ../gr.upatras.ece.nam.fsdl.ui/src-gen/gr/upatras/ece/nam/fsdl/ui/contentassist/antlr/internal/InternalFSDL.g:899:1: 'import'
             {
-             before(grammarAccess.getImportAccess().getImportOfficeKeyword_0()); 
+             before(grammarAccess.getImportAccess().getImportKeyword_0()); 
             match(input,14,FOLLOW_14_in_rule__Import__Group__0__Impl1789); 
-             after(grammarAccess.getImportAccess().getImportOfficeKeyword_0()); 
+             after(grammarAccess.getImportAccess().getImportKeyword_0()); 
 
             }
 
