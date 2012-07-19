@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="gr.upatras.ece.nam.fstoolkit.preferences.FSToolkitPreferencePage"
+            class="gr.upatras.ece.nam.fstoolkit.sfaclient.preferences.SFAPreferencePage"
+            id="gr.upatras.ece.nam.fstoolkit.sfaclient.preferencepage"
+            name="SFA">
+      </page>
+   </extension>
+   <extension
+         point="gr.upatras.ece.nam.fstoolkit.provisionresource">
+   </extension>
+   <extension
+         point="gr.upatras.ece.nam.fstoolkit.extensionpoint.officerepository">
+      <OfficeRepository
+            class="gr.upatras.ece.nam.fstoolkit.sfaclient.SFARepository">
+      </OfficeRepository>
+   </extension>
+
+</plugin>
