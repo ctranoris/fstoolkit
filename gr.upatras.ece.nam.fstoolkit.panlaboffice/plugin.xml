@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="gr.upatras.ece.nam.fstoolkit.extensionpoint.officerepository">
+      <OfficeRepository
+            class="gr.upatras.ece.nam.fstoolkit.panlaboffice.PanlabOfficeProvider">
+      </OfficeRepository>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="gr.upatras.ece.nam.fstoolkit.preferences.FSToolkitPreferencePage"
+            class="gr.upatras.ece.nam.fstoolkit.panlaboffice.preferences.PanlabBrokerPreferencePage"
+            id="gr.upatras.ece.nam.fstoolkit.panlaboffice.PanlabOfficePreferencePage"
+            name="Panlab Office">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="gr.upatras.ece.nam.fstoolkit.panlaboffice.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               id="org.panlab.software.PanlabMenu"
+               label="Panlab">
+            <command
+                  commandId="org.eclipse.ui.window.preferences"
+                  icon="icons/16x16_fstoolkit.gif"
+                  label="Show preferences"
+                  style="push">
+               <parameter
+                     name="preferencePageId"
+                     value="gr.upatras.ece.nam.fstoolkit.preferences.FSToolkitPreferencePage">
+               </parameter>
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="gr.upatras.ece.nam.fstoolkit.provisionresource">
+      <provisionresource
+            class="gr.upatras.ece.nam.fstoolkit.panlaboffice.ProvisionResource">
+      </provisionresource>
+   </extension>
+   
+
+</plugin>
