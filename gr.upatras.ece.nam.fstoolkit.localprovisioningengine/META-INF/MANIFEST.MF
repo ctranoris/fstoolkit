@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Localprovisioningengine
+Bundle-SymbolicName: gr.upatras.ece.nam.fstoolkit.localprovisioningengine;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: gr.upatras.ece.nam.fstoolkit.localprovisioningengine.Activator
+Require-Bundle: org.eclipse.ui;bundle-version="3.103.0",
+ org.eclipse.core.runtime,
+ gr.upatras.ece.nam.broker.model;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: gr.upatras.ece.nam.fstoolkit.localprovisioningengine

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="gr.upatras.ece.nam.fstoolkit.provisionresource" name="Provision Resource" schema="schema/gr.upatras.ece.nam.fstoolkit.provisionresource.exsd"/>
+   <extension
+         point="gr.upatras.ece.nam.fstoolkit.extensionpoint.workflowengine">
+      <WorkflowEngine
+            class="gr.upatras.ece.nam.fstoolkit.localprovisioningengine.LocalProvisioningEngine">
+      </WorkflowEngine>
+   </extension>
+   <extension
+         point="gr.upatras.ece.nam.fstoolkit.extensionpoint.provisioningjoblistener">
+      <provisioningjoblistener
+            class="gr.upatras.ece.nam.fstoolkit.localprovisioningengine.ProvisioningJobBroadcaster">
+      </provisioningjoblistener>
+   </extension>
+
+</plugin>
