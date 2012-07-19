@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="gr.upatras.ece.nam.fstoolkit.extensionpoint.officerepository">
+      <OfficeRepository
+            class="gr.upatras.ece.nam.fstoolkit.amazon.AmazonBrokerRepositoryProvider">
+      </OfficeRepository>
+   </extension>
+   <extension
+         point="gr.upatras.ece.nam.fstoolkit.provisionresource">
+      <provisionresource
+            class="gr.upatras.ece.nam.fstoolkit.amazon.ProvisionResource">
+      </provisionresource>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="gr.upatras.ece.nam.fstoolkit.preferences.FSToolkitPreferencePage"
+            class="gr.upatras.ece.nam.fstoolkit.amazon.preferences.AmazonPreferencePage"
+            id="gr.upatras.ece.nam.fstoolkit.amazon.AmazonPreferencePage"
+            name="Amazon">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="gr.upatras.ece.nam.fstoolkit.amazon.preferences.AmazonPreferenceInitializer">
+      </initializer>
+   </extension>
+
+</plugin>
