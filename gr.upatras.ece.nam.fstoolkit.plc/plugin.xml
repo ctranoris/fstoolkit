@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="gr.upatras.ece.nam.fstoolkit.preferences.FSToolkitPreferencePage"
+            class="gr.upatras.ece.nam.fstoolkit.plc.preferences.PlanetLabPreferencePage"
+            id="gr.upatras.ece.nam.fstoolkit.plc.preferencepage"
+            name="PlanetLab">
+      </page>
+   </extension>
+   <extension
+         point="gr.upatras.ece.nam.fstoolkit.extensionpoint.officerepository">
+      <OfficeRepository
+            class="gr.upatras.ece.nam.fstoolkit.plc.PLCRepository"></OfficeRepository>
+   </extension>
+   <extension
+         point="gr.upatras.ece.nam.fstoolkit.provisionresource">
+      <provisionresource
+            class="gr.upatras.ece.nam.fstoolkit.plc.ProvisionResource">
+      </provisionresource>
+   </extension>
+
+</plugin>

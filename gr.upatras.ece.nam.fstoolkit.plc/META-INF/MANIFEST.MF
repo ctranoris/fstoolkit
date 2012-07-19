@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Plc
+Bundle-SymbolicName: gr.upatras.ece.nam.fstoolkit.plc;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: gr.upatras.ece.nam.fstoolkit.plc.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ gr.upatras.ece.nam.broker.model;bundle-version="1.0.0",
+ gr.upatras.ece.nam.FCI.core;bundle-version="1.0.0",
+ gr.upatras.ece.nam.fstoolkit;bundle-version="1.0.0",
+ gr.upatras.ece.nam.fstoolkit.localprovisioningengine;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
