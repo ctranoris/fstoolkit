@@ -33,7 +33,7 @@ import brokermodel.services.Taxonomy;
 import brokermodel.slareservations.SLA;
 import brokermodel.users.BrokerUser;
 
-public class UoPOfficeProxy implements Broker {
+public class UoPBrokerProxy implements Broker {
 
 	private Broker broker;
 	private String OfficeUsername ;
@@ -43,7 +43,7 @@ public class UoPOfficeProxy implements Broker {
 		return broker != null;
 	}
 
-	public UoPOfficeProxy(String username, String password,  Boolean forceRefresh) {
+	public UoPBrokerProxy(String username, String password,  Boolean forceRefresh) {
 		super();
 		setOfficeUsername(username);
 		setOfficePassword(password);

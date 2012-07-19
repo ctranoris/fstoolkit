@@ -78,17 +78,17 @@ public class UoPServices implements IFCIService{
 		if ( (uopOffice!=null) && (!forceRefresh) )
 			return uopOffice;				  
 
-		uopOffice = new UoPOfficeProxy(username, password,  forceRefresh);
+		uopOffice = new UoPBrokerProxy(username, password,  forceRefresh);
 		this.username = username;
 		
-		if (( (UoPOfficeProxy)uopOffice).officeLoaded() )
+		if (( (UoPBrokerProxy)uopOffice).officeLoaded() )
 			return uopOffice;
 		else
 			return null;
 	}
 	
 	public void	LoadFSbyVCT(RequestedFederationScenario fs){
-		( (UoPOfficeProxy)uopOffice).LoadFSbyVCT(fs);
+		( (UoPBrokerProxy)uopOffice).LoadFSbyVCT(fs);
 	}
 
 	
