@@ -43,7 +43,7 @@ public class SFAServices implements IFCIService {
 		
 		
 		
-		SFABroker = new SFAOfficeProxy(authorizationKey,  forceRefresh);
+		SFABroker = new SFABrokerProxy(authorizationKey,  forceRefresh);
 		
 
 		return SFABroker;

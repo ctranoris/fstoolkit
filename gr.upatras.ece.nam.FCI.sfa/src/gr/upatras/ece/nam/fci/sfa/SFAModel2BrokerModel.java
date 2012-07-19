@@ -34,7 +34,7 @@ import brokermodel.users.BrokerCustomer;
 import brokermodel.users.ResourcesProvider;
 import brokermodel.users.UsersFactory;
 
-public class SFAModel2OfficeModel {
+public class SFAModel2BrokerModel {
 	private boolean displayLog = true;
 
 	private SFA_XMLRPCClient client;
@@ -45,7 +45,7 @@ public class SFAModel2OfficeModel {
 	private XMLutils xmlutl;
 	
 	
-	public SFAModel2OfficeModel(AuthorizationKey authorizationKey) {
+	public SFAModel2BrokerModel(AuthorizationKey authorizationKey) {
 		this.authorizationKey=authorizationKey;
 		client = new SFA_XMLRPCClient();
 		client.Init_SFA_XMLRPCClient(authorizationKey);

@@ -31,7 +31,7 @@ import brokermodel.services.Taxonomy;
 import brokermodel.slareservations.SLA;
 import brokermodel.users.BrokerUser;
 
-public class SFAOfficeProxy implements Broker {
+public class SFABrokerProxy implements Broker {
 	public static boolean UsePreloadOfficeTest = false; //mark false in production. True means: will not load the model 
 	public static boolean DONTPropagateToSFAGW = false; //mark false in production. True means:  will not propagate the jobs to SFAGW (SliceM, AM)
 	private Broker broker;
@@ -41,7 +41,7 @@ public class SFAOfficeProxy implements Broker {
 		return broker != null;
 	}
 	
-	public SFAOfficeProxy(AuthorizationKey authorizationKey,  Boolean forceRefresh) {
+	public SFABrokerProxy(AuthorizationKey authorizationKey,  Boolean forceRefresh) {
 		super();
 		this.authorizationKey = authorizationKey;
 		
@@ -58,7 +58,7 @@ public class SFAOfficeProxy implements Broker {
 	}
 
 	private Broker getBrokerModel(Boolean forceRefresh){
-		SFAModel2OfficeModel sfaM2MTransform = new SFAModel2OfficeModel(authorizationKey);
+		SFAModel2BrokerModel sfaM2MTransform = new SFAModel2BrokerModel(authorizationKey);
 		
 		if  ( this.authorizationKey!=null ){ //if credentials		
 			
