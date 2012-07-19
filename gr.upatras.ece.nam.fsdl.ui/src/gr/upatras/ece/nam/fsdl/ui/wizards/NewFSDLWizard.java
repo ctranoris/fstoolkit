@@ -146,7 +146,7 @@ public class NewFSDLWizard extends Wizard implements INewWizard {
 
 	private void throwCoreException(String message) throws CoreException {
 		IStatus status =
-			new Status(IStatus.ERROR, "org.panlab.software.fsdl.ui", IStatus.OK, message, null);
+			new Status(IStatus.ERROR, "gr.upatras.ece.nam.fsdl.ui", IStatus.OK, message, null);
 		throw new CoreException(status);
 	}
 

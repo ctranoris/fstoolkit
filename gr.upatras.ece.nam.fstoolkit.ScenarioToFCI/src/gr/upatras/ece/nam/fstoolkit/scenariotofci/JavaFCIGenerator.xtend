@@ -111,13 +111,13 @@ class JavaFCIGenerator  implements IGenerator {
 		
 		import java.util.ArrayList;
 		import java.util.List;		
-		import org.panlab.software.fci.core.FCI;
-		import org.panlab.software.fci.core.ParameterValuePair;
-		import org.panlab.software.fci.core.ResourceContext;
-		import org.panlab.software.fci.core.ResourceGroup;
-		import org.panlab.software.fci.core.ResourceProvider;
-		import org.panlab.software.fci.core.ResourceProxy;
-		import org.panlab.software.fci.core.ServiceType;
+		import gr.upatras.ece.nam.fci.core.FCI;
+		import gr.upatras.ece.nam.fci.core.ParameterValuePair;
+		import gr.upatras.ece.nam.fci.core.ResourceContext;
+		import gr.upatras.ece.nam.fci.core.ResourceGroup;
+		import gr.upatras.ece.nam.fci.core.ResourceProvider;
+		import gr.upatras.ece.nam.fci.core.ResourceProxy;
+		import gr.upatras.ece.nam.fci.core.ServiceType;
 		import brokermodel.fcielements.AuthorizationKey;
 		import brokermodel.fcielements.FCICredentials;
 		

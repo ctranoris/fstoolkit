@@ -53,7 +53,7 @@ public class ControlScenarioResourcesCommand extends AbstractHandler {
 									ResourceRequest resourceRequest =  (ResourceRequest)((ui_TaxonomyTreeItem)obj).getBrokerElement();
 									ControlResourceView view_part = 
 									(ControlResourceView) activepage.
-									showView("org.panlab.software.fstoolkit.views.ControlResourceView", 
+									showView("gr.upatras.ece.nam.fstoolkit.views.ControlResourceView", 
 											"fscontrol."+resourceRequest.getName()+
 											"."+resourceRequest.getRuntimeInfo().getGUID(), 
 											org.eclipse.ui.IWorkbenchPage.VIEW_VISIBLE );
@@ -63,7 +63,7 @@ public class ControlScenarioResourcesCommand extends AbstractHandler {
 									ResourceGroup resourceGroup =  (ResourceGroup)((ui_TaxonomyTreeItem)obj).getBrokerElement();
 									ControlResourceView view_part = 
 									(ControlResourceView) activepage.
-									showView("org.panlab.software.fstoolkit.views.ControlResourceView", 
+									showView("gr.upatras.ece.nam.fstoolkit.views.ControlResourceView", 
 											"fscontrol."+resourceGroup.getName()  , 
 											org.eclipse.ui.IWorkbenchPage.VIEW_VISIBLE );
 								

@@ -37,7 +37,7 @@ public class FSOperationPerspectiveFactory implements IPerspectiveFactory {
 		
 		IFolderLayout top = layout.createFolder(
 				"FSOperation.top", IPageLayout.TOP  , 0.50f, layout.getEditorArea()); //$NON-NLS-1$	//$NON-NLS-2$
-		top.addView("org.panlab.software.fstoolkit.views.RunningScenariosView");		
+		top.addView("gr.upatras.ece.nam.fstoolkit.views.RunningScenariosView");		
 		layout.setEditorAreaVisible(false);
 		//TeagleAuth.getInstance().CheckCredentialsExist();
 

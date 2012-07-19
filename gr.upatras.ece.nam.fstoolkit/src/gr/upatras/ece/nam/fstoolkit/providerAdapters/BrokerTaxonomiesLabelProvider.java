@@ -41,23 +41,23 @@ public class BrokerTaxonomiesLabelProvider extends StyledCellLabelProvider imple
 //	}
 
 	//private static int IMAGE_SIZE= 16;
-	private static final Image OFFICE_IMG= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	private static final Image OFFICE_IMG= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
 	"icons/full/obj16/Broker.gif").createImage();
-	private static final Image TAXONOMY_IMG= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	private static final Image TAXONOMY_IMG= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
 	"icons/full/obj16/Taxonomy.gif").createImage();
-	private static final Image SERVICES_IMG= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	private static final Image SERVICES_IMG= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
 	"icons/full/obj16/OfferedService.gif").createImage();
-//	private static final Image SERVICECATEGORY_IMG= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+//	private static final Image SERVICECATEGORY_IMG= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
 //	"icons/full/obj16/ServiceCategory.gif").createImage();
-	private static final Image RESOURCECATEGORY_IMG= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	private static final Image RESOURCECATEGORY_IMG= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
 	"icons/full/obj16/ResourceCategory.gif").createImage();
-	private static final Image RESOURCES_IMG= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	private static final Image RESOURCES_IMG= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
 	"icons/full/obj16/OfferedResource.gif").createImage();
-	private static final Image RequestedFederationScenario_IMG= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	private static final Image RequestedFederationScenario_IMG= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
 	"icons/full/obj16/RequestedFederationScenario.gif").createImage();
-//	private static final Image RUNNINGSCENARIO_IMG= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+//	private static final Image RUNNINGSCENARIO_IMG= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
 //	"icons/full/obj16/RunningScenario.gif").createImage();
-	private static final Image RESOURCEREQUEST_IMG= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	private static final Image RESOURCEREQUEST_IMG= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
 	"icons/full/obj16/ResourceRequest.gif").createImage();
 	
 	

@@ -3,7 +3,7 @@
 <schema targetNamespace="gr.upatras.ece.nam.fstoolkit" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="gr.upatras.ece.nam.fstoolkit" id="gr.upatras.ece.nam.fstoolkit.extensionpoint.officerepository" name="OfficeRepository"/>
+         <meta.schema plugin="gr.upatras.ece.nam.fstoolkit" id="gr.upatras.ece.nam.fstoolkit.extensionpoint.brokerrepository" name="BrokerRepository"/>
       </appinfo>
       <documentation>
          Use this extension point in order to provide plugins for providing access to resource repositories

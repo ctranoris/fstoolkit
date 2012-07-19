@@ -14,7 +14,7 @@
          point="gr.upatras.ece.nam.fstoolkit.provisionresource">
    </extension>
    <extension
-         point="gr.upatras.ece.nam.fstoolkit.extensionpoint.officerepository">
+         point="gr.upatras.ece.nam.fstoolkit.extensionpoint.brokerrepository">
       <OfficeRepository
             class="gr.upatras.ece.nam.fstoolkit.sfaclient.SFARepository">
       </OfficeRepository>

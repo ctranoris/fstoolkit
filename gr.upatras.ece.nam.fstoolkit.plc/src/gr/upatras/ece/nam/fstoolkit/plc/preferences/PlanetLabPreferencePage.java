@@ -32,7 +32,7 @@ public class PlanetLabPreferencePage extends PreferencePage  implements
 		setPreferenceStore(Activator.getDefault().getPreferenceStore());
 		
 //		ImageDescriptor imageDesc = new ;
-		setImageDescriptor( AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.fstoolkit.plc",  "icons/plc_logo.gif") );
+		setImageDescriptor( AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.fstoolkit.plc",  "icons/plc_logo.gif") );
 		setDescription("Please fill your credentials for PlanetLab Central(s)");
 		
 	}

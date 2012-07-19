@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="gr.upatras.ece.nam.fstoolkit.extensionpoint.officerepository">
+         point="gr.upatras.ece.nam.fstoolkit.extensionpoint.brokerrepository">
       <OfficeRepository
             class="gr.upatras.ece.nam.fstoolkit.amazon.AmazonBrokerRepositoryProvider">
       </OfficeRepository>

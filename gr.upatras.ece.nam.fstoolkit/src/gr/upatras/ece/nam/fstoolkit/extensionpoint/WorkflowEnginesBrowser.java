@@ -17,7 +17,7 @@ public class WorkflowEnginesBrowser {
 	private ArrayList<IWorkflowEngine> engines;
 	
 	// This is the ID from your extension point
-	private static final String IWORKFLOWENGINE_ID = "org.panlab.software.fstoolkit.extensionpoint.workflowengine";
+	private static final String IWORKFLOWENGINE_ID = "gr.upatras.ece.nam.fstoolkit.extensionpoint.workflowengine";
 
 	public WorkflowEnginesBrowser(){
 		engines = new ArrayList<IWorkflowEngine>();

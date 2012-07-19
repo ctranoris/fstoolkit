@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <workflow>
-	<property name="model" value="org.panlab.tide.model/model/testbedOffice1.xmi" />
+	<property name="model" value="gr.upatras.ece.nam.broker/model/testbedOffice1.xmi" />
 	<property name="src-gen" value="src-gen" />
 	
 	<!-- set up EMF for standalone execution -->

@@ -1,5 +1,6 @@
 package gr.upatras.ece.nam.fci.panlab;
 
+
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
@@ -13,6 +14,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -29,6 +31,7 @@ import brokermodel.services.ServiceComposition;
 import brokermodel.services.Taxonomy;
 import brokermodel.slareservations.SLA;
 import brokermodel.users.BrokerUser;
+import gr.upatras.ece.nam.brokerdsl.BrokerDSLStandaloneSetup;
 
 public class PanlabOfficeProxy implements Broker {
 
@@ -143,7 +146,9 @@ public class PanlabOfficeProxy implements Broker {
 		//String uri = "C:\\Users\\tranoris\\runtime-New_configuration\\.metadata\\.plugins\\org.panlab.software.FCI.panlab\\panlab.brokermodel";
 		//String uri = "C:\\Users\\ctranoris.WCL\\runtime-New_configuration\\.metadata\\.plugins\\org.panlab.software.FCI.panlab\\panlab.brokermodel";
 		//C:\Users\ctranoris\runtime-FSToolkit\.metadata\.plugins\org.panlab.software.FCI.panlab
-		String uri = "panlab.brokermodel";
+		//String uri = "panlab.brokermodel";
+		//String uri = "C:\\Users\\ctranoris\\runtime-FSToolkit\\.metadata\\.plugins\\org.panlab.software.FCI.panlab\\panlab.brokermodel";
+		String uri =  "http://nam.ece.upatras.gr/fstoolkit/utils/panlab.brokermodel";
 		
 //		try {
 //			if (Activator.getDefault()!=null)

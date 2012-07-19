@@ -39,11 +39,11 @@ public class RunningScenariosLabelProvider extends StyledCellLabelProvider imple
 
 //	private static int IMAGE_SIZE= 16;
 	private static final Image IMAGE1= PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_FOLDER);
-	private static final Image IMAGE2= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	private static final Image IMAGE2= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
 	"icons/full/obj16/RunningScenario.gif").createImage();
-	private static final Image IMAGEResource= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	private static final Image IMAGEResource= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
 	"icons/full/obj16/ResourceRequest.gif").createImage();
-	private static final Image IMAGEResourceGroup= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	private static final Image IMAGEResourceGroup= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
 	"icons/full/obj16/ResourceGroup.gif").createImage();
 
 	private final Styler fBoldStyler; 

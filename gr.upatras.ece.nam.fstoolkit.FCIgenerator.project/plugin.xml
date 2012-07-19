@@ -4,11 +4,11 @@
    <extension
          point="org.eclipse.ui.newWizards">
       <wizard
-            category="org.panlab.wizard.category"
+            category="gr.upatras.ece.nam.wizard.category"
             class="gr.upatras.ece.nam.fstoolkit.FCIgenerator.project.VCTImportWizard"
             hasPages="true"
             icon="icons/alt_window_16.gif"
-            id="org.panlab.software.FCIgenerator.project.VCTImportWizard"
+            id="gr.upatras.ece.nam.FCIgenerator.project.VCTImportWizard"
             name="Generate Federation Computing Interface wizard"
             project="false">
          <description>
@@ -16,7 +16,7 @@
          </description>
       </wizard>
       <category
-            id="org.panlab.wizard.category"
+            id="gr.upatras.ece.nam.wizard.category"
             name="Panlab">
       </category>
    </extension>
@@ -26,10 +26,10 @@
             allPopups="false"
             locationURI="menu:org.eclipse.ui.main.menu">
          <menu
-               id="org.panlab.software.PanlabMenu"
+               id="gr.upatras.ece.nam.PanlabMenu"
                label="Panlab">
             <command
-                  commandId="org.panlab.software.FCIgenerator.GenerateFCICommand"
+                  commandId="gr.upatras.ece.nam.FCIgenerator.GenerateFCICommand"
                   icon="icons/ResourceAdvisor.gif"
                   label="PanlabVCT to JavaFCI"
                   style="push"
@@ -42,7 +42,7 @@
          <menu
                label="Panlab">
             <command
-                  commandId="org.panlab.software.FCIgenerator.GenerateFCICommand"
+                  commandId="gr.upatras.ece.nam.FCIgenerator.GenerateFCICommand"
                   icon="icons/ResourceAdvisor.gif"
                   label="PanlabVCT to JavaFCI"
                   style="push"
@@ -56,7 +56,7 @@
          <toolbar
                id="gr.upatras.ece.nam.fstoolkit.PanlabToolbar">
             <command
-                  commandId="org.panlab.software.FCIgenerator.GenerateFCICommand"
+                  commandId="gr.upatras.ece.nam.FCIgenerator.GenerateFCICommand"
                   icon="icons/ResourceAdvisor.gif"
                   label="PanlabVCT to JavaFCI"
                   mode="FORCE_TEXT"
@@ -71,7 +71,7 @@
          <menu
                label="Panlab">
             <command
-                  commandId="org.panlab.software.FCIgenerator.GenerateFCICommand"
+                  commandId="gr.upatras.ece.nam.FCIgenerator.GenerateFCICommand"
                   icon="icons/ResourceAdvisor.gif"
                   label="PanlabVCT to JavaFCI"
                   style="push"
@@ -83,7 +83,7 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            id="org.panlab.software.FCIgenerator.GenerateFCICommand"
+            id="gr.upatras.ece.nam.FCIgenerator.GenerateFCICommand"
             name="GenerateFCICommand">
       </command>
    </extension>
@@ -91,7 +91,7 @@
          point="org.eclipse.ui.handlers">
       <handler
             class="gr.upatras.ece.nam.fstoolkit.FCIgenerator.project.GenerateFCICommand"
-            commandId="org.panlab.software.FCIgenerator.GenerateFCICommand">
+            commandId="gr.upatras.ece.nam.FCIgenerator.GenerateFCICommand">
       </handler>
    </extension>
    <extension

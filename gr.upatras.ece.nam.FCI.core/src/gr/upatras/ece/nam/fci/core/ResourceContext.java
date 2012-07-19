@@ -53,6 +53,8 @@ public class ResourceContext {
 	public Set<? extends ResourceProvider> getResourceProvidersForServiceType(
 			ServiceType elem) {
 		
+		if (elem == null)
+			return null;
 		Set<ResourceProvider> providers = new HashSet<ResourceProvider>();
 		for (ResourceServiceContract contr : broker.getResourceServiceContracts()) {
 			if ( contr.getForOfferedService().getName().equals( elem.getName()  )  ){

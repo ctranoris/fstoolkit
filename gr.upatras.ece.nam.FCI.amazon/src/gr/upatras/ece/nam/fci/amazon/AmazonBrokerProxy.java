@@ -30,7 +30,7 @@ import brokermodel.slareservations.SLA;
 import brokermodel.users.BrokerUser;
 
 
-public class AmazonOfficeProxy implements Broker {
+public class AmazonBrokerProxy implements Broker {
 
 	public static boolean DONTPropagateToGW = false; //mark false in production. True means:  will not propagate the jobs to gateway
 	private Broker office;
@@ -46,7 +46,7 @@ public class AmazonOfficeProxy implements Broker {
 		return office != null;
 	}
 
-	public AmazonOfficeProxy(String username, String password,  Boolean forceRefresh) {
+	public AmazonBrokerProxy(String username, String password,  Boolean forceRefresh) {
 		super();
 		OfficeUsername = username;
 		OfficePassword = password;
@@ -58,12 +58,12 @@ public class AmazonOfficeProxy implements Broker {
 	
 	private Broker PreloadedBroker() {
 
-		if (!EPackage.Registry.INSTANCE.containsKey("http://www.panlab.org/software/officedl2/OfficeDL")) {
+		if (!EPackage.Registry.INSTANCE.containsKey("http://nam.ece.upatras.gr/brokerdsl/BrokerDSL")) {
 			new BrokerDSLStandaloneSetup().createInjectorAndDoEMFRegistration();
 		}
 		
 		//String uri = "file:/C:/Users/ctranoris/runtime-FSToolkit/myProject/src/Amazon.officedl";
-		String uri ="http://nam.ece.upatras.gr/fstoolkit/utils/Amazon.officedl";
+		String uri ="http://nam.ece.upatras.gr/fstoolkit/utils/amazon.brokerdsl";
 		System.out.println("Loading amazon definition from: "+uri);		
 		
 		//ResourceSet set = resourceSetProvider.get();

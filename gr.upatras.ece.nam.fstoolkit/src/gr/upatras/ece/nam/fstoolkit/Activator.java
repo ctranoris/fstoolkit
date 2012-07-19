@@ -115,7 +115,7 @@ public class Activator extends AbstractUIPlugin {
 		}
 		
 		// This is the ID from our extension point
-		private static final String IBrokerREPOSITORY_ID = "org.panlab.software.fstoolkit.extensionpoint.Brokerrepository";
+		private static final String IBrokerREPOSITORY_ID = "gr.upatras.ece.nam.fstoolkit.extensionpoint.brokerrepository";
 		
 		public void CreateTaxonomyModel(){
 			System.out.println("============CreateTaxonomyModel================");

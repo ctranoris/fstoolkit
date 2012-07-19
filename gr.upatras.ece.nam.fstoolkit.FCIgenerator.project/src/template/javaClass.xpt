@@ -21,8 +21,8 @@ limitations under the License.
 
 package services;
 
-import org.panlab.software.fci.core.PanlabGWClient;
-import org.panlab.software.fci.core.XMLutils;
+import gr.upatras.ece.nam.fci.core.PanlabGWClient;
+import gr.upatras.ece.nam.fci.core.XMLutils;
 
 public class «name» {
 

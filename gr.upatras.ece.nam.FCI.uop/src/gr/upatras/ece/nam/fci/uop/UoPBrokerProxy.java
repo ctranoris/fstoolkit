@@ -52,7 +52,7 @@ public class UoPBrokerProxy implements Broker {
 		
 	private Broker PreloadedBroker() {
 		
-		if (!EPackage.Registry.INSTANCE.containsKey("http://www.panlab.org/software/officedl2/OfficeDL")) {
+		if (!EPackage.Registry.INSTANCE.containsKey("http://nam.ece.upatras.gr/brokerdsl/BrokerDSL")) {
 			new BrokerDSLStandaloneSetup().createInjectorAndDoEMFRegistration();
 		}
 		
@@ -72,7 +72,7 @@ public class UoPBrokerProxy implements Broker {
 		// Create a resource 
 		//String uri =  "C:\\Users\\ctranoris\\wsHeliosM4\\org.panlab.software.FCI.uop\\src\\org\\panlab\\software\\fci\\uop\\uop.xmi";
 		
-		String uri =  "http://nam.ece.upatras.gr/fstoolkit/utils/uop.officedl";
+		String uri =  "http://nam.ece.upatras.gr/fstoolkit/utils/uop.brokerdsl";
 		Resource resourceUoPOffice = resSet.createResource( URI.createURI(uri) );
 		
 		try {

@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="gr.upatras.ece.nam.fstoolkit.extensionpoint.officerepository">
+         point="gr.upatras.ece.nam.fstoolkit.extensionpoint.brokerrepository">
       <OfficeRepository
             class="gr.upatras.ece.nam.fstoolkit.panlaboffice.PanlabOfficeProvider">
       </OfficeRepository>
@@ -28,7 +28,7 @@
             allPopups="false"
             locationURI="menu:org.eclipse.ui.main.menu">
          <menu
-               id="org.panlab.software.PanlabMenu"
+               id="gr.upatras.ece.nam.PanlabMenu"
                label="Panlab">
             <command
                   commandId="org.eclipse.ui.window.preferences"

@@ -67,9 +67,9 @@ public class AmazonServices implements IFCIService{
 		if ( (amazonBroker!=null) && (!forceRefresh) )
 			return amazonBroker;				  
 
-		amazonBroker = new AmazonOfficeProxy(username, password,  forceRefresh);
+		amazonBroker = new AmazonBrokerProxy(username, password,  forceRefresh);
 		
-		if (( (AmazonOfficeProxy)amazonBroker).officeLoaded() )
+		if (( (AmazonBrokerProxy)amazonBroker).officeLoaded() )
 			return amazonBroker;
 		else
 			return null;
@@ -104,7 +104,7 @@ public class AmazonServices implements IFCIService{
 	public String CreateResource(String scenario, String ptmAlias, 
 			String resourceTypeName, ResourceRequest resourceReq){
 		
-		if (AmazonOfficeProxy.DONTPropagateToGW )
+		if (AmazonBrokerProxy.DONTPropagateToGW )
 			return "test-"+resourceReq.getName()+"-"+resourceTypeName;
 
 		return "sample-12345678";
@@ -124,7 +124,7 @@ public class AmazonServices implements IFCIService{
 			ResourceRequest resourceReq){
 
 
-		if (AmazonOfficeProxy.DONTPropagateToGW )
+		if (AmazonBrokerProxy.DONTPropagateToGW )
 			return "test-"+resourceReq.getName();
 		
 
@@ -138,7 +138,7 @@ public class AmazonServices implements IFCIService{
 			String runtimeID, 
 			ResourceRequest resourceReq) {
 		
-		if (AmazonOfficeProxy.DONTPropagateToGW )
+		if (AmazonBrokerProxy.DONTPropagateToGW )
 			return "test-DeleteResource-"+resourceReq.getName();
 		
 
@@ -156,7 +156,7 @@ public class AmazonServices implements IFCIService{
 			String resourceRuntimeID, String paramName){
 
 
-		if (AmazonOfficeProxy.DONTPropagateToGW )
+		if (AmazonBrokerProxy.DONTPropagateToGW )
 			return "test-getParameterValueOfResource-"+paramName;
 		
 
