@@ -1,0 +1,138 @@
+«IMPORT FederationOffice»
+
+«EXTENSION template::GeneratorExtensions»
+
+«DEFINE main_javaClass FOR FederationOffice::services::OfferedService»
+«FILE "services/"+name+".java"»
+/*************************************************************************
+Copyright 2010 Panlab 
+
+Licensed under the Apache License, Version 2.0 (the "License"); 
+you may not use this file except in compliance with the License. 
+You may obtain a copy of the License at 
+
+http://www.apache.org/licenses/LICENSE-2.0 
+Unless required by applicable law or agreed to in writing, software 
+distributed under the License is distributed on an "AS IS" BASIS, 
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+See the License for the specific language governing permissions and 
+limitations under the License. 
+*************************************************************************/
+
+package services;
+
+import org.panlab.software.fci.core.PanlabGWClient;
+import org.panlab.software.fci.core.XMLutils;
+
+public class «name» {
+
+	private String instanceName;
+	private String VCTid;
+	private String ptmAlias;
+	private XMLutils xmlutil;
+	
+	public «name»(String instName, String vctid) {
+		//Auto-generated constructor stub
+		instanceName = instName;
+		VCTid = vctid;
+		ptmAlias = instName.split("\\.")[0] ;
+		xmlutil = new XMLutils();
+		
+	}
+	
+	public String getInstanceName(){
+		return instanceName;
+	}
+		
+	«FOREACH serviceSettings AS f»
+		/**
+		*The attribute '<em><b>«f.name»</b></em>' sets the value «f.name» of a service «name»
+		*
+		*/
+		private String «f.name»;
+		
+		/**
+		 ** 
+		 * Sets the value of the '{@link «f.name»#get«f.name» <em>«f.name»</em>}' attribute.
+		 * @param «f.name» set the new value of the '<em><b>«f.name»</b></em>' attribute.
+		 * <h1>From Panlab provider doc definition:</h1>
+		 * <em>«f.description»</em>.
+		 * @see 
+		 */
+		public void «f.setter()»(String «f.name») {
+			this.«f.name» = «f.name»;
+			this.update("<«f.name»>" + «f.name» + "</«f.name»>");		
+		}
+		
+		/**
+		*@return the value of the '<em><b>«f.name»</b></em>' attribute from a «name» service
+		*
+		*/
+		public String «f.getter()»() {
+			«f.name» = getResourceValue("«f.name»");
+			return «f.name»;
+		}
+	«ENDFOREACH»
+	
+	
+	/**
+	 ** 
+	 * Sets the value of all the attributes.
+	 *  
+	 */
+	public void setAllParams(«FOREACH serviceSettings AS f SEPARATOR ', '» String «f.name»«ENDFOREACH») {	
+			this.update(«FOREACH serviceSettings AS f SEPARATOR '+ '»	
+			"<«f.name»>" + «f.name» + "</«f.name»>"«ENDFOREACH»
+			);	
+	}
+	
+	/**
+	*
+	*Call '<em><b>update</b></em>' when you want to apply your changes to the service '<em><b>«name»</b></em>'
+	*/
+	public void update(String args){
+		//ptmAlias.«name»
+		System.out.println("update «name» "+ this.getInstanceName() );
+		PanlabGWClient pgw = PanlabGWClient.getInstance();
+		String cname = this.getClass().getName();
+		pgw.POSTexecute(this.getInstanceName(), ptmAlias,  
+				"<"+cname+" action=\"update\">" +
+				"<configuration>" +
+				"<context><vctId>" +
+				this.getVCTid()+
+				"</vctId></context>" +
+					"<configuration>" +
+					args+
+					"</configuration>" +
+				"</configuration></"+cname+">");
+	}
+	/**
+	*
+	*Call '<em><b>getResourceValue</b></em>' when you want to get the value of a resource's attribute
+	*WARNING: Get currently works only with RAs implemented with RADL that
+	*respond to get with their XML.(e.g. if(top.equalsIgnoreCase("get")) in RAService.java)
+	*/
+	public String getResourceValue(String paramName){
+		System.out.println("GET «name» "+ this.getInstanceName() );
+		PanlabGWClient pgw = PanlabGWClient.getInstance();
+	
+		pgw.GETexecute( this.getInstanceName(), ptmAlias);
+		String s = xmlutil.getNodeValueFromXML(pgw.getResponse_stream(), "//"+paramName+"/text()");
+		System.out.println("Value = " + s);
+		return s;
+	}
+	
+	public String getVCTid() {
+		return VCTid;
+	}
+	
+	public String getPTMAlias() {
+		return ptmAlias;
+	}
+	
+	
+	
+	
+}
+«ENDFILE»
+«ENDDEFINE»

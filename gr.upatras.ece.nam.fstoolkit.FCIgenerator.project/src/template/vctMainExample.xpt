@@ -1,0 +1,88 @@
+«IMPORT FederationOffice»
+
+«EXTENSION template::GeneratorExtensions»
+
+«DEFINE main_vctMainExample FOR FederationOffice::federationscenarios::RequestedFederationScenario»
+«FILE "vct/"+name+".java"»
+/*************************************************************************
+Copyright 2010 Panlab 
+
+Licensed under the Apache License, Version 2.0 (the "License"); 
+you may not use this file except in compliance with the License. 
+You may obtain a copy of the License at 
+
+http://www.apache.org/licenses/LICENSE-2.0 
+Unless required by applicable law or agreed to in writing, software 
+distributed under the License is distributed on an "AS IS" BASIS, 
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+See the License for the specific language governing permissions and 
+limitations under the License. 
+*************************************************************************/
+
+package vct;
+import services.*;
+
+public class «name» {
+	private String VCTid;
+	private String VCTname;
+	«FOREACH infrastructureRequest.reqOfferedResources AS f»
+	«LET f.name.replaceAll("-","_"). replaceAll("[.]","_").replaceAll(" ","_") AS reName»
+	/* '<em><b>«reName»</b></em>' represents resource instance '<em><b>«f.name»</b></em>' of Service '<em><b>f.refOfferedResource.implOfferedService.name</b></em>' */
+	public «f.refOfferedResource.implOfferedService.name» «reName»;
+	«ENDLET»«ENDFOREACH»
+	
+	//constructor of vct class «name»
+	public «name»() {
+		super();
+		VCTid = "«this.id»";
+		VCTname = "«this.name»";
+		«FOREACH infrastructureRequest.reqOfferedResources AS f»
+		«LET f.name.replaceAll("-","_"). replaceAll("[.]","_").replaceAll(" ","_") AS reName»
+		«reName» = new «f.refOfferedResource.implOfferedService.name»("«f.name»", VCTid); 
+		«ENDLET»«ENDFOREACH»
+	}
+	
+	«FOREACH infrastructureRequest.reqOfferedResources AS f»
+	«LET f.name.replaceAll("-","_"). replaceAll("[.]","_").replaceAll(" ","_") AS reName»
+	/**
+	*Returns the value of the '<em><b>«f.name»</b></em>' attribute.
+	*/
+	public «f.refOfferedResource.implOfferedService.name» get«reName»() {
+		return «reName»;
+	}	
+	«ENDLET»«ENDFOREACH»
+	
+	
+	public String getVCTid(){
+		return VCTid;
+	}
+	public String getVCTname(){
+		return VCTname;
+	}
+	
+}
+«ENDFILE»
+
+«FILE "example/Main.java"»
+/********************************************************
+This is an example code for your VCT: « name »
+*************************************************************************/
+
+package example;
+
+import vct.*;
+import services.*;
+
+//an example Java federation program
+public class Main {	
+	public static void main(String[] args) {
+		//An example for VCT: « name »
+		«name» myvct = new «name»();		
+		«FOREACH infrastructureRequest.reqOfferedResources AS f»
+		«LET f.name.replaceAll("-","_"). replaceAll("[.]","_").replaceAll(" ","_") AS reName»«FOREACH f.refOfferedResource.implOfferedService.serviceSettings AS implServ»
+		myvct.get«reName»().set«implServ.name»( "myValue" );«ENDFOREACH»
+		«ENDLET»«ENDFOREACH»		
+	}	
+}
+«ENDFILE»
+«ENDDEFINE»

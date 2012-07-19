@@ -1,0 +1,9 @@
+import FederationOffice;
+
+
+getter(FederationOffice::services::ServiceSetting this) :
+	"get"+name;
+	
+setter(FederationOffice::services::ServiceSetting this) :
+	"set"+name;
+	

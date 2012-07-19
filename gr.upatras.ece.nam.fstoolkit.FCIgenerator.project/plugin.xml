@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.panlab.wizard.category"
+            class="gr.upatras.ece.nam.fstoolkit.FCIgenerator.project.VCTImportWizard"
+            hasPages="true"
+            icon="icons/alt_window_16.gif"
+            id="org.panlab.software.FCIgenerator.project.VCTImportWizard"
+            name="Generate Federation Computing Interface wizard"
+            project="false">
+         <description>
+            Generate Federation Computing Interface Wizard
+         </description>
+      </wizard>
+      <category
+            id="org.panlab.wizard.category"
+            name="Panlab">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               id="org.panlab.software.PanlabMenu"
+               label="Panlab">
+            <command
+                  commandId="org.panlab.software.FCIgenerator.GenerateFCICommand"
+                  icon="icons/ResourceAdvisor.gif"
+                  label="PanlabVCT to JavaFCI"
+                  style="push"
+                  tooltip="Open the Generate Federation Computing Interface wizard. Panlab VCT to JavaFCI">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?after=additions">
+         <menu
+               label="Panlab">
+            <command
+                  commandId="org.panlab.software.FCIgenerator.GenerateFCICommand"
+                  icon="icons/ResourceAdvisor.gif"
+                  label="PanlabVCT to JavaFCI"
+                  style="push"
+                  tooltip="Generate Federation Computing Interface for a Panlab VCT">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="gr.upatras.ece.nam.fstoolkit.PanlabToolbar">
+            <command
+                  commandId="org.panlab.software.FCIgenerator.GenerateFCICommand"
+                  icon="icons/ResourceAdvisor.gif"
+                  label="PanlabVCT to JavaFCI"
+                  mode="FORCE_TEXT"
+                  style="push"
+                  tooltip="Open the Generate Federation Computing Interface wizard.Generate Federation Computing Interface for a Panlab VCT">
+            </command>
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+         <menu
+               label="Panlab">
+            <command
+                  commandId="org.panlab.software.FCIgenerator.GenerateFCICommand"
+                  icon="icons/ResourceAdvisor.gif"
+                  label="PanlabVCT to JavaFCI"
+                  style="push"
+                  tooltip="Generate Federation Computing Interface for a Panlab VCT">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="org.panlab.software.FCIgenerator.GenerateFCICommand"
+            name="GenerateFCICommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="gr.upatras.ece.nam.fstoolkit.FCIgenerator.project.GenerateFCICommand"
+            commandId="org.panlab.software.FCIgenerator.GenerateFCICommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.definitions">
+      <definition
+            id="OneFolderSelected">
+         <with
+               variable="selection">
+            <and>
+               <count
+                     value="1">
+               </count>
+               <iterate>
+                  <adapt
+                        type="org.eclipse.core.resources.IResource">
+                     <instanceof
+                           value="org.eclipse.core.resources.IContainer">
+                     </instanceof>
+                  </adapt>
+               </iterate></and>
+         </with>
+      </definition>
+   </extension>
+
+</plugin>

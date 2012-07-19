@@ -1,0 +1,8 @@
+«IMPORT FederationOffice»
+
+«EXTENSION template::GeneratorExtensions»
+
+«DEFINE main FOR FederationOffice::Office»
+«EXPAND javaClass::main_javaClass FOREACH offeredServices»
+«EXPAND vctMainExample::main_vctMainExample FOREACH  availableFederationScenarios »
+«ENDDEFINE»
