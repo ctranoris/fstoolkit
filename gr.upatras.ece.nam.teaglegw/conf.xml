@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ptms>
+<uop cert="CN=ptm,OU=Sun GlassFish Enterprise Server,O=Sun Microsystems,L=Santa Clara,ST=California,C=US">https://150.140.184.234:9181/axis/services/T1</uop>
+</ptms>
+<bct cert="CN=matrix,OU=Sun GlassFish Enterprise Server,O=Sun Microsystems,L=Santa Clara,ST=California,C=US">https://localhost:9181/axis/services/T1</bct>

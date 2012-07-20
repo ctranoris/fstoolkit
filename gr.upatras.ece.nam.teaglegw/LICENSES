@@ -1,0 +1,10 @@
+TeagleGW uses the following components that are listed along with the respective licenses.
+There have been some modification in the source code of axis 1.4 and grizzly server. These will be
+uploaded soon.
+
+axis 1.4	Apache License Version 2.0				http://www.apache.org/licenses/LICENSE-2.0
+Jetty		Apache License Version 2.0 + Eclipse Public License 1.0	http://www.eclipse.org/jetty/licenses.php
+Jersey		CDDL+GPL						https://jersey.dev.java.net/CDDL+GPL.html
+Grizzly		CDDL+GPL						https://glassfish.dev.java.net/public/CDDL+GPL.html
+xml-beans	Apache License Version 2.0				http://www.apache.org/licenses/LICENSE-2.0
+
