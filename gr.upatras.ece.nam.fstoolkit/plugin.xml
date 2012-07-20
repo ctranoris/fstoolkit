@@ -394,7 +394,7 @@
             commandId="gr.upatras.ece.nam.fstoolkit.commands.ResourceAdvisorCommand">
          <enabledWhen>
             <reference
-                  definitionId="gr.upatras.ece.nam.fsdl2.FSDL.Editor.opened">
+                  definitionId="gr.upatras.ece.nam.fsdl.FSDL.Editor.opened">
             </reference>
          </enabledWhen>
       </handler>
@@ -403,7 +403,7 @@
             commandId="gr.upatras.ece.nam.fstoolkit.commands.SubmitFSRequest">
          <enabledWhen>
             <reference
-                  definitionId="gr.upatras.ece.nam.fsdl2.FSDL.Editor.opened">
+                  definitionId="gr.upatras.ece.nam.fsdl.FSDL.Editor.opened">
             </reference>
          </enabledWhen>
       </handler>
@@ -412,7 +412,7 @@
             commandId="gr.upatras.ece.nam.fstoolkit.commands.Connect2ExperimentCommand">
          <enabledWhen>
             <reference
-                  definitionId="gr.upatras.ece.nam.fsdl2.FSDL.Editor.opened">
+                  definitionId="gr.upatras.ece.nam.fsdl.FSDL.Editor.opened">
             </reference>
          </enabledWhen>
       </handler>
@@ -422,7 +422,7 @@
          <enabledWhen>
             <or>
                <reference
-                     definitionId="gr.upatras.ece.nam.fsdl2.FSDL.Editor.opened">
+                     definitionId="gr.upatras.ece.nam.fsdl.FSDL.Editor.opened">
                </reference>
             </or>
          </enabledWhen>
@@ -490,7 +490,7 @@
             commandId="gr.upatras.ece.nam.fstoolkit.commands.Scenario2FCICommand">
          <enabledWhen>
             <reference
-                  definitionId="gr.upatras.ece.nam.fsdl2.FSDL.Editor.opened">
+                  definitionId="gr.upatras.ece.nam.fsdl.FSDL.Editor.opened">
             </reference>
          </enabledWhen>
       </handler>

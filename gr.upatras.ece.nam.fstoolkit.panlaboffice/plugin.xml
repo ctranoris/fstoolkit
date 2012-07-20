@@ -3,9 +3,9 @@
 <plugin>
    <extension
          point="gr.upatras.ece.nam.fstoolkit.extensionpoint.brokerrepository">
-      <OfficeRepository
-            class="gr.upatras.ece.nam.fstoolkit.panlaboffice.PanlabOfficeProvider">
-      </OfficeRepository>
+      <BrokerRepository
+            class="gr.upatras.ece.nam.fstoolkit.panlaboffice.PanlabBrokerProvider">
+      </BrokerRepository>
    </extension>
    <extension
          point="org.eclipse.ui.preferencePages">

@@ -49,7 +49,8 @@ import brokermodel.federationscenarios.ResourceSettingInstance;
 public class UoPServices implements IFCIService{
 	
 	private Broker uopOffice;
-	public static String UoPGWCAlias = "http://creativese.no-ip.org:9000/teaglegw";
+	//public static String UoPGWCAlias = "http://creativese.no-ip.org:9000/teaglegw";
+	public static String UoPGWCAlias = "http://nam.ece.upatras.gr:9000/teaglegw";
 	public static String fedway= "http://nam.ece.upatras.gr/fedway";
 	public String username;
 	
