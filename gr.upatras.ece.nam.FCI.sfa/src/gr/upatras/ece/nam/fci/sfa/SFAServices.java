@@ -1,5 +1,6 @@
 package gr.upatras.ece.nam.fci.sfa;
 
+
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -33,6 +34,16 @@ public class SFAServices implements IFCIService {
 	}
 	
 	
+	
+	
+	public SFAServices() {
+
+		instance = this;		
+	}
+
+
+
+
 	@Override
 	public Broker getBroker(AuthorizationKey authorizationKey,
 			boolean forceRefresh) {

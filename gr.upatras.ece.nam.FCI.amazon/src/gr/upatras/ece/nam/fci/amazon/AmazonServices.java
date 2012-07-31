@@ -14,6 +14,7 @@ limitations under the License.
 *************************************************************************/
 package gr.upatras.ece.nam.fci.amazon;
 
+
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -30,9 +31,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import brokermodel.Broker;
 import brokermodel.fcielements.AuthorizationKey;
 import brokermodel.fcielements.IFCIService;
-import brokermodel.federationscenarios.RequestedFederationScenario;
 import brokermodel.federationscenarios.ResourceRequest;
-import brokermodel.federationscenarios.ResourceSettingInstance;
 
 //The model can be called like:
 //http://localhost:8081/org.panlab.software.ws.repos.m2m/repo/PanlabServices.office2
@@ -58,6 +57,7 @@ public class AmazonServices implements IFCIService{
 	}
 	
 	public AmazonServices() {
+		instance = this;		
 		
 	}
 

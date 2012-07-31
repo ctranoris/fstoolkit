@@ -65,6 +65,7 @@ public class PanlabServices implements IFCIService {
 	}
 	
 	public PanlabServices() {
+		instance = this;		
 		
 	}
 	

@@ -14,25 +14,23 @@ limitations under the License.
  *************************************************************************/
 package gr.upatras.ece.nam.fci.core;
 
-import java.util.HashMap;
-import java.util.Iterator;
+//import gr.upatras.ece.nam.fci.amazon.AmazonServices;
+//import gr.upatras.ece.nam.fci.panlab.PanlabServices;
+//import gr.upatras.ece.nam.fci.sfa.SFAServices;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Map.Entry;
-
-import gr.upatras.ece.nam.fci.amazon.AmazonServices;
-import gr.upatras.ece.nam.fci.panlab.PanlabServices;
-import gr.upatras.ece.nam.fci.sfa.SFAServices;
-import gr.upatras.ece.nam.fci.uop.UoPServices;
 
 import brokermodel.Broker;
 import brokermodel.fcielements.AuthorizationKey;
 import brokermodel.fcielements.FCICredentials;
+import brokermodel.fcielements.IFCIService;
 import brokermodel.federationscenarios.RequestedFederationScenario;
 import brokermodel.federationscenarios.ResourceRequest;
 import brokermodel.federationscenarios.ResourceSettingInstance;
 import brokermodel.services.ServiceSetting;
+//import gr.upatras.ece.nam.fci.uop.UoPServices;
 
 /**
  * FCI class is used to manage resources.
@@ -43,11 +41,128 @@ public class FCI {
 
 
 	private static FCI fci;
+
+	IFCIService iUoPServices;
+	IFCIService iAmazonServices;
+	IFCIService iPanlabServices;
+	IFCIService iSFAServices;
+	
 	/**
+	 * @return 
 	 * 
 	 */
-	public FCI() {
+	
+	
+	public void loadUoPService(){
+		ClassLoader classLoader = FCI.class.getClassLoader();
+		
+		//Dynamic loading UoPServices plugin if exists
+		Class<?> ServicesClass;
+		try {
+			ServicesClass = classLoader.loadClass("gr.upatras.ece.nam.fci.uop.UoPServices");
+	        System.out.println("aClass.getName() = " + ServicesClass.getName());
+	        iUoPServices = (IFCIService) ServicesClass.newInstance();
+	        
+		} catch (ClassNotFoundException e1) {
+			//e1.printStackTrace();
+	        System.out.println("UoPServices class not found");
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+
+	        System.out.println("UoPServices class not instantiated");
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void loadAmazonService(){
+		ClassLoader classLoader = FCI.class.getClassLoader();
+		
+		//Dynamic loading UoPServices plugin if exists
+		Class<?> ServicesClass;
+		try {
+
+			ServicesClass = classLoader.loadClass("gr.upatras.ece.nam.fci.amazon.AmazonServices");
+	        System.out.println("aClass.getName() = " + ServicesClass.getName());
+	        iAmazonServices = (IFCIService) ServicesClass.newInstance();
+	
+	        
+		} catch (ClassNotFoundException e1) {
+			//e1.printStackTrace();
+	        System.out.println("AmazonServices class not found");
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+
+	        System.out.println("AmazonServices class not instantiated");
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void loadSFAService(){
+		ClassLoader classLoader = FCI.class.getClassLoader();
+		
+		//Dynamic loading UoPServices plugin if exists
+		Class<?> ServicesClass;
+		try {
 			
+
+			ServicesClass = classLoader.loadClass(" gr.upatras.ece.nam.fci.sfa.SFAServices");
+	        System.out.println("aClass.getName() = " + ServicesClass.getName());
+	        iSFAServices = (IFCIService) ServicesClass.newInstance();
+	        
+	
+	        
+		} catch (ClassNotFoundException e1) {
+			//e1.printStackTrace();
+	        System.out.println("SFAServices class not found");
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+
+	        System.out.println("SFAServices class not instantiated");
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public void loadPanlabService(){
+		ClassLoader classLoader = FCI.class.getClassLoader();
+		
+		//Dynamic loading UoPServices plugin if exists
+		Class<?> ServicesClass;
+		try {
+
+			ServicesClass = classLoader.loadClass("gr.upatras.ece.nam.fci.panlab.PanlabServices");
+	        System.out.println("aClass.getName() = " + ServicesClass.getName());
+	        iPanlabServices = (IFCIService) ServicesClass.newInstance();
+	        
+	        
+		} catch (ClassNotFoundException e1) {
+			//e1.printStackTrace();
+	        System.out.println("PanlabServices class not found");
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+
+	        System.out.println("PanlabServices class not instantiated");
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public FCI() {
+		loadUoPService();
+		loadAmazonService();
+		loadSFAService();
+		loadPanlabService();
 	}
 	
 	public static FCI getInstance(){
@@ -55,7 +170,6 @@ public class FCI {
 			fci = new FCI();
 		return fci;
 	}
-	
 	
 	
 	
@@ -134,6 +248,9 @@ public class FCI {
 
 	public ResourceContext createResourceContext(String val,
 			AuthorizationKey authKey) {
+		
+		
+		
 		if (val.toLowerCase().equals("panlab")){
 			return CreatePanlabResourceContext(authKey);
 		}
@@ -152,7 +269,7 @@ public class FCI {
 	
 	private ResourceContext CreateSFAResourceContext(AuthorizationKey authKey) {
 
-		Broker office = SFAServices.getInstance().getBroker(authKey , true);
+		Broker office = iSFAServices.getBroker(authKey , true);
 		
 		if (office != null) {
 			return new ResourceContext( office );
@@ -162,7 +279,7 @@ public class FCI {
 	}
 
 	private ResourceContext CreateUoPResourceContext(AuthorizationKey authKey) {
-		Broker office = UoPServices.getInstance().getBroker(
+		Broker office = iUoPServices.getBroker(
 				
 //				PREPEI TO authKey na erxetai edw...
 //				To AuthorizationKey na ginei class sto model??
@@ -179,7 +296,7 @@ public class FCI {
 	private ResourceContext CreatePanlabResourceContext(AuthorizationKey authKey) {
 		
 		
-		Broker office = PanlabServices.getInstance().getBroker(
+		Broker office = iPanlabServices.getBroker(
 				authKey.getUsername(), authKey.getPassword(), true);
 		
 		if (office != null) {
@@ -190,7 +307,7 @@ public class FCI {
 	}
 	
 	private ResourceContext CreateAmazonResourceContext(AuthorizationKey authKey) {
-		Broker office = AmazonServices.getInstance().getBroker(
+		Broker office = iAmazonServices.getBroker(
 				authKey.getUsername(), authKey.getPassword(), true);
 		
 		if (office != null) {
@@ -237,15 +354,15 @@ public class FCI {
 		
 		String guid=null;
 		if (resourceContext.getBrokerModel().getName().toLowerCase().equals("panlab")){
-			 guid = PanlabServices.getInstance().CreateResource(scenario, provider.getFirstURI(), 
+			 guid = iPanlabServices.CreateResource(scenario, provider.getFirstURI(), 
 					serviceType.getName(), resourceReq);
 			 
 		}else if (resourceContext.getBrokerModel().getName().toLowerCase().equals("uop")){
-			 guid = UoPServices.getInstance().CreateResource(scenario, provider.getFirstURI(), 
+			 guid = iUoPServices.CreateResource(scenario, provider.getFirstURI(), 
 						serviceType.getName(), resourceReq);
 			}
 		else if (resourceContext.getBrokerModel().getName().toLowerCase().equals("amazon")){
-				 guid = AmazonServices.getInstance().CreateResource(scenario, provider.getFirstURI(), 
+				 guid = iAmazonServices.CreateResource(scenario, provider.getFirstURI(), 
 							serviceType.getName(), resourceReq);
 			}
 		
@@ -287,15 +404,15 @@ public class FCI {
 		
 		String guid=null;
 		if (resourceContext.getBrokerModel().getName().toLowerCase().equals("panlab")){
-			 guid = PanlabServices.getInstance().CreateResource(scenario, provider.getFirstURI(), 
+			 guid = iPanlabServices.CreateResource(scenario, provider.getFirstURI(), 
 					serviceType.getName(), resourceReq);
 			 
 		}else if (resourceContext.getBrokerModel().getName().toLowerCase().equals("uop")){
-			 guid = UoPServices.getInstance().CreateResource(scenario, provider.getFirstURI(), 
+			 guid = iUoPServices.CreateResource(scenario, provider.getFirstURI(), 
 						serviceType.getName(), resourceReq);
 				 
 		}else if (resourceContext.getBrokerModel().getName().toLowerCase().equals("amazon")){
-			 guid = AmazonServices.getInstance().CreateResource(scenario, provider.getFirstURI(), 
+			 guid = iAmazonServices.CreateResource(scenario, provider.getFirstURI(), 
 						serviceType.getName(), resourceReq);
 				 
 			}
@@ -330,17 +447,17 @@ public class FCI {
 			resourceReq = resource.getResourceRequest();
 		
 		if (resource.getResourceContext().getBrokerModel().getName().toLowerCase().equals("panlab")){
-			return PanlabServices.getInstance().UpdateResource(resource.getContext(), 
+			return iPanlabServices.UpdateResource(resource.getContext(), 
 					resource.getProvider().getFirstURI() , resource.getResourceTypeName(),
 					resource.getGUID(),resourceReq);
 			 
 		}else if (resource.getResourceContext().getBrokerModel().getName().toLowerCase().equals("uop")){
-			return UoPServices.getInstance().UpdateResource(resource.getContext(), 
+			return iUoPServices.UpdateResource(resource.getContext(), 
 					resource.getProvider().getFirstURI() , resource.getResourceTypeName(),
 					resource.getGUID(),resourceReq);
 			 
 		}else if (resource.getResourceContext().getBrokerModel().getName().toLowerCase().equals("amazon")){
-			return AmazonServices.getInstance().UpdateResource(resource.getContext(), 
+			return iAmazonServices.UpdateResource(resource.getContext(), 
 					resource.getProvider().getFirstURI() , resource.getResourceTypeName(),
 					resource.getGUID(),resourceReq);
 			 
@@ -358,15 +475,15 @@ public class FCI {
 		resourceReq.setName(  resource.getName()   );
 		
 		if (resource.getResourceContext().getBrokerModel().getName().toLowerCase().equals("panlab")){
-			return PanlabServices.getInstance().DeleteResource(resource.getContext(), 
+			return iPanlabServices.DeleteResource(resource.getContext(), 
 					resource.getProvider().getFirstURI() , resource.getResourceTypeName(),
 					resource.getGUID(), resourceReq  );
 		}else if (resource.getResourceContext().getBrokerModel().getName().toLowerCase().equals("uop")){
-			return UoPServices.getInstance().DeleteResource(resource.getContext(), 
+			return iUoPServices.DeleteResource(resource.getContext(), 
 					resource.getProvider().getFirstURI() , resource.getResourceTypeName(),
 					resource.getGUID(), resourceReq);
 		}else if (resource.getResourceContext().getBrokerModel().getName().toLowerCase().equals("amazon")){
-			return AmazonServices.getInstance().DeleteResource(resource.getContext(), 
+			return iAmazonServices.DeleteResource(resource.getContext(), 
 					resource.getProvider().getFirstURI() , resource.getResourceTypeName(),
 					resource.getGUID(), resourceReq);
 		}
@@ -407,17 +524,17 @@ public class FCI {
 	public String getParameterValueOfResource(ResourceProxy resource, String paramName){
 		
 		if (resource.getResourceContext().getBrokerModel().getName().toLowerCase().equals("panlab")){
-			 return PanlabServices.getInstance().getParameterValueOfResource(
+			 return iPanlabServices.getParameterValueOfResource(
 					 resource.getContext(), 
 					 resource.getProvider().getFirstURI(), 
 					 resource.getGUID(), paramName);
 		}else if (resource.getResourceContext().getBrokerModel().getName().toLowerCase().equals("uop")){
-			 return UoPServices.getInstance().getParameterValueOfResource(
+			 return iUoPServices.getParameterValueOfResource(
 					 resource.getContext(), 
 					 resource.getProvider().getFirstURI(), 
 					 resource.getGUID(), paramName);
 		}else if (resource.getResourceContext().getBrokerModel().getName().toLowerCase().equals("amazon")){
-			 return AmazonServices.getInstance().getParameterValueOfResource(
+			 return iAmazonServices.getParameterValueOfResource(
 					 resource.getContext(), 
 					 resource.getProvider().getFirstURI(), 
 					 resource.getGUID(), paramName);
@@ -426,9 +543,9 @@ public class FCI {
 	}
 
 	public void LoadFederationScenario(RequestedFederationScenario fedScenario, Broker office) {
-		if (office.getName().toLowerCase().equals("panlab")){
-			PanlabServices.getInstance().LoadFSbyVCT(fedScenario);
-		}			
+//		if (office.getName().toLowerCase().equals("panlab")){
+//			iPanlabServices.LoadFSbyVCT(fedScenario);
+//		}			
 		
 	}
 	

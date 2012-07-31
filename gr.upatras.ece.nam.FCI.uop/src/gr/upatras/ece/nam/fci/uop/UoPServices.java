@@ -63,7 +63,7 @@ public class UoPServices implements IFCIService{
 	}
 	
 	public UoPServices() {
-		
+		instance = this;	
 	}
 
 
