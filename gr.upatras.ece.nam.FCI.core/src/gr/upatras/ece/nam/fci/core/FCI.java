@@ -22,6 +22,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import brokermodel.Broker;
 import brokermodel.fcielements.AuthorizationKey;
 import brokermodel.fcielements.FCICredentials;
@@ -41,6 +44,7 @@ public class FCI {
 
 
 	private static FCI fci;
+    private static Log log = LogFactory.getLog(FCI.class);
 
 	IFCIService iUoPServices;
 	IFCIService iAmazonServices;
@@ -60,17 +64,17 @@ public class FCI {
 		Class<?> ServicesClass;
 		try {
 			ServicesClass = classLoader.loadClass("gr.upatras.ece.nam.fci.uop.UoPServices");
-	        System.out.println("aClass.getName() = " + ServicesClass.getName());
+			log.info("Found aClass.getName() = " + ServicesClass.getName());
 	        iUoPServices = (IFCIService) ServicesClass.newInstance();
 	        
 		} catch (ClassNotFoundException e1) {
 			//e1.printStackTrace();
-	        System.out.println("UoPServices class not found");
+			log.warn("UoPServices class not found");
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 //			e.printStackTrace();
 
-	        System.out.println("UoPServices class not instantiated");
+			log.warn("UoPServices class not instantiated");
 		} catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -85,18 +89,18 @@ public class FCI {
 		try {
 
 			ServicesClass = classLoader.loadClass("gr.upatras.ece.nam.fci.amazon.AmazonServices");
-	        System.out.println("aClass.getName() = " + ServicesClass.getName());
+			log.info("Found aClass.getName() = " + ServicesClass.getName());
 	        iAmazonServices = (IFCIService) ServicesClass.newInstance();
 	
 	        
 		} catch (ClassNotFoundException e1) {
 			//e1.printStackTrace();
-	        System.out.println("AmazonServices class not found");
+			log.warn("AmazonServices class not found");
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 //			e.printStackTrace();
 
-	        System.out.println("AmazonServices class not instantiated");
+			log.warn("AmazonServices class not instantiated");
 		} catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -111,20 +115,20 @@ public class FCI {
 		try {
 			
 
-			ServicesClass = classLoader.loadClass(" gr.upatras.ece.nam.fci.sfa.SFAServices");
-	        System.out.println("aClass.getName() = " + ServicesClass.getName());
+			ServicesClass = classLoader.loadClass("gr.upatras.ece.nam.fci.sfa.SFAServices");
+			log.info("Found aClass.getName() = " + ServicesClass.getName());
 	        iSFAServices = (IFCIService) ServicesClass.newInstance();
 	        
-	
+
 	        
 		} catch (ClassNotFoundException e1) {
 			//e1.printStackTrace();
-	        System.out.println("SFAServices class not found");
+			log.warn("SFAServices class not found");
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 //			e.printStackTrace();
 
-	        System.out.println("SFAServices class not instantiated");
+			log.warn("SFAServices class not instantiated");
 		} catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -140,18 +144,18 @@ public class FCI {
 		try {
 
 			ServicesClass = classLoader.loadClass("gr.upatras.ece.nam.fci.panlab.PanlabServices");
-	        System.out.println("aClass.getName() = " + ServicesClass.getName());
+			log.info("Found aClass.getName() = " + ServicesClass.getName());
 	        iPanlabServices = (IFCIService) ServicesClass.newInstance();
 	        
 	        
 		} catch (ClassNotFoundException e1) {
 			//e1.printStackTrace();
-	        System.out.println("PanlabServices class not found");
+			log.warn("PanlabServices class not found");
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 //			e.printStackTrace();
 
-	        System.out.println("PanlabServices class not instantiated");
+			log.warn("PanlabServices class not instantiated");
 		} catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
