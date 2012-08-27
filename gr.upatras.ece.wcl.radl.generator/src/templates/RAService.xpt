@@ -1,5 +1,5 @@
 «IMPORT radl»
-«IMPORT FederationOffice»
+«IMPORT brokermodel»
 
 «DEFINE RAService_main FOR radl::ResourceAdapter-»
 
@@ -14,8 +14,8 @@ package «this.name»;
 
 «IF (this.implname!=null) »
 
-«LET (FederationOffice::Office)this.implname.eContainer AS theOffice» 
-//implements service «this.implname.name  » by office «  theOffice.name  »
+«LET (brokermodel::Broker)this.implname.eContainer AS theOffice» 
+//implements service «this.implname.name  » by broker «  theOffice.name  »
 «ENDLET»
 «ENDIF»
 import com.bct.ral.interfaces.RAService;
