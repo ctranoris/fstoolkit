@@ -8024,12 +8024,12 @@ rule__ResourceAdapter__ByofficeAssignment_2_3
     }
 :
 (
-{ before(grammarAccess.getResourceAdapterAccess().getByofficeOfficeCrossReference_2_3_0()); }
+{ before(grammarAccess.getResourceAdapterAccess().getByofficeBrokerCrossReference_2_3_0()); }
 (
-{ before(grammarAccess.getResourceAdapterAccess().getByofficeOfficeSTRINGTerminalRuleCall_2_3_0_1()); }
-	RULE_STRING{ after(grammarAccess.getResourceAdapterAccess().getByofficeOfficeSTRINGTerminalRuleCall_2_3_0_1()); }
+{ before(grammarAccess.getResourceAdapterAccess().getByofficeBrokerSTRINGTerminalRuleCall_2_3_0_1()); }
+	RULE_STRING{ after(grammarAccess.getResourceAdapterAccess().getByofficeBrokerSTRINGTerminalRuleCall_2_3_0_1()); }
 )
-{ after(grammarAccess.getResourceAdapterAccess().getByofficeOfficeCrossReference_2_3_0()); }
+{ after(grammarAccess.getResourceAdapterAccess().getByofficeBrokerCrossReference_2_3_0()); }
 )
 
 ;

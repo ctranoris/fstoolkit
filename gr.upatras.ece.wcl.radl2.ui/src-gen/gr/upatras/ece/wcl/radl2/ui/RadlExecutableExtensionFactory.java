@@ -8,6 +8,8 @@ import org.osgi.framework.Bundle;
 
 import com.google.inject.Injector;
 
+import gr.upatras.ece.wcl.radl2.ui.internal.RadlActivator;
+
 /**
  * This class was generated. Customizations should only happen in a newly
  * introduced subclass. 
@@ -16,12 +18,12 @@ public class RadlExecutableExtensionFactory extends AbstractGuiceAwareExecutable
 
 	@Override
 	protected Bundle getBundle() {
-		return gr.upatras.ece.wcl.radl2.ui.internal.RadlActivator.getInstance().getBundle();
+		return RadlActivator.getInstance().getBundle();
 	}
 	
 	@Override
 	protected Injector getInjector() {
-		return gr.upatras.ece.wcl.radl2.ui.internal.RadlActivator.getInstance().getInjector("gr.upatras.ece.wcl.radl2.Radl");
+		return RadlActivator.getInstance().getInjector(RadlActivator.GR_UPATRAS_ECE_WCL_RADL2_RADL);
 	}
 	
 }

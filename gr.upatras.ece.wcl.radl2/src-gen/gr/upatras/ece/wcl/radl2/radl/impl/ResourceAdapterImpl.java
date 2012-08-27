@@ -1,14 +1,10 @@
 /**
- * <copyright>
- * </copyright>
- *
-
  */
 package gr.upatras.ece.wcl.radl2.radl.impl;
 
-import FederationOffice.Office;
+import brokermodel.Broker;
 
-import FederationOffice.services.OfferedService;
+import brokermodel.services.OfferedService;
 
 import gr.upatras.ece.wcl.radl2.radl.AllowedType;
 import gr.upatras.ece.wcl.radl2.radl.BindingParam;
@@ -95,7 +91,7 @@ public class ResourceAdapterImpl extends MinimalEObjectImpl.Container implements
    * @generated
    * @ordered
    */
-  protected Office byoffice;
+  protected Broker byoffice;
 
   /**
    * The cached value of the '{@link #getConfParams() <em>Conf Params</em>}' containment reference list.
@@ -259,12 +255,12 @@ public class ResourceAdapterImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public Office getByoffice()
+  public Broker getByoffice()
   {
     if (byoffice != null && byoffice.eIsProxy())
     {
       InternalEObject oldByoffice = (InternalEObject)byoffice;
-      byoffice = (Office)eResolveProxy(oldByoffice);
+      byoffice = (Broker)eResolveProxy(oldByoffice);
       if (byoffice != oldByoffice)
       {
         if (eNotificationRequired())
@@ -279,7 +275,7 @@ public class ResourceAdapterImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public Office basicGetByoffice()
+  public Broker basicGetByoffice()
   {
     return byoffice;
   }
@@ -289,9 +285,9 @@ public class ResourceAdapterImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setByoffice(Office newByoffice)
+  public void setByoffice(Broker newByoffice)
   {
-    Office oldByoffice = byoffice;
+    Broker oldByoffice = byoffice;
     byoffice = newByoffice;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RadlPackage.RESOURCE_ADAPTER__BYOFFICE, oldByoffice, byoffice));
@@ -500,7 +496,7 @@ public class ResourceAdapterImpl extends MinimalEObjectImpl.Container implements
         setImplname((OfferedService)newValue);
         return;
       case RadlPackage.RESOURCE_ADAPTER__BYOFFICE:
-        setByoffice((Office)newValue);
+        setByoffice((Broker)newValue);
         return;
       case RadlPackage.RESOURCE_ADAPTER__CONF_PARAMS:
         getConfParams().clear();
@@ -545,7 +541,7 @@ public class ResourceAdapterImpl extends MinimalEObjectImpl.Container implements
         setImplname((OfferedService)null);
         return;
       case RadlPackage.RESOURCE_ADAPTER__BYOFFICE:
-        setByoffice((Office)null);
+        setByoffice((Broker)null);
         return;
       case RadlPackage.RESOURCE_ADAPTER__CONF_PARAMS:
         getConfParams().clear();

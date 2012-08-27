@@ -71,6 +71,19 @@
         </page>
     </extension>
     <extension
+            point="org.eclipse.ui.propertyPages">
+        <page
+            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="gr.upatras.ece.wcl.radl2.Radl"
+            name="Radl">
+            <keywordReference id="gr.upatras.ece.wcl.radl2.ui.keyword_Radl"/>
+            <enabledWhen>
+	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+        </page>
+    </extension>
+    <extension
         point="org.eclipse.ui.keywords">
         <keyword
             id="gr.upatras.ece.wcl.radl2.ui.keyword_Radl"
@@ -138,6 +151,28 @@
     </extension>
 
 
+    <!-- marker definitions for gr.upatras.ece.wcl.radl2.Radl -->
+    <extension
+            id="radl.check.fast"
+            name="Radl Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.fast"/>
+        <persistent value="true"/>
+    </extension>
+    <extension
+            id="radl.check.normal"
+            name="Radl Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.normal"/>
+        <persistent value="true"/>
+    </extension>
+    <extension
+            id="radl.check.expensive"
+            name="Radl Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.expensive"/>
+        <persistent value="true"/>
+    </extension>
 
    <extension
          point="org.eclipse.xtext.builder.participant">
@@ -145,6 +180,30 @@
             class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
       </participant>
    </extension>
+   <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+            category="gr.upatras.ece.wcl.radl2.Radl"
+            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+            id="gr.upatras.ece.wcl.radl2.Radl.compiler.preferencePage"
+            name="Compiler">
+            <keywordReference id="gr.upatras.ece.wcl.radl2.ui.keyword_Radl"/>
+        </page>
+    </extension>
+    <extension
+            point="org.eclipse.ui.propertyPages">
+        <page
+            category="gr.upatras.ece.wcl.radl2.Radl"
+            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+            id="gr.upatras.ece.wcl.radl2.Radl.compiler.propertyPage"
+            name="Compiler">
+            <keywordReference id="gr.upatras.ece.wcl.radl2.ui.keyword_Radl"/>
+            <enabledWhen>
+	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+        </page>
+    </extension>
 
 	<!-- Quick Outline -->
 	<extension
@@ -179,30 +238,49 @@
 			</command>
 		</menuContribution>
 	</extension>
-   <!-- quickfix marker resolution generator -->
-   <extension
-         point="org.eclipse.ui.ide.markerResolution">
-      <markerResolutionGenerator
-            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator">
-      </markerResolutionGenerator>
-   </extension>
+    <!-- quickfix marker resolution generator for gr.upatras.ece.wcl.radl2.Radl -->
+    <extension
+            point="org.eclipse.ui.ide.markerResolution">
+        <markerResolutionGenerator
+            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="gr.upatras.ece.wcl.radl2.ui.radl.check.fast">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+        <markerResolutionGenerator
+            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="gr.upatras.ece.wcl.radl2.ui.radl.check.normal">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+        <markerResolutionGenerator
+            class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="gr.upatras.ece.wcl.radl2.ui.radl.check.expensive">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+    </extension>
 
    <extension
          point="org.eclipse.ui.newWizards">
       <wizard
             category="org.eclipse.xtext.projectwiz"
             class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:gr.upatras.ece.wcl.radl2.ui.wizard.RadlNewProjectWizard"
-            icon="icons/editor.gif"
             id="gr.upatras.ece.wcl.radl2.ui.wizard.RadlNewProjectWizard"
             name="Radl Project"
             project="true">
       </wizard>
    </extension>
-
    	<!-- Rename Refactoring -->
 	<extension point="org.eclipse.ui.handlers">
 		<handler 
-			class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RenameElementHandler"
+			class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.IRenameElementHandler"
 			commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
 			<activeWhen>
 				<reference
@@ -224,6 +302,15 @@
          </command>
       </menuContribution>
    </extension>
+   <extension point="org.eclipse.ui.preferencePages">
+	    <page
+	        category="gr.upatras.ece.wcl.radl2.Radl"
+	        class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
+	        id="gr.upatras.ece.wcl.radl2.Radl.refactoring"
+	        name="Refactoring">
+	        <keywordReference id="gr.upatras.ece.wcl.radl2.ui.keyword_Radl"/>
+	    </page>
+	</extension>
 
   <extension point="org.eclipse.compare.contentViewers">
     <viewer id="gr.upatras.ece.wcl.radl2.Radl.compare.contentViewers"

@@ -1,108 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/gr.upatras.ece.wcl.radl2/src-gen"
-    editDirectory="/gr.upatras.ece.wcl.radl2.edit/src" editorDirectory="/gr.upatras.ece.wcl.radl2.editor/src"
-    modelPluginID="gr.upatras.ece.wcl.radl2" forceOverwrite="true" modelName="Radl"
-    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/gr.upatras.ece.wcl.radl2/src-gen" editDirectory="/gr.upatras.ece.wcl.radl2.edit/src"
+    editorDirectory="/gr.upatras.ece.wcl.radl2.editor/src" modelPluginID="gr.upatras.ece.wcl.radl2"
+    forceOverwrite="true" modelName="Radl" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="gr.upatras.ece.wcl.radl2.edit"
-    editorPluginID="gr.upatras.ece.wcl.radl2.editor" usedGenPackages="platform:/resource/org.panlab.software.office.model/model/FederationOffice.genmodel#//FederationOffice platform:/resource/org.panlab.software.office.model/model/FederationOffice.genmodel#//FederationOffice/services">
+    editorPluginID="gr.upatras.ece.wcl.radl2.editor" runtimeVersion="2.8" usedGenPackages="../../../../../../../gr.upatras.ece.nam.broker.model/model/Broker.genmodel#//brokermodel ../../../../../../../gr.upatras.ece.nam.broker.model/model/Broker.genmodel#//brokermodel/services">
   <genPackages prefix="Radl" basePackage="gr.upatras.ece.wcl.radl2" resource="XML"
-      disposableProviderFactory="true" ecorePackage="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#/">
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//RADL">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//RADL/imports"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//RADL/resourceAdapter"/>
+      disposableProviderFactory="true" ecorePackage="Radl.ecore#/">
+    <genClasses ecoreClass="Radl.ecore#//RADL">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Radl.ecore#//RADL/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Radl.ecore#//RADL/resourceAdapter"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//Import">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//Import/importURI"/>
+    <genClasses ecoreClass="Radl.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Radl.ecore#//Import/importURI"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ResourceAdapter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ResourceAdapter/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ResourceAdapter/implname"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ResourceAdapter/byoffice"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ResourceAdapter/confParams"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ResourceAdapter/bindParams"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ResourceAdapter/childParams"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ResourceAdapter/allowParams"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ResourceAdapter/ConfComplete"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ResourceAdapter/protocol"/>
+    <genClasses ecoreClass="Radl.ecore#//ResourceAdapter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Radl.ecore#//ResourceAdapter/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Radl.ecore#//ResourceAdapter/implname"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Radl.ecore#//ResourceAdapter/byoffice"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Radl.ecore#//ResourceAdapter/confParams"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Radl.ecore#//ResourceAdapter/bindParams"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Radl.ecore#//ResourceAdapter/childParams"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Radl.ecore#//ResourceAdapter/allowParams"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Radl.ecore#//ResourceAdapter/ConfComplete"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Radl.ecore#//ResourceAdapter/protocol"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ConfigurationParam"/>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//BindingParam"/>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//SupportedChildType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//SupportedChildType/paramType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//SupportedChildType/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//SupportedChildType/defValue"/>
+    <genClasses ecoreClass="Radl.ecore#//ConfigurationParam"/>
+    <genClasses ecoreClass="Radl.ecore#//BindingParam"/>
+    <genClasses ecoreClass="Radl.ecore#//SupportedChildType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Radl.ecore#//SupportedChildType/paramType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Radl.ecore#//SupportedChildType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Radl.ecore#//SupportedChildType/defValue"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//AllowedType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//AllowedType/paramType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//AllowedType/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//AllowedType/defValue"/>
+    <genClasses ecoreClass="Radl.ecore#//AllowedType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Radl.ecore#//AllowedType/paramType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Radl.ecore#//AllowedType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Radl.ecore#//AllowedType/defValue"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//Protocol"/>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ParameterType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ParameterType/pName"/>
+    <genClasses ecoreClass="Radl.ecore#//Protocol"/>
+    <genClasses ecoreClass="Radl.ecore#//ParameterType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Radl.ecore#//ParameterType/pName"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleSSH">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleSSH/remoteMachine"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleSSH/RPort"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleSSH/username"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleSSH/password"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleSSH/commands"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleSSH/commandsDelete"/>
+    <genClasses ecoreClass="Radl.ecore#//ruleSSH">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Radl.ecore#//ruleSSH/remoteMachine"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Radl.ecore#//ruleSSH/RPort"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Radl.ecore#//ruleSSH/username"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Radl.ecore#//ruleSSH/password"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Radl.ecore#//ruleSSH/commands"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Radl.ecore#//ruleSSH/commandsDelete"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleJavaWrapper">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleJavaWrapper/classname"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleJavaWrapper/constructorParams"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleJavaWrapper/commands"/>
+    <genClasses ecoreClass="Radl.ecore#//ruleJavaWrapper">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Radl.ecore#//ruleJavaWrapper/classname"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Radl.ecore#//ruleJavaWrapper/constructorParams"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Radl.ecore#//ruleJavaWrapper/commands"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//Command">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//Command/javaFunctionName"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//Command/commands"/>
+    <genClasses ecoreClass="Radl.ecore#//Command">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Radl.ecore#//Command/javaFunctionName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Radl.ecore#//Command/commands"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//entryCommand"/>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//rulJava_param"/>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//rulJava_paramString">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//rulJava_paramString/stringValue"/>
+    <genClasses ecoreClass="Radl.ecore#//entryCommand"/>
+    <genClasses ecoreClass="Radl.ecore#//rulJava_param"/>
+    <genClasses ecoreClass="Radl.ecore#//rulJava_paramString">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Radl.ecore#//rulJava_paramString/stringValue"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//rulJava_paramInt">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//rulJava_paramInt/intValue"/>
+    <genClasses ecoreClass="Radl.ecore#//rulJava_paramInt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Radl.ecore#//rulJava_paramInt/intValue"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//rulJava_paraScript">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//rulJava_paraScript/scriptparamValue"/>
+    <genClasses ecoreClass="Radl.ecore#//rulJava_paraScript">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Radl.ecore#//rulJava_paraScript/scriptparamValue"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//assignCommand">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//assignCommand/scriptParam"/>
+    <genClasses ecoreClass="Radl.ecore#//assignCommand">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Radl.ecore#//assignCommand/scriptParam"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//scriptParam">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//scriptParam/paramType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//scriptParam/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//scriptParam/defValue"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//scriptParam/descriptionValue"/>
+    <genClasses ecoreClass="Radl.ecore#//scriptParam">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Radl.ecore#//scriptParam/paramType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Radl.ecore#//scriptParam/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Radl.ecore#//scriptParam/defValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Radl.ecore#//scriptParam/descriptionValue"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//rulSSH_commands">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//rulSSH_commands/remoteCommand"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//rulSSH_commands/scriptparams"/>
+    <genClasses ecoreClass="Radl.ecore#//rulSSH_commands">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Radl.ecore#//rulSSH_commands/remoteCommand"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Radl.ecore#//rulSSH_commands/scriptparams"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleHTTP">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleHTTP/remoteMachine"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleHTTP/httpURL"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleHTTP/HMethod"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleHTTP/AuthMethod"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleHTTP/username"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleHTTP/password"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleHTTP/postBody"/>
+    <genClasses ecoreClass="Radl.ecore#//ruleHTTP">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Radl.ecore#//ruleHTTP/remoteMachine"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Radl.ecore#//ruleHTTP/httpURL"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Radl.ecore#//ruleHTTP/HMethod"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Radl.ecore#//ruleHTTP/AuthMethod"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Radl.ecore#//ruleHTTP/username"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Radl.ecore#//ruleHTTP/password"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Radl.ecore#//ruleHTTP/postBody"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleHTTP_URL">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleHTTP_URL/remoteURL"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleHTTP_URL/scriptparams"/>
+    <genClasses ecoreClass="Radl.ecore#//ruleHTTP_URL">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Radl.ecore#//ruleHTTP_URL/remoteURL"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Radl.ecore#//ruleHTTP_URL/scriptparams"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleXMLRPC">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleXMLRPC/remoteMachine"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleXMLRPC/username"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleXMLRPC/password"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleXMLRPC/RPCMethod"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/gr.upatras.ece.wcl.radl2/src-gen/gr/upatras/ece/wcl/radl2/Radl.ecore#//ruleXMLRPC/URLparams"/>
+    <genClasses ecoreClass="Radl.ecore#//ruleXMLRPC">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Radl.ecore#//ruleXMLRPC/remoteMachine"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Radl.ecore#//ruleXMLRPC/username"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Radl.ecore#//ruleXMLRPC/password"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Radl.ecore#//ruleXMLRPC/RPCMethod"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Radl.ecore#//ruleXMLRPC/URLparams"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

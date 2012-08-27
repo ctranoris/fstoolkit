@@ -7,6 +7,8 @@ package gr.upatras.ece.wcl.radl2.services;
 import com.google.inject.Singleton;
 import com.google.inject.Inject;
 
+import java.util.List;
+
 import org.eclipse.xtext.*;
 import org.eclipse.xtext.service.GrammarProvider;
 import org.eclipse.xtext.service.AbstractElementFinder.*;
@@ -26,6 +28,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cResourceAdapterResourceAdapterParserRuleCall_1_0 = (RuleCall)cResourceAdapterAssignment_1.eContents().get(0);
 		
 		//RADL:
+		//
 		//	imports=Import? resourceAdapter=ResourceAdapter;
 		public ParserRule getRule() { return rule; }
 
@@ -53,6 +56,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cImportURISTRINGTerminalRuleCall_1_0 = (RuleCall)cImportURIAssignment_1.eContents().get(0);
 		
 		//Import:
+		//
 		//	"import service" importURI=STRING;
 		public ParserRule getRule() { return rule; }
 
@@ -82,8 +86,8 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cImplnameOfferedServiceSTRINGTerminalRuleCall_2_1_0_1 = (RuleCall)cImplnameOfferedServiceCrossReference_2_1_0.eContents().get(1);
 		private final Keyword cByOfficeKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		private final Assignment cByofficeAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
-		private final CrossReference cByofficeOfficeCrossReference_2_3_0 = (CrossReference)cByofficeAssignment_2_3.eContents().get(0);
-		private final RuleCall cByofficeOfficeSTRINGTerminalRuleCall_2_3_0_1 = (RuleCall)cByofficeOfficeCrossReference_2_3_0.eContents().get(1);
+		private final CrossReference cByofficeBrokerCrossReference_2_3_0 = (CrossReference)cByofficeAssignment_2_3.eContents().get(0);
+		private final RuleCall cByofficeBrokerSTRINGTerminalRuleCall_2_3_0_1 = (RuleCall)cByofficeBrokerCrossReference_2_3_0.eContents().get(1);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cConfigurationParametersKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
@@ -124,18 +128,28 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_7_8 = (Keyword)cGroup_7.eContents().get(8);
 		
 		//ResourceAdapter:
+		//
 		//	"Resource Adapter" name=STRING ("implements" implname=[services::OfferedService|STRING] "by office"
-		//	byoffice=[office::Office|STRING])? ("Configuration Parameters" "{" confParams+=ConfigurationParam* "}")?
+		//
+		//	byoffice=[broker::Broker|STRING])? ("Configuration Parameters" "{" confParams+=ConfigurationParam* "}")?
+		//
 		//	("Binding Parameters" "{" bindParams+=BindingParam* "}")? ("Supported Child Types" "{"
+		//
 		//	childParams+=SupportedChildType* "}")? ("Allowed Types" "{" allowParams+=AllowedType* "}")? ("On Update" "{"
+		//
 		//	"ProcessOnAllConfigurationParametersComplete" "=" ConfComplete=("YES" | "NO") ";" "RAProtocol" protocol=Protocol
+		//
 		//	"}")?;
 		public ParserRule getRule() { return rule; }
 
 		//"Resource Adapter" name=STRING ("implements" implname=[services::OfferedService|STRING] "by office"
-		//byoffice=[office::Office|STRING])? ("Configuration Parameters" "{" confParams+=ConfigurationParam* "}")?
-		//("Binding Parameters" "{" bindParams+=BindingParam* "}")? ("Supported Child Types" "{" childParams+=SupportedChildType*
-		//"}")? ("Allowed Types" "{" allowParams+=AllowedType* "}")? ("On Update" "{"
+		//
+		//byoffice=[broker::Broker|STRING])? ("Configuration Parameters" "{" confParams+=ConfigurationParam* "}")?
+		//
+		//("Binding Parameters" "{" bindParams+=BindingParam* "}")? ("Supported Child Types" "{"
+		//
+		//childParams+=SupportedChildType* "}")? ("Allowed Types" "{" allowParams+=AllowedType* "}")? ("On Update" "{"
+		//
 		//"ProcessOnAllConfigurationParametersComplete" "=" ConfComplete=("YES" | "NO") ";" "RAProtocol" protocol=Protocol "}")?
 		public Group getGroup() { return cGroup; }
 
@@ -148,7 +162,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
 
-		//("implements" implname=[services::OfferedService|STRING] "by office" byoffice=[office::Office|STRING])?
+		//("implements" implname=[services::OfferedService|STRING] "by office" byoffice=[broker::Broker|STRING])?
 		public Group getGroup_2() { return cGroup_2; }
 
 		//"implements"
@@ -166,14 +180,14 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		//"by office"
 		public Keyword getByOfficeKeyword_2_2() { return cByOfficeKeyword_2_2; }
 
-		//byoffice=[office::Office|STRING]
+		//byoffice=[broker::Broker|STRING]
 		public Assignment getByofficeAssignment_2_3() { return cByofficeAssignment_2_3; }
 
-		//[office::Office|STRING]
-		public CrossReference getByofficeOfficeCrossReference_2_3_0() { return cByofficeOfficeCrossReference_2_3_0; }
+		//[broker::Broker|STRING]
+		public CrossReference getByofficeBrokerCrossReference_2_3_0() { return cByofficeBrokerCrossReference_2_3_0; }
 
 		//STRING
-		public RuleCall getByofficeOfficeSTRINGTerminalRuleCall_2_3_0_1() { return cByofficeOfficeSTRINGTerminalRuleCall_2_3_0_1; }
+		public RuleCall getByofficeBrokerSTRINGTerminalRuleCall_2_3_0_1() { return cByofficeBrokerSTRINGTerminalRuleCall_2_3_0_1; }
 
 		//("Configuration Parameters" "{" confParams+=ConfigurationParam* "}")?
 		public Group getGroup_3() { return cGroup_3; }
@@ -248,6 +262,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightCurlyBracketKeyword_6_3() { return cRightCurlyBracketKeyword_6_3; }
 
 		//("On Update" "{" "ProcessOnAllConfigurationParametersComplete" "=" ConfComplete=("YES" | "NO") ";" "RAProtocol"
+		//
 		//protocol=Protocol "}")?
 		public Group getGroup_7() { return cGroup_7; }
 
@@ -313,12 +328,19 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//ConfigurationParam:
-		//	{ConfigurationParam} paramType=ParameterType? name=(ID | STRING) ("=" defValue=STRING)? //	('implements' servsetting=[services::ServiceSetting|STRING] )?  
-		//	("description" "=" descriptionValue=STRING)? ";";
+		//
+		//	{ConfigurationParam} paramType=ParameterType? name=(ID | STRING) ("=" defValue=STRING)?
+		//
+		//	//	('implements' servsetting=[services::ServiceSetting|STRING] )?  
+		// ("description" "=" descriptionValue=STRING)?
+		//
+		//	";";
 		public ParserRule getRule() { return rule; }
 
-		//{ConfigurationParam} paramType=ParameterType? name=(ID | STRING) ("=" defValue=STRING)? //	('implements' servsetting=[services::ServiceSetting|STRING] )?  
-		//("description" "=" descriptionValue=STRING)? ";"
+		//{ConfigurationParam} paramType=ParameterType? name=(ID | STRING) ("=" defValue=STRING)?
+		//
+		////	('implements' servsetting=[services::ServiceSetting|STRING] )?  
+		// ("description" "=" descriptionValue=STRING)? ";"
 		public Group getGroup() { return cGroup; }
 
 		//{ConfigurationParam}
@@ -395,11 +417,14 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//BindingParam:
+		//
 		//	{BindingParam} paramType=ParameterType? name=(ID | STRING) ("=" defValue=STRING)? ("description" "="
+		//
 		//	descriptionValue=STRING)? ";";
 		public ParserRule getRule() { return rule; }
 
 		//{BindingParam} paramType=ParameterType? name=(ID | STRING) ("=" defValue=STRING)? ("description" "="
+		//
 		//descriptionValue=STRING)? ";"
 		public Group getGroup() { return cGroup; }
 
@@ -472,6 +497,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//SupportedChildType:
+		//
 		//	{SupportedChildType} paramType=ParameterType? name=(ID | STRING) ("=" defValue=STRING)? ";";
 		public ParserRule getRule() { return rule; }
 
@@ -532,6 +558,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//AllowedType:
+		//
 		//	{AllowedType} paramType=ParameterType? name=(ID | STRING) ("=" defValue=STRING)? ";";
 		public ParserRule getRule() { return rule; }
 
@@ -584,6 +611,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRuleJavaWrapperParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//Protocol:
+		//
 		//	ruleSSH | ruleHTTP | ruleXMLRPC | ruleJavaWrapper;
 		public ParserRule getRule() { return rule; }
 
@@ -616,6 +644,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cPNameREFERENCEKeyword_1_0_4 = (Keyword)cPNameAlternatives_1_0.eContents().get(4);
 		
 		//ParameterType:
+		//
 		//	{ParameterType} pName=("String" | "Integer" | "Boolean" | "Enum" | "REFERENCE");
 		public ParserRule getRule() { return rule; }
 
@@ -690,13 +719,20 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_27 = (Keyword)cGroup.eContents().get(27);
 		
 		//ruleSSH:
-		//	{ruleSSH} "SSH" "{" "Remote Machine" "=" remoteMachine=[scriptParam|STRING] ";" "RPort" "=" RPort=[scriptParam|STRING]
-		//	";" "RUsername" "=" username=[scriptParam|STRING] ";" "RPassword" "=" password=[scriptParam|STRING] ";" "RExecute" "{"
-		//	commands+=rulSSH_commands* "}" "RExecuteDelete" "{" commandsDelete+=rulSSH_commands* "}" "}";
+		//
+		//	{ruleSSH} "SSH" "{" "Remote Machine" "=" remoteMachine=[scriptParam|STRING] ";" "RPort" "="
+		//
+		//	RPort=[scriptParam|STRING] ";" "RUsername" "=" username=[scriptParam|STRING] ";" "RPassword" "="
+		//
+		//	password=[scriptParam|STRING] ";" "RExecute" "{" commands+=rulSSH_commands* "}" "RExecuteDelete" "{"
+		//
+		//	commandsDelete+=rulSSH_commands* "}" "}";
 		public ParserRule getRule() { return rule; }
 
 		//{ruleSSH} "SSH" "{" "Remote Machine" "=" remoteMachine=[scriptParam|STRING] ";" "RPort" "=" RPort=[scriptParam|STRING]
+		//
 		//";" "RUsername" "=" username=[scriptParam|STRING] ";" "RPassword" "=" password=[scriptParam|STRING] ";" "RExecute" "{"
+		//
 		//commands+=rulSSH_commands* "}" "RExecuteDelete" "{" commandsDelete+=rulSSH_commands* "}" "}"
 		public Group getGroup() { return cGroup; }
 
@@ -837,11 +873,14 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//ruleJavaWrapper:
+		//
 		//	{ruleJavaWrapper} "Java" classname=ID "(" (constructorParams+=rulJava_param ("," constructorParams+=rulJava_param)*)?
+		//
 		//	")" "{" commands+=Command* "}";
 		public ParserRule getRule() { return rule; }
 
 		//{ruleJavaWrapper} "Java" classname=ID "(" (constructorParams+=rulJava_param ("," constructorParams+=rulJava_param)*)?
+		//
 		//")" "{" commands+=Command* "}"
 		public Group getGroup() { return cGroup; }
 
@@ -904,6 +943,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAssignCommandParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Command:
+		//
 		//	entryCommand | assignCommand;
 		public ParserRule getRule() { return rule; }
 
@@ -934,6 +974,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//entryCommand:
+		//
 		//	"JExecute" javaFunctionName=ID "(" (commands+=rulJava_param ("," commands+=rulJava_param)*)? ")";
 		public ParserRule getRule() { return rule; }
 
@@ -985,6 +1026,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRulJava_paraScriptParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//rulJava_param:
+		//
 		//	rulJava_paramString | rulJava_paramInt | rulJava_paraScript;
 		public ParserRule getRule() { return rule; }
 
@@ -1007,6 +1049,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cStringValueSTRINGTerminalRuleCall_0 = (RuleCall)cStringValueAssignment.eContents().get(0);
 		
 		//rulJava_paramString:
+		//
 		//	stringValue=STRING;
 		public ParserRule getRule() { return rule; }
 
@@ -1023,6 +1066,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIntValueINTTerminalRuleCall_0 = (RuleCall)cIntValueAssignment.eContents().get(0);
 		
 		//rulJava_paramInt:
+		//
 		//	intValue=INT;
 		public ParserRule getRule() { return rule; }
 
@@ -1040,6 +1084,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cScriptparamValueScriptParamIDTerminalRuleCall_0_1 = (RuleCall)cScriptparamValueScriptParamCrossReference_0.eContents().get(1);
 		
 		//rulJava_paraScript:
+		//
 		//	scriptparamValue=[scriptParam];
 		public ParserRule getRule() { return rule; }
 
@@ -1075,11 +1120,14 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//assignCommand:
+		//
 		//	{assignCommand} "JAssign" scriptParam=[scriptParam] "=" javaFunctionName=ID "(" (commands+=rulJava_param (","
+		//
 		//	commands+=rulJava_param)*)? ")";
 		public ParserRule getRule() { return rule; }
 
 		//{assignCommand} "JAssign" scriptParam=[scriptParam] "=" javaFunctionName=ID "(" (commands+=rulJava_param (","
+		//
 		//commands+=rulJava_param)*)? ")"
 		public Group getGroup() { return cGroup; }
 
@@ -1142,11 +1190,14 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBindingParamParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		////ruleSSH_File returns ruleSSH_File:
-		////{ruleSSH_File}
-		////	'Remote Script' '=' remoteScript=STRING
+		// //{ruleSSH_File}
+		// //	'Remote Script' '=' remoteScript=STRING
+		//
+		//
 		////	('parameters' '=' (scriptparams+=[ConfigurationParam | STRING])*  )? 
-		////;
-		//scriptParam:
+		// //;
+		// scriptParam:
+		//
 		//	ConfigurationParam | BindingParam;
 		public ParserRule getRule() { return rule; }
 
@@ -1174,6 +1225,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cGreaterThanSignGreaterThanSignKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		
 		//rulSSH_commands:
+		//
 		//	{rulSSH_commands} remoteCommand=STRING ("<<" scriptparams+=[scriptParam|STRING]* ">>")?;
 		public ParserRule getRule() { return rule; }
 
@@ -1264,15 +1316,22 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_17 = (Keyword)cGroup.eContents().get(17);
 		
 		//ruleHTTP:
+		//
 		//	{ruleHTTP} "HTTP" "{" "RemoteMachine" "=" remoteMachine=[scriptParam|STRING] ";" "HttpURL" "=" httpURL+=ruleHTTP_URL*
+		//
 		//	";" "HttpMethod" "=" HMethod=("GET" | "POST") ";" ("HttpAuth" "{" "Method" "=" AuthMethod=[scriptParam|STRING] ";"
+		//
 		//	"AuthUsername" "=" username=[scriptParam|STRING] ";" "AuthPassword" "=" password=[scriptParam|STRING] ";" "}")?
+		//
 		//	("PostBody" "=" postBody=[scriptParam|STRING] ";") "}";
 		public ParserRule getRule() { return rule; }
 
 		//{ruleHTTP} "HTTP" "{" "RemoteMachine" "=" remoteMachine=[scriptParam|STRING] ";" "HttpURL" "=" httpURL+=ruleHTTP_URL*
+		//
 		//";" "HttpMethod" "=" HMethod=("GET" | "POST") ";" ("HttpAuth" "{" "Method" "=" AuthMethod=[scriptParam|STRING] ";"
+		//
 		//"AuthUsername" "=" username=[scriptParam|STRING] ";" "AuthPassword" "=" password=[scriptParam|STRING] ";" "}")?
+		//
 		//("PostBody" "=" postBody=[scriptParam|STRING] ";") "}"
 		public Group getGroup() { return cGroup; }
 
@@ -1340,6 +1399,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getSemicolonKeyword_14() { return cSemicolonKeyword_14; }
 
 		//("HttpAuth" "{" "Method" "=" AuthMethod=[scriptParam|STRING] ";" "AuthUsername" "=" username=[scriptParam|STRING] ";"
+		//
 		//"AuthPassword" "=" password=[scriptParam|STRING] ";" "}")?
 		public Group getGroup_15() { return cGroup_15; }
 
@@ -1445,6 +1505,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cGreaterThanSignGreaterThanSignKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		
 		//ruleHTTP_URL:
+		//
 		//	{ruleHTTP_URL} remoteURL=STRING ("<<" scriptparams+=[scriptParam|STRING]* ">>")?;
 		public ParserRule getRule() { return rule; }
 
@@ -1522,13 +1583,18 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
 		
 		//ruleXMLRPC:
+		//
 		//	{ruleXMLRPC} "XML-RPC" "{" "ServerURL" "=" remoteMachine=[BindingParam] ";" ("HttpBasicAuth" "{" "BasicAuthUsername"
+		//
 		//	"=" username=[BindingParam] ";" "BasicAuthPassword" "=" password=[BindingParam] ";" "}")? "RPCMethod" "="
+		//
 		//	RPCMethod=[BindingParam] ";" ("parameters" "=" URLparams+=[ConfigurationParam|STRING]*)? "}";
 		public ParserRule getRule() { return rule; }
 
 		//{ruleXMLRPC} "XML-RPC" "{" "ServerURL" "=" remoteMachine=[BindingParam] ";" ("HttpBasicAuth" "{" "BasicAuthUsername" "="
+		//
 		//username=[BindingParam] ";" "BasicAuthPassword" "=" password=[BindingParam] ";" "}")? "RPCMethod" "="
+		//
 		//RPCMethod=[BindingParam] ";" ("parameters" "=" URLparams+=[ConfigurationParam|STRING]*)? "}"
 		public Group getGroup() { return cGroup; }
 
@@ -1560,6 +1626,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
 
 		//("HttpBasicAuth" "{" "BasicAuthUsername" "=" username=[BindingParam] ";" "BasicAuthPassword" "=" password=[BindingParam]
+		//
 		//";" "}")?
 		public Group getGroup_7() { return cGroup_7; }
 
@@ -1673,19 +1740,36 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	private RuleHTTP_URLElements pRuleHTTP_URL;
 	private RuleXMLRPCElements pRuleXMLRPC;
 	
-	private final GrammarProvider grammarProvider;
+	private final Grammar grammar;
 
 	private TerminalsGrammarAccess gaTerminals;
 
 	@Inject
 	public RadlGrammarAccess(GrammarProvider grammarProvider,
 		TerminalsGrammarAccess gaTerminals) {
-		this.grammarProvider = grammarProvider;
+		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 	}
 	
-	public Grammar getGrammar() {	
-		return grammarProvider.getGrammar(this);
+	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
+		Grammar grammar = grammarProvider.getGrammar(this);
+		while (grammar != null) {
+			if ("gr.upatras.ece.wcl.radl2.Radl".equals(grammar.getName())) {
+				return grammar;
+			}
+			List<Grammar> grammars = grammar.getUsedGrammars();
+			if (!grammars.isEmpty()) {
+				grammar = grammars.iterator().next();
+			} else {
+				return null;
+			}
+		}
+		return grammar;
+	}
+	
+	
+	public Grammar getGrammar() {
+		return grammar;
 	}
 	
 
@@ -1695,6 +1779,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//RADL:
+	//
 	//	imports=Import? resourceAdapter=ResourceAdapter;
 	public RADLElements getRADLAccess() {
 		return (pRADL != null) ? pRADL : (pRADL = new RADLElements());
@@ -1705,6 +1790,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Import:
+	//
 	//	"import service" importURI=STRING;
 	public ImportElements getImportAccess() {
 		return (pImport != null) ? pImport : (pImport = new ImportElements());
@@ -1715,11 +1801,17 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ResourceAdapter:
+	//
 	//	"Resource Adapter" name=STRING ("implements" implname=[services::OfferedService|STRING] "by office"
-	//	byoffice=[office::Office|STRING])? ("Configuration Parameters" "{" confParams+=ConfigurationParam* "}")?
+	//
+	//	byoffice=[broker::Broker|STRING])? ("Configuration Parameters" "{" confParams+=ConfigurationParam* "}")?
+	//
 	//	("Binding Parameters" "{" bindParams+=BindingParam* "}")? ("Supported Child Types" "{"
+	//
 	//	childParams+=SupportedChildType* "}")? ("Allowed Types" "{" allowParams+=AllowedType* "}")? ("On Update" "{"
+	//
 	//	"ProcessOnAllConfigurationParametersComplete" "=" ConfComplete=("YES" | "NO") ";" "RAProtocol" protocol=Protocol
+	//
 	//	"}")?;
 	public ResourceAdapterElements getResourceAdapterAccess() {
 		return (pResourceAdapter != null) ? pResourceAdapter : (pResourceAdapter = new ResourceAdapterElements());
@@ -1730,8 +1822,13 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ConfigurationParam:
-	//	{ConfigurationParam} paramType=ParameterType? name=(ID | STRING) ("=" defValue=STRING)? //	('implements' servsetting=[services::ServiceSetting|STRING] )?  
-	//	("description" "=" descriptionValue=STRING)? ";";
+	//
+	//	{ConfigurationParam} paramType=ParameterType? name=(ID | STRING) ("=" defValue=STRING)?
+	//
+	//	//	('implements' servsetting=[services::ServiceSetting|STRING] )?  
+	// ("description" "=" descriptionValue=STRING)?
+	//
+	//	";";
 	public ConfigurationParamElements getConfigurationParamAccess() {
 		return (pConfigurationParam != null) ? pConfigurationParam : (pConfigurationParam = new ConfigurationParamElements());
 	}
@@ -1741,7 +1838,9 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BindingParam:
+	//
 	//	{BindingParam} paramType=ParameterType? name=(ID | STRING) ("=" defValue=STRING)? ("description" "="
+	//
 	//	descriptionValue=STRING)? ";";
 	public BindingParamElements getBindingParamAccess() {
 		return (pBindingParam != null) ? pBindingParam : (pBindingParam = new BindingParamElements());
@@ -1752,6 +1851,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SupportedChildType:
+	//
 	//	{SupportedChildType} paramType=ParameterType? name=(ID | STRING) ("=" defValue=STRING)? ";";
 	public SupportedChildTypeElements getSupportedChildTypeAccess() {
 		return (pSupportedChildType != null) ? pSupportedChildType : (pSupportedChildType = new SupportedChildTypeElements());
@@ -1762,6 +1862,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AllowedType:
+	//
 	//	{AllowedType} paramType=ParameterType? name=(ID | STRING) ("=" defValue=STRING)? ";";
 	public AllowedTypeElements getAllowedTypeAccess() {
 		return (pAllowedType != null) ? pAllowedType : (pAllowedType = new AllowedTypeElements());
@@ -1772,6 +1873,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Protocol:
+	//
 	//	ruleSSH | ruleHTTP | ruleXMLRPC | ruleJavaWrapper;
 	public ProtocolElements getProtocolAccess() {
 		return (pProtocol != null) ? pProtocol : (pProtocol = new ProtocolElements());
@@ -1782,6 +1884,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ParameterType:
+	//
 	//	{ParameterType} pName=("String" | "Integer" | "Boolean" | "Enum" | "REFERENCE");
 	public ParameterTypeElements getParameterTypeAccess() {
 		return (pParameterType != null) ? pParameterType : (pParameterType = new ParameterTypeElements());
@@ -1792,9 +1895,14 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ruleSSH:
-	//	{ruleSSH} "SSH" "{" "Remote Machine" "=" remoteMachine=[scriptParam|STRING] ";" "RPort" "=" RPort=[scriptParam|STRING]
-	//	";" "RUsername" "=" username=[scriptParam|STRING] ";" "RPassword" "=" password=[scriptParam|STRING] ";" "RExecute" "{"
-	//	commands+=rulSSH_commands* "}" "RExecuteDelete" "{" commandsDelete+=rulSSH_commands* "}" "}";
+	//
+	//	{ruleSSH} "SSH" "{" "Remote Machine" "=" remoteMachine=[scriptParam|STRING] ";" "RPort" "="
+	//
+	//	RPort=[scriptParam|STRING] ";" "RUsername" "=" username=[scriptParam|STRING] ";" "RPassword" "="
+	//
+	//	password=[scriptParam|STRING] ";" "RExecute" "{" commands+=rulSSH_commands* "}" "RExecuteDelete" "{"
+	//
+	//	commandsDelete+=rulSSH_commands* "}" "}";
 	public RuleSSHElements getRuleSSHAccess() {
 		return (pRuleSSH != null) ? pRuleSSH : (pRuleSSH = new RuleSSHElements());
 	}
@@ -1804,7 +1912,9 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ruleJavaWrapper:
+	//
 	//	{ruleJavaWrapper} "Java" classname=ID "(" (constructorParams+=rulJava_param ("," constructorParams+=rulJava_param)*)?
+	//
 	//	")" "{" commands+=Command* "}";
 	public RuleJavaWrapperElements getRuleJavaWrapperAccess() {
 		return (pRuleJavaWrapper != null) ? pRuleJavaWrapper : (pRuleJavaWrapper = new RuleJavaWrapperElements());
@@ -1815,6 +1925,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Command:
+	//
 	//	entryCommand | assignCommand;
 	public CommandElements getCommandAccess() {
 		return (pCommand != null) ? pCommand : (pCommand = new CommandElements());
@@ -1825,6 +1936,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//entryCommand:
+	//
 	//	"JExecute" javaFunctionName=ID "(" (commands+=rulJava_param ("," commands+=rulJava_param)*)? ")";
 	public EntryCommandElements getEntryCommandAccess() {
 		return (pEntryCommand != null) ? pEntryCommand : (pEntryCommand = new EntryCommandElements());
@@ -1835,6 +1947,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//rulJava_param:
+	//
 	//	rulJava_paramString | rulJava_paramInt | rulJava_paraScript;
 	public RulJava_paramElements getRulJava_paramAccess() {
 		return (pRulJava_param != null) ? pRulJava_param : (pRulJava_param = new RulJava_paramElements());
@@ -1845,6 +1958,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//rulJava_paramString:
+	//
 	//	stringValue=STRING;
 	public RulJava_paramStringElements getRulJava_paramStringAccess() {
 		return (pRulJava_paramString != null) ? pRulJava_paramString : (pRulJava_paramString = new RulJava_paramStringElements());
@@ -1855,6 +1969,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//rulJava_paramInt:
+	//
 	//	intValue=INT;
 	public RulJava_paramIntElements getRulJava_paramIntAccess() {
 		return (pRulJava_paramInt != null) ? pRulJava_paramInt : (pRulJava_paramInt = new RulJava_paramIntElements());
@@ -1865,6 +1980,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//rulJava_paraScript:
+	//
 	//	scriptparamValue=[scriptParam];
 	public RulJava_paraScriptElements getRulJava_paraScriptAccess() {
 		return (pRulJava_paraScript != null) ? pRulJava_paraScript : (pRulJava_paraScript = new RulJava_paraScriptElements());
@@ -1875,7 +1991,9 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//assignCommand:
+	//
 	//	{assignCommand} "JAssign" scriptParam=[scriptParam] "=" javaFunctionName=ID "(" (commands+=rulJava_param (","
+	//
 	//	commands+=rulJava_param)*)? ")";
 	public AssignCommandElements getAssignCommandAccess() {
 		return (pAssignCommand != null) ? pAssignCommand : (pAssignCommand = new AssignCommandElements());
@@ -1886,11 +2004,14 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	////ruleSSH_File returns ruleSSH_File:
-	////{ruleSSH_File}
-	////	'Remote Script' '=' remoteScript=STRING
+	// //{ruleSSH_File}
+	// //	'Remote Script' '=' remoteScript=STRING
+	//
+	//
 	////	('parameters' '=' (scriptparams+=[ConfigurationParam | STRING])*  )? 
-	////;
-	//scriptParam:
+	// //;
+	// scriptParam:
+	//
 	//	ConfigurationParam | BindingParam;
 	public ScriptParamElements getScriptParamAccess() {
 		return (pScriptParam != null) ? pScriptParam : (pScriptParam = new ScriptParamElements());
@@ -1901,6 +2022,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//rulSSH_commands:
+	//
 	//	{rulSSH_commands} remoteCommand=STRING ("<<" scriptparams+=[scriptParam|STRING]* ">>")?;
 	public RulSSH_commandsElements getRulSSH_commandsAccess() {
 		return (pRulSSH_commands != null) ? pRulSSH_commands : (pRulSSH_commands = new RulSSH_commandsElements());
@@ -1911,9 +2033,13 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ruleHTTP:
+	//
 	//	{ruleHTTP} "HTTP" "{" "RemoteMachine" "=" remoteMachine=[scriptParam|STRING] ";" "HttpURL" "=" httpURL+=ruleHTTP_URL*
+	//
 	//	";" "HttpMethod" "=" HMethod=("GET" | "POST") ";" ("HttpAuth" "{" "Method" "=" AuthMethod=[scriptParam|STRING] ";"
+	//
 	//	"AuthUsername" "=" username=[scriptParam|STRING] ";" "AuthPassword" "=" password=[scriptParam|STRING] ";" "}")?
+	//
 	//	("PostBody" "=" postBody=[scriptParam|STRING] ";") "}";
 	public RuleHTTPElements getRuleHTTPAccess() {
 		return (pRuleHTTP != null) ? pRuleHTTP : (pRuleHTTP = new RuleHTTPElements());
@@ -1924,6 +2050,7 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ruleHTTP_URL:
+	//
 	//	{ruleHTTP_URL} remoteURL=STRING ("<<" scriptparams+=[scriptParam|STRING]* ">>")?;
 	public RuleHTTP_URLElements getRuleHTTP_URLAccess() {
 		return (pRuleHTTP_URL != null) ? pRuleHTTP_URL : (pRuleHTTP_URL = new RuleHTTP_URLElements());
@@ -1934,8 +2061,11 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ruleXMLRPC:
+	//
 	//	{ruleXMLRPC} "XML-RPC" "{" "ServerURL" "=" remoteMachine=[BindingParam] ";" ("HttpBasicAuth" "{" "BasicAuthUsername"
+	//
 	//	"=" username=[BindingParam] ";" "BasicAuthPassword" "=" password=[BindingParam] ";" "}")? "RPCMethod" "="
+	//
 	//	RPCMethod=[BindingParam] ";" ("parameters" "=" URLparams+=[ConfigurationParam|STRING]*)? "}";
 	public RuleXMLRPCElements getRuleXMLRPCAccess() {
 		return (pRuleXMLRPC != null) ? pRuleXMLRPC : (pRuleXMLRPC = new RuleXMLRPCElements());
@@ -1946,43 +2076,51 @@ public class RadlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//terminal ID:
+	//
 	//	"^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;
 	public TerminalRule getIDRule() {
 		return gaTerminals.getIDRule();
 	} 
 
 	//terminal INT returns ecore::EInt:
+	//
 	//	"0".."9"+;
 	public TerminalRule getINTRule() {
 		return gaTerminals.getINTRule();
 	} 
 
 	//terminal STRING:
+	//
 	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" |
+	//
 	//	"n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
 	public TerminalRule getSTRINGRule() {
 		return gaTerminals.getSTRINGRule();
 	} 
 
 	//terminal ML_COMMENT:
+	//
 	//	"/ *"->"* /";
 	public TerminalRule getML_COMMENTRule() {
 		return gaTerminals.getML_COMMENTRule();
 	} 
 
 	//terminal SL_COMMENT:
+	//
 	//	"//" !("\n" | "\r")* ("\r"? "\n")?;
 	public TerminalRule getSL_COMMENTRule() {
 		return gaTerminals.getSL_COMMENTRule();
 	} 
 
 	//terminal WS:
+	//
 	//	(" " | "\t" | "\r" | "\n")+;
 	public TerminalRule getWSRule() {
 		return gaTerminals.getWSRule();
 	} 
 
 	//terminal ANY_OTHER:
+	//
 	//	.;
 	public TerminalRule getANY_OTHERRule() {
 		return gaTerminals.getANY_OTHERRule();

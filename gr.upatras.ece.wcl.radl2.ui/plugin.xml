@@ -234,7 +234,7 @@
    <extension
          point="org.eclipse.ui.newWizards">
       <wizard
-            category="org.panlab.software.fstoolkit.wizard.category"
+            category="gr.upatras.ece.nam.fstoolkit.wizard.category"
             class="gr.upatras.ece.wcl.radl2.ui.RadlExecutableExtensionFactory:gr.upatras.ece.wcl.radl2.ui.wizard.RadlNewProjectWizard"
             icon="icons/alt_window_16.gif"
             id="gr.upatras.ece.wcl.radl2.ui.wizard.RadlNewProjectWizard"

@@ -28,38 +28,18 @@ import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.diagnostic.ISemanticSequencerDiagnosticProvider;
 import org.eclipse.xtext.serializer.diagnostic.ISerializationDiagnostic.Acceptor;
-import org.eclipse.xtext.serializer.sequencer.AbstractSemanticSequencer;
+import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.GenericSequencer;
 import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEObjectProvider;
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
-@SuppressWarnings("restriction")
-public class AbstractRadlSemanticSequencer extends AbstractSemanticSequencer {
+@SuppressWarnings("all")
+public abstract class AbstractRadlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 
 	@Inject
-	protected RadlGrammarAccess grammarAccess;
-	
-	@Inject
-	protected ISemanticSequencerDiagnosticProvider diagnosticProvider;
-	
-	@Inject
-	protected ITransientValueService transientValues;
-	
-	@Inject
-	@GenericSequencer
-	protected Provider<ISemanticSequencer> genericSequencerProvider;
-	
-	protected ISemanticSequencer genericSequencer;
-	
-	
-	@Override
-	public void init(ISemanticSequencer sequencer, ISemanticSequenceAcceptor sequenceAcceptor, Acceptor errorAcceptor) {
-		super.init(sequencer, sequenceAcceptor, errorAcceptor);
-		this.genericSequencer = genericSequencerProvider.get();
-		this.genericSequencer.init(sequencer, sequenceAcceptor, errorAcceptor);
-	}
+	private RadlGrammarAccess grammarAccess;
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == RadlPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
@@ -195,11 +175,6 @@ public class AbstractRadlSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (paramType=ParameterType? (name=ID | name=STRING) defValue=STRING?)
-	 *
-	 * Features:
-	 *    paramType[0, 1]
-	 *    name[0, 2]
-	 *    defValue[0, 1]
 	 */
 	protected void sequence_AllowedType(EObject context, AllowedType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -209,12 +184,6 @@ public class AbstractRadlSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (paramType=ParameterType? (name=ID | name=STRING) defValue=STRING? descriptionValue=STRING?)
-	 *
-	 * Features:
-	 *    paramType[0, 1]
-	 *    name[0, 2]
-	 *    defValue[0, 1]
-	 *    descriptionValue[0, 1]
 	 */
 	protected void sequence_BindingParam(EObject context, BindingParam semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -224,12 +193,6 @@ public class AbstractRadlSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (paramType=ParameterType? (name=ID | name=STRING) defValue=STRING? descriptionValue=STRING?)
-	 *
-	 * Features:
-	 *    paramType[0, 1]
-	 *    name[0, 2]
-	 *    defValue[0, 1]
-	 *    descriptionValue[0, 1]
 	 */
 	protected void sequence_ConfigurationParam(EObject context, ConfigurationParam semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -239,9 +202,6 @@ public class AbstractRadlSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     importURI=STRING
-	 *
-	 * Features:
-	 *    importURI[1, 1]
 	 */
 	protected void sequence_Import(EObject context, Import semanticObject) {
 		if(errorAcceptor != null) {
@@ -258,9 +218,6 @@ public class AbstractRadlSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (pName='String' | pName='Integer' | pName='Boolean' | pName='Enum' | pName='REFERENCE')
-	 *
-	 * Features:
-	 *    pName[0, 5]
 	 */
 	protected void sequence_ParameterType(EObject context, ParameterType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -270,10 +227,6 @@ public class AbstractRadlSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (imports=Import? resourceAdapter=ResourceAdapter)
-	 *
-	 * Features:
-	 *    imports[0, 1]
-	 *    resourceAdapter[1, 1]
 	 */
 	protected void sequence_RADL(EObject context, RADL semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -284,31 +237,13 @@ public class AbstractRadlSemanticSequencer extends AbstractSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=STRING 
-	 *         (implname=[OfferedService|STRING] byoffice=[Office|STRING])? 
+	 *         (implname=[OfferedService|STRING] byoffice=[Broker|STRING])? 
 	 *         confParams+=ConfigurationParam* 
 	 *         bindParams+=BindingParam* 
 	 *         childParams+=SupportedChildType* 
 	 *         allowParams+=AllowedType* 
 	 *         ((ConfComplete='YES' | ConfComplete='NO') protocol=Protocol)?
 	 *     )
-	 *
-	 * Features:
-	 *    name[1, 1]
-	 *    implname[0, 1]
-	 *         EXCLUDE_IF_UNSET byoffice
-	 *         MANDATORY_IF_SET byoffice
-	 *    byoffice[0, 1]
-	 *         EXCLUDE_IF_UNSET implname
-	 *         MANDATORY_IF_SET implname
-	 *    confParams[0, *]
-	 *    bindParams[0, *]
-	 *    childParams[0, *]
-	 *    allowParams[0, *]
-	 *    ConfComplete[0, 2]
-	 *         EXCLUDE_IF_UNSET protocol
-	 *    protocol[0, 1]
-	 *         MANDATORY_IF_SET ConfComplete
-	 *         MANDATORY_IF_SET ConfComplete
 	 */
 	protected void sequence_ResourceAdapter(EObject context, ResourceAdapter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -318,11 +253,6 @@ public class AbstractRadlSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (paramType=ParameterType? (name=ID | name=STRING) defValue=STRING?)
-	 *
-	 * Features:
-	 *    paramType[0, 1]
-	 *    name[0, 2]
-	 *    defValue[0, 1]
 	 */
 	protected void sequence_SupportedChildType(EObject context, SupportedChildType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -332,11 +262,6 @@ public class AbstractRadlSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (scriptParam=[scriptParam|ID] javaFunctionName=ID (commands+=rulJava_param commands+=rulJava_param*)?)
-	 *
-	 * Features:
-	 *    javaFunctionName[1, 1]
-	 *    commands[0, *]
-	 *    scriptParam[1, 1]
 	 */
 	protected void sequence_assignCommand(EObject context, assignCommand semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -346,10 +271,6 @@ public class AbstractRadlSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (javaFunctionName=ID (commands+=rulJava_param commands+=rulJava_param*)?)
-	 *
-	 * Features:
-	 *    javaFunctionName[1, 1]
-	 *    commands[0, *]
 	 */
 	protected void sequence_entryCommand(EObject context, entryCommand semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -359,9 +280,6 @@ public class AbstractRadlSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     scriptparamValue=[scriptParam|ID]
-	 *
-	 * Features:
-	 *    scriptparamValue[1, 1]
 	 */
 	protected void sequence_rulJava_paraScript(EObject context, rulJava_paraScript semanticObject) {
 		if(errorAcceptor != null) {
@@ -378,9 +296,6 @@ public class AbstractRadlSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     intValue=INT
-	 *
-	 * Features:
-	 *    intValue[1, 1]
 	 */
 	protected void sequence_rulJava_paramInt(EObject context, rulJava_paramInt semanticObject) {
 		if(errorAcceptor != null) {
@@ -397,9 +312,6 @@ public class AbstractRadlSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     stringValue=STRING
-	 *
-	 * Features:
-	 *    stringValue[1, 1]
 	 */
 	protected void sequence_rulJava_paramString(EObject context, rulJava_paramString semanticObject) {
 		if(errorAcceptor != null) {
@@ -416,10 +328,6 @@ public class AbstractRadlSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (remoteCommand=STRING scriptparams+=[scriptParam|STRING]*)
-	 *
-	 * Features:
-	 *    remoteCommand[1, 1]
-	 *    scriptparams[0, *]
 	 */
 	protected void sequence_rulSSH_commands(EObject context, rulSSH_commands semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -429,10 +337,6 @@ public class AbstractRadlSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (remoteURL=STRING scriptparams+=[scriptParam|STRING]*)
-	 *
-	 * Features:
-	 *    remoteURL[1, 1]
-	 *    scriptparams[0, *]
 	 */
 	protected void sequence_ruleHTTP_URL(EObject context, ruleHTTP_URL semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -448,27 +352,6 @@ public class AbstractRadlSemanticSequencer extends AbstractSemanticSequencer {
 	 *         (AuthMethod=[scriptParam|STRING] username=[scriptParam|STRING] password=[scriptParam|STRING])? 
 	 *         postBody=[scriptParam|STRING]
 	 *     )
-	 *
-	 * Features:
-	 *    remoteMachine[1, 1]
-	 *    httpURL[0, *]
-	 *    HMethod[0, 2]
-	 *    AuthMethod[0, 1]
-	 *         EXCLUDE_IF_UNSET username
-	 *         MANDATORY_IF_SET username
-	 *         EXCLUDE_IF_UNSET password
-	 *         MANDATORY_IF_SET password
-	 *    username[0, 1]
-	 *         EXCLUDE_IF_UNSET AuthMethod
-	 *         MANDATORY_IF_SET AuthMethod
-	 *         EXCLUDE_IF_UNSET password
-	 *         MANDATORY_IF_SET password
-	 *    password[0, 1]
-	 *         EXCLUDE_IF_UNSET AuthMethod
-	 *         MANDATORY_IF_SET AuthMethod
-	 *         EXCLUDE_IF_UNSET username
-	 *         MANDATORY_IF_SET username
-	 *    postBody[1, 1]
 	 */
 	protected void sequence_ruleHTTP(EObject context, ruleHTTP semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -478,11 +361,6 @@ public class AbstractRadlSemanticSequencer extends AbstractSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (classname=ID (constructorParams+=rulJava_param constructorParams+=rulJava_param*)? commands+=Command*)
-	 *
-	 * Features:
-	 *    classname[1, 1]
-	 *    constructorParams[0, *]
-	 *    commands[0, *]
 	 */
 	protected void sequence_ruleJavaWrapper(EObject context, ruleJavaWrapper semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -499,14 +377,6 @@ public class AbstractRadlSemanticSequencer extends AbstractSemanticSequencer {
 	 *         commands+=rulSSH_commands* 
 	 *         commandsDelete+=rulSSH_commands*
 	 *     )
-	 *
-	 * Features:
-	 *    remoteMachine[1, 1]
-	 *    RPort[1, 1]
-	 *    username[1, 1]
-	 *    password[1, 1]
-	 *    commands[0, *]
-	 *    commandsDelete[0, *]
 	 */
 	protected void sequence_ruleSSH(EObject context, ruleSSH semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -521,17 +391,6 @@ public class AbstractRadlSemanticSequencer extends AbstractSemanticSequencer {
 	 *         RPCMethod=[BindingParam|ID] 
 	 *         URLparams+=[ConfigurationParam|STRING]*
 	 *     )
-	 *
-	 * Features:
-	 *    remoteMachine[1, 1]
-	 *    username[0, 1]
-	 *         EXCLUDE_IF_UNSET password
-	 *         MANDATORY_IF_SET password
-	 *    password[0, 1]
-	 *         EXCLUDE_IF_UNSET username
-	 *         MANDATORY_IF_SET username
-	 *    RPCMethod[1, 1]
-	 *    URLparams[0, *]
 	 */
 	protected void sequence_ruleXMLRPC(EObject context, ruleXMLRPC semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

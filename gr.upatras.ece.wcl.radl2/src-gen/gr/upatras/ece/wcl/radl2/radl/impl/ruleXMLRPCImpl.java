@@ -1,8 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
-
  */
 package gr.upatras.ece.wcl.radl2.radl.impl;
 

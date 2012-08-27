@@ -1,14 +1,10 @@
 /**
- * <copyright>
- * </copyright>
- *
-
  */
 package gr.upatras.ece.wcl.radl2.radl.impl;
 
-import FederationOffice.FederationOfficePackage;
+import brokermodel.BrokermodelPackage;
 
-import FederationOffice.services.ServicesPackage;
+import brokermodel.services.ServicesPackage;
 
 import gr.upatras.ece.wcl.radl2.radl.AllowedType;
 import gr.upatras.ece.wcl.radl2.radl.BindingParam;
@@ -260,7 +256,7 @@ public class RadlPackageImpl extends EPackageImpl implements RadlPackage
     isInited = true;
 
     // Initialize simple dependencies
-    FederationOfficePackage.eINSTANCE.eClass();
+    BrokermodelPackage.eINSTANCE.eClass();
     ServicesPackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
@@ -1205,7 +1201,7 @@ public class RadlPackageImpl extends EPackageImpl implements RadlPackage
 
     // Obtain other dependent packages
     ServicesPackage theServicesPackage = (ServicesPackage)EPackage.Registry.INSTANCE.getEPackage(ServicesPackage.eNS_URI);
-    FederationOfficePackage theFederationOfficePackage = (FederationOfficePackage)EPackage.Registry.INSTANCE.getEPackage(FederationOfficePackage.eNS_URI);
+    BrokermodelPackage theBrokermodelPackage = (BrokermodelPackage)EPackage.Registry.INSTANCE.getEPackage(BrokermodelPackage.eNS_URI);
 
     // Create type parameters
 
@@ -1235,7 +1231,7 @@ public class RadlPackageImpl extends EPackageImpl implements RadlPackage
     initEClass(resourceAdapterEClass, ResourceAdapter.class, "ResourceAdapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getResourceAdapter_Name(), ecorePackage.getEString(), "name", null, 0, 1, ResourceAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getResourceAdapter_Implname(), theServicesPackage.getOfferedService(), null, "implname", null, 0, 1, ResourceAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getResourceAdapter_Byoffice(), theFederationOfficePackage.getOffice(), null, "byoffice", null, 0, 1, ResourceAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getResourceAdapter_Byoffice(), theBrokermodelPackage.getBroker(), null, "byoffice", null, 0, 1, ResourceAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getResourceAdapter_ConfParams(), this.getConfigurationParam(), null, "confParams", null, 0, -1, ResourceAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getResourceAdapter_BindParams(), this.getBindingParam(), null, "bindParams", null, 0, -1, ResourceAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getResourceAdapter_ChildParams(), this.getSupportedChildType(), null, "childParams", null, 0, -1, ResourceAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

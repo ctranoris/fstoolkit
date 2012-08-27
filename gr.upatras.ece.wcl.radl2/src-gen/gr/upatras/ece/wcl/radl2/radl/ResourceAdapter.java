@@ -1,14 +1,10 @@
 /**
- * <copyright>
- * </copyright>
- *
-
  */
 package gr.upatras.ece.wcl.radl2.radl;
 
-import FederationOffice.Office;
+import brokermodel.Broker;
 
-import FederationOffice.services.OfferedService;
+import brokermodel.services.OfferedService;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -101,12 +97,12 @@ public interface ResourceAdapter extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Byoffice</em>' reference.
-   * @see #setByoffice(Office)
+   * @see #setByoffice(Broker)
    * @see gr.upatras.ece.wcl.radl2.radl.RadlPackage#getResourceAdapter_Byoffice()
    * @model
    * @generated
    */
-  Office getByoffice();
+  Broker getByoffice();
 
   /**
    * Sets the value of the '{@link gr.upatras.ece.wcl.radl2.radl.ResourceAdapter#getByoffice <em>Byoffice</em>}' reference.
@@ -116,7 +112,7 @@ public interface ResourceAdapter extends EObject
    * @see #getByoffice()
    * @generated
    */
-  void setByoffice(Office value);
+  void setByoffice(Broker value);
 
   /**
    * Returns the value of the '<em><b>Conf Params</b></em>' containment reference list.

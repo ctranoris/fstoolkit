@@ -229,7 +229,7 @@ ruleResourceAdapter returns [EObject current=null]
         }
 	otherlv_5=RULE_STRING
 	{
-		newLeafNode(otherlv_5, grammarAccess.getResourceAdapterAccess().getByofficeOfficeCrossReference_2_3_0()); 
+		newLeafNode(otherlv_5, grammarAccess.getResourceAdapterAccess().getByofficeBrokerCrossReference_2_3_0()); 
 	}
 
 )

@@ -14,17 +14,9 @@ Workflow {
         scanClassPath = true
         platformUri = "${runtimeProject}/.."
         
-        registerGeneratedEPackage = "FederationOffice.services.ServicesPackage"
-		registerGeneratedEPackage = "FederationOffice.providersite.ProvidersitePackage"
-		registerGeneratedEPackage = "FederationOffice.FederationOfficePackage"
-		registerGeneratedEPackage = "FederationOffice.slareservations.SlareservationsPackage"
-		registerGeneratedEPackage = "FederationOffice.networkelements.NetworkelementsPackage"
-		registerGeneratedEPackage = "FederationOffice.resources.ResourcesPackage"
-		registerGeneratedEPackage = "FederationOffice.users.UsersPackage"
-		registerGeneratedEPackage = "FederationOffice.federationscenarios.FederationscenariosPackage"	
-		registerGeneratedEPackage = "FederationOffice.availabilityContract.AvailabilityContractPackage"
-    	registerGenModelFile = "platform:/resource/org.panlab.software.office.model/model/FederationOffice.genmodel"
-    }
+        registerGeneratedEPackage = "brokermodel.BrokermodelPackage"
+			registerGenModelFile = "platform:/resource/gr.upatras.ece.nam.broker.model/model/Broker.genmodel"
+          }
 
     component = DirectoryCleaner {
         directory = "${runtimeProject}/src-gen"

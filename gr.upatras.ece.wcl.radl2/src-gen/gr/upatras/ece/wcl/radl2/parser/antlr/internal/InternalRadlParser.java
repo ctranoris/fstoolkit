@@ -548,7 +548,7 @@ public class InternalRadlParser extends AbstractInternalAntlrParser {
                             
                     otherlv_5=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleResourceAdapter428); 
 
-                    		newLeafNode(otherlv_5, grammarAccess.getResourceAdapterAccess().getByofficeOfficeCrossReference_2_3_0()); 
+                    		newLeafNode(otherlv_5, grammarAccess.getResourceAdapterAccess().getByofficeBrokerCrossReference_2_3_0()); 
                     	
 
                     }

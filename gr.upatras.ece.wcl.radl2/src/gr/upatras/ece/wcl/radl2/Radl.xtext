@@ -1,14 +1,12 @@
 grammar gr.upatras.ece.wcl.radl2.Radl with org.eclipse.xtext.common.Terminals
 
-import 'platform:/resource/org.panlab.software.office.model/model/FederationOffice.ecore'   as office
-import 'platform:/resource/org.panlab.software.office.model/model/FederationOffice.ecore#//users'   as users
-import 'platform:/resource/org.panlab.software.office.model/model/FederationOffice.ecore#//services'   as services
-import 'platform:/resource/org.panlab.software.office.model/model/FederationOffice.ecore#//resources'   as resources
-import 'platform:/resource/org.panlab.software.office.model/model/FederationOffice.ecore#//providersite'   as providersite
-import 'platform:/resource/org.panlab.software.office.model/model/FederationOffice.ecore#//slareservations'   as slareservations
-import 'platform:/resource/org.panlab.software.office.model/model/FederationOffice.ecore#//availabilityContract'   as availabilityContract
-import 'platform:/resource/org.panlab.software.office.model/model/FederationOffice.ecore#//networkelements' as networkelements
-import 'platform:/resource/org.panlab.software.office.model/model/FederationOffice.ecore#//federationscenarios' as federationscenarios
+
+
+import "platform:/resource/gr.upatras.ece.nam.broker.model/model/Broker.ecore" as broker
+import "platform:/resource/gr.upatras.ece.nam.broker.model/model/Broker.ecore#//federationscenarios"  as federationscenarios
+import 'platform:/resource/gr.upatras.ece.nam.broker.model/model/Broker.ecore#//users'   as users
+import 'platform:/resource/gr.upatras.ece.nam.broker.model/model/Broker.ecore#//services'   as services
+import 'platform:/resource/gr.upatras.ece.nam.broker.model/model/Broker.ecore#//resources'   as resources
  
 //import "platform:/resource/org.panlab.officedl/src-gen/org/panlab/officedl/OfficeDL.ecore" as OfficeDL
 
@@ -24,7 +22,7 @@ Import :
 ; 
 
 ResourceAdapter returns ResourceAdapter:
-	'Resource Adapter' name=STRING ('implements'  implname=[services::OfferedService |STRING] 'by office' byoffice=[office::Office |STRING] )?	
+	'Resource Adapter' name=STRING ('implements'  implname=[services::OfferedService |STRING] 'by office' byoffice=[broker::Broker |STRING] )?	
 	('Configuration Parameters' '{'
 		(confParams+= ConfigurationParam)*		
 	'}'

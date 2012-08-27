@@ -9,8 +9,8 @@ import java.util.Iterator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.validation.Check;
 
-import FederationOffice.Office;
-import FederationOffice.services.ServiceSetting;
+import brokermodel.Broker;
+import brokermodel.services.ServiceSetting;
  
 
 public class RadlJavaValidator extends AbstractRadlJavaValidator {
@@ -31,15 +31,15 @@ public static final String INVALID_CheckResourceAdapterImplements = "INVALID_Che
 		String forQFix="";
 		if (type.getImplname()!=null){
 			//System.out.println("checkMainRule type.getName()="+type.getImplname().getName()  );
-			FederationOffice.services.OfferedService ofserv = type.getImplname();
+			brokermodel.services.OfferedService ofserv = type.getImplname();
 			for (Iterator<ServiceSetting> iterator = ofserv.getServiceSettings().iterator(); iterator.hasNext();) {
 				ServiceSetting servsetting = (ServiceSetting) iterator.next();				
 				//System.out.println("servsetting.getName() ="+servsetting.getName()  );
 				if (!checkForImplementedServiceSetting( servsetting.getName(), type )){
 					allExists = false ;
 					 
-					Office toffice= (Office) type.getImplname().eContainer();
-					String fullName = toffice.getName() +"." + type.getImplname().getName() +"." +servsetting.getName();
+					Broker tBroker= (Broker) type.getImplname().eContainer();
+					String fullName = tBroker.getName() +"." + type.getImplname().getName() +"." +servsetting.getName();
 					forQFix += "\t\""+servsetting.getName() +"\"" +" implements \""+ fullName +"\";"+
 							"\n";
 				}

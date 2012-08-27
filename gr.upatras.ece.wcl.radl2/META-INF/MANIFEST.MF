@@ -12,16 +12,15 @@ Require-Bundle: org.eclipse.xtext;bundle-version="2.0.0";visibility:=reexport,
  org.eclipse.emf.codegen.ecore;resolution:=optional,
  org.eclipse.emf.mwe.utils;resolution:=optional,
  org.eclipse.emf.mwe2.launch;resolution:=optional,
- org.panlab.software.office.model;bundle-version="1.0.2",
  org.eclipse.xtext.util,
  org.eclipse.emf.ecore,
  org.eclipse.emf.common,
  org.antlr.runtime,
- org.eclipse.xtext.common.types
-Import-Package: org.apache.log4j,
- org.apache.commons.logging,
- org.eclipse.xtext.xbase.lib,
- org.eclipse.xtext.xtend2.lib
+ org.eclipse.xtext.common.types,
+ gr.upatras.ece.nam.broker.model;bundle-version="1.0.0"
+Import-Package: org.apache.commons.logging,
+ org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: gr.upatras.ece.wcl.radl2,
  gr.upatras.ece.wcl.radl2.services,
@@ -31,4 +30,7 @@ Export-Package: gr.upatras.ece.wcl.radl2,
  gr.upatras.ece.wcl.radl2.validation,
  gr.upatras.ece.wcl.radl2.radl,
  gr.upatras.ece.wcl.radl2.radl.impl,
- gr.upatras.ece.wcl.radl2.radl.util
+ gr.upatras.ece.wcl.radl2.radl.util,
+ gr.upatras.ece.wcl.radl2.scoping,
+ gr.upatras.ece.wcl.radl2.generator,
+ gr.upatras.ece.wcl.radl2.formatting

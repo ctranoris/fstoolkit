@@ -20429,17 +20429,17 @@ public class InternalRadlParser extends AbstractInternalContentAssistParser {
             // ../gr.upatras.ece.wcl.radl2.ui/src-gen/gr/upatras/ece/wcl/radl2/ui/contentassist/antlr/internal/InternalRadl.g:8026:1: ( ( RULE_STRING ) )
             // ../gr.upatras.ece.wcl.radl2.ui/src-gen/gr/upatras/ece/wcl/radl2/ui/contentassist/antlr/internal/InternalRadl.g:8027:1: ( RULE_STRING )
             {
-             before(grammarAccess.getResourceAdapterAccess().getByofficeOfficeCrossReference_2_3_0()); 
+             before(grammarAccess.getResourceAdapterAccess().getByofficeBrokerCrossReference_2_3_0()); 
             // ../gr.upatras.ece.wcl.radl2.ui/src-gen/gr/upatras/ece/wcl/radl2/ui/contentassist/antlr/internal/InternalRadl.g:8028:1: ( RULE_STRING )
             // ../gr.upatras.ece.wcl.radl2.ui/src-gen/gr/upatras/ece/wcl/radl2/ui/contentassist/antlr/internal/InternalRadl.g:8029:1: RULE_STRING
             {
-             before(grammarAccess.getResourceAdapterAccess().getByofficeOfficeSTRINGTerminalRuleCall_2_3_0_1()); 
+             before(grammarAccess.getResourceAdapterAccess().getByofficeBrokerSTRINGTerminalRuleCall_2_3_0_1()); 
             match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__ResourceAdapter__ByofficeAssignment_2_315873); 
-             after(grammarAccess.getResourceAdapterAccess().getByofficeOfficeSTRINGTerminalRuleCall_2_3_0_1()); 
+             after(grammarAccess.getResourceAdapterAccess().getByofficeBrokerSTRINGTerminalRuleCall_2_3_0_1()); 
 
             }
 
-             after(grammarAccess.getResourceAdapterAccess().getByofficeOfficeCrossReference_2_3_0()); 
+             after(grammarAccess.getResourceAdapterAccess().getByofficeBrokerCrossReference_2_3_0()); 
 
             }
 

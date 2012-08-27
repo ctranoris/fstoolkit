@@ -1,38 +1,26 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xtext="http://www.eclipse.org/2008/Xtext">
   <xtext:Grammar name="gr.upatras.ece.wcl.radl2.Radl" usedGrammars="/1">
-    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="office">
-      <ePackage href="http://www.panlab.org/FederationOffice#/"/>
-    </metamodelDeclarations>
-    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="users">
-      <ePackage href="http://www.panlab.org/FederationOffice#//users"/>
-    </metamodelDeclarations>
-    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="services">
-      <ePackage href="http://www.panlab.org/FederationOffice#//services"/>
-    </metamodelDeclarations>
-    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="resources">
-      <ePackage href="http://www.panlab.org/FederationOffice#//resources"/>
-    </metamodelDeclarations>
-    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="providersite">
-      <ePackage href="http://www.panlab.org/FederationOffice#//providersite"/>
-    </metamodelDeclarations>
-    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="slareservations">
-      <ePackage href="http://www.panlab.org/FederationOffice#//slareservations"/>
-    </metamodelDeclarations>
-    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="availabilityContract">
-      <ePackage href="http://www.panlab.org/FederationOffice#//availabilityContract"/>
-    </metamodelDeclarations>
-    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="networkelements">
-      <ePackage href="http://www.panlab.org/FederationOffice#//networkelements"/>
+    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="broker">
+      <ePackage href="http://nam.ece.upatras.gr/broker#/"/>
     </metamodelDeclarations>
     <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="federationscenarios">
-      <ePackage href="http://www.panlab.org/FederationOffice#//federationscenarios"/>
+      <ePackage href="http://nam.ece.upatras.gr/broker#//federationscenarios"/>
+    </metamodelDeclarations>
+    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="users">
+      <ePackage href="http://nam.ece.upatras.gr/broker#//users"/>
+    </metamodelDeclarations>
+    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="services">
+      <ePackage href="http://nam.ece.upatras.gr/broker#//services"/>
+    </metamodelDeclarations>
+    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="resources">
+      <ePackage href="http://nam.ece.upatras.gr/broker#//resources"/>
     </metamodelDeclarations>
     <metamodelDeclarations xsi:type="xtext:GeneratedMetamodel" name="radl">
       <ePackage href="http://www.upatras.gr/ece/wcl/radl2/Radl#/"/>
     </metamodelDeclarations>
     <rules xsi:type="xtext:ParserRule" name="RADL">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//RADL"/>
       </type>
       <alternatives xsi:type="xtext:Group">
@@ -45,7 +33,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Import">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//Import"/>
       </type>
       <alternatives xsi:type="xtext:Group">
@@ -56,7 +44,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ResourceAdapter">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//ResourceAdapter"/>
       </type>
       <alternatives xsi:type="xtext:Group">
@@ -68,8 +56,8 @@
           <elements xsi:type="xtext:Keyword" value="implements"/>
           <elements xsi:type="xtext:Assignment" feature="implname" operator="=">
             <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.2">
-                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice#//services/OfferedService"/>
+              <type metamodel="/0/@metamodelDeclarations.3">
+                <classifier xsi:type="ecore:EClass" href="http://nam.ece.upatras.gr/broker#//services/OfferedService"/>
               </type>
               <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
             </terminal>
@@ -78,7 +66,7 @@
           <elements xsi:type="xtext:Assignment" feature="byoffice" operator="=">
             <terminal xsi:type="xtext:CrossReference">
               <type metamodel="/0/@metamodelDeclarations.0">
-                <classifier xsi:type="ecore:EClass" href="http://www.panlab.org/FederationOffice#//Office"/>
+                <classifier xsi:type="ecore:EClass" href="http://nam.ece.upatras.gr/broker#//Broker"/>
               </type>
               <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
             </terminal>
@@ -137,12 +125,12 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ConfigurationParam">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//ConfigurationParam"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Action">
-          <type metamodel="/0/@metamodelDeclarations.9">
+          <type metamodel="/0/@metamodelDeclarations.5">
             <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//ConfigurationParam"/>
           </type>
         </elements>
@@ -172,12 +160,12 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="BindingParam">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//BindingParam"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Action">
-          <type metamodel="/0/@metamodelDeclarations.9">
+          <type metamodel="/0/@metamodelDeclarations.5">
             <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//BindingParam"/>
           </type>
         </elements>
@@ -207,12 +195,12 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="SupportedChildType">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//SupportedChildType"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Action">
-          <type metamodel="/0/@metamodelDeclarations.9">
+          <type metamodel="/0/@metamodelDeclarations.5">
             <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//SupportedChildType"/>
           </type>
         </elements>
@@ -235,12 +223,12 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="AllowedType">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//AllowedType"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Action">
-          <type metamodel="/0/@metamodelDeclarations.9">
+          <type metamodel="/0/@metamodelDeclarations.5">
             <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//AllowedType"/>
           </type>
         </elements>
@@ -263,7 +251,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Protocol">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//Protocol"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
@@ -274,12 +262,12 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ParameterType">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//ParameterType"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Action">
-          <type metamodel="/0/@metamodelDeclarations.9">
+          <type metamodel="/0/@metamodelDeclarations.5">
             <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//ParameterType"/>
           </type>
         </elements>
@@ -295,12 +283,12 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ruleSSH">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//ruleSSH"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Action">
-          <type metamodel="/0/@metamodelDeclarations.9">
+          <type metamodel="/0/@metamodelDeclarations.5">
             <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//ruleSSH"/>
           </type>
         </elements>
@@ -310,7 +298,7 @@
         <elements xsi:type="xtext:Keyword" value="="/>
         <elements xsi:type="xtext:Assignment" feature="remoteMachine" operator="=">
           <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.9">
+            <type metamodel="/0/@metamodelDeclarations.5">
               <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//scriptParam"/>
             </type>
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
@@ -321,7 +309,7 @@
         <elements xsi:type="xtext:Keyword" value="="/>
         <elements xsi:type="xtext:Assignment" feature="RPort" operator="=">
           <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.9">
+            <type metamodel="/0/@metamodelDeclarations.5">
               <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//scriptParam"/>
             </type>
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
@@ -332,7 +320,7 @@
         <elements xsi:type="xtext:Keyword" value="="/>
         <elements xsi:type="xtext:Assignment" feature="username" operator="=">
           <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.9">
+            <type metamodel="/0/@metamodelDeclarations.5">
               <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//scriptParam"/>
             </type>
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
@@ -343,7 +331,7 @@
         <elements xsi:type="xtext:Keyword" value="="/>
         <elements xsi:type="xtext:Assignment" feature="password" operator="=">
           <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.9">
+            <type metamodel="/0/@metamodelDeclarations.5">
               <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//scriptParam"/>
             </type>
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
@@ -366,12 +354,12 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ruleJavaWrapper">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//ruleJavaWrapper"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Action">
-          <type metamodel="/0/@metamodelDeclarations.9">
+          <type metamodel="/0/@metamodelDeclarations.5">
             <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//ruleJavaWrapper"/>
           </type>
         </elements>
@@ -400,7 +388,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Command">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//Command"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
@@ -409,7 +397,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="entryCommand">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//entryCommand"/>
       </type>
       <alternatives xsi:type="xtext:Group">
@@ -433,7 +421,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="rulJava_param">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//rulJava_param"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
@@ -443,7 +431,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="rulJava_paramString">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//rulJava_paramString"/>
       </type>
       <alternatives xsi:type="xtext:Assignment" feature="stringValue" operator="=">
@@ -451,7 +439,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="rulJava_paramInt">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//rulJava_paramInt"/>
       </type>
       <alternatives xsi:type="xtext:Assignment" feature="intValue" operator="=">
@@ -459,12 +447,12 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="rulJava_paraScript">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//rulJava_paraScript"/>
       </type>
       <alternatives xsi:type="xtext:Assignment" feature="scriptparamValue" operator="=">
         <terminal xsi:type="xtext:CrossReference">
-          <type metamodel="/0/@metamodelDeclarations.9">
+          <type metamodel="/0/@metamodelDeclarations.5">
             <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//scriptParam"/>
           </type>
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
@@ -472,19 +460,19 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="assignCommand">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//assignCommand"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Action">
-          <type metamodel="/0/@metamodelDeclarations.9">
+          <type metamodel="/0/@metamodelDeclarations.5">
             <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//assignCommand"/>
           </type>
         </elements>
         <elements xsi:type="xtext:Keyword" value="JAssign"/>
         <elements xsi:type="xtext:Assignment" feature="scriptParam" operator="=">
           <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.9">
+            <type metamodel="/0/@metamodelDeclarations.5">
               <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//scriptParam"/>
             </type>
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
@@ -510,7 +498,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="scriptParam">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//scriptParam"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
@@ -519,12 +507,12 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="rulSSH_commands">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//rulSSH_commands"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Action">
-          <type metamodel="/0/@metamodelDeclarations.9">
+          <type metamodel="/0/@metamodelDeclarations.5">
             <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//rulSSH_commands"/>
           </type>
         </elements>
@@ -535,7 +523,7 @@
           <elements xsi:type="xtext:Keyword" value="&lt;&lt;"/>
           <elements xsi:type="xtext:Assignment" cardinality="*" feature="scriptparams" operator="+=">
             <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.9">
+              <type metamodel="/0/@metamodelDeclarations.5">
                 <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//scriptParam"/>
               </type>
               <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
@@ -546,12 +534,12 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ruleHTTP">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//ruleHTTP"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Action">
-          <type metamodel="/0/@metamodelDeclarations.9">
+          <type metamodel="/0/@metamodelDeclarations.5">
             <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//ruleHTTP"/>
           </type>
         </elements>
@@ -561,7 +549,7 @@
         <elements xsi:type="xtext:Keyword" value="="/>
         <elements xsi:type="xtext:Assignment" feature="remoteMachine" operator="=">
           <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.9">
+            <type metamodel="/0/@metamodelDeclarations.5">
               <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//scriptParam"/>
             </type>
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
@@ -590,7 +578,7 @@
           <elements xsi:type="xtext:Keyword" value="="/>
           <elements xsi:type="xtext:Assignment" feature="AuthMethod" operator="=">
             <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.9">
+              <type metamodel="/0/@metamodelDeclarations.5">
                 <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//scriptParam"/>
               </type>
               <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
@@ -601,7 +589,7 @@
           <elements xsi:type="xtext:Keyword" value="="/>
           <elements xsi:type="xtext:Assignment" feature="username" operator="=">
             <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.9">
+              <type metamodel="/0/@metamodelDeclarations.5">
                 <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//scriptParam"/>
               </type>
               <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
@@ -612,7 +600,7 @@
           <elements xsi:type="xtext:Keyword" value="="/>
           <elements xsi:type="xtext:Assignment" feature="password" operator="=">
             <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.9">
+              <type metamodel="/0/@metamodelDeclarations.5">
                 <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//scriptParam"/>
               </type>
               <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
@@ -626,7 +614,7 @@
           <elements xsi:type="xtext:Keyword" value="="/>
           <elements xsi:type="xtext:Assignment" feature="postBody" operator="=">
             <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.9">
+              <type metamodel="/0/@metamodelDeclarations.5">
                 <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//scriptParam"/>
               </type>
               <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
@@ -638,12 +626,12 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ruleHTTP_URL">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//ruleHTTP_URL"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Action">
-          <type metamodel="/0/@metamodelDeclarations.9">
+          <type metamodel="/0/@metamodelDeclarations.5">
             <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//ruleHTTP_URL"/>
           </type>
         </elements>
@@ -654,7 +642,7 @@
           <elements xsi:type="xtext:Keyword" value="&lt;&lt;"/>
           <elements xsi:type="xtext:Assignment" cardinality="*" feature="scriptparams" operator="+=">
             <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.9">
+              <type metamodel="/0/@metamodelDeclarations.5">
                 <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//scriptParam"/>
               </type>
               <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
@@ -665,12 +653,12 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ruleXMLRPC">
-      <type metamodel="/0/@metamodelDeclarations.9">
+      <type metamodel="/0/@metamodelDeclarations.5">
         <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//ruleXMLRPC"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Action">
-          <type metamodel="/0/@metamodelDeclarations.9">
+          <type metamodel="/0/@metamodelDeclarations.5">
             <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//ruleXMLRPC"/>
           </type>
         </elements>
@@ -680,7 +668,7 @@
         <elements xsi:type="xtext:Keyword" value="="/>
         <elements xsi:type="xtext:Assignment" feature="remoteMachine" operator="=">
           <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.9">
+            <type metamodel="/0/@metamodelDeclarations.5">
               <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//BindingParam"/>
             </type>
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
@@ -694,7 +682,7 @@
           <elements xsi:type="xtext:Keyword" value="="/>
           <elements xsi:type="xtext:Assignment" feature="username" operator="=">
             <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.9">
+              <type metamodel="/0/@metamodelDeclarations.5">
                 <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//BindingParam"/>
               </type>
               <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
@@ -705,7 +693,7 @@
           <elements xsi:type="xtext:Keyword" value="="/>
           <elements xsi:type="xtext:Assignment" feature="password" operator="=">
             <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.9">
+              <type metamodel="/0/@metamodelDeclarations.5">
                 <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//BindingParam"/>
               </type>
               <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
@@ -718,7 +706,7 @@
         <elements xsi:type="xtext:Keyword" value="="/>
         <elements xsi:type="xtext:Assignment" feature="RPCMethod" operator="=">
           <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.9">
+            <type metamodel="/0/@metamodelDeclarations.5">
               <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//BindingParam"/>
             </type>
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
@@ -730,7 +718,7 @@
           <elements xsi:type="xtext:Keyword" value="="/>
           <elements xsi:type="xtext:Assignment" cardinality="*" feature="URLparams" operator="+=">
             <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.9">
+              <type metamodel="/0/@metamodelDeclarations.5">
                 <classifier xsi:type="ecore:EClass" href="http://www.upatras.gr/ece/wcl/radl2/Radl#//ConfigurationParam"/>
               </type>
               <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>

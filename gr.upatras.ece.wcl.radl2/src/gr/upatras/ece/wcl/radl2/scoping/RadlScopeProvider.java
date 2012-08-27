@@ -17,7 +17,7 @@ import com.google.common.base.Predicate;
  *
  */
 public class RadlScopeProvider extends AbstractDeclarativeScopeProvider {
-	IScope scope_ConfigurationParam_servsetting(FederationOffice.services.ServiceSetting ctx, EReference ref)
+	IScope scope_ConfigurationParam_servsetting(brokermodel.services.ServiceSetting ctx, EReference ref)
     {
 		//gia na doulepsei to scoping prepei na ksanabalw sto mwe arxeio to
 		//<fragment class="org.eclipse.xtext.generator.scoping.ImportNamespacesScopingFragment"/>
@@ -36,7 +36,7 @@ public class RadlScopeProvider extends AbstractDeclarativeScopeProvider {
 		return IScope.NULLSCOPE;
     }
 	
-	IScope scope_ResourceAdapter_implname(FederationOffice.services.OfferedService ctx, EReference ref)
+	IScope scope_ResourceAdapter_implname(brokermodel.services.OfferedService ctx, EReference ref)
     {
 		//gia na doulepsei to scoping prepei na ksanabalw sto mwe arxeio to
 		//<fragment class="org.eclipse.xtext.generator.scoping.ImportNamespacesScopingFragment"/>
@@ -55,8 +55,8 @@ public class RadlScopeProvider extends AbstractDeclarativeScopeProvider {
 		return IScope.NULLSCOPE;
     }
 	
-	protected Predicate<FederationOffice.resources.ResourceSetting> rResSets = new Predicate<FederationOffice.resources.ResourceSetting>(){
-		public boolean  apply(FederationOffice.resources.ResourceSetting input) { 
+	protected Predicate<brokermodel.resources.ResourceSetting> rResSets = new Predicate<brokermodel.resources.ResourceSetting>(){
+		public boolean  apply(brokermodel.resources.ResourceSetting input) { 
 			return true ; 
 			//return input.getName().length()==6;
 		}
