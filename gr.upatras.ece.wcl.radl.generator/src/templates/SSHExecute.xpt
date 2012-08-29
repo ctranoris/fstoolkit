@@ -1,6 +1,8 @@
 «IMPORT radl»
+«IMPORT brokermodel»
 
 «DEFINE SSHExecute_main FOR radl::ResourceAdapter-»
+
 «FILE name.replaceAll("[.]", "/") +"/SSHExecute.java"-»
 package «this.name»;
 

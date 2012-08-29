@@ -185,7 +185,7 @@ public class «RAServicename» implements RAService
         System.out.println("Executing: " + cmd);
         try{
         	int port=  Integer.parseInt(getm_bindingParam("«((radl::ruleSSH)this.protocol).RPort.name »") );
-            SSHExecute exc = new SSHExecute( getm_bindingParam("«((radl::ruleSSH)this.protocol).username.name »"),  getm_bindingParam("«((radl::ruleSSH)this.protocol).password.name »"), getm_bindingParam("«((radl::ruleSSH)this.protocol).remoteMachine.name »"),  port, cmd );
+            SSHExecute exc = new SSHExecute( getm_bindingParam("«((radl::ruleSSH)this.protocol).username.name »"), getm_bindingParam("«((radl::ruleSSH)this.protocol).remoteMachine.name »"),  port, cmd );
         	//com.uop.ssh.Exec exc = new com.uop.ssh.Exec( getm_bindingParam("«((radl::ruleSSH)this.protocol).username.name »"),  getm_bindingParam("«((radl::ruleSSH)this.protocol).password.name »"), getm_bindingParam("«((radl::ruleSSH)this.protocol).remoteMachine.name »"),  port, cmd );
         	System.out.println("Remote execution finished"+ exc.toString() );
         }finally{

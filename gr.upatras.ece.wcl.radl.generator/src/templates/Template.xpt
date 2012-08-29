@@ -2,13 +2,13 @@
 «IMPORT FederationOffice»
 
 
-
 «DEFINE main FOR radl::ResourceAdapter-»
 
 «EXPAND RAActivator::RAActivator_main FOR this» 
 «EXPAND RAInstance::RAInstance_main FOR this» 
 «EXPAND RAService::RAService_main FOR this» 
-«EXPAND RAImpl::RAService_main FOR this» 
+«EXPAND RAImpl::RAService_main FOR this»  
+«EXPAND SSHExecute::SSHExecute_main FOR this»
 
 
 «ENDDEFINE»

@@ -1,5 +1,4 @@
 «IMPORT radl»
-«IMPORT FederationOffice»
 
 «DEFINE RAService_main FOR radl::ResourceAdapter-»
 «LET name.split("[.]").last().toFirstUpper()+"Service" AS RAServicename»
