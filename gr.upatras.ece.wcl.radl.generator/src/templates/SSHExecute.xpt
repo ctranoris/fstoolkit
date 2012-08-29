@@ -1,0 +1,76 @@
+«IMPORT radl»
+
+«DEFINE SSHExecute_main FOR radl::ResourceAdapter-»
+«FILE name.replaceAll("[.]", "/") +"/SSHExecute.java"-»
+package «this.name»;
+
+import java.io.*;
+import com.jcraft.jsch.*;
+
+public class SSHExecute {
+	
+	
+	//Warning: For this to work in PTM, add to Manifest in imported packages com.jcraft.jsch
+	
+	public SSHExecute(String user,String host, int port, String command) {
+		try {
+			System.out.println("EXEC connecting wo password...1");
+			JSch jsch = new JSch();
+			System.out.println("EXEC connecting...2");
+			
+			String privateKey = "/root/.ssh/id_rsa";
+
+            jsch.addIdentity(privateKey);
+            System.out.println("identity added ");
+
+            
+			Session session = jsch.getSession(user, host, port);
+			System.out.println("EXEC connecting...3");
+			//session.setPassword(passw);
+			java.util.Properties newconf = new java.util.Properties();
+			newconf.put("StrictHostKeyChecking", "no");
+
+			session.setConfig(newconf);
+			System.out.println("org.panlab.ras.uop.jschwrapper.Exec connecting...");
+			session.connect();
+
+			Channel channel = session.openChannel("exec");
+			((ChannelExec) channel).setCommand(command);
+
+			channel.setInputStream(null);
+
+			((ChannelExec) channel).setErrStream(System.err);
+
+			InputStream in = channel.getInputStream();
+
+			channel.connect();
+
+			byte[] tmp = new byte[1024];
+			while (true) {
+				while (in.available() > 0) {
+					int i = in.read(tmp, 0, 1024);
+					if (i < 0)
+						break;
+					System.out.print(new String(tmp, 0, i));
+				}
+				if (channel.isClosed()) {
+					System.out.println("exit-status: "
+							+ channel.getExitStatus());
+					break;
+				}
+				try {
+					Thread.sleep(1000);
+				} catch (Exception ee) {
+				}
+			}
+			channel.disconnect();
+			session.disconnect();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+}
+
+
+«ENDFILE-»
+«ENDDEFINE»
