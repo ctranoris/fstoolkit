@@ -48,13 +48,14 @@ import brokermodel.federationscenarios.ResourceSettingInstance;
 
 public class UoPServices implements IFCIService{
 	
-	private Broker uopOffice;
+	private Broker uopBroker;
 	//public static String UoPGWCAlias = "http://creativese.no-ip.org:9000/teaglegw";
 	public static String UoPGWCAlias = "http://nam.ece.upatras.gr:9000/teaglegw";
+	public static String UoPAuthURL = "http://nam.ece.upatras.gr/fstoolkit/utils/ppereg/authuser.php";
 	public static String fedway= "http://nam.ece.upatras.gr/fedway";
-	public String username;
 	
 	private static UoPServices instance;
+	private String username;
 
 	public static UoPServices getInstance() {
 		if (instance == null)
@@ -69,29 +70,72 @@ public class UoPServices implements IFCIService{
 
 	@Override
 	public Broker getBroker() {
-		if (uopOffice!=null)
-			return uopOffice;
+		if (uopBroker!=null)
+			return uopBroker;
 		return null;
 	}
 
 	@Override
-	public Broker getBroker( String username,  String password,  boolean forceRefresh){
-		if ( (uopOffice!=null) && (!forceRefresh) )
-			return uopOffice;				  
+	public Broker getBroker( AuthorizationKey authorizationKey,  boolean forceRefresh){
+		if ( (uopBroker!=null) && (!forceRefresh) )
+			return uopBroker;				  
 
-		uopOffice = new UoPBrokerProxy(username, password,  forceRefresh);
-		this.username = username;
 		
-		if (( (UoPBrokerProxy)uopOffice).officeLoaded() )
-			return uopOffice;
-		else
-			return null;
+		if  ( authorizationKey!=null ){ //if credentials
+			String res = checkAuthentication(authorizationKey);
+			if  ( ! res.equals("NOAUTH") ){
+				
+				//add it
+				authorizationKey.getCredentials().getCredoptions().put("AuthString", res);
+				
+				uopBroker = new UoPBrokerProxy(authorizationKey,  res, forceRefresh);
+				username = authorizationKey.getUsername();
+				if (( (UoPBrokerProxy)uopBroker).brokerLoaded() )
+					return uopBroker;
+				
+				
+			}			
+		}
+		
+		
+
+		return null;
+		
+	}
+	
+	@Override
+	public Broker getBroker(String username, String password,
+			boolean forceRefresh) {
+		
+		if ( (uopBroker!=null) && (!forceRefresh) )
+			return uopBroker;	
+		//this normally should not happen.
+		return null;
 	}
 	
 	public void	LoadFSbyVCT(RequestedFederationScenario fs){
-		( (UoPBrokerProxy)uopOffice).LoadFSbyVCT(fs);
+		( (UoPBrokerProxy)uopBroker).LoadFSbyVCT(fs);
 	}
 
+	
+	
+	private String checkAuthentication  (AuthorizationKey authorizationKey) {
+
+		UoPGWClient pgw = new UoPGWClient( UoPServices.UoPGWCAlias, UoPServices.UoPAuthURL	);
+		
+		pgw.GETAuthorizationToken( authorizationKey.getUsername()  , authorizationKey.getPassword());
+
+		XMLutils x = new XMLutils(true);
+		String autstring = x.getNodeValueFromXML(  pgw.getResponse_stream(), "//token/text()");
+		
+		if (!autstring.equals("NOAUTH")){		
+			return autstring;
+		}else{
+			//TODO" Ishould fix this some time with exceptions
+			//throw new FCIAuthorizationFailedException();
+			return "NOAUTH";
+		}
+	}
 	
 
 	/**
@@ -109,7 +153,7 @@ public class UoPServices implements IFCIService{
 		
 	
 
-		UoPGWClient pgw = new UoPGWClient( UoPServices.UoPGWCAlias	);
+		UoPGWClient pgw = new UoPGWClient( UoPServices.UoPGWCAlias, UoPServices.UoPAuthURL	);
 		
 		String params="";
 		
@@ -198,7 +242,7 @@ public class UoPServices implements IFCIService{
 
 
 		
-		UoPGWClient pgw = new UoPGWClient( UoPServices.UoPGWCAlias	);
+		UoPGWClient pgw = new UoPGWClient( UoPServices.UoPGWCAlias, UoPServices.UoPAuthURL	);
 		
 		String params="";
 	
@@ -258,7 +302,7 @@ public class UoPServices implements IFCIService{
 //		if (PanlabOfficeProxy.DONTPropagateToTeagleGW )
 //			return "test-DeleteResource-"+resourceReq.getName();
 		
-		UoPGWClient pgw = new UoPGWClient( UoPServices.UoPGWCAlias	);
+		UoPGWClient pgw = new UoPGWClient( UoPServices.UoPGWCAlias	, UoPServices.UoPAuthURL);
 		
 		
 		
@@ -311,7 +355,7 @@ public class UoPServices implements IFCIService{
 //		if (PanlabOfficeProxy.DONTPropagateToTeagleGW )
 //			return "test-getParameterValueOfResource-"+paramName;
 		
-		UoPGWClient pgw = new UoPGWClient( UoPServices.UoPGWCAlias	);
+		UoPGWClient pgw = new UoPGWClient( UoPServices.UoPGWCAlias, UoPServices.UoPAuthURL	);
 	
 		pgw.GETexecute( resourceRuntimeID, ptmAlias);
 		XMLutils x = new XMLutils(true);
@@ -442,12 +486,5 @@ public class UoPServices implements IFCIService{
 		
 	}
 
-	@Override
-	public Broker getBroker(AuthorizationKey authorizationKey,
-			boolean forceRefresh) {
-				return uopOffice;
-		// TODO Auto-generated method stub
-		
-	}
 
 }

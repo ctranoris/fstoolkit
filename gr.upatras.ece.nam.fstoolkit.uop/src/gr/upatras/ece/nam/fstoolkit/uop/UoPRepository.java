@@ -15,6 +15,8 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.jface.preference.IPreferenceStore;
+
 import gr.upatras.ece.nam.fstoolkit.uop.preferences.UoPBrokerPreferenceConstants;
 
 import brokermodel.Broker;
@@ -165,8 +167,13 @@ public class UoPRepository implements IBrokerRepository {
 	@Override
 	public EList<Broker> loadBrokers() {
 		// Get the resource
-		String myUsername= Activator.getDefault().getPreferenceStore().getString( UoPBrokerPreferenceConstants.P_UOPUSERNAME );
-		String myPassw= Activator.getDefault().getPreferenceStore().getString( UoPBrokerPreferenceConstants.P_UOPPASSWORD );
+		// Get the preference store
+	    IPreferenceStore preferenceStore = Activator.getDefault().getPreferenceStore();
+	    
+		String myUsername= Activator.getDefault().getPreferenceStore().getString( 
+				 UoPBrokerPreferenceConstants.UOPUSERNAME) ;
+		String myPassw= Activator.getDefault().getPreferenceStore().getString( 
+				 UoPBrokerPreferenceConstants.UOPPASSWORD) ;
 
 		List<Broker> prototypeList = Activator.getDefault().loadBrokers(myUsername, myPassw);
 		EList<Broker> eList = new BasicEList<Broker>(prototypeList.size());

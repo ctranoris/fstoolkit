@@ -283,12 +283,7 @@ public class FCI {
 	}
 
 	private ResourceContext CreateUoPResourceContext(AuthorizationKey authKey) {
-		Broker office = iUoPServices.getBroker(
-				
-//				PREPEI TO authKey na erxetai edw...
-//				To AuthorizationKey na ginei class sto model??
-						
-				authKey.getUsername(), authKey.getPassword(), true);
+		Broker office = iUoPServices.getBroker(authKey, true);
 		
 		if (office != null) {
 			return new ResourceContext( office );

@@ -91,13 +91,15 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
  */
 public class UoPGWClient {
 	private String uopGWAddress;
+	private String uopAuthUrl;
 //	private static UoPGWClient pgwInstance;
 	private static String userAgent="FCI 1.0.0";
 	InputStream response_stream;
 
-	public UoPGWClient(String tgwaddr) {
+	public UoPGWClient(String tgwaddr, String authurl) {
 		super();
-		uopGWAddress = tgwaddr;
+		this.uopGWAddress = tgwaddr;
+		this.uopAuthUrl = authurl;
 	}
 
 
@@ -480,5 +482,59 @@ public class UoPGWClient {
 			get.releaseConnection();
 		}	
 		
+	}
+	
+	
+	
+	/**
+	 * It makes a GET towards the gateway for authorization
+	 * @author ctranoris
+	 * @param username
+	 * @param password 
+	 * @see PanlabGWClient#getResponse_stream()
+	 */
+	public String GETAuthorizationToken(String username, String password) {
+		HttpClient client = new HttpClient();
+
+		String url = this.uopAuthUrl + "?username="+username+"&password="+password;
+		System.out.println("Request: " + url);
+
+		// Create a method instance.
+		GetMethod get = new GetMethod(url);
+		get.setRequestHeader("User-Agent", userAgent);
+		get.setRequestHeader("Content-Type",
+				"application/x-www-form-urlencoded");
+
+		try {
+			// execute the GET
+			int rescode = client.executeMethod(get);
+
+			// print the status and response
+			InputStream responseBody = get.getResponseBodyAsStream();
+
+			CopyInputStream cis = new CopyInputStream(responseBody);
+			response_stream = cis.getCopy();
+			String s = convertStreamToString(response_stream);
+			System.out.println("Response body=" + "\n"
+					+ s);
+			response_stream.reset();
+			if (rescode==200)
+				return s;
+			else
+				return "";
+
+		} catch (HttpException e) {
+			System.err.println("Fatal protocol violation: " + e.getMessage());
+			e.printStackTrace();
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.err.println("Fatal transport error: " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			// release any connection resources used by the method
+			get.releaseConnection();
+		}
+		return "";
+
 	}
 }

@@ -31,10 +31,15 @@ public class HelloUoPWorld {
 
 	private void CreateScenario() {
 		FCI fci = FCI.getInstance();
-		FCICredentials cred = fci.createFCICredentials("ctranoris", "ctranoris");
+		FCICredentials cred = fci.createFCICredentials("ctranoris", "123456");
 
 		AuthorizationKey authKey = fci.createAuthorizationKey(cred);
 		ResourceContext uop = fci.createResourceContext("uop", authKey);
+		
+		if (uop == null) {
+			System.out.println("broker is null. check credentials? ");
+			return;
+		}
 
 		for (ServiceType elem : uop.getAvailableServices()) {
 			System.out.println("Service: " + elem.getName() + "("

@@ -7,7 +7,7 @@
             category="gr.upatras.ece.nam.fstoolkit.preferences.FSToolkitPreferencePage"
             class="gr.upatras.ece.nam.fstoolkit.uop.preferences.UoPPreferencePage"
             id="gr.upatras.ece.nam.fstoolkit.uop.preferencepage"
-            name="UoP">
+            name="Patras Platform for Experimentation, Univ. of Patras">
       </page>
    </extension>
    <extension

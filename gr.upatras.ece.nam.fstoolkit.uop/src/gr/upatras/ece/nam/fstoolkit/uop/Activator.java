@@ -4,6 +4,7 @@ package gr.upatras.ece.nam.fstoolkit.uop;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -65,8 +66,9 @@ public class Activator extends AbstractUIPlugin {
 			public void propertyChange(PropertyChangeEvent event) {
 
 				System.out.println("===UoP Broker Preferences change..trigger reload in FSToolkit");
-				if ((event.getProperty() == UoPBrokerPreferenceConstants.P_UOPUSERNAME)
-						|| (event.getProperty() == UoPBrokerPreferenceConstants.P_UOPPASSWORD)) {
+			    IPreferenceStore preferenceStore = Activator.getDefault().getPreferenceStore();
+				if ((event.getProperty() == preferenceStore.getString( UoPBrokerPreferenceConstants.UOPUSERNAME) )
+						|| (event.getProperty() == preferenceStore.getString(UoPBrokerPreferenceConstants.UOPPASSWORD) )) {
 					NotifyRepositoryListeners();
 					
 				}
@@ -140,17 +142,39 @@ public class Activator extends AbstractUIPlugin {
 		cred.setPassword(myPassw);
 		FCI fci = FCI.getInstance();
 		AuthorizationKey authKey = fci.createAuthorizationKey(cred);
-		uop = fci.createResourceContext(officeName, authKey);		
-		Broker uopBroker = uop.getBrokerModel();
-		this.uopBrokers.add(uopBroker);
+		uop = fci.createResourceContext(officeName, authKey);	
+		if (uop!=null){	
+			Broker uopBroker = uop.getBrokerModel();
+			this.uopBrokers.add(uopBroker);
+		}
 		
-		// Get the first model element and cast it to the right type, in my
-		// example everything is hierarchical included in this first node
 		if (uopBrokers!=null){
 			return uopBrokers;
 		}
 		
 		return null ;
+	}
+	
+	public String checkhUoPAuth(String username, String passkey) {
+		
+		// Get the resource
+		String myUsername= username;
+		String myPassw= passkey;
+		//office = PanlabServices.getInstance().getBroker( myUsername , myPassw, true);
+		FCICredentials cred =brokermodel.fcielements.FcielementsFactory.eINSTANCE.createFCICredentials();
+		cred.setUsername(myUsername);
+		cred.setPassword(myPassw);
+		FCI fci = FCI.getInstance();
+		AuthorizationKey authKey = fci.createAuthorizationKey(cred);
+		uop = fci.createResourceContext(officeName, authKey);
+		
+		if (uop!=null){		
+			Broker uopBroker = uop.getBrokerModel();
+			return "Connection succesful. Broker:"+uopBroker.getName()+", brokerdsl="+uopBroker.getResourceURI() ;
+			
+		}else{		
+			return "Authorisation failed" ;
+		}
 	}
 	
 

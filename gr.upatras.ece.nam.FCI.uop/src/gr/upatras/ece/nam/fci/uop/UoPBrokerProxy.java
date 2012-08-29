@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
@@ -26,6 +27,7 @@ import gr.upatras.ece.nam.brokerdsl.brokerDSLsyntax.BrokerRule;
 import brokermodel.BrokermodelPackage;
 import brokermodel.Broker;
 import brokermodel.availabilityContract.ResourceServiceContract;
+import brokermodel.fcielements.AuthorizationKey;
 import brokermodel.federationscenarios.RequestedFederationScenario;
 import brokermodel.services.OfferedService;
 import brokermodel.services.ServiceComposition;
@@ -34,23 +36,31 @@ import brokermodel.slareservations.SLA;
 import brokermodel.users.BrokerUser;
 
 public class UoPBrokerProxy implements Broker {
+	public static boolean DONTPropagateToSFAGW = false; //mark false in production. True means:  will not propagate the jobs to SFAGW (SliceM, AM)
 
 	private Broker broker;
-	private String OfficeUsername ;
-	private String OfficePassword ;
+	private AuthorizationKey authorizationKey;
 	
-	public boolean officeLoaded(){
+	
+	public boolean brokerLoaded(){
 		return broker != null;
 	}
 
-	public UoPBrokerProxy(String username, String password,  Boolean forceRefresh) {
+	public UoPBrokerProxy(AuthorizationKey authorizationKey, String authString, Boolean forceRefresh) {
 		super();
-		setOfficeUsername(username);
-		setOfficePassword(password);
-		broker = PreloadedBroker();			
+		this.authorizationKey = authorizationKey;
+		//this.Username= authorizationKey.getUsername(); 
+		//this.AuthString= authString; 
+
+		
+		broker = PreloadedBroker(  authorizationKey.getUsername() , authString);
+		
+				
 	}	
 		
-	private Broker PreloadedBroker() {
+
+
+	private Broker PreloadedBroker(String username, String authkey) {
 		
 		if (!EPackage.Registry.INSTANCE.containsKey("http://nam.ece.upatras.gr/brokerdsl/BrokerDSL")) {
 			new BrokerDSLStandaloneSetup().createInjectorAndDoEMFRegistration();
@@ -72,7 +82,9 @@ public class UoPBrokerProxy implements Broker {
 		// Create a resource 
 		//String uri =  "C:\\Users\\ctranoris\\wsHeliosM4\\org.panlab.software.FCI.uop\\src\\org\\panlab\\software\\fci\\uop\\uop.xmi";
 		
-		String uri =  "http://nam.ece.upatras.gr/fstoolkit/utils/uop.brokerdsl";
+		
+		String uri =  "http://nam.ece.upatras.gr/fstoolkit/utils/ppereg/"+authkey+"/"+username+".brokerdsl";
+		
 		Resource resourceUoPOffice = resSet.createResource( URI.createURI(uri) );
 		
 		try {
@@ -89,6 +101,9 @@ public class UoPBrokerProxy implements Broker {
 		return officeRule.getTestbedBrokerv();
 		
 	}
+	
+	
+	
 
 	@Override
 	public String getName() {
@@ -288,21 +303,21 @@ public class UoPBrokerProxy implements Broker {
 		//TODO: not sure how to implement this yet
 	}
 
-	public void setOfficeUsername(String officeUsername) {
-		OfficeUsername = officeUsername;
-	}
-
-	public String getOfficeUsername() {
-		return OfficeUsername;
-	}
-
-	public void setOfficePassword(String officePassword) {
-		OfficePassword = officePassword;
-	}
-
-	public String getOfficePassword() {
-		return OfficePassword;
-	}
+//	public void setOfficeUsername(String officeUsername) {
+//		OfficeUsername = officeUsername;
+//	}
+//
+//	public String getOfficeUsername() {
+//		return OfficeUsername;
+//	}
+//
+//	public void setOfficePassword(String officePassword) {
+//		OfficePassword = officePassword;
+//	}
+//
+//	public String getOfficePassword() {
+//		return OfficePassword;
+//	}
 
 
 	@Override
