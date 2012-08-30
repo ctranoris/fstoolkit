@@ -82,20 +82,17 @@ public class LocalProvisioningEngine implements IWorkflowEngine {
 	@Override
 	public String UpdateResource(RequestedFederationScenario scenario,
 			ResourceRequest resourceReq,
-			ResourceSettingInstance assignedSetting) {
+			EList<ResourceSettingInstance> assignedSetting) {
 		// Check if the scenario belongs to us
-		if (LocalRuntimeScenariosMgt.getInstance().checkIfScenarioExists(
-				scenario)) {
+		if (LocalRuntimeScenariosMgt.getInstance().checkIfScenarioExists(scenario)) {
 
-			String officeName = ((Broker) resourceReq.getRefOfferedResource()
-					.getImplOfferedService().eContainer()).getName();
+			String officeName = ((Broker) resourceReq.getRefOfferedResource().getImplOfferedService().eContainer()).getName();
 
-			for (IProvisionResource p : Activator.getDefault()
-					.getProvisionPlugins()) {
+			for (IProvisionResource p : Activator.getDefault().getProvisionPlugins()) {
 				if (p.supportsBroker(officeName)) { 
-					String val = p.updateResource(officeName, scenario,
-							resourceReq, assignedSetting);
-					assignedSetting.setStaticValue(val);
+					String val = p.updateResource(officeName, scenario, resourceReq, assignedSetting);
+					
+					
 					return val;
 				}
 			}
