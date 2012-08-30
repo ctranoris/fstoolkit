@@ -5,7 +5,7 @@
 «ENDDEFINE»
 
 «DEFINE model FOR FSDLProjectInfo»
-«FILE "scenarios/myScenario.fsdl"-»
+«FILE "src/myScenario.fsdl"-»
 //You can type here you Scenario. Hit ctrl+space to get code suggestions.\n" +
 //Double click from the Services view to automatically get service definition." +
 RequestedFederationScenario myScenario
