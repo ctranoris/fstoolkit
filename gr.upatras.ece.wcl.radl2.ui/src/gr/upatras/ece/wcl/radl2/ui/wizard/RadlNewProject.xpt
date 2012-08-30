@@ -29,19 +29,27 @@ Allowed Types{ //Allowed types that might refer to this RA
 	
 }
 
-//On Update {
-//	Execute when all Configuration Parameters are complete = YES;
+//On Update{
+//	ProcessOnAllConfigurationParametersComplete = NO ;
 //	RAProtocol SSH {
-//		Remote Machine = remote_ip;
-//		RPort = admin_port;
-//		RUsername = username;
-//		RPassword = password;
-//		RExecute{
+//		Remote Machine = "sflow.admin_ip" ;
+//		RPort = "sflow.admin_port";
+//		RUsername = "sflow.admin";
+//		RPassword = "sflow.admin_pwd";
+//		RExecute {
 //			"/home/myscript.sh" << "param1" "param2">>
 //			"/home/myscript.sh -a" << "param1">> " -b" << "param2">>
 //		}
+//		
+//		RExecuteDelete {
+//			""
+//		}
 //	}
+//	
 //}
+
+
+
 
 
 «ENDFILE»

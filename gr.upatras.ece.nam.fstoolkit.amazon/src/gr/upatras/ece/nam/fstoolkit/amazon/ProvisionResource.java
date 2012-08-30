@@ -88,21 +88,9 @@ public class ProvisionResource implements IProvisionResource {
 	@Override
 	public String updateResource(String officeName,
 			RequestedFederationScenario scenario, ResourceRequest resourceReq,
-			ResourceSettingInstance assignedSetting) {
+			EList<ResourceSettingInstance> assignedSetting) {
 		
-		System.out.println("officeName = "+officeName+
-				", read resource w guid =" + resourceReq.getRuntimeInfo().getGUID() );
-
-		ResourceContext r = Activator.getDefault().getResourceContext();
-		ResourceProxy rproxy = r.getResourceProxy( resourceReq.getRuntimeInfo().getGUID() );
-		if (rproxy==null)
-			rproxy = r.createResourceProxyByResourceRequest(scenario.getName(), resourceReq);
-		
-		
-		
-		if (rproxy!=null)
-			return rproxy.updateParameterValueOfResource(assignedSetting.getRefResourceSetting().getName(), 
-					assignedSetting.getStaticValue());
+	
 		
 		return "failed";
 	}

@@ -138,6 +138,8 @@ public class FSDLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cImportURISTRINGTerminalRuleCall_1_0 = (RuleCall)cImportURIAssignment_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
+		////TO import not only .fsdl, .brokerdsl files but also .brokermodel (ecore)files please check org.eclipse.xtext.extension_resourceServiceProvider at the brokerdsl.ui plugin
+		//
 		//Import returns federationscenarios::Import:
 		//
 		//	"import" importURI=STRING ";";
@@ -1054,6 +1056,8 @@ public class FSDLGrammarAccess extends AbstractGrammarElementFinder {
 		return getRequestedFederationScenarioAccess().getRule();
 	}
 
+	////TO import not only .fsdl, .brokerdsl files but also .brokermodel (ecore)files please check org.eclipse.xtext.extension_resourceServiceProvider at the brokerdsl.ui plugin
+	//
 	//Import returns federationscenarios::Import:
 	//
 	//	"import" importURI=STRING ";";

@@ -1,6 +1,9 @@
 package gr.upatras.ece.nam.fstoolkit.uop;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
@@ -12,6 +15,8 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
+
+import gr.upatras.ece.nam.fci.core.ParameterValuePair;
 import gr.upatras.ece.nam.fci.core.ResourceContext;
 import gr.upatras.ece.nam.fci.core.ResourceProxy;
 
@@ -202,7 +207,7 @@ public class ProvisionResource implements IProvisionResource {
 	@Override
 	public String updateResource(String officeName,
 			RequestedFederationScenario scenario, ResourceRequest resourceReq,
-			ResourceSettingInstance assignedSetting) {
+			EList<ResourceSettingInstance> assignedSetting) {
 		
 		System.out.println("officeName = "+officeName+
 				", read resource w guid =" + resourceReq.getRuntimeInfo().getGUID() );
@@ -213,10 +218,21 @@ public class ProvisionResource implements IProvisionResource {
 			rproxy = uop.createResourceProxyByResourceRequest(scenario.getName(), resourceReq);
 		
 		
+
+		List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
+		for (Iterator iterator = assignedSetting.iterator(); iterator.hasNext();) {
+			ResourceSettingInstance resourceSettingInstance = (ResourceSettingInstance) iterator.next();
+			ParameterValuePair p = new ParameterValuePair(
+					resourceSettingInstance.getRefResourceSetting().getName() , 
+					resourceSettingInstance.getStaticValue(), 
+					resourceSettingInstance.getName() );
+			params.add(p);			
+		}
 		
 		if (rproxy!=null)
-			return rproxy.updateParameterValueOfResource(assignedSetting.getRefResourceSetting().getName(), 
-					assignedSetting.getStaticValue());
+			return rproxy.UpdateResource(params);
+//		updateParameterValueOfResource(assignedSetting.getRefResourceSetting().getName(), 
+//					assignedSetting.getStaticValue());
 		
 		return "failed";
 	}

@@ -55,7 +55,7 @@ public class ResourceProxy {
 			//create an internal pair list to maintained proxied values
 			List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();			
 			for (ResourceSettingInstance resSetting : resourceRequest.getReqResourceSettings()) {				
-				ParameterValuePair p = new ParameterValuePair(resSetting.getName() , resSetting.getStaticValue() );
+				ParameterValuePair p = new ParameterValuePair(resSetting.getRefResourceSetting().getName() , resSetting.getStaticValue(), resSetting.getName() );
 				params.add(p);
 			}
 			

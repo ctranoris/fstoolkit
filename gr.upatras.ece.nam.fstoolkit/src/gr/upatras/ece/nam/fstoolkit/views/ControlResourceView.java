@@ -1,7 +1,10 @@
 package gr.upatras.ece.nam.fstoolkit.views;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
@@ -274,7 +277,12 @@ public class ControlResourceView extends ViewPart {
 								scenario =(RequestedFederationScenario)resourceRequest.eContainer().eContainer() ;
 						settingToUpdate.setStaticValue(text.getText());
 						
-						wEngine.UpdateResource(scenario, resourceRequest, settingToUpdate) ;
+						org.eclipse.emf.common.util.BasicEList<ResourceSettingInstance> settings = 
+								new BasicEList<ResourceSettingInstance>();
+						
+						settings.add(settingToUpdate);
+						
+						wEngine.UpdateResource(scenario, resourceRequest, settings) ;
 					}
 				}
 			});
@@ -285,21 +293,25 @@ public class ControlResourceView extends ViewPart {
 		link.addHyperlinkListener(new HyperlinkAdapter() {
 			public void linkActivated(HyperlinkEvent e) {
 				System.out.println("Post All values Link activated!");
+				org.eclipse.emf.common.util.BasicEList<ResourceSettingInstance> settings = 
+						new BasicEList<ResourceSettingInstance>();
+				
 				for (Text t : updateValuesTextfields) {
 					ResourceSettingInstance settingToUpdate = (ResourceSettingInstance)t.getData();
-					for (IWorkflowEngine wEngine : WorkflowEnginesBrowser.getInstance().getWorkflowEngines()) {
-						//System.out.println("tearDownScenarioAction =" + viewer.getSelection().toString() );
-						
-						RequestedFederationScenario scenario = null;
-						if (resourceRequest.eContainer()!=null)
-							if (resourceRequest.eContainer().eContainer()!=null)
-								scenario =(RequestedFederationScenario)resourceRequest.eContainer().eContainer() ;
-						settingToUpdate.setStaticValue(t.getText());
-						
-						wEngine.UpdateResource(scenario, resourceRequest, settingToUpdate) ;
-					}
+					settingToUpdate.setStaticValue(t.getText());					
+					settings.add(settingToUpdate);
 				}
-				
+				for (IWorkflowEngine wEngine : WorkflowEnginesBrowser.getInstance().getWorkflowEngines()) {
+					//System.out.println("tearDownScenarioAction =" + viewer.getSelection().toString() );
+					
+					RequestedFederationScenario scenario = null;
+					if (resourceRequest.eContainer()!=null)
+						if (resourceRequest.eContainer().eContainer()!=null)
+							scenario =(RequestedFederationScenario)resourceRequest.eContainer().eContainer() ;
+					
+					
+					wEngine.UpdateResource(scenario, resourceRequest, settings ) ;
+				}				
 				
 			}
 		});

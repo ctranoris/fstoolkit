@@ -83,7 +83,7 @@ Workflow {
                 fragment = builder.BuilderIntegrationFragment {}
     
                 // generator API
-                fragment = generator.GeneratorFragment {
+                fragment = generator.GeneratorFragment { 
                     generateMwe = true
                     generateJavaMain = true
                 }

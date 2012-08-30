@@ -168,7 +168,7 @@ public class ProvisionResource implements IProvisionResource {
 	@Override
 	public String updateResource(String officeName,
 			RequestedFederationScenario scenario, ResourceRequest resourceReq,
-			ResourceSettingInstance assignedSetting) {
+			EList<ResourceSettingInstance> assignedSetting) {
 		// TODO Auto-generated method stub
 		return null;
 	}

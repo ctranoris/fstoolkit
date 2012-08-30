@@ -1,8 +1,8 @@
 package gr.upatras.ece.nam.fstoolkit.scenariotofci;
+import gr.upatras.ece.nam.brokerdsl.BrokerDSLStandaloneSetup;
+import gr.upatras.ece.nam.fsdl.ui.internal.FSDLActivator;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -15,8 +15,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -27,16 +26,13 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
-import org.eclipse.xpand2.XpandExecutionContextImpl;
-import org.eclipse.xpand2.XpandFacade;
-import org.eclipse.xpand2.output.Outlet;
-import org.eclipse.xpand2.output.OutputImpl;
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.generator.JavaIoFileSystemAccess;
 
 import com.google.inject.Inject;
+import com.google.inject.Injector;
+import com.google.inject.Provider;
 
-import brokermodel.BrokermodelPackage;
 import brokermodel.federationscenarios.RequestedFederationScenario;
 
 
@@ -47,11 +43,16 @@ public class Scenario2fciWizard extends Wizard implements INewWizard {
 	private Scenario2fciWizardPageOne pageOne;
 	private RequestedFederationScenario scenario;
 
+	Injector injector;
+	
 	public Scenario2fciWizard(RequestedFederationScenario scenario) {
 		super();
 		setNeedsProgressMonitor(true);
 		this.setWindowTitle("Federation Computing Interface Generator");
 		this.scenario = scenario;
+		injector = FSDLActivator.getInstance().getInjector(FSDLActivator.GR_UPATRAS_ECE_NAM_FSDL_FSDL);
+		
+		
 	}
 	
 	@Override
@@ -123,10 +124,11 @@ public class Scenario2fciWizard extends Wizard implements INewWizard {
 		IContainer container = (IContainer) resource;
 	    String targetPath = resource.getLocation().toPortableString();
 		monitor.worked(1);
+
 		
 		Model2Code( scenario, targetPath, targetLanguage);
 		monitor.worked(1);
-		
+
 		monitor.setTaskName("Generating FCI for "+scenario.getName()+". Applying Model2Text transformation");
 		
 		monitor.worked(1);
@@ -210,14 +212,24 @@ public class Scenario2fciWizard extends Wizard implements INewWizard {
 	 */
 
 
-	
 	public void Model2JavaCode(RequestedFederationScenario scenario, String fpath){
-		// configure and start the generator
-		JavaFCIGenerator generator = new JavaFCIGenerator();
+	
+		if (!EPackage.Registry.INSTANCE.containsKey("http://nam.ece.upatras.gr/brokerdsl/BrokerDSL")) {
+			new BrokerDSLStandaloneSetup().createInjectorAndDoEMFRegistration();
+		}
+		
+		//new gr.upatras.ece.nam.fsdl.FSDLStandaloneSetupGenerated().createInjectorAndDoEMFRegistration();
+		
+		//FSDLGenerator generator = new FSDLGenerator();
 		//
-		JavaIoFileSystemAccess fileAccess =new JavaIoFileSystemAccess();
+		//JavaIoFileSystemAccess fileAccess =new JavaIoFileSystemAccess( );
+		JavaIoFileSystemAccess fileAccess =   injector.getInstance(JavaIoFileSystemAccess.class);
 		fileAccess.setOutputPath(fpath);
+		
+//		na koitaksw giati otna bazw fsdl sto src den bgainei sto src-gen
+		
 		//mporeis na kaneis debug edw kai na mpeis stin klasi na deis ti fortwnei to resource
+		IGenerator generator =   injector.getInstance(IGenerator.class);
 		generator.doGenerate( scenario.eResource() , fileAccess);
 	
 	}

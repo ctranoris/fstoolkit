@@ -4,9 +4,12 @@
  */
 package gr.upatras.ece.nam.fsdl.generator;
 
+import gr.upatras.ece.nam.brokerdsl.BrokerDSLStandaloneSetup;
+
 import java.util.List;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.xtext.generator.IGenerator;
@@ -15,6 +18,8 @@ import org.eclipse.xtext.util.CancelIndicator;
 import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.IResourceValidator;
 import org.eclipse.xtext.validation.Issue;
+
+import brokermodel.BrokermodelPackage;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
@@ -26,7 +31,15 @@ public class Main {
 		if (args.length==0) {
 			System.err.println("Aborting: no path to EMF resource provided!");
 			return;
+			
+			
 		}
+		
+//		if (!EPackage.Registry.INSTANCE.containsKey("http://nam.ece.upatras.gr/brokerdsl/BrokerDSL")) {
+			new BrokerDSLStandaloneSetup().createInjectorAndDoEMFRegistration();
+//		}
+		
+		
 		Injector injector = new gr.upatras.ece.nam.fsdl.FSDLStandaloneSetupGenerated().createInjectorAndDoEMFRegistration();
 		Main main = injector.getInstance(Main.class);
 		main.runGenerator(args[0]);
