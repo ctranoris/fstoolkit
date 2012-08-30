@@ -354,15 +354,15 @@ public class FCI {
 		String guid=null;
 		if (resourceContext.getBrokerModel().getName().toLowerCase().equals("panlab")){
 			 guid = iPanlabServices.CreateResource(scenario, provider.getFirstURI(), 
-					serviceType.getName(), resourceReq);
+					 resourceReq.getName() , resourceReq);
 			 
 		}else if (resourceContext.getBrokerModel().getName().toLowerCase().equals("p2e")){
 			 guid = iUoPServices.CreateResource(scenario, provider.getFirstURI(), 
-						serviceType.getName(), resourceReq);
+					 resourceReq.getName(), resourceReq);
 			}
 		else if (resourceContext.getBrokerModel().getName().toLowerCase().equals("amazon")){
 				 guid = iAmazonServices.CreateResource(scenario, provider.getFirstURI(), 
-							serviceType.getName(), resourceReq);
+						 resourceReq.getName(), resourceReq);
 			}
 		
 		if (guid!=null)
