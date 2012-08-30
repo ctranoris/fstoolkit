@@ -258,7 +258,7 @@ public class FCI {
 		if (val.toLowerCase().equals("panlab")){
 			return CreatePanlabResourceContext(authKey);
 		}
-		else if (val.toLowerCase().equals("uop")){
+		else if (val.toLowerCase().equals("p2e")){
 			return CreateUoPResourceContext(authKey);
 		}
 		else if (val.toLowerCase().equals("amazon")){
@@ -356,7 +356,7 @@ public class FCI {
 			 guid = iPanlabServices.CreateResource(scenario, provider.getFirstURI(), 
 					serviceType.getName(), resourceReq);
 			 
-		}else if (resourceContext.getBrokerModel().getName().toLowerCase().equals("uop")){
+		}else if (resourceContext.getBrokerModel().getName().toLowerCase().equals("p2e")){
 			 guid = iUoPServices.CreateResource(scenario, provider.getFirstURI(), 
 						serviceType.getName(), resourceReq);
 			}
@@ -406,7 +406,7 @@ public class FCI {
 			 guid = iPanlabServices.CreateResource(scenario, provider.getFirstURI(), 
 					serviceType.getName(), resourceReq);
 			 
-		}else if (resourceContext.getBrokerModel().getName().toLowerCase().equals("uop")){
+		}else if (resourceContext.getBrokerModel().getName().toLowerCase().equals("p2e")){
 			 guid = iUoPServices.CreateResource(scenario, provider.getFirstURI(), 
 						serviceType.getName(), resourceReq);
 				 
@@ -450,7 +450,7 @@ public class FCI {
 					resource.getProvider().getFirstURI() , resource.getResourceTypeName(),
 					resource.getGUID(),resourceReq);
 			 
-		}else if (resource.getResourceContext().getBrokerModel().getName().toLowerCase().equals("uop")){
+		}else if (resource.getResourceContext().getBrokerModel().getName().toLowerCase().equals("p2e")){
 			return iUoPServices.UpdateResource(resource.getContext(), 
 					resource.getProvider().getFirstURI() , resource.getResourceTypeName(),
 					resource.getGUID(),resourceReq);
@@ -477,7 +477,7 @@ public class FCI {
 			return iPanlabServices.DeleteResource(resource.getContext(), 
 					resource.getProvider().getFirstURI() , resource.getResourceTypeName(),
 					resource.getGUID(), resourceReq  );
-		}else if (resource.getResourceContext().getBrokerModel().getName().toLowerCase().equals("uop")){
+		}else if (resource.getResourceContext().getBrokerModel().getName().toLowerCase().equals("p2e")){
 			return iUoPServices.DeleteResource(resource.getContext(), 
 					resource.getProvider().getFirstURI() , resource.getResourceTypeName(),
 					resource.getGUID(), resourceReq);
@@ -511,7 +511,7 @@ public class FCI {
 		
 		if (resourceContext.getBrokerModel().getName().toLowerCase().equals("panlab")){
 			 return new ResourceProxy(context, resourceGUID, resourceContext, provider, serviceType, resourceGUID, null);
-		}else if (resourceContext.getBrokerModel().getName().toLowerCase().equals("uop")){
+		}else if (resourceContext.getBrokerModel().getName().toLowerCase().equals("p2e")){
 			 return new ResourceProxy(context, resourceGUID, resourceContext, provider, serviceType, resourceGUID, null);
 		}else if (resourceContext.getBrokerModel().getName().toLowerCase().equals("amazon")){
 			 return new ResourceProxy(context, resourceGUID, resourceContext, provider, serviceType, resourceGUID, null);
@@ -527,7 +527,7 @@ public class FCI {
 					 resource.getContext(), 
 					 resource.getProvider().getFirstURI(), 
 					 resource.getGUID(), paramName);
-		}else if (resource.getResourceContext().getBrokerModel().getName().toLowerCase().equals("uop")){
+		}else if (resource.getResourceContext().getBrokerModel().getName().toLowerCase().equals("p2e")){
 			 return iUoPServices.getParameterValueOfResource(
 					 resource.getContext(), 
 					 resource.getProvider().getFirstURI(), 
