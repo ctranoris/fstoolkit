@@ -63,7 +63,7 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
  * Here is an example:
  * <pre>{@code
  * PanlabGWClient u = new PanlabGWClient( TEAGLE_GW_URL	);
- * u.POSTexecute( "uop.rubis_db-9", "uop",
+ * u.POSTexecute( "uop.rubis_db-9", "p2e",
  * "<rubis_db action=\"update\">" +
  * 	"<configuration>" +
  * 		"<context><vctId>ctranoris_rubbis_db</vctId></context>" +
@@ -79,7 +79,7 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
  * 	);
  * 		
  * //An example for GET!
- * u.GETexecute("uop.rubis_cl-14", "uop" );
+ * u.GETexecute("uop.rubis_cl-14", "p2e" );
  * XMLutils x = new XMLutils();
  * String s = x.getNodeValueFromXML(u.getResponse_stream(), "//MEM/text()");
  * System.out.println("Value = " + s);

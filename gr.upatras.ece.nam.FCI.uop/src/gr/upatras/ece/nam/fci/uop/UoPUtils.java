@@ -10,6 +10,6 @@ public class UoPUtils {
 	/**
 	 * This is a readonly setting
 	 */
-	public static final String RESOURCE_CONTEXT_NAME = "uop";
+	public static final String RESOURCE_CONTEXT_NAME = "p2e";
 
 }

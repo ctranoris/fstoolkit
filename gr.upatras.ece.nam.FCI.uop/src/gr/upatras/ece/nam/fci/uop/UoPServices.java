@@ -213,7 +213,7 @@ public class UoPServices implements IFCIService{
 
 //		//a CREATE resource example
 //		UoPGWClient u = new UoPGWClient( "http://150.140.184.156:9000/teaglegw"	);
-//		 u.POSTexecute( "uop.top-0", "uop",
+//		 u.POSTexecute( "uop.top-0", "p2e",
 //		 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
 //		 		"<rubis_db>" +
 //		 		"<context><vctId>ctranoris_rubbis_db</vctId></context>" +

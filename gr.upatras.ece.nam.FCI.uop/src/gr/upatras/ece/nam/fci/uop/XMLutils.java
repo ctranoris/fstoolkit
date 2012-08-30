@@ -36,7 +36,7 @@ import org.xml.sax.SAXException;
  * 
  * 	<pre>{@code
  *	//An example for GET!
- *	u.GETexecute("uop.rubis_cl-14", "uop" );
+ *	u.GETexecute("uop.rubis_cl-14", "p2e" );
  *	XMLutils x = new XMLutils();
  *	String s = x.getNodeValueFromXML(u.getResponse_stream(), "//MEM/text()");
  *	System.out.println("Value = " + s);
