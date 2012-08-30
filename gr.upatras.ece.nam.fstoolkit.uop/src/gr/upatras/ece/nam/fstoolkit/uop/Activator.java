@@ -34,10 +34,9 @@ public class Activator extends AbstractUIPlugin {
 	
 
 	private List<Broker> uopBrokers;
-	private String officeName = "uop";
-	private ResourceContext uop;
-	
-	
+	private String officeName = "p2e";
+	private ResourceContext p2e;
+		
 	
 	public List<IBrokerRepositoryListener> getBrokerRepositoryListener() {
 		return officeRepositoryListener;
@@ -120,15 +119,15 @@ public class Activator extends AbstractUIPlugin {
 	}
 
 	public void setResourceContext(ResourceContext panlab) {
-		this.uop = panlab;
+		this.p2e = panlab;
 	}
 
 	public ResourceContext getResourceContext() {
-		return uop;
+		return p2e;
 	}
 	
 	public void LoadScenario(RequestedFederationScenario fedScenario){
-		uop.LoadFederationScenario(fedScenario);
+		p2e.LoadFederationScenario(fedScenario);
 	}
 	
 	public List<Broker> loadBrokers(String username, String passkey) {
@@ -142,9 +141,9 @@ public class Activator extends AbstractUIPlugin {
 		cred.setPassword(myPassw);
 		FCI fci = FCI.getInstance();
 		AuthorizationKey authKey = fci.createAuthorizationKey(cred);
-		uop = fci.createResourceContext(officeName, authKey);	
-		if (uop!=null){	
-			Broker uopBroker = uop.getBrokerModel();
+		p2e = fci.createResourceContext(officeName, authKey);	
+		if (p2e!=null){	
+			Broker uopBroker = p2e.getBrokerModel();
 			this.uopBrokers.add(uopBroker);
 		}
 		
@@ -166,10 +165,10 @@ public class Activator extends AbstractUIPlugin {
 		cred.setPassword(myPassw);
 		FCI fci = FCI.getInstance();
 		AuthorizationKey authKey = fci.createAuthorizationKey(cred);
-		uop = fci.createResourceContext(officeName, authKey);
+		p2e = fci.createResourceContext(officeName, authKey);
 		
-		if (uop!=null){		
-			Broker uopBroker = uop.getBrokerModel();
+		if (p2e!=null){		
+			Broker uopBroker = p2e.getBrokerModel();
 			return "Connection succesful. Broker:"+uopBroker.getName()+", brokerdsl="+uopBroker.getResourceURI() ;
 			
 		}else{		
