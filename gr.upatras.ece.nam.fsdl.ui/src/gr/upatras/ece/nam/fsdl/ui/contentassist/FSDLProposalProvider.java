@@ -49,20 +49,19 @@ import brokermodel.users.ResourcesProvider;
 public class FSDLProposalProvider extends AbstractFSDLProposalProvider {
 
 
-	//private static final Image IMAGE1= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.fsdl.ui",  "icons/16x16_fstoolkit.gif").createImage();
-	private static final Image IMAGEServiceSetting= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	private static final Image IMAGEServiceSetting= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
 	"icons/full/obj16/ServiceSetting.gif").createImage();
-	private static final Image IMAGEServiceSettingInstance= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	private static final Image IMAGEServiceSettingInstance= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
 	"icons/full/obj16/ServiceSettingInstance.gif").createImage();
-	private static final Image IMAGEtideTypeEnumItem= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	private static final Image IMAGEtideTypeEnumItem= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
 	"icons/full/obj16/tideTypeEnumItem.gif").createImage();
 	
-	private static final Image IMAGEOfferedService= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	private static final Image IMAGEOfferedService= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
 	"icons/full/obj16/OfferedService.gif").createImage();
 
-	private static final Image IMAGEResourceSetting= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	private static final Image IMAGEResourceSetting= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
 			"icons/full/obj16/ResourceSetting.gif").createImage();
-	private static final Image IMAGEServiceRequest= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	private static final Image IMAGEServiceRequest= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
 	"icons/full/obj16/ServiceRequest.gif").createImage();
 	
 	public void completeServiceSettingInstance_RefServiceSetting(
