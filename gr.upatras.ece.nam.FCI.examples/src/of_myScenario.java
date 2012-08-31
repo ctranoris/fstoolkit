@@ -70,15 +70,15 @@ import brokermodel.fcielements.FCICredentials;
 				ServiceType service = _context_UoP.getServiceType("sflow");
 				
 				//get a resource provider 
-				ResourceProvider provider = _context_UoP.getResourceProviderByURI("nam");
+				ResourceProvider provider = _context_UoP.getResourceProviderBySiteURI("nam");
 				
 				//create Parameters of a resource
 				List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
 				ParameterValuePair p;
 //				p = new ParameterValuePair("target", "150.140.255.162:6343");
-				p = new ParameterValuePair("target", "150.140.184.212:6343");
+				p = new ParameterValuePair("target", "150.140.184.212:6343", "myinp");
 				params.add(p);
-				p = new ParameterValuePair("sflow_id", "-");
+				p = new ParameterValuePair("sflow_id", "-", "myinp");
 				params.add(p);
 				ResourceProxy resource_mysflow = _context_UoP.createResourceProxy("myScenario", "resource_mysflow", provider, service, params);
 				return  resource_mysflow;
@@ -88,16 +88,16 @@ import brokermodel.fcielements.FCICredentials;
 				ServiceType service = _context_UoP.getServiceType("qos_rate_limiting");
 				
 				//get a resource provider 
-				ResourceProvider provider = _context_UoP.getResourceProviderByURI("nam");
+				ResourceProvider provider = _context_UoP.getResourceProviderBySiteURI("nam");
 				
 				//create Parameters of a resource
 				List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
 				ParameterValuePair p;
-				p = new ParameterValuePair("vif", "vif6.0");
+				p = new ParameterValuePair("vif", "vif6.0", "myinp");
 				params.add(p);
-				p = new ParameterValuePair("ingress_policing_rate", "1000000");
+				p = new ParameterValuePair("ingress_policing_rate", "1000000", "myinp");
 				params.add(p);
-				p = new ParameterValuePair("ingress_policing_burst", "100000");
+				p = new ParameterValuePair("ingress_policing_burst", "100000", "myinp");
 				params.add(p);
 				ResourceProxy resource_myqos_rate_limiting = _context_UoP.createResourceProxy("myScenario", "resource_myqos_rate_limiting", provider, service, params);
 				return  resource_myqos_rate_limiting;
@@ -182,9 +182,9 @@ import brokermodel.fcielements.FCICredentials;
 				
 				List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
 				ParameterValuePair p;
-				p = new ParameterValuePair("ingress_policing_rate", "1000000");//1Gbps
+				p = new ParameterValuePair("ingress_policing_rate", "1000000", "myinp");//1Gbps
 				params.add(p);
-				p = new ParameterValuePair("ingress_policing_burst", "100000");
+				p = new ParameterValuePair("ingress_policing_burst", "100000", "myinp");
 				params.add(p);
 				resource.UpdateResource(params); 
 				
@@ -194,9 +194,9 @@ import brokermodel.fcielements.FCICredentials;
 				
 				List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
 				ParameterValuePair p;
-				p = new ParameterValuePair("ingress_policing_rate", "2000000");//2Gbps
+				p = new ParameterValuePair("ingress_policing_rate", "2000000", "myinp");//2Gbps
 				params.add(p);
-				p = new ParameterValuePair("ingress_policing_burst", "200000");
+				p = new ParameterValuePair("ingress_policing_burst", "200000", "myinp");
 				params.add(p);
 				resource.UpdateResource(params); 
 				

@@ -41,6 +41,9 @@ public class FSDLProjectCreator extends AbstractPluginProjectCreator {
     @Override
 	protected List<String> getRequiredBundles() {
 		List<String> result = Lists.newArrayList(super.getRequiredBundles());
+		result.add("org.apache.commons.httpclient");
+		result.add("org.apache.commons.codec");
+		result.add("gr.upatras.ece.nam.brokerdsl");
 		result.add(DSL_GENERATOR_PROJECT_NAME);
 		return result;
 	}

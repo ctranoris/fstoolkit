@@ -46,8 +46,8 @@ class FSDLGenerator implements IGenerator {
 		
 		 '''
 		 //TODO: Please enter here identity for «e.name»
-		String _username_«e.name» ="ENTER USERNAME";
-		String _password_«e.name» ="ENTER PASSWORD";
+		String _username_«e.name» ="ENTERUSERNAME";
+		String _password_«e.name» ="ENTERPASSWORD";
 		ResourceContext _context_«e.name»;
 		
 		public ResourceContext _return_context_«e.name»(){ 
@@ -68,7 +68,7 @@ class FSDLGenerator implements IGenerator {
 			ServiceType service = _context_«o.name».getServiceType("«e.refOfferedResource.implOfferedService.name»");
 			
 			//get a resource provider 
-			ResourceProvider provider = _context_«o.name».getResourceProviderByURI("«e.refOfferedResource.belongsToSite.name»");
+			ResourceProvider provider = _context_«o.name».getResourceProviderByName("«e.refOfferedResource.belongsToSite.belongsToProvider.name »");
 			
 			//create Parameters of a resource
 			List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
@@ -77,7 +77,11 @@ class FSDLGenerator implements IGenerator {
 			p = new ParameterValuePair("«p.refResourceSetting.name»", "«p.staticValue»", "«p.name»");
 			params.add(p);
 			«ENDFOR»
-			ResourceProxy resource_«e.name» = _context_«o.name».createResourceProxy("«scenarioName»", "«e.name + "_"+e.uniqueID  »", provider, service, params);
+			ResourceProxy resource_«e.name» = _context_«o.name».createResourceProxy(
+				"«scenarioName»", 
+				"«e.refOfferedResource.name  »", 
+				"«e.name»", 
+				provider, service, params);
 			return  resource_«e.name»;
 		}
 		'''	

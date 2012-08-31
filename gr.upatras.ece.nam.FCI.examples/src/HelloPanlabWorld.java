@@ -53,7 +53,7 @@ public class HelloPanlabWorld {
 		ResourceGroup myGroup = fci.createResourceGroup("ScenarioExample");
 
 		List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
-		ParameterValuePair p = new ParameterValuePair("input", "Christos");
+		ParameterValuePair p = new ParameterValuePair("input", "Christos", "myinp");
 		params.add(p);
 		ResourceProxy resourceEcho = panlab.createResourceProxy("myTempVCT", "myEchoResource", provider, service, params);
 		

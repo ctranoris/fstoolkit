@@ -31,10 +31,10 @@ public class HelloUoPWorld {
 
 	private void CreateScenario() {
 		FCI fci = FCI.getInstance();
-		FCICredentials cred = fci.createFCICredentials("ctranoris", "123456");
+		FCICredentials cred = fci.createFCICredentials("ctranoris", "tranorispwd!");
 
 		AuthorizationKey authKey = fci.createAuthorizationKey(cred);
-		ResourceContext uop = fci.createResourceContext("uop", authKey);
+		ResourceContext uop = fci.createResourceContext("p2e", authKey);
 		
 		if (uop == null) {
 			System.out.println("broker is null. check credentials? ");
@@ -58,8 +58,10 @@ public class HelloUoPWorld {
 		ResourceGroup myGroup = fci.createResourceGroup("ScenarioExample");
 
 		List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
-		ParameterValuePair p = new ParameterValuePair("input", "Christos");
+		ParameterValuePair p = new ParameterValuePair("input", "Christos", "myinputval");
 		params.add(p);
+		//ResourceProxy resourceEcho = uop.createResourceProxy("myTempVCT", "myEchoResource", provider, service, params);
+		
 		ResourceProxy resourceEcho = uop.createResourceProxy("myTempVCT", "myEchoResource", provider, service, params);
 		
 		System.out.println("Echo resource GUID: " + resourceEcho.getGUID());

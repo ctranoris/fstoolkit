@@ -55,22 +55,22 @@ public class SynchromediaPanlabWorld {
 //        System.out.println("A first available Provider: " + provider.getName());
        
         //get a resource provider by its PTM alias
-        ResourceProvider provider = panlab.getResourceProviderByURI("synchromedia");
+        ResourceProvider provider = panlab.getResourceProviderBySiteURI("synchromedia");
        
         //Group (for grouping resources)
         ResourceGroup myGroup = fci.createResourceGroup("GSNScenarioExample");
 
         //create Parameters of a resource
         List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
-        ParameterValuePair p = new ParameterValuePair("Host_name", "ETS-Host1");
+        ParameterValuePair p = new ParameterValuePair("Host_name", "ETS-Host1", "myinp");
         params.add(p);
-        p = new ParameterValuePair("VM_name", "MyVM");
+        p = new ParameterValuePair("VM_name", "MyVM", "myinp");
         params.add(p);
-        p = new ParameterValuePair("VM_memory", "1024");
+        p = new ParameterValuePair("VM_memory", "1024", "myinp");
         params.add(p);
-        p = new ParameterValuePair("VM_number_of_CPU", "1");
+        p = new ParameterValuePair("VM_number_of_CPU", "1", "myinp");
         params.add(p);
-        p = new ParameterValuePair("VM_template", "server964");
+        p = new ParameterValuePair("VM_template", "server964", "myinp");
         params.add(p);
 //        p = new ParameterValuePair("sleeptime_ms", "2000");
 //        params.add(p);

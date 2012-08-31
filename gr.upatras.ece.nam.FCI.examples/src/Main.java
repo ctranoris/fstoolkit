@@ -100,7 +100,7 @@ public class Main {
 
 		// Update all resources of group
 		List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
-		ParameterValuePair p = new ParameterValuePair("ACTION", "start");
+		ParameterValuePair p = new ParameterValuePair("ACTION", "start", "myinp");
 		params.add(p);
 		example.updateResources(params);
 
@@ -120,7 +120,7 @@ public class Main {
 
 		// Update all resources of group
 		List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
-		ParameterValuePair p = new ParameterValuePair("ACTION", "stop");
+		ParameterValuePair p = new ParameterValuePair("ACTION", "stop", "myinp");
 		params.add(p);
 		example.updateResources(params);
 	}
@@ -135,23 +135,23 @@ public class Main {
 
 		List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
 
-		ParameterValuePair p = new ParameterValuePair("VLANID", "23");
+		ParameterValuePair p = new ParameterValuePair("VLANID", "23", "myinp");
 		params.add(p);
-		p = new ParameterValuePair("IP", "10.0.0.1");
+		p = new ParameterValuePair("IP", "10.0.0.1", "myinp");
 		params.add(p);
-		p = new ParameterValuePair("GW", "10.0.0.250");
+		p = new ParameterValuePair("GW", "10.0.0.250", "myinp");
 		params.add(p);
-		p = new ParameterValuePair("MEM", "256");
+		p = new ParameterValuePair("MEM", "256", "myinp");
 		params.add(p);
-		p = new ParameterValuePair("DISKSPACE", "10000");
+		p = new ParameterValuePair("DISKSPACE", "10000", "myinp");
 		params.add(p);
-		p = new ParameterValuePair("DBIP", "10.0.0.20");
+		p = new ParameterValuePair("DBIP", "10.0.0.20", "myinp");
 		params.add(p);
-		p = new ParameterValuePair("PROXY_APP_IP", "10.0.0.30");
+		p = new ParameterValuePair("PROXY_APP_IP", "10.0.0.30", "myinp");
 		params.add(p);
-		p = new ParameterValuePair("NUM_CLIENTS", "150");
+		p = new ParameterValuePair("NUM_CLIENTS", "150", "myinp");
 		params.add(p);
-		p = new ParameterValuePair("RAMP_UP_TIME", "60000");
+		p = new ParameterValuePair("RAMP_UP_TIME", "60000", "myinp");
 		params.add(p);
 
 		ResourceProxy resource = panlab.createResourceProxy("myTempVCT", "myResource", provider, service, params);

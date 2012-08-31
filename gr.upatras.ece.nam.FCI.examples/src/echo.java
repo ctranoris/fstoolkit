@@ -65,20 +65,20 @@ import brokermodel.fcielements.FCICredentials;
 				ServiceType service = _context_amazon.getServiceType("Compute");
 				
 				//get a resource provider 
-				ResourceProvider provider = _context_amazon.getResourceProviderByURI("eu-west-1");
+				ResourceProvider provider = _context_amazon.getResourceProviderBySiteURI("eu-west-1");
 				
 				//create Parameters of a resource
 				List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
 				ParameterValuePair p;
-				p = new ParameterValuePair("Region", "eu-west-1");
+				p = new ParameterValuePair("Region", "eu-west-1", "myregion");
 				params.add(p);
-				p = new ParameterValuePair("InstanceType", "m1.small");
+				p = new ParameterValuePair("InstanceType", "m1.small", "myinstancetype");
 				params.add(p);
-				p = new ParameterValuePair("AMIid", "ami-47cefa33");
+				p = new ParameterValuePair("AMIid", "ami-47cefa33", "myamid");
 				params.add(p);
-				p = new ParameterValuePair("PublicDnsName", "");
+				p = new ParameterValuePair("PublicDnsName", "", "mypubl");
 				params.add(p);
-				p = new ParameterValuePair("InstanceID", "");
+				p = new ParameterValuePair("InstanceID", "", "myins");
 				params.add(p);
 				ResourceProxy resource_myCompute = _context_amazon.createResourceProxy("myScenario", "echo_rp12_s12_or10782", provider, service, params);
 				return  resource_myCompute;
@@ -88,16 +88,16 @@ import brokermodel.fcielements.FCICredentials;
 				ServiceType service = _context_panlab.getServiceType("echo");
 				
 				//get a resource provider 
-				ResourceProvider provider = _context_panlab.getResourceProviderByURI("site");
+				ResourceProvider provider = _context_panlab.getResourceProviderBySiteURI("site");
 				
 				//create Parameters of a resource
 				List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
 				ParameterValuePair p;
-				p = new ParameterValuePair("output", "");
+				p = new ParameterValuePair("output", "", "out");
 				params.add(p);
-				p = new ParameterValuePair("input", "");
+				p = new ParameterValuePair("input", "", "in");
 				params.add(p);
-				p = new ParameterValuePair("sleeptime_ms", "2000");
+				p = new ParameterValuePair("sleeptime_ms", "2000", "sleep");
 				params.add(p);
 				ResourceProxy resource_myecho = _context_panlab.createResourceProxy("myScenario", "echo_rp12_s12_or10782", provider, service, params);
 				return  resource_myecho;

@@ -54,11 +54,11 @@ public class p2nerPanlab {
 		ResourceGroup myGroup = fci.createResourceGroup("ScenarioExample");
 
 		List<ParameterValuePair> params = new ArrayList<ParameterValuePair>();
-		ParameterValuePair p = new ParameterValuePair("Name", "p2ner");
+		ParameterValuePair p = new ParameterValuePair("Name", "p2ner", "myinp");
 		params.add(p);
-		p = new ParameterValuePair("InputURL", "http://150.140.184.236:8001/p2ner.img");
+		p = new ParameterValuePair("InputURL", "http://150.140.184.236:8001/p2ner.img", "myinp");
 		params.add(p);
-		p = new ParameterValuePair("OutputURL", "");
+		p = new ParameterValuePair("OutputURL", "", "myinp");
 		params.add(p);
 		ResourceProxy resourceXENImagestore = panlab.createResourceProxy("myTempVCT", "myXENImagestore", provider, serviceXenImageStore, params);
 		
@@ -69,21 +69,21 @@ public class p2nerPanlab {
 		System.out.println("serviceXenImageDeploy OutputURL = "+ outurl);
 		
 		List<ParameterValuePair> paramsXENDeploy = new ArrayList<ParameterValuePair>();
-		p = new ParameterValuePair("NAME", "p2server");
+		p = new ParameterValuePair("NAME", "p2server", "myinp");
 		paramsXENDeploy.add(p);
-		p = new ParameterValuePair("VLANID", "23");
+		p = new ParameterValuePair("VLANID", "23", "myinp");
 		paramsXENDeploy.add(p);
-		p = new ParameterValuePair("IP", "10.0.0.243");
+		p = new ParameterValuePair("IP", "10.0.0.243", "myinp");
 		paramsXENDeploy.add(p);
-		p = new ParameterValuePair("GW", "10.0.0.254");
+		p = new ParameterValuePair("GW", "10.0.0.254", "myinp");
 		paramsXENDeploy.add(p);
-		p = new ParameterValuePair("MEM", "512");
+		p = new ParameterValuePair("MEM", "512", "myinp");
 		paramsXENDeploy.add(p);
-		p = new ParameterValuePair("LOGGER_IP", "10.0.0.243");
+		p = new ParameterValuePair("LOGGER_IP", "10.0.0.243", "myinp");
 		paramsXENDeploy.add(p);
-		p = new ParameterValuePair("URL", outurl);
+		p = new ParameterValuePair("URL", outurl, "myinp");
 		paramsXENDeploy.add(p);
-		p = new ParameterValuePair("CAP", "50");
+		p = new ParameterValuePair("CAP", "50", "myinp");
 		paramsXENDeploy.add(p);
 
 		ServiceType serviceXenImageDeploy = panlab.getServiceType("xenvmdeploy");
