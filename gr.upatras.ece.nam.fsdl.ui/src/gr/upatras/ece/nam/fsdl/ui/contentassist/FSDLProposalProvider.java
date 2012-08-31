@@ -3,10 +3,552 @@
 */
 package gr.upatras.ece.nam.fsdl.ui.contentassist;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
+
 import gr.upatras.ece.nam.fsdl.ui.contentassist.AbstractFSDLProposalProvider;
+
+import org.eclipse.jface.text.contentassist.ICompletionProposal;
+import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.jface.viewers.StyledString.Styler;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.FontData;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.TextStyle;
+import org.eclipse.swt.widgets.Display;
+
+import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.resource.IEObjectDescription;
+import org.eclipse.xtext.scoping.IGlobalScopeProvider;
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
+
+import com.google.common.base.Predicate;
+import com.google.inject.Inject;
+
+import brokermodel.Broker;
+import brokermodel.BrokermodelPackage;
+import brokermodel.federationscenarios.ResourceRequest;
+import brokermodel.federationscenarios.ResourceSettingInstance;
+import brokermodel.federationscenarios.ServiceRequest;
+import brokermodel.federationscenarios.ServiceSettingInstance;
+import brokermodel.providersite.Site;
+import brokermodel.resources.OfferedResource;
+import brokermodel.services.OfferedService;
+import brokermodel.services.brTypeEnum;
+import brokermodel.services.brTypeEnumItem;
+import brokermodel.users.BrokerUser;
+import brokermodel.users.ResourcesProvider;
 /**
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#contentAssist on how to customize content assistant
  */
 public class FSDLProposalProvider extends AbstractFSDLProposalProvider {
 
+
+	//private static final Image IMAGE1= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.fsdl.ui",  "icons/16x16_fstoolkit.gif").createImage();
+	private static final Image IMAGEServiceSetting= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	"icons/full/obj16/ServiceSetting.gif").createImage();
+	private static final Image IMAGEServiceSettingInstance= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	"icons/full/obj16/ServiceSettingInstance.gif").createImage();
+	private static final Image IMAGEtideTypeEnumItem= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	"icons/full/obj16/tideTypeEnumItem.gif").createImage();
+	
+	private static final Image IMAGEOfferedService= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	"icons/full/obj16/OfferedService.gif").createImage();
+
+	private static final Image IMAGEResourceSetting= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+			"icons/full/obj16/ResourceSetting.gif").createImage();
+	private static final Image IMAGEServiceRequest= AbstractUIPlugin.imageDescriptorFromPlugin( "org.panlab.software.office.model.edit",  
+	"icons/full/obj16/ServiceRequest.gif").createImage();
+	
+	public void completeServiceSettingInstance_RefServiceSetting(
+			ServiceSettingInstance model, Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+
+		// call implementation in superclass
+//		super.completeMyServiceSettingInstance_RefServiceSetting(
+//		model,
+//		assignment,
+//		context,
+//		acceptor);
+		
+//		// compute the plain proposal
+//		String proposal = "Description for model"  ;
+//		System.out.println("completeServiceSettingInstance_RefServiceSetting model,	" +model.toString()+
+//				"	assignment,	" +assignment.getFeature().toString()+
+//				"	context,	" +context.toString()+
+//				"	acceptor" +acceptor.toString()
+//				);
+
+		
+		brokermodel.services.Service  offeredService = null;
+		if ( model.eContainer() instanceof ServiceRequest){
+			offeredService = ((ServiceRequest)model.eContainer()).getRefService();
+		}
+		
+		if ( offeredService ==null)
+			return;
+		
+		//Have in mind that the proposal must be the same as the scoping!
+		for (int i = 0; i < offeredService.getServiceSettings().size() ; i++) {
+			offeredService.getServiceSettings().get(i);
+			String proposedName = "\""+offeredService.getServiceSettings().get(i).getName()+"\"";
+			// convert it to a valid STRING-terminal
+			String proposal = getValueConverter().toString( proposedName , null);
+			// create the completion proposal the result may be null as the createCompletionProposal(..) methods
+			// check for valid prefixes and terminal token conflicts
+			
+			Styler fBoldStyler= new Styler() {
+				@Override
+				public void applyStyles(TextStyle textStyle) {
+					FontData[] boldFontData= getModifiedFontData(Display.getCurrent().getFontList("Segoe UI", true), SWT.BOLD);
+					
+					Font boldFont = new Font(Display.getCurrent(), boldFontData);					
+					textStyle.font= boldFont;
+				}
+			};
+			
+			Styler style=  fBoldStyler;
+			StyledString styledString= new StyledString( proposedName , style );
+			String descr = " ";
+			if (offeredService.getServiceSettings().get(i).getDescription() != null)
+				if (offeredService.getServiceSettings().get(i).getDescription().length()>0 )
+					descr = " - "+offeredService.getServiceSettings().get(i).getDescription();
+			styledString.append(descr, StyledString.COUNTER_STYLER);
+
+			ICompletionProposal completionProposal = createCompletionProposal( proposal, styledString, IMAGEServiceSetting, context) ;
+			
+			// register the proposal, the acceptor handles null-values gracefully
+			acceptor.accept(completionProposal);
+			
+		}
+		
+	}
+
+	private static FontData[] getModifiedFontData(FontData[] originalData, int additionalStyle) {
+		FontData[] styleData = new FontData[originalData.length];
+		for (int i = 0; i < styleData.length; i++) {
+			FontData base = originalData[i];
+			styleData[i] = new FontData(base.getName(), 9, base.getStyle() | additionalStyle);
+		}       	return styleData;
+    }
+	
+	public void completeServiceSettingInstance_Name(ServiceSettingInstance model, Assignment assignment, ContentAssistContext context, 
+			ICompletionProposalAcceptor acceptor){
+		// call implementation in superclass
+		super.completeServiceSettingInstance_Name(
+		model,
+		assignment,
+		context,
+		acceptor);
+		
+		String proposedName = model.getRefServiceSetting().getName().toLowerCase().replace(' ', '_');
+		String proposal = proposedName ;		
+
+		// convert it to a valid STRING-terminal
+		proposal = getValueConverter(). toString(proposal, null);
+
+		Styler fBoldStyler= new Styler() {
+			@Override
+			public void applyStyles(TextStyle textStyle) {
+				FontData[] boldFontData= getModifiedFontData(Display.getCurrent().getFontList("Segoe UI", true), SWT.BOLD);
+				
+				Font boldFont = new Font(Display.getCurrent(), boldFontData);					
+				textStyle.font= boldFont;
+			}
+		};
+		
+		Styler style=  fBoldStyler;
+		StyledString styledString= new StyledString( proposedName , style );
+		String descr = " - Type here an alias name for "+model.getRefServiceSetting().getName()+". This can be used as assignment by other settings";
+		styledString.append(descr, StyledString.COUNTER_STYLER);
+				
+		ICompletionProposal completionProposal = createCompletionProposal( proposal, styledString, IMAGEServiceSettingInstance, context) ;
+		
+		// register the proposal, the acceptor handles null-values gracefully
+		acceptor.accept(completionProposal);
+
+	}
+	
+	public void completeServiceSettingInstance_StaticValue(ServiceSettingInstance model,
+			Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub
+		super.completeServiceSettingInstance_StaticValue(model, assignment, context,
+				acceptor);
+
+		if ( !( model.getRefServiceSetting().getSettingType() instanceof  brTypeEnum ))
+			return;
+		
+		brTypeEnum enumtype = (brTypeEnum)model.getRefServiceSetting().getSettingType();
+		
+		
+		Styler fBoldStyler= new Styler() {
+			@Override
+			public void applyStyles(TextStyle textStyle) {
+				FontData[] boldFontData= getModifiedFontData(Display.getCurrent().getFontList("Segoe UI", true), SWT.BOLD);
+				
+				Font boldFont = new Font(Display.getCurrent(), boldFontData);					
+				textStyle.font= boldFont;
+			}
+		};
+		
+		Styler style=  fBoldStyler;
+		
+		for (brTypeEnumItem item : enumtype.getTideEnumlist()) {
+			String proposedName =  item.getValue();
+			String proposal = "\""+proposedName +"\"" ;	
+			// convert it to a valid STRING-terminal
+			proposal = getValueConverter(). toString(proposal, null);
+			StyledString styledString= new StyledString( proposedName , style );
+			String descr = " - "+item.getDescription() ;
+			styledString.append(descr, StyledString.COUNTER_STYLER);
+					
+			ICompletionProposal completionProposal = createCompletionProposal( proposal, styledString, IMAGEtideTypeEnumItem, context) ;
+			
+			// register the proposal, the acceptor handles null-values gracefully
+			acceptor.accept(completionProposal);
+		}
+		
+		
+		
+		
+		
+	}
+	
+	public void completeServiceRequest_Name(ServiceRequest model, Assignment assignment, ContentAssistContext context, 
+			ICompletionProposalAcceptor acceptor){
+		// call implementation in superclass
+		super.completeServiceRequest_Name(
+		model,
+		assignment,
+		context,
+		acceptor);
+		
+	
+		String proposedName = "my"+model.getRefService().getName().toLowerCase().replace(' ', '_');
+		String proposal = proposedName ;		
+		String proposalArray = proposedName+"[1..N]" ;		
+
+		// convert it to a valid STRING-terminal
+		proposal = getValueConverter(). toString(proposal, null);
+		proposalArray = getValueConverter(). toString(proposalArray, null);
+
+		Styler fBoldStyler= new Styler() {
+			@Override
+			public void applyStyles(TextStyle textStyle) {
+				FontData[] boldFontData= getModifiedFontData(Display.getCurrent().getFontList("Segoe UI", true), SWT.BOLD);
+				
+				Font boldFont = new Font(Display.getCurrent(), boldFontData);					
+				textStyle.font= boldFont;
+			}
+		};
+		
+		Styler style=  fBoldStyler;
+		StyledString styledString= new StyledString( proposedName , style );
+		String descr = " - Type here an alias name for service "+model.getRefService().getName();
+		styledString.append(descr, StyledString.COUNTER_STYLER);
+		
+		StyledString styledStringArray= new StyledString( proposalArray , style );
+		descr = " - Type here an alias name for an array of N "+model.getRefService().getName()+" services";
+		styledStringArray.append(descr, StyledString.COUNTER_STYLER);
+
+		ICompletionProposal completionProposal = createCompletionProposal( proposal, styledString, IMAGEServiceRequest, context) ;
+		acceptor.accept(completionProposal);
+		completionProposal = createCompletionProposal( proposalArray, styledStringArray, IMAGEServiceRequest, context) ;
+		acceptor.accept(completionProposal);
+		
+
+	}
+	
+
+	@Inject
+	IGlobalScopeProvider provider;
+	
+
+	protected Predicate<IEObjectDescription > rResOfferedServices = new Predicate<IEObjectDescription>() {
+		public boolean apply(IEObjectDescription input) {
+			System.out.println(">>>Predicate apply>>>="+ input.toString() );
+			return true;
+			// return input.getName().length()==6;
+		}
+	};
+	
+	@Override
+	public void completeServiceRequest_RefService(EObject model, Assignment assignment, ContentAssistContext context, 
+			ICompletionProposalAcceptor acceptor){
+		//Scoping must be used in Code Completion because elements from Imported files are not shown.
+		//See http://chilifreak.wordpress.com/2010/02/22/extending-proposals-in-xtext-using-scoping/
+		
+		// FederationOfficePackage contains all static elements of the mm
+
+		
+		
+		org.eclipse.xtext.scoping.IScope scope = provider.getScope(  model.eResource() , 
+				BrokermodelPackage.eINSTANCE.getBroker_OfferedServices(), 
+				rResOfferedServices );
+
+	
+
+	  for (IEObjectDescription element : scope.getAllElements()) {
+	   // we know that they are OfferedService
+
+		
+		OfferedService os = (OfferedService) element.getEObjectOrProxy() ;
+		EObject obj = null;
+//		if (os.eIsProxy()){
+//			System.out.println(">>>>>>>>> scoping model object is Proxy" ); //context.getRootModel().eResource().getResourceSet()
+//			obj = org.eclipse.emf.ecore.util.EcoreUtil.resolve( os, element.getEObjectOrProxy().eResource().getResourceSet() );
+//			os = (OfferedService) obj;			
+//		}
+
+		if (os.eIsProxy()){
+			System.out.println(">>>>>>>>> scoping model object is Proxy" ); //context.getRootModel().eResource().getResourceSet()
+			obj = org.eclipse.emf.ecore.util.EcoreUtil.resolve( os, context.getRootModel().eResource().getResourceSet() );
+			os = (OfferedService) obj;			
+		}
+
+			//String proposal = "\""+((Office)os.eContainer()).getName()+ "."+ os.getName()+"\"";
+			String proposal = "\"" + os.getName()+ "."+((Broker)os.eContainer()).getName()+"\"";
+		
+		
+			// convert it to a valid STRING-terminal
+			proposal = getValueConverter(). toString(proposal, null);
+			Styler fBoldStyler= new Styler() {
+				@Override
+				public void applyStyles(TextStyle textStyle) {
+					FontData[] boldFontData= getModifiedFontData(Display.getCurrent().getFontList("Segoe UI", true), SWT.BOLD);
+					
+					Font boldFont = new Font(Display.getCurrent(), boldFontData);					
+					textStyle.font= boldFont;
+				}
+			};
+			
+			Styler style=  fBoldStyler;
+			StyledString styledString= new StyledString( proposal , style );
+			String descr = " - "+ os.getDescription();
+			styledString.append(descr, StyledString.COUNTER_STYLER);
+					
+			ICompletionProposal completionProposal = createCompletionProposal(  proposal, 
+					styledString, IMAGEOfferedService, context) ;
+			
+			// register the proposal, the acceptor handles null-values gracefully
+			acceptor.accept(completionProposal);
+			
+		
+	   }
+		
+		
+		
+		
+	  }
+
+	   
+//	@Override
+//	public void completeServiceRequest_RefService(EObject model, Assignment assignment, ContentAssistContext context, 
+//			ICompletionProposalAcceptor acceptor){
+//		// call implementation in superclass
+////		super.completeServiceRequest_RefService(
+////		model,
+////		assignment,
+////		context,
+////		acceptor);
+//
+//		
+//
+//		//System.out.println(">>>>>>>>> scoping model object=" + model.toString());
+//		
+//		//Have in mind that the proposal must be the same as the scoping!
+//		//NOTE. If you like to have FQN ID instead of Strings, the you must go to FSDL syntax and change the efService=[services::Service|STRING] to FQN
+//		//we have strings Services because we afraid that there might be blanks or other characters in a offered service name
+//		//TreeIterator<Object> iterator = EcoreUtil.getAllProperContents(context.getRootModel().eResource().getResourceSet(), true);
+//		TreeIterator<Object> iterator = EcoreUtil.getAllContents(context.getRootModel().eResource().getResourceSet()  , true);
+//		
+//		
+//		
+//		while (iterator.hasNext()) {
+//			 Object object = (Object) iterator.next();
+//			 System.out.println(">>>>>>>>> scoping scope_OfferedService object=" +	 object.toString());
+//			 
+////			 
+////			 if (object instanceof FederationOffice.federationscenarios.Import ){
+////				 FederationOffice.federationscenarios.Import imp = (FederationOffice.federationscenarios.Import) object;
+////				 imp.getImportURI(); 
+////				 
+////			 }
+//			 if (object instanceof OfferedService ){
+//				 OfferedService os = (OfferedService)object;
+//				 String proposal = "\""+((Office)os.eContainer()).getName()+ "."+ os.getName()+"\"";
+//				// convert it to a valid STRING-terminal
+//				proposal = getValueConverter(). toString(proposal, null);
+//				Styler fBoldStyler= new Styler() {
+//					@Override
+//					public void applyStyles(TextStyle textStyle) {
+//						FontData[] boldFontData= getModifiedFontData(Display.getCurrent().getFontList("Segoe UI", true), SWT.BOLD);
+//						
+//						Font boldFont = new Font(Display.getCurrent(), boldFontData);					
+//						textStyle.font= boldFont;
+//					}
+//				};
+//				
+//				Styler style=  fBoldStyler;
+//				StyledString styledString= new StyledString( proposal , style );
+//				String descr = " - "+ os.getDescription();
+//				styledString.append(descr, StyledString.COUNTER_STYLER);
+//						
+//				ICompletionProposal completionProposal = createCompletionProposal(  proposal, 
+//						styledString, IMAGEOfferedService, context) ;
+//				
+//				// register the proposal, the acceptor handles null-values gracefully
+//				acceptor.accept(completionProposal);
+//				 
+//			 }
+//		 }
+//
+//	}
+	
+	
+	public void completeResourceSettingInstance_RefResourceSetting(
+			ResourceSettingInstance model, Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+
+		// call implementation in superclass
+//		super.completeMyServiceSettingInstance_RefServiceSetting(
+//		model,
+//		assignment,
+//		context,
+//		acceptor);
+		
+//		// compute the plain proposal
+//		String proposal = "Description for model"  ;
+//		System.out.println("completeServiceSettingInstance_RefServiceSetting model,	" +model.toString()+
+//				"	assignment,	" +assignment.getFeature().toString()+
+//				"	context,	" +context.toString()+
+//				"	acceptor" +acceptor.toString()
+//				);
+
+		
+		brokermodel.resources.OfferedResource  offeredResource = null;
+		if ( model.eContainer() instanceof ResourceRequest){
+			offeredResource = ((ResourceRequest)model.eContainer()).getRefOfferedResource();
+		}
+		
+		if ( offeredResource ==null)
+			return;
+		
+		//Have in mind that the proposal must be the same as the scoping!
+		for (int i = 0; i < offeredResource.getResourceSettings().size() ; i++) {
+			offeredResource.getResourceSettings().get(i);
+			String proposedName = "\""+offeredResource.getResourceSettings().get(i).getName()+"\"";
+			// convert it to a valid STRING-terminal
+			String proposal = getValueConverter().toString( proposedName , null);
+			// create the completion proposal the result may be null as the createCompletionProposal(..) methods
+			// check for valid prefixes and terminal token conflicts
+			
+			Styler fBoldStyler= new Styler() {
+				@Override
+				public void applyStyles(TextStyle textStyle) {
+					FontData[] boldFontData= getModifiedFontData(Display.getCurrent().getFontList("Segoe UI", true), SWT.BOLD);
+					
+					Font boldFont = new Font(Display.getCurrent(), boldFontData);					
+					textStyle.font= boldFont;
+				}
+			};
+			
+			Styler style=  fBoldStyler;
+			StyledString styledString= new StyledString( proposedName , style );
+			String descr = " ";
+			if (offeredResource.getResourceSettings().get(i).getDescription().length()>0 )
+				descr = " - "+offeredResource.getResourceSettings().get(i).getDescription();
+			styledString.append(descr, StyledString.COUNTER_STYLER);
+
+			ICompletionProposal completionProposal = createCompletionProposal( proposal, styledString, IMAGEResourceSetting, context) ;
+			
+			// register the proposal, the acceptor handles null-values gracefully
+			acceptor.accept(completionProposal);
+			
+		}
+		
+	}
+	
+
+	@Override
+	public void completeResourceRequest_RefOfferedResource(EObject model,
+			Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		// Scoping must be used in Code Completion because elements from
+		// Imported files are not shown.
+		// See http://chilifreak.wordpress.com/2010/02/22/extending-proposals-in-xtext-using-scoping/
+
+		org.eclipse.xtext.scoping.IScope scope = provider.getScope( model.eResource(),
+				BrokermodelPackage.eINSTANCE.getBroker_RegisteredUsers(), null);
+
+		// scope contains only customer
+		for (IEObjectDescription element : scope.getAllElements()) {
+			
+			BrokerUser user = (BrokerUser) element.getEObjectOrProxy();
+			System.out.println(">>USER: "+user.getName()); // context.getRootModel().eResource().getResourceSet()
+			
+			EObject obj = null;
+			if (user.eIsProxy()) {
+				System.out.println(">>>>>>>>> scoping model user "+user.getName()+" is Proxy"); // context.getRootModel().eResource().getResourceSet()
+				obj = org.eclipse.emf.ecore.util.EcoreUtil.resolve(user, context.getRootModel().eResource().getResourceSet());
+				user = (BrokerUser) obj;
+			}
+
+			if (user instanceof ResourcesProvider) {
+				for (Site site : ((ResourcesProvider) user).getOfferedSiteList()) {
+					for (OfferedResource os : site.getOfferedResourcesList()) {
+						if (os.eIsProxy()) {
+							System.out.println(">>>>>>>>> scoping OfferedResource "+user.getName()+" object is Proxy"); // context.getRootModel().eResource().getResourceSet()
+							obj = org.eclipse.emf.ecore.util.EcoreUtil.resolve(
+									os, context.getRootModel().eResource().getResourceSet());
+							os = (OfferedResource) obj;
+						}
+
+						//String proposal = "\""+	 os.getFullQualifiedName()  + "\"";
+						String proposal = "\""+	 os.getName()  + "\"";
+						System.out.println(">> "+ proposal ); // context.getRootModel().eResource().getResourceSet()
+						
+						// convert it to a valid STRING-terminal
+						proposal = getValueConverter().toString(proposal, null);
+						Styler fBoldStyler = new Styler() {
+							@Override
+							public void applyStyles(TextStyle textStyle) {
+								FontData[] boldFontData = getModifiedFontData(
+										Display.getCurrent().getFontList(
+												"Segoe UI", true), SWT.BOLD);
+
+								Font boldFont = new Font(Display.getCurrent(),
+										boldFontData);
+								textStyle.font = boldFont;
+							}
+						};
+
+						Styler style = fBoldStyler;
+						StyledString styledString = new StyledString(proposal,
+								style);
+						String descr = " - " + os.getDescription();
+						styledString.append(descr, StyledString.COUNTER_STYLER);
+
+						ICompletionProposal completionProposal = createCompletionProposal(
+								proposal, styledString, IMAGEOfferedService,
+								context);
+
+						// register the proposal, the acceptor handles
+						// null-values gracefully
+						acceptor.accept(completionProposal);
+					}
+				}
+
+			}
+
+		}
+	}
+			
 }
+
