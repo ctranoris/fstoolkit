@@ -2,6 +2,7 @@ package gr.upatras.ece.nam.fci.core;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -86,6 +87,31 @@ public class ResourceContext {
 		return null;
 	}
 
+	
+
+	/**
+	 * It will search all the available sites of a provider to find an offeredResource matching the exact name 
+	 * @param resourceName
+	 * @param provider The Resource Provider of this broker that we request and can provide the resource
+	 * @return an OfferedResource object or null if not found
+	 */
+	public OfferedResource getOfferedResourceByProvider(String resourceName,
+			ResourceProvider provider) {
+
+		for( Site site : provider.getResourcesProvider().getOfferedSiteList() ){
+			for (OfferedResource ofres : site.getOfferedResourcesList()) {
+				if (ofres.getName().equals(resourceName))
+					return ofres;
+				
+			}  
+		}
+		
+		return null;
+	}
+
+	
+	
+	
 	public void setBroker(Broker office) {
 		this.broker = office;
 	}
@@ -117,12 +143,12 @@ public class ResourceContext {
 	}
 
 	/**
-	 * It will return a provider according to his alias 
+	 * It will return a provider according to his Site alias name 
 	 * @param val The alias name
 	 * @return the ResourceProvider that has that alias URI or null
 	 */
 	
-	public ResourceProvider getResourceProviderByURI(String val) {
+	public ResourceProvider getResourceProviderBySiteURI(String val) {
 		
 		for (BrokerUser user : broker.getRegisteredUsers() ) {
 			if ( user instanceof ResourcesProvider ){
@@ -131,6 +157,25 @@ public class ResourceContext {
 					if ( val.toLowerCase().equals(site.getDomainManager().getName()) || val.toLowerCase().equals(site.getName())  )
 						return new ResourceProvider(partner) ;
 				}
+			}			
+		}
+		return null;
+	}
+	
+	
+	/**
+	 * It will return a provider according to his alias 
+	 * @param val The alias name
+	 * @return the ResourceProvider that has that alias URI or null
+	 */
+	
+	public ResourceProvider getResourceProviderByName(String val) {
+		
+		for (BrokerUser user : broker.getRegisteredUsers() ) {
+			if ( user instanceof ResourcesProvider ){
+				ResourcesProvider partner = (ResourcesProvider)user;
+					if( partner.getName().equals(val)  )
+						return new ResourceProvider(partner) ;				
 			}			
 		}
 		return null;
@@ -156,18 +201,38 @@ public class ResourceContext {
 	/**
 	 * Creates a resource on a certain resource Provider of the Office of this context
 	* @param scenario The name of scenario where the Resource is involved
+	 * @param resourceNameAlias The alias name that the user wants of the resource (e.g myResource)
+	 * @param provider The Resource Provider of this office that we request and can provide the resource
+	 * @param ServiceType The ServiceType object describing the requested service type (e.g rubis_db)
+	 * @param params a list with params to be created
+	 */
+	public ResourceProxy createResourceProxy(String scenario, String resourceNameAlias, ResourceProvider provider,
+			ServiceType service, List<ParameterValuePair> params) {
+		
+		ResourceProxy rp = FCI.getInstance().CreateResource(scenario, resourceNameAlias, this, provider, service, params);
+		resourceProxies.add(rp);
+		return rp;
+	}
+	
+	
+	/**
+	 * Creates a resource on a certain resource Provider of the Office of this context
+	* @param scenario The name of scenario where the Resource is involved
 	 * @param resourceName The alias name that the user wants of the resource (e.g myResource)
 	 * @param provider The Resource Provider of this office that we request and can provide the resource
 	 * @param ServiceType The ServiceType object describing the requested service type (e.g rubis_db)
 	 * @param params a list with params to be created
 	 */
-	public ResourceProxy createResourceProxy(String scenario, String resourceName, ResourceProvider provider,
+	public ResourceProxy createResourceProxy(String scenario, String resourceName, String resourceNameAlias, ResourceProvider provider,
 			ServiceType service, List<ParameterValuePair> params) {
 		
-		ResourceProxy rp = FCI.getInstance().CreateResource(scenario, resourceName, this, provider, service, params);
+		ResourceProxy rp = FCI.getInstance().CreateResource(
+				scenario, resourceName, resourceNameAlias, this, provider, service, params);
 		resourceProxies.add(rp);
 		return rp;
 	}
+	
+	
 	
 	/**
 	 * Creates a resource on a certain resource Provider of the Office of this context
@@ -223,7 +288,7 @@ public class ResourceContext {
 		
 	}
 
-	
+
 
 
 }

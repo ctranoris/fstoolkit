@@ -18,6 +18,7 @@ package gr.upatras.ece.nam.fci.core;
 //import gr.upatras.ece.nam.fci.panlab.PanlabServices;
 //import gr.upatras.ece.nam.fci.sfa.SFAServices;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -32,6 +33,8 @@ import brokermodel.fcielements.IFCIService;
 import brokermodel.federationscenarios.RequestedFederationScenario;
 import brokermodel.federationscenarios.ResourceRequest;
 import brokermodel.federationscenarios.ResourceSettingInstance;
+import brokermodel.resources.OfferedResource;
+import brokermodel.resources.ResourceSetting;
 import brokermodel.services.ServiceSetting;
 //import gr.upatras.ece.nam.fci.uop.UoPServices;
 
@@ -331,11 +334,8 @@ public class FCI {
 	/**
 	 * Creates a resource on a certain resource Provider of a certain Office
 	* @param scenario The name of scenario where the Resource is involved
-	 * @param resourceName The alias name that the user wants of the resource (e.g myResource)
-	 * @param resourceContext The office that we request the resource
-	 * @param provider The Resource Provider that we request and can provide the resource
-	 * @param ServiceType The ServiceType object describing the requested service type (e.g rubis_db)
-	 * @param params a list with params to be created
+	 * @param resourceReq 
+	 * @param resourceContext 
 	 * @return a ResourceProxy object for accessing the created resource, or null if the request failed
 	 */
 	public ResourceProxy CreateResource(String scenario,
@@ -373,27 +373,35 @@ public class FCI {
 	
 	
 	/**
-	 * Creates a resource on a certain resource Provider of a certain Office
+	 * Creates a resource by a given "exact" resourceName on a certain resource Provider of a certain Office
 	* @param scenario The name of scenario where the Resource is involved
-	 * @param resourceName The alias name that the user wants of the resource (e.g myResource)
+	 * @param resourceName The ResourceName as it is offered by a provider (e.g rubis_db)
+	 * @param resourceNameAlias The alias name that the user wants of the resource (e.g myResource)
 	 * @param resourceContext The office that we request the resource
 	 * @param provider The Resource Provider that we request and can provide the resource
 	 * @param ServiceType The ServiceType object describing the requested service type (e.g rubis_db)
 	 * @param params a list with params to be created
 	 * @return a ResourceProxy object for accessing the created resource, or null if the request failed
 	 */
-	public ResourceProxy CreateResource(String scenario, String resourceName, ResourceContext resourceContext, ResourceProvider provider,
-			ServiceType serviceType, List<ParameterValuePair> params) {
+	public ResourceProxy CreateResource(String scenario, String resourceName, String resourceNameAlias, ResourceContext resourceContext, ResourceProvider provider,
+			 ServiceType serviceType, List<ParameterValuePair> params) {
 		
 		//construct a ResourceRequest object resourceReq
 		ResourceRequest resourceReq = brokermodel.federationscenarios.FederationscenariosFactory.eINSTANCE.createResourceRequest();
-		resourceReq.setName(  resourceName );
-		resourceReq.setRefOfferedResource( resourceContext.getOfferedResourceByProvider(serviceType.getOfferedService(), provider) );
+		resourceReq.setName(  resourceNameAlias );
+		
+		OfferedResource ofResource = resourceContext.getOfferedResourceByProvider(resourceName, provider);
+		
+		if (ofResource == null)
+			return null;
+		
+		resourceReq.setRefOfferedResource(ofResource  );
 		
 		
-		for (ServiceSetting setting : serviceType.getOfferedService().getServiceSettings()) {
+		for( ResourceSetting setting: ofResource.getResourceSettings() ){
 			ResourceSettingInstance resInst = brokermodel.federationscenarios.FederationscenariosFactory.eINSTANCE.createResourceSettingInstance() ;
 			resInst.setName( setting.getName() );
+			resInst.setRefResourceSetting(setting);
 			resourceReq.getReqResourceSettings().add(resInst);
 			for (ParameterValuePair parameterValuePair : params) { //for all the requested params
 				if (parameterValuePair.getParameter().equalsIgnoreCase(setting.getName()) ) //check if the param is in the settings and the set it to the static values requests
@@ -401,18 +409,77 @@ public class FCI {
 			}
 		}
 		
+		
+		
+		
 		String guid=null;
 		if (resourceContext.getBrokerModel().getName().toLowerCase().equals("panlab")){
 			 guid = iPanlabServices.CreateResource(scenario, provider.getFirstURI(), 
-					serviceType.getName(), resourceReq);
+					 ofResource.getName(), resourceReq);
 			 
 		}else if (resourceContext.getBrokerModel().getName().toLowerCase().equals("p2e")){
 			 guid = iUoPServices.CreateResource(scenario, provider.getFirstURI(), 
-						serviceType.getName(), resourceReq);
+					 ofResource.getName(), resourceReq);
 				 
 		}else if (resourceContext.getBrokerModel().getName().toLowerCase().equals("amazon")){
 			 guid = iAmazonServices.CreateResource(scenario, provider.getFirstURI(), 
-						serviceType.getName(), resourceReq);
+					 ofResource.getName(), resourceReq);
+				 
+			}
+		
+		if (guid!=null)
+			 return new ResourceProxy(scenario, resourceReq.getName(), resourceContext, provider, serviceType, guid, resourceReq);
+		return null;
+		
+	}
+	
+	/**
+	 * Creates a resource on a certain resource Provider of a certain Office
+	* @param scenario The name of scenario where the Resource is involved
+	 * @param resourceNameAlias The alias name that the user wants of the resource (e.g myResource)
+	 * @param resourceContext The office that we request the resource
+	 * @param provider The Resource Provider that we request and can provide the resource
+	 * @param ServiceType The ServiceType object describing the requested service type (e.g rubis_db)
+	 * @param params a list with params to be created
+	 * @return a ResourceProxy object for accessing the created resource, or null if the request failed
+	 */
+	public ResourceProxy CreateResource(String scenario, String resourceNameAlias, ResourceContext resourceContext, ResourceProvider provider,
+			ServiceType serviceType, List<ParameterValuePair> params) {
+		
+		//construct a ResourceRequest object resourceReq
+		ResourceRequest resourceReq = brokermodel.federationscenarios.FederationscenariosFactory.eINSTANCE.createResourceRequest();
+		resourceReq.setName(  resourceNameAlias );
+		
+		OfferedResource ofResource = resourceContext.getOfferedResourceByProvider(serviceType.getOfferedService(), provider);
+		resourceReq.setRefOfferedResource(ofResource  );
+		
+		
+		for( ResourceSetting setting: ofResource.getResourceSettings() ){
+			ResourceSettingInstance resInst = brokermodel.federationscenarios.FederationscenariosFactory.eINSTANCE.createResourceSettingInstance() ;
+			resInst.setName( setting.getName() );
+			resInst.setRefResourceSetting(setting);
+			resourceReq.getReqResourceSettings().add(resInst);
+			for (ParameterValuePair parameterValuePair : params) { //for all the requested params
+				if (parameterValuePair.getParameter().equalsIgnoreCase(setting.getName()) ) //check if the param is in the settings and the set it to the static values requests
+					resInst.setStaticValue( parameterValuePair.getValue() );
+			}
+		}
+		
+		
+		
+		
+		String guid=null;
+		if (resourceContext.getBrokerModel().getName().toLowerCase().equals("panlab")){
+			 guid = iPanlabServices.CreateResource(scenario, provider.getFirstURI(), 
+					 ofResource.getName(), resourceReq);
+			 
+		}else if (resourceContext.getBrokerModel().getName().toLowerCase().equals("p2e")){
+			 guid = iUoPServices.CreateResource(scenario, provider.getFirstURI(), 
+					 ofResource.getName(), resourceReq);
+				 
+		}else if (resourceContext.getBrokerModel().getName().toLowerCase().equals("amazon")){
+			 guid = iAmazonServices.CreateResource(scenario, provider.getFirstURI(), 
+					 ofResource.getName(), resourceReq);
 				 
 			}
 		
