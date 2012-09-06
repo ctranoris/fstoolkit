@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/gr.upatras.ece.nam.fstoolkit.feature_1.0.0.201209061116.jar" id="gr.upatras.ece.nam.fstoolkit.feature" version="1.0.0.201209061116">
+      <category name="FSToolkit"/>
+   </feature>
+   <category-def name="FSToolkit" label="FSToolkit - Managing federation scenarios"/>
+</site>
