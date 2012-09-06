@@ -14,9 +14,12 @@ limitations under the License.
 *************************************************************************/
 package gr.upatras.ece.nam.fci.uop;
 
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
@@ -53,7 +56,9 @@ public class UoPServices implements IFCIService{
 	public static String UoPGWCAlias = "http://nam.ece.upatras.gr:9000/teaglegw";
 	public static String UoPAuthURL = "http://nam.ece.upatras.gr/fstoolkit/utils/ppereg/authuser.php";
 	public static String fedway= "http://nam.ece.upatras.gr/fedway";
-	
+
+    private static Log log = LogFactory.getLog(UoPServices.class);
+    
 	private static UoPServices instance;
 	private String username;
 
@@ -150,10 +155,15 @@ public class UoPServices implements IFCIService{
 	@Override
 	public String CreateResource(String scenario, String ptmAlias, 
 			String resourceTypeName, ResourceRequest resourceReq){
-		
-	
 
 		UoPGWClient pgw = new UoPGWClient( UoPServices.UoPGWCAlias, UoPServices.UoPAuthURL	);
+		
+		if (! checkAccess(pgw, scenario, resourceReq) ){
+			
+			return null;
+		}
+	
+
 		
 		String params="";
 		
@@ -228,6 +238,35 @@ public class UoPServices implements IFCIService{
 //		 	);
 	}
 	
+	private boolean checkAccess(UoPGWClient pgw, String scenario, ResourceRequest resourceReq) {
+		try {
+			////http://nam.ece.upatras.gr/fedway/submit_event.php?subject=aResource&descr=myDescription&resourceid=123456&start_ts=2011-09-15%2017:00:00&end_ts=2011-09-17%2011:01:31&guid=guid5&scenarioid=scen1234&scenarioName=myScenario
+			
+			
+			String subject = resourceReq.getRefOfferedResource().getName();
+			String myDescription = resourceReq.getRefOfferedResource().getName() 
+					+"created by FCI with Alias: "+resourceReq.getName() +", for Scenario: "+scenario + 
+					", by user: "+this.username;
+			String resourceid = resourceReq.getRefOfferedResource().getUniqueID(); 		
+			Date start_ts = new Date ();
+			Date end_ts = new Date ();
+			String guid = "-";
+			String scenarioid = scenario;
+			String scenarioName = scenario;
+			
+			
+			String s = pgw.checkFedWay( fedway, subject , myDescription, resourceid, 
+					start_ts, end_ts, guid, scenarioid, scenarioName, this.username);
+			
+			return s.equals("OK\n");
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
+	}
+
 	/**
 	 * Updates a Resource
 	 * @author ctranoris
@@ -360,7 +399,8 @@ public class UoPServices implements IFCIService{
 		pgw.GETexecute( resourceRuntimeID, ptmAlias);
 		XMLutils x = new XMLutils(true);
 		String s = x.getNodeValueFromXML(pgw.getResponse_stream(), "//"+paramName+"/text()");
-		System.out.println("Value = " + s);
+		//System.out.println("Value = " + s);
+		log.info("Value = " + s);
 		return s;
 	}
 

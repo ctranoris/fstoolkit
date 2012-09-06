@@ -9,5 +9,5 @@ Require-Bundle: gr.upatras.ece.nam.broker.model;bundle-version="1.0.0",
  gr.upatras.ece.nam.FCI.sfa;bundle-version="1.0.0";resolution:=optional,
  gr.upatras.ece.nam.FCI.uop;bundle-version="1.0.0";resolution:=optional,
  gr.upatras.ece.nam.FCI.amazon;bundle-version="1.0.0";resolution:=optional,
- org.apache.commons.logging;bundle-version="1.1.1"
+ org.apache.commons.logging
 Export-Package: gr.upatras.ece.nam.fci.core

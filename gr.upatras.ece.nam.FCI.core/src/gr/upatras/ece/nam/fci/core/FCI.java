@@ -47,7 +47,7 @@ public class FCI {
 
 
 	private static FCI fci;
-    private static Log log = LogFactory.getLog(FCI.class);
+	private transient final  Log log = LogFactory.getLog(FCI.class.getName());
 
 	IFCIService iUoPServices;
 	IFCIService iAmazonServices;

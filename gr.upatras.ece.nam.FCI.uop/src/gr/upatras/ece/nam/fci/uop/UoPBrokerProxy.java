@@ -6,6 +6,8 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
@@ -40,6 +42,7 @@ public class UoPBrokerProxy implements Broker {
 
 	private Broker broker;
 	private AuthorizationKey authorizationKey;
+    private static Log log = LogFactory.getLog(UoPBrokerProxy.class);
 	
 	
 	public boolean brokerLoaded(){
@@ -88,7 +91,8 @@ public class UoPBrokerProxy implements Broker {
 		Resource resourceUoPOffice = resSet.createResource( URI.createURI(uri) );
 		
 		try {
-				System.out.println("Loading uop resource definition from: "+uri);				
+				log.info("Loading uop resource definition from: "+uri);
+				
 				resourceUoPOffice.load(Collections.EMPTY_MAP);
 		} catch (IOException e) {
 			e.printStackTrace();

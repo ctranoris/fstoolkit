@@ -64,12 +64,13 @@ public class HelloUoPWorld {
 		
 		ResourceProxy resourceEcho = uop.createResourceProxy("myTempVCT", "myEchoResource", provider, service, params);
 		
-		System.out.println("Echo resource GUID: " + resourceEcho.getGUID());
-		myGroup.addResourceProxy(resourceEcho);
+		if (resourceEcho != null ){
+			System.out.println("Echo resource GUID: " + resourceEcho.getGUID());
+			myGroup.addResourceProxy(resourceEcho);
 		
-		// Update all resources of group
-		System.out.println("Echo output = "+ resourceEcho.getParameterValueOfResource("output", true));
-		
+			//Update all resources of group
+			System.out.println("Echo output = "+ resourceEcho.getParameterValueOfResource("output", true));
+		}	
 
 		// Terminate the group..terminate any contained resources
 		myGroup.TearDownResources();

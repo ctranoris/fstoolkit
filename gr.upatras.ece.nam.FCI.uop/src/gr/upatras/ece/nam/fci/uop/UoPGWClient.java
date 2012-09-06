@@ -38,6 +38,8 @@ import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.RequestEntity;
 import org.apache.commons.httpclient.methods.StringRequestEntity;
 import org.apache.commons.httpclient.params.HttpMethodParams;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 
 
@@ -82,7 +84,7 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
  * u.GETexecute("uop.rubis_cl-14", "p2e" );
  * XMLutils x = new XMLutils();
  * String s = x.getNodeValueFromXML(u.getResponse_stream(), "//MEM/text()");
- * System.out.println("Value = " + s);
+ * log.info("Value = " + s);
  * }</pre>
  * <br>
  * <b>Warning for GET: It works with RAs that they have been defined properly with RADL!</b> 
@@ -95,11 +97,15 @@ public class UoPGWClient {
 //	private static UoPGWClient pgwInstance;
 	private static String userAgent="FCI 1.0.0";
 	InputStream response_stream;
+	
+	
+    private static Log log = LogFactory.getLog(UoPGWClient.class);
 
 	public UoPGWClient(String tgwaddr, String authurl) {
 		super();
 		this.uopGWAddress = tgwaddr;
 		this.uopAuthUrl = authurl;
+
 	}
 
 
@@ -115,7 +121,7 @@ public class UoPGWClient {
 			String content) {
 		
 		boolean status = false;
-		System.out.println("content body=" + "\n" + content);
+		log.info("content body=" + "\n" + content);
 		HttpClient client = new HttpClient();
 		String tgwcontent = content;
 
@@ -123,7 +129,7 @@ public class UoPGWClient {
 		// this /uop/uop.rubis_db-6
 		String ptm = ptmAlias;
 		String url = uopGWAddress + "/" + ptm + "/" + resourceInstance;
-		System.out.println("Request: " + url);
+		log.info("Request: " + url);
 
 		// Create a method instance.
 		PostMethod post = new PostMethod(url);
@@ -159,11 +165,11 @@ public class UoPGWClient {
 
 			CopyInputStream cis = new CopyInputStream(responseBody);
 			response_stream = cis.getCopy();
-			System.out.println("Response body=" + "\n"
+			log.info("Response body=" + "\n"
 					+ convertStreamToString(response_stream));
 			response_stream.reset();
 			
-//			System.out.println("for address: " + url + " the response is:\n "
+//			log.info("for address: " + url + " the response is:\n "
 //					+ post.getResponseBodyAsString());
 
 			status = true;
@@ -199,7 +205,7 @@ public class UoPGWClient {
 		// this /uop/uop.rubis_db-6
 		String ptm = ptmAlias;
 		String url = uopGWAddress + "/" + ptm + "/" + resourceInstance;
-		System.out.println("Request: " + url);
+		log.info("Request: " + url);
 
 		// Create a method instance.
 		GetMethod get = new GetMethod(url);
@@ -216,7 +222,7 @@ public class UoPGWClient {
 
 			CopyInputStream cis = new CopyInputStream(responseBody);
 			response_stream = cis.getCopy();
-			System.out.println("Response body=" + "\n"
+			log.info("Response body=" + "\n"
 					+ convertStreamToString(response_stream));
 			response_stream.reset();
 
@@ -244,7 +250,7 @@ public class UoPGWClient {
 	 */
 	public void DELETEexecute(String resourceInstance, String ptmAlias,
 			String content) {
-		System.out.println("content body=" + "\n" + content);
+		log.info("content body=" + "\n" + content);
 		HttpClient client = new HttpClient();
 		String tgwcontent = content;
 
@@ -252,7 +258,7 @@ public class UoPGWClient {
 		// this /uop/uop.rubis_db-6
 		String ptm = ptmAlias;
 		String url = uopGWAddress + "/" + ptm + "/" + resourceInstance;
-		System.out.println("Request: " + url);
+		log.info("Request: " + url);
 
 		// Create a method instance.
 		 
@@ -291,11 +297,11 @@ public class UoPGWClient {
 
 			CopyInputStream cis = new CopyInputStream(responseBody);
 			response_stream = cis.getCopy();
-			System.out.println("Response body=" + "\n"
+			log.info("Response body=" + "\n"
 					+ convertStreamToString(response_stream));
 			response_stream.reset();
 			
-//			System.out.println("for address: " + url + " the response is:\n "
+//			log.info("for address: " + url + " the response is:\n "
 //					+ post.getResponseBodyAsString());
 
 		} catch (HttpException e) {
@@ -449,7 +455,7 @@ public class UoPGWClient {
 
 		url = fedway + "/submit_event.php?" + url;
 				
-		System.out.println("Request: " + url);
+		log.info("Request: " + url);
 
 		// Create a method instance.
 		GetMethod get = new GetMethod(url);
@@ -466,7 +472,7 @@ public class UoPGWClient {
 
 			CopyInputStream cis = new CopyInputStream(responseBody);
 			response_stream = cis.getCopy();
-			System.out.println("Response body=" + "\n"
+			log.info("Response body=" + "\n"
 					+ convertStreamToString(response_stream));
 			response_stream.reset();
 
@@ -485,6 +491,80 @@ public class UoPGWClient {
 	}
 	
 	
+	/**
+	 * It makes a GET towards the FedWay gateway. 
+	 * @author ctranoris
+	 * @see PanlabGWClient#getResponse_stream()
+	 */
+	public String checkFedWay(String fedway, String subject, String myDescription, String  resourceid,
+			Date start_ts, Date end_ts, String guid, String scenarioid, String scenarioName, String username) {
+	////http://nam.ece.upatras.gr/fedway/submit_event.php?subject=aResource&descr=myDescription&resourceid=123456&start_ts=2011-09-15%2017:00:00&end_ts=2011-09-17%2011:01:31&guid=guid5&scenarioid=scen1234&scenarioName=myScenario
+		
+		
+		DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+		
+		
+		HttpClient client = new HttpClient();
+		String url = "";
+		
+		try {
+		 url = "subject=" + URLEncoder.encode(subject, "UTF-8")  + 
+				"&descr=" + URLEncoder.encode(myDescription, "UTF-8") +
+				"&resourceid=" + URLEncoder.encode(resourceid, "UTF-8") +
+				"&start_ts=" + URLEncoder.encode(sdf.format (start_ts) , "UTF-8") +//2011-09-15%2017:00:00
+				"&end_ts="+ URLEncoder.encode(sdf.format (end_ts) , "UTF-8")+ //2011-09-17%2011:01:31
+				"&guid=" + URLEncoder.encode(guid, "UTF-8") +
+				"&scenarioid=" + URLEncoder.encode(scenarioid, "UTF-8") +
+				"&scenarioName="+ URLEncoder.encode(scenarioName, "UTF-8")+
+				"&username="+ URLEncoder.encode(username, "UTF-8");
+		
+		
+		
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		url = fedway + "/submit_event_check.php?" + url;
+				
+		log.info("Request: " + url);
+
+		// Create a method instance.
+		GetMethod get = new GetMethod(url);
+		get.setRequestHeader("User-Agent", userAgent);
+		get.setRequestHeader("Content-Type",
+				"application/x-www-form-urlencoded");
+
+		try {
+			// execute the GET
+			client.executeMethod(get);
+
+			// print the status and response
+			InputStream responseBody = get.getResponseBodyAsStream();
+
+			CopyInputStream cis = new CopyInputStream(responseBody);
+			response_stream = cis.getCopy();
+			log.info("Response body=" + "\n"
+					+ convertStreamToString(response_stream));
+			response_stream.reset();
+			return this.getResponse_streamAsString();
+
+		} catch (HttpException e) {
+			System.err.println("Fatal protocol violation: " + e.getMessage());
+			e.printStackTrace();
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.err.println("Fatal transport error: " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			// release any connection resources used by the method
+			get.releaseConnection();
+		}
+		return "FAILED";	
+		
+	}
+	
+	
 	
 	/**
 	 * It makes a GET towards the gateway for authorization
@@ -497,7 +577,7 @@ public class UoPGWClient {
 		HttpClient client = new HttpClient();
 
 		String url = this.uopAuthUrl + "?username="+username+"&password="+password;
-		System.out.println("Request: " + url);
+		log.info("Request: " + url);
 
 		// Create a method instance.
 		GetMethod get = new GetMethod(url);
@@ -515,7 +595,7 @@ public class UoPGWClient {
 			CopyInputStream cis = new CopyInputStream(responseBody);
 			response_stream = cis.getCopy();
 			String s = convertStreamToString(response_stream);
-			System.out.println("Response body=" + "\n"
+			log.info("Response body=" + "\n"
 					+ s);
 			response_stream.reset();
 			if (rescode==200)
