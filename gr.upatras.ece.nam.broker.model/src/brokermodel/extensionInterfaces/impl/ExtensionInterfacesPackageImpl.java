@@ -382,7 +382,7 @@ public class ExtensionInterfacesPackageImpl extends EPackageImpl implements Exte
 		addEParameter(op, ecorePackage.getEString(), "brokerName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFederationscenariosPackage.getRequestedFederationScenario(), "scenario", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFederationscenariosPackage.getResourceRequest(), "resourceReq", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theFederationscenariosPackage.getResourceSettingInstance(), "assignedSetting", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFederationscenariosPackage.getResourceSettingInstance(), "assignedSetting", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(iProvisionResourceEClass, ecorePackage.getEString(), "readResource", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "brokerName", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -413,7 +413,7 @@ public class ExtensionInterfacesPackageImpl extends EPackageImpl implements Exte
 		op = addEOperation(iWorkflowEngineEClass, ecorePackage.getEString(), "UpdateResource", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFederationscenariosPackage.getRequestedFederationScenario(), "scenario", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFederationscenariosPackage.getResourceRequest(), "resourceReq", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theFederationscenariosPackage.getResourceSettingInstance(), "assignedSetting", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFederationscenariosPackage.getResourceSettingInstance(), "assignedSetting", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(iWorkflowEngineEClass, ecorePackage.getEString(), "ReadResource", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFederationscenariosPackage.getRequestedFederationScenario(), "scenario", 0, 1, IS_UNIQUE, IS_ORDERED);

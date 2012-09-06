@@ -107,7 +107,7 @@ class FSDLGenerator implements IGenerator {
 		scenarioName = e.name
 		fsa.generateFile("scenario/"+e.name + ".java", '''
 		/*************************************************************************
-		Copyright 2010 Panlab 
+		Copyright 2012 nam.ece.upatras.gr 
 		
 		Licensed under the Apache License, Version 2.0 (the "License"); 
 		you may not use this file except in compliance with the License. 
@@ -229,7 +229,7 @@ class FSDLGenerator implements IGenerator {
 		
 		fsa.generateFile("scenario/"+m.name + ".java", '''
 		/*************************************************************************
-		Copyright 2010 Panlab 
+		Copyright 2012 nam.ece.upatras.gr 
 		
 		Licensed under the Apache License, Version 2.0 (the "License"); 
 		you may not use this file except in compliance with the License. 

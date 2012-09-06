@@ -5,7 +5,7 @@
     copyrightFields="false">
   <foreignModel>Broker.ecore</foreignModel>
   <genPackages prefix="Brokermodel" resource="XML" disposableProviderFactory="true"
-      ecorePackage="Broker.ecore#/">
+      fileExtensions="brokermodel,brokermodeldb" ecorePackage="Broker.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Broker.ecore#//ScenarioStatus">
       <genEnumLiterals ecoreEnumLiteral="Broker.ecore#//ScenarioStatus/NEW"/>
       <genEnumLiterals ecoreEnumLiteral="Broker.ecore#//ScenarioStatus/REQUESTED"/>
@@ -110,7 +110,7 @@
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Broker.ecore#//providersite/DomainManager/belongsToSite"/>
       </genClasses>
       <genClasses ecoreClass="Broker.ecore#//providersite/Site">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Broker.ecore#//providersite/Site/ptm"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Broker.ecore#//providersite/Site/domainManager"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Broker.ecore#//providersite/Site/locatedAt"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Broker.ecore#//providersite/Site/offeredResourcesList"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Broker.ecore#//providersite/Site/belongsToProvider"/>

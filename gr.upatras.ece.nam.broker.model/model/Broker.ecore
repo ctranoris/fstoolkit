@@ -494,7 +494,7 @@
         <eParameters name="brokerName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="scenario" eType="#//federationscenarios/RequestedFederationScenario"/>
         <eParameters name="resourceReq" eType="#//federationscenarios/ResourceRequest"/>
-        <eParameters name="assignedSetting" eType="#//federationscenarios/ResourceSettingInstance"/>
+        <eParameters name="assignedSetting" upperBound="-1" eType="#//federationscenarios/ResourceSettingInstance"/>
       </eOperations>
       <eOperations name="readResource" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eParameters name="brokerName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -523,7 +523,7 @@
       <eOperations name="UpdateResource" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eParameters name="scenario" eType="#//federationscenarios/RequestedFederationScenario"/>
         <eParameters name="resourceReq" eType="#//federationscenarios/ResourceRequest"/>
-        <eParameters name="assignedSetting" eType="#//federationscenarios/ResourceSettingInstance"/>
+        <eParameters name="assignedSetting" upperBound="-1" eType="#//federationscenarios/ResourceSettingInstance"/>
       </eOperations>
       <eOperations name="ReadResource" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eParameters name="scenario" eType="#//federationscenarios/RequestedFederationScenario"/>

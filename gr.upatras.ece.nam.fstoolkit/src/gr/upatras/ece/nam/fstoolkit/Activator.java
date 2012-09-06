@@ -3,6 +3,8 @@ package gr.upatras.ece.nam.fstoolkit;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.ISafeRunnable;
@@ -28,11 +30,15 @@ import brokermodel.extensionInterfaces.IBrokerRepositoryListener;
 import brokermodel.federationscenarios.RequestedFederationScenario;
 import brokermodel.uiObjects.BrokerManager;
 import brokermodel.uiObjects.UiObjectsFactory;
+//import org.apache.log4j.Logger;
 /**
  * The activator class controls the plug-in life cycle
  */
 public class Activator extends AbstractUIPlugin {
-
+	
+	//private transient final  Logger log = Logger.getLogger(Activator.class);
+	private transient final  Log log = LogFactory.getLog(Activator.class);
+	
 	// The plug-in ID
 	public static final String PLUGIN_ID = "gr.upatras.ece.nam.fstoolkit"; //$NON-NLS-1$
 
@@ -118,7 +124,7 @@ public class Activator extends AbstractUIPlugin {
 		private static final String IBrokerREPOSITORY_ID = "gr.upatras.ece.nam.fstoolkit.extensionpoint.brokerrepository";
 		
 		public void CreateTaxonomyModel(){
-			System.out.println("============CreateTaxonomyModel================");
+			log.info("============CreateTaxonomyModel================");
 					
 			// Initialize the model
 			BrokermodelPackage.eINSTANCE.eClass();		
@@ -157,13 +163,13 @@ public class Activator extends AbstractUIPlugin {
 			.getConfigurationElementsFor(IBrokerREPOSITORY_ID);
 				try {
 					for (IConfigurationElement e : config) {
-						System.out.println("Evaluating extension "+IBrokerREPOSITORY_ID);
+						log.info("Evaluating extension "+IBrokerREPOSITORY_ID);
 						final Object o = e.createExecutableExtension("class");
 						if (o instanceof IBrokerRepository) {
 							ISafeRunnable runnable = new ISafeRunnable() {
 								@Override
 								public void handleException(Throwable exception) {
-									System.out.println("Exception in client");
+									log.info("Exception in client");
 								}
 				
 								@Override
@@ -187,7 +193,7 @@ public class Activator extends AbstractUIPlugin {
 						}
 					}
 				} catch (CoreException ex) {
-					System.out.println(ex.getMessage());
+					log.info(ex.getMessage());
 				}
 			
 		}
@@ -216,20 +222,20 @@ public class Activator extends AbstractUIPlugin {
 				return;//it is already loaded
 			}
 			
-			//System.out.println("Container = "+fedScenario.eContainer());
+			//log.info("Container = "+fedScenario.eContainer());
 			//PanlabServices.getInstance().LoadFSbyVCT(fedScenario);
 			//ask now all plugins if they can load it
 			IConfigurationElement[] config = Platform.getExtensionRegistry()
 			.getConfigurationElementsFor(IBrokerREPOSITORY_ID);
 				try {
 					for (IConfigurationElement e : config) {
-						System.out.println("Evaluating extension "+IBrokerREPOSITORY_ID);
+						log.info("Evaluating extension "+IBrokerREPOSITORY_ID);
 						final Object o = e.createExecutableExtension("class");
 						if (o instanceof IBrokerRepository) {
 							ISafeRunnable runnable = new ISafeRunnable() {
 								@Override
 								public void handleException(Throwable exception) {
-									System.out.println("Exception in client");
+									log.info("Exception in client");
 								}
 				
 								@Override
@@ -252,7 +258,7 @@ public class Activator extends AbstractUIPlugin {
 						}
 					}
 				} catch (CoreException ex) {
-					System.out.println(ex.getMessage());
+					log.info(ex.getMessage());
 				}		
 		}
 		

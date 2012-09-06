@@ -22,7 +22,7 @@ public class FSDLProjectCreator extends AbstractPluginProjectCreator {
 
 	protected static final String SRC_ROOT = "src";
 	protected static final String SRC_GEN_ROOT = "src-gen";
-	protected final List<String> SRC_FOLDER_LIST = ImmutableList.of(SRC_ROOT, SRC_GEN_ROOT);
+	protected final List<String> SRC_FOLDER_LIST = ImmutableList.of(SRC_ROOT/*, SRC_GEN_ROOT*/);
 
 	@Override
 	protected FSDLProjectInfo getProjectInfo() {
@@ -31,11 +31,13 @@ public class FSDLProjectCreator extends AbstractPluginProjectCreator {
 	
 	protected String getModelFolderName() {
 		return SRC_ROOT;
+//		return null;
 	}
 	
 	@Override
 	protected List<String> getAllFolders() {
         return SRC_FOLDER_LIST;
+//        return null;
     }
 
     @Override

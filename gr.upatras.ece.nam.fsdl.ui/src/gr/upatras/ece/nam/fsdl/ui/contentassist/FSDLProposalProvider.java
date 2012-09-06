@@ -54,7 +54,7 @@ public class FSDLProposalProvider extends AbstractFSDLProposalProvider {
 	private static final Image IMAGEServiceSettingInstance= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
 	"icons/full/obj16/ServiceSettingInstance.gif").createImage();
 	private static final Image IMAGEtideTypeEnumItem= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
-	"icons/full/obj16/tideTypeEnumItem.gif").createImage();
+	"icons/full/obj16/brTypeEnumItem.gif").createImage();
 	
 	private static final Image IMAGEOfferedService= AbstractUIPlugin.imageDescriptorFromPlugin( "gr.upatras.ece.nam.broker.model.edit",  
 	"icons/full/obj16/OfferedService.gif").createImage();

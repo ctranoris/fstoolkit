@@ -8,6 +8,7 @@ import brokermodel.federationscenarios.RequestedFederationScenario;
 import brokermodel.federationscenarios.ResourceRequest;
 import brokermodel.federationscenarios.ResourceSettingInstance;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -72,10 +73,10 @@ public interface IWorkflowEngine extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model assignedSettingMany="true"
 	 * @generated
 	 */
-	String UpdateResource(RequestedFederationScenario scenario, ResourceRequest resourceReq, ResourceSettingInstance assignedSetting);
+	String UpdateResource(RequestedFederationScenario scenario, ResourceRequest resourceReq, EList<ResourceSettingInstance> assignedSetting);
 
 	/**
 	 * <!-- begin-user-doc -->
