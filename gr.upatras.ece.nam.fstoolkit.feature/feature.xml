@@ -67,12 +67,11 @@ and limitations under the License.
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.compare"/>
       <import plugin="org.eclipse.xtext.builder"/>
-      <import plugin="gr.upatras.ece.nam.brokerdsl" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.apache.commons.logging"/>
-      <import plugin="org.eclipse.core.runtime" version="3.8.0" match="greaterOrEqual"/>
-      <import plugin="org.apache.commons.httpclient" version="3.1.0" match="greaterOrEqual"/>
       <import plugin="org.apache.xmlrpc" version="3.0.0" match="greaterOrEqual"/>
       <import plugin="org.apache.ws.commons.util" version="1.0.1" match="greaterOrEqual"/>
+      <import plugin="org.apache.commons.httpclient" version="3.1.0" match="greaterOrEqual"/>
+      <import plugin="gr.upatras.ece.nam.brokerdsl" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.apache.commons.codec" version="1.3.0" match="greaterOrEqual"/>
       <import plugin="org.apache.commons.logging" version="1.1.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.common.types"/>
@@ -97,25 +96,18 @@ and limitations under the License.
       <import plugin="org.eclipse.emf.edit.ui" version="2.8.0" match="greaterOrEqual"/>
       <import plugin="gr.upatras.ece.nam.broker.model.edit" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="gr.upatras.ece.nam.fstoolkit.ScenarioToFCI" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="gr.upatras.ece.nam.FCI.core" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.xtend.profiler" version="1.2.0" match="greaterOrEqual"/>
-      <import plugin="org.apache.log4j" version="1.2.16" match="greaterOrEqual"/>
-      <import plugin="com.ibm.icu" version="4.4.2" match="greaterOrEqual"/>
-      <import plugin="org.antlr.runtime" version="3.2.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.mwe.utils" version="1.2.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.ecore.xmi" version="2.8.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui" version="3.103.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.validation.ui.ide" version="1.3.0" match="greaterOrEqual"/>
-      <import plugin="gr.upatras.ece.nam.FCI.panlab" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.jdt.core" version="3.8.1" match="greaterOrEqual"/>
+      <import plugin="gr.upatras.ece.nam.FCI.core" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="gr.upatras.ece.nam.fstoolkit" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="gr.upatras.ece.nam.fstoolkit.localprovisioningengine" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.jdt" version="3.8.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jdt.core" version="3.8.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.generator" version="2.3.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext" version="2.3.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.jface" version="3.8.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtend.lib" version="2.3.0" match="greaterOrEqual"/>
       <import plugin="gr.upatras.ece.nam.fsdl.ui" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.validation.ui.ide" version="1.3.0" match="greaterOrEqual"/>
       <import plugin="gr.upatras.ece.nam.FCI.sfa" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
@@ -148,21 +140,7 @@ and limitations under the License.
          unpack="false"/>
 
    <plugin
-         id="gr.upatras.ece.nam.FCI.amazon"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="gr.upatras.ece.nam.FCI.core"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="gr.upatras.ece.nam.FCI.panlab"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -211,28 +189,7 @@ and limitations under the License.
          unpack="false"/>
 
    <plugin
-         id="gr.upatras.ece.nam.fstoolkit.amazon"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="gr.upatras.ece.nam.fstoolkit.FCIgenerator.project"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="gr.upatras.ece.nam.fstoolkit.localprovisioningengine"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="gr.upatras.ece.nam.fstoolkit.panlaboffice"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -264,6 +221,22 @@ and limitations under the License.
          download-size="0"
          install-size="0"
          version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="gr.upatras.ece.nam.log4j.fragment"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="gr.upatras.ece.nam.logging-properties.fragment"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
          unpack="false"/>
 
 </feature>
