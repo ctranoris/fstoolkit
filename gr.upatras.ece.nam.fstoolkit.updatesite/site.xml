@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/gr.upatras.ece.nam.fstoolkit.feature_1.0.0.201209071236.jar" id="gr.upatras.ece.nam.fstoolkit.feature" version="1.0.0.201209071236">
+   <feature url="features/gr.upatras.ece.nam.fstoolkit.feature_1.0.0.201209071315.jar" id="gr.upatras.ece.nam.fstoolkit.feature" version="1.0.0.201209071315">
       <category name="FSToolkit"/>
    </feature>
    <category-def name="FSToolkit" label="FSToolkit"/>
