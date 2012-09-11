@@ -86,7 +86,7 @@ public class BrokerTaxonomiesLabelProvider extends StyledCellLabelProvider imple
 			// With JFace 3.4, the font information (bold in this example) will be ignored.
 			Styler style= file.getOfferedServices().size()>0  ? fBoldStyler: null;
 			StyledString styledString= new StyledString(file.getName(), style);
-			String decoration = " (office)";
+			String decoration = " (broker)";
 			styledString.append(decoration, StyledString.COUNTER_STYLER);
 			
 			cell.setText(styledString.toString());

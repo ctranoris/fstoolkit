@@ -1,5 +1,7 @@
 package gr.upatras.ece.nam.fstoolkit.modules.FSDLSourceCompletion;
 
+import java.util.Random;
+
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.ui.IEditorPart;
@@ -36,10 +38,12 @@ public class FSDLSourceCompletion {
 
 	@SuppressWarnings("deprecation")
 	public void AddOfferedService(Broker broker, Service obj) {
+		Random r = new Random();
+		String str = Integer.toString( r.nextInt(99) );
 		// Kalytera to Inject na ginetai apo allo antikeimeno sto workbench pou
 		// na upologizei tin swsti 8esi..kai mipws bazei kai olokliro template
 		String InjectString = "\"" + obj.getName()  + "." + broker.getName()+ "\"";
-		InjectString =  "\n\tService "+InjectString+" as my"+obj.getName()+ " settings{" +
+		InjectString =  "\n\tService "+InjectString+" as my"+obj.getName()+ str+" settings{" +
 			"//" + obj.getDescription()+
 			"\n";
 		for (int i = 0; i < obj.getServiceSettings().size(); i++) {
