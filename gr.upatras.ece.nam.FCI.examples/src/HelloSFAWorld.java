@@ -64,7 +64,6 @@ public class HelloSFAWorld {
 //		opts.put(SFAUtils.AUTHORITY, "ple.upatrasple");//opts.put(SFAUtils.AUTHORITY, "pla.openlab");
 //		opts.put(SFAUtils.USERNAME, "ple.upatrasple.tranoris");//opts.put(SFAUtils.USERNAME, "pla.openlab.ctranoris");
 //		opts.put(SFAUtils.SELF_CERTIFICATE_FILEPATH, "C:\\Users\\ctranoris\\Desktop\\_downloads\\tmp\\plckeys\\client1ple.sscert");
-//		
 //		opts.put(SFAUtils.SFA_VERSION, "1");
 //		opts.put(SFAUtils.SFA_TYPE, "SFA");
 //		opts.put(SFAUtils.CACHE_MODEL , "false");

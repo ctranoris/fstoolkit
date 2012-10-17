@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gr.upatras.ece.nam.broker:Broker xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gr.upatras.ece.nam.broker="http://nam.ece.upatras.gr/broker" xmlns:gr.upatras.ece.nam.broker.model.services="http://nam.ece.upatras.gr/broker/model/services" xmlns:gr.upatras.ece.nam.broker.model.users="http://nam.ece.upatras.gr/broker/model/users" name="upatras.p2e.pi" APIGateway="https://150.140.184.213:12347">
+  <registeredUsers xsi:type="gr.upatras.ece.nam.broker.model.users:BrokerCustomer">
+    <hasAccount>
+      <authorizationKey>
+        <credentials>
+          <credoptions key="TRUSTSTORE_FILEPATH" value="C:\Users\ctranoris\Desktop\_downloads\tmp\.sfi_cvd001\mysfa.keystore"/>
+          <credoptions key="TRUSTSTORE_PASSWORD" value="123456"/>
+          <credoptions key="KEYSTORE_FILEPATH" value="C:\Users\ctranoris\Desktop\_downloads\tmp\.sfi_cvd001\client1sfa.p12"/>
+          <credoptions key="SM_URL" value="https://150.140.184.213:12347"/>
+          <credoptions key="SELF_CERTIFICATE_FILEPATH" value="C:\Users\ctranoris\Desktop\_downloads\tmp\.sfi_cvd001\sfaselfsigned.sscrt"/>
+          <credoptions key="AUTHORITY" value="upatras.p2e"/>
+          <credoptions key="SFAVERSION" value="1"/>
+          <credoptions key="REGISTRY_URL" value="https://150.140.184.213:12345"/>
+          <credoptions key="USERNAME" value="upatras.p2e.pi"/>
+          <credoptions key="CACHE_MODEL" value="false"/>
+          <credoptions key="AM_URL" value="https://150.140.184.213:12346"/>
+          <credoptions key="KEYSTORE_PASSWORD" value="123456"/>
+          <credoptions key="SFATYPE" value="SFA"/>
+        </credentials>
+      </authorizationKey>
+    </hasAccount>
+  </registeredUsers>
+  <registeredUsers xsi:type="gr.upatras.ece.nam.broker.model.users:ResourcesProvider" name="upatras" description="upatras" uniqueID="rpupatras" organization="upatras">
+    <offeredSiteList name="site" uniqueID="rpupatras_supatras">
+      <domainManager/>
+      <offeredResourcesList name="node001" description="sfa node" uniqueID="node001" implOfferedService="osnode" multitonMaxOccur="1" geocoords="-170, 50">
+        <resourceSettings name="hostname" id="1" description="node hostname" uniqueID="node001_set_1" userExposed="true" Readable="true" Optional="true" implServiceSetting="osnode_set_1">
+          <settingType xsi:type="gr.upatras.ece.nam.broker.model.services:brTypeString" defaultValue="defvalHostNameSet"/>
+        </resourceSettings>
+        <resourceSettings name="vsys" id="2" description="request access to a vsys script on the selected node" uniqueID="node001_set_2" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_2">
+          <settingType xsi:type="gr.upatras.ece.nam.broker.model.services:brTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="initscript" id="3" description="initscript on the selected node" uniqueID="node001_set_3" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_3">
+          <settingType xsi:type="gr.upatras.ece.nam.broker.model.services:brTypeString" defaultValue=""/>
+        </resourceSettings>
+        <resourceSettings name="vsys_vnet" id="4" description="initscript on the selected node" uniqueID="node001_set_4" userExposed="true" userEditable="true" Readable="true" Writable="true" Optional="true" implServiceSetting="osnode_set_4">
+          <settingType xsi:type="gr.upatras.ece.nam.broker.model.services:brTypeString" defaultValue=""/>
+        </resourceSettings>
+      </offeredResourcesList>
+    </offeredSiteList>
+  </registeredUsers>
+  <contributedTaxonomies name="General">
+    <taxonomies name="General Services" hasServices="osnode"/>
+  </contributedTaxonomies>
+  <offeredServices name="node" description="sfa node" uniqueID="osnode">
+    <serviceSettings name="hostname" id="1" description="node hostname" uniqueID="osnode_set_1" userExposed="true" Readable="true"/>
+    <serviceSettings name="vsys" id="2" description="request access to a vsys script on the selected node" uniqueID="osnode_set_2" userExposed="true" userEditable="true" Readable="true" Writable="true"/>
+    <serviceSettings name="initscript" id="3" description="initscript on the selected node" uniqueID="osnode_set_3" userExposed="true" userEditable="true" Readable="true" Writable="true"/>
+    <serviceSettings name="vsys_vnet" id="4" description="initscript on the selected node" uniqueID="osnode_set_4" userExposed="true" userEditable="true" Readable="true" Writable="true"/>
+  </offeredServices>
+  <ResourceServiceContracts name="C1_node001_node" id="1" description="a contract between service node and offered resource node001, offered by site site of provider upatras" uniqueID="contr_1" forOfferedService="osnode" forOfferedResource="node001" StartDate="2012-09-20T12:00:02.293+0300" EndDate="2015-09-20T12:00:02.293+0300">
+    <availability FromDate="2012-09-20T12:00:02.293+0300" ToDate="2015-09-20T12:00:02.293+0300">
+      <cost perUnit="HOUR" Amount="0.39999999999999997"/>
+    </availability>
+  </ResourceServiceContracts>
+</gr.upatras.ece.nam.broker:Broker>

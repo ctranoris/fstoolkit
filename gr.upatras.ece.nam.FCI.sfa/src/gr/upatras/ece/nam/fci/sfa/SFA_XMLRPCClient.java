@@ -390,8 +390,8 @@ public class SFA_XMLRPCClient {
 		
 		params.addElement( rspec_version );
 
-//		result = execXMLRPC_aggregate("ListResources", params);
-		result = execXMLRPC_sliceManager("ListResources", params);
+		result = execXMLRPC_aggregate("ListResources", params);
+//		result = execXMLRPC_sliceManager("ListResources", params);
 		
 		if (result instanceof Map){
 	    	Map map = (Map) result;
